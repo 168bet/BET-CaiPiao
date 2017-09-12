@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>红包活动首充</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        window.onload=function() {
+            document.body.addEventListener('touchstart', function () {
+            });
+        }
+    </script>
+</head>
+<body>
+    <section class="wrap1">
+        <!--活动规则-->
+        <div id="rules_box" class="rules_box">活动<br>规则</div>
+        <!--活动规则 end-->
+        <img src="img/banner.png" class="banner_img">
+        <div class="state_box">
+            <!---->
+            <div id="iscroll" style="display: block;">
+                <div>
+                   
+                </div>
+            </div>
+            <!---->
+            <div class="blockquote_div deficiency" style="display: none;">
+                <span>单笔充值需大于20元,才能领取红包</span>
+            </div>
+            <!---->
+            <div class="blockquote_div unconformity" style="display: none;">
+                <span>抱歉，您未满足本活动的参与条件<br>具体可查看活动规则</span>
+            </div>
+            <!---->
+            <div class="blockquote_div haveGet" style="display: none;">
+                <span>红包已发放至「我的」-「我的红包」</span>
+            </div>
+        </div>
+        <!--按钮-->
+        <a href="javascript:;" class="btn_a btn_Nromal" style="display: block;">点击领取88元</a>
+        <a href="javascript:;" class="btn_a btn_deficiency" style="display: none;">点击领取88元</a>
+        <a href="javascript:;" class="btn_a1 btn_unconformity" style="display: none;">仅针对新用户</a>
+        <a href="javascript:;" class="btn_a1 btn_haveGet" style="display: none;">已领取</a>
+    </section>
+    <!--列表-->
+    <section class="wrap2">
+        <img src="img/mingxi_title.png" class="mingxi_title">
+        <img src="img/mingxi_1.png" class="mingxi_1">
+        <ul class="info_ul clearfix">
+            <li>20元</li><li>充值本金</li><li>立即生效</li>
+            <li>5元</li><li>1元(每满10减1)+4元(每满20减1)</li><li>立即生效</li>
+            <li>3元</li><li>3元(每满20减1)</li><li>第2天</li>
+            <li>3元</li><li>3元(每满20减1)</li><li>第4天</li>
+            <li>4元</li><li>4元(每满20减1)</li><li>第2周周五</li>
+            <li>6元</li><li>5元(每满20减1)+1元(每满30减1)</li><li>第3周周五</li>
+            <li>5元</li><li>1元(每满10减1)+4元(每满20减1)</li><li>第4周周五</li>
+            <li>6元</li><li>5元(每满20减1)+1元(每满30减1)</li><li>第5周周五</li>
+            <li>5元</li><li>1元(每满20减1)+4元(每满20减1)</li><li>第6周周五</li>
+            <li>5元</li><li>5元(每满20减1)</li><li>第7周周五</li>
+            <li>6元</li><li>5元(每满20减1)+1元(每满30减1)</li><li>第8周周五</li>
+            <li>5元</li><li>5元(每满20减1)</li><li>第9周周五</li>
+            <li>5元</li><li>4元(每满20减1)+1元(每满30减1)</li><li>第10周周五</li>
+            <li>5元</li><li>1元(每满10减1)+4元(每满20减1)</li><li>第11周周五</li>
+            <li>5元</li><li>4元(每满10减1)+1元(每满30减1)</li><li>第12周周五</li>
+            <li class="w_100">总计88元</li>
+        </ul>
+
+    </section>
+    <!--活动规则 弹框-->
+    <div class="pop_box" id="pop_box" style="display: none;">
+        <div class="pop_info" id="pop_info">
+            <div class="active_pop">
+                <img src="img/pop_bg1.png" class="pop_bg">
+                <div class="pop_body">
+                    <p class="p1">活动规则</p>
+                    <p>1. 本活动为新用户专享，且每个用户仅可参与一次。为公平起见，我们将通过手机号、身份证号、设备号进行多重验证，故用户参与活动前需绑定手机和身份证。</p>
+                    <p>2. 单次充值金额至少为20元，否则将无法获得红包;充值成功后，充值金额可立即使用，红包自到账日起七天内有效。</p>
+                    <p>3. 红包为满减红包，例如：订单需支付60元，使用3元的每满20减1红包后，只需支付57元。</p>
+                    <p class="p2">4. 本活动最终解释权归“9188彩票”所有。</p>
+                </div>
+                <img src="img/pop_bg3.png" class="pop_bg">
+            </div>
+            <div class="close_box" id="close_box"></div>
+        </div>
+    </div>
+    <!--活动规则 弹框 end-->
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript">
+    var RedPacket={};
+    //弹出框效果
+    RedPacket.alertCopyOver=function(msg,href){
+    $('body').append('<div class="mask"></div>'+
+                        '<div class="pop">'+
+                            '<div class="Alert_pop_body">'+
+                                '<p>'+
+                                    msg+
+                                '</p>'+
+                            '</div>'+
+                            '<div class="pop_btn">'+
+                                '<a href="javascript:;" onclick=RedPacket.remove_alert('+href+')>知道了</a>'+
+                            '</div>'+
+                        '</div>');
+    }
+    RedPacket.remove_alert=function(href){
+        $(".mask").fadeOut("easing",function(){
+            $(".mask").remove();
+            $(".mask").remove();
+        });
+        $(".pop").fadeOut("easing",function(){
+            $(".pop").remove();
+            window.history.replaceState('','','./index.html');
+            window.location=href;
+        });
+    }
+    //获取已领取 滚动的数据 实现滚动
+    RedPacket.Iscroll=function(){
+        var box=document.getElementById("iscroll"),can=true;
+        var h=box.clientHeight;
+        
+        // box.innerHTML+=box.innerHTML;
+        box.onmouseover=function(){can=false};
+        box.onmouseout=function(){can=true};
+        new function (){
+            var stop=box.scrollTop%h==0&&!can;
+            if(!stop)box.scrollTop==parseInt(box.scrollHeight/2)?box.scrollTop=0:box.scrollTop++;
+            setTimeout(arguments.callee,box.scrollTop%h?10:1500);
+        };
+        //
+    }
+    RedPacket.GetIscrolldata=function(){
+       $.ajax({
+            url:'/activity/queryRollCode.go',
+            type:'POST',
+            dataType:'xml',
+            success:function(xml){
+                var R = $(xml).find('Resp');
+                var c = R.attr('code');
+                var getList = R.find('row')
+                
+                if(c == '0'){
+                    var list = '';
+                    $(getList).each(function(i){
+                        list+='<p>用户：'+$(this).attr('nickid')+'领取了88元礼包</p>';
+                    })
+
+                    $("#iscroll div").html(list);
+                    $('#iscroll').height(document.getElementById("iscroll").clientHeight+'px');
+                    $('#iscroll div p').height(document.getElementById("iscroll").clientHeight+'px');
+                    RedPacket.Iscroll();
+                }else{
+                  
+                }
+            },error : function () {
+                //remove_alert();
+                alert('网络异常请刷新重试');
+            }
+        })
+    }
+    $(document).ready(function(){
+        RedPacket.GetIscrolldata();
+        if(sessionStorage.getItem('UserType')=='1002'){
+            // sessionStorage.removeItem("UserType"); 
+            RedPacket.alertCopyOver("参与新人充20得88活动前，需先绑定身份信息",'"./phone.html"');
+        }else if(sessionStorage.getItem('UserType')=='1003'){
+            // sessionStorage.removeItem("UserType"); 
+            RedPacket.alertCopyOver("参与新人充20得88活动前，需先绑定身份信息",'"./idcard.html"');
+        }
+    })
+    </script>
+</body>
+</html>

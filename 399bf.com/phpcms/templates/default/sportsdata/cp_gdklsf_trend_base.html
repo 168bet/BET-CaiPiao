@@ -1,0 +1,277 @@
+{php $css = array("lottery.css")}
+{php $nav_id = 4}
+{template "content","header_score"}
+<section>
+    <div class="container">
+        <div class="row">
+
+            <div class="main">
+
+                <div class="ticket-title">
+
+                    <a href="{APP_PATH}cp/info/?id=3" class="btn-back">返回</a>
+                    <span class="orange">广东快乐十分</span>
+
+
+                </div>
+
+                <div class="ticket-nav mrgB15">
+                    <a href="" class="active">
+                        基本走势
+                    </a>
+                    <a href="">大小走势</a>
+                    <a href="">奇偶走势</a>
+                    <a href="">质合走势</a>
+                    <a href="">除3余数</a>
+                    <a href="">冷热分析</a>
+
+                    <div class="control-group fr">
+                        <form action="{APP_PATH}cp/gdklsf/trendbase/" method="post">
+                            <button type="button" {if $size == 30}class="active"{/if} data-action="link" data-url="{APP_PATH}cp/gdklsf/trendbase/?size=30">最近30期</button>
+                            <button type="button" {if $size == 50}class="active"{/if} data-action="link" data-url="{APP_PATH}cp/gdklsf/trendbase/?size=50">最近50期</button>
+                            <button type="button" {if $size == 100}class="active"{/if} data-action="link" data-url="{APP_PATH}cp/gdklsf/trendbase/?size=100">最近100期</button>
+                            <input type="text" name="begin" id="begin" value="{$begin}">
+                            期
+                            -
+                            <input type="text" name="end" id="end" value="{$end}">
+                            期
+                            <button class="btn-send" type="submit">查询</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="shop">
+                    <div class="btn-wrap">
+                        标注形式选择：
+                        <span><i id="omission" class="checkbox checkbox-on"></i>遗漏<input style="visibility: hidden;" type="checkbox" checked></span>
+                        <span><i id="layer" class="checkbox checkbox-off"></i>遗漏分层<input style="visibility: hidden;" type="checkbox"></span>
+                        <span><i id="splitLine" class="checkbox checkbox-off"></i>分隔线<input style="visibility: hidden;" type="checkbox"></span>
+                    </div>
+                </div>
+                <div style="overflow: auto;">
+                    <div class="trend" style="position: relative;width: 1095px;">
+                        <table cellspacing="0">
+                            <thead>
+                            <tr class="mi">
+                                <th rowspan="2" class="border-right border-left">期号</th>
+                                <th rowspan="2" colspan="8" class="border-right">开奖号码</th>
+                                <th colspan="10" class="border-right">小区</th>
+                                <th colspan="10" class="border-right">大区</th>
+                                <th colspan="3" class="border-right">012路</th>
+                                <th rowspan="2" class="border-right" style="width: 50px;">跨度</th>
+                            </tr>
+                            <tr class="mi">
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                                <td class="border-right">10</td>
+                                <td>11</td>
+                                <td>12</td>
+                                <td>13</td>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>16</td>
+                                <td>17</td>
+                                <td>18</td>
+                                <td>19</td>
+                                <td class="border-right">20</td>
+                                <td style="width:110px">0路</td>
+                                <td style="width:110px">1路</td>
+                                <td style="width:110px" class="border-right">2路</td>
+                            </tr>
+                            {loop $info $row $data}
+                            <tr data-row="{$row}">
+                                <td class="border-right border-left">{$data['id']}</td>
+                                <td><span {if $data['n1'] < 18}class="color-1"{else}class="lottery-number"{/if}>{$data['n1']}</span></td>
+                                <td><span {if $data['n2'] < 18}class="color-1"{else}class="lottery-number"{/if}>{$data['n2']}</span></td>
+                                <td><span {if $data['n3'] < 18}class="color-1"{else}class="lottery-number"{/if}>{$data['n3']}</span></td>
+                                <td><span {if $data['n4'] < 18}class="color-1"{else}class="lottery-number"{/if}>{$data['n4']}</span></td>
+                                <td><span {if $data['n5'] < 18}class="color-1"{else}class="lottery-number"{/if}>{$data['n5']}</span></td>
+                                <td><span {if $data['n6'] < 18}class="color-1"{else}class="lottery-number"{/if}>{$data['n6']}</span></td>
+                                <td><span {if $data['n7'] < 18}class="color-1"{else}class="lottery-number"{/if}>{$data['n7']}</span></td>
+                                <td class="border-right"><span {if $data['n8'] <= 18}class="color-1"{else}class="lottery-number"{/if}>{$data['n8']}</span></td>
+                                {loop $data['trend'] $index $number}
+                                    {if $number}
+                                        <td class="color {if $index % 10 == 0}border-right{/if} {if $index <= 10}lower{else}higher{/if}" data-index="{$index}">{$number}</td>
+                                    {else}
+                                        <td class="on {if $index % 10 == 0}border-right{/if} {if $index <= 10}lower{else}higher{/if}" data-index="{$index}"><span {if $index > 18}class="lottery-number"{else}class="color-2"{/if}>{$index}</span></td>
+                                    {/if}
+                                {/loop}
+                                <td>
+                                    {loop $data['other'][0] $number}
+                                    <span {if $number > 18}class="red"{/if}>{$number}</span>
+                                    {/loop}
+                                </td>
+                                <td>
+                                    {loop $data['other'][1] $number}
+                                    <span {if $number > 18}class="red"{/if}>{$number}</span>
+                                    {/loop}
+                                </td>
+                                <td class="border-right">
+                                    {loop $data['other'][2] $number}
+                                    <span {if $number > 18}class="red"{/if}>{$number}</span>
+                                    {/loop}
+                                </td>
+                                <td class="border-right">{$data['span']}</td>
+                            </tr>
+                            {/loop}
+                            <tr>
+                                <td class="border-right border-left">总次数</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="border-right"></td>
+                                {loop $stat['count'] $index $data}
+                                <td class="{if $index % 10 == 0}border-right{/if}">{$data}</td>
+                                {/loop}
+                                <td style="width:50px">
+                                </td>
+                                <td style="width:50px">
+                                </td>
+                                <td class="border-right" style="width:50px">
+                                </td>
+                                <td class="border-right"></td>
+                            </tr>
+                            <tr>
+                                <td class="border-right border-left">最大连出</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="border-right"></td>
+                                {loop $stat['continue'] $index $data}
+                                <td class="{if $index % 10 == 0}border-right{/if}">{max($data)}</td>
+                                {/loop}
+                                <td style="width:50px">
+                                </td>
+                                <td style="width:50px">
+                                </td>
+                                <td class="border-right" style="width:50px">
+                                </td>
+                                <td class="border-right"></td>
+                            </tr>
+                            <tr>
+                                <td class="border-right border-left">最大遗漏</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="border-right"></td>
+                                {loop $stat['lost'] $index $data}
+                                <td class="{if $index % 10 == 0}border-right{/if}">{$data}</td>
+                                {/loop}
+                                <td style="width:50px">
+                                </td>
+                                <td style="width:50px">
+                                </td>
+                                <td class="border-right" style="width:50px">
+                                </td>
+                                <td class="border-right"></td>
+                            </tr>
+                            <tr>
+                                <td class="border-right border-left">平均遗漏</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="border-right"></td>
+                                {loop $stat['avg'] $index $data}
+                                <td class="{if $index % 10 == 0}border-right{/if}">{$data}</td>
+                                {/loop}
+                                <td style="width:50px">
+                                </td>
+                                <td style="width:50px">
+                                </td>
+                                <td class="border-right" style="width:50px">
+                                </td>
+                                <td class="border-right"></td>
+                            </tr>
+                            <tr>
+                                <td class="border-right border-left">当前遗漏</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="border-right"></td>
+                                {loop end($info)['trend'] $index $data}
+                                <td class="{if $index % 10 == 0}border-right{/if}">
+                                    <div class="HistogramC" style="position: relative;">
+                                        <div class="Histogram {if $index <= 10}his-bg-1{else}his-bg-2{/if}" style="height: {$data}px;">
+                                            <span class="persent">{$data}</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                {/loop}
+                                <td style="width:50px">
+                                </td>
+                                <td style="width:50px">
+                                </td>
+                                <td class="border-right" style="width:50px">
+                                </td>
+                                <td class="border-right"></td>
+                            </tr>
+                            <tr class="mi">
+                                <th rowspan="2" class="border-right border-left">期号</th>
+                                <th rowspan="2" colspan="8" style="width: 127px" class="border-right">开奖号码</th>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                                <td class="border-right">10</td>
+                                <td>11</td>
+                                <td>12</td>
+                                <td>13</td>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>16</td>
+                                <td>17</td>
+                                <td>18</td>
+                                <td>19</td>
+                                <td class="border-right">20</td>
+                                <td style="width:50px">0路</td>
+                                <td style="width:50px">1路</td>
+                                <td style="width:50px" class="border-right">2路</td>
+                                <th rowspan="2" class="border-right">跨度</th>
+                            </tr>
+                            <tr class="mi">
+                                <th colspan="10" class="border-right">小区</th>
+                                <th colspan="10" class="border-right">大区</th>
+                                <th colspan="3" class="border-right">012路</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+{php $js = array("tree.js", "canvas_chart.js", "gdklsf_lottery.js")}
+{template "content","footer"}

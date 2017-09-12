@@ -1,0 +1,123 @@
+<div class="user-proxy-adduser-wrap user-center-form-wrap form-wrap" ng-init="crtFormIndex = 1">
+    <ul class="ui-tab-title tab-title-from clearfix">
+        <li ng-class="{'current': crtFormIndex == 1}"
+            ng-click="crtFormIndex = 1">下级直接开户</li>
+        <li ng-class="{'current': crtFormIndex == 0}"
+            ng-click="crtFormIndex = 0">推广链接开户 </li>
+    </ul>
+    
+    <form name="userAddForm" ng-show="crtFormIndex == 1">
+		<ul class="ui-form ui-tab-content ui-tab-content-current"
+			style="padding:32px 48px;">
+			<li class="ui-item">
+			     <label for="info">会员类别：</label> 
+			    <select class="input input-normal input-radius" required ng-model="formdata.userType" name="userType" style="width:96px">
+			        <option value="0" selected="selected">会员</option>
+					<option value="1" >代理</option>
+			     </select>
+			     <span class="ui-check" ng-show="userAddForm.userType.$dirty && userAddForm.userType.$error.required">请选择类型</span>
+		    </li>
+			<li class="ui-item">
+			     <label for="checkInfo">登录名称：</label> 
+			     <input type="text" name="userName" ng-model="formdata.userName"  required ng-minlength="6" ng-maxlength="20" class="input input-normal input-radisu" /> 
+			     <span class="ui-check" ng-show="userAddForm.userName.$dirty && userAddForm.userName.$error.required"><i></i>登录用户名不能为空</span>
+			     <span class="ui-check" ng-show="userAddForm.userName.$error.minlength"><i></i>登录用户名最少6位字符</span>
+			     <span class="ui-check" ng-show="userAddForm.userName.$error.maxlength"><i></i>登录用户名最多20位字符</span>
+			</li>
+			<li class="ui-item">
+			     <label for="checkInfo">登录密码：</label> 
+			     <input type="password" name="userPassword" ng-model="formdata.password1" required ng-minlength="6" ng-maxlength="20" class="input input-normal input-radius"  /> 
+			     <span class="ui-check" ng-show="userAddForm.userPassword.$dirty && userAddForm.userPassword.$error.required"><i></i>请输入登录密码</span>
+                 <span class="ui-check" ng-show="userAddForm.userPassword.$error.minlength"><i></i>登录密码最少6位字符</span>
+                 <span class="ui-check" ng-show="userAddForm.userPassword.$error.maxlength"><i></i>登录密码最多20位字符</span>
+			<li class="ui-item">
+			     <label for="checkInfo">确认密码：</label> 
+			     <input type="password" name="userPassword2"  ng-model="formdata.password2" match-model="formdata.password1" required  class="input input-normal input-radius"  /> 
+			     <span class="ui-check" ng-show="userAddForm.userPassword2.$dirty && userAddForm.userPassword2.$error.required"><i></i>请输入确认登录密码</span>
+                 <span class="ui-check" ng-show="userAddForm.userPassword2.$error.matchModel"><i></i>登录密码与确认登录密码不一致</span>
+			</li>
+            
+            <li class="ui-item">
+                <label>28返点</label>
+                <div class="input-normal slider-el">
+                    <rzslider rz-slider-model="formdata.pc28Point" rz-slider-options="slider.options"></rzslider>
+                </div>
+            </li>
+            
+            <li class="ui-item">
+                <label>彩票返点</label>
+                <div class="input-normal slider-el">
+                    <rzslider rz-slider-model="formdata.cpPoint" rz-slider-options="slider.options"></rzslider>
+                </div>
+            </li>
+
+			<li class="ui-item"><label>&nbsp;</label> <a
+				href="javascript:void(0);" ng-click="fun.addProxyUser(userAddForm)" submit-dirty="userAddForm" class="btn" id="J-button-submit">添加用户</a>
+			</li>
+		</ul>
+	</form>
+	
+	<form name="linkAddForm" ng-show="crtFormIndex == 0">
+	   <ul class="ui-form ui-tab-content ui-tab-content-current"
+            style="padding:32px 48px;">
+            <li class="ui-item">
+                 <label for="info">会员类别：</label> 
+                <select class="input input-normal input-radius" ng-model="formdata.userType" name="userType" style="width:96px">
+                    <option value="0" selected="selected">会员</option>
+                    <option value="1">代理</option>
+                </select>
+                <span class="ui-check" ng-show="userAddForm.userType.$error.required">请选择类型</span>
+           </li>
+            <li class="ui-item">
+                <label>28返点</label>
+                <div class="input-normal slider-el">
+                    <rzslider rz-slider-model="formdata.pc28Point" rz-slider-options="slider.options"></rzslider>
+                </div>
+            </li>
+            
+            <li class="ui-item">
+                <label>彩票返点</label>
+                <div class="input-normal slider-el">
+                    <rzslider rz-slider-model="formdata.cpPoint" rz-slider-options="slider.options"></rzslider>
+                </div>
+            </li>
+
+			<li class="ui-item"><label for="name"></label> <span
+				style="color:#999">可以拖动滑块调节用户返点</span></li>
+
+			<li class="ui-item"><label>&nbsp;</label> <a href="javascript:void(0);" ng-click="fun.generateRegisterLink(linkAddForm)" class="btn" id="J-button-submit">生成链接</a>
+            </li>
+        </ul>
+
+		<table class="table table-info">
+			<thead>
+				<tr>
+					<th>注册链接</th>
+					<th>会员类别</th>
+					<th>28返点</th>
+					<th>彩票返点</th>
+					<th>已注册</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <tr ng-repeat="link in links">
+			         <td><input type="input" class="input input-normal input-radius"
+                        value="{{link['spreadLink']}}"> <a href="javascript:void(0)"
+                        name="a-copy" class="">复制</a>
+                    </td>
+                    <td>{{link['userType'] == 0 ? '会员': '代理'}}</td>
+                    <td>{{link['pc28Point']}}</td>
+                    <td>{{link['cpPoint']}}</td>
+                    <td>{{link['regNum']}}</td>
+                    <td><a name="a-userdelete" href="javascript:void(0);" ng-click="fun.deleteRegisterLink(link)" >删除</a>
+                    </td>
+			    </tr>
+			</tbody>
+		</table>
+
+	</form>
+	
+	
+    
+</div>

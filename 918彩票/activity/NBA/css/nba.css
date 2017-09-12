@@ -1,0 +1,187 @@
+@charset "utf-8";
+/* CSS Document */
+body{ background:#042640; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0);}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+img { border:0; }
+.clearfix{ overflow:hidden; zoom:1}
+.clearfix:after{ content:""; display:block;height:0;clear:both; visibility:hidden;}
+.clear{clear:both;}
+.left{ float:left}
+.right{ float:right}
+a{ color:#333; text-decoration:none}
+a:visited{ color:#333}
+p{ line-height:1.2rem}
+/*通用*/
+.line_gray{position:relative;}
+.line_gray:after{ content:""; position:absolute;width:200%;height:1px;background:rgb(232,232,234); transform:scale(0.5);bottom:0;left:-50%;}
+.line_gray1{position:relative;}
+.line_gray1:before{ content:""; position:absolute;width:200%;height:1px;background:rgb(232,232,234); transform:scale(0.5);top:0;left:-50%;}
+/*--------------------NBA*/
+/*头部*/
+.wrap{width:100%; background:#042640; color:#fff;}
+img.banner{ display:block;width:100%;height:14.25rem;}
+.info_div{width:87%;margin:0 auto;border:2px solid #fff;font-size:0.875rem;}
+.info_div p{padding:0.3rem;line-height:1.32rem; letter-spacing:1px;}
+/*赔率分析*/
+.title_div{width:87%;margin:1.1rem auto 0.78rem;}
+.title_div img{ display:block;width:100%;height:auto;}
+.analysis_box{width:90%;margin:0 auto;}
+.analysis_box p{ text-indent:2em;font-size:0.8125rem; letter-spacing:1px;}
+.analysis_ul{width:100%;margin:0.3rem auto;}
+.analysis_ul li{float:left;width:33.3%;box-sizing:border-box;padding-left:1px;padding-bottom:0.3rem;}
+.analysis_ul li span{ display:block;width:100%; height:1.72rem; line-height:1.72rem; text-align:center;font-size:0.8125rem;border:1px solid rgba(255,255,255,0.23);box-sizing:border-box;}
+.analysis_ul li i{padding-left:2px;color:#ff3939;}
+a.more_a{ display:block;width:6rem;height:2rem;box-sizing:border-box;line-height:2rem; text-align:center;margin:0.7rem auto;color:#fff;font-size:1rem;border:2px solid #fff; border-radius:2rem;}
+a.more_a:link,a.more_a:visited{color:#fff;}
+a.more_a:hover,a.more_a:active{color:#fff;}
+/*球队分析*/
+.team_ul{width:90%;margin:0 auto;background: #042640;}
+.team_ul li{ float:left;width:20%;height:3.4rem; position:relative; overflow:hidden;margin-top:0.5rem;}
+.team_ul li div{ position:absolute; z-index:10;top:0;left:50%;margin-left:-1.7rem;width:3.4rem;height:3.4rem;}
+.team_ul li div.cur{ background:url("../img/div_cur.png") 0 0 no-repeat transparent; background-size:3.4rem 3.4rem;}
+.team_ul li img{  position:absolute; z-index:1;top:0.2rem;left:50%;margin-left:-1.5rem;display:block;width:3rem;height:3rem; background:#fff;border-radius:100%;}
+.team_ul li i{  position:absolute; z-index:1;top:0.2rem;left:50%;margin-left:-1.5rem;display:block;width:3rem;height:3rem; background:#fff;border-radius:100%; background:rgba(0,0,0,0.4);}
+.team_ul li i.cur{ background:transparent;}
+.team_ul li.more_li{width:40%;}
+.more_a{font-size:1.15rem;color:#fff;}
+/*球队*/
+.team_info{width:90%;margin:1rem auto 0;}
+.team_info:first-child{margin-top:0;}
+.team_info p{font-size:0.875rem; line-height:1.3rem; text-indent:2em;margin-bottom:0.5rem; text-align:justify;}
+.team_info p.title_p{margin-bottom:0;font-size:1.1rem;line-height:3rem; text-align:center; text-indent:0;}
+/*全部球队*/
+.tab_ul{width:100%; background:#0060a9;}
+.tab_ul li{  position:relative;float:left;width:50%;height:2.8125rem; line-height:2.8125rem; text-align:center;color:#000;font-size:1.0625rem;}
+.tab_ul li.cur span{ display:block;width:4.84rem; text-align:center;height:2.8125rem;margin:0 auto;color:#fff;box-sizing:border-box; border-bottom:2px solid #fff;}
+.m_top{margin-top:0rem;}
+/*固定*/
+.fixed{ position: fixed;top:0;left:0;width:100%;height:15.1625rem; }
+.div_h{ width:100%;height:15.1625rem;}
+/*滚动*/
+#wrapper,#wrapper1{
+	position: absolute;
+	z-index: 1;
+	top:15.1625rem;
+	bottom:0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	color:#fff;
+}
+
+#scroller,#scroller1 {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+#tit1,#tit2 {
+    width: 100%;
+    margin: 0 auto 0rem;
+}
+#tit1{
+    display:none;
+    position:fixed;
+    top:0;
+    display:none;
+    z-index: 100;
+}
+.tit img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.tt{
+    display:none;
+    position:fixed;
+    top:0;
+    z-index: 100;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

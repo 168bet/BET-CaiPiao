@@ -1,0 +1,435 @@
+/**   
+* 文件名称: DepositController.java<br/>
+* 版本号: V1.0<br/>   
+* 创建人: alex<br/>  
+* 创建时间 : 2017-1-25 上午2:10:46<br/>
+*/  
+package com.mh.web.controller;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.mh.commons.cache.MemCachedUtil;
+import com.mh.commons.constants.WebConstants;
+import com.mh.commons.utils.ComUtil;
+import com.mh.commons.utils.DateUtil;
+import com.mh.commons.utils.IPSeeker;
+import com.mh.commons.utils.ServletUtils;
+import com.mh.entity.TLinkWebKjPay;
+import com.mh.entity.TWebThirdPay;
+import com.mh.entity.TWebThirdPayKj;
+import com.mh.entity.WebBank;
+import com.mh.entity.WebBankHuikuan;
+import com.mh.entity.WebConfig;
+import com.mh.entity.WebKjPay;
+import com.mh.entity.WebUser;
+import com.mh.service.PayCenterService;
+import com.mh.service.WebBankHuikuanService;
+import com.mh.service.WebConfigService;
+import com.mh.service.WebKjPayService;
+import com.mh.service.WebUserService;
+import com.mh.web.login.UserContext;
+import com.mh.web.util.BankUtil;
+import com.mh.web.util.CheckDeviceUtil;
+
+/** 
+ * 类描述: TODO<br/>
+ * 创建人: TODO alex<br/>
+ * 创建时间: 2017-1-25 上午2:10:46<br/>
+ */
+
+@Controller
+@RequestMapping("/pay")
+public class DepositController extends BaseController{
+	
+	@Autowired
+	private PayCenterService payCenterService;
+	
+	@Autowired
+	private WebKjPayService webKjPayService;
+	
+	@Autowired
+	private WebConfigService webConfigService;
+	
+	
+	@Autowired
+	private WebUserService webUserService;
+	
+	@Autowired
+	private WebBankHuikuanService webBankHuikuanService;
+	
+	
+	/**
+	 * 存款列表
+	 * 方法描述: TODO</br> 
+	 * @param request
+	 * @param response  
+	 * void
+	 */
+	@RequestMapping("/goBankPayList")
+	public void goBankPayList(HttpServletRequest request, HttpServletResponse response){
+		try{
+			JSONObject all = new JSONObject();
+			
+			UserContext uc = this.getUserContext(request);
+			WebUser webUser  =payCenterService.findWebrUseByUserName(uc.getUserName());
+			//获取在线充值
+			JSONObject online =this.getOnlinePay(webUser.getUserType());
+			all.put("online_bank", online);
+			
+			//传统的微信支付宝
+			JSONObject tradWx = this.getTraditionPay(1, webUser.getUserType());
+			all.put("tradition_wx", tradWx);
+			//传统的支付宝
+			JSONObject tradAli = this.getTraditionPay(2, webUser.getUserType());
+			all.put("tradition_ali", tradAli);
+			
+			//线上微信
+			JSONObject onlineWx = this.getOnlineWxAliPay(1, webUser.getUserType(),CheckDeviceUtil.checkDevice(request));
+			all.put("online_wx", onlineWx);
+			
+			//公司入款
+			
+			JSONObject companyObj = this.getCompanyBank(webUser.getUserType());
+			all.put("company", companyObj);
+			
+			
+			ServletUtils.outPrintSuccess(request, response,all);
+		}catch(Exception e){
+			ServletUtils.outPrintFail(request, response, "获取银行充值失败");
+			e.printStackTrace();
+		}
+	
+	}
+	
+	public JSONObject getCompanyBank(Integer userType){
+		JSONObject all = new JSONObject();
+		List<WebBank> bankList = this.webBankHuikuanService.getWebBankList(userType);
+	 
+		List<WebConfig> configList = this.webConfigService.getWebConfigList();
+		WebConfig webConfig = null;
+		if(configList!=null &configList.size()>0){
+			webConfig = configList.get(0);
+		}
+		WebBank webBank = null;
+		JSONArray jsonArray = new JSONArray();
+		for(int i=0;i<bankList.size();i++){
+			webBank = bankList.get(i);
+			JSONObject bankObj = new JSONObject();
+			bankObj.put(webBank.getPayNo(), webBank.getBankType()+"-"+webBank.getBankUser());
+			jsonArray.add(bankObj);
+		}
+		all.put("bankList", jsonArray);
+		all.put("minEdu", webConfig.getCompanyMinPay());
+		
+		JSONArray hkTypeArray = new JSONArray();
+		hkTypeArray.add("银行柜台");
+		hkTypeArray.add("ATM现金");
+		hkTypeArray.add("ATM卡转");
+		hkTypeArray.add("网银转账");
+		hkTypeArray.add("手机银行转帐");
+		hkTypeArray.add("微信转账");
+		hkTypeArray.add("支付宝转账");
+		all.put("hkTypeList", hkTypeArray);
+		
+		
+		return all;
+	}
+	
+	/**
+	 * 支付
+	 * 方法描述: TODO</br> 
+	 * @param request
+	 * @param response  
+	 * void
+	 */
+	@RequestMapping("/doBankPay")
+	public void doBankPay(HttpServletRequest request,HttpServletResponse response) {
+		try {
+			String hkMoney = request.getParameter("hkMoney");
+			String payNo = request.getParameter("payNo");
+			String hkType = request.getParameter("hkType");
+			String hkUserName = request.getParameter("hkUserName");
+			String hkCompanyBank = request.getParameter("hkCompanyBank");
+			
+			if(StringUtils.isBlank(hkMoney)){
+				ServletUtils.outPrintFail(request, response, "请输入充值金额");
+				return;
+			}
+			if(!StringUtils.isNumeric(hkMoney)){
+				ServletUtils.outPrintFail(request, response, "请输入有效的充值金额");
+				return;
+			}
+			double _hkMoney = Double.valueOf(hkMoney);
+		 
+			if(StringUtils.isBlank(hkUserName)){
+				ServletUtils.outPrintFail(request, response, "请输入汇款人姓名");
+				return;
+			}
+			if(StringUtils.isBlank(hkType)){
+				ServletUtils.outPrintFail(request, response, "请选择汇入方式");
+				return;
+			}
+			if(StringUtils.isBlank(payNo)){
+				ServletUtils.outPrintFail(request, response, "请选择汇入银行");
+				return;
+			}
+			
+			/**最低入款判断**/
+			List<WebConfig> configList = this.webConfigService.getWebConfigList();
+			WebBankHuikuan bankHk = new WebBankHuikuan();
+			String mobile = CheckDeviceUtil.checkDevice(request);
+			if(!"pc".equals(mobile)){
+				bankHk.setHkCompanyBank(hkCompanyBank + "(M)");
+			}
+			WebConfig webConfig = null;
+			if(configList!=null &configList.size()>0){
+				webConfig = configList.get(0);
+				double minPay = webConfig.getCompanyMinPay();
+				if(_hkMoney<minPay){
+					ServletUtils.outPrintFail(request, response, "公司入款最低"+minPay+"元！");
+					return;
+				}
+			}
+			bankHk.setHkMoney(_hkMoney);
+			bankHk.setHkType(hkType);
+			bankHk.setPayNo(payNo);
+			bankHk.setHkUserName(hkUserName);
+		 
+			
+			UserContext uc = this.getUserContext(request);
+			WebUser user = this.webUserService.findWebrUseByUserName(uc.getUserName());
+			Date currDate = DateUtil.currentDate();
+			String currDateStr = DateUtil.format(currDate, "yyyy-MM-dd");
+			Map<String, Integer> map = this.webBankHuikuanService.getWebBankHuikuanTj(uc.getUserName(), currDateStr);
+			int totalTimes = map.get("totalTimes")+1;
+			int dayTimes = map.get("dayTimes")+1;
+			bankHk.setGmt4Time(DateUtil.getGMT_4_Date());// 美东当前时间
+			bankHk.setTotalTimes(totalTimes);// 总次数
+			bankHk.setDayTimes(dayTimes);// 日次数
+			bankHk.setHkOrder(ComUtil.getOnliePayOrder());
+			bankHk.setHkStatus(WebConstants.T_WEB_BANK_HUIKUAN_STATUS_0);// 订单状态为：未审核
+			bankHk.setHkCheckStatus(WebConstants.T_WEB_BANK_HUIKUAN_CHECKED_STATUS_0);// 通过状态：初始状态
+			bankHk.setCreateTime(currDate);
+			bankHk.setModifyTime(currDate);
+			bankHk.setUserName(uc.getUserName());
+			bankHk.setHkIp(IPSeeker.getIpAddress(request));
+			bankHk.setHkModel(WebConstants.T_WEB_BANK_HUIKUAN_MODEL_1);// 银行卡划款
+			bankHk.setHkCompanyBank(StringUtils.trim(bankHk.getHkCompanyBank()));
+			Date now = new Date();
+			 
+			bankHk.setHkTime(now);
+			this.webBankHuikuanService.saveWebBankHuikuan(bankHk);
+//			bankHk.setPayDama(NumberUtils.toInt(getParameter("key"), 0));// 打码再次入款标识
+
+			/** 触发通知 **/
+			MemCachedUtil.setDepositNotice(user.getUserFlag());
+			
+			ServletUtils.outPrintSuccess(request, response,"您的汇款订单已提交，请等待我们的审核，谢谢！");
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("汇款订单提交异常: "+e.getMessage(), e);
+			ServletUtils.outPrintFail(request, response, "您的汇款订单提交出了点状况，请稍候再提交或者联系我们客服帮助！");
+		}
+	}
+	
+	
+	
+	/**
+	 * 获取在线支付对象
+	 * 方法描述: TODO</br> 
+	 * @param userType
+	 * @return  
+	 * JSONObject
+	 */
+	public JSONObject getOnlinePay(Integer userType){
+		
+		List<TWebThirdPay> list = this.payCenterService.findTWebThirdPay(userType);
+		JSONObject online = new JSONObject();
+		if(list!=null && list.size()>0){
+			TWebThirdPay thirdPay = list.get(0);
+			online.put("payId", thirdPay.getId());
+			online.put("minEdu",thirdPay.getThirdMinEdu());
+			online.put("maxEdu",thirdPay.getThirdMaxEdu());
+			JSONArray bankArr = new JSONArray();
+			bankArr.add(BankUtil.getBankMap(thirdPay.getThirdType()));
+			online.put("bankList", bankArr);
+		}
+		return online;
+	}
+	
+	
+	/**
+	 * 获取传统的微信支付
+	 * 方法描述: TODO</br> 
+	 * @param type
+	 * @param userType
+	 * @return  
+	 * JSONObject
+	 */
+	public JSONObject getOnlineWxAliPay(Integer type,Integer userType,String address){
+		JSONObject all = new JSONObject();
+		TWebThirdPayKj paykj = payCenterService.getTWebThirdPayKj(type,userType);
+		 
+ 
+		if(null != paykj){
+			Integer payid = paykj.getThirdPayId();
+			String payValue = paykj.getPayValue();
+			net.sf.json.JSONObject obj = net.sf.json.JSONObject.fromObject(payValue);
+
+			String choosePayType = "";
+			if(StringUtils.equals("pc", address)){
+				choosePayType = obj.getString("pc");
+			}else{
+				choosePayType = obj.getString("m");
+			}
+			all.put("choosePayType", choosePayType);
+			all.put("payId", payid);
+			all.put("payType", paykj.getPayType());
+			all.put("bank_code", "");
+			all.put("minEdu",paykj.getPayMinEdu());
+			all.put("maxEdu",paykj.getPayMaxEdu());
+			
+		}
+	 
+		return all;
+	}
+	
+	/**
+	 * 获取传统的微信支付
+	 * 方法描述: TODO</br> 
+	 * @param type
+	 * @param userType
+	 * @return  
+	 * JSONObject
+	 */
+	public JSONObject getTraditionPay(Integer payType,Integer userType){
+		TWebThirdPayKj thirdPayKj = payCenterService.getTWebThirdPayKj(payType,userType);
+		JSONObject all = new JSONObject();
+		if(thirdPayKj!=null){
+			//获取数据
+			WebKjPay webKjPay = this.webKjPayService.getKjPay(thirdPayKj.getPayType(),userType);
+			List<WebConfig> configList = this.webConfigService.getWebConfigList();
+			WebConfig webConfig = null;
+			if(configList!=null &configList.size()>0){
+				webConfig = configList.get(0);
+			}
+			all.put("payNname", webKjPay.getPayNname());
+			all.put("payRname", webKjPay.getPayRname());
+			all.put("payImage", "");
+			
+			all.put("payType",payType);
+			all.put("minEdu",webConfig.getCompanyMinPay());
+			
+		}
+		return all;
+	}
+		
+	
+	/**
+	 * 快捷支付
+	 * 方法描述: TODO</br> 
+	 * @param request
+	 * @param response
+	 * @param bankHk  
+	 * void
+	 */
+	@RequestMapping("/doKjPay")
+	public void doKjPay(HttpServletRequest request, HttpServletResponse response){
+		try{
+			String payType = request.getParameter("payType");
+			String hkUserName = request.getParameter("hkUserName");
+			String hkMoney = request.getParameter("hkMoney");
+			
+			if(StringUtils.isBlank(hkUserName)){
+				ServletUtils.outPrintFail(request, response, "请输入您微信昵称");
+				return;
+			}
+			if(StringUtils.isBlank(hkMoney)){
+				ServletUtils.outPrintFail(request, response, "请输入充值金额");
+				return;
+			}
+			if(!StringUtils.isNumeric(hkMoney)){
+				ServletUtils.outPrintFail(request, response, "充值金额格式不正确");
+				return;
+			}
+			double _hkMoney = Double.valueOf(hkMoney);
+			if(_hkMoney<=0){
+				ServletUtils.outPrintFail(request, response, "充值金额大于0");
+				return;
+			}
+  
+			
+			UserContext uc = this.getUserContext(request);
+			WebUser user = this.webUserService.findWebrUseByUserName(uc.getUserName());
+			
+			WebKjPay webKjPay = this.webKjPayService.getKjPay(Integer.parseInt(payType),user.getUserType());
+			String companyBank = "快捷支付";
+			if("1".equals(payType)){
+				companyBank ="微信支付-"+webKjPay.getPayNname();
+			}else if("2".equals(payType)){
+				companyBank ="支付宝支付-"+webKjPay.getPayNname();
+			}
+			
+			if(StringUtils.isNotBlank(payType) && StringUtils.equals(payType, "1") || StringUtils.equals(payType, "2")){
+				List<TLinkWebKjPay> kjPay = payCenterService.getTWebKjPay(user.getUserType(),Integer.parseInt(payType));
+				if(CollectionUtils.isEmpty(kjPay)){
+					ServletUtils.outPrintFail(request, response, "该会员类型未绑定快捷支付或无效的快捷支付类型");
+					return;
+				}
+			}
+			
+			Date currDate = DateUtil.currentDate();
+			String currDateStr = DateUtil.format(currDate, "yyyy-MM-dd");
+			Map<String, Integer> map = this.webBankHuikuanService.getWebBankHuikuanTj(uc.getUserName(), currDateStr);
+			int totalTimes = map.get("totalTimes")+1;
+			int dayTimes = map.get("dayTimes")+1;
+			
+			WebBankHuikuan bankHk = new WebBankHuikuan();
+			
+			bankHk.setHkMoney(_hkMoney);
+			bankHk.setHkUserName(hkUserName);
+			
+			bankHk.setHkType("快捷支付");
+			bankHk.setHkCompanyBank(companyBank);
+			bankHk.setGmt4Time(DateUtil.getGMT_4_Date());// 美东当前时间
+			bankHk.setTotalTimes(totalTimes);// 总次数
+			bankHk.setDayTimes(dayTimes);// 日次数
+			bankHk.setHkOrder(ComUtil.getOnliePayOrder());
+			bankHk.setHkStatus(WebConstants.T_WEB_BANK_HUIKUAN_STATUS_0);// 订单状态为：未审核
+			bankHk.setHkCheckStatus(WebConstants.T_WEB_BANK_HUIKUAN_CHECKED_STATUS_0);// 通过状态：初始状态
+			bankHk.setCreateTime(currDate);
+			bankHk.setModifyTime(currDate);
+			bankHk.setUserName(uc.getUserName());
+			bankHk.setHkIp(IPSeeker.getIpAddress(request));
+			bankHk.setHkModel(WebConstants.T_WEB_BANK_HUIKUAN_MODEL_1);// 在线支付
+			Date now = new Date();
+			bankHk.setHkTime(now);
+			this.webBankHuikuanService.saveWebBankHuikuan(bankHk);
+			
+			/** 触发通知 **/
+			MemCachedUtil.setDepositNotice(user.getUserFlag());
+			
+			ServletUtils.outPrintSuccess(request, response,"您的汇款订单已提交，请等待我们的审核，谢谢！");
+		}catch (Exception e){
+			e.printStackTrace();
+			logger.error("汇款订单提交异常: "+e.getMessage(), e);
+			ServletUtils.outPrintFail(request, response, "您的汇款订单提交出了点状况，请稍候再提交或者联系我们客服帮助！");
+		}
+	}
+			
+			
+
+}

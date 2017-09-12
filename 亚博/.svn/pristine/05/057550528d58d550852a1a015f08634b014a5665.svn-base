@@ -1,0 +1,58 @@
+<div class="sidewrap order-detail-sidewrap">
+    <div class="content user_query_order">
+        <div class="notice">您当前查看的是{{global.user.userName}} 的  &nbsp;{{data.orderDetail.gameName}}&nbsp;第&nbsp; {{data.orderDetail.qs}}&nbsp;期投注详情</div>
+        
+        <div class="bet-detail">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th colspan="6" class="highbig">{{data.orderDetail.gameName}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="align_right">投注编号：</td>
+                  <td>{{data.orderDetail.orderNo}}</td>
+                  <td class="align_right">期号：</td>
+                  <td>{{data.orderDetail.qs}}</td>
+                  <td class="align_right">投注时间：</td>
+                  <td>{{data.orderDetail.betTime}}</td>
+                </tr>
+                <tr id="result_prize">
+                  <td class="align_right">投注总金额：</td>
+                  <td><strong class="price"><dfn>¥</dfn>{{data.orderDetail.zgje}}</strong>元 </td>
+                  <td class="align_right">总奖金：</td>
+                  <td><strong class="price"><dfn>¥</dfn>{{data.orderDetail.winMoney}}</strong>元 </td>
+                  <td class="align_right">开奖号码： </td>
+                  <td>
+                    <open-number numbers="data.orderDetail.openNumber" game="data.orderDetail.gameCode" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <div class="order_content_wrap">
+          <table class="table table-info">
+            <thead>
+              <tr>
+                <th>玩法</th>
+                <th>投注内容</th>
+                <th>投注金额</th>
+                <th>状态</th>
+              </tr>
+            </thead>
+            <tbody id="reslut_body">
+	            <tr>
+	                <td class="order_type_title" >{{data.orderDetail.itemName}}</td>
+	                <td>{{data.orderDetail.betNumber}}</td>
+	                <td>{{data.orderDetail.xzje}}</td>
+	                <td>{{data.orderDetail.openStatus}}</td>
+	            </tr>
+	            <tr>
+	               <td colspan="4"><a class="btn" href="javascript:;" onclick="history.go(-1);">返回</a></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>

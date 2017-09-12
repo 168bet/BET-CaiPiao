@@ -1,0 +1,207 @@
+<article id='cp_hallhm'>
+      <ul class="clearfix hmSort2">
+			<li id="jindu">进度</li>
+    		<li id="money">金额</li>
+    		<li id="views" class="cur">人数</li>
+    		<li id="aunum">战绩</li>
+		</ul>
+ 	 <div id="wrapper" class="wrapper">
+		<div id="scroller" class="scroller">
+             <ul class="hmAll" id="list_record"></ul>
+             <div style='padding:58px;' id='initLoad'><em class="rotate_load" style='margin:auto'></em></div>
+            <div id="pullUp" style=display:none;>
+                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉查看更多...</span>
+            </div>
+        </div>
+    </div>
+</article>
+<script>
+CP.WWHM = (function(){
+	var hasTouch = 'ontouchstart' in window;
+	var end_ev = hasTouch ? 'touchend' : 'mouseup';
+	var start_ev = hasTouch? 'touchstart' : 'mousedown';
+	var myScroll;
+	var g = {
+			order: 'views',//排序方式 默认跟单人数
+			index:'0',//当前玩法 默认0全部合买
+			total:'1',//总页数
+			cPage:'1'//当前页数
+	};
+	var index_ = CP.Util.getPara('in',window.location.href,2);//方案编号
+	var o = {
+     	//渲染数据        
+		render:function(data){
+			var _out=[];
+			_out.push($("#list_record").html());
+			for(var i=0,l=data.length;i<l;i++){
+				var n=data[i];
+				_out.push('<a href="#type=url&p=user/viewpath.html?hid='+n.hid+'">');
+				_out.push('<dl><dt><h2>'+ CP.Util.lot(n.gid) +'</h2></dt>');
+				_out.push('<dd class="hmTtile"><em class="hmAdimi"></em>'+ n.nickid +'</dd><dd style="line-height:1.2rem">L'+ n.aunum +'<em class="fiveStar"></em></dd></dl>');
+				_out.push('<dl><dt><cite class="per">'+ n.jindu +'<o>%</o></cite><span class="pro">保 '+ Math.floor(parseFloat((n.pnum/n.money*100))) +'%</span></dt>');
+				_out.push('<dd><cite>'+ n.money +'元</cite><p>总额</p></dd>');
+				_out.push('<dd class="hmNum"><cite>'+ n.views +'人</cite><p>参与人数</p></dd>');
+				_out.push('<dd><cite>'+ n.lnum +'元</cite><p>剩余金额</p></dd></dl>');
+				_out.push('<em class="hmArrow"></em></a>');
+			}	
+			$("#list_record").html(_out.join(''));
+			if(g.cPage<g.total){
+				$("#pullUp").hide();	//show
+			}else{
+				$("#pullUp").hide();	
+			}
+			$("#wrapper").show();
+			myScroll.refresh();				
+		},
+		/*
+		 *index 切换玩法用的标识
+		 *page 第几页
+		 *tag 是否显示上拉加载层
+		 *order 是否排序
+		 */
+		changePlayType: function (index, page, tag, order) {
+			if(!page || order){//切换玩法进来的时候 page和tag是undefined
+				g.cPage = '1';//重置初始页数
+				g.total = '1';//重置总页数
+				$('#list_record').html('');
+				$('#initLoad').show();
+				index != '0' ? $('#cp_hallhm ul').removeClass('hmSort2').addClass('hmSort') : $('#cp_hallhm ul').addClass('hmSort2').removeClass('hmSort')
+			}
+			if(g.cPage<=g.total){
+				g.index = index;
+				tag ? $("#pullUp").show() : $("#pullUp").hide();
+				$('#fcHeader').removeClass('h1Down');
+				var cgid = {'0':['','全部合买'],'1':['70,72,90,91,92,93','竞彩足球'],'2':['71,94,95,96,97','竞彩篮球'],'3':['80','胜负彩'],
+						'4':['81','任九'],'5':['85,86,87,88,89','足球单场'],'6':['01','双色球'],'7':['03','福彩3D'],'8':['07','七乐彩'],
+						'9':['50','大乐透'],'10':['51','七星彩'],'11':['53','排列三'],'12':['52','排列五']};
+				$('#lot_title').html(cgid[index]['1']);document.title=cgid[index]['1']+'·合买';
+				var url = '';
+				cgid = cgid[index]['0'] || '';
+				page = page || '1';
+				if(!cgid){//全部合买
+					url = '/data/app/phot/'+ page +'.xml';
+				}else{
+					var data = {
+							gid: cgid,
+							state: '0',
+							pn: page,
+							ps: '15',
+							dsort: 'descending',
+							fsort: g.order
+					}
+					url = '/trade/hemai_list.go?'+jQuery.param(data);
+				}
+				$.ajax({
+					url: CP.Data.apps+url,
+					dataType: 'XML',
+					success: function (xml) {
+						$('#initLoad').hide();
+						var R = $(xml).find("Resp");
+						var code = R.attr("code");
+						if(code == 0){
+							var info = R.find('info');
+							g.total = info.attr('tp');//总页数
+							var r = R.find('row');
+							var data = [];
+							r.each(function(a){
+								var t = {};
+								t.hid = $(this).attr("hid");
+								t.nickid = $(this).attr('nickid');//
+								t.views = $(this).attr("views");//跟单人数
+								t.money = $(this).attr("money");//金钱数
+								t.pnum = $(this).attr("pnum");//发起人保底份数
+								t.lnum = $(this).attr("lnum");//剩余份数(金额)
+								t.jindu = $(this).attr("jindu");//进度
+								t.aunum = $(this).attr("aunum");//等级，战绩
+								t.iorder = $(this).attr("iorder");//置顶标志（0不 1是）
+								t.gid = $(this).attr("gid");
+								t.rate = $(this).attr('rate');//
+								data[a] = t;
+							});
+							o.render(data);
+						}
+					}
+				});
+			}
+		},
+		init:function(){
+			TopAnch.init({
+				title:'合买中心',
+				prevShow:true,
+				prevFun:function(){//左侧按钮绑定事件
+					window.location.href = '#type=index';
+				},
+				nextShow:false,
+				headerSelect:[{name:'全部合买',fun:o.changePlayType},{name:'竞彩足球'},{name:'竞彩篮球'},
+					{name:'胜负彩'},{name:'任选九'},{name:'足球单场'},{name:'双色球'},
+					{name:'福彩3D'},{name:'七乐彩'},{name:'大乐透'},{name:'七星彩'},
+					{name:'排列三'},{name:'排列五'}]//下拉 位置不能随便改关系到各个彩种里面的入口
+			});
+			if(!!index_){//彩种那边过来的 找到指定玩法的合买
+				$('#list_subNav a').eq(index_).addClass('cur').siblings().removeClass('cur');
+				o.changePlayType(index_);
+			}else{//首页过来的
+				o.changePlayType('0');
+			}
+			o.bindEvent();
+			o.layOut();
+		},
+		layOut : function(){
+			var w = window.innerHeight;
+			$("#wrapper").height(w - 94);//94是下面加载更多的高度
+			window.onresize = function(){	
+				var w = window.innerHeight;
+				$("#wrapper").height(w - 94);
+				window.myScroll&&myScroll.refresh&&myScroll.refresh();	
+			};
+			o.loadScroll();
+		},
+		//滚动条
+		loadScroll:function(){
+//			if(navigator.userAgent.indexOf('MSIE') < 0){
+				var pullUpEl = document.getElementById('pullUp');	
+				var pullUpOffset = pullUpEl.offsetHeight;
+				myScroll = new iScroll('wrapper', {
+					onRefresh: function () {
+						if (pullUpEl.className.match('loading')) {
+							pullUpEl.className = '';
+							pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉查看更多';
+						}
+					},
+					onScrollMove: function () {
+						if (this.y < (this.maxScrollY - 20) && !pullUpEl.className.match('flip')) {
+							pullUpEl.className = 'flip';
+							pullUpEl.querySelector('.pullUpLabel').innerHTML = '松开加载数据';
+						} else if (this.y > (this.maxScrollY) && pullUpEl.className.match('flip')) {
+							pullUpEl.className = '';
+							pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉查看更多';
+						}
+					},
+					onScrollEnd: function () {
+						if (pullUpEl.className.match('flip')) {
+							pullUpEl.className = 'loading';
+							pullUpEl.querySelector('.pullUpLabel').innerHTML = '正在加载';				
+							o.changePlayType(g.index, ++g.cPage, 'show');
+						}
+					}
+				});					
+//			}
+		},
+		bindEvent : function(){
+			$('#jindu, #money, #views, #aunum').bind(start_ev, function () {//进度
+				if($(this).hasClass('cur') || $(this).parent().hasClass('hmSort2')){
+					return
+				}
+				$(this).addClass('cur').siblings().removeClass('cur');
+				g.order = $(this).attr('id');
+				o.changePlayType(g.index, '1', '', true);
+			});
+		}		
+	}	
+	return {init:o.init}
+})();
+
+$(function(){
+CP.WWHM.init();
+})
+</script>

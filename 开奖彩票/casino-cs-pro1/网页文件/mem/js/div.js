@@ -1,0 +1,4 @@
+var div = "<div id=divHint name=divHint border=1 style=\"POSITION:  absolute; TOP:  0px; HEIGHT:  10px;Z-INDEX:  200;VISIBILITY:  hidden;BACKGROUND-COLOR:  #FFFFFF;BORDER-RIGHT: black 1px outset; PADDING-RIGHT: 1px; BORDER-TOP: black 1px outset; PADDING-LEFT: 1px; FONT-WEIGHT: normal; LEFT: 0px; PADDING-BOTTOM: 1px; BORDER-LEFT: black 1px outset; PADDING-TOP: 1px; BORDER-BOTTOM: black 1px outset;\" ms_positioning=\"FlowLayout\" >";
+div = div + "<iframe id=\"winHint\" name=\"winHint\" scrolling=\"yes\" style=\"BORDER-RIGHT: 0px; BORDER-TOP: 0px; LEFT: 0px; BORDER-LEFT: 0px; WIDTH: 500px; BORDER-BOTTOM: 0px; TOP: 0px; HEIGHT: 300px; BACKGROUND-COLOR: transparent\" align=\"middle\" marginWidth=\"0\" hspace=\"0\" vspace=\"0\" marginHeight=\"0\" frameBorder=\"0\"></iframe>";
+div = div + "</DIV>";
+document.write(div);

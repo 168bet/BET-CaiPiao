@@ -1,0 +1,108 @@
+/* body{ background:#f7f7f7; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}*/
+html,body{height:100%;width:100%;margin:0;}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0} 
+a{text-decoration:none;}
+.inText{ background:#fff; border-top:1px solid #e2e2e2; border-bottom:1px solid #e2e2e2; padding:.8rem .6rem .8rem .7rem; margin-bottom:.65rem}
+.inms{ padding-bottom:.8rem}
+.inms span{ float:left; color:#db150b; font-size:.8rem}
+.inms span strong{ font-size:1rem; color:#333; margin-right:.3rem}
+.inms div{ float:right; color:#999; font-size:.8rem; text-align:right; width:4rem;}
+.clearfix {overflow: hidden;zoom: 1;
+}
+.kjball div {float: left;width: 1.7rem;line-height: 1.7rem;text-align: center;color: #fff;background: #e72b25;font-size: .9rem;margin: 0 .3rem 0 0;border-radius: 1.7rem;-webkit-border-radius: 1.7rem;-moz-border-radius: 1.7rem;}
+.kjball a {
+    float: right;
+    width: 4rem;
+    line-height: 1.7rem;
+    text-align: center;
+    background: #e72b25;
+    color: #fff;
+    
+    font-size: .92rem;
+    border-radius: .2rem;
+    -webkit-border-radius: .2rem;
+    -moz-border-radius: .2rem;
+}
+.kjball div.blue {
+    background: #106fe5;
+}
+/*css3球转圈 首页双色球机选*/
+.rotate_jx{-webkit-animation-name:num;-webkit-animation-duration:.2s;-webkit-animation-timing-function:linear;-webkit-animation-iteration-count:infinite;-moz-animation-name:num;-moz-animation-duration:.2s;-moz-animation-timing-function:linear;-moz-animation-iteration-count:infinite;-o-animation-name:num;-o-animation-duration:.2s;-o-animation-timing-function:linear;-o-animation-iteration-count:infinite;-ms-animation-name:num;-ms-animation-duration:.2s;-ms-animation-timing-function:linear;-ms-animation-iteration-count:infinite}
+@-webkit-keyframes num{0%{-webkit-transform:rotate(0deg)}
+50%{-webkit-transform:rotate(180deg)}
+100%{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes num{0%{-moz-transform:rotate(0deg)}
+50%{-moz-transform:rotate(180deg)}
+100%{-moz-transform:rotate(360deg)}
+}
+@-o-keyframes num{0%{-o-transform:rotate(0deg)}
+50%{-o-transform:rotate(180deg)}
+100%{-o-transform:rotate(360deg)}
+}
+@-ms-keyframes num{0%{-ms-transform:rotate(0deg)}
+50%{-ms-transform:rotate(180deg)}
+100%{-ms-transform:rotate(360deg)}
+}
+
+/*alert弹出层*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+
+/* 自选 按钮 */
+.ssqText{ padding-top:.8rem; background:linear-gradient(top,#e2e2e2 0.2%,#e8e8e8 0.5%,#f3f3f3 .9%,#f7f7f7 95%); background:-webkit-linear-gradient(top,#e2e2e2 0.1%,#e8e8e8 0.2%,#f3f3f3 .5%,#f7f7f7 95%); background:-moz-linear-gradient(top,#e2e2e2 0.2%,#e8e8e8 0.5%,#f3f3f3 .9%,#f7f7f7 95%);margin: 0 auto;left: 0px;right: 0px;width:90%;border-top-left-radius: 7px;-moz-border-top-left-radius: 7px;-webkit-border-top-left-radius: 7px;border-top-right-radius: 7px;-webkit-border-top-right-radius: 7px;-moz-border-top-right-radius: 7px;}
+.ssqText p{ line-height:1.4rem; padding-left:.7rem; font-size:.8rem}
+.ssqBall cite,.jxsscxhBall b{ display:inline-block; width:14%; background:#fff; color:#db150b; font-size:1.25rem;
+ font-style:normal; text-align:center; margin:.25rem 2% .25rem 0; font-weight:normal; 
+ box-shadow:0 0 0 1px #d6d6d6 inset; -webkit-box-shadow:0 0 0 1px #d6d6d6 inset; -moz-box-shadow:0 0 0 1px #d6d6d6 inset; 
+ border-radius:50%; -webkit-border-radius:50%; -moz-border-radius:50%; }
+.ssqBall cite.cur,.jxsscxhBall b.red{background:#db150b; color:#fff; box-shadow:0 0 0 1px #db150b inset; -webkit-box-shadow:0 0 0 1px #db150b inset; -moz-box-shadow:0 0 0 1px #db150b inset;}
+.ssqblueBall cite.cur{ background:#106fe5; color:#fff; box-shadow:0 0 0 1px #106fe5 inset; -webkit-box-shadow:0 0 0 1px #106fe5 inset; -moz-box-shadow:0 0 0 1px #106fe5 inset}
+.ssqBall cite:last-child,.omitnum cite:last-child{ margin-right:0}
+.omitnum{ position:absolute; top:2.35rem; z-index:-1}
+.omitnum cite{ display:inline-block; color:#bababa; width:2.2rem; font-family:"榛戜綋"; margin:0 .47rem 2.1rem 0;; height:.9rem; padding-top:.3rem; text-align:center; font-size:.65rem}
+.ssqblueBall cite {color: #106fe5;}
+.ball_scale {animation-duration: 0.3s;animation-name: ball_scale;-webkit-animation-duration: 0.3s;-webkit-animation-name: ball_scale;}
+/* 自选确认取消按钮 */
+#click_an{width:100%;border-top:1px solid #dadad9;}
+#click_an span{width:49.8%;display:inline-block;background:#f7f7f7;text-align:center;height: 2.3rem;line-height: 2.3rem;font-weight: 600;font-size: 1rem;}
+#click_an .an_span{border-right:1px solid #ccc }
+/*预约确认  */
+.zfPop{ margin-top:3rem; width:18.5rem; background:#fff; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem}
+.zfpop{ position:fixed; display:none; width:90%; top:10%; left:5%; z-index:10000; background:#fff; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem}
+.zfPop h4,.zfpop h4{ padding:1rem 0; font-size:1.125rem; text-align:center}
+.poptzText p{ line-height:1.8rem; font-size:.875rem;margin-left:1rem}
+.poptzText p cite{font-style:normal;}
+.zfTrue{ line-height:2.5rem; font-size:1.05rem; margin-top:1rem; text-align:center; border-top:1px solid #ccc; background:#fff; border-radius:0 0 .4rem .4rem; -webkit-border-radius:0 0 .4rem .4rem; -moz-border-radius:0 0 .4rem .4rem}
+.zfTrue a{ float:left; color:#106fe5; width:49.5%}
+.zfTrue a.zfqx{ border-right:1px solid #ccc;}
+.zfTrue a.bfb{ width:100%}
+.tcinput{ border:1px solid #ccc; height:1.7rem; line-height:1.7rem; color:#999; text-indent:5px; width:13rem; margin:.7rem 0 1rem 2.4rem}
+.popuseRed{ padding:0 12% .5rem 0}
+.popuseRed span{ position:relative; width:3.8rem; height:1.3rem; font-size:.75rem; color:#106fe5; padding-top:.5rem}
+.popuseRed span:before{ position:absolute; content:""; right:-.65rem; top:.65rem; width:.35rem; height:.35rem; border-left:1px solid #106fe5; border-bottom:1px solid #106fe5; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.ssqBall{width: 94%; padding-left:6%;position: relative;margin: 0 auto;left: 0;right: 0;top: 0;bottom: 0;}
+.ssqblueBall cite{font-style:normal;}
+/*  #click_an span{ width:40%; margin:0 5%;}*/
+
+@keyframes ball_scale {
+0% {transform: scale(1, 1);}
+1% {transform: scale(1.6, 1.6);}
+100% {transform: scale(1, 1);}
+}
+@-webkit-keyframes ball_scale {
+0% {-webkit-transform: scale(1, 1);}
+1% {-webkit-transform: scale(1.6, 1.6);}
+100% {-webkit-transform: scale(1, 1);}
+}
+/* 自选弹窗标题 */
+.ssqText h3{text-align:center;margin-bottom:.5rem}
+/* 弹出确认框 */
+#queren{position:fixed; top:50%; left:50%;margin:-83px 0 0 -45%; border-radius: 10px;background:#f7f7f7;width:90%; padding-bottom:10px;text-align:center;}
+.que_t{padding: 1rem 0;}        
+.que_h{display:block; padding: .5rem 0 1rem;line-height:1rem;  font-size:1rem; font-weight:bold;}
+.que_x{display:block; padding:0 8% .8rem; line-height: 1.5rem;font-size:.875rem; border-bottom:1px solid #dadad9;}
+.ok{ display:block; width:100%; height:1.5rem; line-height:1.5rem;color:#2e92fe;font-size:1rem;}
+a.ok:link,a.ok:visited,a.ok:hover,a.ok:active{text-decoration: none;}

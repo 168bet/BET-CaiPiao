@@ -1,0 +1,396 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>注册</title>
+<style type="text/css">
+body{ background:#f7f7f7; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+p{ line-height:1.2rem}
+a{ color:#333; text-decoration:none}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+.clearfix{ overflow:hidden; zoom:1}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.left{ float:left}
+.right{ float:right}
+.pdLfrt09{ padding:.1rem .9rem 0 .9rem}
+.pdTop06{ padding-top:.6rem}
+.pdTop1{ padding-top:1rem}
+.gray{ color:#8e8e8e}
+.aGreen{ color:#7ac0e5}
+.relative{ position:relative}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.sdTab ul{ font-size:.9rem; background:#fff; border-bottom:1px solid #e2e2e2; height:2.4rem; line-height:2.4rem; color:#5c5c5c}
+.sdTab li{ float:left; width:50%; text-align:center}
+.sdTab li.cur{ color:#db150b}
+.downline{ display:block; position:absolute; bottom:0; height:.15rem; background:#db150b}
+.s3{ padding-top:1.6rem; height:1.6rem; font-size:.94rem}
+.s3 cite{ float:left; width:3.4rem; color:#222; letter-spacing:.6rem; padding-left:.5rem}
+.s3 input{ color:#d0d0d0; border:0; background:none; font-size:.94rem}
+.s3 em{ float:right; position:relative; margin-right:.1rem; width:.8rem; height:.8rem; border-left:1px solid #bdbdbd; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.s3 em:before{ position:absolute; content:""; top:.4rem; right:.42rem; width:.8rem; height:.8rem; border-left:1px solid #bdbdbd; transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg)}
+.s3line{ height:.3rem; border:1px solid #bdbdbd; border-top:none}
+.s3cur .s3line{ border:.15rem solid #c4311f; border-top:none}
+.s4 cite{ width:4.5rem; letter-spacing:.4rem}
+.s5 cite{ width:4.5rem; letter-spacing:0}
+.s3 label.hqyzm{ position:absolute; font-family:"黑体"; width:4.7rem; text-align:center; top:.1rem; right:.3rem; line-height:1.5rem; color:#b9b9b9; font-size:.75rem; border:1px solid #c9c9c9; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.s3 label.hqyzmcur{ background:#a2a2a2; color:#e3e3e3}
+.zhuce{ position:absolute; color:#fff; right:.8rem; top:.6rem; font-size:1rem}
+.check,.nocheck{ display:inline-block; margin:.1rem .35rem 0 0; width:.87rem; height:.87rem; background:url(/img/check.png) no-repeat center; background-size:.87rem .87rem; -webkit-background-size:.87rem .87rem; -moz-background-size:.87rem .87rem}
+.nocheck{ background-image:url(/img/nocheck.png)}
+.pact2{ color:#222; padding-top:1.2rem; font-size:.75rem}
+.loginBtn{ display:block; width:100%; letter-spacing:.5rem; text-align:center; margin-top:2.3rem; line-height:2.6rem; color:#fff; background:#f26c60; font-size:1.1rem; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.loginBtn:active{ text-decoration:none; color:#fff}
+
+
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:9999;left:0;top:0; display: none;}
+</style>
+<body>
+	<article class="gray">
+		<header class="tzHeader">
+		<div class="fixed2">
+	      <section class="fcHeader">
+	    	<h1>免费注册</h1>
+	    	<a href="index.html" class="fcbackIco2"></a>
+	        <a href="login.html" class="zhuce">登录</a>
+	      </section>
+	    </div>
+	    </header>
+	    <nav class="sdTab relative">
+	    	<ul class="clearfix" id='top_menu'>
+	    		<li class="cur">手机号注册</li>
+	    		<li>普通注册</li>
+	    	</ul>
+	        <em class="downline" style="width:26%; left:12%"></em>
+		</nav>
+	    <div class="pdLfrt09" id=top_con>
+	      <article>
+		      	<div id='part1'>
+			    	<div class="s3 s5 ">
+			        	<div class="clearfix"><cite>手机号码</cite><input id=tel type="tel" placeholder="请输入手机号"><em style='display:none;'></em></div>
+			        	<div class="s3line"></div>
+			        </div>
+			
+			        <div class="s3 s4" style="padding-top:1rem; height:2.2rem">
+			        	<div class="clearfix relative pdTop06"><cite>验证码</cite><input id=yzm type="tel" placeholder="请先获取验证码">
+			        	<label id=hyzm class="hqyzm">获取验证码</label></div>
+			        	<div class="s3line"></div>
+			        </div>
+			        <p class="pact2 clearfix"><label for=""><em class="left check"></em>我已阅读并同意</label><a href="/m/alone/agreement.html">《用户购彩服务协议》</a></p>
+			        <a href="javascript:;" id='nPart' class="loginBtn">下一步</a>
+		        </div>
+		        <div style='display:none;' id='part2'>
+		        	<div class="s3 s4">
+			        	<div class="clearfix"><cite>用户名</cite><input id='uName' type="text" placeholder="4-16位字符"><em style='display:none;'></em></div>
+			        	<div class="s3line"></div>
+			        </div>
+			    	<div class="s3 s5">
+			        	<div class="clearfix"><cite>登录密码</cite><input id='pWord' type="password" placeholder="6-20位数字字母组合"><em style='display:none;'></em></div>
+			        	<div class="s3line"></div>
+			        </div>
+			      	<p class="pact2 clearfix"><label for=""><em class="left check"></em>我已阅读并同意</label><a href="/m/alone/agreement.html">《用户购彩服务协议》</a></p>
+			        <a href="javascript:;" class="loginBtn" id=register>立即注册</a>
+		        </div>
+	      </article>
+	      <article style=display:none;>
+		    	<div class="s3 s4">
+		        	<div class="clearfix"><cite>用户名</cite><input id='uName_p' type="text" placeholder="4-16位字符"><em style='display:none;'></em></div>
+		        	<div class="s3line"></div>
+		        </div>
+		    	<div class="s3 s5">
+		        	<div class="clearfix"><cite>登录密码</cite><input id='pWord_p' type="password" placeholder="6-20位数字字母组合"><em style='display:none;'></em></div>
+		        	<div class="s3line"></div>
+		        </div>
+		      	<p class="pact2 clearfix"><label for=""><em class="left check"></em>我已阅读并同意</label><a href="/m/alone/agreement.html">《用户购彩服务协议》</a></p>
+		        <a href="javascript:;" class="loginBtn" id=enroll>立即注册</a>
+	      </article>
+	    </div> 
+	</article>
+	<div class="mask" style='display: none;' id='mask'></div>
+	<input type="hidden" id="pho" value=''/>
+<script type="text/javascript" src="js/zepto.js"></script>
+<script>
+//公用弹出层和加载层
+var win_alert = alert;
+window['alert'] = function (msg, loading) {
+	if (!loading) {
+		clearTimeout(window.alert.time);
+		var obj = $('<div class="alertBox">' + msg + '</div>');
+		$('body').append(obj);
+		window.alert.time = setTimeout(function () {
+			$(".alertBox").remove();
+		}, 2000);
+	} else {
+		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+		$('#mask').show();
+	}
+};
+
+var remove_alert = function () {
+	$('.alertBox').remove();
+	$('#mask').hide();
+};
+var source = location.search.getParam('source') || '3000';
+var Register = function () {
+	var tab = 0;
+	var hasTouch = 'ontouchstart' in window;
+	var start_ev = hasTouch ? 'touchstart' : 'mousedown';
+	var tempnickid  = '',mobileno = '';
+	var $dom = {
+			$top_menu : $('#top_menu'),//tab层
+			$top_con : $('#top_con'),//内容层
+			$tel : $('#tel'),//手机号码框
+			$yzm : $('#yzm')//验证码框
+	};
+	var o = {
+			init : function(){
+				$dom.$tel.val('');
+				$dom.$top_menu.on('click','li',function(){
+					if($(this).hasClass('cur')){
+						return
+					}
+					var index= $(this).index();
+					tab = index;
+					$(this).addClass('cur').siblings().removeClass('cur');
+					$dom.$top_con.find('article').hide().eq(index).show();
+					var t = {'0':'12%','1':'62%'}[index];
+					$dom.$top_menu.next().animate({'left':t});
+					
+				});
+				o.bind();
+			},bind : function(){
+				$dom.$tel.next().on(start_ev,function(){$(this).hide().prev().val('');$('#hyzm').removeClass('hqyzmcur');});
+				
+				$('.s3').bind('click', function(){
+					$(this).find('input').focus();
+					$(this).addClass('s3cur').siblings().removeClass('s3cur');
+				})
+				$('#uName_p,#pWord_p,#uName,#pWord').bind('keyup', function(){$(this).val() != '' && $(this).next().show() || $(this).next().hide();});
+		        $('#uName_p,#pWord_p,#uName,#pWord').next().bind('click', function(){$(this).hide().prev().val('');});
+				//手机号注册[[
+				$dom.$tel.on('keyup',function(){
+					var val_ = $(this).val();
+					val_ != '' && $dom.$tel.next().show() || $dom.$tel.next().hide();
+					if(val_.length == '11' && val_.substr(0,1) == '1'){
+						$('#hyzm').addClass('hqyzmcur');
+					}else{
+						$('#hyzm').removeClass('hqyzmcur');
+					}
+				});
+				$('#hyzm').on('click',function(){
+					if($(this).hasClass('hqyzmcur')){
+						$.ajax({
+							url:'/user/mobregisterchk.go',
+							type:'POST',
+							data:{'mobileNo':$dom.$tel.val()},
+							success : function(xml){
+								var R = $(xml).find('Resp');
+								var c = R.attr('code');
+								var d = R.attr('desc');
+								if(c == '0'){
+									var r = R.find('row');
+									tempnickid = r.attr('tempnickid');
+									var t = '60';
+									o.count(t);
+									$('#hyzm').removeClass('hqyzmcur');
+								}else{
+									alert(d);
+									$dom.$tel.focus();
+								}
+							}
+						});
+					}
+				});
+				$('#nPart').on('click',function(){
+					if ($dom.$tel.val() == '') {
+						alert('亲你手机号还木有填哟！');
+						$dom.$tel.focus();
+					} else if($dom.$yzm.val() == '') {
+						alert('亲你验证码还木有填哟！');
+						$dom.$yzm.focus();
+					} else {
+						$.ajax({
+							url:'/user/mobyzmchk.go',
+							type:'POST',
+							data:{'yzm':$dom.$yzm.val(),'cityid':tempnickid},
+							success : function(xml){
+								var R = $(xml).find('Resp');
+								var c = R.attr('code');
+								var d = R.attr('desc');
+								if(c == '0'){
+									var r = R.find('row');
+									var nickid = r.attr('nickid');//分配的用户名
+									mobileno = r.attr('mobileno');//手机号
+									$('#part1').hide();
+									$('#part2').show();
+									$('#uName').val(nickid).focus();
+								}else{
+									alert(d);
+									$dom.$tel.focus();
+								}
+							}
+						});
+					}
+				});
+				$('#register').on('click',function(){
+					var iName = $.trim($("#uName").val());
+					var iCode = $.trim($("#pWord").val());
+					var len = iCode.length;
+					var cat = /^[\x20-\x7f]+$/;
+					if(iName == "" && len == 0){
+						alert('请输入用户名和密码');
+						
+						return false;
+					}else if(iName == ""){
+						alert('请输入用户名');
+						return false;
+					}else if (len == 0) {
+						alert("请输入密码");
+						return false;
+					} else if (len < 6) {
+						alert('您输入的密码不能低于6位');
+						return false;
+					} else if (len > 20) {
+						alert('您输入的密码不能超过20位');
+						return false;
+					} else if (iCode == iName) {
+						alert('密码不能够与用户名一致！请重新输入');
+						return false;
+					}else if (!(cat.test(iCode))) {
+						alert('密码请勿包含中文');
+						return false;
+					}else{
+						var url = '/user/mobregister.go';
+						var data = 'uid='
+						+ encodeURIComponent($.trim(iName))
+						+ "&pwd="
+						+ encodeURIComponent($.trim(iCode))
+						+ '&source='+source+'&mobileNo='+mobileno+'&imei=';
+						$.ajax({
+					     	type: 'POST',
+					         data: data,
+					         url: url,
+					         success:function (data){                 
+					        	var R = $(data).find("Resp");
+					   			var code = R.attr("code");
+					   			var desc = R.attr("desc");
+					   			   if (code == "0"){
+					   				   alert(desc,'load');
+					   				   setTimeout(function(){
+					   						location.href = 'index.html';
+					   				   },1e3);
+								   }else{
+									   alert(desc);
+								   }
+					          },
+					          error:function(){
+					        	  alert('网络异常');
+					          }
+					     });
+					}
+				});
+				//]]手机号注册
+				
+				//普通注册[[
+				$('#enroll').on('click',function(){
+					var iName = $.trim($("#uName_p").val());
+					var iCode = $.trim($("#pWord_p").val());
+					var len = iCode.length;
+					var cat = /^[\x20-\x7f]+$/;
+					if(iName == "" && len == 0){
+						alert('请输入用户名和密码');
+						return false;
+					}else if(iName == ""){
+						alert('请输入用户名');
+						return false;
+					}else if (len == 0) {
+						alert("请输入密码");
+						return false;
+					} else if (len < 6) {
+						alert('您输入的密码不能低于6位');
+						return false;
+					} else if (len > 20) {
+						alert('您输入的密码不能超过20位');
+						return false;
+					} else if (iCode == iName) {
+						alert('密码不能够与用户名一致！请重新输入');
+						return false;
+					}else if (!(cat.test(iCode))) {
+						alert('密码请勿包含中文');
+						return false;
+					}else{
+						var url = '';
+						var data = 'uid='
+						+ encodeURIComponent($.trim(iName))
+						+ "&pwd="
+						+ encodeURIComponent($.trim(iCode));
+						var agent1 = localStorage.getItem('comeFrom')||'';
+						var agent2 = localStorage.getItem('fromMenu');
+						if(agent2 == 'wxfw'){
+							url='/wechat/wxRegister.go';
+						}else{
+							url = '/user/mregister.go';
+							data += '&source='+source+'&comeFrom='+agent1;
+						}
+						alert('提交中','load');
+						$.ajax({
+					     	type: 'POST',
+					         data: data,
+					         url: url,
+					         success:function (data){
+					        	 remove_alert();
+					        	 var R = $(data).find("Resp");
+					   			 var code = R.attr("code");
+					   			 var desc = R.attr("desc");
+					   			   	if (code == "0"){
+					   			   		alert(desc, 'load');
+					   			   		setTimeout(function(){
+					   			   			location.href = 'index.html';
+					   			   		},1e3);
+					   			   	}else{
+					   			   		alert(desc);
+					   			   	}
+					          },
+					          error:function(){
+					        	  alert('网络异常');
+					          }
+					     });
+					}
+				});
+				//]]普通注册
+			},count : function(t){
+				if (t == 0) {
+					$('#hyzm').html('重新发送');
+					$('#hyzm').addClass('hqyzmcur');
+		        } else {
+		        	$('#hyzm').html('重新发送(' + (t--) + ')');
+		            setTimeout(function () {
+		                o.count(t);
+		            }, 1000);
+		        }
+			}
+	};
+	o.init();
+	return 
+}();
+</script>
+</body>
+</html>

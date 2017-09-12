@@ -1,0 +1,3 @@
+<form action="" method="POST" name="payCenterForm">
+  <input type="hidden" value="">
+</form>

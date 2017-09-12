@@ -1,0 +1,84 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>五合一特制采集器</title>
+<link href="/style/agents/control_down.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+BODY {
+	background-color: #AACCCC;
+	margin-left: 0px;
+	margin-top: 0px;
+	COLOR: #3e4859; 
+	font-family: "Verdana"; 
+	font-size: 8.5pt 
+}
+TD {
+	COLOR: #3e4859; 
+	font-family: "Verdana"; 
+	font-size: 8.5pt 
+}
+INPUT {
+	COLOR: #3e4859; 
+	font-family: "Verdana"; 
+	font-size: 12px 
+}
+</style>
+</head>
+<body>
+<script> 
+<!-- 
+var limit="6:00" 
+if (document.images){ 
+	var parselimit=limit.split(":") 
+	parselimit=parselimit[0]*60+parselimit[1]*1 
+} 
+function beginrefresh(){ 
+	if (!document.images) 
+		return 
+	if (parselimit==1) 
+		window.location.reload() 
+	else{ 
+		parselimit-=1 
+		curmin=Math.floor(parselimit/60) 
+		cursec=parselimit%60 
+		if (curmin!=0) 
+			curtime=curmin+"分"+cursec+"秒后自动登陆！" 
+		else 
+			curtime=cursec+"秒后自动登陆！" 
+		//	timeinfo.innerText=curtime 
+			setTimeout("beginrefresh()",1500) 
+	} 
+} 
+window.onload=beginrefresh 
+//--> 
+</script>
+<table width="300" height="270"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+	<td width="150" height="90" valign="top"> 
+      <iframe width=150 height=90 src='cqssc2.php' frameborder=0 scrolling="no"></iframe> 
+    </td>
+    <td width="150" height="90" valign="top"> 
+      <iframe width=150 height=90 src='gdklsf2.php' frameborder=0 scrolling="no"></iframe> 
+    </td>
+  </tr>
+  <tr>
+    <td width="150" height="90" valign="top">
+	  <iframe width=150 height=90 src='pk10bj2.php' frameborder=0 scrolling="no"></iframe> 
+    </td>
+	<td width="150" height="90" valign="top">
+	  <iframe width=150 height=90 src='pk10bj3.php' frameborder=0 scrolling="no"></iframe> 
+    </td>
+	<td width="150" height="90" valign="top"> 
+      <iframe width=150 height=90 src='xync2.php' frameborder=0 scrolling="no"></iframe> 
+    </td>
+  </tr>
+  <tr>
+    <td width="150" height="90" valign="top"> 
+      <iframe width=150 height=90 src='jsks2.php' frameborder=0 scrolling="no"></iframe> 
+    </td>
+    
+  </tr>
+  
+</table>
+</body>
+</html>

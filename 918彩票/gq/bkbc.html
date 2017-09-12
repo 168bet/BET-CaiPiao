@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>边看边猜</title>
+<style type="text/css">
+body{ min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highpght-color:rgba(0,0,0,0); -webkit-tap-highpght-color:rgba(0,0,0,0); -moz-tap-highpght-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,p,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, p,input{ pst-style:none}
+i,o,cite,em{ font-style:normal}
+p{ pne-height:1.2rem}
+a{ color:#333; text-decoration:none}
+input{ outpne:none; -webkit-tap-highpght-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}.clearfix{ overflow:hidden; zoom:1}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%;}
+.left{ float:left}
+.right{ float:right}
+.red{ color:#db150b}
+.clear{ clear:both}
+.graybg{ background:#f7f7f7}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align: center; font-size:1.1rem; color:#fff}
+.zcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#0b7e07}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display: inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.dzqd{ padding:0 0 .7rem 0; background:#fff}
+.dzqd a{ display: block; position: relative; padding: .8rem 0; text-align: center; border-bottom: 1px solid #e0e0e0; overflow:hidden; zoom:1}
+.dzqd a.cur:before{ position: absolute; content: ""; left: 0; top: 0; width: 2.09rem; height: 2.03rem; background: url(img/jxzico.png) no-repeat center; background-size:2.09rem 2.03rem; -moz-background-size:2.09rem 2.03rem; -webkit-background-size:2.09rem 2.03rem}
+.dzqd a p{ float:left; width:33%;}
+.dzqd a p.mid{ width:34%}
+.dzqd a p cite{ display: block; width:66.66px; height:50px; margin: 0 auto; overflow:hidden}
+.dzqd a p img{ width: 100%; height: 100%;}
+.dzqd a p strong{ display:block; color:#535353; font-weight:normal; font-size:.8rem; margin-top:.2rem}
+.dzqd a p span{ display:block; color:#7f8480; margin-top:.2rem; font-size: .75rem;}
+.dzqd a p b{ display:block; font-weight:normal; font-size:1.44rem; color:#3b3b3b; margin-top:.2rem}
+.pullDown{ position:absolute; width:1.5rem; height:1.4375rem; right:.5rem; top:.75rem; z-index:1}
+.pullText{ display:; -webkit-transition:all .2s ease;-ms-transition:all .2s ease;-o-transition:all .2s ease;-moz-transition:all .2s ease; position:absolute; right:0rem; top:1.7rem; width:5rem; background:#fff; border:1px solid #b6b6b6}
+.pullText a{ display:block; line-height:2.3rem; text-align:center; cDolor:#9e9e9e; font-size:.93rem; border-bottom:1px solid #cacaca}
+.pullText a:last-child{ border-bottom:none}
+.pullText a.cur{ color:#db150b}
+.pullIco{ display:block; width:1.34rem; height:1.31rem; background:url(img/pullDown.png) no-repeat center; background-size:1.34rem 1.31rem; -webkit-background-size:1.34rem 1.31rem; -moz-background-size:1.34rem 1.31rem}
+.pullHover .pullIco{ width:1.5rem; height:1.4375rem; background:url(img/pullDown2.png) no-repeat center; background-size:1.5rem 1.4375rem; -webkit-background-size:1.5rem 1.4375rem; -moz-background-size:1.5rem 1.4375rem}
+
+.popup{ position:fixed; width:90%; top:30%; left:5%; z-index:1000; background:#fff; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem}
+.popup p{ text-align: center; line-height:1.4rem; font-size:.9rem; padding: 2rem 20%;}
+.zfTrue{ line-height:2.5rem; font-size:1rem; text-align:center; border-top:1px solid #ccc; background:#fff; border-radius:0 0 .4rem .4rem; -webkit-border-radius:0 0 .4rem .4rem; -moz-border-radius:0 0 .4rem .4rem}
+.zfTrue a{ float:left; color:#106fe5; width:49.5%}
+.zfTrue a.zfqx{ border-right:1px solid #ccc }
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1}
+.dzqd a p span.pater{ color: #fb1e19;}
+.dzqd a p.onlyone span{ margin-top:.55rem; font-size:1.0rem; color:#333}
+.dzqd a p.onlyone span.pater{ color: #fb1e19; font-size:.75rem; margin-top:.4rem;}
+</style>
+<body>
+<div id="popup" class="popup" style="display:none">
+	<p>为保证投注时盘口赔率变化的即时性，请先登录~</p>
+	<div class="zfTrue"><a href="javascript:;" class="zfqx">注册</a><a href="javascript:;">登录</a></div>
+</div>
+<div class="zhezhao" style="display:none" id="zhezhao"></div>
+<div class="mask" id="mask" hidden></div>
+<header class="tzHeader">
+     <div class="zcHeader fixed2">
+    	<a href="/" class="fcbackIco2" id="back"></a>
+    	<h1>比赛列表</h1>
+        <article class="pullDown">
+        	<em class="pullIco"></em>
+            <div class="pullText" style="display:none">
+            	<a href="bkbc.html" class="cur">边看边猜</a>
+            	<a href="myjc.html">我的竞猜</a>
+            	<a href="phb.html">排行榜</a>
+            	<a href="wfgz.html">玩法规则</a>
+            	<a href="new.html">公告</a>
+            </div>
+        </article>
+        
+      </div> 
+</header>
+
+<article class="dzqd" id="cont">   	 
+		<!-- 
+    	<a href="#" class="cur">
+    		<p><cite><img src="img/ico.png"></cite><strong>凯尔特人</strong></p>
+    		<p class="mid"><span>第四节  05:32</span><b>85:74</b><span class="pater">8437人已参与</span></p>
+    		<p><cite><img src="img/ico2.png"></cite><strong>凯尔特人</strong></p>
+    	</a>
+    	<a href="#">
+    		<p><cite><img src="img/ico.png"></cite><strong>凯尔特人</strong></p>
+    		<p class="mid"><span>第四节  05:32</span><b>85:74</b><span class="pater">8437人已参与</span></p>
+    		<p><cite><img src="img/ico2.png"></cite><strong>凯尔特人</strong></p>
+    	</a>
+    	<a href="#">
+    		<p><cite><img src="img/ico.png"></cite><strong>凯尔特人</strong></p>
+    		<p class="mid"><span>未开赛</span><b>- -</b><span class="pater">8437人已参与</span></p>
+    		<p><cite><img src="img/ico2.png"></cite><strong>凯尔特人</strong></p>
+    	</a>
+    	<a href="#">
+    		<p><cite><img src="img/ico.png"></cite><strong>凯尔特人</strong></p>
+    		<p class="mid"><span>第四节  05:32</span><b>85:74</b><span class="pater">8437人已参与</span></p>
+    		<p><cite><img src="img/ico2.png"></cite><strong>凯尔特人</strong></p>
+    	</a>
+    	 -->
+    </article>
+
+    <article class="dzqd">
+<a href="cgj.html" id="gj" style="display:none">
+   		<p><cite><img src="img/1.png"></cite><strong>东区</strong></p>
+   		<p class="mid onlyone"><span>猜冠军</span><span class="pater">8437人已参与</span></p>
+   		<p><cite><img src="img/2.png"></cite><strong>西区</strong></p>
+</a>
+</article>
+
+</body>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://static.9188.com/zlk/js/socket.io.js" type="text/javascript"></script>
+
+<script src="bkbc.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1e1a0d86a7a03a31cc8c75a4e20490f5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 百度统计 -->

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>网银充值支付_充值服务_账户中心-9188彩票网</title>
+<meta name="description" content="9188彩票网为彩民提供专业的彩票网上投注、合买、开奖结果、走势分析、比分直播等服务，覆盖福彩、体彩、足彩、竞彩、快频等彩种。9188—彩票网上投注最佳选择！">
+<meta name="keywords" content="福利彩票，福彩，体育彩票，体彩，足彩，网上买彩票，彩票合买，彩票开奖，彩票走势图，彩票预测">
+<link href="/css/bass.css" rel="stylesheet" type="text/css">
+<link href="/css/fc.css" rel="stylesheet" type="text/css">
+<body style="background:#efefef">
+<article class="gray">
+	<header class="tzHeader">
+    	<section class="buyHeader">
+    		<h1>手机卡充值</h1>
+    		<a href="javascript:history.go(-1);" class="backIco2"></a>
+    	</section>
+    </header>
+  <section class="telcz pdLfrt09" id='stepOne'>   
+    <h2>1.充值卡类别</h2> 
+  	<div class="recharge" id='cardType'>
+    	<div class="telczList" cardT = 'CMJFK' cName = '中国移动通信'><i></i><p>中国移动通信<cite>（仅支持全国卡）</cite></p></div>
+    	<div class="telczList" cardT = 'LTJFK' cName = '中国联通'><i></i><p style="border-bottom:none">中国联通<cite>（仅支持全国卡）</cite></p></div>
+    </div>
+    <div class="clearfix"><h2 class="left">2.充值金额</h2><cite class="fontSize07 left pdTop08">(运营商将收取4%的服务费)</cite></div>
+  	<div class="recharge" id='cardSize'>
+    	<div class="telczList" cardS = '10'><i></i><p>10元<cite>（实际到账9.6元）</cite></p></div>
+    	<div class="telczList" cardS = '20'><i></i><p>20元<cite>（实际到账19.2元）</cite></p></div>
+    	<div class="telczList" cardS = '30'><i></i><p>30元<cite>（实际到账28.8元）</cite></p></div>
+    	<div class="telczList" cardS = '50'><i></i><p>50元<cite>（实际到账48元）</cite></p></div>
+    	<div class="telczList" cardS = '100'><i></i><p>100元<cite>（实际到账96元）</cite></p></div>
+    	<div class="telczList" cardS = '300'><i></i><p>300元<cite>（实际到账288元）</cite></p></div>
+    	<div class="telczList" cardS = '500'><i></i><p style="border-bottom:none">500元<cite>（实际到账480元）</cite></p></div>
+    </div>
+    <h2>3.输入卡密充值</h2> 
+  	<div class="recharge" id='card'>
+   	  <div class="telczList telczList2"><em>卡号：</em><p><input type="text" placeholder='纯数字' value="" maxlength='30'></p></div>
+    	<div class="telczList telczList2"><em>密码：</em><p style="border-bottom:none"><input type="text" placeholder='纯数字' value="" maxlength='30'></p></div>
+    </div>
+    <a href="javascript:;" id='payOk' class="payment">确定充值</a>
+    <div class="pdTop06 pdLeft04">
+    	<p>温馨提示：</p>
+		<p>1.充值卡内金额将一次性全额扣除，请选择与充值卡面额相同的金额。如果选择的充值金额与充值卡实际面额不一致，将无法给您退还差或损失部分。</p>
+		<p>2.手机充值卡支付过程有任何疑问请联系易宝支付客服，高阳捷迅客服中心（电话：400-019-1999）</p>
+    </div>
+ </section>
+ 
+ <section class="pdLfrt09 bankcard" id='stepTwo' style='display:none;'>
+    	<p class="pdTop06"><span class="gray left w4_6">充值卡：</span><cite></cite></p>
+    	<p class="pdTop06"><span class="gray left w4_6">充值金额：</span><cite class="yellow"></cite><cite></cite></p>
+    	<p class="pdTop06"><span class="gray left w4_6">卡号：</span><cite></cite></p>
+    	<p class="pdTop06"><span class="gray left w4_6">密码：</span><cite></cite></p>
+        <p class="yellow mgTop2">确认卡密、填写无误，若填写错误会导致充值失败</p>
+        <div class="clearfix" id='operation'><a href="javascript:;" class="left register">修改</a><a href="javascript:;" class="right loginBtn">确定充值</a></div>
+ </section>
+ <div id='zhezhao' style='position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; display: none; background: none repeat scroll 0% 0% gray; opacity: 0.5; z-index: 999;'></div>
+ <section class="zfPop" id='success' style='display:none;position: absolute;z-index: 1999;'>
+    <h4>收单成功</h4>
+    <div class="pdLeft1 gray">
+   		<p>注意：</p>
+   		<p class="yellow">1、收单成功不代表充值成功！</p>
+   		<p>2、请到我的彩票账户余额中查看充值明细，确定是否到账。</p>
+    </div>
+    <a href="/useraccount/" class="tureBtn">确定</a>
+</section>
+</article>
+<input type="hidden" value='' id='cType'/>
+<input type="hidden" value='' id='cSize'/> 
+</body>
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/public/base.js"></script>
+<script src="/js/public/login.js"></script>
+<script src='/js/useraccount/add_card.js'></script>

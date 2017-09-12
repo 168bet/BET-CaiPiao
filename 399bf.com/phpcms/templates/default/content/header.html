@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+
+    <!-- css start -->
+    <link href="{CSS_PATH}bootstrap.css" rel="stylesheet">
+    <link href="{CSS_PATH}base.css" rel="stylesheet">
+    <link href="{CSS_PATH}font-awesome.css" rel="stylesheet">
+    <link href="{CSS_PATH}common.css" rel="stylesheet">
+    {if isset($css) && is_array($css) && count($css)}
+    {loop $css $data}
+        <link href="{CSS_PATH}{$data}" rel="stylesheet">
+    {/loop}
+    {/if}
+    <!-- css end -->
+    <!--[if lt IE 9]>
+    <script src="{JS_PATH}selectivizr.js"></script>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<header class="header" id="header">
+    <div class="container">
+        <div class="row">
+            <!--logo-->
+            <a href="{siteurl($siteid)}" class="logo">
+                <img src="{IMG_PATH}logo.png">
+            </a>
+            <!-- logo -->
+
+            <!--nav-->
+            <ul class="main-nav clearfix">
+                <li>
+                    <a href="{APP_PATH}">首页</a>
+                </li>
+                <li>
+                    <a href="{APP_PATH}zqscore/">足球比分</a>
+                </li>
+                <li>
+                    <a href="{APP_PATH}live/">足球直播</a>
+                </li>
+                <li>
+                    <a href="{APP_PATH}zqodds/">足球指数</a>
+                </li>
+                <li>
+                    <a href="{APP_PATH}bigdata/13/">足球数据库</a>
+                </li>
+                <li>
+                    <a href="{APP_PATH}csl/">中超</a>
+                </li>
+                <li>
+                    <a href="{APP_PATH}premierleague/">英超</a>
+                </li>
+                <li>
+                    <a href="{APP_PATH}ucl/">欧冠</a>
+                </li>
+                <li>
+                    <a href="{APP_PATH}laliga/">西甲</a>
+                </li>
+                <!--<li>-->
+                    <!--<a href="{APP_PATH}bundesliga/">德甲</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="{APP_PATH}seriea/">意甲</a>-->
+                <!--</li>-->
+                <li>
+                    <a href="{APP_PATH}21/">视频</a>
+                </li>
+                <li>
+                    <a href="{APP_PATH}20/">图库</a>
+                </li>
+
+            </ul>
+            <!--nav end-->
+        </div>
+    </div>
+</header>

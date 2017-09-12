@@ -1,0 +1,197 @@
+<div id='buy_ahk3'>
+	<!-- 选球区[[ -->
+	<section id=betball>
+		<nav class="k3title clearfix" id="play_tabs">
+			<span class="cur" val='hz'>和值</span> <span val='sth'>三同号</span> <span
+				val='eth'>二同号</span> <span val='sbth'>三不同号</span> <span val='ebth'>二不同号</span>
+		</nav>
+		<article>
+			<div class="k3kj clearfix">
+				<div class="k3kjtext" id='kj_'>加载中...</div>
+				<div class="k3kjnum" id='ahk3'></div>
+			</div>
+			<div style="display: none;" id='kj_code'>
+				<ul class="k3listtt">
+					<li class="wb20">期号</li>
+					<li class="wb18">开奖结果</li>
+					<li class="wb10">和值</li>
+					<li class="wb10">二同</li>
+					<li class="wb16">三连</li>
+					<li class="wb10">三同</li>
+					<li class="wb16">三不同</li>
+				</ul>
+				<div class="k3kjlist"></div>
+			</div>
+		</article>
+		<article>
+			<div class="relative k3xh" id='bonus_'>
+				<p>
+					<em class='gray'>猜中开奖号码之和即中奖</em>
+				</p>
+				<div class="shakeomit">
+					<span id="shake" class="right red"><em class="shakeico"></em><cite>摇一注&nbsp;&nbsp;&nbsp;</cite></span>
+				</div>
+			</div>
+			<section class="relative" style='z-index: 1'>
+				<div style='overflow: hidden; width: 100%; height: 18rem'>
+					<div id=content_kp style='position: relative;'>
+						<!-- 和值start -->
+						<article id='hz' style='width: 100%; position: absolute; display: none;'>
+							<ul class="k3xhlist clearfix">
+								<li v='240'><b>3</b>奖金240元</li>
+								<li v='80'><b>4</b>奖金80元</li>
+								<li v='40'><b>5</b>奖金40元</li>
+								<li v='25'><b>6</b>奖金25元</li>
+								<li v='16'><b>7</b>奖金16元</li>
+								<li v='12'><b>8</b>奖金12元</li>
+								<li v='10'><b>9</b>奖金10元</li>
+								<li v='9'><b>10</b>奖金9元</li>
+								<li v='9'><b>11</b>奖金9元</li>
+								<li v='10'><b>12</b>奖金10元</li>
+								<li v='12'><b>13</b>奖金12元</li>
+								<li v='16'><b>14</b>奖金16元</li>
+								<li v='25'><b>15</b>奖金25元</li>
+								<li v='40'><b>16</b>奖金40元</li>
+								<li v='80'><b>17</b>奖金80元</li>
+								<li v='240'><b>18</b>奖金240元</li>
+							</ul>
+						</article>
+						<!-- 和值end -->
+						<!-- 三同号start -->
+						<article id='sth' style='width: 100%; position: absolute; display: none;'>
+							<ul class="k3xhlist k3xhlist2 clearfix">
+								<li>111</li>
+								<li>222</li>
+								<li>333</li>
+								<li>444</li>
+								<li>555</li>
+								<li>666</li>
+							</ul>
+							<div class="k3tx">
+								<p>
+									[通选]开出任意一个豹子号，奖金<cite class="yellow">40</cite>元
+								</p>
+								<ul class="clearfix">
+									<li>111</li>
+									<li>222</li>
+									<li>333</li>
+									<li>444</li>
+									<li>555</li>
+									<li>666</li>
+								</ul>
+							</div>
+						</article>
+						<!-- 三同号end -->
+						<!-- 二同号start -->
+						<article id='eth' style='width: 100%; position: absolute; display: none;'>
+							<p class="gray center pdTop06">—— &nbsp;同号&nbsp; ——</p>
+							<ul class="k3xhlist k3xhlist3 clearfix">
+								<li>11</li>
+								<li>22</li>
+								<li>33</li>
+								<li>44</li>
+								<li>55</li>
+								<li>66</li>
+							</ul>
+							<p class="gray center pdTop06">—— &nbsp;不同号&nbsp; ——</p>
+							<ul class="k3xhlist k3xhlist3 clearfix">
+								<li>1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>4</li>
+								<li>5</li>
+								<li>6</li>
+							</ul>
+							<div>
+								<p class="k3tx2">
+									[复选]至少选1个对子，开奖号码包含此对子，奖金<cite class="yellow">15</cite>元
+								</p>
+								<ul class="k3xhlist k3xhlist3 clearfix">
+									<li>11*</li>
+									<li>22*</li>
+									<li>33*</li>
+									<li>44*</li>
+									<li>55*</li>
+									<li>66*</li>
+								</ul>
+							</div>
+						</article>
+						<!-- 二同号end -->
+						<!-- 三不同号start -->
+						<article id='sbth' style='width: 100%; position: absolute; display: none;'>
+							<ul class="k3xhlist k3xhlist3 clearfix">
+								<li>1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>4</li>
+								<li>5</li>
+								<li>6</li>
+							</ul>
+							<div class="k3tx k3tx3">
+								<p>
+									[通选]开出任意一个三连号，奖金<cite class="yellow">10</cite>元
+								</p>
+								<ul class="clearfix">
+									<li>123</li>
+									<li>234</li>
+									<li>345</li>
+									<li>456</li>
+								</ul>
+							</div>
+						</article>
+						<!-- 三不同号end -->
+						<!-- 二不同号start -->
+						<article id='ebth' style='width: 100%; position: absolute; display: none;'>
+							<ul class="k3xhlist k3xhlist3 clearfix">
+								<li>1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>4</li>
+								<li>5</li>
+								<li>6</li>
+							</ul>
+						</article>
+						<!-- 二不同号end -->
+					</div>
+				</div>
+			</section>
+		</article>
+	</section>
+	<!-- ]]选球区 -->
+
+	<!-- 投注列表区[[ -->
+	<article id="betlist" style=display:none;>
+	    <article>
+	    	<div class="clearfix ssqbtn"><input id='hand' type="submit" value="+ 自选一注" class="handBtn">
+	    	<input id="jxbtn" type="submit" value="+ 机选一注" class="handBtn">
+	    	<span class="handBtn relative clearBtn" id="clearAll">清空号码</span></div>
+	        <div class="ssqNum" id=bet_list></div>
+	    </article>
+	</article>
+	<!-- ]]投注列表区 -->
+
+	<footer class="buyFooter fo_basket" id=lot_footer>
+			<!-- 选号fo[[ -->
+		    <div class="fixed buyFloat btn-addlist">
+		        <em class="ssqdeleted" id='deleted'>清空</em>
+		        <span class="gray">共<cite id="Notes">0</cite>注  <cite id="Money">0</cite>元</span>
+		        <a href="javascript:;" class="ture" id='addlist'>确认</a>
+		    </div>
+		    <!-- ]]选号fo -->
+		    
+		    <!-- 投注fo[[ -->
+		    <div class="fixed btn-buy">
+	    		<ul class="ssqdouble clearfix">
+	            	<li><cite>追</cite><input type="tel" value="1" id='tbox_qishu' readonly="true"><cite>期</cite></li>
+	                <li><cite>投</cite><input type="tel" value="1" id='tbox_beishu' readonly="true"><cite>倍</cite></li>
+	            </ul>
+	   	  		<div class="zjStop" style="display:none"><em class="left check"></em>中奖后停止追号</div>
+	            <div class="buyFloat">
+	        		<span class="gray">共<cite class="yellow" id="countNotes">0</cite>注  <cite class="yellow" id="countMoney">0</cite>元</span>
+	        		<a href="javascript:;" class="ture" id=dobuy>提 交</a>
+	    		</div>
+	    	</div>
+	    	<!-- ]]投注fo -->
+	</footer>
+</div>
+<script src="/js/list/k3.js"></script>

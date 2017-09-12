@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>获得金豆</title>
+<style type="text/css">
+body{ background:#f7f7f7; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+p{ line-height:1.2rem}
+a{ color:#333; text-decoration:none}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}.clearfix{ overflow:hidden; zoom:1}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.left{ float:left}
+.right{ float:right}
+.red{ color:#db150b}
+.relative{ position:relative}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.zcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#0b7e07}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.back{ position:absolute; font-size:.75rem; color:#fff; right:.6rem; top:.8rem}
+
+.title{ line-height:1.8rem; padding:.7rem 0 0 .9rem; font-size:.8rem; color:#8d8d8d; background:#f7f7f7; border-bottom:1px solid #e3e2e6}
+.text{ padding:.9rem; background:#fff; line-height:2rem; border-bottom:1px solid #e3e2e6; font-size:.8rem}
+.qiandao{ float:right; width:25%; text-align:center; font-size:.95rem; line-height:2rem; color:#db150b; border:1px solid #e2e2e2; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.input{ margin-top:.8rem}
+.input span{ float:left; font-size:.95rem; padding-right:5%; line-height:2.5rem}
+.input input{ float:left; border:none; width:65%; padding-left:3%; color:#d0d0d0; text-align:left; line-height:2.5rem; background:#fff; overflow:hidden; border:1px solid #e2e2e2; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.tab{ width:94%; margin:.6rem auto 1.7rem auto}
+.tab li{ float:left; width:21.9%; text-align:center; line-height:1.9rem; margin:.9rem 3% 0 0; font-size:.75rem; border:1px solid #e2e2e2; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.tab li.cur{ border:1px solid #db150b; background:#db150b; color:#fff}
+.tab li:last-child{ margin-right:0}
+.ture{ display:block; text-align:center; line-height:2.8rem; background:#f26c60; font-size:1.2rem; color:#fff; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.yiwen{ display:inline-block; width:1.225rem; height:1.225rem; margin-left:.2rem; background:url(img/doubt.png) no-repeat center; background-size:1.125rem 1.125rem; -webkit-background-size:1.125rem 1.125rem; -moz-background-size:1.125rem 1.125rem}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+.jdbtn{ float: left; font-size:.75rem; width: 3.7rem; line-height: 1.4rem; margin:.15rem 0 0 .4rem;  border: 1px solid #c5c5c5; text-align: center; -webkit-border-radius: .2rem;}
+
+</style>
+<body style="background:#f7f7f7">
+<header class="tzHeader">
+	<section class="zcHeader fixed2">
+		<h1>获得金豆</h1>
+		<a href="javascript:history.go(-1);" class="fcbackIco2"></a>
+        <a href="bkbc.html" class="back">边看边猜</a>
+	</section>
+</header>
+<article>
+	<div class="title">签到赢金豆</div>
+    <div class="text clearfix"><span class="left" id="text"></span><span class="qiandao">领取</span></div>
+	<div class="title">积分兑换金豆(1积分=10金豆)</div>
+    <div class="text">
+    	<div class="clearfix"><span class="left">积分余额: <em class="red" id="jfye">&nbsp;</em></span><a href="/user/jfcz.html" class="jdbtn">获得积分</a></div>
+        <article class="input clearfix">
+        	<span>兑换积分数</span>
+        	<input id="integral" type="text" value="1积分=10金豆">
+        </article>
+        <ul class="tab clearfix" id="qhtab">
+        	<li>10</li>
+        	<li>50</li>
+        	<li>100</li>
+        	<li>全部兑换</li>
+        </ul>
+        <div class="ture" id="exchange_tab">确定兑换</div>
+    </div>
+</article>
+</body>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://static.9188.com/zlk/js/socket.io.js" type="text/javascript"></script>
+
+<script src="hdjd.js" type="text/javascript" charset="utf-8"></script>

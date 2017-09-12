@@ -1,0 +1,153 @@
+BODY {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; BACKGROUND: #fcfaf8; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+DIV {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+SPAN {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+P {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+B {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+TEXTAREA {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+INPUT {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+SELECT {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+FORM {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+TABLE {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+TR {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+TD {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+BODY {
+	BACKGROUND-IMAGE: url(l_backdrop.jpg); MARGIN: 0px;
+}
+TD {
+	CURSOR: default
+}
+A {
+	COLOR: #1a2e7b; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.a1 {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+IMG {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none
+}
+.t_list {
+	BORDER-BOTTOM: #f7f0fb 3px solid; POSITION: relative; BORDER-LEFT: #f7f0fb 3px solid; BACKGROUND-COLOR: #c19ce1; BORDER-TOP: #f7f0fb 3px solid; TOP: 10px; BORDER-RIGHT: #f7f0fb 3px solid; LEFT: 10px
+}
+.t_td_caption_1 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 17px; BACKGROUND-COLOR: #f7f0fb; HEIGHT: 20px
+}
+.t_td_caption_2 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 17px; BACKGROUND-COLOR: #e4e4ff; HEIGHT: 20px
+}
+.t_td_text {
+	LINE-HEIGHT: 17px; BACKGROUND-COLOR: #ffffff; TEXT-INDENT: 4px; HEIGHT: 20px
+}
+.t_td_unite_1 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 17px; BACKGROUND-COLOR: #ffea89; HEIGHT: 20px
+}
+.t_td_unite_2 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 17px; BACKGROUND-COLOR: #cfcfff; HEIGHT: 20px
+}
+.t_td_odd_1 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 17px; BACKGROUND-COLOR: #f7f0fb; HEIGHT: 20px
+}
+.t_td_odd_2 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 17px; BACKGROUND-COLOR: #f4f4fe; HEIGHT: 20px
+}
+.inp1 {
+	BACKGROUND-IMAGE: url(frame1.gif); BACKGROUND-REPEAT: no-repeat; CURSOR: text
+}
+.inp1m {
+	BACKGROUND-IMAGE: url(frame1.gif); BACKGROUND-REPEAT: no-repeat; CURSOR: text
+}
+.inp1 {
+	BORDER-BOTTOM: #abb2c5 1px solid; BORDER-LEFT: #abb2c5 1px solid; PADDING-LEFT: 2px; HEIGHT: 18px; COLOR: #000; BORDER-TOP: #abb2c5 1px solid; CURSOR: text; BORDER-RIGHT: #abb2c5 1px solid; PADDING-TOP: 1px
+}
+.inp1m {
+	BORDER-BOTTOM: #abb2c5 1px solid; BORDER-LEFT: #abb2c5 1px solid; PADDING-LEFT: 2px; HEIGHT: 18px; COLOR: #000; BORDER-TOP: #abb2c5 1px solid; CURSOR: text; BORDER-RIGHT: #abb2c5 1px solid; PADDING-TOP: 1px
+}
+.inp1 {
+	BACKGROUND-POSITION: 0px 0px; COLOR: #000
+}
+.inp1m {
+	BORDER-BOTTOM: #a7bbd3 1px solid; BORDER-LEFT: #a7bbd3 1px solid; BACKGROUND-POSITION: -476px 0px; COLOR: #000; BORDER-TOP: #a7bbd3 1px solid; BORDER-RIGHT: #a7bbd3 1px solid
+}
+.jeu_XZ_Type {
+	COLOR: #2836f4
+}
+.jeu_multiple {
+	FONT-FAMILY: Arial, Helvetica, Verdana, Geneva,  sans-serif; COLOR: #ff0000; FONT-WEIGHT: bold
+}
+.jeu_OpenLottery {
+	COLOR: #299a26; FONT-WEIGHT: bold
+}
+.JeuChange_Clew_G {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #37aa2b; HEIGHT: 17px; COLOR: #ffffff; VERTICAL-ALIGN: text-bottom; FONT-WEIGHT: bold
+}
+.JeuChange_Clew_R {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ff0000; HEIGHT: 17px; COLOR: #ffffff; VERTICAL-ALIGN: text-bottom; FONT-WEIGHT: bold
+}
+.s_list {
+	BORDER-BOTTOM: #f7f0fb 1px solid; BORDER-LEFT: #f7f0fb 1px solid; BACKGROUND-COLOR: #c19ce1; BORDER-TOP: #f7f0fb 1px solid; BORDER-RIGHT: #f7f0fb 1px solid
+}
+.s_td_0 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff; HEIGHT: 15px; VERTICAL-ALIGN: text-bottom; FONT-WEIGHT: bold
+}
+.s_td_1 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffa2; HEIGHT: 15px; VERTICAL-ALIGN: text-bottom; FONT-WEIGHT: bold
+}
+.Font_R {
+	COLOR: #ff3a4a
+}
+.Font_B {
+	COLOR: #067ece
+}
+.Font_G {
+	COLOR: #37aa2b
+}
+.jeu_tr_c {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #e3e3e3; HEIGHT: 17px; VERTICAL-ALIGN: text-bottom; FONT-WEIGHT: bold
+}
+.jeu_tr {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff; HEIGHT: 17px; VERTICAL-ALIGN: text-bottom
+}
+.f_left {
+	TEXT-ALIGN: left; TEXT-INDENT: 2px
+}
+.f_right {
+	TEXT-ALIGN: right
+}
+.Left_X {
+	TEXT-ALIGN: right
+}
+.Left_Place {
+	POSITION: relative; TOP: -4px; LEFT: -1px
+}
+.but_c1 {
+	PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 1px; BACKGROUND-COLOR: #ece9d8; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; BORDER-TOP-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; HEIGHT: 20px; FONT-SIZE: 12px; BORDER-LEFT-WIDTH: 1px; PADDING-TOP: 2px
+}
+.but_c1M {
+	PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 1px; BACKGROUND-COLOR: #ece9d8; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; BORDER-TOP-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; HEIGHT: 20px; FONT-SIZE: 12px; BORDER-LEFT-WIDTH: 1px; PADDING-TOP: 2px
+}

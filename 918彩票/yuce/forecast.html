@@ -1,0 +1,133 @@
+﻿<div id=forecast>
+	<div id="scroller">
+		<article class="yuceList3" id='c_yc'>
+			<div style='padding: 58px;' id='initLoad'>
+				<em class="rotate_load" style='margin: auto'></em>
+			</div>
+		</article>
+		<div id="pullUp" style="display: none;">
+			<span class="pullUpIcon"></span><span class="pullUpLabel">上拉查看更多...</span>
+		</div>
+	</div>
+</div>
+<script>
+CP.Forecast = (function () {
+	var gid = CP.Util.getPara('in', window.location.href, 2);
+	var g = {
+			total:'1',//总页数
+			cPage:'1',//当前页数
+			name:{'01':'双色球','50':'大乐透','70':'竞彩足球','71':'竞彩篮球','80':'足彩','85':'北京单场','03':'福彩3D','53':'排列三'}
+	};
+	var myScroll;
+	var o = {
+			//页面跳转
+			pageGo: {
+				goBack: function () {
+					TopAnch.init({
+						title:g.name[gid]+'·预测',
+						prevShow:true,
+						prevFun:function(){//左侧按钮绑定事件
+							window.history.back();
+						},
+						isBack:true
+					});
+				}
+			},
+			hot: function () {
+				if(g.cPage<=g.total){
+					var data = {
+							pn : g.cPage,
+							gid : gid
+					};
+					$.ajax({
+						url:CP.Data.news+'/trade/forecast.go?'+jQuery.param(data),
+						type:'POST',
+						DataType:'XML',
+						success: function(xml){
+							if(g.cPage == '1'){
+								$('#c_yc').html('');
+							}
+							var R = $(xml).find('Resp');
+							var c = R.attr('code');
+							var d = R.attr('desc');
+							if (c == '0') {
+								var pagelist = R.find('pagelist');
+								g.total = pagelist.attr('totalpage');
+								var r = R.find('row');
+								var out_ = [];
+								out_.push($('#c_yc').html());
+								r.each(function () {
+									var arcurl = $(this).attr('arcurl');
+									var Q = arcurl.split('/')[5];
+									var local=window.location.href.split("/");
+									out_.push('<a href="http://mobile.9188.com'+arcurl+'?phone=4g&url='+local[0]+"//"+local[1]+local[2]+'/#type=url&p=list/'+CP.Util.lot(gid,'1')+'.html"><cite>'+$(this).attr('ntitle')+'</cite>\
+											<p><span class="left">'+$(this).attr('description').substr(0,20)+'..'+'</span>\
+											<em class="right">'+Q.substr(0,2)+'-'+Q.substr(2,2)+'</em></p></a>');
+								});
+								$('#c_yc').html(out_.join(''));
+								if(g.cPage<g.total){
+									$("#pullUp").show();	
+								}else{
+									$("#pullUp").hide();	
+								}
+								myScroll.refresh();
+							} else {
+								alert(d);
+							}
+						}
+					})
+				}
+			},
+			init : function () {
+				o.hot();
+				o.layOut();
+			},
+			layOut : function(){
+				var w = window.innerHeight;
+				$("#forecast").height(w - 54);//94是下面加载更多的高度
+				window.onresize = function(){	
+					var w = window.innerHeight;
+					$("#forecast").height(w - 54);
+					window.myScroll&&myScroll.refresh&&myScroll.refresh();	
+				};
+				o.loadScroll();
+			},
+			//滚动条
+			loadScroll:function(){
+				var pullUpEl = document.getElementById('pullUp');	
+				var pullUpOffset = pullUpEl.offsetHeight;
+				myScroll = new iScroll('forecast', {
+					onRefresh: function () {
+						if (pullUpEl.className.match('loading')) {
+							pullUpEl.className = '';
+							pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉查看更多';
+						}
+					},
+					onScrollMove: function () {
+						if (this.y < (this.maxScrollY - 20) && !pullUpEl.className.match('flip')) {
+							pullUpEl.className = 'flip';
+							pullUpEl.querySelector('.pullUpLabel').innerHTML = '松开加载数据';
+						} else if (this.y > (this.maxScrollY) && pullUpEl.className.match('flip')) {
+							pullUpEl.className = '';
+							pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉查看更多';
+						}
+					},
+					onScrollEnd: function () {
+						if (pullUpEl.className.match('flip')) {
+							pullUpEl.className = 'loading';
+							pullUpEl.querySelector('.pullUpLabel').innerHTML = '正在加载';				
+							o.hot(++g.cPage);
+						}
+					}
+				});					
+			}
+			
+	};
+	var init = function () {
+		o.pageGo.goBack();
+		o.init();
+	};
+	return{init : init};
+})();
+CP.Forecast.init();
+</script>

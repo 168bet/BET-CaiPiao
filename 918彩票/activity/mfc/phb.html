@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">                                                                                                                                                   
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="msapplication-tap-highlight" content="no">
+<title>中奖排行榜</title>
+<style type="text/css">
+body{ min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+p{ line-height:1.2rem}
+a{ color:#333; text-decoration:none}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}.clearfix{ overflow:hidden; zoom:1}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.left{ float:left}
+.right{ float:right}
+.red{ color:#db150b}
+.clear{ clear:both}
+.graybg{ background:#f7f7f7}
+.tzHeader{ position:relative; padding-bottom:2.2rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#db150b}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+
+.myAccount{ padding:.43rem 0 .43rem .62rem; line-height:1.75rem; border-bottom:1px solid #dfdfdf; margin-top:.56rem; font-size:1rem}
+.myAccount li{ position:relative; float:left; font-size:.94rem; width:49.8%; text-align:center; border-right:1px solid #eaeaea}
+.myAccount li.cur{ color:#db150b}
+.myAccount li.cur:after{ content:""; position:absolute; background-color:#fff; left:45%; bottom:-.8rem; width:.7rem; height:.7rem; border-top:1px solid #dfdfdf; border-right:1px solid #dfdfdf; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+
+.list{ padding:0 .8rem}
+.list ul{ line-height:1.75rem; font-size:.75rem; overflow:hidden; zoom:1}
+.list ul.first{ line-height:2.2rem; color:#777}
+.list ul li{ float:left; width:26%; text-align:center}
+.list ul li.long{ width:36%}
+.list ul li:first-child{ width:19%}
+.list2 ul li{ width:40%}
+.list ul li:last-child{ color:#db150b; width:19%}
+.list2 ul li:last-child{ width:40%}
+.list ul.first li:last-child{ color:#777}
+.list ul li em{ display:block; margin:.45rem auto 0 auto; width:.9rem; line-height:.9rem; text-align:center; background:#db150b; color:#fff; border-radius:.9rem; -webkit-border-radius:.9rem; -moz-border-radius:.9rem}
+</style>
+<body>
+<header class="tzHeader">
+	<section class="fcHeader fixed2">
+		<h1>中奖排行榜</h1>
+		<a href="javascript:history.go(-1);" class="fcbackIco2"></a>
+	</section>
+</header>
+<article>
+	<ul class="myAccount">
+		<li class="cur">上期中奖</li>
+		<li style="border-right:none">累计中奖</li>
+		<div class="clear"></div>
+	</ul>
+  <!-- 上期中奖start -->   
+	<article class="list" style="display:" id="zj">
+   		<ul class="first">
+        	<li>排名</li>
+        	<li class="long">用户名</li>
+        	<li>奖级</li>
+        	<li>分得奖金</li>
+        </ul>
+        <!-- 
+   		<ul class="graybg">
+        	<li><em>1</em></li>
+        	<li>如果</li>
+        	<li>一等奖</li>
+        	<li>2883</li>
+        </ul>
+   		<ul>
+        	<li><em>2</em></li>
+        	<li>如果</li>
+        	<li>二等奖</li>
+        	<li>288</li>
+        </ul>
+   		<ul class="graybg">
+        	<li><em>3</em></li>
+        	<li>如果</li>
+        	<li>三等奖</li>
+        	<li>288</li>
+        </ul>
+   		<ul>
+        	<li>4</li>
+        	<li>如果</li>
+        	<li>&nbsp;</li>
+        	<li>288</li>
+        </ul>
+   		<ul class="graybg">
+        	<li>5</li>
+        	<li>如果</li>
+        	<li>&nbsp;</li>
+        	<li>288</li>
+        </ul>
+         -->
+	</article>
+  <!-- 上期中奖end --> 
+  <!-- 总榜start -->   
+	<article class="list list2" style="display:none" id="zb">
+   		<ul class="first">
+        	<li>排名</li>
+        	<li>用户名</li>
+        	<li>累计金额</li>
+        </ul>
+        <!-- 
+   		<ul class="graybg">
+        	<li><em>1</em></li>
+        	<li>如果</li>
+        	<li>2883</li>
+        </ul>
+   		<ul>
+        	<li><em>2</em></li>
+        	<li>如果</li>
+        	<li>288</li>
+        </ul>
+   		<ul class="graybg">
+        	<li><em>3</em></li>
+        	<li>如果</li>
+        	<li>288</li>
+        </ul>
+   		<ul>
+        	<li>4</li>
+        	<li>如果</li>
+        	<li>288</li>
+        </ul>
+   		<ul class="graybg">
+        	<li>5</li>
+        	<li>如果</li>
+        	<li>288</li>
+        </ul>
+         -->
+	</article>
+  <!-- 总榜end --> 
+</article>
+</body>
+<script src="http://static.9188.com/js/public/lib/jquery-1.5.2.min.js"></script>
+<script src="/activity/mfc/js/phb.js"></script>
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1e1a0d86a7a03a31cc8c75a4e20490f5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 百度统计 -->
+

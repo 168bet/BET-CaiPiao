@@ -1,0 +1,35 @@
+<div class="sidewrap merge-footer">
+    <div class="content" id="user-withdraw">
+        <div class="body-row">
+          <div class="notice"><i class="ico-warning"></i>提现所产生的银行手续费由平台为您免除。提现限额：最低<span id="lowLimit">100.00</span>元，最高<span id="upLimit">500,000.00</span>元</div>
+          <form id="J-form" name="withdraw" method="post">
+	          <ul class="ui-form">
+	            <li class="ui-item">
+	              <label>可用余额：</label>
+	              <span class="boldtext">{{global.user.userMoney | money}} 元</span>
+	            </li>
+	            <li class="ui-item">
+	              <label>可提现额度：</label>
+	              <span class="boldtext">{{data.available | money }}元</span>
+	              <a target="_blank" href="/Index/notice/id/6911" style="display:inline-block;margin-left:16px;text-decoration: underline;color:#f60;">可提现额度计算规则?</a>
+	            </li>
+	            <li class="ui-item">
+	              <label>选择银行卡：</label>
+	              <bank-selector banks="data.bankList" ng-model="formdata.bankId"></bank-selector>
+	            </li>
+                <li class="ui-item">
+                  <label>提款密码：</label>
+                  <input type="password" required class="ip-text w200" ng-model="formdata.withDrawPwd" min="1" value="" id="money" name="pwd" autocomplete="off">
+                     <span class="ui-check" id="ck_money" ng-if="withdraw.pwd.$dirty && withdraw.pwd.$error.required">请输入提款密码</span>
+                </li>
+	            <li class="ui-item">
+	              <label for="name">提现金额：</label>
+	              <input type="number" class="ip-text w200" ng-model="formdata.money" required min="1" id="money" name="changeCount" autocomplete="off">
+	                                        元 <span class="ui-check" id="ck_money" ng-if="withdraw.changeCount.$dirty && withdraw.changeCount.$error.required">请输入取款金额</span>
+	            </li>
+	            <li class="ui-item"><label>&nbsp;</label><a href="javascript:void(0);" submit-dirty="withdraw" ng-click="fun.submitWithdraw(withdraw)" class="btn btn-important" id="J-Submit">申请提现</a></li>
+	          </ul>
+          </form>
+        </div>
+    </div>
+</div>

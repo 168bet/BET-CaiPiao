@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+<head> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>玩法规则</title>
+<style type="text/css">
+body{ min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+p{ line-height:1.2rem}
+a{ color:#333; text-decoration:none}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}.clearfix{ overflow:hidden; zoom:1}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.left{ float:left}
+.right{ float:right}
+.red{ color:#db150b}
+.clear{ clear:both}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.zcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#0b7e07}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.kctab{ padding: 0 15%; background: #f0f0f0; line-height: 2.2rem; border-bottom: 1px solid #cac9ca;}
+.kctab span{ position: relative; display: inline-block; width: 49%; color: #969696; font-size: .94rem; text-align: center;}
+.kctab span.cur{ color: #0b7e07;}
+.kctab span.cur:after{ position: absolute; content: ""; width: 30%; bottom: .2rem; left: 35.5%; height: .12rem; background: #0b7e07; overflow: hidden;}
+
+.text{ padding:0 .6rem}
+.text dl{ padding:.9rem .3rem; border-bottom:1px solid #ebebeb; font-size:.8rem; line-height:1.2rem}
+.text dl em{ float:left; margin-right:.3rem; width:1.2rem; line-height:1.2rem; text-align:center; color:#c5c5c5; font-family:"黑体"; -webkit-border-radius:1.2rem; -webkit-box-shadow:0 0 0 .1rem #c5c5c5 inset}
+.text dl dt{ color:#777}
+.text dl dd{ margin-top:.8rem; overflow:hidden; zoom:1}
+.text dl p,.right{ float:left; line-height: 1.4rem; width:91%}
+.text ul{ border-top: 1px solid #dfdfdf; border-right: 1px solid #dfdfdf; font-size: .75rem; margin-bottom: .3rem;}
+.text ul li{ border-bottom: 1px solid #dfdfdf; overflow: hidden; zoom:1}
+.text ul li:first-child{ background: #f7f7f7;}
+.text ul li:first-child span{ line-height: 2.2rem;}
+.text ul li:first-child span:last-child{ line-height: 1.1rem;}
+.text ul li span{ float: left; width: 27.5%; height: 2rem; padding: .5rem 0; line-height: 1.1rem; box-shadow: 1px 0 0 #dfdfdf inset; text-align: center;}
+.text ul li span:first-child{ width: 17.5%;}
+.text ul.two li span{ width: 65%; padding: 0; line-height: 2.2rem;}
+.text ul.two li span:first-child{ width: 35%;}
+.text ul.two li:first-child span:last-child{ line-height: 2.2rem;}
+.text ul.three li span{ width: 71%; padding: .5rem 1%; height: 3rem;}
+.text ul.three li span:first-child{ width: 25%;}
+.text ul.four li span{ width: 52%; padding: .5rem 1%; height: 3rem;}
+.text ul.four li span:first-child,.text ul.four li span:last-child{ width: 21%;}
+.text ul.five li span{ height: 4rem;}
+.text ul.five li:last-child span{ height: 6rem;}
+.text ul.three li:first-child span,.text ul.four li:first-child span{ height: 1rem; line-height: 1rem;}
+.text ul.six li span{ width: 42.5%; line-height: 1rem; height: 1rem;}
+.text ul.six li:first-child span,.text ul.six li.mid span{ height: 1.8rem;}
+.text ul.six li span:first-child{ width: 15%;}
+.text ul.six li.mid2 span{ height: 4.6rem;}
+.text ul.six li.mid3 span{ height: 3.8rem;}
+.pdtop05{ padding-top: .5rem;}
+
+</style>
+<body>
+<header class="tzHeader">
+	<section class="zcHeader fixed2">
+		<h1>玩法规则</h1>
+		<a href="javascript:history.go(-1);" class="fcbackIco2"></a>
+	</section>
+</header>
+<nav class="kctab">
+	<span>篮球</span>
+	<span class="cur">足球</span>
+</nav>
+<!-- 篮球 start -->
+<article class="text" style="display:none">
+	<dl>
+    	<dt><em>Q</em>什么是边看边猜？</dt>
+        <dd><em>A</em><p>边看边猜是9188自主研发的一款赛事即时竞猜类游戏。用户可以在看球赛的同时，使用金豆来竞猜比赛胜负。<br>
+竞猜赢取金豆冲榜，将有机会赢得奖券，兑换手机、话费、红包等奖品！天天玩天天有！更多丰厚奖品等你来拿哟！</p></dd>
+    </dl>
+	<dl>
+    	<dt><em>Q</em>竞猜截止时间？</dt>
+        <dd><em>A</em><div class="right">
+        				<ul>
+        					<li><span>玩法</span><span>全场</span><span>第1-3节</span><span>第4节<br>（含加时）</span></li>
+        					<li><span>总分<br>大小</span><span>全场结束<br>前6分钟</span><span>当节结束<br>前4分钟</span><span>当节结束<br>前6分钟</span></li>
+        					<li><span>让分<br>胜负</span><span>全场结束<br>前4分钟</span><span>当节结束<br>前4分钟</span><span>当节结束<br>前4分钟</span></li>
+        					<li><span>总分<br>奇偶</span><span>全场结束<br>前4分钟</span><span>当节结束<br>前4分钟</span><span>当节结束<br>前4分钟</span></li>
+        				</ul>
+        				<cite>注：如第三节投注截止后某队领先20分以上，全场和第4节（含加时）让分胜负玩法提前截止。</cite>
+					  </div></dd>
+    </dl>
+    <dl>
+    	<dt><em>Q</em>竞猜后多长时间返还金豆？</dt>
+        <dd><em>A</em><div class="right">
+        				<ul class="two">
+        					<li><span>玩法</span><span>派奖时间</span></li>
+        					<li><span>单节竞猜</span><span>当节结束后2分钟内</span></li>
+        					<li><span>全场竞猜</span><span>全场结束后2分钟内</span></li>
+        				</ul>
+        				<cite>注：某些特殊情况下现场比分确认会慢几分钟，此时派奖时间也会相应延迟，基本是在赛后10分钟以内。</cite>
+					  </div></dd>
+    </dl>
+    <dl>
+    	<dt><em>Q</em>赢取金豆有什么好处？</dt>
+        <dd><em>A</em><div class="right">
+        				<ul class="three">
+        					<li><span>金豆用处</span><span>详细描述</span></li>
+        					<li><span>冲榜赢奖券</span><span>奖券可用于兑换奖品，每日的日排行榜/每周的周排行榜/每月的月排行榜排名前列用户均会奖励奖券，详见榜单。</span></li>
+        					<li><span>兑换奖品</span><span>竞猜冲榜赢得的奖券可用于兑换奖品，话费、红包等奖品任你兑换！（奖品种类将会不定期更新）</span></li>
+        				</ul>
+        				<cite>注：金豆排行日榜按当日已结算的竞猜方案来统计，奖励以当日所有比赛已结束之后的金豆盈利排名为准。月榜同日榜。</cite>
+					  </div></dd>
+    </dl>
+        <dl>
+    	<dt><em>Q</em>排行榜如何统计和派奖？</dt>
+        <dd><em>A</em><p>1、日榜统计当日00:00:00—23:59:59之间开始的比赛所属的投注方案盈利；<br>
+        2、周排行统计本周周一00:00:00~本周周日23:59:59之间开始的比赛所属投注方案盈利；<br>       
+3、月榜单统计当月1日00:00:00—当月最后1天23:59:59之间开始的比赛所属投注方案盈利。<br>
+4、日排行派奖时间：当天最后一场比赛在22:00前结束的，日排行奖励在当天22:30前派发；当天最后一场比赛在22:00后结束的，日排行奖励在第二天9:30左右派发；日排行最早派奖时间为当天早上9:30；<br>
+5、周排行派奖时间：每周一派发上周的周排行奖励。
+6、月排行派奖时间：每月1号派发上个月的月排行奖励。
+</p></dd>
+    </dl>
+	<dl>
+    	<dt><em>Q</em>如何获得金豆？</dt>
+        <dd><em>A</em><div class="right">
+        				<ul class="four five">
+        					<li><span>金豆用处</span><span>详细描述</span><span>到账时间</span></li>
+        					<li><span>每日签到免费领</span><span>每日签到即可免费领取<cite class="red">100</cite>金豆，连续3日签到可多领<cite class="red">300</cite>金豆，连续7日签到可多领<cite class="red">500</cite>。</span><span>签到后即时到账</span></li>
+        					<li><span>中奖赢金豆</span><span>金豆竞猜中奖后，会按照相应的赔率返还金豆，返还率高达180%！</span><span>开奖后2分钟内</span></li>
+        					<li><span>多次中奖加送金豆</span><span>当日中奖次数达到3次送<cite class="red">300</cite>金豆，达到10次再送<cite class="red">500</cite>金豆，以上两种赠送均限1次/天。</span><span>当日排行榜派奖后</span></li>
+        					<li><span>金豆奖励</span><span>当日赛事累计投入金豆达到1万返<cite class="red">100</cite>金豆，达5万返<cite class="red">500</cite>，达10万返<cite class="red">1000</cite>，达50万返<cite class="red">5000</cite>，达100万及以上返<cite class="red">1%</cite>，以上奖励不能重复享受。</span><span>当日排行榜派奖后</span></li>      				
+        				</ul>
+        				<cite>注：“多次中奖加送金豆“ 和 ”金豆奖励“规则自2015年5月8日00:00:00试行。“连续签到送金豆”规则自2015年5月11日18:00:00试行。</cite>
+					  </div></dd>
+    </dl>
+    <dl>
+    	<dt><em>Q</em>无效竞猜</dt>
+        <dd><em>A</em><p>当竞猜时间晚于所竞猜题目的竞猜截止时间或者通过作弊方式参与的竞猜，无论正确错误，一律为无效竞猜，将做撤单返还用户竞猜的金豆处理。对于通过作弊参与竞猜的用户，将查封作弊账号。<br />
+在法律许可范围内，本网站对边看边猜保留最终解释权，如有疑问请致电咨询客服400-673-9188。</p></dd>
+    </dl>
+</article>
+<!-- 篮球 end -->
+<!-- 足球 start -->
+<article class="text">
+	<dl>
+    	<dt><em>Q</em>什么是边看边猜？</dt>
+        <dd><em>A</em><p>边看边猜是9188自主研发的一款赛事即时竞猜类游戏。用户可以在看球赛的同时，使用金豆来竞猜比赛胜负。<br>
+竞猜赢取金豆冲榜，将有机会赢得奖券，兑换手机、话费、红包等奖品！天天玩天天有！更多丰厚奖品等你来拿哟！</p></dd>
+    </dl>
+    <dl>
+    	<dt><em>Q</em>边看边猜-怎么玩？</dt>
+        <dd><em>A</em><p>猜对的按投注时的赔率赢得金豆，猜错的输掉本金，不对不错的退还本金。详细算奖规则<br/>注：竞猜结果只算90分钟（含补时），不含加时及点球大战。</p></dd>
+
+    </dl>
+	<dl>
+    	<dt><em>Q</em>竞猜截止时间？</dt>
+        <dd><em>A</em><p>1.比赛开始后，足球竞猜方案提交后有120秒的审核时间，审核通过后才算竞猜成功；未审核通过的竞猜方案为“无效竞猜”，提交竞猜后两分钟内如有进球发生则审核不通过，将返还全部金豆；<br>
+2、比赛开始前，如让球值>1.5球（如“让1.5/2球”、“让2球”……）或者大小球>3.5（如“3.5/4球”、“4球”……），则相关玩法自动停售，待赛前盘口降低后再开售。<br>
+3、比赛进行中，如某队净胜球>=3，则该场比赛暂停竞猜，待净胜球降到3球以下时再重新开售；当比赛中出现红牌的情况，将自动停售； <br>
+4、竞猜截止时间为比赛第80分钟左右，具体时间以竞猜页面为准； <br>
+5、比赛延期、改期、中断或取消，该场比赛自动停售。
+</p>
+</dd>
+    </dl>
+    <dl>
+    	<dt><em>Q</em>金豆派奖时间？</dt>
+        <dd><em>A</em><p>1、让球和大小球均在比赛结束后3分钟内派奖；<br>
+2、若某场比赛中断，在中断后两个小时内继续比赛的，按照正常结果派奖，超过两个小时的，做撤单处理；<br>
+3、若某场比赛待定，在原定开赛时间后两个小时内继续比赛的，按照正常结果派奖，超过两个小时的，做撤单处理；<br>
+4、比赛结束并派奖后，如发生进球取消或比赛延期的情况，已派奖的金豆不扣回。
+</p></dd>
+    </dl>
+    <dl>
+    	<dt><em>Q</em>赢取金豆有什么好处？</dt>
+        <dd><em>A</em><div class="right">
+        				<ul class="three">
+        					<li><span>金豆用处</span><span>详细描述</span></li>
+        					<li><span>冲榜赢奖券</span><span>奖券可用于兑换奖品，每日的日排行榜/每周的周排行榜/每月的月排行榜排名前列用户均会奖励奖券，详见榜单。</span></li>
+        					<li><span>兑换奖品</span><span>竞猜冲榜赢得的奖券可用于兑换奖品，话费、红包等奖品任你兑换！（奖品种类将会不定期更新）</span></li>
+        				</ul>
+					  </div></dd>
+    </dl>
+    <dl>
+    	<dt><em>Q</em>排行榜如何统计和派奖？</dt>
+        <dd><em>A</em><p>1、日榜统计当日00:00:00—23:59:59之间开始的比赛所属的投注方案盈利；<br>
+        2、周排行统计本周周一00:00:00~本周周日23:59:59之间开始的比赛所属投注方案盈利；<br>       
+3、月榜单统计当月1日00:00:00—当月最后1天23:59:59之间开始的比赛所属投注方案盈利。<br>
+4、日排行派奖时间：当天最后一场比赛在22:00前结束的，日排行奖励在当天22:30前派发；当天最后一场比赛在22:00后结束的，日排行奖励在第二天9:30左右派发；日排行最早派奖时间为当天早上9:30；<br>
+5、周排行派奖时间：每周一派发上周的周排行奖励。
+6、月排行派奖时间：每月1号派发上个月的月排行奖励。
+</p></dd>
+    </dl>
+	<dl>
+    	<dt><em>Q</em>如何获得金豆？</dt>
+        <dd><em>A</em><div class="right">
+        				<ul class="four five">
+        					<li><span>金豆用处</span><span>详细描述</span><span>到账时间</span></li>
+        					<li><span>每日签到免费领</span><span>每日签到即可免费领取<cite class="red">100</cite>金豆，连续3日签到可多领<cite class="red">300</cite>金豆，连续7日签到可多领<cite class="red">500</cite>金豆。</span><span>签到后即时到账</span></li>
+        					<li><span>中奖赢金豆</span><span>金豆竞猜中奖后，会按照相应的赔率返还金豆，返还率高达180%！</span><span>开奖后2分钟内</span></li>
+        					<li><span>多次中奖加送金豆</span><span>当日中奖次数达到3次送<cite class="red">300</cite>金豆，达到10次再送<cite class="red">500</cite>金豆，以上两种赠送均限1次/天。</span><span>当日排行榜派奖后</span></li>
+        					<li><span>金豆奖励</span><span>当日赛事累计投入金豆达到1万返<cite class="red">100</cite>金豆，达5万返<cite class="red">500</cite>，达10万返<cite class="red">1000</cite>，达50万返<cite class="red">5000</cite>，达100万及以上返<cite class="red">1%</cite>，以上奖励不能重复享受。</span><span>当日排行榜派奖后</span></li>      				
+        				</ul>
+					  </div></dd>
+    </dl>
+    <dl>
+    	<dt><em>Q</em>无效竞猜</dt>
+        <dd><em>A</em><p>当竞猜时间晚于所竞猜题目的竞猜截止时间或者通过作弊方式参与的竞猜，无论正确错误，一律为无效竞猜，将做撤单返还用户竞猜的金豆处理。对于通过作弊参与竞猜的用户，将查封作弊账号。<br>
+在法律许可范围内，本网站对边看边猜保留最终解释权，如有疑问请致电咨询客服400-673-9188。</p></dd>
+    </dl>
+    <dl>
+    	<dt><em>Q</em>温馨提示：</dt>
+        <dd><em>A</em><div class="right">
+        	<div>1、您的金豆既可以竞猜篮球，也可以竞猜足球；<br>
+2、篮球排行榜和足球排行榜的奖励分开派送，也就是说如果您足球篮球都玩得好，两边的奖励都可以拿！</div>
+        	<strong style=" display:block; padding: .5rem 0; color: red;">附：足球竞猜奖励说明</strong>
+        	<div>让球胜负玩法，以下全部假设买胜100金豆（赔率1.80），买负100金豆（赔率1.80）</div>
+        	<div class="pdtop05">1、假设当前主队让N球（N为整数，下同），以N=1举例，比赛结束后：</div>
+        	<ul class="six">
+        					<li><span>净胜球</span><span>买主(让1球)胜100金豆，赔率1.80</span><span>买主(让1球)负100金豆，赔率1.80</span></li>
+        					<li><span>&gt;1</span><span>返还180(100*1.80)</span><span>输掉100</span></li>
+        					<li class="mid"><span>=1</span><span>返还100(100*1.00，不输不赢)</span><span>返还100(100*1.00，不输不赢)</span></li>
+        					<li><span>&lt;1</span><span>输掉100</span><span>返还180(100*1.80)</span></li>
+        	</ul>
+        	<div class="pdtop05">2、假设当前主队让（N+0.5），以N=1举例，比赛结束后：</div>
+        	<ul class="six">
+        					<li><span>净胜球</span><span>买主(让1.5球)胜100金豆，赔率1.80</span><span>买主(让1.5球)负100金豆，赔率1.80</span></li>
+        					<li><span>&gt;1.5</span><span>返还180(100*1.80)</span><span>输掉100</span></li>
+        					<li><span>&lt;1.5</span><span>输掉100</span><span>返还180(100*1.80)</span></li>
+        	</ul>
+        	<div class="pdtop05">3、假设当前主队让N+0.5/N+1球，以N=0举例，比赛结束后：</div>
+        	<ul class="six">
+        					<li><span>净胜球</span><span>买主(让0.5/1球)胜100金豆，赔率1.80</span><span>买主(让0.5/1球)负100金豆，赔率1.80</span></li>
+        					<li><span>&gt;1</span><span>返还180(100*1.80)</span><span>输掉100</span></li>
+        					<li class="mid2"><span>=1</span><span>返还140(买让0.5球的50返90=50*1.80，买让1球的50返本金50)，即一半赢。</span><span>返还50(买让0.5球的50输掉，买让1球的50返本金50=50*1.00)，即一半输。</span></li>
+        					<li><span>&lt;1</span><span>输掉100</span><span>返还180(100*1.80)</span></li>
+        	</ul>
+        	<cite>注：买主队让0.5/1球胜共100金豆，即买主队让0.5球胜和让1球胜各50金豆。买主让负同理。</cite>
+        	<div class="pdtop05">4、假设当前主队让N/N+0.5球，以N=1举例：（即让1/1.5球）</div>
+        	<ul class="six">
+        					<li><span>净胜球</span><span>买主(让1球)胜100金豆，赔率1.80</span><span>买主(让1球)负100金豆，赔率1.80</span></li>
+        					<li><span>&gt;1</span><span>返还180(100*1.80)</span><span>输掉100</span></li>
+        					<li class="mid3"><span>=1</span><span>返还140(买让1球的50返还本金，买让1.5球的50返90=50*1.80)</span><span>返还140(买让1球的50返还本金，买让1.5球的50返90=50*1.80)</span></li>
+        					<li><span>&lt;1</span><span>输掉100</span><span>返还180(100*1.80)</span></li>
+        	</ul>
+        	<cite>注：买主队让1/1.5球胜共100金豆，即买主队让1球胜和让1.5球胜各50金豆。买主让负同理。</cite>
+        	<div style="padding-top: 1.5rem;">大小球玩法，以下全部假设买大球100金豆（赔率1.80），买小球100金豆（赔率1.80）</div>
+        	<div class="pdtop05">1、假设当前总进球值为N球（N为整数，下同），以N=1举例，上半场/全场结束后：</div>
+        	<ul class="six">
+        					<li><span>总进球</span><span>买大球(1球)100金豆，赔率1.80</span><span>买小球(1球)100金豆，赔率1.80</span></li>
+        					<li><span>&gt;1</span><span>返还180(100*1.80)</span><span>输掉100</span></li>
+        					<li class="mid"><span>=1</span><span>返还100(100*1.00，不输不赢)</span><span>返还100(100*1.00，不输不赢)</span></li>
+        					<li><span>&lt;1</span><span>输掉100</span><span>返还180(100*1.80)</span></li>
+        	</ul>
+        	<div class="pdtop05">2、假设当前总进球值为（N+0.5）球，以N=1举例，上半场/全场结束后：</div>
+        	<ul class="six">
+        					<li><span>总进球</span><span>买大球(1.5球)100金豆，赔率1.80</span><span>买小球(1.5球)100金豆，赔率1.80</span></li>
+        					<li><span>&gt;1.5</span><span>返还180(100*1.80)</span><span>输掉100</span></li>
+        					<li><span>&lt;1.5</span><span>输掉100</span><span>返还180(100*1.80)</span></li>
+        	</ul>
+        	<div class="pdtop05">3、假设当前总进球值为N+0.5/N+1球，以N=0举例，上半场/全场结束后：</div>
+        	<ul class="six">
+        					<li><span>总进球</span><span>买大球(0.5/1球)100金豆，赔率1.80</span><span>买小球(0.5/1球)100金豆，赔率1.80</span></li>
+        					<li><span>&gt;1</span><span>返还180(100*1.80)</span><span>输掉100</span></li>
+        					<li class="mid3"><span>=1</span><span>返还140(买大0.5球的50返90=50*1.80，买大1球的50返本金50)</span><span>返还50(买小0.5球的50输掉，买小1球的50返本金50)</span></li>
+        					<li><span>&lt;1</span><span>输掉100</span><span>返还180(100*1.80)</span></li>
+        	</ul>
+        	<cite>注：买大球(0.5/1球)共100金豆，即买大球(0.5球)和大球(1球)各50金豆。小球同理。</cite>
+        	<div class="pdtop05">4、假设当前主队让N/N+0.5球，以N=1举例：（即让1/1.5球）</div>
+        	<ul class="six">
+        					<li><span>总进球</span><span>买大球(1/1.5球)100金豆，赔率1.80</span><span>买小球(1/1.5球)100金豆，赔率1.80</span></li>
+        					<li><span>&gt;1</span><span>返还180(100*1.80)</span><span>输掉100</span></li>
+        					<li class="mid3"><span>=1</span><span>返还50(买大1球的50返本金，买大1.5球的50输掉)</span><span>返还140(买小1球的50返还本金，买小1.5球的50返90=50*1.80)</span></li>
+        					<li><span>&lt;1</span><span>输掉100</span><span>返还180(100*1.80)</span></li>
+        	</ul>
+        	<cite>注：买大球(1/1.5球)共100金豆，即买大球(1球)和大球(1.5球)各50金豆。小球同理。</cite>
+        </div></dd>
+    </dl>
+</article>
+<!-- 足球 end -->
+</body>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		var arg = localStorage.getItem("from");
+		var remove_header=function(){
+			
+			if(arg){
+				$(".tzHeader").hide();
+			}else{
+				$(".tzHeader").show();
+			}
+		}
+		
+		var bindEvent = function(){
+			$(".kctab span").bind("click",function(){
+				$(this).addClass("cur").siblings().removeClass("cur");
+				var index = $(this).index();
+				
+				$("article.text:eq('"+index+"')").show()
+				$("article.text:eq('"+index+"')").siblings("article").hide();
+				
+			})
+		}
+		
+		var init = function(){
+			bindEvent();
+			remove_header()
+		}
+		init();
+	})
+</script>

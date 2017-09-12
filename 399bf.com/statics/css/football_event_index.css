@@ -1,0 +1,21 @@
+.tab-square li{
+    height: 35px;
+    line-height: 25px;
+    float: left;
+    text-align: center;
+    padding: 5px;
+    width: 80px;
+}
+.tab-square .active{
+    border-radius: 5px 5px 0 0;
+    background-color: #3fa228;
+}
+.tab-square .active a{
+    color: #FFFFFF;
+}
+.noborder{
+    border: none;
+}
+.stripe tr:nth-child(2n){
+    background-color: #f2f2f2;
+}

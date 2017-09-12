@@ -1,0 +1,64 @@
+<div class="user-proxy-customer-wrap">
+	<ul class="ui-search search-porxy tab-title-bg clearfix">
+		<li class="ui-item name"><label for="name">用户名：</label> <input
+			type="text" name="username" ng-model="filter.userName" id="username" value="" class="ip-text"
+			maxlength="16" style="width:108px;"></li>
+		<li class="ui-item funds" id="J-money-bound"><label for="funds">余额：</label>
+			<input type="text" ng-model="filter.fromMoney" name="moneyFrom" value="" id="funds"
+			class="ip-text" maxlength="20" style="width:96px;"> 至 <input
+			name="moneyTo" ng-model="filter.toMoney" id="funds2" type="text" value="" class="ip-text"
+			maxlength="20" style="width:96px;"></li>
+		<li class="ui-item time"><label>登录时间：</label> <select
+			id="lastLogin" ng-model="filter.days" name="lastLogin" class="ui-select" style="width:88px;">
+				<option value="" selected="selected">默认</option>
+				<option value="7">七天内</option>
+				<option value="30">一个月内</option>
+				<option value="90">三个月内</option>
+				<option value="180">六个月内</option>
+		</select></li>
+		<li class="ui-item"><a class="btn btn-important"
+			href="javascript:void(0);" ng-click="fun.loadMembers()" id="J-submitBtn">搜 索</a>
+		</li>
+	</ul>
+	<div class="ui-tab">
+		<div class="ui-tab-title tab-title-bg clearfix">
+			<ul id="custtype">
+				<li class="current" id="proxytype">我的下级(2)</li>
+			</ul>
+		</div>
+
+		<div class="ui-tab-content-current" id="proxy-cust_body">
+			<table class="table table-info table-group">
+				<thead>
+					<tr>
+						<th>用户名</th>
+						<th>客户类型</th>
+						<th class="table-toggle" id="J-moneySort" pro-sort="0">余额 <i
+							class="ico-down"></i></th>
+						<th class="table-toggle" id="J-loginSort" pro-sort="0">最后登录 <i
+							class="ico-down"></i></th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="proxycust">
+					<tr ng-repeat="member in data.members">
+						<td>{{member['userName']}}</td>
+						<td>{{member['userType']}}</td>
+						<td>{{member['userMoney']}}</td>
+						<td>{{member['userLastLoginTime']}}</td>
+						<td class="table-tool">
+							<a target="_blank" ui-sref="user.historder({user: member['userName']})" title="投注记录" class="ico-note"></a>
+							<a target="_blank" ui-sref="user.accountdetail({user: member['userName']})" title="账户明细" class="ico-info"></a>
+							<a href="javascript:;" title="修改返点" ng-click="fun.openUpdateProfitDialog(member)" class="ico-change"></a>
+							<a href="javascript:;" title="修改开户额" class="ico-point_num"></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<!--选择第几页  -->
+        <full-pager page-conf="pageConf" />
+		
+	</div>
+</div>

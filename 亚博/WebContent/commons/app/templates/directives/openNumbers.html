@@ -1,0 +1,18 @@
+<span ng-if="data.game == 'BJKL8' || data.game == 'CAKENO' ">
+    <ball number="number" type="pcegg" ng-repeat="number in data.numbers track by $index"></ball>
+</span>
+<span ng-if="data.game == 'FC3D'">
+    <span class="fcTopCircle" style="background: #007131;margin-right: 10px" ng-repeat="result in data.numbers track by $index">{{result}}</span>
+</span>
+
+<span ng-if="data.game == 'CQSSC' || data.game == 'TJSSC' || data.game == 'XJSSC' || data.game == 'PL3' || data.game == 'GDKLSF' || data.game == 'TJKLSF' " >
+    <ball class="order-detail-ball ball-ssc" number="number" ng-repeat="number in data.numbers track by $index" ></ball>
+</span>
+
+<span ng-if="data.game == 'HK6'" >
+    <ball number="number" class="order-detail-ball" ng-repeat="number in data.numbers track by $index" ></ball>
+</span>
+
+<span ng-if="data.game == 'BJPK10'" >
+    <ball number="number" class="order-detail-ball" type="kk" ng-repeat="number in data.numbers track by $index" ></ball>
+</span>

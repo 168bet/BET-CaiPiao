@@ -1,0 +1,147 @@
+﻿/*开奖头部*/
+.hmzxHeader, .hmzxHeader2 {padding-bottom: 2.6rem;position: relative;z-index: 1;}
+.tzHeader h1.hmTit:after {border-color: transparent transparent transparent #fff;border-style: solid;border-width: 0.5rem;content: "";position: absolute;
+ top: 2.1rem;transform: rotate(90deg);-webkit-transform:rotate(90deg); -moz-transform:rotate(90deg)}
+.tzHeader h1:after {border-color: transparent transparent transparent #fff;border-style: solid;border-width: 0.5rem;content: ""; margin-left:0.8rem;
+ position: absolute;top: 1.6rem; transform: rotate(45deg);}
+.tzPull {background: none repeat scroll 0 0 #fff;border-left: 1px solid #d5d5d5;margin-left: 1px;position: absolute;top: 2.68rem;width: 100%;z-index: 999; float:left;}
+.tzPull a.cur:before, .competitions span.cur:before {border: 1px solid #f6851f;content: "";height: 2rem;left: -1px;position: absolute;top: -1px;width: 100%;}
+.tzPull a.cur:after, .competitions span.cur:after {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHlSURBVGhD1dm9TsMwEADgvAkDExsbL8Az8AjwBjwAEmJgqNSNGVaYYGJAQgxMLAztghADCxJIDG0gpDkcK4nin+Rsx+e4lipVqmp9vp7vqkuSrMECgP2/hyksjzf4K3oyB99PZjU4erQOHDW6Cxwtug8cJRoDR4c2AUeFNgVHg7YBR4G2BY+OdgGPinYFj4YeAh4FPRQcHO0DHBTtCxwM7RMcBO0bTI6mAJOiqcBkaEowCZoa7B0dAuwVTQFOT7dg9XIHP2e7zfjAG5oM/PbItgYoFp8CfPDcgwK8PNnkEW6vFTuAl2FNKHDx9QrpdGc4ug+cTraFHGxPh3rfswjnsxshwsX3uwB2zuk+cHZ9qOSgEboEP18pYPkSOqExMBS59vJg8PzpQgRLl895loflsGmk5APYgK0ijYE5xDAn2+hyhCusbKHUZfmQRiXPCFzNjnXlSr79NUILPt9DLzGKtgL3wT/m0K4qrmA0PZzAFZy34Kqj1T9/UcGz2yM1JQwijDaXIeB6cy2c1V2xTOTwe3mApgRaPXyA2/AywtrFyqMtWJsePsENnHVIBe4IVtAU4C542TmxhtP1eVM9KMENnP3pKS/nEHAT6RBg16jqvpesG5hHWn6w6DMiVHslVBtT7ruW6H9W8ppOm5u6EQAAAABJRU5ErkJggg==") repeat scroll 0 0 / 1.4rem 1.4rem rgba(0, 0, 0, 0);bottom: -1px;content: "";height: 1.4rem;position: absolute;right: -1px;width: 1.4rem;}
+.tzPull a, .competitions span {border-bottom: 1px solid #d5d5d5;border-right: 1px solid #d5d5d5;float: left;font-size: 0.8rem;line-height: 2rem;position: relative;text-align: center;text-decoration: none;width: 33%;}
+.hmzxHeader1{padding-bottom: 2.5rem;position: relative;z-index: 1;}
+.fixed2 {left: 0;position: fixed;top: 0;width: 100%;z-index: 9;}
+.hmHeader, .kjHeader { background: #CD0508;color:#fff;border-bottom: 1px solid #d5d5d5;height: 2.6rem;line-height: 2.6rem;width: 100%;text-indent: 0.6rem;}
+.buyHeader h1, .hmHeader h1,
+.kjHeader h1, .fcHeader h1,
+.pkHeader h1,
+.zcHeader h1 {font-weight:100;color: #fff;font-size: 1.1rem;margin: 0 auto;
+text-align: center;text-align:left;text-indent:0.6rem;height: 2.6rem;line-height: 2.6rem}
+a.back{color:#fff;text-align:left;float:left;font-family: serif;font-size:2rem;}
+.backIco, .backIco2 {border-bottom: 0.2rem solid #f6851f;border-left: 0.2rem solid #f6851f;display: inline-block;height: 0.65rem;margin-right: 0.01rem;transform: rotate(-315deg);width: 0.7rem;}
+.backLink, .backIco2 {color: #f6851f; font-size: 0.91rem;left: 1.1rem; position: absolute; top: 0.9rem;}
+.backIco2 { background: none repeat scroll 0 0 #f8f9f9; border-bottom: 0.2rem solid #f6851f; border-left: 0.2rem solid #f6851f;color: #f6851f; display: inline-block;font-size: 0.91rem; height: 0.65rem;left: 1.1rem;margin-right: 0.01rem;  position: absolute; top: 0.9rem;transform: rotate(-315deg);width: 0.7rem;}
+.pullDown {height: 1.4375rem;position: absolute;right: 0.5rem;top: 0.6rem;width: 1.5rem;}
+.pullIco {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACnSURBVGhD7ZlBCoAgEEVn0T3spq2iG9fSmK2UE8wnC57gxmDU8fGdb2Y0MqDLwL6WqujHVuZ2VT6miO0xbnesmoANBCRwAhFqIARCSTkFIRACIUqJbk3GTcxNnBQJEPosQl4CKHpdbGqP2ccUsa/KFJ0nJRIZIANjMxDJ49PvGBoMTbJWASEQAiE8MZ449acGGUVGkVFkFBn9p4yq3m14FxrrrN+d/QTn1Ce745k+1QAAAABJRU5ErkJggg==") no-repeat scroll center center / 1.5rem 1.5rem rgba(0, 0, 0, 0);display: block; height: 1.5rem;width: 1.5rem;}
+ i, o, cite, em {font-style: normal;}
+.pullText {background: none repeat scroll 0 0 #fff;border: 1px solid #b6b6b6;position: absolute;right: 0rem;top: 1.7rem;width: 7rem;}
+.pullText a {border-bottom: 1px solid #cacaca;display: block;font-size: 0.93rem;line-height: 2.45rem;text-align: center;}
+ a {color: #333;text-decoration: none;}
+/*开奖列表*/
+.all a {border-bottom: 1px solid #ebebeb;display: block;position: relative;}
+a {color: #333;text-decoration: none;}
+.kjTit { margin-bottom: 0.2rem;}
+.clearfix {overflow: hidden;}
+.kjTit h2 {float: left;font-size: 1rem;font-weight: normal;}
+.kjTit span {color: #a4a4a4;float: left;font-size: 0.9rem;margin: 0.2rem 0 0 0.8rem;}
+.kjBall cite {background: none repeat scroll 0 0 #f03d3d;border-radius: 1.2rem;color: #fff;display: inline-block;font-size: 0.8rem;line-height: 1.2rem;margin: 0.1rem 0.1rem 0 0;text-align: center;width: 1.2rem;}
+.kjBall cite.blueBall {background: none repeat scroll 0 0 #177ffc;}
+.rightArrow, .hmArrow {background: none repeat scroll 0 0 #fff;border-bottom: 0.16rem solid #ccc;border-right: 0.16rem solid #ccc;height: 0.45rem;position: absolute;right: 1rem;top: 2rem; -moz-transform:rotate(-45deg);-webkit-transform:rotate(-45deg);width: 0.45rem;}
+.rightArrow1{background: none repeat scroll 0 0 #F2F2F2;border-bottom: 0.16rem solid #ccc;border-right: 0.16rem solid #ccc;height: 0.45rem;position: absolute;right: 1rem;top: 0.8rem; -moz-transform:rotate(45deg);-webkit-transform:rotate(45deg);width: 0.45rem;}
+.rightArrow2{background: none repeat scroll 0 0 #F2F2F2;border-bottom: 0.16rem solid #ccc;border-right: 0.16rem solid #ccc;height: 0.45rem;position: absolute;right: 1rem;top: 0.8rem; -moz-transform:rotate(-135deg);-webkit-transform:rotate(-135deg);width: 0.45rem;}
+i, o, cite, em {font-style: normal;}
+.kjBox cite, .kjBox b {border: 1px solid #e3e3e3;border-radius: 0.2rem;color: #f03d3d;display: inline-block;font-size: 0.92rem;
+line-height: 1.3rem;margin: 0.4rem -0.1rem 0 0;text-align: center; width: 1rem;margin-left:0.3rem;}
+.kjDz em { color: #8e8e8e;display: inline-block;font-size: 0.9rem;margin: 0.7rem 0.4rem 0 0;}
+/*数字彩/
+/*数字彩历史开奖*/
+.buyTab {background: none repeat scroll 0 0 #f8f8f8;border-bottom: 1px solid #d9d9d9;display: -moz-box;line-height: 2.1rem;width: 100%;}
+.clearfix {overflow: hidden;}
+.buyTab li {-moz-box-flex: 1;text-align: center; width:50%;}
+ ol, ul, li, input {list-style: outside none none;}
+.buyTab li.cur h3, .buyTab li.cur a {border-bottom: 0.12rem solid #f6851f;color: #f6851f;display: block;}
+.buyTab li h3, .buyTab li a {color: #a9a9a9;display: block;font-size: 0.97rem;font-weight: normal;margin: 0 auto;}
+.all a {border-bottom: 1px solid #ebebeb;display: block;position: relative;overflow: hidden;padding: 0.5rem 0.9rem;}
+.all a .row{height: 4rem;}
+.all a i{position: absolute;top:0.8rem;right: 1rem;color: #ccc;}
+.lskjTit {color: #777;font-size: 0.8rem;height:1.5rem;line-height:1.5rem;}
+.kjNum span {color: #CD0508;display: inline-block;font-size: 0.8rem;width: 1.3rem; 
+font-weight:normal;height:1.5rem;line-height:1.5rem;}
+.kjNum span.blue {color: #0079ff;}
+.sjh span{color: #999;font-size: 0.7rem;width: 1.3rem;font-weight:normal;height:1.5rem;line-height:1.5rem;}
+.myMore {background: none repeat scroll 0 0 #fff;border-top: 1px solid #dfdfdf;color: #f89c49;display: block;font-size: 1rem;line-height: 3.45rem;text-align: center;}
+
+/*数字彩最新开奖*/
+.pd063 {padding: 0.63rem;}
+.pdLeft04 {padding-left: 0.4rem;}
+ p {line-height: 1.2rem;}
+.fontSize1 {font-size: 1rem;}
+.pdLeft04 {padding-left: 0.4rem;}
+.kjList {border: 1px solid #dedede;border-radius: 0.4rem;margin-top: 0.8rem;}
+.kjList li.gray {background: none repeat scroll 0 0 #f7f5f4;border-radius: 0.3rem 0.3rem 0 0;color: #aeacab;}
+.kjList li {border-bottom: 1px solid #ebebeb;line-height: 1.9rem;text-align: center;}
+.kjList li em {border-right: 1px solid #ebebeb;color: #aeacab;display: inline-block;width: 40%; font-size:0.8rem;}
+.kjList li cite {border-right: 1px solid #ebebeb;}
+.kjList li cite, .kjList li span {display: inline-block;width: 28%;}
+ i, o, cite, em {font-style: normal;}
+.kjList li.gray span {color: #aeacab;}
+.kjList li span {color: #f03d3d;}
+.kjList li cite, .kjList li span {display: inline-block;width: 28%; text-align:center;}
+.kjList li{ float:none;}
+.pdTop06 { padding-top: 0.6rem;}
+.pdTop03 {padding-top: 0.3rem;}
+.yellow {color: #f6851f;}
+.history{ margin-top:-2.5rem;}
+
+/*竞技彩开奖*/
+.sfcTitle {background: none repeat scroll 0 0 #f2f2f2;border-bottom: 1px solid #e4e4e4;color: #5c5c5c;font-size: 0.85rem;line-height: 2.1rem;padding: 0 0.68rem;position: relative; height:2.1rem;}
+.sfcxs {border-bottom: 1px solid #e4e4e4;overflow: hidden;padding: 0.9rem 0 0.5rem; background-color:#ffffff;}
+.sfcopt .sfcxs li:first-child {width: 25%;}
+.jczqkj li:first-child {margin-top: 1rem;}
+.sfcopt .sfcxs li {font-size: 0.75rem; width: 75%;}
+.sfcxs li:first-child {color: #5c5c5c;line-height: 1rem;text-align: center;width: 4.2rem;}
+.jczqkj li {padding-bottom: 0.35rem;}
+.sfcxs li {color: #343434;float: left;font-size: 0.8rem;width: 78.5%;}
+ p {line-height: 1.2rem;}
+.sfcxs li:first-child cite {color: #aaa;display: block;font-size: 0.75rem;}
+.spfzpk, .spfzpkNum {overflow: hidden;}
+.spfzpkNum span {float: left;text-align: center;width: 44%; font-size:0.75rem;}
+.spfzpkNum span.spfvs {width: 10%;}
+.jczqkj .spfvs {color: #f6851f;}
+.spfzpkNum span {float: left;text-align: center;width: 44%; font-size:0.75rem;}
+.red {color: #f03d3d;}
+.green {color: #84c73b;}
+.blue {color: #177ffc;}
+.jczqkj div p span {float: left;line-height: 1.8rem;text-align: center;width: 25%;}
+.jczqkj div {border: 1px solid #c7c7c7;border-radius: 0.2rem;margin-top: 0.3rem;width: 95%; height:3.6rem;}
+.jczqkj div p:first-child {background: none repeat scroll 0 0 #f2f2f2;border-radius: 0.2rem 0.2rem 0 0;color: #aaa;}
+.jczqkj div p {overflow: hidden;}
+.date {background: url("../images/date.png") no-repeat scroll center center / 1.1rem 1.8rem rgba(0, 0, 0, 0);height: 1.8rem;position: absolute;right: 2.5rem;top: 0.5rem;width: 1.1rem;}
+ input.ui-input-text, textarea.ui-input-text {background-image: none;display: block;font-size: 16px;line-height: 1.4em;margin: 0.5em 0;min-height: 1.4em;outline: 0 none; padding: 0.4em;width: 100%;}
+.transparent_class {opacity: 0;}
+.ui-body-c, .ui-body-c input, .ui-body-c select, .ui-body-c textarea, .ui-body-c button {font-family: Helvetica,Arial,sans-serif;}
+.ui-body-c, .ui-overlay-c {background: linear-gradient(#f9f9f9, #eee) repeat scroll 0 0 #f9f9f9;border: 1px solid #aaa;color: #333;text-shadow: 0 1px 0 #fff;}
+.issueList{text-align:center}
+.eveIssue{border:0.1rem solid #999;display:inline-block;padding:0.1rem 0.1rem;margin-bottom:0.3rem;font-size:0.6rem}
+.chosen{color:#fff;background:#CD0508;}
+#search_panel{display: none; width: 100%; z-index: 1001; position: absolute;opacity: 0.98; background-color:#fff}
+.each_details{background: #f7f7f7 none repeat scroll 0 0;border-bottom: 1px solid #e4e4e4;overflow: hidden;padding: 0.9rem 0 0.6rem;position: relative;}
+.de_left{color: #8d8d8d;line-height: 1rem;text-align: center;width: 21.5%;}
+.de_left span{display:block;font-size:0.9rem;text-align:center}
+.de_right{width:76%;margin-right:0;float:right}
+.line1{line-height:1.2rem;overflow:hidden;}
+.line1 span{text-align: center;font-size:0.75rem;float:left}
+.ri_bottom{border:1px solid #c7c7c7;border-radius: 0.2rem;margin-top: 0.3rem;width: 95%;font-size:0.75rem;}
+.ri_bottom p{overflow:hidden}
+.ri_bottom p span{float: left;line-height: 1.8rem;text-align: center;width: 20%;}
+.ri_bottom p:first-child {background: #f2f2f2 none repeat scroll 0 0;border-radius: 0.2rem 0.2rem 0 0;color:#aaa;}
+.font-red{color:red}
+.font-orange{color: #f6851f;}
+.line2{line-height:1.2rem;overflow:hidden;}
+.line2 span{text-align: center;font-size:0.75rem;float:left;width:33%}
+.ri_bottom1{border:1px solid #c7c7c7;border-radius: 0.2rem;margin-top: 0.3rem;width: 95%;font-size:0.75rem;}
+.ri_bottom1 p{overflow:hidden;}
+.ri_bottom1 p span{float: left;line-height: 1.8rem;text-align: center;width: 25%;}
+.ri_bottom1 p:first-child {background: #f2f2f2 none repeat scroll 0 0;border-radius: 0.2rem 0.2rem 0 0;color:#aaa;}
+
+/* 底部*/
+
+.buyFooter, .buyFooter1 {padding-top: 9rem;}
+.kjFloat {background: none repeat scroll 0 0 #f9f9f9;border-top: 1px solid #d5d5d5;}
+.fixed {bottom: 0;left: 0;position: fixed; width: 100%;z-index: 99;}
+.kjFloat a.payment {margin: 0.5rem 0.8rem;}
+.payment {background: none repeat scroll 0 0 #f6851f;border-radius: 0.5rem;color: #fff;display: block;font-size: 1rem;
+letter-spacing: 0.1rem;line-height: 2.2rem;margin-top: 0.8rem;text-align: center;}
+.load_more{font-size:0.8rem;color:#999;height:3rem;line-height:3rem;}
+.table-box{background-color: #f0f0f0;padding: 0.5rem;}
+.table{width: 100%;}
+.table th,.table tr td{font-size: 0.6rem;text-align: center;height: 2rem;}

@@ -1,0 +1,36 @@
+package com.mh.dao;
+
+import java.util.List;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.stereotype.Repository;
+
+import com.mh.commons.orm.BaseDao;
+import com.mh.entity.WebKjPay;
+
+@Repository
+public class WebKjPayDao extends BaseDao<WebKjPay, Integer>{
+	/**
+	 * 支付类型查找
+	 * @param type
+	 * @return
+	 */
+	public WebKjPay getKjPay(Integer type){
+		String hql = " from WebKjPay where status = 1 and payType = ?";
+		List<?> list = this.getHibernateTemplate().find(hql,new Object[]{type});
+		if(CollectionUtils.isNotEmpty(list)){
+			return (WebKjPay)list.get(0);
+		}
+		return null;
+	}
+	
+	public List<WebKjPay> getKjPayList(){
+		String hql = " from WebKjPay where status = 1";
+		return this.getHibernateTemplate().find(hql);
+	}
+	
+	public int getPayCount(Integer type){
+		String hql = " from WebKjPay where status = 1 and payType = ?";
+		return this.getHibernateTemplate().find(hql,new Object[]{type}).size();
+	}
+}

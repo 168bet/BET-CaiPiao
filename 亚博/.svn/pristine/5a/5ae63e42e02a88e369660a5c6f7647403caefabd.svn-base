@@ -1,0 +1,67 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+<div class="game-section">
+  <div class="page-bg-game">
+    <div class="body-wrap">
+      <div class="w1105 m0auto hgt150 " style="overflow: hidden;background: #340E61;padding:25px 0">
+        <div id="pk10logo" class="fleft text_center line_hgt150 w220">
+          <img ng-src="{{staticURI}}/images/bjpk10/PK10.png" class="mt8 ml90" />
+        </div>
+        <div class="fleft w705">
+          <p class="text_center line_hgt50 white fz16"> 第<span style="color:#F1DB0A">{{lastNumber}}</span> 期开奖结果
+          </p>
+          <p class="text_center line_hgt50 white fz24 kk10-open-numbers">
+            <ball number="result" type="kk" ng-repeat="(key, result) in lastResults track by $index"/>
+          </p>
+          
+          <p class="text_center line_hgt50 fz16 white" ng-show="data.closeTimeLeftLeft <= 0">
+            当前正在开奖&nbsp;距离开奖还有<count-down  time="data.openTimeLeft" tick="fun.openTimeTickCb"></count-down>
+          </p>
+          <p class="text_center line_hgt50 fz16 white" ng-show="data.closeTimeLeftLeft >0 ">
+          当前可下注&nbsp;距离封盘还有<count-down  time="data.closeTimeLeft" tick="fun.closeTimeTickCb"></count-down>
+          </p>
+        </div>
+        <div class="fleft w180 fz16 white ml_50">
+          <span class="block  text_center line_hgt50 pointer" ui-sref="bjpk10Bet"><i class="topBtnActive">赛车大厅</i></span>
+          <span class="block  text_center line_hgt50 pointer" ui-sref="charts.lucky"><i>走势图</i></span>
+          <span class="block  text_center line_hgt50 pointer" ui-sref="user.historder"><i>我的投注</i></span>
+        </div>
+      </div>
+      <div class="w1105 m0auto hgt6"></div>
+      <div class="w1105 m0auto fz14" style="margin-top:-6px">
+        <table class="text_center middle white" style="width: 90%;margin:0 auto">
+          <thead>
+            <tr style="background: #26094B" class="hgt55 line_hgt55 bold">
+              <td>期号</td>
+              <td>开奖时间</td>
+              <td>开奖结果</td>
+              <td>已下单数</td>
+              <td>中奖人数</td>
+              <td>状态</td>
+            </tr>
+          </thead>
+          <tbody style="background: #F0F0F0;color: #424242">
+            <tr class="hgt42 line_hgt42" data-ng-repeat="(key, value) in gameResults" style="border-bottom: 1px solid #D5D5D5">
+              <td>{{value.formatQs}}</td>
+              <td>{{value.gtKjsj}}</td>
+              <td>{{value.kjjg}}</td>
+              <td>{{value.xd}}</td>
+              <td>{{value.kjjg=='等待开奖'?'---':value.zjrs}}</td>
+              <td><span class="tdBetBtn pointer" ui-sref="bjpk10Bet({qs: value.formatQs})" ng-if=" value.status!=='已经开奖' ">投注</span>
+              <span ng-if=" value.status=='已经开奖' ">{{value.status}}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pager">
+        <p class="pager-info">共{{totalCount}}条记录 &nbsp;&nbsp;当前1/{{totalPages}}页</p>
+        <a ng-click="firstPage()">首页</a>
+        <a ng-click="prevPage()">上一页</a>
+        <a ng-class="{current:currentPage==pageIndex+$index}" ng-repeat="item in range(pageIndex,totalPages+1)|limitTo:numberLimit track by $index" ng-click="secPage(pageIndex+$index)">{{item}}</a>
+        <a ng-click="nextPage()">下一页</a>
+        <a ng-click="lastPage()">尾页</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<ng-include src="templateURI('/footer.html')"></ng-include>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>奖品中心</title>
+<link href="../gq.css" rel="stylesheet" type="text/css">
+<body style="background: #f3f3f3;">
+<!-- 
+<div id="popup2" class="jppop" style="display:none">
+	<article>
+		<h4>确认兑换</h4>
+		<p>您将花费<em class="red">280,000</em>奖券兑换<em class="red">10Q币</em>，请填写QQ号，该Q币将于明日12点前充至该QQ号账户中</p>
+		<input type="tel" placeholder="请输入您将充值的QQ号" />
+		<input type="tel" placeholder="请重复输入您将充值的QQ号" />
+	</article>
+	<div class="jpTrue clearfix"><a href="javascript:;">取消</a><a href="javascript:;" class="ture">确定兑换</a></div>
+</div>
+ -->
+<!--  兑换红包  -->
+<!-- 
+<div id="popup2" class="jppop" style="display:none">
+	<article>
+		<h4>确认兑换</h4>
+		<p>您将花费<em class="red">280,000</em>奖券兑换<em class="red">10元红包</em>。</p>
+	</article>
+	<div class="jpTrue clearfix"><a href="javascript:;">取消</a><a href="javascript:;" class="ture">确定兑换</a></div>
+</div>
+ -->
+<!--  兑换花费  -->
+<div id="popup2" class="jppop" style="display:none">
+	<article>
+		<h4>确认兑换</h4>
+		<p>您将花费<em class="red">280,000</em>奖券兑换<em class="red">20元话费</em>，该话费将于明日12点前充至您账户定的手机号码<em class="red">132****536</em></p>
+	</article>
+	<div class="jpTrue clearfix"><a href="javascript:;">取消</a><a href="javascript:;" class="ture">确定兑换</a></div>
+</div>
+<!--  绑定身份证号  -->
+<div id="popup1" class="jppop" style="display:none">
+	<article>
+		<h4>提示</h4>
+		<p>兑换商品前，请先绑定身份证号~</p>
+	</article>
+	<div class="jpTrue clearfix"><a href="javascript:;">取消</a><a href="javascript:;" class="ture">前往绑定</a></div>
+</div>
+<!--  绑定手机号  -->
+<!-- 
+<div id="popup2" class="jppop" style="display:none">
+	<article>
+		<h4>提示</h4>
+		<p>兑换商品前，请先绑定手机号~</p>
+	</article>
+	<div class="jpTrue clearfix"><a href="javascript:;">取消</a><a href="javascript:;" class="ture">前往绑定</a></div>
+</div>
+ -->
+ <!-- 
+<div class="jptkbg" style="display:">您今日已兑换过该奖品，每个奖品每日仅能兑换一次</div>
+<div class="jptkbg" style="display:">恭喜您，兑换成功</div>
+ -->
+<div class="zhezhao" style="display:none" id="zhezhao"></div>
+<header class="tzHeader" style="display:none">
+	<section class="cgjHeader fixed2">
+		<h1>奖品中心</h1>
+		<a href="javascript:history.go(-1)" class="fcbackIco2"></a>
+	</section>
+</header>
+<nav class="jpnav">
+	<div class="clearfix"><span class="left"><i></i><cite id="jq_value"></cite>奖券</span><a href="/gq2/bkbc.html">冲榜赢奖券</a></div>
+	<p class="clearfix"><a href="djjl.html">兑奖记录</a><a href="jqmx.html">奖券明细</a><a href="drb.html">达人榜</a></p>
+</nav>
+<article class="jpbg">
+	<div class="jptitle clearfix"><cite class="left" id="qg_title"  >&nbsp;</cite><div id="qg_time" ><span class="right" style="display:none" id="time""><strong>距开始</strong><em class="yj_time_Hour">01</em><b>:</b><em class="yj_time_Minu">01</em><b>:</b><em class="yj_time_Sec">01</em></span></div></div>
+	<div class="jpzwsj" style="display:none;">
+		<figure><img src="../img/jpzwsj.png" width="100%"/></figure>
+		<p>暂无可兑换的奖品,快去冲榜赢奖券</p>
+	</div>
+	<div id="prize_list">
+		<!-- 
+		<article class="jplink">
+			<figure></figure>
+			<div>
+				<p><strong>650,000</strong>奖券</p>
+				<p><em>已抢购0%</em><cite><b style="width: 0%;"></b></cite></p>
+			</div>
+			<span><a href="#">即将开始</a>剩余43件</span>
+		</article>
+		<article class="jplink">
+			<figure></figure>
+			<div>
+				<p><strong>650,000</strong>奖券</p>
+				<p><em>已抢购82%</em><cite><b style="width: 20%;"></b></cite></p>
+			</div>
+			<span><a href="#" class="ljdh">立即兑换</a>剩余43件</span>
+		</article>
+		<article class="jplink">
+			<figure></figure>
+			<div>
+				<p><strong>650,000</strong>奖券</p>
+				<p><em>已抢购100%</em><cite><b style="width: 100%;"></b></cite></p>
+			</div>
+			<span><a href="#" class="ydw">已兑完</a>剩余0件</span>
+		</article>
+		<article class="jplink">
+			<figure></figure>
+			<div>
+				<p><strong>650,000</strong>奖券</p>
+				<p><em>已抢购82%</em><cite><b style="width: 20%;"></b></cite></p>
+			</div>
+			<span><a href="#" class="ljdh">立即兑换</a>剩余43件</span>
+		</article>
+		 -->
+	</div>
+	<div class="jpdhgz">
+		<p>兑换规则</p>
+		<p><em>1.</em><span>仅限“边看边猜”活动用户参与，参与抽奖用户须绑定手机号和身份证；</span></p>
+    	<p><em>2.</em><span>每日00:00会更新不同的奖品，限时限量兑换，抢完即止；</span></p>
+    	<p><em>3.</em><span>除红包外其他奖品每人每天每种奖品均限兑换一份，绑定同一身份证或同一手机号的账号视为同一用户；</span></p>
+    	<p><em>4.</em><span>奖品兑换成功后，红包奖品即时到账，手机奖品客服将在24小时内联系本人发货，其他类型的奖品将在第二天12:00前完成派送。</span></p>
+    	<p><em>5.</em><span>月初运营商业务繁忙，每月1号暂停话费奖品派送，每月2号将派送前两天兑换的话费奖品</span></p>
+    	<p><em>6.</em><span>在法律范围内，本网站对本活动保留最终解释权。</span></p>
+	</div>
+</article>
+<footer class="jpft">
+	<div class="fixed clearfix" id="demo" style="display:none">
+		<div style="width:8000%;">
+			<ul id="scroll_Cont" style="float:left;" >
+				<!-- 
+				<li>1分钟前彩神***兑换了10元话费</li>
+				<li>1分钟前彩神***兑换了1</li>
+				<li>1分钟前彩神***兑换了1</li>
+				 -->
+			</ul>
+			<ul id="demo2" style="float:left"></ul>
+		</div>
+	</div>
+	
+</footer>
+</body>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/gq2/jpzx/js/index.js" type="text/javascript" charset="utf-8"></script>

@@ -1,0 +1,16 @@
+<Resp code="0" desc="统计成功" utime="2015-12-08 09:59:33" periods="3,6,9,10,12,15,18,21,24,36">
+	<row bankid="14" bankname="工商银行" rate="0.0165,0.036,0.054,0.072,0.117,0.156" type="1" partner="2" periods="3,6,9,12,18,24" cardaddr=""></row>
+	<row bankid="4" bankname="农业银行" rate="0.0180,0.036,0.054,0.072,0.144" type="2" partner="2" periods="3,6,9,12,24" cardaddr="https://eapply.abchina.com/onlinetrade/CreditcardsInfo/CardRequestion?ctypeid=357&amp;orgcode=0323"></row>
+	<row bankid="15" bankname="中国银行" rate="0.0195,0.036,0.054,0.072,0.117,0.15" type="1" partner="2" periods="3,6,9,12,18,24" cardaddr="https://card.bank-of-china.com/wechatebank/booking/list.do"></row>
+	<row bankid="13" bankname="建设银行" rate="0.021,0.036,0.072,0.108,0.144" type="2" partner="2" periods="3,6,12,18,24" cardaddr="http://creditcard.ccb.com/ccbweixin/credit_card_application/form.html"></row>
+	<row bankid="16" bankname="交通银行" rate="0.0216,0.0432,0.0648,0.0864,0.1296,0.1778" type="2" partner="2" periods="3,6,9,12,18,24" cardaddr="https://creditcardapp.bankcomm.com/applynew/front/apply/new/identity.html"></row>
+	<row bankid="11" bankname="民生银行" rate="0.0246,0.042,0.0603,0.0804,0.1206,0.168" type="2" partner="2" periods="3,6,9,12,18,24" cardaddr="https://creditcard.cmbc.com.cn/online/Mobile/Recommend/ManagerHome.aspx?recommendInfo=XUDrftdHSdWB8TW02DBWvkv%2bg%2bEq3v%2fs1Owjjm2VLGGbUkslBv9MdlkP%2btdH9fXJikCXPA3RU6low0FAp5VP6yG4XtbfCyNWLAGgqQKckV2Jszm%2fR%2bAYjwsYc3Oc91U51i0CI5%2bdKuyjc5L8Yqhl63O3lZwZx%2bmyO3nA2GW14cqFAILxFsqtP5PBIvPji4Ju64Udcpf2b04IQsXP2usWCA5MiwZ1t50obdqlfcmXdVSSFsGAzMMA5CdtcuX9uVgGYg3STXWy%2fna%2fxA98GVS3caZxgu%2fOtCpeXk2q4Q8ABGwFODVdgR2BBsaozVMiGrzD7dkK8ev7TRRz7zP37ERpow%3d%3d"></row>
+	<row bankid="3" bankname="光大银行" rate="0.06" type="2" partner="2" periods="12" cardaddr="https://xyk.cebbank.com/cebmms/apply/fz/card-apply-sim-req.htm?pro_code=FHTG060000SJ23SHLD"></row>
+	<row bankid="2" bankname="中信银行" rate="0.0216,0.0396,0.0594,0.078,0.126,0.168,0.252" type="1" partner="2" periods="3,6,9,12,18,24,36" cardaddr=""></row>
+	<row bankid="21" bankname="招商银行" rate="0.026,0.042,0.07,0.072" type="1" partner="1" periods="3,6,10,12" cardaddr="https://ccclub.cmbchina.com/mca/MPreContract.aspx?WT.mc_id=N17WPGW204A9043100ZY"></row>
+	<row bankid="10" bankname="兴业银行" rate="0.024,0.039,0.078,0.117,0.156" type="1" partner="2" periods="3,6,12,18,24" cardaddr="https://3g.cib.com.cn/app/00285.html"></row>
+	<row bankid="9" bankname="浦发银行" rate="0.0468,0.0888,0.1125,0.1368,0.1824" type="2" partner="2" periods="6,12,15,18,24" cardaddr="https://onlineapp.spdbccc.com.cn/ccoa/newccoapage/home.jsp?customerType=1&amp;pid=website001&amp;cid=website001"></row>
+	<row bankid="1" bankname="广发银行" rate="0.039,0.078,0.126,0.1728" type="2" partner="2" periods="6,12,18,24" cardaddr="http://95508.com/8gngEu"></row>
+	<row bankid="7" bankname="平安银行" rate="0.0408,0.0594,0.0768,0.1116,0.144" type="2" partner="2" periods="6,9,12,18,24" cardaddr="https://c.pingan.com/apply/mobile/apply/index.html?scc=920000061&amp;ccp=1a2a3a4a5a8a9a10a11a12a13&amp;show=0"></row>
+	<row bankid="8" bankname="华夏银行" rate="0.0186,0.0372,0.0558,0.0744,0.1005,0.1206,0.1407,0.1608" type="2" partner="2" periods="3,6,9,12,15,18,21,24" cardaddr=""></row>
+</Resp>

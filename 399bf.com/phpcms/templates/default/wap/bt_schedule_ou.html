@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$SEO['title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}font-awesome.min.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}main.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}bt_game_analyse.css">
+
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <!-- 你的html代码 -->
+ <nav class="nav">
+            <!-- header -->
+            <header class="bar bar-nav">
+                <a class="button pull-left back" href="{WAP_PATH}lqscore/">
+                    <i class="icon icon-left"></i>
+                </a>
+                <h1 class="title white">
+                    {$schedule_info['sclassname_cn']}
+                    {$schedule_info['sclasscategory_cn']}
+                    {$schedule_info['sclassseason']}
+                </h1>
+            </header>
+            <!-- header end -->
+            <div class="row match-nav">
+                <div class="col-33 team">
+                    <div class="team-icon">
+                        <img src="{BT_TEAM_PATH}{$scheduleData['hometeamid']}.jpg" alt="" class="bt-team-photo">
+                    </div>
+                    <div class="team-name">{$schedule_info['homename_cn']}</div>
+                     <div class="team-rank">联赛排名：{if $schedule_info['homerank']}{$schedule_info['homerank']}{/if}</div>
+                </div>
+                <div class="col-33">
+                    <div class="match-state">
+                        <div class="score-line">{$schedule_info['homescore']}:{$schedule_info['guestscore']}</div>
+                        <p>{date('Y-m-d', $schedule_info['date'])}</p>
+                        <p>半场{$schedule_info['homehalfscore']}:{$schedule_info['guesthalfscore']}</p>
+                        <p>状态:{$arr_status[$schedule_info['status']]}</p>
+                    </div>
+                </div>
+                <div class="col-33 team">
+                    <div class="team-icon">
+                        <img src="{BT_TEAM_PATH}{$schedule_info['guestteamid']}.jpg" alt="" class="bt-team-photo">
+                    </div>
+                    <div class="team-name">{$schedule_info['guestname_cn']}</div>
+                    <div class="team-rank">联赛排名：{if $schedule_info['guestrank']}{$schedule_info['guestrank']}{/if}</div>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="buttons-tab">
+                <a href="{WAP_PATH}schedule/{$sclassid}/analyse/" class="tab-item button">分析</a>
+                <a href="{WAP_PATH}schedule/{$sclassid}/euro/" class="tab-item button">欧赔</a>
+                <a href="{WAP_PATH}schedule/{$sclassid}/asia/" class="tab-item button">让分</a>
+                <a href="{WAP_PATH}schedule/{$sclassid}/ou/" class="tab-item button active">总分</a>
+            </div>
+            <div class="lump">
+                <div class="lump-content">
+                    <div class="lump-title">
+                        <table class="table-head table">
+                            <tr>
+                                <td width="32.3%">公司</td>
+                                <td width="15.5%">大分</td>
+                                <td width="16.3%">盘口</td>
+                                <td width="15.5%">小分</td>
+                                <td width="20.4%">变化时间</td>
+                            </tr>
+                        </table>
+                        {loop $totalscore $r}
+                    <div class="lump-item">
+                        <table class="table  table-noborder">
+                            <tr>
+                                <td rowspan="2" width="32.3%">{$company[$r[companyid]][name]}</td>
+                                <td width="15.5%">{rtrim0($r[highodds_f])}</td>
+                                <td width="16.3%" class="red">{rtrim0($r[totalscore_f])}</td>
+                                <td width="15.5%">{rtrim0($r[lowodds_f])}</td>
+                                <td width="20.4%" rowspan="2" >{date('Y-m-d H:i', $r[modifytime])}</td>
+                            </tr>
+                            <tr>
+                                <td>{rtrim0($r[highodds])}</td>
+                                <td class="red">{rtrim0($r[totalscore])}</td>
+                                <td>{rtrim0($r[lowodds])}</td>
+                            </tr>
+                        </table>
+                         {/loop}
+                    </div>
+                </div>
+            </div>
+
+            {template 'wap', 'footer_nav'}
+
+        </div>
+
+        </div>
+    </div>
+
+
+    {template 'wap', 'wap_footer'}

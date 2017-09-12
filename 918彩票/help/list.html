@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>常见问题</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/swiper.min.css"> -->
+    <script>
+        window.onload=function() {
+            document.body.addEventListener('touchstart', function () {
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="tabs">
+        <a href="javascript:;" class="active"><span>账户问题</span></a> <a href="javascript:;"><span>购彩问题</span></a> <a href="javascript:;"><span>安全问题</span></a>
+    </div>
+    <!--常见问题--->
+    <div id="tabs-container" class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--账户问题-->
+            <div class="swiper-slide">
+                <div class="content-slide">
+                    <div class="list" id="accountProblem">
+                        <!--1-->
+
+                    </div>
+                </div>
+            </div>
+            <!--购彩问题-->
+            <div class="swiper-slide">
+                <div class="content-slide">
+                    <div class="list" id="gcProblem">
+                        <!--1-->
+
+                    </div>
+                </div>
+            </div>
+            <!--安全问题-->
+            <div class="swiper-slide">
+                <div class="content-slide">
+                    <div class="list" id="safeProblem">
+                        <!--1-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        var helpName = localStorage.getItem('help')||'';
+        $(function(){
+        	var init=function(){
+        		accountProble()
+        		gcProble()
+        		safeProble()
+        		
+        		if(helpName=="zhwt"){
+        			$(".swiper-wrapper div.swiper-slide:eq(0)").show()
+                	$(".swiper-wrapper div.swiper-slide:eq(0)").siblings().hide();
+        			$(".tabs a:eq(0)").addClass("active").siblings().removeClass("active")
+        		}else if(helpName=="gcwt"){
+        			$(".swiper-wrapper div.swiper-slide:eq(1)").show()
+                	$(".swiper-wrapper div.swiper-slide:eq(1)").siblings().hide();
+        			$(".tabs a:eq(1)").addClass("active").siblings().removeClass("active")
+        		}else{
+        			$(".swiper-wrapper div.swiper-slide:eq(2)").show()
+                	$(".swiper-wrapper div.swiper-slide:eq(2)").siblings().hide();
+        			$(".tabs a:eq(2)").addClass("active").siblings().removeClass("active")
+        		}
+        		
+        		bindEvent();
+        	}
+        	
+        	//账户问题
+        	var accountProble=function(){
+        		var html=""
+                	$.ajax({
+            			url : "/data/app/HelpManualXml/zhanghuwenti.xml",
+        				type:'GET',
+        				dataType:'xml',
+        				success:function(xml){
+        					var rows = $(xml).find("rows");
+        					var row = rows.find("row");
+        					if(row.length>0){
+        						row.each(function(){
+        							var cqtitle = $(this).attr("cqtitle")
+        							var cqanswer = $(this).attr("cqanswer")
+        							 html +='<div class="help_div">'
+       	   	    					 html +='<p>'+cqtitle+'<i></i></p>'
+       	   	    					 html +='<div style=display:none>'+cqanswer+'</div>'
+       	   	    					 html +='</div>'
+        						})
+        						$("#accountProblem").html(html);
+        					}
+        				}
+            		})
+        	}
+        	//购彩问题
+        	var gcProble=function(){
+        		var html=""
+                	$.ajax({
+            			url : "/data/app/HelpManualXml/goucaiwenti.xml",
+        				type:'GET',
+        				dataType:'xml',
+        				success:function(xml){
+        					var rows = $(xml).find("rows");
+        					var row = rows.find("row");
+        					if(row.length>0){
+        						row.each(function(){
+        							var cqtitle = $(this).attr("cqtitle")
+        							var cqanswer = $(this).attr("cqanswer")
+        							 html +='<div class="help_div" >'
+       	   	    					 html +='<p>'+cqtitle+'<i></i></p>'
+       	   	    					 html +='<div style=display:none>'+cqanswer+'</div>'
+       	   	    					 html +='</div>'
+        						})
+        						$("#gcProblem").html(html);
+        					}
+        				}
+            		})
+        	}
+        	//安全问题
+        	var safeProble=function(){
+        		var html=""
+                	$.ajax({
+            			url : "/data/app/HelpManualXml/anquanwenti.xml",
+        				type:'GET',
+        				dataType:'xml',
+        				success:function(xml){
+        					var rows = $(xml).find("rows");
+        					var row = rows.find("row");
+        					if(row.length>0){
+        						row.each(function(){
+        							var cqtitle = $(this).attr("cqtitle")
+        							var cqanswer = $(this).attr("cqanswer")
+        							 html +='<div class="help_div">'
+       	   	    					 html +='<p>'+cqtitle+'<i></i></p>'
+       	   	    					 html +='<div style=display:none>'+cqanswer+'</div>'
+       	   	    					 html +='</div>'
+        						})
+        						$("#safeProblem").html(html);
+        					}
+        				}
+            		})
+        	}
+        	
+        	
+        	
+        	var bindEvent=function(){
+        		$(".tabs a").bind('click',function(e){
+                    e.preventDefault()
+                    var index=$(this).index();
+                    
+                    $("#swiper-wrapper div.swiper-slide:eq(1)")
+                    if(index==0){
+                    	localStorage.setItem("help","zhwt")
+                    	$(".swiper-wrapper div.swiper-slide:eq(0)").show()
+                    	$(".swiper-wrapper div.swiper-slide:eq(0)").siblings().hide();
+                    	$(".swiper-wrapper div.swiper-slide:eq(1) div.help_div p").removeClass("down")
+                    	$(".swiper-wrapper div.swiper-slide:eq(1) div.help_div div").hide()
+                    	$(".swiper-wrapper div.swiper-slide:eq(2) div.help_div p").removeClass("down")
+                    	$(".swiper-wrapper div.swiper-slide:eq(2) div.help_div div").hide()
+                    }else if(index==1){
+                    	localStorage.setItem("help","gcwt")
+                    	$(".swiper-wrapper div.swiper-slide:eq(1)").show()
+                    	$(".swiper-wrapper div.swiper-slide:eq(1)").siblings().hide();
+                    	$(".swiper-wrapper div.swiper-slide:eq(0) div.help_div p").removeClass("down")
+                    	$(".swiper-wrapper div.swiper-slide:eq(0) div.help_div div").hide()
+                    	$(".swiper-wrapper div.swiper-slide:eq(2) div.help_div p").removeClass("down")
+                    	$(".swiper-wrapper div.swiper-slide:eq(2) div.help_div div").hide()
+                    }else{
+                    	localStorage.setItem("help","aqwt")
+                    	$(".swiper-wrapper div.swiper-slide:eq(2)").show()
+                    	$(".swiper-wrapper div.swiper-slide:eq(2)").siblings().hide();
+                    	$(".swiper-wrapper div.swiper-slide:eq(0) div.help_div p").removeClass("down")
+                    	$(".swiper-wrapper div.swiper-slide:eq(0) div.help_div div").hide()
+                    	$(".swiper-wrapper div.swiper-slide:eq(1) div.help_div p").removeClass("down")
+                    	$(".swiper-wrapper div.swiper-slide:eq(1) div.help_div div").hide()
+                    }
+                    $(".tabs .active").removeClass('active')
+                    $(this).addClass('active')
+                });
+               
+                $('#tabs-container ').delegate('.list p','click', function(){
+                    if($(this).hasClass("down")){
+                        $(this).removeClass("down");
+                        $(this).next("div").hide();
+                    }else{
+                        $(this).addClass("down");
+                        $(this).next("div").show();
+                    }
+                    $(this).parent().siblings().find("p").removeClass("down");
+                    $(this).parent().siblings().find("div").hide();
+                })
+
+                
+        	}
+            init()
+        })
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>一分钱猜球赛</title>
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<style type="text/css">
+body{ margin:0; padding:0; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#272727; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ul,li{ list-style-type:none}
+em,cite,i{ font-style:normal}
+a{ text-decoration:none}
+.left{ float:left}
+.right{ float:right}
+.red{ color:#f13d3d}
+.clearfix{ overflow:hidden; zoom:1}
+.text{ padding:1.3rem 5%}
+.Tleft p{ font-size:1.06rem}
+.Tleft p cite{ font-size:.875rem}
+.Tleft p:last-child{ color:#909090; font-size:.75rem; padding-top:.4rem}
+.Tleft a{ float:right; color:#8b8679; font-size:.78rem; padding-top:.25rem}
+.check p{ font-size:.78rem; color:#565656; height:1.5rem; line-height:1.5rem; margin:2.2rem 0 1.2rem 0; overflow:hidden}
+.check p a{ float:right; color:#1780fd}
+.ball span{ float:left; background:#f13d3d; font-size:.86rem; color:#fff; width:1.65rem; text-align:center; line-height:1.65rem; margin-right:.44rem; border-radius:1.65rem; -webkit-border-radius:1.65rem; -moz-border-radius:1.65rem}
+.ball span.blue{ background:#1780fd}
+.ball cite{ float:right; width:3.3rem; text-align:center; line-height:1.66rem; color:#909090; background:#fefbe6; font-size:.75rem; border-radius:.9rem; -webkit-border-radius:.9rem; -moz-border-radius:.9rem}
+.btn{ display:block; width:100%; text-align:center; line-height:2.45rem; margin:1.7rem 0 0 0; background:#f13d3d; color:#fff; font-size:1.125rem; border-radius:2rem; -webkit-border-radius:2rem; -moz-border-radius:2rem}
+.title{ position:relative; line-height:1.6rem; padding-top:.8rem; text-align:center; margin-top:2rem; color:#909090; font-size:1rem; border-top:1px solid #e2d7a3}
+.title:after{ position:absolute; content:""; width:.6rem; height:.6rem; top:1rem; margin-left:.3rem; border-right:1px solid #909090; border-bottom:1px solid #909090; transform:rotate(45deg); -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg)}
+.hdgz{ display:none; color:#909090; font-size:.85rem; padding:0 0 .5rem 0}
+.hdgz p{ line-height:1.4rem; padding-top:.9rem}
+.cur .title:after{ top:1.45rem; transform:rotate(-135deg); -webkit-transform:rotate(-135deg); -moz-transform:rotate(-135deg)}
+.cur .hdgz{ display:block}
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1}
+.popup{ width:84%; position:fixed; top:35%; left:8%; background:#f85e46; color:#fff; z-index:2; border-radius:.4rem; -webkit-border-radius:.4rem;-moz-border-radius:.4rem}
+.popup h4{ line-height:4rem; font-size:1.1rem; text-align:center; font-weight:normal}
+.popup p{ text-align:left; width:82%; margin:0 auto; line-height:1.5rem; font-size:.85rem}
+.zfTrue{ overflow:hidden; zoom:1}
+.zfTrue a{ float:left; line-height:2.3rem; font-size:.95rem; margin:1.5rem 0 1rem 4%; text-align:center; color:#424242; background:#febc1d; width:43%; text-decoration:none; border-radius:.2rem; -webkit-border-radius:.2rem;-moz-border-radius:.2rem}
+.zfTrue a.zfqx{ margin-right:2%}
+</style>
+<!-- 登录提示 -->
+<div class="popup" style="display:none">
+	<h4>温馨提示</h4>
+    <p>参与活动前，请先登录！若您没有9188账户，请先注册！</p>
+	<div class="zfTrue"><a href="#" class="zfqx">注册</a><a href="#">登录</a></div>
+</div>
+<!-- 绑定手机号提示 -->
+<div class="popup" style="display:none">
+	<h4>温馨提示</h4>
+    <p>您还没有绑定手机号，请绑定手机号后参与活动！</p>
+	<div class="zfTrue"><a href="#" class="zfqx">取消</a><a href="#">前往绑定</a></div>
+</div>
+<!-- 绑定身份证提示 -->
+<div class="popup" style="display:none">
+	<h4>温馨提示</h4>
+    <p>您还没有绑定身份证号，请绑定身份证号后参与活动！</p>
+	<div class="zfTrue"><a href="#" class="zfqx">取消</a><a href="#">前往绑定</a></div>
+</div>
+<!-- 限制竞猜提示 -->
+<div class="popup" style="display:none">
+	<h4>温馨提示</h4>
+    <p>每个用户每天只能参与1次免费双色球竞猜！</p>
+	<div class="zfTrue"><a href="#" class="zfqx">取消</a><a href="#">前往绑定</a></div>
+</div>
+<div class="popup" id="aaaa" style="display:none">
+	<h4>温馨提示</h4>
+    <p>双色球免费竞猜活动已暂停</p>
+	<div class="zfTrue"><a href="#" class="zfqx">取消</a><a href="#">前往绑定</a></div>
+</div>
+
+<div class="zhezhao" style="display:none"></div>
+<body style="background:#fcf0ab">
+<figure class="banner"><img src="banner.png" width="100%"></figure>
+<article class="text">
+	<div class="Tleft clearfix">
+    	<div class="left">
+        	<p>小女子玩竞彩 <cite>(累计竞猜23注)</cite></p>
+            <p>今日可免费选择2注双色球，剩余<em class="red">1</em>注</p>
+        </div>
+        <a href="jcjl.html">竞猜记录 &gt;</a>
+    </div>
+    <div class="check">
+    	<p class="clearfix"><span class="left">双色球2014156期,明天<cite class="red">8:30</cite>开奖</span><a href="ssq.html">自己选号</a></p>
+        <div class="ball clearfix"><span>01</span><span>09</span><span>16</span><span>22</span><span>28</span><span>33</span><span class="blue">01</span><cite>换一注</cite></div>
+   		<a href="zjxh.html" class="btn">免费参与竞猜</a>
+    </div>
+    <article class="cur">
+    	<div class="title">活动规则</div>
+        <div class="hdgz">
+        	<p>1、活动期间：3月09日 00:00:00—3月20日 23:59:59每个用户每天可在活动页面选择1注双色球免费参与竞猜。</p>
+            <p>2、每期开奖后所选号码与当期双色球一等奖开奖号相同的用户获本站彩金奖励91888元（如有多人则由多人平分91888元），二等奖用户获本站彩金奖励9188元（如有多人则由多人平分9188元）。</p>
+            <p>3、用户参与前须完成手机号和实名认证，手机号或身份证号相同的用户视为同一用户；</p>
+            <p>4、用户获赠的奖金不可直接提现，可在本平台无限制使用；</p>
+            <p>5、对于通过作弊方式多次参与的用户，将不予赠送奖金，已赠送的奖金我站有权要求用户返还，并查封作弊账号；</p>
+            <p>6、在法律许可范围内，本网站对本活动保留最终解释权,如有疑问请致电咨询客服400-673-9188。</p>
+        </div>
+    </article>
+</article>
+</body>

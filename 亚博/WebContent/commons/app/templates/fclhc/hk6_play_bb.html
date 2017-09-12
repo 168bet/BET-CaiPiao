@@ -1,0 +1,395 @@
+<div class="w1000 m0auto text_center fz14" style="padding:20px 70px">
+    <div class="hgt30 line_hgt30 text_left p10_0" style="background: #EAEAEA">
+        <span class="inlilne-block border_red1 red p5_25" ng-click="bbTab='bb'; fun.cancelOrder(); " ng-class="{tm_active:bbTab=='bb'}">半波</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="bbTab='bbb'; fun.cancelOrder(); " ng-class="{tm_active:bbTab=='bbb'}">半半波</span>
+    </div>
+    <table ng-show="bbTab=='bb'">
+        <thead>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #71706E!important;">
+                <td>波色</td>
+                <td>赔率</td>
+                <td>投注金额</td>
+                <td>号码</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgRed">{{BBBBRED_ODD.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBRED_ODD.id]}" ng-click="fun.peiyuSelected(BBBBRED_ODD)">{{BBBBRED_ODD.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" ng-class="{'has-error': data.inputErrors[BBBBRED_ODD.id] }" ng-model="data.betMoney[BBBBRED_ODD.id]" ng-change="fun.codeSelected(BBBBRED_ODD)" class="hgt25 green money-input-border"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block redCircle">01</span>
+                    <span class="inline-block redCircle">07</span>
+                    <span class="inline-block redCircle">13</span>
+                    <span class="inline-block redCircle">19</span>
+                    <span class="inline-block redCircle">23</span>
+                    <span class="inline-block redCircle">29</span>
+                    <span class="inline-block redCircle">35</span>
+                    <span class="inline-block redCircle">45</span>
+                </td>
+            </tr>
+           <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgRed">{{BBBBRED_EVEN.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBRED_EVEN.id]}" ng-click="fun.peiyuSelected(BBBBRED_EVEN)">{{BBBBRED_EVEN.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBRED_EVEN.id] }" ng-model="data.betMoney[BBBBRED_EVEN.id]" ng-change="fun.codeSelected(BBBBRED_EVEN)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block redCircle">02</span>
+                    <span class="inline-block redCircle">08</span>
+                    <span class="inline-block redCircle">14</span>
+                    <span class="inline-block redCircle">20</span>
+                    <span class="inline-block redCircle">24</span>
+                    <span class="inline-block redCircle">30</span>
+                    <span class="inline-block redCircle">36</span>
+                    <span class="inline-block redCircle">46</span>
+                </td>
+            </tr>
+           <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgRed">{{BBBBRED_BIG.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBRED_BIG.id]}" ng-click="fun.peiyuSelected(BBBBRED_BIG)">{{BBBBRED_BIG.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number"  style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBRED_BIG.id] }" ng-model="data.betMoney[BBBBRED_BIG.id]" ng-change="fun.codeSelected(BBBBRED_BIG)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block redCircle">29</span>
+                    <span class="inline-block redCircle">30</span>
+                    <span class="inline-block redCircle">34</span>
+                    <span class="inline-block redCircle">35</span>
+                    <span class="inline-block redCircle">40</span>
+                    <span class="inline-block redCircle">45</span>
+                    <span class="inline-block redCircle">46</span>
+                </td>
+            </tr>
+           <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgRed">{{BBBBRED_SMALL.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBRED_SMALL.id]}" ng-click="fun.peiyuSelected(BBBBRED_SMALL)">{{BBBBRED_SMALL.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBRED_SMALL.id] }" ng-model="data.betMoney[BBBBRED_SMALL.id]" ng-change="fun.codeSelected(BBBBRED_SMALL)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block redCircle">01</span>
+                    <span class="inline-block redCircle">02</span>
+                    <span class="inline-block redCircle">07</span>
+                    <span class="inline-block redCircle">08</span>
+                    <span class="inline-block redCircle">12</span>
+                    <span class="inline-block redCircle">13</span>
+                    <span class="inline-block redCircle">18</span>
+                    <span class="inline-block redCircle">19</span>
+                    <span class="inline-block redCircle">23</span>
+                    <span class="inline-block redCircle">24</span>
+                </td>
+            </tr>
+           <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgGreen">{{BBBBGREEN_ODD.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBGREEN_ODD.id]}" ng-click="fun.peiyuSelected(BBBBGREEN_ODD)">{{BBBBGREEN_ODD.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBGREEN_ODD.id] }" ng-model="data.betMoney[BBBBGREEN_ODD.id]" ng-change="fun.codeSelected(BBBBGREEN_ODD)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block greenCircle">05</span>
+                    <span class="inline-block greenCircle">11</span>
+                    <span class="inline-block greenCircle">17</span>
+                    <span class="inline-block greenCircle">21</span>
+                    <span class="inline-block greenCircle">27</span>
+                    <span class="inline-block greenCircle">33</span>
+                    <span class="inline-block greenCircle">39</span>
+                    <span class="inline-block greenCircle">43</span>
+                    <span class="inline-block greenCircle">49</span>
+                </td>
+            </tr>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgGreen">{{BBBBGREEN_EVEN.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBGREEN_EVEN.id]}" ng-click="fun.peiyuSelected(BBBBGREEN_EVEN)">{{BBBBGREEN_EVEN.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBGREEN_EVEN.id] }" ng-model="data.betMoney[BBBBGREEN_EVEN.id]" ng-change="fun.codeSelected(BBBBGREEN_EVEN)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block greenCircle">06</span>
+                    <span class="inline-block greenCircle">16</span>
+                    <span class="inline-block greenCircle">22</span>
+                    <span class="inline-block greenCircle">28</span>
+                    <span class="inline-block greenCircle">32</span>
+                    <span class="inline-block greenCircle">38</span>
+                    <span class="inline-block greenCircle">44</span>
+                </td>
+            </tr>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgGreen">{{BBBBGREEN_BIG.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBGREEN_BIG.id]}" ng-click="fun.peiyuSelected(BBBBGREEN_BIG)">{{BBBBGREEN_BIG.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBGREEN_BIG.id] }" ng-model="data.betMoney[BBBBGREEN_BIG.id]" ng-change="fun.codeSelected(BBBBGREEN_BIG)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block greenCircle">27</span>
+                    <span class="inline-block greenCircle">28</span>
+                    <span class="inline-block greenCircle">32</span>
+                    <span class="inline-block greenCircle">33</span>
+                    <span class="inline-block greenCircle">38</span>
+                    <span class="inline-block greenCircle">39</span>
+                    <span class="inline-block greenCircle">43</span>
+                    <span class="inline-block greenCircle">49</span>
+                </td>
+            </tr>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgGreen">{{BBBBGREEN_SMALL.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBGREEN_SMALL.id]}" ng-click="fun.peiyuSelected(BBBBGREEN_SMALL)">{{BBBBGREEN_SMALL.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBGREEN_SMALL.id] }" ng-model="data.betMoney[BBBBGREEN_SMALL.id]" ng-change="fun.codeSelected(BBBBGREEN_SMALL)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block greenCircle">05</span>
+                    <span class="inline-block greenCircle">06</span>
+                    <span class="inline-block greenCircle">11</span>
+                    <span class="inline-block greenCircle">16</span>
+                    <span class="inline-block greenCircle">17</span>
+                    <span class="inline-block greenCircle">21</span>
+                    <span class="inline-block greenCircle">22</span>
+                </td>
+            </tr>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgBlue">{{BBBBBLUE_ODD.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBLUE_ODD.id]}" ng-click="fun.peiyuSelected(BBBBBLUE_ODD)">{{BBBBBLUE_ODD.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBLUE_ODD.id] }" ng-model="data.betMoney[BBBBBLUE_ODD.id]" ng-change="fun.codeSelected(BBBBBLUE_ODD)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block blueCircle">03</span>
+                    <span class="inline-block blueCircle">09</span>
+                    <span class="inline-block blueCircle">15</span>
+                    <span class="inline-block blueCircle">25</span>
+                    <span class="inline-block blueCircle">31</span>
+                    <span class="inline-block blueCircle">37</span>
+                    <span class="inline-block blueCircle">41</span>
+                    <span class="inline-block blueCircle">47</span>
+                </td>
+            </tr>
+             <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgBlue">{{BBBBBLUE_EVEN.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBLUE_EVEN.id]}" ng-click="fun.peiyuSelected(BBBBBLUE_EVEN)">{{BBBBBLUE_EVEN.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBLUE_EVEN.id] }" ng-model="data.betMoney[BBBBBLUE_EVEN.id]" ng-change="fun.codeSelected(BBBBBLUE_EVEN)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block blueCircle">04</span>
+                    <span class="inline-block blueCircle">10</span>
+                    <span class="inline-block blueCircle">14</span>
+                    <span class="inline-block blueCircle">20</span>
+                    <span class="inline-block blueCircle">26</span>
+                    <span class="inline-block blueCircle">36</span>
+                    <span class="inline-block blueCircle">42</span>
+                    <span class="inline-block blueCircle">48</span>
+                </td>
+            </tr>
+             <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgBlue">{{BBBBBLUE_BIG.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBLUE_BIG.id]}" ng-click="fun.peiyuSelected(BBBBBLUE_BIG)">{{BBBBBLUE_BIG.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBLUE_BIG.id] }" ng-model="data.betMoney[BBBBBLUE_BIG.id]" ng-change="fun.codeSelected(BBBBBLUE_BIG)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block blueCircle">1</span>
+                    <span class="inline-block blueCircle">2</span>
+                    <span class="inline-block blueCircle">3</span>
+                    <span class="inline-block blueCircle">4</span>
+                    <span class="inline-block blueCircle">5</span>
+                    <span class="inline-block blueCircle">6</span>
+                    <span class="inline-block blueCircle">7</span>
+                    <span class="inline-block blueCircle">8</span>
+                </td>
+            </tr>
+             <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgBlue">{{BBBBBLUE_SMALL.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBLUE_SMALL.id]}" ng-click="fun.peiyuSelected(BBBBBLUE_SMALL)">{{BBBBBLUE_SMALL.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBLUE_SMALL.id] }" ng-model="data.betMoney[BBBBBLUE_SMALL.id]" ng-change="fun.codeSelected(BBBBBLUE_SMALL)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block blueCircle">25</span>
+                    <span class="inline-block blueCircle">26</span>
+                    <span class="inline-block blueCircle">31</span>
+                    <span class="inline-block blueCircle">36</span>
+                    <span class="inline-block blueCircle">37</span>
+                    <span class="inline-block blueCircle">41</span>
+                    <span class="inline-block blueCircle">42</span>
+                    <span class="inline-block blueCircle">47</span>
+                    <span class="inline-block blueCircle">48</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table ng-show="bbTab=='bbb'">
+        <thead>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #71706E!important;">
+                <td>波色</td>
+                <td>赔率</td>
+                <td>投注金额</td>
+                <td>号码</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgRed">{{BBBBBRED_BIG_ODD.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBRED_BIG_ODD.id]}" ng-click="fun.peiyuSelected(BBBBBRED_BIG_ODD)">{{BBBBBRED_BIG_ODD.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBLUE_SMALL.id] }" ng-model="data.betMoney[BBBBBRED_BIG_ODD.id]" ng-change="fun.codeSelected(BBBBBRED_BIG_ODD)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block redCircle">29</span>
+                    <span class="inline-block redCircle">35</span>
+                    <span class="inline-block redCircle">45</span>
+                </td>
+            </tr>
+           <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgRed">{{BBBBBRED_BIG_EVEN.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBRED_BIG_EVEN.id]}" ng-click="fun.peiyuSelected(BBBBBRED_BIG_EVEN)">{{BBBBBRED_BIG_EVEN.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBRED_BIG_EVEN.id] }" ng-model="data.betMoney[BBBBBRED_BIG_EVEN.id]" ng-change="fun.codeSelected(BBBBBRED_BIG_EVEN)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block redCircle">30</span>
+                    <span class="inline-block redCircle">34</span>
+                    <span class="inline-block redCircle">40</span>
+                    <span class="inline-block redCircle">45</span>
+                </td>
+            </tr>
+           <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgRed">{{BBBBBRED_SMALL_ODD.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBRED_SMALL_ODD.id]}" ng-click="fun.peiyuSelected(BBBBBRED_SMALL_ODD)">{{BBBBBRED_SMALL_ODD.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBRED_SMALL_ODD.id] }" ng-model="data.betMoney[BBBBBRED_SMALL_ODD.id]" ng-change="fun.codeSelected(BBBBBRED_SMALL_ODD)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block redCircle">01</span>
+                    <span class="inline-block redCircle">07</span>
+                    <span class="inline-block redCircle">13</span>
+                    <span class="inline-block redCircle">19</span>
+                    <span class="inline-block redCircle">23</span>
+                </td>
+            </tr>
+           <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgGreen">{{BBBBBRED_SMALL_EVEN.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBRED_SMALL_EVEN.id]}" ng-click="fun.peiyuSelected(BBBBBRED_SMALL_EVEN)">{{BBBBBRED_SMALL_EVEN.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBRED_SMALL_EVEN.id] }" ng-model="data.betMoney[BBBBBRED_SMALL_EVEN.id]" ng-change="fun.codeSelected(BBBBBRED_SMALL_EVEN)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block greenCircle">05</span>
+                    <span class="inline-block greenCircle">11</span>
+                    <span class="inline-block greenCircle">17</span>
+                    <span class="inline-block greenCircle">21</span>
+                    <span class="inline-block greenCircle">27</span>
+                    <span class="inline-block greenCircle">33</span>
+                    <span class="inline-block greenCircle">39</span>
+                    <span class="inline-block greenCircle">43</span>
+                    <span class="inline-block greenCircle">49</span>
+                </td>
+            </tr>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgRed">{{BBBBBGREEN_BIG_ODD.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBGREEN_BIG_ODD.id]}" ng-click="fun.peiyuSelected(BBBBBGREEN_BIG_ODD)">{{BBBBBGREEN_BIG_ODD.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBGREEN_BIG_ODD.id] }" ng-model="data.betMoney[BBBBBGREEN_BIG_ODD.id]" ng-change="fun.codeSelected(BBBBBGREEN_BIG_ODD)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block redCircle">27</span>
+                    <span class="inline-block redCircle">33</span>
+                    <span class="inline-block redCircle">39</span>
+                    <span class="inline-block redCircle">43</span>
+                </td>
+           </tr>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgGreen">{{BBBBBGREEN_BIG_EVEN.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBGREEN_BIG_EVEN.id]}" ng-click="fun.peiyuSelected(BBBBBGREEN_BIG_EVEN)">{{BBBBBGREEN_BIG_EVEN.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBGREEN_BIG_EVEN.id] }" ng-model="data.betMoney[BBBBBGREEN_BIG_EVEN.id]" ng-change="fun.codeSelected(BBBBBGREEN_BIG_EVEN)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block greenCircle">28</span>
+                    <span class="inline-block greenCircle">32</span>
+                    <span class="inline-block greenCircle">38</span>
+                    <span class="inline-block greenCircle">44</span>
+                </td>
+            </tr>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgGreen">{{BBBBBGREEN_SMALL_ODD.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBGREEN_SMALL_ODD.id]}" ng-click="fun.peiyuSelected(BBBBBGREEN_SMALL_ODD)">{{BBBBBGREEN_SMALL_ODD.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBGREEN_SMALL_ODD.id] }" ng-model="data.betMoney[BBBBBGREEN_SMALL_ODD.id]" ng-change="fun.codeSelected(BBBBBGREEN_SMALL_ODD)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block greenCircle">05</span>
+                    <span class="inline-block greenCircle">11</span>
+                    <span class="inline-block greenCircle">17</span>
+                    <span class="inline-block greenCircle">21</span>
+                </td>
+            </tr>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgGreen">{{BBBBBGREEN_SMALL_EVEN.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBGREEN_SMALL_EVEN.id]}" ng-click="fun.peiyuSelected(BBBBBGREEN_SMALL_EVEN)">{{BBBBBGREEN_SMALL_EVEN.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBGREEN_SMALL_EVEN.id] }" ng-model="data.betMoney[BBBBBGREEN_SMALL_EVEN.id]" ng-change="fun.codeSelected(BBBBBGREEN_SMALL_EVEN)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block greenCircle">06</span>
+                    <span class="inline-block greenCircle">16</span>
+                    <span class="inline-block greenCircle">22</span>
+                </td>
+            </tr>
+            <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgBlue">{{BBBBBBLUE_BIG_ODD.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBBLUE_BIG_ODD.id]}" ng-click="fun.peiyuSelected(BBBBBBLUE_BIG_ODD)">{{BBBBBBLUE_BIG_ODD.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBBLUE_BIG_ODD.id] }" ng-model="data.betMoney[BBBBBBLUE_BIG_ODD.id]" ng-change="fun.codeSelected(BBBBBBLUE_BIG_ODD)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block blueCircle">25</span>
+                    <span class="inline-block blueCircle">31</span>
+                    <span class="inline-block blueCircle">37</span>
+                    <span class="inline-block blueCircle">41</span>
+                    <span class="inline-block blueCircle">47</span>
+                </td>
+            </tr>
+             <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgBlue">{{BBBBBBLUE_BIG_EVEN.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBBLUE_BIG_EVEN.id]}" ng-click="fun.peiyuSelected(BBBBBBLUE_BIG_EVEN)">{{BBBBBBLUE_BIG_EVEN.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBBLUE_BIG_EVEN.id] }" ng-model="data.betMoney[BBBBBBLUE_BIG_EVEN.id]" ng-change="fun.codeSelected(BBBBBBLUE_BIG_EVEN)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block blueCircle">26</span>
+                    <span class="inline-block blueCircle">36</span>
+                    <span class="inline-block blueCircle">42</span>
+                    <span class="inline-block blueCircle">48</span>
+                </td>
+            </tr>
+             <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgBlue">{{BBBBBBLUE_SMALL_ODD.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBBLUE_SMALL_ODD.id]}" ng-click="fun.peiyuSelected(BBBBBBLUE_SMALL_ODD)">{{BBBBBBLUE_SMALL_ODD.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBBLUE_SMALL_ODD.id] }" ng-model="data.betMoney[BBBBBBLUE_SMALL_ODD.id]" ng-change="fun.codeSelected(BBBBBBLUE_SMALL_ODD)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block blueCircle">03</span>
+                    <span class="inline-block blueCircle">09</span>
+                    <span class="inline-block blueCircle">15</span>
+                </td>
+            </tr>
+             <tr class="hgt42 line_hgt42 white border_btm5" style="background: #DDDDDD">
+                <td class="bgBlue">{{BBBBBBLUE_SMALL_EVEN.number}}</td>
+                <td class="black peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[BBBBBBLUE_SMALL_EVEN.id]}" ng-click="fun.peiyuSelected(BBBBBBLUE_SMALL_EVEN)">{{BBBBBBLUE_SMALL_EVEN.pl}}</td>
+                <td style="width: 10%">
+                    <input type="number" style="width:100%" class="hgt25 green money-input-border" ng-class="{'has-error': data.inputErrors[BBBBBBLUE_SMALL_EVEN.id] }" ng-model="data.betMoney[BBBBBBLUE_SMALL_EVEN.id]" ng-change="fun.codeSelected(BBBBBBLUE_SMALL_EVEN)"/>
+                </td>
+                <td style="width: 60%">
+                    <span class="inline-block blueCircle">04</span>
+                    <span class="inline-block blueCircle">10</span>
+                    <span class="inline-block blueCircle">14</span>
+                    <span class="inline-block blueCircle">20</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

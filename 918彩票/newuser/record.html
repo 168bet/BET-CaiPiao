@@ -1,0 +1,577 @@
+<article class="gcjlTit" id=myRecord>
+	<!-- <section class="iscroll_wrap find_nav_list">
+		<ul class="" id='gcjl' >
+	    	<li data-navstatus="qbdd" class="on find_nav_cur">全部</li>
+	        <li data-navstatus="dkj">待开奖</li>
+	    	<li data-navstatus="ykj">已开奖</li>
+	        <li data-navstatus="zj">中奖</li>
+	        <li data-navstatus="zh">追号</li>
+	        <li data-navstatus="hm">合买</li>
+	        <li class="sideline"></li>
+	        <div class="clear"></div>
+	    </ul>
+	</section>    --> 
+	<section class="find_nav">
+	    <div class="find_nav_left">
+	        <div class="find_nav_list">
+	            <ul id="gcjl">
+	                <li data-navstatus="qbdd" class="find_nav_cur">全部</li>
+			        <li data-navstatus="dkj">待开奖</li>
+			    	<li data-navstatus="ykj">已开奖</li>
+			        <li data-navstatus="zj">中奖</li>
+			        <li data-navstatus="zh">追号</li>
+			        <li data-navstatus="hm">合买</li>
+			        <li class="sideline"></li>
+	            </ul>
+	        </div>
+	    </div>
+	</section>
+ 
+    <div id="wrapper" style="margin-top: 2.65rem;">
+		<div id="scroller">
+             <div class="" id="list_record">
+             	<div style='padding:58px;height:1000px'>
+             		<em class="rotate_load" style='margin:auto'></em>
+             	</div>
+             </div>
+            <div id="pullUp" style="display:none;text-align: center;">
+                <span class="pullUpIcon"></span>
+                <span class="pullUpLabel">上拉查看更多...</span>
+            </div>
+        </div>
+    </div>
+</article>
+<script>
+CP.MyRecord = (function () {
+	var tag = CP.Util.getPara('in', window.location.href, 2);
+	var on_ = CP.Util.getPara('on', window.location.href, 2);//获取url上面的参数on_
+	// console.log(on_)
+	on_ = on_ || 'qbcz';//默认不传打开全部彩种
+	tag=tag||'qbdd'
+	var myScroll;
+	var date_ = new Date();
+	var etime = date_.getFullYear()+'-'+(date_.getMonth()+1)+'-'+date_.getDate();
+	date_ = new Date(date_.setYear(date_.getFullYear()-2));//2年
+	var stime = date_.getFullYear()+'-'+(date_.getMonth()+1)+'-'+date_.getDate();
+	var g = {
+			//arrTy: ['自购','发起合买','合买跟单'],
+			on_ : {
+					'0':'qbcz','1':'ssq','2':'dlt',
+					'3':'fc3d','4':'pl3','5':'pl5',
+					'6':'qxc','7':'qlc','8':'11x5',
+					'9':'h11x5','10':'syydj','11':'ssc',
+					'12':'xssc','13':'k3','14':'xk3',
+					'15':'fck3','16':'jsk3','17':'klpk3',
+					'18':'jczq','19':'jclq','20':'bjdc','21':'rxj',
+					'22':'sfc'
+				},
+			type : {
+				'qbcz':['全部彩种',0,''],
+				'ssq':['双色球',1,01],
+				'dlt':['大乐透',2,02],
+				'fc3d':['福彩3D',3,03],
+				'pl3':['排列三',4,53],
+				'pl5':['排列五',5,52],
+				'qxc':['七星彩',6,51],
+				'qlc':['七乐彩',7,07],
+				'11x5':['11选5',8,54],
+				'h11x5':['沪11选5',9,57],
+				'syydj':['十一运夺金',10,56],
+				'ssc':['时时彩',11,04],
+				'xssc':['新时时彩',12,20],
+				'k3':['快3',13,10001],
+				'xk3':['新快3',14,10],
+				'fck3':['福彩快3',15,08],
+				'jsk3':['江苏快3',16,09],
+				'klpk3':['快乐扑克3',17,58],
+				'jczq':['竞彩足球',18,900],
+				'jclq':['竞彩篮球',19,940],
+				'bjdc':['北京单场',20,850],
+				'rxj':['任选九',21,81],
+				'sfc':['胜负彩',22,80],
+			},
+			arrTy : ['自购','发起合买','合买跟单','神单','跟买'],
+			shareGod :[ '非神单','分享神单','跟买神单'],
+			StopReason:['未完成','已完成','中奖停止','用户手工停止'],			
+			istate:['禁止认购','认购中','已满员','过期','主动撤销','已出票','已派奖'], 
+			icast:['未出票','可以','已拆票','已出票'],
+			arrCancel : ['未撤销','本人撤销','系统撤销'],
+			st: ['未完成','已完成','中奖后停止','用户手动停止'],
+			title : {
+					'gc':['购彩','gcjl','40'],
+					'zh':['追号','zhjl','41']
+				},
+			navstatus:{
+				'qbdd':['全部',0],
+				'dkj':['待开奖',1],
+				'ykj':['已开奖',2],
+				'zj':['中奖',3],
+				'zh':['追号',4],
+				'hm':['合买',5]
+			},	
+			index:'0',//当前玩法 默认第一个
+			total:'1',//总页数
+			cPage:'1'//当前页数
+	};
+	var o = {
+			//页面跳转
+			pageGo: {
+				goBack: function () {
+					TopAnch.init({
+						title:g.type[on_][0],
+						prevShow:true,
+						prevFun:function(){//左侧按钮绑定事件
+							 window.location.href = '#type=url&p=newuser/index.html';
+						},
+						nextShow:false,
+						isBack:true,
+						style:'newuser',
+						headerSelect:[{name:'全部彩种',fun:o.changePlayType,cur:g.type[on_][1]},
+									  {name:'双色球'},
+									  {name:'大乐透'},
+									  {name:'福彩3D'},
+									  {name:'排列三'},
+									  {name:'排列五'},
+									  {name:'七星彩'},
+									  {name:'七乐彩'},
+									  {name:'11选5'},
+									  {name:'沪11选5'},
+									  {name:'十一运夺金'},
+									  {name:'时时彩'},
+									  {name:'新时时彩'},
+									  {name:'快3'},
+									  {name:'新快3'},
+									  {name:'福彩快3'},
+									  {name:'江苏快3'},
+									  {name:'快乐扑克3'},
+									  {name:'竞彩足球'},
+									  {name:'竞彩篮球'},
+									  {name:'北京单场'},
+									  {name:'任选九'},
+									  {name:'胜负彩'}
+									]
+					});
+				},
+			},
+			changePlayType : function (index) {
+				window.location.href = '#type=url&p=newuser/record.html?on='+g.on_[index]+'&in='+tag;
+			},
+			DateDiff:function(date){
+				//数据格式化为昨天 今天 或日期
+				var LocaYear=new Date().getFullYear();
+				var LocaMonth=new Date().getMonth()+1;
+				var LocaDate=new Date().getDate();
+
+				var getDate=date.split(' ')[0];
+				var getYear=+getDate.split('-')[0];
+				var getMonth=+getDate.split('-')[1];
+				var getNowDate=+getDate.split('-')[2];
+				var data={};
+				//时间显示到分
+				data.date=date.split(' ')[1].split(":")[0]+':'+date.split(' ')[1].split(":")[1];
+				if(LocaYear==getYear&&LocaMonth==getMonth){
+					
+					if(LocaDate-1==getNowDate){
+						// return '昨天'
+						data.day='昨天'
+					}else if(LocaDate==getNowDate){
+						// return '今天'
+						data.day='今天'
+					}else{
+						data.day=(getMonth+'-'+getNowDate)
+					}
+				}else{
+					data.day=(getMonth+'-'+getNowDate)
+					// return getMonth+'-'+getNowDate
+				}
+				// console.log(data)
+				return data;
+			},
+			//渲染列表信息
+			render : function (opt) {
+				var opt_ = opt || {};
+				var out_ = [];
+				out_.push($('#list_record').html());
+				console.log(tag)
+				for (var Q1 in opt_) {
+					var Q = opt_[Q1];
+					if (tag != 'zh') {//渲染购彩记录
+				            var Q2 = '';
+
+				            if(Q.rmoney>0){
+				            	Q2 = '<span class="orange_color">中奖'+Q.rmoney+'元</span>';
+				            }else {
+				            	Q2 = '<span>'+Q.state+'</span>';
+				            }
+				            out_.push('\
+				            <a href="#type=url&p=newuser/viewpath.html?hid='+Q.projid+'" class="caizhong_a">\
+						        <div class="clearfix caizhong_box">\
+						            <div class="div10">\
+						                <p class="p6">'+o.DateDiff(Q.buydate).day+'</p>\
+						                <p class="p7">'+o.DateDiff(Q.buydate).date+'</p>\
+						            </div>\
+						            <div class="div11">\
+						                <img src="./img/czImages/'+CP.Util.lot(Q.gid,1)+'@2x.png" />\
+						            </div>\
+						            <div class="div12">\
+						                <p class="p8">'+Q.money+'元'+Q2+'</p>\
+						                <p class="p9">'+CP.Util.lot(Q.gid)+' | <em class="fontSize07">'+g.arrTy[Q.ty]+'</em></p>\
+						            </div>\
+						        </div>\
+						    </a>')
+						
+					} else{//追号记录
+						if(Q.bonus>0){
+							Q2 = '<span class="orange_color">中奖'+Q.bonus+'元</span>';
+				        }else {
+				            Q2 = '<span>'+g.st[Q.reason]+'</span>';
+						}
+						out_.push('\
+				            <a href="#type=url&p=newuser/chase.html?hid='+Q.zhid+'" class="caizhong_a">\
+						      <div class="clearfix caizhong_box">\
+						            <div class="div10">\
+						                <p class="p6">'+o.DateDiff(Q.adddate).day+'</p>\
+						                <p class="p7">'+o.DateDiff(Q.adddate).date+'</p>\
+						            </div>\
+						            <div class="div11">\
+						                <img src="./img/czImages/'+CP.Util.lot(Q.gid,1)+'@2x.png" />\
+						            </div>\
+						            <div class="div12">\
+						                <p class="p8">'+Q.tmoney+'元'+Q2+'</p>\
+						                <p class="p9">'+CP.Util.lot(Q.gid)+'&nbsp;&nbsp;<em class="fontSize07">共'+Q.pnums+'期/已追'+Q.success+'期</em></p>\
+						            </div>\
+						        </div>\
+						    </a>')
+						}	
+				}
+				$('#list_record').html(out_.join(''));
+				if(g.cPage<g.total){
+					$("#pullUp").show();	
+				}else{
+					$("#pullUp").hide();	
+				}
+				myScroll.refresh();
+			},
+			//获取列表信息
+			change : function (n) {
+				if (g.cPage<=g.total) {
+					/*post参数[[*/
+					
+					var data={};
+					if(g.type[on_][2]==''){
+						data = {//查询全部
+							gid:'',
+							source:CP.Data.source,
+							pn:g.cPage,
+							ps:10
+							// rid:,
+							// newValue:,
+							// tid:,
+							// source:CP.Data.source
+						}
+					}else{
+						data = {//查询全部
+							gid:g.type[on_][2],
+							pn:g.cPage,
+							source:CP.Data.source,
+							ps:10
+							// aid:,
+							// rid:,
+							// newValue:,
+							// tid:,
+							// source:CP.Data.source
+						};
+					}
+					switch(n){
+						case 0:
+							//全部
+							data.flag=1;
+							delete data.aid;
+							delete data.rid;
+							delete data.newValue;
+							delete data.tid;
+						break;
+						case 1:
+							//待开奖
+							data.rid='2';
+							data.flag='1';
+						break;
+						case 2:
+							//已开奖
+							data.tid='1';
+							data.flag='1';
+						break;
+						case 3:
+							//中奖
+							data.aid='0';
+							data.flag='1';
+						break;
+						case 4:
+							//追号
+							data.flag='2';
+						break;
+						case 5:
+							//合买
+							data.newValue='HM';
+						break;
+						default:
+							data.flag=1;
+							delete data.aid;
+							delete data.rid;
+							delete data.newValue;
+							delete data.tid;
+						break;
+
+					}
+					
+					/*]]post参数*/
+					$.ajax({
+						url:CP.Data.apps+'/user/queryLotteryDetail.go?'+jQuery.param(data),
+						type:'POST',
+						//data:data
+						dataType:'xml',
+						success  : function (xml){
+							if (g.cPage == '1') {
+								$('#list_record').html('');
+							}
+							var R = $(xml).find('Resp');
+							var c = R.attr('code');
+							var d = R.attr('desc');
+							if (c == '0') {
+								g.total = R.find('rows').attr('tp');
+								var r = R.find('row');
+								var recordData = [];
+								r.each(function () {
+									var t = {};
+									t.gid = $(this).attr('gid');
+									// console.log('tag'+tag);
+									// console.log('n'+n);
+
+									if (tag != 'zh'&&n!=4) {
+										// t.rec = $(this).attr('rec');
+										t.pid = $(this).attr('pid');
+										t.projid = $(this).attr('projid');
+										t.money = $(this).attr('money');
+										t.buydate = $(this).attr('buydate');
+										t.buyid = $(this).attr('buyid');
+										t.cancel = $(this).attr('cancel');
+										t.award = $(this).attr('award');
+										t.return_ = $(this).attr('return');
+										t.rmoney = $(this).attr('rmoney');
+										// t.jiesuan = $(this).attr('jiesuan');
+										t.ty = $(this).attr('ty');
+										t.istate = $(this).attr('istate');
+										t.icast = $(this).attr('icast');
+										t.status = $(this).attr('status');
+										t.state = $(this).attr('state');
+										// t.jindu = $(this).attr('jindu');
+										t.endtime = $(this).attr('endtime');
+									} else {
+										t.rec = $(this).attr('rec');
+										t.zhid = $(this).attr('zhid');
+										t.pnums = $(this).attr('pnums');
+										t.zhflag = $(this).attr('zhflag');
+										t.finish = $(this).attr('finish');
+										t.success = $(this).attr('success');
+										t.adddate = $(this).attr('adddate');
+										t.tmoney = $(this).attr('tmoney');
+										t.reason = $(this).attr('reason');
+										t.bonus = $(this).attr('bonus');
+										t.casts = $(this).attr('casts');
+										t.zhtype = $(this).attr('zhtype');
+									}
+									recordData.push(t);
+								});
+								// console.log(recordData)
+								o.render(recordData);
+							} else {
+								if(d.indexOf('未登录') != -1){
+									alert(d);
+									setTimeout(function () {
+										location.href = '#type=fun&fun=CP.Home.openLogin';
+									}, 1e3);
+								}else{
+
+								}
+							}
+							if(c==1000||c==2000||d==''){
+								//防止无数据时出现滚动条
+								myScroll.refresh();
+								$('#list_record').html(
+									'<div class="record_nodata">'+
+										'<img  src="./newuser/img/shikuang.png"/>'+
+										"<p>"+"客官，暂无数据呦~"+"</p>"+
+									'</div>'
+								);
+							}
+							
+									
+						}
+					});
+				}
+			},
+			NavClick:function(){
+				//导航条滑动
+				$(function(){
+				    $(".find_nav_list").css("left",sessionStorage.left+"px");
+				    $(".find_nav_list li").each(function(){
+				        if($(this).text()==sessionStorage.pagecount){
+				            $(".sideline").css({left:$(this).position().left});
+				            $(".sideline").css({width:$(this).outerWidth()});
+				            $(this).addClass("find_nav_cur").siblings().removeClass("find_nav_cur");
+				            navName(sessionStorage.pagecount);
+				            return false
+				        }
+				        else{
+				            $(".sideline").css({left:0});
+				            $(".find_nav_list li").eq(0).addClass("find_nav_cur").siblings().removeClass("find_nav_cur");
+				        }
+				    });
+				    var nav_w=$(".find_nav_list li").first().width();
+				    $(".sideline").width(nav_w);
+				    $(".find_nav_list li").on('click', function(){
+				        nav_w=$(this).width();
+				        $(".sideline").stop(true);
+				        $(".sideline").animate({left:$(this).position().left},300);
+				        $(".sideline").animate({width:nav_w});
+				        $(this).addClass("find_nav_cur").siblings().removeClass("find_nav_cur");
+				        var fn_w = ($(".find_nav").width() - nav_w) / 2;
+				        var fnl_l;
+				        var fnl_x = parseInt($(this).position().left);
+				        if (fnl_x <= fn_w) {
+				            fnl_l = 0;
+				        } else if (fn_w - fnl_x <= flb_w - fl_w) {
+				            fnl_l = flb_w - fl_w;
+				        } else {
+				            fnl_l = fn_w - fnl_x;
+				        }
+				        $(".find_nav_list").animate({
+				            "left" : fnl_l
+				        }, 300);
+				        sessionStorage.left=fnl_l;
+				        var c_nav=$(this).text();
+				        navName(c_nav);
+				    });
+				    var fl_w=$(".find_nav_list").width();
+				    var flb_w=$(".find_nav_left").width();
+				    $(".find_nav_list").on('touchstart', function (e) {
+				        var touch1 = e.originalEvent.targetTouches[0];
+				        x1 = touch1.pageX;
+				        y1 = touch1.pageY;
+				        ty_left = parseInt($(this).css("left"));
+				    });
+				    $(".find_nav_list").on('touchmove', function (e) {
+				        var touch2 = e.originalEvent.targetTouches[0];
+				        var x2 = touch2.pageX;
+				        var y2 = touch2.pageY;
+				        if(ty_left + x2 - x1>=0){
+				            $(this).css("left", 0);
+				        }else if(ty_left + x2 - x1<=flb_w-fl_w){
+				            $(this).css("left", flb_w-fl_w);
+				        }else{
+				            $(this).css("left", ty_left + x2 - x1);
+				        }
+				        if(Math.abs(y2-y1)>0){
+				            e.preventDefault();
+				        }
+				    });
+				});
+				function navName(c_nav) {
+				    switch (c_nav) {
+				        case "全部":
+				            sessionStorage.pagecount = "全部";
+				            break;
+				        case "待开奖":
+				            sessionStorage.pagecount = "待开奖";
+				            break;
+				        case "已开奖":
+				            sessionStorage.pagecount = "已开奖";
+				            break;
+				        case "中奖":
+				            sessionStorage.pagecount = "中奖";
+				            break;
+				        case "追号":
+				            sessionStorage.pagecount = "追号";
+				            break;
+				        case "合买":
+				            sessionStorage.pagecount = "合买";
+				            break;
+				       
+				    }
+				}
+			},
+			init : function () {
+				o.bind();
+				o.NavClick()
+				o.change(g.navstatus[tag][1]);//初始化加载的时候显示第一个
+				
+				$(".find_nav_list li").eq(g.navstatus[tag][1]).trigger('click');
+				o.layOut();
+			},
+			bind : function () {
+				$('#gcjl').Touch({children:'li', fun:function (el) {
+					// $(el).addClass('on').siblings().removeClass('on');
+					// console.log($(el).index())
+					window.location.href = '#type=url&p=newuser/record.html?on='+on_+'&in='+$(el).attr('data-navstatus');
+
+					$('#list_record').html('<div style="padding:58px;height:1000px"><em class="rotate_load" style="margin:auto"></em></div>');
+					$('#pullUp').hide();
+					g.index = $(el).index();
+					g.cPage = 1;
+					g.total = 1;
+					o.change($(el).index());
+				}
+				});
+			},
+			layOut : function(){
+				var w = window.innerHeight;
+				$("#wrapper").height(w - 94);//94是下面加载更多的高度
+				window.onresize = function(){	
+					var w = window.innerHeight;
+					$("#wrapper").height(w - 94);
+					window.myScroll&&myScroll.refresh&&myScroll.refresh();	
+				};
+				o.loadScroll();
+			},
+			//滚动条
+			loadScroll:function(){
+					var pullUpEl = document.getElementById('pullUp');	
+					var pullUpOffset = pullUpEl.offsetHeight;
+					myScroll = new iScroll('wrapper', {
+						onRefresh: function () {
+							if (pullUpEl.className.match('loading')) {
+								pullUpEl.className = '';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉查看更多';
+							}
+						},
+						onScrollMove: function () {
+							if (this.y < (this.maxScrollY - 20) && !pullUpEl.className.match('flip')) {
+								pullUpEl.className = 'flip';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '松开加载数据';
+							} else if (this.y > (this.maxScrollY) && pullUpEl.className.match('flip')) {
+								pullUpEl.className = '';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉查看更多';
+							}
+						},
+						onScrollEnd: function () {
+							// console.log("g.index"+g.index)
+							// console.log("g.cPage"+g.cPage)
+
+							if (pullUpEl.className.match('flip')) {
+								pullUpEl.className = 'loading';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '正在加载';				
+								o.change(g.index, ++g.cPage);
+							}
+						}
+					});					
+			}
+	};
+	var init = function () {
+		delete resetPage //删除订单详情中的全局变量
+		o.pageGo.goBack();
+		o.init();
+	};
+	return{init : init};
+})();
+CP.MyRecord.init();
+</script>

@@ -1,0 +1,98 @@
+<div class="w1105 m0auto hgt222 relative" style="background: url({{staticURI}}/images/fc3d/fc3dBg.png) no-repeat center; background-color: #F0F0F0; border-top: 1px solid gray;">
+  <div class="absolute fz24" style="right: 503px; top: 63px;color:#010103">
+    第
+    <span class="red">{{lastNumber}}</span>
+    期开奖结果
+</div>
+<div class="inline-block absolute fz24" style="left: 380px; top: 118px;">
+  <span ng-class="{fcTopCircle:topCircle(result) == 'green',fcTopCircle_red:topCircle(result) == 'red',fcTopCircle_blue:topCircle(result) == 'blue'}" ng-repeat="result in lastResults track by $index" style="margin-left: 5px;">{{result}}</span>
+</div>
+<div class="absolute hgt60 line_hgt30" style="left: 584px; top: 110px;">
+<div class="inline-block fz20">
+  <span ng-if="closeLeft>
+    0">距离下一期封盘
+    <span class="red">{{h_close}}</span>
+    小时
+    <span class="red">{{m_close}}</span>
+    分
+    <span class="red">{{s_close}}</span>
+    秒
+  </span>
+  <span ng-if="closeLeft==0">当前期已封盘</span>
+  <br />
+  <span ng-if="openLeft>
+    0">距离下一期开奖
+    <span class="red">{{h_open}}</span>
+    小时
+    <span class="red">{{m_open}}</span>
+    分
+    <span class="red">{{s_open}}</span>
+    秒
+  </span>
+  <span ng-if="openLeft<=0">当前期已开奖</span>
+</div>
+</div>
+</div>
+<div class="game-list-table">
+<div class="list-bg"></div>
+<div class="list-wrap pure-g" >
+<div class="ui-head-son">
+  <div class="pure-g">
+    <div class="pure-u-4-24" style="width:16%">
+      <div class="ui-item-son">期号</div>
+    </div>
+    <div class="pure-u-4-24" style="width:20%">
+      <div class="ui-item-son">开奖时间</div>
+    </div>
+    <div class="pure-u-4-24" style="width:16%">
+      <div class="ui-item-son">开奖结果</div>
+    </div>
+    <div class="pure-u-4-24" style="width:16%">
+      <div class="ui-item-son">已下单数</div>
+    </div>
+    <div class="pure-u-4-24" style="width:16%">
+      <div class="ui-item-son">中奖人数</div>
+    </div>
+    <div class="pure-u-4-24" style="width:16%">
+      <div class="ui-item-son">状态</div>
+    </div>
+  </div>
+</div>
+<div class="ui-body-son" ng-repeat="(key, value) in gameResults">
+  <div class="pure-g">
+    <div class="pure-u-4-24" style="width:16%">
+      <div class="ui-item-son">{{value.formatQs}}</div>
+    </div>
+    <div class="pure-u-4-24" style="width:20%">
+      <div class="ui-item-son">{{value.gtKjsj}}</div>
+    </div>
+    <div class="pure-u-4-24" style="width:16%">
+      <div class="ui-item-son">{{value.kjjg}}</div>
+    </div>
+    <div class="pure-u-4-24" style="width:16%">
+      <div class="ui-item-son">{{value.xd}}</div>
+    </div>
+    <div class="pure-u-4-24" style="width:16%">
+      <div class="ui-item-son" ng-if="value.status == '已经开奖' ">{{value.zjrs}}</div>
+      <div class="ui-item-son" ng-if="value.status != '已经开奖' ">---</div>
+    </div>
+    <div class="pure-u-4-24" style="width:16%">
+         <div class="ui-item-son" ng-if="value.status=='投注火爆' ">
+           <a ui-sref="fclhc.name.play({name: lotEnName, qs: value.formatQs})">投注 <i class="icon icon-bg icon-hot"></i></a>
+         </div>
+         <div class="ui-item-son" ng-if="value.status!='投注火爆' ">
+           {{value.status}}
+         </div>
+    </div>
+  </div>
+</div>
+<div class="pager">
+  <p class="pager-info">共{{totalCount}}条记录 &nbsp;&nbsp;当前1/{{totalPages}}页</p>
+  <a ng-click="firstPage()">首页</a>
+  <a ng-click="prevPage()">上一页</a>
+  <a ng-class="{current:currentPage==pageIndex+$index}" ng-repeat="item in range(pageIndex,totalPages+1)|limitTo:numberLimit track by $index" ng-click="secPage(pageIndex+$index)">{{item}}</a>
+  <a ng-click="nextPage()">下一页</a>
+  <a ng-click="lastPage()">尾页</a>
+</div>
+</div>
+</div>

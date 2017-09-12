@@ -1,0 +1,86 @@
+<div class="w1105 m0auto text_center fz14 white" style="padding:20px 0 0 0;">
+   
+    <div>
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red" style="color: #C12727">其他</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block bg-gray" data-ng-repeat="(key, value) in range(0,5)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" data-ng-repeat="(key, value) in range(0,5)">
+                    <span class="w50 inline-block"> <i class="fz20 bold">{{qt_qt[key].number}}</i>
+                  </span>
+                    <span class="w50 inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(qt_qt[key])" ng-class="{'peiyu-selected': data.betPeiyuSelected[qt_qt[key].id]}">{{qt_qt[key].pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[qt_qt[key].id]}" ng-model="data.betMoney[qt_qt[key].id]" ng-change="fun.codeSelected(qt_qt[key])" class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+        <div class="hgt36 line_hgt36 black mt_f6">
+            <span class="p9 bg_red" style="color: #C12727">准对</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block bg-gray" data-ng-repeat="(key, value) in range(0,5)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" data-ng-repeat="(key, value) in range(0,5)">
+                    <span class="w50 inline-block">
+                      <i>{{qt_zd[key].number}}</i>
+                  </span>
+                    <span class="w50 inline-block inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(qt_zd[key])" ng-class="{'peiyu-selected': data.betPeiyuSelected[qt_zd[key].id]}">{{qt_zd[key].pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[qt_zd[key].id]}" ng-model="data.betMoney[qt_zd[key].id]" ng-change="fun.codeSelected(qt_zd[key])" class="w50 border_black" />
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" data-ng-repeat="(key, value) in range(5,10)">
+                    <span class="w50 inline-block">
+                      <i>{{qt_zd[value].number}}</i>
+                  </span>
+                    <span class="w50 inline-block inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(qt_zd[value])" ng-class="{'peiyu-selected': data.betPeiyuSelected[qt_zd[value].id]}">{{qt_zd[value].pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[qt_zd[value].id]}" ng-model="data.betMoney[qt_zd[value].id]" ng-change="fun.codeSelected(qt_zd[value])" class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+        <div class="hgt36 line_hgt36 black mt_f6">
+            <span class="p9 bg_red" style="color: #C12727">不出号</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block bg-gray" data-ng-repeat="(key, value) in range(0,5)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" data-ng-repeat="(key, value) in range(0,5)">
+                    <span class="w50 inline-block">
+                      <i >{{qt_bch[key].number}}</i>
+                  </span>
+                    <span class="w50 inline-block inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(qt_bch[key])" ng-class="{'peiyu-selected': data.betPeiyuSelected[qt_bch[key].id]}">{{qt_bch[key].pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[qt_bch[key].id]}" ng-model="data.betMoney[qt_bch[key].id]" ng-change="fun.codeSelected(qt_bch[key])" class="w50 border_black" />
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" data-ng-repeat="(key, value) in range(5, 10)">
+                    <span class="w50 inline-block">
+                      <i >{{qt_bch[value].number}}</i>
+                  </span>
+                    <span class="w50 inline-block inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(qt_bch[value])" ng-class="{'peiyu-selected': data.betPeiyuSelected[qt_bch[value].id]}">{{qt_bch[value].pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[qt_bch[value].id]}" ng-model="data.betMoney[qt_bch[value].id]" ng-change="fun.codeSelected(qt_bch[value])" class="w50 border_black" />
+                </div>                               
+            </div>
+        </div>
+    </div>
+ 
+</div>

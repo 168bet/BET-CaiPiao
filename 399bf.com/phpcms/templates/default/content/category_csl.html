@@ -1,0 +1,479 @@
+{php $css = array('category.css')}
+{template "content", "header"}
+<!--body-->
+<section id="match">
+    <div class="container">
+        <div class="row">
+            <div class="matchBar">
+                <a href="javascript:;" class="tabBtn tabPrev" role="button">
+                    <em class="fa fa-chevron-left fa-2x"></em>
+                </a>
+                <a href="javascript:;" class="tabBtn tabNext" role="button">
+                    <em class="fa fa-chevron-right fa-2x" ></em>
+                </a>
+                <div class="btnGroup">
+                    <div class="session" id="session">
+                        第1轮
+                    </div>
+                    <button class="sessionBtn" id="checkSession">
+                        轮次
+                        <em class="fa fa-caret-down"></em>
+                    </button>
+                    <div class="selectDiv" id="selectDiv">
+                        {loop $schedule $data}
+                        <button class="selectBtn" role="select" data-competition="{$competitionid}" data-format="{$data['format']}" data-current="{$data['current']}">
+                            {if $data['format'] == 'round'}
+                                第{$data['current']}轮
+                            {elseif $data['format'] == 'group'}
+                                {$data['current']}组
+                            {else}
+                                {$data['current']}
+                            {/if}
+                        </button>
+                        {/loop}
+                    </div>
+
+                </div>
+                <div class="matchBox">
+                    <ul class="clearfix">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="main">
+                    <!--banner-->
+                    <div class="banner" id="banner">
+                        <div class="banner-bd">
+                            <a href="">
+                                <img src="">
+                            </a>
+                            <div class="banner-title">
+                                <div class="banner-num fl">
+                                    <em class="banner-index"></em>
+                                    /
+                                    <em class="count"></em>
+                                </div>
+                                <div class="banner-title-text fl">
+                                    <h1><a href=""></a></h1>
+                                    <p><a href=""></a> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-fd">
+                            {pc:content  action="position" posid="$focus_id" order="listorder DESC" num="5"}
+                            <ul class="clearfix">
+                                {php $active = true;}
+                                {loop $data $r}
+                                <li {if $active}class="active"{/if}>
+                                    <img src="{$r['thumb']}" data-title="{str_cut($r['title'],60,'...')}" data-title-info="{str_cut($r[description],120,'...')}" data-link="{$r[url]}">
+                                </li>
+                                {php $active = false;}
+                                {/loop}
+                            </ul>
+                            {/pc}
+                        </div>
+                    </div>
+
+                    <!--banner end-->
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="side">
+                    <div class="notice">
+                        <div class="notice-title" role="tabList">
+                            <ul class=" clearfix">
+                                <li class="current" role="presentation">
+                                    积分榜
+                                </li>
+                                <li role="presentation">
+                                    射手榜
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-box current" role="tabpanel" id="jifen">
+                                <table width="100%" border="0" class="noticeTable" role="notice">
+                                    <tr>
+                                        <th width="70">名次</th>
+                                        <th width="120">球队</th>
+                                        <th width="100">胜/负/平</th>
+                                        <th>积分</th>
+                                    </tr>
+                                    {loop $standings_stats $r}
+                                    <tr {if $n==1}class="active"{/if} role="switch">
+                                        <td><em class="rank-icon">{$n}</em></td>
+                                        <td>
+                                            <div class="picTog">
+                                                <a href="{APP_PATH}team/{$r['teamid']}/" target="_blank"><img src="{PHOTO_PATH}team/{$r['teamid']}.jpg" class="team-photo"></a>
+                                            </div>
+                                            <a href="{APP_PATH}team/{$r['teamid']}" target="_blank"><span>{$r['teamname']}</span></a>
+                                        </td>
+                                        <td>{$r['win']}/{$r['lose']}/{$r['draw']}</td>
+                                        <td>{$r['score']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                            </div>
+                            <div class="tab-box" role="tabpanel" id="sheshou">
+                                <table width="100%" border="0" class="noticeTable" role="notice">
+                                    <tr>
+                                        <th width="70">名次</th>
+                                        <th width="120">球员</th>
+                                        <th width="100">进球数</th>
+                                        <th>球队</th>
+                                    </tr>
+                                    {loop $shooter_stats $r}
+                                    <tr {if $n==1}class="active"{/if} role="switch">
+                                        <td><em class="rank-icon">{$r['rank']}</em></td>
+                                        <td>
+                                            <div class="picTog">
+                                                <a href="{APP_PATH}player/{$r['playerid']}/" target="_blank"><img src="{PHOTO_PATH}player/{$r['playerid']}.jpg" class="player-photo"></a>
+                                            </div>
+                                            <a href="{APP_PATH}player/{$r['playerid']}/" target="_blank"><span>{$r['playername']}</span></a>
+                                        </td>
+                                        <td>{$r['goal']}</td>
+                                        <td>{$r['teamname']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                            </div>
+                        </div>
+                        <a href="{APP_PATH}competition/{$competitionid}/standings/" class="notice-other">查看更多>></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="info-item-nav" role="tabList">
+                <div class="info-item-nav-icon fl">聚焦球队</div>
+                <ul class="fl">
+                    {loop $team_list $list}
+                    <li class="nav-item {if $n==1}current{/if}" role="presentation">{$list['name']}</li>
+                    {/loop}
+                </ul>
+                <a href="{APP_PATH}{$catid}/" target="_blank" class="more fr">更多&gt;&gt;</a>
+            </div>
+            <div class="tab-content">
+                {php $index = 1}
+                {loop $team_list $list}
+                <div class="tab-box row {if $index==1}current{/if}" role="tabpanel">
+                    <div class="col-md-5">
+                        {pc:content action="lists" catid="$catid" num="6" thumb="1" keywords="$list['keywords']" order="id DESC"}
+                        {loop $data $r}
+                        <div class="info-item">
+                            <h1 class="info-item-title">
+                                <a href="{$r[url]}" title="{$r[title]}">{str_cut($r['title'],76,'...')}</a>
+                            </h1>
+                            <div class="info-item-content clearfix">
+                                    <a href="{$r[url]}" class="fl info-item-img">
+                                    <img src="{get_thumb($r[thumb], 350)}" title="{$r[title]}">
+                                </a>
+                                <p class="info-des-text">
+                                    <a href="{$r[url]}">
+                                        {str_cut($r[description], 300, '...')}
+                                    </a>
+                                    <a href="{$r[url]}">详细</a>
+                                </p>
+                            </div>
+                        </div>
+                        {/loop}
+                        {/pc}
+                    </div>
+                    <div class="col-md-7">
+                        <div class="team">
+                            <div class="team-info mrgT5 clearfix">
+                                <a href="{APP_PATH}team/{$list['teamid']}/" target="_blank" class="team-icon">
+                                    <img src="{PHOTO_PATH}team/{$list['teamid']}.jpg" class="team-photo">
+                                </a>
+                                <div class="team-info-bd">
+                                    <h3 class="team-info-bd-title clearfix">
+                                        <span class="fl">{$list['name']}</span>
+                                    </h3>
+                                    <div class="SpecRankInfo">
+                                        <table width="100%" border="0">
+                                            <tr>
+                                                <td rowspan="2" width="120">
+                                                    <div class="rank">
+                                                        <em class="rankNum">{$list['standing']['rank']}</em>
+                                                        当前排名
+                                                    </div>
+                                                </td>
+                                                <td align="left">胜/平/负</td>
+                                                <td>积分</td>
+                                            </tr>
+                                            <tr valign="bottom">
+                                                <td align="left">{$list['standing']['win']}/{$list['standing']['draw']}/{$list['standing']['lose']}</td>
+                                                <td>
+                                                    <em class="total">{$list['standing']['score']}</em>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-member">
+                                <h1 class="side-title">
+                                    球队成员
+                                    <a href="{APP_PATH}team/{$list['teamid']}/" class="fr more" target="_blank">
+                                        更多>>
+                                    </a>
+                                </h1>
+                                <div class="team-member-box">
+                                    <ul class="clearfix">
+                                        {loop $list['player'] $player}
+                                        <li>
+                                            <a href="{APP_PATH}player/{$player['Id']}/" target="_blank">
+                                                <img src="{PHOTO_PATH}player/{$player['Id']}.jpg" class="player-photo">
+                                                <span>{$player['Name']}</span>
+                                            </a>
+                                        </li>
+                                        {/loop}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="team-count">
+                                <h1 class="side-title">
+                                    球队统计
+                                    <a href="{APP_PATH}team/{$list['standing']['teamid']}/" class="fr more" target="_blank">
+                                        更多>>
+                                    </a>
+                                </h1>
+                                <div class="table-count">
+                                    <table class="table" border="0" width="100%">
+                                        <tr>
+                                            <th>上盘赢</th>
+                                            <th>上盘走</th>
+                                            <th>上盘输</th>
+                                            <th>下盘赢</th>
+                                            <th>下盘走</th>
+                                            <th>下盘输</th>
+                                            <th>平盘赢</th>
+                                            <th>平盘走</th>
+                                            <th>平盘输</th>
+                                        </tr>
+                                        {loop $list['odds'] $odds}
+                                        <tr>
+                                            {loop $odds $value}
+                                            <td>{$value}</td>
+                                            {/loop}
+                                        </tr>
+                                        {/loop}
+                                    </table>
+                                    <table class="table tableA" border="0" width="100%">
+                                        <tr>
+                                            <th width="55"></th>
+                                            <th>净胜2+</th>
+                                            <th>净胜1</th>
+                                            <th>平</th>
+                                            <th>净负1</th>
+                                            <th>净负2+</th>
+                                            <th>进球数0</th>
+                                            <th>进球数1</th>
+                                            <th>进球数2</th>
+                                            <th>进球数3+</th>
+                                        </tr>
+                                        {loop $list['goal'] $type $goal}
+                                        <tr>
+                                            <td>{L($type, '', 'sportsdata')}</td>
+                                            {loop $goal['number'] $key $value}
+                                            <td>
+                                                <em class="isBlock">{$value}</em>
+                                                {$goal['rate'][$key]}
+                                            </td>
+                                            {/loop}
+                                        </tr>
+                                        {/loop}
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="team-other">
+                                <h1 class="side-title">
+                                    未来赛程
+                                    <a href="{APP_PATH}team/{$list['standing']['teamid']}/" class="fr more" target="_blank">
+                                        更多>>
+                                    </a>
+                                </h1>
+
+                                <div class="matchBar_">
+                                    <a href="javascript:;" class="tabBtn tabPrev" role="button">
+                                        <em class="fa fa-step-backward fa-2x"></em>
+                                    </a>
+                                    <a href="javascript:;" class="tabBtn tabNext" role="button">
+                                        <em class="fa fa-step-forward fa-2x"></em>
+                                    </a>
+                                    <div class="matchBox_">
+                                        <ul class="clearfix">
+                                            {loop $list['fixture'] $fixture}
+                                            <li class="matchItem">
+                                                <dl>
+                                                    <dt><time>{$fixture['date']}</time></dt>
+                                                    <dd>
+                                                        <a href="{APP_PATH}team/{$fixture['home']}/" target="_blank">{str_cut($team[$fixture['home']]['name'], 12, '')}</a>
+                                                        <em>VS</em>
+                                                        <a href="{APP_PATH}team/{$fixture['away']}/" target="_blank">{str_cut($team[$fixture['away']]['name'], 12, '')}</a>
+                                                    </dd>
+                                                </dl>
+                                            </li>
+                                            {/loop}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {php $index++}
+                {/loop}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="main-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="main">
+                    <div class="info-item-nav">
+                        <div class="info-item-nav-icon fl">{$CATEGORYS[$catid][catname]}新闻</div>
+                        <a href="{APP_PATH}{$catid}/" target="_blank" class="more fr">更多>></a>
+                    </div>
+                    {pc:content action="lists" catid="$catid" num="8" thumb="1"  order="id DESC"}
+                    {loop $data $r}
+                    <div class="info-item">
+                        <h1 class="info-item-title">
+                            <em class="title-icon">热</em>
+                            <a href="{$r[url]}" title="{$r[title]}">{str_cut($r['title'],76,'...')}</a>
+                        </h1>
+                        <div class="info-item-content clearfix">
+                            <a href="{$r[url]}" class="fl info-item-img">
+                                <img src="{get_thumb($r[thumb], 350)}" title="{$r[title]}">
+                            </a>
+                            <p class="info-des-text">
+                                <a href="{$r[url]}">
+                                    {$r[description]}
+                                </a>
+                                <a href="{$r[url]}">详细</a>
+                            </p>
+                        </div>
+                        <div class="info-item-footer clearfix">
+                        <span class="info-item-time fl">
+                            {date('m',$r[inputtime])}月{date('d',$r[inputtime])}日  {date('H:i', $r['inputtime'])}
+                        </span>
+                            <div class="info-item-comp fl">
+                                {php $keywords = explode(' ',$r[keywords]);}
+                                {loop $keywords $keyword}
+                                <a href="{APP_PATH}tag/{urlencode($keyword)}/">{$keyword}</a>
+                                {/loop}
+                            </div>
+                        </div>
+                    </div>
+                    {/loop}
+                    {/pc}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="side">
+                    <div class="side-live">
+                        <h1 class="side-title">
+                            {$CATEGORYS[$catid][catname]}直播
+                            <a href="{APP_PATH}live/" class="fr more">
+                                更多>>
+                            </a>
+                        </h1>
+                        {pc:get sql="$hot_sql" dbsource="sportsdt" num="3"}
+                        <ul>
+                            {loop $data $r}
+                            <li class="side-item">
+                                <div class="leftImg">
+                                    <a href="{APP_PATH}team/{$r['hometeamid']}/" target="_blank"><img src="{PHOTO_PATH}team/{$r['hometeamid']}.jpg"
+                                         title="{$r[homename]}" class="team-photo"></a>
+                                    vs
+                                    <a href="{APP_PATH}team/{$r['awayteamid']}/" target="_blank"><img src="{PHOTO_PATH}team/{$r['awayteamid']}.jpg"
+                                         title="{$r[awayname]}" class="team-photo"></a>
+                                </div>
+                                <dl class="side-item-content">
+                                    <dt>
+                                        <a href="{APP_PATH}game/{$r[gameid]}/live/">{$r[homeshortname]} VS {$r[awayshortname]}</a>
+                                    </dt>
+                                    <dd>
+                                        <span class="time">{date('n月j日 G:i', $r[date])}</span>
+                                    </dd>
+                                    <!--<dd>-->
+                                        <!--预测:-->
+                                        <!--<a href="##" class="text-icon red">胜</a>-->
+                                        <!--<a href="##" class="text-icon blue">平</a>-->
+                                        <!--<a href="##" class="text-icon yellow">负</a>-->
+                                    <!--</dd>-->
+                                </dl>
+                            </li>
+                            {/loop}
+                        </ul>
+                        {/pc}
+                    </div>
+                    <div class="side-collection">
+                        <h1 class="side-title">
+                            {$CATEGORYS[$catid][catname]}集锦
+                            <a href="{APP_PATH}21/{$CATEGORYS[$catid][catname]}/" class="fr more">
+                                更多>>
+                            </a>
+                        </h1>
+                        <ul class="clearfix collection movie">
+                            {pc:content  action="lists" catid="21" num="6" keywords="$CATEGORYS[$catid][catname]" order="id DESC" cache="3600" thumb="1"}
+                            {loop $data $r}
+                            <li>
+                                <a href="{$r[url]}">
+                                    <div class="autoImg"><img src="{get_thumb($r[thumb], 350)}" title="{$r[title]}"></div>
+                                    <p class="pic-title">
+                                        <em class="fa fa-caret-square-o-right"></em>
+                                        {str_cut($r[title], 28, '...')}
+                                    </p>
+                                </a>
+                            </li>
+                            {/loop}
+                            {/pc}
+                        </ul>
+                    </div>
+                    <div class="side-collection">
+                        <h1 class="side-title">
+                            {$CATEGORYS[$catid][catname]}图库
+                            <a href="{APP_PATH}20/{$CATEGORYS[$catid][catname]}/" class="fr more">
+                                更多>>
+                            </a>
+                        </h1>
+                        <ul class="clearfix collection">
+                            {pc:content  action="lists" catid="20" num="4" keywords="$CATEGORYS[$catid][catname]" order="id DESC" cache="3600" thumb="1"}
+                            {loop $data $r}
+                            <li>
+                                <a href="{$r[url]}">
+                                    <div class="autoImg"><img src="{get_thumb($r[thumb], 350)}" title="{$r[title]}"></div>
+                                    <p class="pic-title">
+                                        <em class="fa fa-eye"></em>
+                                        {str_cut($r[title], 28, '...')}
+                                    </p>
+                                </a>
+                            </li>
+                            {/loop}
+                            {/pc}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--body end-->
+<script>
+    var APP_PATH = "{APP_PATH}";
+</script>
+{php $js = array('jquery.mousewheel.js', 'slideMatchBar.js', 'category_csl.js', "imagesloaded.pkgd.common.js")}
+{template "content", "footer"}

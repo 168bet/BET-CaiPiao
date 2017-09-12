@@ -1,0 +1,394 @@
+﻿html, body {
+	height:100%;
+}
+.FrameMain {
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+.FrameMain_c {
+	vertical-align:text-top;
+}
+.FrameMain_bottom {
+	height:6px;
+	background:#1873aa;
+	overflow:hidden;
+}
+.FrameMain .a {
+	background:url(/Css/main_59.gif) no-repeat;
+}
+.FrameMain .b {
+	background:url(/Css/main_62.gif) no-repeat;
+}
+.Main {
+	width:99%;
+}
+.m_1{
+    width:99%;
+}
+.Main_Title {
+	font-weight:bold;
+	padding-top:1px;
+}
+.Main_conter {
+	padding-top:4px;
+}
+.Main_top_left {
+	width:8px;
+	height:30px;
+	background:url(/Css/tab_03.gif);
+}
+.Main_top_right {
+	width:11px;
+	height:30px;
+	background:url(/Css/tab_07.gif) -5px 0;
+}
+.Main_bottom_left {
+	width:8px;
+	height:30px;
+	background:url(/Css/tab_18.gif);
+}
+.Main_bottom_right {
+	width:8px;
+	height:35px;
+	background:url(/Css/tab_20.gif) -5px 0;
+}
+.Main_left {
+	background:url(/Css/tab_12.gif);
+	background-repeat:repeat-y;
+	background-position:0 2px;
+}
+.Main_right {
+	background:url(/Css/tab_15.gif);
+	background-repeat:repeat-y;
+	background-position:right;
+}
+.az { text-align:center;}
+.lr { 
+	width:596px!important;
+	margin:0 auto;
+	text-align:center;
+}
+.lrr { 
+	width:720px!important;
+	margin:0 auto;
+	text-align:center;
+}
+.lrc { 
+	width:584px!important;
+	margin:0 auto;
+	text-align:center;
+}
+.lrj { 
+	width:350px!important;
+	margin:0 auto;
+	text-align:center;
+}
+.Man_Conter {
+	width:100%;
+	border-collapse:collapse;
+}
+.Man_Conter td, th {
+	border:1px #b0c47a solid;
+}
+.Man_Conter th {
+	border:1px #b0c47a solid;
+}
+.Man_Conter2 {
+	width:100%;
+	border-collapse:collapse;
+}
+.Man_Conter2 td, th {
+	border:1px #B5D6E6 solid;
+}
+.Conter_top {
+	height:26px;
+	color:#000!important;
+	background:url(/Css/bg2.jpg);
+	background-repeat:repeat-x;
+}
+.Conter_top_2 {
+	height:26px;
+	color:#000!important;
+	background:url(/Css/bg_g.gif);
+	background-repeat:repeat-x;
+}
+.Ct { height:24px;}
+.Conter_top td, .Conter_top th, .Conter_top_2 th, .Conter_top_2 td {
+	color:#000!important;
+}
+.Conter_list {
+	height:28px!important;
+}
+.Conter_c {
+	background:url(/Css/S1.jpg);
+	height:20px!important;
+}
+.Conter_Report_List {
+	height:21px!important;
+}
+.Conter_Report_List_R {
+	height:23px!important;
+	background:#F1F1F1;
+}
+.Conter_Report_List .rc {
+	background:#F2EDF8;
+}
+.Conter_Report_List .re {
+	background:#EDF7E8;
+}
+.R_pop {
+	width:155px;
+	position:absolute;
+	background:#fff;
+	display:none;
+	z-index:999;
+}
+.pcc {
+	width:150px;
+}
+.pce {
+	width:280px;
+	z-index:9999;
+}
+.r_ad {
+	padding:3px;
+}
+.r_cc {
+    padding-left:7px;
+	font-weight:bold;
+}
+.r_dd {
+	font-size:15px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#2836F4;
+}
+.r_dq {
+	padding-left:2px;
+	font-size:15px;
+	color:#2836F4;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.r_dc {
+	padding-left:7px;
+	font-size:14px;
+}
+.r_a {
+	text-decoration:none;
+}
+.r_a:hover {
+	text-decoration:underline;
+}
+.p_k {
+	display:block;
+	padding-top:2px;
+	padding-left:4px;
+}
+.mt {
+	display:block;
+	float:left;
+}
+.pop {
+	color:#000;
+	padding-left:15px;
+	padding-right:15px;
+}
+.news_cc {
+	margin:0 auto;
+	display:block;
+	text-align:left;
+	width:830px;
+}
+.t_Edit_td {
+	text-align:left;
+	line-height:28px;
+	background:#fff;
+	text-indent:3px;
+	padding-left:3px!important;
+}
+.t_Edit_caption {
+	width:18%;
+	text-align:right;
+	background:#f6fed3;
+	padding-right:3px!important;
+}
+.t_Edit_caption_1 {
+	width:7%;
+	text-align:center;
+	font-weight:bold;
+	background:#f6fed3;
+}
+.t_Edit_caption_2 {
+	width:7%;
+	text-align:center;
+	font-weight:bold;
+	color:#2836F4;
+	font-size:15px;
+	font-family:Arial, Helvetica, sans-serif;
+	background:#f6fed3;
+}
+.t_Edit_caption_3 {
+	font-size:15px;
+	color:#2836F4;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.t_Edit_caption_4 {
+	background:#f6fed3;
+}
+.t_Edit_caption_5 {
+    width:7%;
+	text-align:center;
+	font-weight:bold;
+	font-size:12px;
+	font-family:Arial;
+	background:#f6fed3;
+}
+.e2 {
+	width:15%!important;
+}
+.e3 {
+	width:7%!important;
+}
+.ed {
+	width:11%!important;
+	height:24px;
+	text-align:center;
+}
+.po {
+	cursor:pointer;
+}
+.rec {
+	position:relative;
+	top:1px;
+}
+.e_j {
+	background:#EBF4FF;
+}
+.lmc {
+	background:#ebf4ff;
+}
+.linb {
+	background:#F6FAFF;
+}
+.gfr {
+	background:#FFE5E5;
+}
+.ss {
+    width:65px;
+    padding-top:2px;
+	font-weight:bold;
+    position: relative; 
+    filter: blur(add=1, direction=45, strength=3); 
+    FONT-FAMILY:Arial; 
+    height:10px; 
+    color:red; 
+    font-size:10pt;
+}
+.buut {
+	padding-left:1px;
+	padding-right:1px;
+	height:21px;
+}
+.backgroundColor {
+	background:#FFFFA2!important;
+}
+.backgroundColord {
+	background:#D0F0FF!important;
+}
+.backgroundColord2 {
+	background:#E6E6E6;
+}
+.backgroundColord3 {
+	background:#E6E6E6;
+}
+.cvb {
+	margin-top:5px;
+}
+.cnz {
+	height:25px;
+	color:#000;
+	background:#F1F1F1;
+	text-align:center;
+	font-weight:bold;
+}
+.cnb {
+	height:30px;
+	color:red;
+	text-align:center;
+	vertical-align:bottom;
+}
+.rm td {
+	border:none!important;
+	text-align:left;
+}
+.rm td img {
+	position:relative;
+	top:-1px;
+}
+.ubg {
+	background:url(/Css/TD_R.jpg) no-repeat left;
+}
+.bv td {
+	height:28px;
+	padding-left:15px;
+	vertical-align:bottom;
+}
+.fd{
+	background:#fbffe9;
+	padding-left:3px;
+}
+.fd1{
+	background:#ECFFEC;
+	padding-left:3px;
+	height:28px;
+}
+.fd2{
+	background:#ECFFEC;
+	padding-left:3px;
+	height:25px;
+}
+.syz{ 
+	width:73%;
+	text-align:left;
+	background:#edf5fc;
+	padding-left:3px;
+}
+.ms2 {
+	width:650px;
+	margin:0 auto;
+}
+.lmhd {
+	width:750px;
+	margin:auto;
+	text-align:center;
+}
+.g_ec:hover {
+	font-weight:bold;
+	color:red;
+}
+.dis {
+	display:block;
+	padding-top:1px;
+	padding-bottom:1px;
+}
+a.so:hover {
+	text-decoration:underline;
+}
+a.seet:hover{
+    text-decoration:underline;
+}
+.b_jk {
+    background:#fff;
+}
+.b_jk .np{ color:goldenrod}
+.check {position:relative;top:1px}
+.TD_TS1 {background-image: url(/Css/TD_TS1.jpg); BACKGROUND-REPEAT: repeat-y}
+.TD_TS2 {background-image: url(/Css/TD_TS2.jpg); BACKGROUND-REPEAT: repeat-y}
+.TD_TS3 {background-image: url(/Css/TD_TS3.jpg); BACKGROUND-REPEAT: repeat-y}
+.TD_TS4 {background-image: url(/Css/TD_TS4.jpg); BACKGROUND-REPEAT: repeat-y}
+.t_list_tr_1_g {
+	background-color:#ebf4ff;
+	text-align:center;
+	height: 20px;
+	line-height:17px;
+}

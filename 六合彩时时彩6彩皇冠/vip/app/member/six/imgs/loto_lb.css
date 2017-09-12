@@ -1,0 +1,984 @@
+* {
+	FONT-FAMILY: Arial, Helvetica, Verdana, Geneva, sans-serif; FONT-SIZE: 12px
+}
+BODY {
+	MARGIN: 0px
+}
+.lb_body {
+	
+}
+.top_body {
+	
+}
+TABLE.rt_sp_out {
+	BACKGROUND-COLOR: #efefef; WIDTH: 550px
+}
+TR.rt_sp_out {
+	
+}
+TD.rt_sp_out {
+	BACKGROUND-COLOR: #ffff00
+}
+TABLE.rt_sp_title {
+	BACKGROUND-COLOR: #224f6f; WIDTH: 100%; HEIGHT: 24px
+}
+TR.rt_sp_title {
+	COLOR: #ffffff
+}
+TD.rt_sp_title {
+	TEXT-ALIGN: center; WIDTH: 43px
+}
+TD.rt_sp_title_time {
+	TEXT-ALIGN: right; WIDTH: 212px; PADDING-RIGHT: 50px
+}
+TD.rt_sp_title_button {
+	WIDTH: 240px; PADDING-RIGHT: 4px
+}
+TABLE.rt_sp_title_bt {
+	WIDTH: 100%; HEIGHT: 19px
+}
+TR.rt_sp_title_bt {
+	
+}
+TD.rt_sp_title_bt {
+	BACKGROUND-IMAGE: url(iconbg1.gif); TEXT-ALIGN: right; WIDTH: 78px; PADDING-RIGHT: 2px; BACKGROUND-REPEAT: no-repeat; VERTICAL-ALIGN: bottom
+}
+A.rt_sp_title_bt:link {
+	COLOR: #214d6b; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.rt_sp_title_bt:visited {
+	COLOR: #214d6b; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.rt_sp_title_bt:hover {
+	COLOR: #214d6b; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.rt_sp_title_bt:active:unknown {
+	COLOR: #214d6b; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+TABLE.rt_sp_no {
+	BACKGROUND-COLOR: #5296c6; WIDTH: 100%; HEIGHT: 24px
+}
+TR.rt_sp_no {
+	
+}
+TD.rt_sp_no {
+	TEXT-ALIGN: center; WIDTH: 46px; COLOR: #ffffff
+}
+TD.rt_sp_no_gno {
+	TEXT-ALIGN: center; WIDTH: 51px; COLOR: #ffff00; FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+TD.rt_sp_no_score {
+	WIDTH: 272px
+}
+TD.rt_sp_no_bt {
+	TEXT-ALIGN: right; WIDTH: 100px
+}
+INPUT.rt_sp_no_bt {
+	BORDER-BOTTOM: #333333 1px solid; BORDER-LEFT: #cccccc 1px solid; BACKGROUND: #666666; HEIGHT: 16px; COLOR: #ffffff; FONT-SIZE: 12px; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #333333 1px solid
+}
+TD.rt_sp_no_bt_sec {
+	WIDTH: 120px; COLOR: #ffffff
+}
+A.rt_sp_no_bt_sec {
+	COLOR: #ffff00; FONT-SIZE: 15px; FONT-WEIGHT: 650
+}
+TABLE.rt_sp_no_ball {
+	WIDTH: 100%; HEIGHT: 25px
+}
+TR.rt_sp_no_ball {
+	COLOR: #ffffff
+}
+TD.rt_sp_no_ball_nn {
+	WIDTH: 40px
+}
+TD.rt_sp_no_ball_nb {
+	TEXT-ALIGN: left
+}
+TD.rt_sp_no_ball_sn {
+	WIDTH: 40px
+}
+TD.rt_sp_no_ball_sb {
+	TEXT-ALIGN: left
+}
+TABLE.rt_sp_lotto {
+	BACKGROUND-COLOR: #ffffff; WIDTH: 100%; HEIGHT: 20px; COLOR: #ffffff
+}
+TR.rt_sp_lotto {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #286e9f; HEIGHT: 24px
+}
+TD.rt_sp_lotto {
+	WIDTH: 10%
+}
+TD.rt_sp_lotto_con {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #efefef; HEIGHT: 24px
+}
+TD.rt_sp_lotto_odds {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #efefef
+}
+TD.rt_sp_lotto_odds_stop {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #cccccc
+}
+TR.rt_sp_lotto_bottom {
+	BACKGROUND-COLOR: #efefef; HEIGHT: 49px
+}
+TD.rt_sp_lotto_bottom {
+	
+}
+TABLE.rt_sp_lotto_other {
+	WIDTH: 100%; HEIGHT: 24px
+}
+TR.rt_sp_lotto_other {
+	TEXT-ALIGN: center
+}
+TD.rt_sp_lotto_other {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #286e9f; WIDTH: 50px; COLOR: #ffffff
+}
+TD.rt_sp_lotto_other_odds {
+	TEXT-ALIGN: center; WIDTH: 50px
+}
+A.rt_sp_lotto_other_odds:link {
+	COLOR: #c42650; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.rt_sp_lotto_other_odds:visited {
+	COLOR: #c42650; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.rt_sp_lotto_other_odds:hover {
+	COLOR: #c42650; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.rt_sp_lotto_other_odds:active {
+	COLOR: #c42650; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+SPAN.rt_sp_lotto_odds {
+	TEXT-ALIGN: center; COLOR: #c42650; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.rt_sp_lotto_odds:link {
+	TEXT-ALIGN: center; COLOR: #c42650; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.rt_sp_lotto_odds:visited {
+	TEXT-ALIGN: center; COLOR: #c42650; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.rt_sp_lotto_odds:hover {
+	TEXT-ALIGN: center; COLOR: #c42650; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.rt_sp_lotto_odds:active {
+	TEXT-ALIGN: center; COLOR: #c42650; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+INPUT.rt_sp_lotto_odds {
+	WIDTH: 40px; HEIGHT: 18px; COLOR: #0000ff; FONT-SIZE: 12px
+}
+TABLE.rt_sp_nsbar {
+	BORDER-BOTTOM: #224f6f 1px solid; BORDER-LEFT: #224f6f 1px solid; BACKGROUND-COLOR: #ffffff; WIDTH: 100%; BORDER-TOP: #224f6f 1px solid; BORDER-RIGHT: #224f6f 1px solid
+}
+TR.rt_sp_nsbar {
+	
+}
+TD.rt_sp_nsbar {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #224f6f; COLOR: #ffffff
+}
+TD.rt_sp_nsbar_sd {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #aa0000; COLOR: #ffffff
+}
+A.rt_sp_nsbar:link {
+	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.rt_sp_nsbar:visited {
+	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.rt_sp_nsbar:hover {
+	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.rt_sp_nsbar:active:unknown {
+	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+TABLE.rt_mt_out {
+	BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-COLOR: #bfd9ec; WIDTH: 550px; HEIGHT: 140px; BORDER-RIGHT: #ffffff 1px solid
+}
+TR.rt_mt_out {
+	
+}
+TD.rt_mt_out {
+	TEXT-ALIGN: left; BORDER-LEFT: #ffffff 1px solid; BACKGROUND-COLOR: #efefef; BORDER-TOP: #ffffff 1px solid
+}
+TABLE.rt_mt_title {
+	WIDTH: 100%
+}
+TR.rt_mt_title {
+	
+}
+TD.rt_mt_title {
+	TEXT-ALIGN: left
+}
+TD.rt_mt_title_time {
+	TEXT-ALIGN: right
+}
+A.rt_mt_title {
+	COLOR: #ff0000; FONT-WEIGHT: 650
+}
+TABLE.rt_mt_con {
+	BORDER-BOTTOM: #f2f2f2 1px solid; BACKGROUND-COLOR: #224e6e; WIDTH: 100%; BORDER-RIGHT: #f2f2f2 1px solid
+}
+TR.rt_mt_con {
+	TEXT-ALIGN: center; HEIGHT: 25px; VERTICAL-ALIGN: middle
+}
+TD.rt_mt_con {
+	TEXT-ALIGN: center; BORDER-LEFT: #f2f2f2 1px solid; BACKGROUND-COLOR: #224e6e; COLOR: #ffffff; BORDER-TOP: #f2f2f2 1px solid
+}
+TD.rt_mt_con_bt {
+	TEXT-ALIGN: center; BORDER-LEFT: #f2f2f2 1px solid; BACKGROUND: #3780b5; COLOR: #ffff00; BORDER-TOP: #f2f2f2 1px solid
+}
+TD.rt_mt_con_ac {
+	TEXT-ALIGN: center; BORDER-LEFT: #f2f2f2 1px solid; BACKGROUND: #efefef; FONT-SIZE: 13px; BORDER-TOP: #f2f2f2 1px solid; FONT-WEIGHT: bold
+}
+TD.rt_mt_con_odds_grey {
+	TEXT-ALIGN: center; BORDER-LEFT: #f2f2f2 1px solid; BACKGROUND: #efefef; COLOR: #ff0000; FONT-SIZE: 14px; BORDER-TOP: #f2f2f2 1px solid; CURSOR: hand; FONT-WEIGHT: bold
+}
+TD.rt_mt_con_odds_light {
+	TEXT-ALIGN: center; BORDER-LEFT: #f2f2f2 1px solid; BACKGROUND: #efefef; COLOR: #ff0000; FONT-SIZE: 14px; BORDER-TOP: #f2f2f2 1px solid; CURSOR: hand; FONT-WEIGHT: bold
+}
+TD.rt_mt_con_odds {
+	TEXT-ALIGN: center; BORDER-LEFT: #f2f2f2 1px solid; BACKGROUND: #efefef; COLOR: #ff0000; FONT-SIZE: 14px; BORDER-TOP: #f2f2f2 1px solid; CURSOR: hand; FONT-WEIGHT: bold
+}
+TD.rt_mt_con_odds_light {
+	BACKGROUND: #fab616; COLOR: #ff0000
+}
+TD.rt_mt_con_odds_grey {
+	BACKGROUND: #b4b4b4; COLOR: #e20601; FONT-SIZE: 12px
+}
+A.rt_mt_con_odds:link {
+	COLOR: #ff0000; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.rt_mt_con_odds:visited {
+	COLOR: #ff0000; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.rt_mt_con_odds:hover {
+	COLOR: #ff0000; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.rt_mt_con_odds:active {
+	COLOR: #ff0000; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+TABLE.rt_jn_out {
+	BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-COLOR: #bfd9ec; WIDTH: 550px; BORDER-RIGHT: #ffffff 1px solid
+}
+TR.rt_jn_out {
+	
+}
+TD.rt_jn_out {
+	TEXT-ALIGN: left; BORDER-LEFT: #ffffff 1px solid; BACKGROUND-COLOR: #efefef; FONT-SIZE: 8px; BORDER-TOP: #ffffff 1px solid
+}
+TABLE.rt_jn_title {
+	WIDTH: 100%
+}
+TR.rt_jn_title {
+	
+}
+TD.rt_jn_title {
+	TEXT-ALIGN: left
+}
+TD.rt_jn_title_time {
+	TEXT-ALIGN: right
+}
+A.rt_jn_title {
+	COLOR: #ff0000; FONT-WEIGHT: 650
+}
+TD.rt_jn_radio_head {
+	BORDER-BOTTOM: #efefef 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #efefef 1px solid; BACKGROUND-COLOR: #224e6e; WIDTH: 18%; HEIGHT: 20px; COLOR: #ffffff; FONT-SIZE: 12px; BORDER-TOP: #efefef 1px solid; BORDER-RIGHT: #efefef 1px solid
+}
+TD.rt_jn_radio {
+	BORDER-BOTTOM: #efefef 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #efefef 1px solid; BACKGROUND-COLOR: #224e6e; WIDTH: 18%; HEIGHT: 20px; COLOR: #ffffff; FONT-SIZE: 12px; BORDER-TOP: #efefef 1px solid; BORDER-RIGHT: #efefef 1px solid
+}
+TD.rt_jn_radio_head {
+	WIDTH: 10%
+}
+TD.rt_jn_odds {
+	BORDER-BOTTOM: #efefef 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #efefef 1px solid; BACKGROUND: #efefef; HEIGHT: 20px; COLOR: #e20601; FONT-SIZE: 12px; BORDER-TOP: #efefef 1px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #efefef 1px solid
+}
+TD.rt_jn_odds_grey {
+	BORDER-BOTTOM: #efefef 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #efefef 1px solid; BACKGROUND: #b4b4b4; HEIGHT: 20px; COLOR: #e20601; FONT-SIZE: 12px; BORDER-TOP: #efefef 1px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #efefef 1px solid
+}
+A.rt_jn_odds {
+	COLOR: #214d6b
+}
+TD.rt_jn_odds_head {
+	BORDER-BOTTOM: #efefef 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #efefef 1px solid; BACKGROUND: #3780b5; HEIGHT: 20px; COLOR: #ffff00; FONT-SIZE: 12px; BORDER-TOP: #efefef 1px solid; BORDER-RIGHT: #efefef 1px solid
+}
+TABLE.rt_jn_con {
+	BORDER-BOTTOM: #f2f2f2 1px solid; BACKGROUND-COLOR: #224e6e; WIDTH: 100%; BORDER-RIGHT: #f2f2f2 1px solid
+}
+TR.rt_jn_con {
+	TEXT-ALIGN: center; HEIGHT: 25px; VERTICAL-ALIGN: middle
+}
+TD.rt_jn_con {
+	TEXT-ALIGN: center; BORDER-LEFT: #f2f2f2 1px solid; BACKGROUND-COLOR: #224e6e; COLOR: #ffffff; BORDER-TOP: #f2f2f2 1px solid
+}
+TD.rt_jn_ball {
+	TEXT-ALIGN: center; BORDER-LEFT: #f2f2f2 1px solid; BACKGROUND-COLOR: #efefef; COLOR: #ffffff; BORDER-TOP: #f2f2f2 1px solid
+}
+.left_jn_pg_limit {
+	COLOR: red
+}
+.left_jn_pg_odds {
+	COLOR: red
+}
+.left_jn_pg_choice_no {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #971a14
+}
+TD.left_jn_pg_sp_limit_title {
+	COLOR: #ffff00
+}
+TR.left_jn_pg_sp_limit_con {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #efefef; VERTICAL-ALIGN: bottom
+}
+TD.left_jn_pg_sp_limit_tip {
+	
+}
+TD.left_jn_pg_sp_limit_value {
+	TEXT-ALIGN: left
+}
+TD.left_mt_pg_choice_number {
+	TEXT-ALIGN: center
+}
+TD.left_mt_pg_choice_odds {
+	TEXT-ALIGN: center
+}
+TD.left_mt_pg_choice_del {
+	TEXT-ALIGN: center; WIDTH: 38px
+}
+A.left_mt_pg_choice_del:link {
+	COLOR: #ff0000; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.left_mt_pg_choice_del:visited {
+	COLOR: #ff0000; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.left_mt_pg_choice_del:active {
+	COLOR: #ff0000; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.left_mt_pg_choice_del:hover {
+	COLOR: #ff0000; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+TR.left_mt_pg_choice_status {
+	
+}
+TD.left_mt_pg_choice_status {
+	left_mt_pg_limit: red
+}
+TR.left_mt_pg_sp_limit_title {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #971a14
+}
+TD.left_mt_pg_sp_limit_title {
+	COLOR: #ffff00
+}
+TR.left_mt_pg_sp_limit_con {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #efefef; VERTICAL-ALIGN: bottom
+}
+TD.left_mt_pg_sp_limit_tip {
+	
+}
+TD.left_mt_pg_sp_limit_value {
+	TEXT-ALIGN: left
+}
+TABLE.left_err_out {
+	BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; WIDTH: 220px; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid
+}
+TR.left_err_out_top {
+	
+}
+TD.left_err_out_top {
+	BACKGROUND-IMAGE: url(left_bar.jpg); TEXT-ALIGN: center; BACKGROUND-REPEAT: repeat-x; HEIGHT: 24px; COLOR: #ffffff; FONT-SIZE: 13px
+}
+TR.left_err_out_con {
+	
+}
+TD.left_err_out_con {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff; HEIGHT: 100px; COLOR: #214d6b; VERTICAL-ALIGN: middle
+}
+TR.left_err_out_bottom {
+	
+}
+TD.left_err_out_bottom {
+	
+}
+TABLE.left_err_inner {
+	
+}
+TR.left_err_inner {
+	
+}
+TD.left_err_inner {
+	
+}
+TABLE.left_succ_out {
+	BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; WIDTH: 220px; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid
+}
+TR.left_succ_out_top {
+	
+}
+TD.left_succ_out_top {
+	BACKGROUND-IMAGE: url(left_bar.jpg); TEXT-ALIGN: center; BACKGROUND-REPEAT: repeat-x; HEIGHT: 24px; COLOR: #ffffff; FONT-SIZE: 13px
+}
+TR.left_succ_out_con {
+	
+}
+TD.left_succ_out_con {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #efefef; HEIGHT: 100px; COLOR: #214d6b; VERTICAL-ALIGN: middle
+}
+TR.left_succ_out_bottom {
+	
+}
+TD.left_succ_out_bottom {
+	
+}
+TABLE.left_succ_inner {
+	BACKGROUND-COLOR: #ffffff; WIDTH: 100%; HEIGHT: 100%
+}
+TR.left_succ_inner_top {
+	
+}
+TD.left_succ_inner_top {
+	BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff
+}
+TR.left_succ_inner_con {
+	
+}
+TD.left_succ_inner_con {
+	BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: #ebebeb
+}
+TR.left_succ_inner_bottom {
+	
+}
+TD.left_succ_inner_bottom {
+	TEXT-ALIGN: center; HEIGHT: 50px
+}
+INPUT.left_succ_goout {
+	HEIGHT: 18px
+}
+INPUT.left_succ_print {
+	HEIGHT: 18px
+}
+TABLE.left_acc_out {
+	BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; WIDTH: 220px; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid
+}
+TR.left_acc_out_top {
+	
+}
+TD.left_acc_out_top {
+	BACKGROUND-IMAGE: url(table_Caption.gif); TEXT-ALIGN: center; BACKGROUND-REPEAT: repeat-x; HEIGHT: 24px; COLOR: #ffffff; FONT-SIZE: 13px
+}
+TR.left_acc_out_con {
+	
+}
+TD.left_acc_out_con {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff; HEIGHT: 100px; COLOR: #214d6b; VERTICAL-ALIGN: middle
+}
+TR.left_acc_out_bottom {
+	
+}
+TD.left_acc_out_bottom {
+	
+}
+TABLE.left_acc_inner {
+	BACKGROUND-COLOR: #ffffff; WIDTH: 100%; HEIGHT: 100%
+}
+TR.left_acc_inner {
+	BACKGROUND-COLOR: #ffffff; WIDTH: 100%; HEIGHT: 100%
+}
+TR.left_acc_inner2 {
+	BACKGROUND-COLOR: #f7f0fb
+}
+SPAN.left_acc_inner_icon {
+	
+}
+TD.left_acc_inner_tip {
+	TEXT-ALIGN: right; WIDTH: 60px; HEIGHT: 25px; VERTICAL-ALIGN: middle
+}
+TD.left_acc_inner_con {
+	TEXT-ALIGN: right; PADDING-RIGHT: 5px; HEIGHT: 25px; VERTICAL-ALIGN: middle
+}
+.left_acc_Currency {
+	COLOR: #ff0000
+}
+TABLE.left_wc_out {
+	BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; WIDTH: 220px; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid
+}
+TR.left_wc_out_top {
+	
+}
+TD.left_wc_out_top {
+	BACKGROUND-IMAGE: url(left_bar.jpg); TEXT-ALIGN: center; BACKGROUND-REPEAT: repeat-x; HEIGHT: 24px; COLOR: #ffffff; FONT-SIZE: 13px
+}
+TR.left_wc_out_con {
+	
+}
+TD.left_wc_out_con {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff; HEIGHT: 100px; COLOR: #214d6b; VERTICAL-ALIGN: middle
+}
+TR.left_wc_out_bottom {
+	
+}
+TD.left_wc_out_bottom {
+	
+}
+TABLE.left_wc_inner {
+	BACKGROUND-COLOR: #ebebeb; WIDTH: 100%; HEIGHT: 100%
+}
+TR.left_wc_inner_user {
+	
+}
+TD.left_wc_inner_user {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff
+}
+TR.left_wc_inner_con {
+	
+}
+TD.left_wc_inner_con {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #efefef
+}
+TR.left_wc_inner_wg {
+	
+}
+TD.left_wc_inner_wg {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff
+}
+TR.left_wc_inner_bottom {
+	
+}
+TD.left_wc_inner_bottom {
+	TEXT-ALIGN: center; HEIGHT: 50px
+}
+TABLE.left_wc_user {
+	COLOR: #ff0000
+}
+.left_wc_con_wagercon {
+	COLOR: #000000
+}
+.left_wc_con_othermess {
+	COLOR: #ff0000; FONT-WEIGHT: 650
+}
+TABLE.left_wc_wg {
+	WIDTH: 100%
+}
+TR.left_wc_wg {
+	HEIGHT: 20px
+}
+TD.left_wc_wg_tip {
+	TEXT-ALIGN: right; WIDTH: 100px; COLOR: #000000
+}
+TD.left_wc_wg_con {
+	TEXT-ALIGN: left; COLOR: #000000
+}
+INPUT.left_wc_wg {
+	WIDTH: 72px; HEIGHT: 18px
+}
+INPUT.left_wc_reset {
+	HEIGHT: 18px
+}
+INPUT.left_wc_send {
+	HEIGHT: 18px
+}
+TABLE.left_snq_out {
+	BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; WIDTH: 220px; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid
+}
+TR.left_snq_out_top {
+	
+}
+TD.left_snq_out_top {
+	BACKGROUND-IMAGE: url(left_bar.jpg); TEXT-ALIGN: center; BACKGROUND-REPEAT: repeat-x; HEIGHT: 24px; COLOR: #ffffff; FONT-SIZE: 13px
+}
+TR.left_snq_out_con {
+	
+}
+TD.left_snq_out_con {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #efefef; HEIGHT: 100px; COLOR: #214d6b; VERTICAL-ALIGN: middle
+}
+TR.left_snq_out_bottom {
+	
+}
+TD.left_snq_out_bottom {
+	
+}
+TABLE.left_snq_inner {
+	BACKGROUND-COLOR: #ebebeb; WIDTH: 100%; HEIGHT: 100%
+}
+TR.left_snq_inner_wtable {
+	
+}
+TD.left_snq_inner_wtable {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff
+}
+TR.left_snq_inner_tool {
+	
+}
+TD.left_snq_inner_tool {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 2px; BACKGROUND-COLOR: #ffffff; PADDING-TOP: 2px
+}
+TR.left_snq_inner_wg {
+	
+}
+TD.left_snq_inner_wg {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 1px; BACKGROUND-COLOR: #ffffff; PADDING-TOP: 1px
+}
+TR.left_snq_inner_bottom {
+	
+}
+TD.left_snq_inner_bottom {
+	TEXT-ALIGN: center; HEIGHT: 50px
+}
+TABLE.left_snq_wagertable {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #286e9f; WIDTH: 188px
+}
+TR.left_snq_wagertable {
+	
+}
+TD.left_snq_wagertable {
+	BACKGROUND-COLOR: #ffffff; FONT-WEIGHT: bolder
+}
+TD.left_snq_wagertable_over {
+	BACKGROUND-COLOR: #ffff99; FONT-WEIGHT: bolder
+}
+TD.left_snq_wagertable_click {
+	BACKGROUND-COLOR: #ffff00; FONT-WEIGHT: bolder
+}
+SELECT.left_snq_wg {
+	WIDTH: 150px
+}
+INPUT.left_snq_wg {
+	WIDTH: 72px; HEIGHT: 18px
+}
+INPUT.left_snq_ok {
+	HEIGHT: 18px
+}
+INPUT.left_snq_reset {
+	HEIGHT: 18px
+}
+INPUT.left_snq_cancel {
+	HEIGHT: 18px
+}
+INPUT.left_snq_send {
+	HEIGHT: 18px
+}
+.left_snq_blue_tool {
+	COLOR: #0099ff; TEXT-DECORATION: none
+}
+.left_snq_green_tool {
+	COLOR: #009900; TEXT-DECORATION: none
+}
+.left_snq_red_tool {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.left_snq_oeo_tool {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.left_snq_oee_tool {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.left_snq_ouo_tool {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.left_snq_ouu_tool {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.left_snq_so_tool {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.left_snq_se_tool {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.left_snq_notused_tool {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.left_snq_cancel_tool {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+TABLE.left_snq_wg {
+	WIDTH: 100%
+}
+TR.left_snq_wg {
+	HEIGHT: 20px
+}
+TD.left_snq_wg_tip {
+	TEXT-ALIGN: right; WIDTH: 60px; COLOR: #000000
+}
+TD.left_snq_wg_con {
+	TEXT-ALIGN: left; PADDING-LEFT: 5px; COLOR: #000000
+}
+TR.left_snq_select {
+	
+}
+TD.left_snq_wg_select {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; PADDING-TOP: 2px
+}
+TABLE.left_jnc_out {
+	BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; WIDTH: 220px; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid
+}
+TR.left_jnc_out_top {
+	
+}
+TD.left_jnc_out_top {
+	BACKGROUND-IMAGE: url(left_bar.jpg); TEXT-ALIGN: center; BACKGROUND-REPEAT: repeat-x; HEIGHT: 24px; COLOR: #ffffff; FONT-SIZE: 13px
+}
+TR.left_jnc_out_con {
+	
+}
+TD.left_jnc_out_con {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff; HEIGHT: 100px; COLOR: #214d6b; VERTICAL-ALIGN: middle
+}
+TR.left_jnc_out_bottom {
+	
+}
+TD.left_jnc_out_bottom {
+	HEIGHT: 0px; COLOR: #ffffff
+}
+TABLE.left_jnc_wg {
+	BACKGROUND-COLOR: #ebebeb; WIDTH: 100%; HEIGHT: 100%
+}
+TR.left_jnc_wg_user {
+	BACKGROUND-COLOR: #ffffff
+}
+TD.left_jnc_wg_bettitle {
+	TEXT-ALIGN: center; BORDER-LEFT: #ffffff 1px solid; BACKGROUND-COLOR: #000000; COLOR: #ffffff; BORDER-TOP: #ffffff 1px solid
+}
+TD.left_jnc_wg_bettip {
+	TEXT-ALIGN: right; WIDTH: 69px
+}
+TD.left_jnc_wg_betcon {
+	TEXT-ALIGN: left; WIDTH: 118px
+}
+TR.left_jnc_wg_con {
+	BACKGROUND-COLOR: #ffffff
+}
+TD.left_jnc_wg_contip {
+	TEXT-ALIGN: center; BORDER-LEFT: #ffffff 1px solid; BACKGROUND-COLOR: #000000; COLOR: #ffffff; BORDER-TOP: #ffffff 1px solid
+}
+TD.left_jnc_wg_concon {
+	HEIGHT: 80px
+}
+TR.left_jnc_wg_stake {
+	BACKGROUND-COLOR: #ffffff
+}
+TD.left_jnc_wg_staketip {
+	TEXT-ALIGN: right; WIDTH: 69px
+}
+TD.left_jnc_wg_stakecon {
+	TEXT-ALIGN: left; PADDING-LEFT: 2px; WIDTH: 118px; FONT-WEIGHT: 650
+}
+SPAN.left_jnc_wg_stakecon {
+	
+}
+INPUT.left_jnc_wg_stakecon {
+	WIDTH: 90px
+}
+TR.left_jnc_wg_button {
+	
+}
+TD.left_jnc_wg_button {
+	TEXT-ALIGN: center; HEIGHT: 50px
+}
+INPUT.left_jnc_wg_goout {
+	HEIGHT: 18px
+}
+INPUT.left_jnc_wg_print {
+	HEIGHT: 18px
+}
+INPUT.left_jnc_wg_reset {
+	HEIGHT: 18px
+}
+INPUT.left_jnc_wg_submit {
+	HEIGHT: 18px
+}
+TABLE.left_jncs_nolist {
+	BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid; table: 220px
+}
+TR.left_mtc_out_top {
+	
+}
+TD.left_mtc_out_top {
+	BACKGROUND-IMAGE: url(left_bar.jpg); TEXT-ALIGN: center; BACKGROUND-REPEAT: repeat-x; HEIGHT: 24px; COLOR: #ffffff; FONT-SIZE: 13px
+}
+TR.left_mtc_out_con {
+	
+}
+TD.left_mtc_out_con {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #efefef; HEIGHT: 100px; COLOR: #214d6b; VERTICAL-ALIGN: middle
+}
+TR.left_mtc_out_bottom {
+	
+}
+TD.left_mtc_out_bottom {
+	
+}
+TABLE.left_mtc_wg {
+	BACKGROUND-COLOR: #ebebeb; WIDTH: 100%; HEIGHT: 100%
+}
+TR.left_mtc_wg_user {
+	BACKGROUND-COLOR: #ffffff
+}
+TD.left_mtc_wg_contip {
+	TEXT-ALIGN: center; BORDER-LEFT: #ffffff 1px solid; BACKGROUND-COLOR: #000000; COLOR: #ffffff; BORDER-TOP: #ffffff 1px solid
+}
+TD.left_mtc_wg_concon {
+	PADDING-BOTTOM: 2px; HEIGHT: 80px; PADDING-TOP: 2px
+}
+TR.left_mtc_wg_stake {
+	BACKGROUND-COLOR: #ffffff
+}
+TD.left_mtc_wg_staketip {
+	TEXT-ALIGN: right; WIDTH: 69px
+}
+TD.left_mtc_wg_stakecon {
+	TEXT-ALIGN: left; PADDING-LEFT: 2px; WIDTH: 118px; FONT-WEIGHT: 650
+}
+SPAN.left_mtc_wg_stakecon {
+	
+}
+INPUT.left_mtc_wg_stakecon {
+	WIDTH: 90px
+}
+TR.left_mtc_wg_button {
+	
+}
+TD.left_mtc_wg_button {
+	TEXT-ALIGN: center; HEIGHT: 50px
+}
+INPUT.left_mtc_wg_goout {
+	HEIGHT: 18px
+}
+INPUT.left_mtc_wg_print {
+	HEIGHT: 18px
+}
+INPUT.left_mtc_wg_reset {
+	HEIGHT: 18px
+}
+INPUT.left_mtc_wg_submit {
+	HEIGHT: 18px
+}
+.top_bt_point {
+	COLOR: #214d6b; FONT-SIZE: 13px
+}
+A.top_tl_link:link {
+	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.top_tl_link:visited {
+	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.top_tl_link:active {
+	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.top_tl_link:hover {
+	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.top_tl_point {
+	COLOR: #ffffff; FONT-SIZE: 12px
+}
+.top_tl_slotto {
+	COLOR: #ffff99; FONT-SIZE: 12px
+}
+TR.marquee_css {
+	
+}
+TD.marquee_css {
+	BACKGROUND-IMAGE: url(run_bg.gif)
+}
+MARQUEE.marquee_css {
+	COLOR: #ffffff; FONT-SIZE: 12px; lift_Blue_a: #224F6F
+}
+.Lift_Blue_b1 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #5296c6; HEIGHT: 24px
+}
+.Lift_Blue_b {
+	BORDER-BOTTOM: #296d9c; TEXT-ALIGN: center; BORDER-LEFT: #296d9c; BACKGROUND-COLOR: #286e9f; HEIGHT: 24px; BORDER-TOP: #296d9c; BORDER-RIGHT: #296d9c
+}
+.words_color_white {
+	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.words_color_yellowB {
+	TEXT-ALIGN: center; COLOR: #ffff00; FONT-SIZE: 16px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.Lift_Blue_c {
+	BACKGROUND-COLOR: #5296c6; COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.words_color_redB {
+	COLOR: #ff0000; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.bgcolor_b_Stop {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #cccccc
+}
+.words_color_redB1 {
+	TEXT-ALIGN: center; COLOR: #c42650; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.bg_line {
+	BACKGROUND-COLOR: #babcba
+}
+.content {
+	COLOR: #ffffff; FONT-SIZE: 12px
+}
+.tr_bg_white {
+	BACKGROUND: #ffffff; COLOR: #000000; FONT-SIZE: 12px
+}
+.td_right {
+	TEXT-ALIGN: right; FONT-SIZE: 12px
+}
+.tr_bg_white_r {
+	TEXT-ALIGN: right; BACKGROUND: #ffffff; FONT-SIZE: 12px
+}
+.words_color_blue_a {
+	COLOR: #214d6b; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.number_table {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff; FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 12px; FONT-WEIGHT: bolder; TEXT-DECORATION: none
+}
+.number_color_red {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.number_color_blue {
+	COLOR: #0099ff; TEXT-DECORATION: none
+}
+.number_color_green {
+	COLOR: #009900; TEXT-DECORATION: none
+}
+.TFlyPopupAnimate {
+	Z-INDEX: 1; BORDER-BOTTOM: gray 1px solid; POSITION: absolute; BORDER-LEFT: gray 1px solid; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: block; VISIBILITY: hidden; OVERFLOW: hidden; BORDER-TOP: gray 1px solid; BORDER-RIGHT: gray 1px solid; PADDING-TOP: 0px
+}
+DIV.EyebrowMenuBar {
+	BORDER-BOTTOM: #ffffff 1px solid; PADDING-BOTTOM: 3px; MARGIN: 3px 0px 0px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; FONT-SIZE: 11px; PADDING-TOP: 3px
+}
+DIV.LottoType {
+	PADDING-BOTTOM: 1px; LINE-HEIGHT: 16px; MARGIN: 0px; PADDING-LEFT: 15px; PADDING-RIGHT: 5px; DISPLAY: inline; WHITE-SPACE: nowrap; FLOAT: left; HEIGHT: 16px; VERTICAL-ALIGN: bottom; PADDING-TOP: 3px
+}
+DIV.LottoTypeHover {
+	PADDING-BOTTOM: 1px; LINE-HEIGHT: 16px; MARGIN: 0px; PADDING-LEFT: 15px; PADDING-RIGHT: 5px; DISPLAY: inline; WHITE-SPACE: nowrap; FLOAT: left; HEIGHT: 16px; VERTICAL-ALIGN: bottom; PADDING-TOP: 3px
+}
+DIV.LottoType {
+	BACKGROUND: url(http://msdn2.microsoft.com/msdn/Controls/EyebrowMenuBar/en-us/arrowrgt.gif) no-repeat left center
+}
+DIV.LottoTypeHover {
+	BACKGROUND: url(http://msdn2.microsoft.com//msdn/Controls/EyebrowMenuBar/en-us/arrowdwn.gif) #e3ebf2 no-repeat left center
+}
+DIV.LottoType A {
+	BACKGROUND-COLOR: transparent; TEXT-DECORATION: none
+}
+DIV.LottoTypeHover A {
+	BACKGROUND-COLOR: transparent; TEXT-DECORATION: none
+}
+DIV.LottoTypeHover A {
+	BACKGROUND-COLOR: #e3ebf2; COLOR: #000000
+}
+DIV.LottoTypeHover A:visited {
+	BACKGROUND-COLOR: #e3ebf2; COLOR: #000000
+}
+DIV.LottoPopup {
+	BORDER-BOTTOM: #b8b8b8 1px solid; FILTER: progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='#e0e0e0',Positive='true') alpha(opacity=95); BORDER-LEFT: #b8b8b8 1px solid; BACKGROUND-COLOR: #ffffff; BORDER-TOP: #b8b8b8 1px solid; BORDER-RIGHT: #b8b8b8 1px solid
+}
+DIV.LottoPopup A:visited {
+	BORDER-BOTTOM: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; PADDING-BOTTOM: 1px; BACKGROUND-COLOR: #ffffff; MARGIN: 0px 2px; PADDING-LEFT: 3px; PADDING-RIGHT: 2px; DISPLAY: block; COLOR: #000000; BORDER-TOP: #ffffff 1px solid; FONT-WEIGHT: 650; BORDER-RIGHT: #ffffff 1px solid; TEXT-DECORATION: none; PADDING-TOP: 1px
+}
+DIV.LottoPopup A:link {
+	BORDER-BOTTOM: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; PADDING-BOTTOM: 1px; BACKGROUND-COLOR: #ffffff; MARGIN: 0px 2px; PADDING-LEFT: 3px; PADDING-RIGHT: 2px; DISPLAY: block; COLOR: #000000; BORDER-TOP: #ffffff 1px solid; FONT-WEIGHT: 650; BORDER-RIGHT: #ffffff 1px solid; TEXT-DECORATION: none; PADDING-TOP: 1px
+}
+DIV.LottoPopup A:active {
+	BORDER-BOTTOM: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; PADDING-BOTTOM: 1px; BACKGROUND-COLOR: #ffffff; MARGIN: 0px 2px; PADDING-LEFT: 3px; PADDING-RIGHT: 2px; DISPLAY: block; COLOR: #000000; BORDER-TOP: #ffffff 1px solid; FONT-WEIGHT: 650; BORDER-RIGHT: #ffffff 1px solid; TEXT-DECORATION: none; PADDING-TOP: 1px
+}
+DIV.LottoPopup A:hover {
+	BORDER-BOTTOM: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; PADDING-BOTTOM: 1px; BACKGROUND-COLOR: #ffffff; MARGIN: 0px 2px; PADDING-LEFT: 3px; PADDING-RIGHT: 2px; DISPLAY: block; COLOR: #000000; BORDER-TOP: #ffffff 1px solid; FONT-WEIGHT: 650; BORDER-RIGHT: #ffffff 1px solid; TEXT-DECORATION: none; PADDING-TOP: 1px
+}
+DIV.LottoPopup A:hover {
+	BORDER-BOTTOM: #addbef 1px solid; BORDER-LEFT: #addbef 1px solid; BACKGROUND-COLOR: #f0f7fd; COLOR: #000000; BORDER-TOP: #addbef 1px solid; FONT-WEIGHT: 650; BORDER-RIGHT: #addbef 1px solid
+}

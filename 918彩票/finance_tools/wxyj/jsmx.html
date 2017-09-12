@@ -1,0 +1,71 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apDple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>计算明细</title>	
+<style type="text/css">
+body{ min-width:320px; background: #f5f5f5;font-size:12px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#212121; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,u{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:16px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:20px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+.mxtext{ padding: 0 5%;}
+.mxtitle{ line-height: 2.2rem; padding-top: 1.2rem; font-weight: bold; font-size: .8rem; text-align: center; border-bottom: 1px solid #bbb; color: #000;}
+.mxlist li,.sdgz p{ line-height: 2rem; font-size: .75rem; text-align: center; border-bottom: 1px solid #bbb; overflow: hidden; zoom:1}
+.mxlist li span{ float: left; width: 33.3%;}
+.pdtop2{ padding-top: 1.3rem;}
+
+.gssm h4{ font-size: .9rem; padding-top: 1.3rem;}
+.gssm p{ font-size: .75rem; padding-top: .6rem;}
+</style>
+</head>
+<body style="background: #f1f5f8; padding-bottom: 2rem;">
+<article class="mxtext">	
+	<div class="mxtitle">社保与公积金（五险一金）缴费明细</div>
+	<ul class="mxlist">
+		<li><span>五险一金</span><span>个人比例</span><span>单位比例</span></li>
+		<li><span>养老</span><span>8%</span><span>21%</span></li>
+		<li><span>医疗</span><span>2%+X</span><span>11%</span></li>
+		<li><span>失业</span><span>0.5%</span><span>1.5%</span></li>
+		<li><span>工伤</span><span>0</span><span>0.51%</span></li>
+		<li><span>生育</span><span>0</span><span>1%</span></li>
+		<li><span>公积金</span><span>7%</span><span>7%</span></li>
+		<li><span>合计缴纳</span><span>1750.00</span><span>4200.00</span></li>
+	</ul>
+	<div class="mxtitle pdtop2">应缴纳所得额</div>
+	<div class="sdgz" id="ns">
+		<p>应缴纳所得额=10000 - 1750 - 3500 = 4750</p>
+		<p>应纳税额=4750 x 20% - 555 = 395</p>
+	</div>
+	<div class="mxtitle pdtop2">税后工资</div>
+	<div class="sdgz">
+		<p id="gz">税后工资 = 10000 - 1750 - 395 = 7855</p>
+	</div>
+	<article class="gssm">
+		<section style="margin-top: 1rem;">
+			<h4>计算公式</h4>
+			<p>应纳税所得额 = 工资收入金额－各项社会保险费－起征点(3500元)<br>
+应纳税额 = 应纳税所得额 x 税率－速算扣除数<br>
+税后工资= 税前工资 - 五险一金 - 应纳税额
+</p>
+		</section>
+		<section>
+			<h4>说明</h4>
+			<p>1. 如果计算的是外籍人士（包括港、澳、台），则个税起征点应设为4800元</p>
+			<p>2. 各大城市的各项保险比例或有不同，具体根据各城市制定的比例进行计算。</p>
+		</section>
+		
+	</article>	
+</article>
+</body>
+</html>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jsmx.js"></script>

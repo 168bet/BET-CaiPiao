@@ -1,0 +1,56 @@
+body{ position:relative; background-color:#3e3e3e;min-width:320px; font-size:14px; font-family:Hiragino Sans GB, Arial,Microsoft YaHei, Helvetica,"黑体", sans-serif;
+ color:#191919; -webkit-touch-callout: inherit ;  -webkit-user-select: auto ;tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0;outline: none;}
+*:not(input,textarea) {  -webkit-touch-callout: inherit;  -webkit-user-select: auto;}
+a{ color: #878787;  text-decoration: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+a:hover {  text-decoration: none;}
+button,input,select,textarea {  font-size: 100%;  margin: 0;  padding: 0;  outline: none;}
+dt,dd {  display: inline-block;}
+textarea,input {  resize: none;  outline: none;}
+textarea {  resize: none;  -webkit-appearance: none;}
+ul,ol,li {  list-style: none;}
+em,i{  font-style: normal;}
+.clearfix:after{ content:""; clear:both; display:block;height:0; overflow:hidden;}
+.clearfix{ zoom:1;}
+@media screen and (min-width:480px){body,html{font-size:18px;}}
+@media screen and (min-width:640px){body,html{font-size:24px;}}
+
+.j1_topbanner,.j1_topbanner img{ width: 100%;}
+.j1_box{ background-color:#3e3e3e;}
+.j1_main-box{padding-bottom: 1.6rem; background: url("../img/daohang_pict.png") 0 bottom no-repeat; -webkit-background-size: 100% 6.93rem;-moz-background-size: 100% 6.93rem;-ms-background-size: 100% 6.93rem;-o-background-size: 100% 6.93rem;background-size: 100% 6.93rem; }
+.j1_main{ padding: 6%;}
+.j1_main p{font-size: .9375rem; color: #e7e7e7; line-height:1.75; margin-bottom: 1rem; text-indent: 1.75rem;text-align:justify; text-justify:inter-ideograph;}
+.j1_main p.p-img{ text-indent: 0;}
+.j1_main p.p-img span{ display: block; color: #fff; }
+.j1_main-map{ width: 100%;}
+
+.j1_tab{ position: relative;}
+.j1_tab-nav{ position: absolute; top:0; left: 0; width:100%;}
+.j1_tab-nav ul{/* padding-left: 2px;*/background-color: #000; border-bottom: 1px solid #636161; }
+.j1_tab-nav li{width: 25%;float:left; height: 2.64rem;  font-size: .875rem; color:#666;line-height: 2.64rem; text-align: center; background-color: #000; cursor: pointer;box-sizing: border-box;/*margin: -1px -1px 0 0;box-sizing: border-box; border:1px solid #636161;*/
+border-top:1px solid #636161; border-left:1px solid #636161;}
+.j1_tab-nav li:nth-child(4n){ border-right:1px solid #636161;}
+.j1_tab-nav li.active{ position: relative;  color:#fff;background-color: #e60012; /*box-sizing: border-box;border:1px solid #fff;*/}
+.j1_tab-nav li.active:after{ position: absolute; top:-1px; left: -1px; width: 100%; height: 100%; content: ""; border:1px solid #fff;}
+.j1_tab-main{ padding-top: 6rem;}
+.j1-h{ font-size: .9375rem; font-weight: bold; margin-bottom:.8rem;}
+.j1-h-title{ position: relative; z-index: 0;  display:inline-block; float: left; height: 1.81rem; line-height: 1.49rem; vertical-align: middle; color: #191919;}
+.j1-h-title i{ display: inline-block; float: left;}
+.j1-h-title i,.j1-h-title i img{width: 1.41rem; height:1.81rem;}
+.j1-h-title em{ padding-top: .32rem; line-height: 1.49rem; font-size: .9375rem; color: #fff; float: left;}
+.j1-h-title:after{ position: absolute; top:.32rem; left: .75rem; z-index: -1;width: 92%; height: 1.49rem; content: ""; background-color: #e60012;transform:skewX(-10deg);}
+.j1-h-vs{ display: inline-block;float: left;height: 1.49rem; margin-left: 1rem;margin-top: .32rem; color: #191919; line-height: 1.49rem;}
+
+.j1_tab-div{margin:3.3%; padding:1.5rem  1rem;background-color: #fff; border-radius: .6875rem;}
+.j1_tab-div p{ color:#333; font-size:.9375rem; line-height: 1.5rem; text-indent: 1.875rem; margin-bottom: .5rem; text-align:justify; text-justify:inter-ideograph;}
+.j1_tab-div p.p-img{ text-indent: 0; margin-bottom: 1rem; }
+.j1_tab-div p.p-img img{ width:100%; }
+.j1_tab-div p.p-img span{ display: block; color: #0011b5; }
+.j1_team{ padding-top:.5rem;}
+.j1_team h2{ height: 1.76rem; line-height: 1.76rem; margin-bottom: .5rem; font-size: .9375rem; font-weight:bold; color: #042a4e;}
+.j1_team h2 img{ width:1.49rem; height: 1.76rem; vertical-align: middle; margin-right: .5rem;}
+.j1_tab-fixed{ position: fixed; top:0; left: 0; right: 0; z-index: 1001;}
+/*站点统计隐藏*/
+a[target=_blank]{
+	display: none;
+}

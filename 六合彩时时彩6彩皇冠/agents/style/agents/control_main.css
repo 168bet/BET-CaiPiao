@@ -1,0 +1,55 @@
+.m_tline {  background-image:    url(../images/agents/top/top_03b.gif)}
+tr {  font-family: "Arial"; font-size: 12px}
+a:link {  text-decoration: none}
+a:visited {  text-decoration: none}
+.za_button {  font-family: "Arial"; font-size: 12px; height: 20px; padding-top: 1px}
+.za_select {  font-family: "Arial"; font-size: 12px; height: 18px}
+.m_title { background-color: #7DD5D2; text-align: center; height:25px }
+.m_tab {  padding-top: 3px; padding-right: 2px; padding-left: 2px; background-color: #006255}
+.m_cen {  background-color: #FFFFFF; text-align: center}
+.m_left {  background-color: #FFFFFF; text-align: left}
+.za_text {  background-color: #FFFFFF; height: 19px; padding-right: 2px; padding-left: 2px; border: #999999; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; font-family: "Arial"; font-size: 12px}
+.m_bc_ed {  background-color: f2faff; padding-left: 5px}
+.m_tab_ed { padding-right: 2px; padding-top: 3px; padding-bottom: 3px ; background-color: #dcdcdc; border: 1px #000000 solid; padding-left: 2px}
+.za_dot {  height: 12px; width: 12px; margin-bottom: 2px}
+.m_rig { text-align: right; background-color: #FFFFFF}
+.m_rig_re { background-color: #DAE9F2; text-align: right }
+.m_rig_to { background-color: #990000; text-align: right ; color: #FFFFFF}
+
+.m_title_edit { background-color: #84968b; text-align: center}
+.za_text_ed { background-color: #FFFFFF; height: 18px; padding-right: 1px; padding-left: 1px; border: #000000; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; font-family: "Arial"; font-size: 12px ; width: 65px}
+.m_rig_close { text-align: right; background-color: #CCCCCC}
+.m_cen_top { background-color: #FFFFFF; text-align: center ; vertical-align: top }
+.m_cen_top_close { background-color: #CCCCCC; text-align: center ; vertical-align: top }
+.m_cen_close { background-color: #CCCCCC; text-align: center }
+.m_tab_fix { padding-top: 5px; padding-right: 5px; padding-left: 5px; padding-bottom: 5px; background-color: #A4C0CE}
+.m_large {  font-size: 15px}
+
+.m_title_ft { background-color: #60A433; text-align: center; color: #FFF }
+.m_title_fu { background-color: #006255; text-align: center; color: #FFF }
+.m_title_bk { background-color: #385EAB; text-align: center; color: #FFF }
+.m_title_bu { background-color: #455e99; text-align: center; color: #FFF }
+.m_title_bs { background-color: #D36614; text-align: center; color: #FFF }
+.m_title_be { background-color: #227986; text-align: center; color: #FFF }
+.m_title_vb { background-color: #7D13E8; text-align: center; color: #FFF }
+.m_title_vu { background-color: #613c80; text-align: center; color: #FFF }
+.m_title_tn { background-color: #B8211D; text-align: center; color: #FFF }
+.m_title_tu { background-color: #990000; text-align: center; color: #FFF }
+.m_title_op { background-color: #D86838; text-align: center; color: #FFF }
+.m_title_om { background-color: #e49e88; text-align: center; color: #FFF }
+.m_title_nfs{ background-color: #FFFF66; text-align: center; color: #FFF }
+
+/*-----tab-----*/
+.m_tab_ft {background-color: #3F6B21; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_tab_fu {background-color: #006F64; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_tab_bk {background-color: #437FBE; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_tab_bu {background-color: #222e4c; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_tab_bs {background-color: #E9731C; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_tab_be {background-color: #2A94A4; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_tab_vb {background-color: #983FEF; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_tab_vu {background-color: #32274a; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_tab_tn {background-color: #E0332F; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_tab_tu {background-color: #660000; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_tab_op {background-color: #B75024; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_tab_om {background-color: #a82f16; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_tab_nfs{background-color: #e3bb00; padding-top: 3px; padding-right: 2px; padding-left: 2px}

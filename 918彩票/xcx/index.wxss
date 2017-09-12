@@ -1,0 +1,32 @@
+.cpclassbox{border-top: 1rpx solid #eee;}
+.cpclass{ position: relative; border-bottom: 1rpx solid #eee; padding:30rpx 20rpx;}
+.cpclass-title{ display: flex; flex-direction: row;align-items:center; margin-bottom: 10rpx;}
+.cpclass-times{font-size: 28rpx; color: #999; margin-left: 20rpx;}
+.balls{ display: inline-block; width: 56rpx; height: 56rpx; line-height: 56rpx; text-align: center; color: #fff;margin-right: 10rpx;  border-radius: 50%;}
+.redball{background-color:#e72b25;}
+.blueball{ background-color: #106fe5; }
+.cpclass-try{ margin-left: 20rpx; font-size:28rpx; color:#a4a4a4}
+.arrow{ position: absolute; top:50%; right:30rpx; margin-top:-10rpx;  width: 20rpx; height: 20rpx; border-top:4rpx solid #999; border-right:4rpx solid #999; transform: rotate(45deg);}
+
+.numbers{ padding: 30rpx 20rpx;border-bottom: 1rpx solid #eee; }
+.numbers-title{ display: flex; flex-direction: row;align-items:center; margin-bottom: 10rpx;}
+.numbers-times,.numbers-date{font-size: 28rpx; color: #999;}
+.numbers-date{ margin-left: 20rpx;}
+.num{ display:inline-block; margin-right:20rpx; }
+.rednum{color:#f03d3d}
+.bluenum{color:#0079ff}
+.numbers-try{ margin-left: 20rpx; font-size:28rpx; color:#a4a4a4}
+
+.numbers-arrow{ position: absolute; top:86rpx; right:30rpx; margin-top:-10rpx;  width: 20rpx; height: 20rpx; border-top:4rpx solid #999; border-right:4rpx solid #999; transform: rotate(135deg);}
+.numbers-arrow.active{transform: rotate(-45deg);}
+.table-box{ padding: 10rpx; background-color: #ededed;font-size:28rpx; color: #333;}
+.table-box-thead{ margin-bottom: 10rpx; }
+.table-flex{display: flex; flex-direction:row;flex-wrap:wrap;border:1rpx solid #e7e7e7; border-radius: 10rpx; margin-bottom: -1rpx;}
+.table-flex_item{flex: 1; padding: 9rpx 0;   text-align: center; background-color: #fff;border-right:1rpx solid #e7e7e7;}
+.table-flex_item:last-child{ border-right:none; }
+.table-flex:first-child .table-flex_item:first-child{ border-top-left-radius: 10rpx;}
+.table-flex:last-child .table-flex_item:first-child{ border-bottom-left-radius: 10rpx;}
+.table-flex:first-child .table-flex_item:last-child{border-top-right-radius: 10rpx;}
+.table-flex:last-child .table-flex_item:last-child{border-bottom-right-radius: 10rpx;}
+.table-gray{color:#999;}
+.table-red{color:#de524a;}

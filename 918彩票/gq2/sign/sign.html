@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="author" content="m.9188.com  ">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta http-equiv="cleartype" content="on">
+	<title>签到翻倍卡</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="./css/global.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header class="tzHeader" style="display:none;">
+		<section class="cgjHeader fixed2">
+			<h1>签到翻倍卡</h1>
+			<a href="javascript:history.go(-1)" class="fcbackIco2"></a>
+		</section>
+	</header>
+	<div class="head"></div>
+	<div class="integral_bg">
+		<div class="integral">
+			<span>&nbsp;</span>
+		</div>
+		<div class="gr_bg">
+			<div class="ye_bg">
+				<div>
+					<span class="card_b"></span>
+					<span>
+						<p>14,000<i>积分</i></p>
+						<p>次日生效，有效期7天</p>
+						<p>可得17.5万金豆</p>
+					</span>
+					<span class="y_gm" id="bcard"></span>
+				</div>
+				<div>
+					<span class="card_q"></span>
+					<span>
+						<p>120,000<i>积分</i></p>
+						<p>次日生效，有效期7天</p>
+						<p>可得175万金豆</p>
+					</span>
+					<span class="y_gm" id="kcard"></span><!-- class="y_gm"  -->
+				</div>
+			</div>
+			<div class="rules">
+				<div>
+					<span>活动规则</span>
+					<span>1.  购买成功后，从次日开始可以连续7天领取翻倍
+							金豆，如果翻倍期间某日没有签到领取，则视为放
+							弃当天的翻倍资格；
+					</span>
+					<span>2. 每人每次只能持有一张有效的翻倍卡，即当前持
+							有的翻倍卡失效才能购买下一张翻倍卡。
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 提示层 -->
+	<div class="ceng" style="display:none"></div>
+	<article>
+		<div class="ts_bg" id="b_buy" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p>您将花费<span style="color:#3da661;">15,000</span>积分购买“签到百倍卡”，有效期7天</p>
+					<div class="btn_bg">
+						<span id="bclose">取消</span>
+						<span id="bsure_buy">确定购买</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ts_bg" id="b_cz" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p id="czms">您积分余额不足，请充值！</p>
+					<div class="btn_bg">
+						<span id="czclose">取消</span>
+						<span id="cz_go">前往充值</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="ts_bg" id="k_buy" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p>您将花费<span style="color:#3da661;">140,000</span>积分购买“签到千倍卡”，有效期7天</p>
+					<div class="btn_bg">
+						<span id="kclose">取消</span>
+						<span id="ksure_buy">确定购买</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ts_bg" id="k_cz" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p>您积分余额不足，请充值！</p>
+					<div class="btn_bg">
+						<span>取消</span>
+						<span>前往充值</span>
+					</div>
+				</div>
+			</div>
+		</div>		
+		
+		
+	</article>
+</body>
+</html>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/gq2/sign/sign.js" type="text/javascript" charset="utf-8"></script>

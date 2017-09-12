@@ -1,0 +1,113 @@
+.news {
+  position: relative;
+  background-color: white;
+}
+.news .tab-nav {
+  position: absolute;
+  top: 0;
+  left: 2.344rem;
+  width: 14.844rem;
+  height: 2.617rem;
+  background: none;
+}
+.news .tab-nav .button {
+  position: relative;
+  padding: 0;
+  line-height: 2.617rem;
+  height: inherit;
+  font-size: 0.938rem;
+  margin: 0 0.391rem;
+}
+.news .tab-nav .button.active:before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  margin-left: -2.5px;
+  border: 5px solid transparent;
+  border-bottom-color: #ffa21d;
+}
+
+.news-list {
+  padding: 0;
+  margin: 0;
+}
+.news-list .news-item {
+  padding: 1.25rem 0.781rem;
+  border-bottom: 1px solid #dddddd;
+  width: 100%;
+}
+.news-list .news-item > a {
+  display: block;
+}
+.news-list .news-item .list-pic {
+  width: 7.656rem;
+  height: 4.297rem;
+  margin-right: 0.781rem;
+}
+.news-list .news-item .list-title {
+  color: #333;
+  line-height: 1.328rem;
+  font-size: 0.781rem;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.news-list .news-item .list-info {
+  margin: 0;
+  color: #666;
+  line-height: 1.016rem;
+  font-size: 0.625rem;
+}
+.news-list .news-item .list-fd {
+  font-size: 0.547rem;
+  color: #999;
+}
+
+
+/*slideBar css*/
+.swiper-container{
+  padding-bottom: 0;
+  height: 12rem;
+}
+.swiper-slide img{
+  width: 100%;
+  height: 100%;
+}
+.swiper-container-horizontal>.swiper-pagination{
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: nowrap;
+  bottom: 0;
+}
+.swiper-container-horizontal>.swiper-pagination .swiper-pagination-bullet{
+  flex: 1;
+  margin: 0;
+  border-radius: 0;
+  height: 2px;
+}
+.swiper-pagination-bullet-active{
+  background-color: #ffa21d;
+}
+
+.swiper-container .banner-info {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 0 0.547rem 5px;
+}
+.swiper-container .banner-info .banner-title {
+  font-size: 0.859rem;
+  line-height: 1.562rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.swiper-container .banner-info > p {
+  margin: 0;
+  font-size: 0.703rem;
+}

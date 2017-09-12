@@ -1,0 +1,83 @@
+{php $css = array('bt_immediate.css')}
+{php $nav_id = 2}
+{template 'wap', 'wap_header'}
+        <div class="content">
+            <div class="buttons-tab">
+                <a href="{WAP_PATH}sclass/{$sclassid}/standings/" class="close-popup button">积分</a>
+                <a href="{WAP_PATH}sclass/{$sclassid}/schedule/" class="close-popup button active">赛程</a>
+                <a href="{WAP_PATH}sclass/{$sclassid}/teamTechnic/" class="close-popup button">球队统计</a>
+                <a href="{WAP_PATH}sclass/{$sclassid}/playerTechnic/" class=" close-popup button">球员统计</a>
+            </div>
+            <div class="content-block">
+                <div class="tabs">
+
+                    <!--赛程-->
+                    <div id="tab2" class="tab active">
+                        <div class="shop">
+                            <div class="btn-group fl">
+                                <input class="btn" id="picker1" type="text" value="季前赛">
+                                <i class="fa fa-angle-down btn-pos"></i>
+                            </div>
+                            <div class="btn-group fr">
+                                <input class="btn" id="picker2" type="text" value="16-17赛季">
+                                <i class="fa fa-angle-down btn-pos"></i>
+                            </div>
+                        </div>
+
+                        <div class="tabs">
+                            <div class="tab active" id="preseason">
+                                {loop $info[1] $date $value}
+                                <div class="race-time">
+                                    {$date}
+                                </div>
+
+                                <table class="race-table">
+                                    {loop $value $id $data}
+                                    <tr>
+                                        <td width="14%" class="grey">{date('H:i', $data['date'])}</td>
+                                        <td width="31%">{$data['homename_cn']}</td>
+                                        <td width="24%">
+                                            <span {if $data['homescore'] > $data['guestscore']}class="red"{elseif $data['homescore'] < $data['guestscore']}class="green"{/if}>{$data['homescore']}</span>
+                                            -
+                                            <span {if $data['homescore'] < $data['guestscore']}class="red"{elseif $data['homescore'] > $data['guestscore']}class="green"{/if}>{$data['guestscore']}</span>
+                                        </td>
+                                        <td width="31%">{$data['guestname_cn']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                {/loop}
+                            </div>
+                            <div class="tab active" id="regular">
+                                {loop $info[2] $date $value}
+                                <div class="race-time">
+                                    {$date}
+                                </div>
+
+                                <table class="race-table">
+                                    {loop $value $id $data}
+                                    <tr>
+                                        <td width="14%" class="grey">{date('H:i', $data['date'])}</td>
+                                        <td width="31%">{$data['homename_cn']}</td>
+                                        <td width="24%">
+                                            <span {if $data['homescore'] > $data['guestscore']}class="red"{elseif $data['homescore'] < $data['guestscore']}class="green"{/if}>{$data['homescore']}</span>
+                                            -
+                                            <span {if $data['homescore'] < $data['guestscore']}class="red"{elseif $data['homescore'] > $data['guestscore']}class="green"{/if}>{$data['guestscore']}</span>
+                                        </td>
+                                        <td width="31%">{$data['guestname_cn']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                {/loop}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {template 'wap', 'footer_nav'}
+        </div>
+
+</div>
+</div>
+
+{php $js = array('bt_sclass_schedule.js')}
+{template 'wap', 'wap_footer'}

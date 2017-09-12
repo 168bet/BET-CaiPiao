@@ -1,0 +1,21 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+
+<div class="user-center">
+    <div class="wrap pure-g clearfix">
+        <div class="left pure-u-1-5">
+            <ng-include src=" templateURI('/userCenter/left.html')"></ng-include>
+        </div>
+        <div class="left pure-u-4-5">
+            <div class="box">
+                <div class="box-title"><h3>{{title}}</h3></div>
+                <div class="box-content">
+                   <ui-view >
+	                   
+                   </ui-view>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-include src="templateURI('/footerUser.html')"></ng-include>

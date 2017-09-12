@@ -1,0 +1,26 @@
+/*header*/
+.bar {
+  text-align: center;
+}
+.bar .button.pull-left {
+  margin-right: 0;
+}
+
+.header-nav {
+  display: inline-block;
+}
+.header-nav .button {
+  width: auto;
+}
+
+/*header end*/
+/*nav*/
+.buttons-tab .button {
+  padding: 0.46875rem;
+  height: auto;
+  line-height: 0.95rem;
+}
+.buttons-tab .calendar-icon {
+  position: relative;
+  top: 0.3125rem;
+}

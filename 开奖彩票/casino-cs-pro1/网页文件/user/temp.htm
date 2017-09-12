@@ -1,0 +1,62 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<script>if(self == top) location='../';</script>
+<HTML>
+	<HEAD>
+		<TITLE></TITLE>
+		<META http-equiv="content-type" content="text/html; charset=gb2312">
+		
+		<LINK href="css/mem_order.css" type="text/css" rel="stylesheet">
+			<SCRIPT language="JavaScript" src="js/function-no-status-msg.js"></SCRIPT>
+			<SCRIPT language="JavaScript" src="js/function-no-copying.js"></SCRIPT>
+			<SCRIPT language=JavaScript src="js/toFmt.js"></SCRIPT>
+			<SCRIPT language=JavaScript src="js/bet-entry.js"></SCRIPT>			
+			<SCRIPT>
+				var count_win=false;window.setTimeout("self.location='betting-entry.aspx'", 45000);
+function CheckKey(){	if(event.keyCode == 13) return true;if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode > 95 || event.keyCode < 106)){alert('下注金额仅能输入数字!!'); return false;}}
+function SubChk(){	if(document.all.gold.value==''){document.all.gold.focus();alert('请输入下注金额!!');return false;	}if(isNaN(document.all.gold.value) == true){document.all.gold.focus();alert('下注金额仅能输入数字!!');return false;	}if(eval(document.all.gold.value) < 10){document.all.gold.focus();alert('下注金额不可小於最低下注金额!!');	return false;	}if(eval(document.all.gold.value) > 50000){	document.all.gold.focus();	alert('对不起,本期有下注金额最高限制 : 50000  !!');	return false;	}if(eval(document.all.gold.value) > 50000){	document.all.gold.focus();	alert('下注金额不可大於单注限额!!');	return false;	}if((0+eval(document.all.gold.value)) > 200000){document.all.gold.focus();alert('本期累计下注共: 0\n下注金额已超过单期(号)限额!!');	return false;	}if(eval(document.all.gold.value) > 10000){document.all.gold.focus();alert('下注金额不可大於信用额度!!');	return false;	}if(eval(document.all.gold.value)> 994520){	document.all.gold.focus();	alert('下注金额不可大於总代理信用额度!!');return false;	}if(!confirm('可蠃金额:'+Math.round(document.all.gold.value * document.all.ioradio.value / 1000 - document.all.gold.value)+'\n\n 是否确定下注?')){return false;}document.all.btnCancel.disabled = true;	document.all.btnSubmit.disabled = true;	document.LAYOUTFORM.submit();}function CountWinGold(){	if(document.all.gold.value==''){document.all.gold.focus();	alert('未输入下注金额!!!');	}else{	document.all.pc.innerHTML=Math.round(document.all.gold.value * document.all.ioradio.value /1000 - document.all.gold.value);	count_win=true;	}}
+function CountWinGold1(){	if(document.all.gold.value==''){document.all.gold.focus();	alert('未输入下注金额!!!');}else{	document.all.pc.innerHTML=Math.round(document.all.gold.value * document.all.ioradio.value) - document.all.gold.value;count_win=true;	}}
+		
+				function disableEnterKey() { if (window.event.keyCode == 13) window.event.keyCode = 0; }
+				
+				function doError() {
+					}
+				thisLanguage = 'simplified';
+				
+				function cancelParlayBet(thisObj){
+					href_var = "action=kygl&req_matchlist="+myForm.req_matchlist.value+"&req_userbet_list="+myForm.req_userbet_list.value;//+"&req_odds_list="+myForm.req_odds_list.value;
+					window.location.href = "betting-entry.aspx?req_parlay_submit=1&"+href_var+"&remove="+thisObj.id;
+					//alert("?req_parlay_submit=1&"+href_var+"&remove="+thisObj.id);
+				}
+				
+				function cancelPAHParlayBet(thisObj){
+					href_var = "action=kygl&req_ahmatchlist="+myForm.req_ahmatchlist.value+"&req_ahuserbet_list="+myForm.req_ahuserbet_list.value;//+"&req_ahodds_list="+myForm.req_ahodds_list.value;
+					window.location.href = "betting-entry.aspx?req_ahparlay_submit=1&"+href_var+"&remove="+thisObj.id;
+				}
+				
+				function cancelCSParlayBet(thisObj){
+					href_var = "action=kygl&req_csmatchlist="+myForm.req_csmatchlist.value+"&req_csuserbet_list="+myForm.req_csuserbet_list.value;//+"&req_ahodds_list="+myForm.req_ahodds_list.value;
+					window.location.href = "betting-entry.aspx?req_csparlay_submit=1&"+href_var+"&remove="+thisObj.id;
+					
+				}	
+				
+				function cancelHTParlayBet(thisObj){
+					href_var = "action=kygl&req_htmatchlist="+myForm.req_htmatchlist.value+"&req_htuserbet_list="+myForm.req_htuserbet_list.value;//+"&req_ahodds_list="+myForm.req_ahodds_list.value;
+					window.location.href = "betting-entry.aspx?req_htparlay_submit=1&"+href_var+"&remove="+thisObj.id;
+					
+				}		
+
+				function cancelBKPAHParlayBet(thisObj){
+					href_var = "bk_req_ahmatchlist="+myForm.bk_req_ahmatchlist.value+"&bk_req_ahuserbet_list="+myForm.bk_req_ahuserbet_list.value+"&bk_req_ahodds_list="+myForm.bk_req_ahodds_list.value;
+					window.location.href = "?bk_req_ahparlay_submit=1&"+href_var+"&remove="+thisObj.id;
+				}
+			</SCRIPT>
+	</HEAD>	
+	<BODY oncontextmenu=window.event.returnValue=false text=#000000 bgColor=#e5eaee 
+leftMargin=0 topMargin=0>
+
+			<FORM name=LAYOUTFORM onsubmit='return false' action='betting-entry.aspx' method=post>
+			<TABLE height=100% cellSpacing=0 cellPadding=0 background=images/order_bk.gif border=0><TBODY><TR><TD vAlign=top height=22><IMG height=22  src=images/order_ph11.gif width=241></TD></TR><TR><TD class=m-title background=images/order_ph21.jpg height=36>六合彩 一肖 下注单</TD></TR><TR><TD vAlign=top height=30><IMG height=30 src=images/order_ph31.gif width=241></TD></TR><TR><TD vAlign=top background=images/order_ph41.gif height=100><TABLE cellSpacing=0 cellPadding=0 width=190 align=center border=0><TBODY><TR><TD>帐户名称: aiha0888</TD></TR><TR><TD>信用额度: 10000</TD></TR><TR align=left bgColor=#cccccc><TD align=middle colSpan=2><FONT color=#cc0000></FONT></TD></TR><TR align=left><TD align=middle colSpan=2>期数 : 101<P><FONT color=#cc0000>一肖 牛</FONT> @ <FONT color=#ff0000><B>1.88 </B></FONT></P></TD></TR><TR align=left><TD class=td_fail colSpan=2><FONT color=#ff0000><TABLE cellSpacing=0 cellPadding=0 width=97% border=0><TBODY><TR><TD>下注金额: <INPUT onkeypress='return CheckKey()' id='gold'  onkeyup='return CountWinGold()' maxLength=8 size=8 name='gold'></TD></TR><TR><TD>可蠃金额: <FONT id=pc color=#ff0000>0</FONT></TD></TR><TR><TD>最低限额: 10</TD></TR><TR><TD>单注限额: 50000</TD></TR><TR><TD>单期限额: 200000</TD></TR><TR align=middle><TD><INPUT class=sumbit_cen onclick=self.location='betting-entry.aspx' type=button value=取消 name=btnCancel>  &nbsp;&nbsp; <INPUT class=sumbit_cen onclick='SubChk();' type=button value=确定 name=btnSubmit></TD></TR><TR><TD>&nbsp;</TD></TR></TBODY></TABLE></FONT></TD></TR></TBODY></TABLE></TD></TR><TR><TD vAlign=top height=11><IMG height=11 src='images/order_ph51.gif' width=241></TD></TR><TR><TD vAlign=top>&nbsp;</TD></TR></TBODY></TABLE><INPUT type=hidden value=SP_B2 name=concede><INPUT type=hidden value='1880' name=ioradio></FORM><SCRIPT language=JavaScript>document.all.gold.focus();</SCRIPT>
+			
+	</BODY>
+</HTML>

@@ -1,0 +1,83 @@
+<div class="w1105 m0auto hgt222 relative" style="background-color: #DADADA">
+    <div class="topWhite absolute"></div>
+    <div class="topRed absolute fz24 text_center white">{{lotKind}}</div>
+    <div class="absolute hgt222 w122" style="background: url({{staticURI}}/images/fclhc/lhcAvatar.png) no-repeat right;right:0;bottom:-10px"></div>
+    <div class="absolute fz20" style="left: 133px; top: 94px;color:#010103">
+        {{lotKind}}第
+        <span class="red">{{lastNumber}}</span>
+        期开奖结果
+    </div>
+    <div class="inline-block absolute fz20" style="left: 121px; top: 131px;">
+        <ball style="margin-left: 5px;" number="result" ng-repeat="result in lastResults track by $index"></ball>
+    </div>
+    <div class="absolute" style="left: 500px; top: 96px;">
+        <div class="inline-block fz16"> 当前期为<span class="red">{{currentNumber}}</span> 期</div>
+    </div>
+    <div class="absolute" style="left: 500px; top: 126px;">
+        <div class="inline-block fz16">
+            距离下单截止还有
+            <span class="red">{{d_close}}</span>
+            天
+            <span class="red">{{h_close}}</span>
+            小时
+            <span class="red">{{m_close}}</span>
+            分
+            <span class="red">{{s_close}}</span>
+            秒
+        </div>
+    </div>
+    <div class="absolute" style="left: 500px; top: 156px;">
+        <div class="inline-block fz16">
+            距离开奖截止还有
+            <span class="red">{{d_open}}</span>
+            天
+            <span class="red">{{h_open}}</span>
+            小时
+            <span class="red">{{m_open}}</span>
+            分
+            <span class="red">{{s_open}}</span>
+            秒
+        </div>
+    </div>
+    <div class="absolute fz20" style="color:#0F0F0F;right:140px;bottom:96px;cursor: pointer;" onclick="window.location.reload(true)">刷新</div>
+    <div class="absolute fz20" style="color:#0F0F0F;right:140px;bottom:56px;cursor: pointer;">帮助</div>
+</div>
+<div class="w1105 m0auto text_center fz14">
+    <table style="width: 90%;margin:0 auto">
+        <thead>
+            <tr class="hgt42 line_hgt42 red" style="background: #FFBE18">
+                <td>期号</td>
+                <td>开奖时间</td>
+                <td>开奖结果</td>
+                <td>已下单数</td>
+                <td>中奖人数</td>
+                <td>状态</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="hgt42 line_hgt42 game-list-table" style="background: white" ng-repeat="(key, value) in gameResults">
+                <td>{{value.formatQs}}</td>
+                <td>{{value.gtKjsj}}</td>
+                <td>{{value.kjjg}}</td>
+                <td>{{value.xd}}</td>
+                <td>{{value.zjrs?value.zjrs:'---'}}</td>
+                <td>
+			         <div class="ui-item-son" ng-if="value.status=='投注火爆' ">
+			           <a ui-sref="fclhc.name.play({name: lotEnName, qs: value.formatQs})">投注 <i class="icon icon-bg icon-hot"></i></a>
+			         </div>
+			         <div class="ui-item-son" ng-if="value.status!='投注火爆' ">
+			           {{value.status}}
+			         </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pager">
+        <p class="pager-info">共{{totalCount}}条记录 &nbsp;&nbsp;当前1/{{totalPages}}页</p>
+        <a ng-click="firstPage()">首页</a>
+        <a ng-click="prevPage()">上一页</a>
+        <a ng-class="{current:currentPage==pageIndex+$index}" ng-repeat="item in range(pageIndex,totalPages+1)|limitTo:numberLimit track by $index" ng-click="secPage(pageIndex+$index)">{{item}}</a>
+        <a ng-click="nextPage()">下一页</a>
+        <a ng-click="lastPage()">尾页</a>
+    </div>
+</div>

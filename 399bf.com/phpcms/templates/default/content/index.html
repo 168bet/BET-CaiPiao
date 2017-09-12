@@ -1,0 +1,787 @@
+{php $css = array('banner.css', 'index.css')}
+{php $nav_id = 1}
+{template 'content', 'header_score'}
+<!-- banner section-->
+<section class="section-banner">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 pdL0 pdR0">
+			
+				<!--banner-->
+                <div class="banner" id="banner">
+
+                    <div class="banner-bd">
+
+                        <a href="#" target="_blank">
+                            <img src="" data-name="banner-img">
+                        </a>
+
+                        <div class="banner-title">
+                            
+                            <h1><a href="#" name="title" target="_blank"></a></h1>
+                            <p><a href="#" name="titleInfo" target="_blank"></a> </p>
+                        </div>
+
+                        <a href="javascript:;" class="banner-btn prev">
+                        	<i class="icon-chevron-left icon-3x"></i>
+                        </a>
+                        <a href="javascript:;" class="banner-btn next">
+                        	<i class="icon-chevron-right icon-3x"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="banner-fd">
+						{pc:content action="position" posid="1" num="5" order="listorder DESC"}
+                        <ul class="clearfix">
+							{loop $data $r}
+                            <li class="active xBanner-item">
+                                <img src="{get_thumb($r['thumb'], 350)}" data-title="{$r['title']}" data-title-info="{str_cut($r['description'], '120', '...')}" data-img = "{$r['thumb']}" data-link="{$r['url']}">
+                            </li>
+							{/loop}
+                        </ul>
+						{/pc}
+                    </div>
+                </div>
+                <!--banner end-->
+
+            </div>
+
+			<div class="col-sm-4 pdR0">
+
+				<div class="sideNew">
+					<div class="title pdT10">
+						<span class="icon-title icon-king"></span>
+						赢盘攻略
+						<a target="_blank" href="{APP_PATH}zcfx/" class="more">更多</a>
+					</div>
+					{pc:content action="lists" catid="19" num="5" order="listorder DESC"}
+					<ul>
+						{php $first = array_shift($data)}
+						<li class="new-item">
+							<h2 class="new-title nowrap">
+								<a href="{APP_PATH}ypfxf/" target="_blank"><i class="icon-hot">亚盘分析</i></a>
+								<a href="{$first['url']}" target="_blank" title="{$first['title']}">
+									{str_cut($first['title'], '42', '...')}
+								</a>
+							</h2>
+							<ul>
+							{loop $data $r}
+								<li class="nowrap"><a href="{$r['url']}" target="_blank" title="{$r['title']}">{str_cut($r['title'], '68', '...')}</a></li>
+							{/loop}
+							{/pc}
+							</ul>
+						</li>
+					</ul>
+					{/pc}
+					{pc:content action="lists" catid="20" num="5" order="listorder DESC"}
+					<ul>
+						{php $first = array_shift($data)}
+						<li class="new-item">
+							<h2 class="new-title nowrap">
+								<a href="{APP_PATH}opfxjq/" target="_blank"><i class="icon-hot">欧赔分析</i></a>
+								<a href="{$first['url']}" target="_blank" title="{$first['title']}">
+									{str_cut($first['title'], '42', '...')}
+								</a>
+							</h2>
+							<ul>
+								{loop $data $r}
+								<li class="nowrap"><a href="{$r['url']}" target="_blank" title="{$r['title']}">{str_cut($r['title'], '68', '...')}</a></li>
+								{/loop}
+								{/pc}
+							</ul>
+						</li>
+					</ul>
+					{/pc}
+					{pc:content action="lists" catid="21" num="5" order="listorder DESC"}
+					<ul>
+						{php $first = array_shift($data)}
+						<li class="new-item">
+							<h2 class="new-title nowrap">
+								<a href="{APP_PATH}ephyp/" target="_blank"><i class="icon-hot">欧赔和亚盘</i></a>
+								<a href="{$first['url']}" target="_blank" title="{$first['title']}">
+									{str_cut($first['title'], '42', '...')}
+								</a>
+							</h2>
+							<ul>
+								{loop $data $r}
+								<li class="nowrap"><a href="{$r['url']}" target="_blank" title="{$r['title']}">{str_cut($r['title'], '68', '...')}</a></li>
+								{/loop}
+								{/pc}
+							</ul>
+						</li>
+					</ul>
+					{/pc}
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>
+
+<!-- main body -->
+<section>
+    <div class="container">
+
+		<!-- 预测 -->
+ 		<div class="row ">
+
+ 			<div class="section-item col-sm-8 pdL0 pdR0">
+
+					<h1 class="title pdT10">
+						<span class="icon-jicai icon-title">
+						</span>
+						即时赛事
+						<a target="_blank" href="{APP_PATH}zqscore/" class="more">更多</a>
+					</h1>
+
+					{loop $live_game_data $data}
+					<div class="content" data-action="live-game-stats" data-game-id="{$data['gameid']}" data-minute="{$data['minute']}">
+						<p class="hint">{$data['competitionshortname']} {date('m-d H:i', $data['date'])} {$data['homeshortname']} VS {$data['awayshortname']} </p>
+						<ul class="clearfix">
+							<li class="jicai-item" data-action="link" data-url="{APP_PATH}team/{$data['hometeamid']}/">
+								<div class="jicai-col">
+									<div class="team-img">
+										<img src="{PHOTO_PATH}team/{$data['hometeamid']}.jpg" alt="{$data['homeshortname']}" class="team-photo">
+									</div>
+								</div>
+
+								<div class="jicai-col tip">
+									<div data-stats="event" data-type="1" class="stats-event"></div>
+									<p class="team-name">{$data['homeshortname']}</p>
+								</div>
+								<div class="arrowtip"></div>
+							</li>
+							<li class="jicai-item live-score" data-action="link" data-url="{APP_PATH}game/{$data['gameid']}/analyse/">
+								<div class="jicai-m">
+									<p>比分</p>
+									<span class="jicai-span" data-stats="homescore">{$data['homescore']}</span>
+									<span class="jicai-span">：</span>
+									<span class="jicai-span" data-stats="awayscore">{$data['awayscore']}</span>
+								</div>
+								<div class="arrowtip"></div>
+							</li>
+							<li class="jicai-item" data-action="link" data-url="{APP_PATH}team/{$data['awayteamid']}/">
+								<div class="jicai-col">
+									<div class="team-img">
+										<img src="{PHOTO_PATH}team/{$data['awayteamid']}.jpg" alt="{$data['awayshortname']}" class="team-photo">
+									</div>
+								</div>
+								<div class="jicai-col tip">
+									<div data-stats="event" data-type="2" class="stats-event"></div>
+									<p class="team-name">{$data['awayshortname']}</p>
+								</div>
+								<div class="arrowtip"></div>
+							</li>
+						</ul>
+					</div>
+					{/loop}
+
+
+ 			</div>
+ 			<div class=" col-sm-4 pdR0 side">
+				<div class="section-item">
+					<h1 class="title pdT10">
+						<span class="icon-yuce icon-title">
+						</span>
+						每日足彩预测
+						<a href="{APP_PATH}zcyc/" target="_blank" class="more">更多</a>
+					</h1>
+					{pc:content action="lists" catid="24" thumb="1" num="5" order="`id` DESC"}
+					<ul class="new-list">
+						{loop $data $value}
+						<li class="new-index clearfix">
+							<a href="{$value['url']}" class="new-pic" target="_blank" title="{$value['title']}">
+								<img src="{get_thumb($value['thumb'], 150)}" alt="{$value['title']}">
+							</a>
+							<div class="new-info">
+								<div class="new-title">
+									<a href="{$value['url']}" target="_blank" title="{$value['title']}">
+										<p>{str_cut($value['title'], '90', '...')}</p>
+									</a>
+								</div>
+								<div class="new-detail">
+									<p class="nowrap">{str_cut($value['description'], '48', '...')}</p>
+								</div>
+							</div>
+						</li>
+						{/loop}
+					</ul>
+					{/pc}
+				</div>
+ 			</div>
+
+ 		</div>
+
+		<!--足彩单场分析-->
+		<div class="row">
+
+			<div class="section-item col-sm-8 pdL0 pdR0">
+				<h1 class="title pdT10">
+					<span class="icon-fenxi icon-title">
+					</span>
+					足彩单场分析
+					<a target="_blank" href="{APP_PATH}zcdcfx/" class="more">更多</a>
+				</h1>
+				{pc:content action="lists" catid="31" num="9" thumb="1" order="id DESC"}
+				{php $first = array_shift($data)}
+				<div class="chunk">
+					<div class="new-index new-index-lg clearfix no-margin">
+						<a href="{$first['url']}" class="new-pic" target="_blank">
+							<img src="{get_thumb($first['thumb'], 350)}" alt="{$first['title']}">
+						</a>
+						<div class="new-info">
+							<div class="new-title nowrap">
+								<a href="{$first['url']}" target="_blank" title="{$first['title']}">{str_cut($first['title'], '72', '...')}</a>
+							</div>
+							<div class="new-detail">
+								{str_cut($first['description'], '180', '...')}
+								<a href="{$first['url']}" target="_blank">[详细]</a>
+								<div class="gray">{date('Y-m-d', $first['inputtime'])}</div>
+								<div class="tag">
+									<span class="gray">标签:</span>
+									{php $keywords = explode(' ', $first['keywords'])}
+									{loop $keywords $keyword}
+									<a href="{APP_PATH}tag/{$keyword}/" class="orange" target="_blank">{$keyword}</a>
+									{/loop}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{php $data = array_chunk($data, 4)}
+				<div class="chunk clearfix">
+					{loop $data $list}
+					<div class="col-sm-6">
+						<div class="new-item">
+							<ul>
+								{loop $list $value}
+								<li class="nowrap"><a href="{$value['url']}" target="_blank" title="{$value['title']}">{str_cut($value['title'], '75', '...')}</a></li>
+								{/loop}
+							</ul>
+						</div>
+					</div>
+					{/loop}
+				</div>
+				{/pc}
+			</div>
+			<div class="col-sm-4 pdR0 side">
+				<div class="section-item">
+					<h1 class="title pdT10">
+						<span class="icon-tuijian icon-title">
+						</span>
+						今日强胆推荐
+						<a href="{APP_PATH}jrqdtj/" target="_blank" class="more">更多</a>
+					</h1>
+					<div class="groomChunk">
+						{pc:content action="lists" catid="27" num="1" order="id DESC"}
+						{loop $data $value}
+						{php $titles = explode('】', $value['title'])}
+						<div class="groomChunk-hd">
+							{$titles[0]}】
+							<div class="orange">{$titles[1]}</div>
+						</div>
+						{php $keywords = explode(' ', $value['keywords'])}
+						<div class="groomChunk-bd">
+							<table class="groomChunk-img clearfix" width="100%">
+								<tr>
+									{pc:get sql="SELECT `teamid` FROM `ft_team` WHERE `name`='$keywords[0]' OR `shortname`='$keywords[0]'" cache="3600" dbsource="sportsdt" return="home"}
+									{php $home_id = $home[0]['teamid']}
+									<th width="35%" {if $home_id}data-action="link" data-url="{APP_PATH}team/{$home_id}/"{/if}>
+										<img src="{PHOTO_PATH}team/{$home_id}.jpg" alt="{$keywords[0]}" class="team-photo">
+									</th>
+									{/pc}
+									<th>VS</th>
+									{pc:get sql="SELECT `teamid` FROM `ft_team` WHERE `name`='$keywords[1]' OR `shortname`='$keywords[1]'" cache="3600" dbsource="sportsdt" return="away"}
+									{php $away_id = $away[0]['teamid']}
+									<th width="35%" {if $away_id}data-action="link" data-url="{APP_PATH}team/{$away_id}/"{/if}>
+										<img src="{PHOTO_PATH}team/{$away_id}.jpg" alt="{$keywords[1]}" class="team-photo">
+									</th>
+									{/pc}
+								</tr>
+								<tr>
+									<td data-action="link" data-url="{APP_PATH}team/{$home_id}/"><div class="pic-name">{$keywords[0]}</div></td>
+									<td>&nbsp;</td>
+									<td data-action="link" data-url="{APP_PATH}team/{$away_id}/"><div class="pic-name">{$keywords[1]}</div></td>
+								</tr>
+							</table>
+						</div>
+						{php $description = explode('；', $value['description'])}
+						<div class="groomChunk-fd">
+							<div class="line">{$description[2]}</div>
+							{pc:get sql="SELECT `competitionid` FROM `ft_competition` WHERE `shortname`='$keywords[2]' OR `name`='$keywords[2]'" cache="3600" dbsource="sportsdt" return="competition"}
+							<div class="line">联赛：<a href="{if $competition[0]['competitionid']}{APP_PATH}competition/{$competition[0]['competitionid']}/schedule/{else}javascript:;{/if}" class="orange" target="_blank">{$keywords[2]}</a></div>
+							{/pc}
+							<div class="line">
+								<a href="{$value['url']}" target="_blank" title="{$value['title']}" class="font-blue">
+									胜平负强胆推荐详情
+								</a>
+							</div>
+						</div>
+						{/loop}
+						{/pc}
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<!--五大联赛-->
+		<div class="row">
+
+			<div class="section-item col-sm-8 pdL0 pdR0">
+				<h1 class="title pdT10">
+					<span class="icon-liansai icon-title">
+					</span>
+					五大联赛
+					<a target="_blank" href="{APP_PATH}wdls/" class="more">更多</a>
+				</h1>
+				{pc:content action="lists" catid="28" num="9" thumb="1" order="id DESC"}
+				{php $first = array_shift($data)}
+				<div class="chunk">
+					<div class="new-index new-index-lg clearfix no-margin">
+						<a href="{$first['url']}" class="new-pic" target="_blank">
+							<img src="{get_thumb($first['thumb'], 350)}" alt="{$first['title']}">
+						</a>
+						<div class="new-info">
+							<div class="new-title nowrap">
+								<a href="{$first['url']}" target="_blank" title="{$first['title']}">{str_cut($first['title'], '72', '...')}</a>
+							</div>
+							<div class="new-detail">
+								{str_cut($first['description'], '180', '...')}
+								<a href="{$first['url']}" target="_blank">[详细]</a>
+								<div class="gray">{date('Y-m-d', $first['inputtime'])}</div>
+								<div class="tag">
+									<span class="gray">标签:</span>
+									{php $keywords = explode(' ', $first['keywords'])}
+									{loop $keywords $keyword}
+									<a href="{APP_PATH}tag/{$keyword}/" class="orange" target="_blank">{$keyword}</a>
+									{/loop}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{php $data = array_chunk($data, 4)}
+				<div class="chunk clearfix">
+					{loop $data $list}
+					<div class="col-sm-6">
+						<div class="new-item">
+							<ul>
+								{loop $list $value}
+								<li class="nowrap"><a href="{$value['url']}" target="_blank" title="{$value['title']}">{str_cut($value['title'], '75', '...')}</a></li>
+								{/loop}
+							</ul>
+						</div>
+					</div>
+					{/loop}
+				</div>
+				{/pc}
+			</div>
+			<div class="col-sm-4 pdR0 side">
+				<div class="section-item">
+					<h1 class="title pdT10">
+						<span class="icon-database icon-title">
+						</span>
+						<span style="visibility: hidden">1</span>
+						<a href="{APP_PATH}zqevent/" target="_blank" class="more">更多</a>
+					</h1>
+					<div class="sideDatabase">
+						<ul class="side_nav" role="tablist">
+							<li role="presentation">
+								<a href="#event" aria-controls="event" role="tab" data-toggle="tab">赛事资料库</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div id="event" class="tab-pane active sideDatabase-content" role="tabpanel">
+								<ul class="clearfix">
+									{loop $event_info $value}
+									<li>
+										<a href="{$value['url']}" target="_blank" title="{$value['name']}">
+											<img src="{$value['img']}" alt="{$value['name']}" class="{$value['class']}">
+										</a>
+									</li>
+									{/loop}
+								</ul>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+		</div>
+
+		<!--足坛-->
+		<div class="row">
+
+			<div class="section-item col-sm-8 pdL0 pdR0">
+				<h1 class="title pdT10">
+					<span class="icon-zutan icon-title">
+					</span>
+					<span style="visibility: hidden">1</span>
+					<a target="_blank" href="{APP_PATH}tyzx/" class="more">更多</a>
+				</h1>
+				<div class="zutan">
+
+					<ul class="side_nav" role="tablist">
+						<li class="active" role="presentation">
+							<a href="#world_zutan" aria-controls="ft_database" role="tab" data-toggle="tab">世界足坛</a>
+						</li>
+						<li role="presentation">
+							<a href="#ch_zutan" aria-controls="bt_database" role="tab" data-toggle="tab">中国足坛</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						{pc:content action="lists" catid="30" num="9" thumb="1" order="id DESC"}
+						<div id="world_zutan" class="tab-pane active zutan-content" role="tabpanel">
+							{php $first = array_shift($data)}
+							<div class="chunk">
+								<div class="new-index new-index-lg clearfix no-margin">
+									<a href="{$first['url']}" class="new-pic" target="_blank">
+										<img src="{get_thumb($first['thumb'], 350)}" alt="{$first['title']}">
+									</a>
+									<div class="new-info">
+										<div class="new-title nowrap">
+											<a href="{$first['url']}" target="_blank" title="{$first['title']}">{str_cut($first['title'], '72', '...')}</a>
+										</div>
+										<div class="new-detail">
+											{str_cut($first['description'], '180', '...')}
+											<a href="{$first['url']}" target="_blank">[详细]</a>
+											<div class="gray">{date('Y-m-d', $first['inputtime'])}</div>
+											<div class="tag">
+												<span class="gray">标签:</span>
+												{php $keywords = explode(' ', $first['keywords'])}
+												{loop $keywords $keyword}
+												<a href="{APP_PATH}tag/{$keyword}/" class="orange" target="_blank">{$keyword}</a>
+												{/loop}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{php $data = array_chunk($data, 4)}
+							<div class="chunk clearfix">
+								{loop $data $list}
+								<div class="col-sm-6">
+									<div class="new-item">
+										<ul>
+											{loop $list $value}
+											<li class="nowrap"><a href="{$value['url']}" target="_blank" title="{$value['title']}">{str_cut($value['title'], '75', '...')}</a></li>
+											{/loop}
+										</ul>
+									</div>
+								</div>
+								{/loop}
+							</div>
+						</div>
+						{/pc}
+						{pc:content action="lists" catid="29" num="9" thumb="1" order="id DESC"}
+						<div id="ch_zutan" class="tab-pane zutan-content" role="tabpanel">
+							{php $first = array_shift($data)}
+							<div class="chunk">
+								<div class="new-index new-index-lg clearfix no-margin">
+									<a href="{$first['url']}" class="new-pic" target="_blank">
+										<img src="{get_thumb($first['thumb'], 350)}" alt="{$first['title']}">
+									</a>
+									<div class="new-info">
+										<div class="new-title nowrap">
+											<a href="{$first['url']}" target="_blank" title="{$first['title']}">{str_cut($first['title'], '72', '...')}</a>
+										</div>
+										<div class="new-detail">
+											{str_cut($first['description'], '180', '...')}
+											<a href="{$first['url']}" target="_blank">[详细]</a>
+											<div class="gray">{date('Y-m-d', $first['inputtime'])}</div>
+											<div class="tag">
+												<span class="gray">标签:</span>
+												{php $keywords = explode(' ', $first['keywords'])}
+												{loop $keywords $keyword}
+												<a href="{APP_PATH}tag/{$keyword}/" class="orange" target="_blank">{$keyword}</a>
+												{/loop}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{php $data = array_chunk($data, 4)}
+							<div class="chunk clearfix">
+								{loop $data $list}
+								<div class="col-sm-6">
+									<div class="new-item">
+										<ul>
+											{loop $list $value}
+											<li class="nowrap"><a href="{$value['url']}" target="_blank" title="{$value['title']}">{str_cut($value['title'], '75', '...')}</a></li>
+											{/loop}
+										</ul>
+									</div>
+								</div>
+								{/loop}
+							</div>
+						</div>
+						{/pc}
+					</div>
+				</div>
+
+			</div>
+			<div class="col-sm-4 pdR0 side">
+				<div class="section-item">
+					<h1 class="title pdT10">
+						<span class="icon-odd icon-title">
+						</span>
+						最新指数
+						<a href="javascript:;" data-action="refresh" data-target="#live-game-odds-data" data-id="{$live_game_odds_data['gameid']}" style="color: #ccc;margin-left: 80px">
+							<i class="icon-exchange"></i>
+							换一场
+						</a>
+						<a href="{APP_PATH}zqodds/" target="_blank" class="more">更多</a>
+					</h1>
+					<div class="side-odd" id="live-game-odds-data">
+
+						<div class="table-head" id="game-data">
+							<span data-key="competition">{$live_game_odds_data['competitionname']}</span>
+							<span data-key="date">{date('H:i', $live_game_odds_data['date'])}</span>
+							<span data-key="home">{str_cut($live_game_odds_data['homename'], 12, '')}</span>
+							<span data-key="score">{$live_game_odds_data['homescore']}-{$live_game_odds_data['awayscore']}</span>
+							<span data-key="away">{str_cut($live_game_odds_data['awayname'], 12, '')}</span>
+							<span data-key="link" class="fr"><a href="{APP_PATH}game/{$live_game_odds_data['gameid']}/analyse/" target="_blank">析</a></span>
+						</div>
+						<table class="table-odd" id="odds-data">
+							<tr>
+								<td width="50"></td>
+								<td width="50"></td>
+								<td width="76">S2</td>
+								<td width="76">bet356</td>
+								<td>10bet</td>
+							</tr>
+							<!--亚盘-->
+							<tr>
+								<td></td>
+								<td>主赔</td>
+								<td data-key="up" data-company="400000">{$live_game_odds_data['odds']['asia']['400000']['up']}</td>
+								<td data-key="up" data-company="3000181">{$live_game_odds_data['odds']['asia']['3000181']['up']}</td>
+								<td data-key="up" data-company="3000271">{$live_game_odds_data['odds']['asia']['3000271']['up']}</td>
+							</tr>
+							<tr>
+								<td>亚盘</td>
+								<td>盘口</td>
+								<td data-key="give" data-company="400000">{$live_game_odds_data['odds']['asia']['400000']['give']}</td>
+								<td data-key="give" data-company="3000181">{$live_game_odds_data['odds']['asia']['3000181']['give']}</td>
+								<td data-key="give" data-company="3000271">{$live_game_odds_data['odds']['asia']['3000271']['give']}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>客赔</td>
+								<td data-key="down" data-company="400000">{$live_game_odds_data['odds']['asia']['400000']['down']}</td>
+								<td data-key="down" data-company="3000181">{$live_game_odds_data['odds']['asia']['3000181']['down']}</td>
+								<td data-key="down" data-company="3000271">{$live_game_odds_data['odds']['asia']['3000271']['down']}</td>
+							</tr>
+							<!--欧赔-->
+							<tr>
+								<td></td>
+								<td>主胜</td>
+								<td data-key="homewin" data-company="400000">{$live_game_odds_data['odds']['euro']['400000']['homewin']}</td>
+								<td data-key="homewin" data-company="3000181">{$live_game_odds_data['odds']['euro']['3000181']['homewin']}</td>
+								<td data-key="homewin" data-company="3000271">{$live_game_odds_data['odds']['euro']['3000271']['homewin']}</td>
+							</tr>
+							<tr>
+								<td>欧赔</td>
+								<td>和局</td>
+								<td data-key="draw" data-company="400000">{$live_game_odds_data['odds']['euro']['400000']['draw']}</td>
+								<td data-key="draw" data-company="3000181">{$live_game_odds_data['odds']['euro']['3000181']['draw']}</td>
+								<td data-key="draw" data-company="3000271">{$live_game_odds_data['odds']['euro']['3000271']['draw']}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>客胜</td>
+								<td data-key="awaywin" data-company="400000">{$live_game_odds_data['odds']['euro']['400000']['awaywin']}</td>
+								<td data-key="awaywin" data-company="3000181">{$live_game_odds_data['odds']['euro']['3000181']['awaywin']}</td>
+								<td data-key="awaywin" data-company="3000271">{$live_game_odds_data['odds']['euro']['3000271']['awaywin']}</td>
+							</tr>
+							<!--大小-->
+							<tr>
+								<td></td>
+								<td>大球</td>
+								<td data-key="big" data-company="400000">{$live_game_odds_data['odds']['ou']['400000']['big']}</td>
+								<td data-key="big" data-company="3000181">{$live_game_odds_data['odds']['ou']['3000181']['big']}</td>
+								<td data-key="big" data-company="3000271">{$live_game_odds_data['odds']['ou']['3000271']['big']}</td>
+							</tr>
+							<tr>
+								<td>大小</td>
+								<td>盘口</td>
+								<td data-key="total" data-company="400000">{$live_game_odds_data['odds']['ou']['400000']['total']}</td>
+								<td data-key="total" data-company="3000181">{$live_game_odds_data['odds']['ou']['3000181']['total']}</td>
+								<td data-key="total" data-company="3000271">{$live_game_odds_data['odds']['ou']['3000271']['total']}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>小球</td>
+								<td data-key="small" data-company="400000">{$live_game_odds_data['odds']['ou']['400000']['small']}</td>
+								<td data-key="small" data-company="3000181">{$live_game_odds_data['odds']['ou']['3000181']['small']}</td>
+								<td data-key="small" data-company="3000271">{$live_game_odds_data['odds']['ou']['3000271']['small']}</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!--图库-->
+		<div class="row section-item">
+			<h1 class="title pdT10">
+				<span class="icon-xiangji icon-title">
+				</span>
+				图库推荐
+				<a target="_blank" href="{APP_PATH}tuku/" class="more">更多</a>
+			</h1>
+			<div class="index-pic">
+				<ul class="side_nav" role="tablist">
+					<li class="active" role="presentation">
+						<a id="football-baby" href="#ft_pic" aria-controls="ft_pic" role="tab" data-toggle="tab">足球宝贝</a>
+					</li>
+					<li role="presentation">
+						<a id="basketball-baby" href="#bt_pic" aria-controls="bt_pic" role="tab" data-toggle="tab">篮球宝贝</a>
+					</li>
+					<li role="presentation">
+						<a id="sports-beauty" href="#titan_pic" aria-controls="titan_pic" role="tab" data-toggle="tab">体坛美图</a>
+					</li>
+
+				</ul>
+
+				<div class="tab-content">
+					<div id="ft_pic" class="tab-pane active" role="tabpane3">
+						{pc:content action="position" posid="55" num="5" thumb="1" order="listorder DESC"}
+						<ul class="pic-content">
+							{loop $data $value}
+							<li>
+								<img src="{$value['thumb']}" alt="{$value['title']}">
+								<a class="pic-link nowrap" target="_blank" href="{$value['url']}" title="{$value['title']}">
+									<div>
+										<span class="btn-piclink">{str_cut($value['title'], 30, '...')}</span>
+									</div>
+								</a>
+							</li>
+							{/loop}
+						</ul>
+						{/pc}
+					</div>
+					<div id="bt_pic" class="tab-pane" role="tabpane3">
+						{pc:content action="position" posid="56" num="5" thumb="1" order="listorder DESC"}
+						<ul class="pic-content">
+							{loop $data $value}
+							<li>
+								<img src="{$value['thumb']}" alt="{$value['title']}">
+								<a class="pic-link nowrap" target="_blank" href="{$value['url']}" title="{$value['title']}">
+									<div>
+										<span class="btn-piclink">{str_cut($value['title'], 30, '...')}</span>
+									</div>
+								</a>
+							</li>
+							{/loop}
+						</ul>
+						{/pc}
+					</div>
+					<div id="titan_pic" class="tab-pane" role="tabpane3">
+						{pc:content action="position" posid="57" num="5" thumb="1" order="listorder DESC"}
+						<ul class="pic-content">
+							{loop $data $value}
+							<li>
+								<img src="{$value['thumb']}" alt="{$value['title']}">
+								<a class="pic-link nowrap" target="_blank" href="{$value['url']}" title="{$value['title']}">
+									<div>
+										<span class="btn-piclink">{str_cut($value['title'], 30, '...')}</span>
+									</div>
+								</a>
+							</li>
+							{/loop}
+						</ul>
+						{/pc}
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--彩票开奖-->
+		<div class="row">
+
+			<div class="section-item col-sm-8 pdL0 pdR0">
+				<h1 class="title pdT10">
+					<span class="icon-kaijiang icon-title">
+					</span>
+					彩票开奖
+					<a rel="external nofollow" target="_blank" href="{APP_PATH}cp/info/" class="more">更多</a>
+				</h1>
+				<div class="clearfix kaijiang">
+					{loop $lottery $key $value}
+					<div class="col-sm-6 pdR0 pdL0">
+						<div class="caipiao" id="{$key}">
+									<div class="caipiao-hd">
+										<b class="black">{$lottery_info[$key]}</b>
+										<span class="gray">{$value['id']}期</span>
+										<time class="gray fr">{date('Y-m-d', $value['uptime'])}</time>
+									</div>
+									<div class="caipiao-bd" data-action="lottery-list" data-type="{$key}">
+										{php $numbers = explode(',', $value['numbers'])}
+										{loop $numbers $number}
+										<sapn class="circle">{$number}</sapn>
+										{/loop}
+									</div>
+									<div class="caipiao-fd">
+										{php $pinyin2id = ['qxc'=>1,'xglhc'=>2,'gdklsf'=>3,'bjpks'=>4,'cqssc'=>5];}
+										<a target="_blank" href="{APP_PATH}cp/info/?id={$pinyin2id[$key]}">详细</a>
+										|
+										<a target="_blank" href="{APP_PATH}cp/{$key}/trendbase/">走势</a>
+									</div>
+								</div>
+
+					</div>
+					{/loop}
+				</div>
+
+
+
+			</div>
+			<div class="col-sm-4 pdR0 side">
+				<div class="section-item">
+					<!-- 今日股指 -->
+					<h1 class="title pdT10">
+						<span class="icon-odd icon-title">
+						</span>
+						今日股指
+						<a rel="external nofollow" href="{APP_PATH}st/list/" target="_blank" class="more">更多</a>
+					</h1>
+
+
+					<div class="content today_guzhi">
+						<ul class="clearfix">
+							{loop $dapan_data $value}
+							<li class="today_guzhi-item">
+								<h1>{$value['name']}</h1>
+								<p>
+								<span class="{if $value['increase'] < 0}guzhi-down{else}guzhi-up{/if}">
+									{$value['nowpri']}
+									<span class="{if $value['increase'] < 0}index-down{else}index-up{/if}"></span>
+								</span>
+								<span>{if $value['increase'] > 0}+{/if}{$value['increase']}&nbsp;{if $value['increase'] > 0}+{/if}{$value['increPer']}%</span>
+								</p>
+							</li>
+							{/loop}
+						</ul>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+</section>
+<!-- main body -->
+<script>
+	var IMG_PATH = '{IMG_PATH}';
+	var APP_PATH = '{APP_PATH}';
+</script>
+{php $js = array('jquery.mousewheel.js', 'banner.js', 'slideBar.js', 'index.js',  'imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js', 'http://echarts.baidu.com/build/dist/echarts.js', 'guzhi.js', 'chart.js')}
+{template 'content', 'footer'}

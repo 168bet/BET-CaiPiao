@@ -1,0 +1,575 @@
+<style type="text/css">
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+.clearfix{ overflow:hidden; zoom:1}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.fontSize07{ font-size:.7rem}
+.pdLfrt09{ padding:.1rem .9rem 0 .9rem}
+.pdTop08{ padding-top:.8rem}
+.pdTop1{ padding-top:1rem}
+.gray{ color:#8e8e8e}
+.red{ color:#f03d3d}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2.1rem; padding-top:.6rem; background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.s3{ padding-top:1.6rem; height:1.6rem; font-size:.94rem}
+.s3 cite{ float:left; width:3.4rem; color:#222; letter-spacing:.6rem; padding-left:.5rem}
+.s3 input{ color:#d0d0d0; border:0; background:none; font-size:.94rem}
+.s3 em{ float:right; position:relative; margin-right:.1rem; width:.8rem; height:.8rem; border-left:1px solid #bdbdbd; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.s3 em:before{ position:absolute; content:""; top:.4rem; right:.42rem; width:.8rem; height:.8rem; border-left:1px solid #bdbdbd; transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg)}
+.s3line{ height:.3rem; border:1px solid #bdbdbd; border-top:none}
+.s3cur .s3line{ border:.15rem solid #c4311f; border-top:none}
+.s5 cite{ width:4.5rem; letter-spacing:0}
+.zhuce{ position:absolute; color:#fff; right:.8rem; top:.7rem; font-size:.95rem}
+.loginBtn{ display:block; width:100%; letter-spacing:.5rem; text-align:center; margin-top:1rem; line-height:2.6rem; color:#fff; background:#f26c60; font-size:1.1rem; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.loginBtn:active{ text-decoration:none; color:#fff}
+</style>
+<div id='charge2'>
+<!-- 绑定快捷支付 -->
+	<div class="pdLfrt09" id='kjzf' style='display:none;'>
+		<p class="pdTop1 fontSize07" id="add">
+			本次充值，实际到账 <cite class="red"></cite> 元<!-- ，手续费<cite class="red"></cite>元 -->
+		</p>
+		<div class="s3 s5 s3cur">
+			<div class="clearfix">
+				<cite>银行卡号</cite><input type="tel" id="No_card"
+					placeholder="请输入银行卡号"><em></em>
+			</div>
+			<div class="s3line"></div>
+		</div>
+		<p class="pdTop08 fontSize07 gray">该手机号开户名必须与绑定的真实姓名一致</p>
+		<a href="javascript:;" id="next" class="loginBtn"
+			style="margin-top: 2.5rem">下一步</a>
+	</div>
+<!-- 绑定快捷支付 -->
+
+<!-- 电话充值 -->
+	<div class="gray" id='yldh' style='display:none;'>
+		<div class="pd063" id='con'>
+			<p class="pdTop06">
+				真实姓名：<cite></cite>
+			</p>
+			<p class="pdTop03">
+				身份证号：<cite></cite>
+			</p>
+			<p class="pdTop06">
+				发卡地区：<cite></cite>
+			</p>
+			<p class="pdTop06">
+				开户银行：<cite></cite>
+			</p>
+			<p class="pdTop06">
+				银行卡号：<cite></cite>
+			</p>
+			<p class="pdTop06">
+				充值金额：<cite class="red"></cite> 元
+			</p>
+			<p class="pdTop06">
+				手 续 费：<cite class="red"></cite> 元
+			</p>
+			<p class="pdTop06">
+				实际到账：<cite class="red"></cite> 元
+			</p>
+			<div class="s1">
+				<span>手机号码</span><input id='phone' type="text" value=""
+					placeholder='请填写您的手机号码'>
+			</div>
+			<p class="pdTop06">手机号须为已绑定银行卡的银行预留手机号</p>
+			<a href="javascript:;" id='nextStep' class="payment">下一步</a>
+			<p class="pdTop08">仅支持工行、建行、农行、招行、中信、兴业、交行、深发、光大、平安、华夏、广发、广州银行、广州农信社等14家银行借记卡</p>
+		</div>
+		<div class="pd063" id='success' style='display: none;'>
+			<p class="fontSize095 black">充值订单已提交</p>
+			<p>请等待中国银联02096585的来电，按照语音提示输入银行卡密码完成充值。</p>
+			<div class="retel">
+				<em class="reline"></em>
+				<div class="retelText">
+					<em class="left"></em>
+					<div class="left">
+						<cite class="yellow fontSize095">02096585来电</cite><br>
+						输入银行卡密码就ok啦
+					</div>
+				</div>
+				<div class="retelText retelText2">
+					<p class="yellow fontSize095">支付成功后</p>
+					<p>可以到收支明细中查看</p>
+					<a href="#type=url&p=user/detail.html" class="payment">查看明细</a>
+				</div>
+			</div>
+			<p class="pdTop08">如未收到02096585的来电：</p>
+			<p>1.检查下手机号码是否输入正确？</p>
+			<p>2.核对绑定银行卡是否已开通该业务：目前仅支持工行、建行、农行、招行、中信、兴业、交行、深发、光大、平安、华夏、广发、广州银行、广州农信社等14家银行借记卡</p>
+		</div>
+	</div>
+	<!-- 电话充值 -->
+	
+	<!-- 手机充值卡充值 -->
+	<div class="gray" id='sjkcz' style='display:none;'>
+		<section class="telcz pdLfrt09" id='stepOne'>
+			<h2>1.充值卡类别</h2>
+			<div class="recharge" id='cardType'>
+				<div class="telczList" cardT='CMJFK' cName='中国移动通信'>
+					<i></i>
+					<p>
+						中国移动通信<cite>（仅支持全国卡）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardT='LTJFK' cName='中国联通'>
+					<i></i>
+					<p style="border-bottom: none">
+						中国联通<cite>（仅支持全国卡）</cite>
+					</p>
+				</div>
+			</div>
+			<div class="clearfix">
+				<h2 class="left">2.充值金额</h2>
+				<cite class="fontSize07 left pdTop08">(运营商将收取4%的服务费)</cite>
+			</div>
+			<div class="recharge" id='cardSize'>
+				<div class="telczList" cardS='10'>
+					<i></i>
+					<p>
+						10元<cite>（实际到账9.6元）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardS='20'>
+					<i></i>
+					<p>
+						20元<cite>（实际到账19.2元）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardS='30'>
+					<i></i>
+					<p>
+						30元<cite>（实际到账28.8元）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardS='50'>
+					<i></i>
+					<p>
+						50元<cite>（实际到账48元）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardS='100'>
+					<i></i>
+					<p>
+						100元<cite>（实际到账96元）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardS='300'>
+					<i></i>
+					<p>
+						300元<cite>（实际到账288元）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardS='500'>
+					<i></i>
+					<p style="border-bottom: none">
+						500元<cite>（实际到账480元）</cite>
+					</p>
+				</div>
+			</div>
+			<h2>3.输入卡密充值</h2>
+			<div class="recharge" id='card'>
+				<div class="telczList telczList2">
+					<em>卡号：</em>
+					<p>
+						<input type="text" placeholder='纯数字' value="" maxlength='30'>
+					</p>
+				</div>
+				<div class="telczList telczList2">
+					<em>密码：</em>
+					<p style="border-bottom: none">
+						<input type="text" placeholder='纯数字' value="" maxlength='30'>
+					</p>
+				</div>
+			</div>
+			<a href="javascript:;" id='payOk' class="payment">确定充值</a>
+			<div class="pdTop06 pdLeft04">
+				<p>温馨提示：</p>
+				<p>1.充值卡内金额将一次性全额扣除，请选择与充值卡面额相同的金额。如果选择的充值金额与充值卡实际面额不一致，将无法给您退还差或损失部分。</p>
+				<p>2.手机充值卡支付过程有任何疑问请联系易宝支付客服，高阳捷迅客服中心（电话：400-019-1999）</p>
+			</div>
+		</section>
+
+		<section class="pdLfrt09 bankcard" id='stepTwo' style='display: none;'>
+			<p class="pdTop06">
+				<span class="gray left w4_6">充值卡：</span><cite></cite>
+			</p>
+			<p class="pdTop06">
+				<span class="gray left w4_6">充值金额：</span><cite class="yellow"></cite><cite></cite>
+			</p>
+			<p class="pdTop06">
+				<span class="gray left w4_6">卡号：</span><cite></cite>
+			</p>
+			<p class="pdTop06">
+				<span class="gray left w4_6">密码：</span><cite></cite>
+			</p>
+			<p class="yellow mgTop2">确认卡密、填写无误，若填写错误会导致充值失败</p>
+			<div class="clearfix" id='operation'>
+				<a href="javascript:;" class="left register">修改</a><a
+					href="javascript:;" class="right loginBtn">确定充值</a>
+			</div>
+		</section>
+		<section class="zfPop" id='success'
+			style='display: none; position: fixed; z-index: 10000;top:50%;left:50%;margin-left:-9.25rem;margin-top:-5rem;'>
+			<h4>收单成功</h4>
+			<div class="pdLeft1 gray">
+				<p>注意：</p>
+				<p class="yellow">1、收单成功不代表充值成功！</p>
+				<p>2、请到我的彩票账户余额中查看充值明细，确定是否到账。</p>
+			</div>
+			<a href="#type=url&p=user/index.html" class="tureBtn">确定</a>
+		</section>
+	</div>
+	<!-- 手机充值卡充值 -->
+</div>
+<script type="text/javascript" src="/js/public/crypto-js.js"></script>
+<script>
+CP.Charge2 = (function(){
+	/*
+	 * @param type
+	 * 1 电话充值
+	 * 2手机充值卡
+	 * 默认不填就是快捷支付过来的 或者 0
+	 * */
+	var type = CP.Util.getPara('t', window.location.href, 2) || '0';//需要展示页面的类型
+	var money = CP.Util.getPara('money', window.location.href, 2) || '0';//充值金额
+	var o = {
+		//页面跳转
+		pageGo: {
+			kjzf: function () {
+				TopAnch.init({
+					title:'快捷充值',
+					prevShow:true,
+					prevFun:function(){//左侧按钮绑定事件
+						window.history.back();
+					},
+					nextShow: true,
+					nextText: '充值明细',
+					nextFun: function(){
+						window.location.href = '#type=url&p=user/detail.html?in=cz';
+					},
+					isBack:true
+				});
+			},
+			
+			yldh : function () {
+				TopAnch.init({
+					title:'银联电话充值',
+					prevShow:true,
+					prevFun:function(){//左侧按钮绑定事件
+						window.history.back();
+					},
+					isBack:true
+				});
+			},
+			sjkcz : function(){
+				TopAnch.init({
+					title:'手机卡充值',
+					prevShow:true,
+					prevFun:function(){//左侧按钮绑定事件
+						window.history.back();
+					},
+					isBack:true
+				});
+				
+			}
+		},
+		kjzf : function(){
+			var fee = Math.round(money * 0.6)/100;
+			var realMoney = money-fee;
+			$("#add cite:eq(0)").html(realMoney);
+			$("#add cite:eq(1)").html(fee);
+			
+			$("#next").Touch({fun:function(){
+				//获取银行卡信息
+				alert('检测卡号中...','load');
+				var val = $("#No_card").val();//获取银行卡号
+				if(!val){remove_alert();alert('请输入卡号');return;}
+				$.ajax({
+					url : CP.Data.apps+"/user/getbankinfo.go?coupon="+val,
+					type : "POST",
+					dataType : "JSON",
+					success:function(data){
+						if(data && data !=null){
+							var ret_code = data.ret_code;//查询结果代码
+							if(ret_code == "0000"){
+								var bank_code = data["bank_code"];//银行编号
+								var bank_name = data["bank_name"];//银行名称
+								var card_type = data["card_type"];//银行卡类型
+								var ret_msg = data["ret_msg"];//查询结果
+								var sign = data["sign"];//查询结果签名
+								var sign_type = data["sign_type"];//签名方式
+								//获取连连支付是否支持某银行
+								$.ajax({
+									url : CP.Data.apps+"/user/isSpBankid.go?coupon="+bank_code+"&cardtype="+card_type,
+									type : "POST",
+									dataType : "xml",
+									success:function(xml){
+										remove_alert();
+										var R = $(xml).find("Resp")
+										var code = R.attr("code");
+										var desc = R.attr("desc");
+										if(code == "1"){//说明此卡支持连连支付
+											//bankid:支付类型编号(2056:借记卡,2057:"信用卡")
+											var bankid = {'2':'2056','3':'2057'}[card_type];
+											window.location.href="/user/pay.html?bankid="+bankid+"&bankCode="+bank_code+"&coupon="+val+"&addmoney="+money+"&times=first"
+										}else{
+											D.alert("暂不支持该卡");
+										}
+									}
+								});
+							}else if(ret_code == '0'){
+								remove_alert();
+								D.alert('卡号输入错误');
+							}
+						}
+					}
+				});
+			}});
+		},
+		
+		
+		yldh : function(){
+			alert('检查安全信息中...','load');
+			$.ajax({
+				url : CP.Data.apps+'/user/query.go?flag=2',
+				type : "POST",
+				dataType : "xml",
+				success : function(xml) {
+					remove_alert();
+					var R = $(xml).find("Resp");
+					var code = R.attr("code");
+					var desc = R.attr("desc");
+					if (code == "0") {
+						var r = R.find('row');
+						var bank = r.attr('bank');//银行卡号
+						var idcard = r.attr('idcard');//身份证
+						var mobile = r.attr('mobile');//手机
+						var code = r.attr('code');//银行
+						var rname = r.attr('rname');//真实姓名
+						var prov = r.attr('prov');
+						var city = r.attr('city');
+						var name = r.attr('name');//支行
+						
+						var yh="";
+						if(code=="1"){
+							yh="招商银行";
+						}else if(code=="2"){
+							yh="工商银行";
+						}else if(code=="3"){
+							yh="建设银行";
+						}else if(code=="8"){
+							yh="中信银行";
+						}else if(code=="9"){
+							yh="兴业银行";
+						}else if(code=="6"){
+							yh="交通银行";
+						}else if(code=="13"){
+							yh="农业银行";
+						}else if(code=="1001"){
+							yh="深圳发展银行";
+						}else if(code=="10"){
+							yh="光大银行";
+						}else if(code=="11"){
+							yh="华夏银行";
+						}else if(code=="23"){
+							yh="平安银行";						
+						}else if(code=="25"){
+							yh="中国邮政储蓄银行";
+						}else if(code=="1000"){
+							yh="广东发展银行";
+						}else if(code=="1002"){
+							yh="广州银行";
+						}else if(code=="15"){
+							yh="农信社";
+						}
+						
+						$('#con p:eq(0) cite').html(rname);
+						$('#con p:eq(1) cite').html(idcard);
+						$('#con p:eq(2) cite').html(prov+','+city);
+						$('#con p:eq(3) cite').html(yh+(name != ''?'('+name+')':''));
+						$('#con p:eq(4) cite').html(bank);
+						$('#con p:eq(5) cite').html(money);//充值金额
+						
+						 if(money>=100){
+							 var handmoney = parseInt(money)/100;
+							 $('#con p:eq(6) cite').html(handmoney);//手续费
+							 $('#con p:eq(7) cite').html(money-handmoney);//实际到账
+						 }else if(money>=21 && money<100){
+							 $('#con p:eq(6) cite').html("1");//手续费
+							 $('#con p:eq(7) cite').html(money*1-1);//实际到账
+						 }
+						 
+						 $('#nextStep').click(function(){
+							 var phone = $.trim($('#phone').val());
+							 if(phone == ''){
+								 D.alert('请输入您绑定银行卡的手机号码');
+							 }else{
+								 $.ajax({
+									 url : CP.Data.apps+"/user/addmoney.go",
+										type : "GET",
+										dataType : "xml",
+										data:{
+											 addmoney:money,
+											 bankid:'9007',
+											 cardpass:phone
+										},
+										success : function(xml) {
+											var R = $(xml).find('Resp');
+											var c = R.attr('code');
+											var d = R.attr('desc');
+											if(c == 0){
+												 $('#con').hide();
+												 $('#success').show();
+											}else{
+												D.alert(d);
+											}
+										}
+								 });
+							 }
+						 });
+					} else {
+						alert(desc);
+						if(desc.indexOf('未登录') != -1){
+							setTimeout(function(){
+								location.href = '#type=fun&fun=CP.Home.openLogin';
+							},1e3);
+						}
+					}
+				}
+			});
+		},
+		sjkcz : function(){
+			function main(){
+				/*初始化的时候清空卡号密码*/
+				$('#card input:eq(0)').val('');
+				$('#card input:eq(1)').val('');
+				/*初始化的时候清空卡号密码*/
+				
+				/*卡号和密码的keyup检查*/
+				$("#card input:eq(0)").keyup(function(){//卡号
+					this.value=this.value.replace(/\D/g,''); //只能输数字
+					this.value =this.value.replace(/\s/g,'').replace(/(\d{4})(?=\d)/g,"$1 ");//四位数字一空格
+					$('#stepTwo p:eq(2) cite').html(this.value);//顺便把下面页面的卡号填上
+				});
+				$('#card input:eq(1)').keyup(function(){//卡密
+					this.value=this.value.replace(/\D/g,''); //只能输数字
+					this.value =this.value.replace(/\s/g,'').replace(/(\d{4})(?=\d)/g,"$1 ");//四位数字一空格
+					$('#stepTwo p:eq(3) cite').html(this.value);
+				});
+				/*卡号和密码的keyup检查*/
+				
+				/*切换充值卡类别 和选金额*/
+				$('#cardType').Touch({children:'div',fun:function(el){
+					var ii = $(el).find('i');
+					if(ii.is('.cur')){return}
+					$('#cardType').find('.cur').removeClass('cur');
+					ii.addClass('cur');
+					$('#stepTwo p:eq(0) cite').html($(el).attr('cName'));
+					if($(el).attr('cardT') == 'CMJFK'){//移动
+						$('#cardSize div').eq(0).show();
+					}else{//联通
+						$('#cardSize div').eq(0).hide();
+						$('#cardSize div:eq(0) i').removeClass();
+					}
+				}});
+				$('#cardSize').Touch({children:'div',fun:function(el){
+					var ii = $(el).find('i');
+					if(ii.is('.cur')){return}
+					$('#stepTwo p:eq(1) cite:eq(0)').html($(el).attr('cardS'));
+					$('#stepTwo p:eq(1) cite:eq(1)').html($(el).find('cite').html());
+					$('#cardSize').find('.cur').removeClass('cur');
+					ii.addClass('cur');
+				}});
+				/*切换充值卡类别 和选金额*/
+				
+				$('#payOk').click(function(){
+					payOk();
+				});
+				$('#operation a:eq(0)').click(function(){//返回修改
+					$('#stepOne').show();
+					$('#stepTwo').hide();
+				});
+				$('#operation a:eq(1)').click(function(){//确认充值
+					operation();
+				});
+			}
+			function payOk(){
+				var cardNum = $.trim($('#card input:eq(0)').val());
+				var cardPW = $.trim($('#card input:eq(1)').val());
+				if($('#cardType .cur').length == '0'){
+					D.alert('请选择充值卡类型！');
+					return false;
+				}else if($('#cardSize .cur').length == 0){
+					D.alert('请选择充值金额！');
+					return false;
+				}else if(cardNum == ''){
+					D.alert('请输入卡号！');
+					return false;
+				}else if(cardPW == ''){
+					D.alert('请输入密码！');
+					return false;
+				}else{
+					$('#stepOne').hide();
+					$('#stepTwo').show();
+				}
+		 	};
+			function operation(){
+				var cardNum = $.trim($('#card input:eq(0)').val().replace(/\s+/g,""));
+				var cardPW = $.trim($('#card input:eq(1)').val().replace(/\s+/g,""));
+				var m_ = $('#cardSize .cur').parent().attr('cards');
+				var data = {
+						bankid: '2016',
+						addmoney: m_,
+						tkMoney: m_,
+						cardnum: cardNum,
+						cardpass: cardPW,
+						dealid: $('#cardType .cur').parent().attr('cardt'),
+						rnd: Math.random()
+				};
+				$.ajax({
+					url : CP.Data.apps+'/user/addmoney.go',
+					type : "POST",
+					dataType : "xml",
+					data : data,
+					success : function(xml) {
+						var R = $(xml).find("Resp");
+						var code = R.attr("code");
+						var desc = R.attr("desc");
+						if (code == "0") {
+							$('#success,#mask').show();
+						} else {
+							D.alert(desc);
+						}
+					},
+					error : function() {
+						D.alert('您所请求的页面有异常！');
+						return false;
+					}
+				});	
+			};
+			main();
+		}
+	};
+	var init = function(){
+		if(type == '0'){//快捷支付
+			$('#kjzf').show();
+			o.pageGo.kjzf();
+			o.kjzf();
+		}else if(type == '1'){//电话充值
+			$('#yldh').show();
+			o.pageGo.yldh();
+			o.yldh();
+		}else if(type == '2'){
+			$('#sjkcz').show();
+			o.pageGo.sjkcz();
+			o.sjkcz();
+		}
+	};
+	return {init:init};
+})();
+CP.Charge2.init();
+</script>
+

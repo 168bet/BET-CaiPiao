@@ -1,0 +1,41 @@
+body { margin: 0px; background-image: url(/images/agents/head_bg2.jpg); background-repeat: repeat-x }
+tr { color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 12px }
+.memu1 {
+	color: #FFFFFF;
+	text-decoration: none;
+	padding-right: 6px;
+	line-height: 19px;
+}
+.memu1 a:link {	color: #FFFFFF;}
+.memu1 a:visited {color: #FFFFFF;}
+.memu1 a:hover {color: #FFFF00;}
+.memu2 {
+	color: #FFFFFF;
+	text-decoration: none;
+	padding-right: 6px;
+	padding-top: 2px;
+}
+.memu2 a:link {	color: #FFFF00;}
+.memu2 a:visited {color: #FFFF00;}
+.memu2 a:hover {color: #FFFFFF;}
+
+.log {	color: #FFFF00;text-decoration: none;padding-right: 6px;}
+.log a:link {color: #FFFFFF;}
+.log a:visited {color: #FFFFFF;}
+.log a:hover {color: #FF9900;}
+.log_bg {
+	background-image: url(/images/agents/top_02.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 25px;
+}
+.b_ad {
+	background-repeat: repeat-x;
+	font-size: 10px;
+	color: #FFFFFF;
+	margin-right: 10px;
+	margin-left: 2px;
+	height: 21px;
+	vertical-align: middle;
+}
+MARQUEE {color: #FFFFFF;}

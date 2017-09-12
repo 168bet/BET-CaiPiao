@@ -1,0 +1,71 @@
+<div class="pdLfrt09">
+	<div class="great" style="width:100%閿涳拷padding:3.5rem 0 1.5rem 0">
+		<p style="width:13rem; margin: 0 auto;">
+			<em class="greatIco"></em><em id="yycg">閹厼鏋╅幃顭掔礉鐠愵厼鍍甸幋鎰閿涳拷/em>
+		</p>
+		<!-- <p style="font-size:0.8rem;color:gray">鐠у嫰鍣惧鎻掑枙缂侊拷瑜扳晝銈╫2o缁崵绮哄锝呮躬娑撶儤鍋嶉崙铏广偍</p> -->
+		<p style="font-size:0.8rem;color:#bebebe;padding-top:.8rem; text-align: center;">鐠у嫰鍣惧鎻掑枙缂侊拷瑜扳晝銈╫2o缁崵绮哄锝呮躬娑撶儤鍋嶉崙铏广偍</p>
+		<span style="display: none"></span>
+	</div>
+	<div class="clearfix">
+		<a href="javascript:;" class="left register" id=cxgcjl>閺屻儴顕楃拹顓炲兊鐠佹澘缍�</a>
+		<a href="javascript:;" class="right loginBtn" id="rebuy" style="margin-top:2rem">缂佈呯敾鐠愵厺鎷�</a>
+	</div>
+</div>
+<script>
+CP.WIN = (function(){
+	var hasTouch = 'ontouchstart' in window;
+	var end_ev = hasTouch ? 'touchend' : 'mouseup';
+	var $dom = {
+			rebuy : $('#rebuy'),//缂佈呯敾鐠愵厺鎷�
+			record : $('#cxgcjl')//閺屻儴顕楃拹顓炲兊鐠佹澘缍�
+	}
+	var projid = CP.Util.getPara('projid',window.location.href,2);//閺傝顢嶇紓鏍у娇
+	var gid = projid.substr(0,2);//瑜扳晝顫掔紓鏍у娇
+	var o = {
+		init:function(){
+			CP.Data.grade(function(){
+				TopAnch.init({
+					title:function(){
+						return parseInt(CP.Data.white_list_grade)>0?"妫板嫮瀹崇拋銏犲礋閸欐垵绔�":"鐠愵厺鎷遍幋鎰"
+					},
+					prevShow:true,
+					prevFun:function(){//瀹革缚鏅堕幐澶愭尦缂佹垵鐣炬禍瀣╂
+						window.location.href = '#type=index';
+					},
+					nextShow:false
+				});
+				$("#yycg").html(parseInt(CP.Data.white_list_grade)>0?"妫板嫮瀹崇拋銏犲礋閸欐垵绔烽幋鎰":"鐠愵厺鎷遍幋鎰")
+				$("#cxgcjl").html(parseInt(CP.Data.white_list_grade)>0?"閺屻儳婀呯痪锕�宕熺拠锔藉剰":"閺屻儴顕楃拹顓炲兊鐠佹澘缍�")
+				$("#rebuy").html(parseInt(CP.Data.white_list_grade)>0?"缂佈呯敾妫板嫮瀹�":"缂佈呯敾鐠愵厺鎷�")
+			})
+			
+			
+			
+			o.bindEvent();
+		},
+		bindEvent : function(){
+			$dom.rebuy.bind(end_ev, function () {
+				if(CP.Data.source = '2145' || gid == '71' || gid=='98' || gid='99'){//缁☆喖鍍甸崡鏇炲彠
+					alert(gid)
+					history.back();
+				}else{
+					location.replace('#type=url&p=list/'+ CP.Util.lot(gid, '1') +'.html');
+				}
+			});
+			$dom.record.bind(end_ev, function () {
+				if(projid.indexOf('ZH')>=0){
+					location.replace('#type=url&p=user/chase.html?hid='+projid);
+				}else{
+					location.replace('#type=url&p=user/viewpath.html?hid='+projid);
+				}
+			});
+		}		
+	}	
+	return {init:o.init}
+})();
+
+$(function(){
+CP.WIN.init();
+})
+</script>

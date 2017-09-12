@@ -1,0 +1,276 @@
+{php $css = array('league_data.css');}
+{template 'content', 'header'}
+<!--路径导航-->
+<section class="hy-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <ol class="breadcrumb hy">
+                <li>
+                    <a href="{siteurl($siteid)}">首页</a>
+                </li>
+                <li>
+                    <a href="{APP_PATH}bigdata/13/">
+                        足球数据库
+                    </a>
+                </li>
+                <li class="active">
+                    <span>{$competition['shortname']}</span>
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+<!--路径导航 end-->
+<!--body start-->
+<section class="main-body">
+    <div class="container">
+        <div class="row">
+            <div class="pathNav" id="pathNav">
+                <span>全部赛事</span>
+                {loop $competition_list $zoneid $zonename}
+                <button type="button" class="pathBtn path-select" data-id="zone-{$zoneid}">{$zonename}</button>
+                {/loop}
+                <!--<a href="{APP_PATH}csl/" class="pathLink">中超</a>-->
+                <!--<a href="{APP_PATH}premierleague/" class="pathLink">英超</a>-->
+                <!--<a href="{APP_PATH}laliga/" class="pathLink">西甲</a>-->
+                <!--<a href="{APP_PATH}seriea/" class="pathLink">意甲</a>-->
+                <!--<a href="{APP_PATH}bundesliga/" class="pathLink">德甲</a>-->
+                <!--<a href="{APP_PATH}ligue1/" class="pathLink">法甲</a>-->
+                <a href="{APP_PATH}competition/152/schedule/" class="pathLink">中超</a>
+                <a href="{APP_PATH}competition/92/schedule/" class="pathLink">英超</a>
+                <a href="{APP_PATH}competition/85/schedule/" class="pathLink">西甲</a>
+                <a href="{APP_PATH}competition/34/schedule/" class="pathLink">意甲</a>
+                <a href="{APP_PATH}competition/39/schedule/" class="pathLink">德甲</a>
+                <a href="{APP_PATH}competition/93/schedule/" class="pathLink">法甲</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="main" style="background-color: #fff;">
+                    <div class="table-hd clearfix">
+                        <div class="table-logo">
+                            <div class="img-middle">
+                            <img src="{PHOTO_PATH}competition/{$competitionid}.jpg"
+                                 width="150" class="img-responsive competition-photo">
+                            </div>
+                        </div>
+                        <div class="table-hd-content">
+                            <h2 class="table-hd-title">
+                                {$competition['shortname']}大看台
+                            </h2>
+                            <ul class="clearfix">
+                                <li>
+                                    <a href="{APP_PATH}competition/{$competitionid}/schedule/">赛事赛程</a>
+                                </li>
+                                <li>
+                                    <a href="{APP_PATH}competition/{$competitionid}/standings/">积分榜</a>
+                                </li>
+                                <li class="current">
+                                    <a href="javascript:void(0);">数据统计</a>
+                                </li>
+                                <li>
+                                    <em class="sign"></em>
+                                    <a href="{APP_PATH}competition/{$competitionid}/eventteam/">球队信息</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="distribution-nav">
+                        <ul class="clearfix">
+                            <li><a href="{APP_PATH}competition/{$competitionid}/oddsway/">盘路统计</a></li>
+                            <li class="active"><a href="javascript:void(0);">波胆分布</a></li>
+                            <li><a href="{APP_PATH}competition/{$competitionid}/hsscores/">比分统计</a></li>
+                        </ul>
+                    </div>
+                    <div class="distribution-title">波胆分布统计</div>
+                    <div class="data-section" style="margin-top: 0;">
+                        <table width="100%" id="fixedTable">
+                            <tr style="background-color: #e6e6e6;">
+                                <td width="9.6%">球队</td>
+                                <td width="3.2%">1<br>:<br>0</td>
+                                <td width="3.2%">2<br>:<br>0</td>
+                                <td width="3.2%">2<br>:<br>1</td>
+                                <td width="3.2%">3<br>:<br>0</td>
+                                <td width="3.2%">3<br>:<br>1</td>
+                                <td width="3.2%">3<br>:<br>2</td>
+                                <td width="3.2%">4<br>:<br>0</td>
+                                <td width="3.2%">4<br>:<br>1</td>
+                                <td width="3.2%">4<br>:<br>2</td>
+                                <td width="3.2%">4<br>:<br>3</td>
+                                <td width="3.2%">0<br>:<br>0</td>
+                                <td width="3.2%">1<br>:<br>1</td>
+                                <td width="3.2%">2<br>:<br>2</td>
+                                <td width="3.2%">3<br>:<br>3</td>
+                                <td width="3.2%">4<br>:<br>4</td>
+                                <td width="3.2%">0<br>:<br>1</td>
+                                <td width="3.2%">0<br>:<br>2</td>
+                                <td width="3.2%">1<br>:<br>2</td>
+                                <td width="3.2%">0<br>:<br>3</td>
+                                <td width="3.2%">1<br>:<br>3</td>
+                                <td width="3.2%">2<br>:<br>3</td>
+                                <td width="3.2%">0<br>:<br>4</td>
+                                <td width="3.2%">1<br>:<br>4</td>
+                                <td width="3.2%">2<br>:<br>4</td>
+                                <td width="3.2%">3<br>:<br>4</td>
+                                <td width="10%">其它</td>
+                            </tr>
+                        </table>
+                        {pc:get sql="$correct_score_sql" dbsource="sportsdt" num="999"}
+                        <table width="100%" class="data-tr" role="streak">
+                            {loop $data $r}
+                            {php $data = json_decode($r[data], true);}
+                            <tr>
+                                <td width="9.6%">{$r[teamshortname]}</td>
+                                <td width="3.2%">{$data[0]}</td>
+                                <td width="3.2%">{$data[1]}</td>
+                                <td width="3.2%">{$data[2]}</td>
+                                <td width="3.2%">{$data[3]}</td>
+                                <td width="3.2%">{$data[4]}</td>
+                                <td width="3.2%">{$data[5]}</td>
+                                <td width="3.2%">{$data[6]}</td>
+                                <td width="3.2%">{$data[7]}</td>
+                                <td width="3.2%">{$data[8]}</td>
+                                <td width="3.2%">{$data[9]}</td>
+                                <td width="3.2%">{$data[10]}</td>
+                                <td width="3.2%">{$data[11]}</td>
+                                <td width="3.2%">{$data[12]}</td>
+                                <td width="3.2%">{$data[13]}</td>
+                                <td width="3.2%">{$data[14]}</td>
+                                <td width="3.2%">{$data[15]}</td>
+                                <td width="3.2%">{$data[16]}</td>
+                                <td width="3.2%">{$data[17]}</td>
+                                <td width="3.2%">{$data[18]}</td>
+                                <td width="3.2%">{$data[19]}</td>
+                                <td width="3.2%">{$data[20]}</td>
+                                <td width="3.2%">{$data[21]}</td>
+                                <td width="3.2%">{$data[22]}</td>
+                                <td width="3.2%">{$data[23]}</td>
+                                <td width="3.2%">{$data[24]}</td>
+                                <td width="10%">{$data[25]}</td>
+                            </tr>
+                            {/loop}
+                        </table>
+                        {/pc}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="side">
+                    <div class="side-live">
+                        <h1 class="bf side-title">
+                            {$competition['shortname']}直播
+                            <a href="{APP_PATH}live/" class="fr more">
+                                更多>>
+                            </a>
+                        </h1>
+                        {pc:get sql="$hot_sql" dbsource="sportsdt" num="3"}
+                        <ul>
+                            {loop $data $r}
+                            <li class="side-item">
+                                <div class="leftImg">
+                                    <a target="_blank" href="{APP_PATH}team/{$r[hometeamid]}/">
+                                    <img src="{PHOTO_PATH}team/{$r['hometeamid']}.jpg"
+                                         title="{$r[homename]}" class="team-photo"></a>
+                                    vs
+                                    <a target="_blank" href="{APP_PATH}team/{$r[awayteamid]}/">
+                                    <img src="{PHOTO_PATH}team/{$r['awayteamid']}.jpg"
+                                         title="{$r[awayname]}" class="team-photo"></a>
+                                </div>
+                                <dl class="side-item-content">
+                                    <dt>
+                                        <a href="{APP_PATH}game/{$r[gameid]}/live/">{$r[homeshortname]} VS {$r[awayshortname]}</a>
+                                    </dt>
+                                    <dd>
+                                        <span class="time">{date('n月j日 G:i', $r[date])}</span>
+                                    </dd>
+                                    <!--<dd>-->
+                                        <!--预测:-->
+                                        <!--<a href="javascript:void(0);" class="text-icon red">胜</a>-->
+                                        <!--<a href="javascript:void(0);" class="text-icon blue">平</a>-->
+                                        <!--<a href="javascript:void(0);" class="text-icon yellow">负</a>-->
+                                    <!--</dd>-->
+                                </dl>
+                            </li>
+                            {/loop}
+                        </ul>
+                        {/pc}
+                    </div>
+                    <div class="side-collection">
+                        <h1 class="side-title">
+                            {$competition['shortname']}集锦
+                            <a href="{APP_PATH}21/{$competition['shortname']}/" class="fr more">
+                                更多>>
+                            </a>
+                        </h1>
+                        {pc:content action="lists" catid="21" keywords="$competition['shortname']" thumb="1" num="4" order="id DESC"}
+                        <ul class="clearfix collection movie">
+                            {loop $data $r}
+                            <li>
+                                <a href="{$r[url]}">
+                                    <div class="autoImg"><img src="{get_thumb($r[thumb],350)}" title="{$r[title]}"></div>
+                                    <p class="pic-title">
+                                        <em class="fa fa-caret-square-o-right"></em>
+                                        {str_cut($r[title], 38, '...')}
+                                    </p>
+                                </a>
+                            </li>
+                            {/loop}
+                        </ul>
+                        {/pc}
+                    </div>
+                    <div class="side-collection">
+                        <h1 class="side-title">
+                            {$competition['shortname']}图库
+                            <a href="{APP_PATH}20/{$competition['shortname']}/" class="fr more">
+                                更多>>
+                            </a>
+                        </h1>
+                        {pc:content action="lists" catid="20" keywords="$competition['shortname']" thumb="1" num="4" order="id DESC"}
+                        <ul class="clearfix collection">
+                            {loop $data $r}
+                            <li>
+                                <a href="{$r[url]}">
+                                    <div class="autoImg"><img src="{get_thumb($r[thumb],350)}" title="{$r[title]}"></div>
+                                    <p class="pic-title">
+                                        <em class="fa fa-eye"></em>
+                                        {str_cut($r[title], 38, '...')}
+                                    </p>
+                                </a>
+                            </li>
+                            {/loop}
+                        </ul>
+                        {/pc}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="dioLog" id="Diolog">
+    <div class="container">
+        <div class="box">
+            {loop $competition_info $zoneid $list}
+            <div id="zone-{$zoneid}" class="form-item">
+                <div class="dioLog-hd">
+                    <span>{$competition_list[$zoneid]}</span>
+                    <em class="fa fa-close fr" role="button"></em>
+                </div>
+                <div class="dioLog-bd">
+                    <ul class="clearfix">
+                        {loop $list $data}
+                        <li>
+                            <a href="{APP_PATH}competition/{$data['competitionid']}/schedule/">{$data['competitionname']}</a>
+                        </li>
+                        {/loop}
+                    </ul>
+                </div>
+            </div>
+            {/loop}
+        </div>
+    </div>
+</div>
+
+<!--body end-->
+{php $js = array('ft_correct_score.js', "imagesloaded.pkgd.common.js");}
+{template 'content', 'footer'}

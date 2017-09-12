@@ -1,0 +1,83 @@
+body {
+	background-color: #1E0E01;
+	margin: 0px;
+}
+.mem_bg {background-color: #CCCCCC;margin-left: 2px;width: 250px;}
+#FT .mem_colspan {background-color: #FAFDC6;text-align: center;}
+#FT .mem_Head_all {background-color: #CDA476;text-align: center;}
+#FT .mem_Head_half {color: #FFFFFF;background-color: #5E3201;text-align: center;}
+#BK .mem_colspan {background-color: #DCDDC1;text-align: center;}
+#BK  .mem_Head_all {background-color: #57593A;color: #FFFFFF;text-align: center;}
+#BK  .mem_Head_half {color: #FFFFFF;background-color: #2F3421;text-align: center;}
+#BS .mem_colspan {background-color: #E4FFA3;text-align: center;}
+#BS  .mem_Head_all {background-color: #83B420;text-align: center;}
+#BS  .mem_Head_half {color: #FFFFFF;background-color: #314108;text-align: center;}
+#TN .mem_colspan {background-color: #FFD9E0;text-align: center;}
+#TN  .mem_Head_all {background-color: #E68383;text-align: center;}
+#TN  .mem_Head_half {color: #FFFFFF;background-color: #9C3131;text-align: center;}
+#VB .mem_colspan {background-color: #DAE4FF;text-align: center;}
+#VB  .mem_Head_all {background-color: #838BDE;text-align: center;}
+#VB  .mem_Head_half {color: #FFFFFF;background-color: #240D73;text-align: center;}
+#FS .mem_colspan {background-color: #DEE6F6;text-align: center;}
+#FS  .mem_Head_all {background-color: #62BDE6;text-align: center;}
+#FS  .mem_Head_half {color: #FFFFFF;background-color: #204173;text-align: center;}
+#OP .mem_colspan {background-color: #FFFFCD;text-align: center;}
+#OP  .mem_Head_all {background-color: #FF9C18;text-align: center;}
+#OP  .mem_Head_half {color: #FFFFFF;background-color: #A45200;text-align: center;}
+
+.mem_league {
+	color: #FFFFFF;
+	padding-left: 10px;
+}
+.mem_team {
+	color: #FFFF99;
+	padding-left: 10px;
+}
+.b_rig {background-color:#FFF; text-align:right;}
+.mem_ratio {
+	text-align:left;
+	padding-left: 10px;
+}
+a:link, a:visited  {
+	font-size: 12px;
+	color: #FF0000;
+	text-decoration: none;
+}
+a:hover {
+	color: #0000FF;
+}
+.mem_ior {
+	text-align:right;
+	font-weight: bold;
+	color: #FF0000;
+}.select2 {
+	background-color: #99CC00;
+	text-align: right;
+	margin-right: 20px;
+}
+.game {
+	background-image: url(../../images/member/live_Rbg.gif);
+	background-repeat: repeat-y;
+	text-align: center;
+}
+
+td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.timer {
+	color: #FFFFFF;
+	background-repeat: no-repeat;
+	background-position: 1px;
+	width: 50%;
+	margin-left: 20px;
+}
+.new {
+	margin:0 4px;
+	font:10px Arial, Helvetica, sans-serif;
+	height:18px;
+	margin-bottom: 2px;
+	padding-top:1px;
+	/*right: 8px;
+	clip: rect(auto,10px,auto,auto);*/
+}

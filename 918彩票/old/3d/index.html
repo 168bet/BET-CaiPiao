@@ -1,0 +1,129 @@
+	<header class="tzHeader">
+      <section class="fcHeader">
+    	<h1>福彩3D</h1>
+    	<a href="#class=home" class="fcbackHome"></a>
+        <div class="pullDown">
+        	<em class="fcpullIco" id="pullIco"></em>
+            <div id="pullText" class="pullText" style="display:none">
+            	<a href="javascript:;" class="cur">选号</a>
+            	<a href="#class=url&xo=hm/index.html&gid=03">合买跟单</a>
+            	<a href="#class=url&xo=kj/r.html&gid=03">开奖结果</a>
+            	<a href="#class=url&xo=3d/wf/index.html" style="border-bottom:none">玩法帮助</a>
+            </div>
+        </div>
+      </section>
+    </header>
+   	<nav class="sdTab relative">
+    	<ul class="clearfix">
+    		<li v=zx class="cur">直选</li>
+    		<li v=zs>组三</li>
+    		<li v=hz>和值</li>
+    		<li v=zsbh class="sdlong">组三包号</li>
+    		<li v=zlbh class="sdlong">组六包号</li>
+    	</ul>
+        <em class="downline" style="width:18%; left:0%"></em>
+	</nav>    
+    <section>
+        <article>
+   	    <div class="p5kj clearfix">
+        	<div class="left"><span class="left">上期开奖 <em class="red" id='kj_'></em></span><em class="p5kjup p5kjdown"></em></div>
+            <div class="right" hidden><em id=c_expect>加载中...</em>期  <em id=c_date>今晚</em> <time class="yellow">20:30</time>开奖</div>
+        </div> 
+        <div style="display:none;" id='kj_code'>
+        	<ul class="k3listtt">
+            	<li class="wb20">期号</li>
+                <li class="wb17">开奖结果</li>
+            	<li class="wb21">形态</li>
+            </ul>
+          <div class="k3kjlist"></div>
+         </div>
+         </article>
+         <article class="p5xhlist">
+         
+        	<div class="relative k3xh sdxh" id='bonus_details'>
+            	<div>分别猜中百位、十位、个位，奖金<em class="yellow">1040</em>元</div>
+                <div class="jxssctitle" style="display:none">
+                	<p>选择同号与不同号的组合，奖金<em class="yellow">346</em>元</p>
+                	<p>例:选号22,3,若开奖号码223或232或322,即中奖</p>
+                </div>
+                <div style="display:none">猜中开奖号码之和,奖金<em class="yellow">1040</em>元</div>
+                <div class="jxssctitle" style="display:none">
+                	<p>选2个号,猜中组三号码,奖金<em class="yellow">346</em>元</p>
+                	<p>组三:3个号码中有2个相同,如353</p>
+                </div>
+                <div class="jxssctitle" style="display:none">
+                	<p>选3个号,猜中后3位组六号码,奖金<em class="yellow">173</em>元</p>
+                	<p>组六:3个号码各不相同,如865</p>
+                </div>
+            	<div class="shakeOmit" id='shake'><em class="shakeico"></em><cite class="red">摇一注</cite></div>
+            </div> 
+<div style='overflow:hidden;width:100%'>
+	<div id=content style='width:10000px;position: relative;'>
+			<!-- 直选start -->
+        	<div class="jxsscxhlist sdlist" id=zx style='float:left'>
+            	<ul class="clearfix">
+                	<li class="cur" v=百位 m=y><span>百位</span></li>
+                	<li class="cur" v=十位 m=y><span>十位</span></li>
+                	<li class="cur" v=个位 m=y><span>个位</span></li>
+            	</ul>
+                <div class="jxsscxhBall mgTop03 jxsscline clearfix">
+                	<span>百位</span>
+                    <p><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></p>
+                </div>
+                <div class="jxsscxhBall mgTop03 jxsscline clearfix">
+                	<span>十位</span>
+                    <p><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></p>
+                </div>
+                <div class="jxsscxhBall mgTop03 clearfix">
+                	<span>个位</span>
+                    <p><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></p>
+                </div>
+			</div>
+       	<!-- 直选end -->
+        <!-- 组三start -->
+        	<div class="jxsscxhlist" id=zs style='float:left'>
+                <div class="jxsscxhBall mgTop03 jxsscline clearfix">
+                	<span>同号</span>
+                    <p><b>00</b><b>11</b><b>22</b><b>33</b><b>44</b><b>55</b><b>66</b><b>77</b><b>88</b><b>99</b></p>
+                </div>
+                <div class="jxsscxhBall mgTop03 clearfix">
+                	<span>不同号</span>
+                    <p><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></p>
+                </div>
+			</div>
+       	<!-- 组三end -->
+        <!-- 和值start -->
+        	<div id=hz style='float:left'>
+	        	<div class='jxsscxhBall jxsscxhBall2 clearfix'>
+	        		<b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b><b>10</b><b>11</b><b>12</b><b>13</b><b>14</b><b>15</b><b>16</b><b>17</b><b>18</b><b>19</b><b>20</b><b>21</b><b>22</b><b>23</b><b>24</b><b>25</b><b>26</b><b>27</b>
+	        	</div>
+        	</div>
+       	<!-- 和值end -->
+        <!-- 组三包号start -->
+        	<div id=zsbh style='float:left'>
+        		<div class='jxsscxhBall jxsscxhBall2 clearfix'>
+        			<b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b>
+        		</div>
+        	</div>
+       	<!-- 组三包号end -->
+        <!-- 组六包号start -->
+        	<div id=zlbh style='float:left'>
+        		<div class='jxsscxhBall jxsscxhBall2 clearfix'>
+        			<b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b>
+        		</div>
+        	</div>
+       	<!-- 组六包号end -->
+   	</div>
+</div>
+     </article>
+    </section>
+	<footer class="buyFooter">
+	    <div class="fixed buyFloat">
+	         <em class="ssqdeleted" id='deleted'>机选</em>
+	         <span id='zs_'>共<cite class="red">0</cite>注  <cite class="red">0</cite>元</span>
+	       	 <a href="javascript:;" class="ture" id='pay_'>确 认</a>
+	    </div>
+	</footer>
+<input type="hidden" value='' id='expect' />
+<input type="hidden" value='03' id='lotid' />
+<script src="/js/3d/index.js"></script>

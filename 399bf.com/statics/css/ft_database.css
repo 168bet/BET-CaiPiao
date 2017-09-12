@@ -1,0 +1,250 @@
+body, html {
+    background-color: #f7f7f7;
+    font-size: 14px;
+}
+table td{
+    font-size: 12px;
+}
+/*第二导航条start*/
+nav {
+    height: 55px;
+    background-color: #e8e8e8;
+    font-family: "SimSun";
+    margin-bottom: 0;
+}
+.dropdown-menu li {
+    line-height: 25px;
+    padding: 0 5px;
+}
+.dropdown-menu li:hover {
+    background-color: #f2f2f3;
+}
+
+.matchNav li {
+    float: left;
+    margin-right: 15px;
+}
+.matchNav li a {
+    display: block;
+    padding: 0 9px;
+    font-size: 1.4em;
+    line-height: 31px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    margin-top: 11px;
+}
+.matchNav li a.active {
+    background-color: #ffa21d;
+    color: #ffffff;
+}
+
+.navMenu {
+    margin-bottom: 20px;
+}
+
+.treeMenu {
+    position: relative;
+    font-family: "Microsoft YaHei";
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-bottom: none;
+}
+/*第二导航条end*/
+.iframe-page {
+    position: relative;
+}
+
+.iframe-head {
+    margin-bottom: 20px;
+}
+.iframe-head .m-title {
+    line-height: 60px;
+    font-size: 1.8em;
+    color: #2e393b;
+    font-weight: bold;
+}
+.iframe-head .m-title img {
+    margin-right: 10px;
+    height: 60px;
+}
+.iframe-head .dropdown {
+    top: 15px;
+    display: inline-block;
+}
+.iframe-head .dropdown .btn {
+    padding: 5px 12px;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+}
+.iframe-head .dropdown .btn:focus {
+    outline: none;
+}
+.iframe-head .dropdown .dropdown-menu {
+    min-width: 132px;
+}
+
+/*main*/
+.title-bar{
+    background-color: #ffa21d;
+    color: #FFFFFF;
+    font-size: 15px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+}
+.data-wrap{
+    background-color: #FFFFFF;
+    border: 1px solid #dddddd;
+    border-top: none;
+}
+.shop{
+    height: 64px;
+    line-height: 64px;
+    margin-left: 5px;
+}
+
+.shop .on,.btn-default:hover {
+    color: #fff;
+    background-color: #ff821d;
+    border-color: #ff821d;
+}
+.table-wrap{
+    padding: 0 5px;
+}
+.table-wrap table{
+    width: 100%;
+}
+.table-wrap table td{
+    text-align: center;
+    border: 1px solid #dddddd;
+}
+.table-wrap table tr{
+    height: 30px;
+}
+.table-wrap table tr:nth-of-type(odd) {
+    background-color: #f2f2f3;
+}
+.update-time{
+    color: #7b7b7b;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+}
+.table-l,.table-r{
+    width: 366px;
+}
+.table-l{
+    float: left;
+}
+.table-r{
+    float: right;
+}
+.bottom-orange{
+    border-bottom: 2px solid #ff821d;
+}
+td.active{
+    background-color: #ff821d;
+    color: #FFFFFF;
+}
+.tr-grey{
+    background-color: #e8e8e8;
+}
+.table-wrap table td.noborder-l{
+    border-left: none;
+}
+.table-wrap table td.noborder-b{
+    border-bottom: none;
+}
+.mt10{
+    margin-top: 10px;
+}
+
+/*侧边栏样式start*/
+.column-side{
+    margin-bottom: 10px;
+}
+.column-title1,.column-title2{
+    font-size: 15px;
+    color: #FFFFFF;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 40px;
+    border: 1px solid #e8e8e8;
+    border-bottom: none;
+    background-color: #ffa21d;
+}
+.column-title1{
+    background:#ffa21d url("../images/icon-column.png") 11px 12px no-repeat;
+    padding-left: 40px;
+}
+.column-title2{
+    padding-left: 12px;
+}
+.column-content{
+    border: 1px solid #e8e8e8;
+    background-color: #FFFFFF;
+    font-size: 14px;
+}
+.column-content ul li{
+    padding-left: 40px;
+    line-height: 30px;
+    height: 30px;
+}
+.column-content ul li.active{
+    background: url("../images/icon-strangel.png") 14px 8px no-repeat;
+}
+.column-content ul li.active a{
+    color: #ffa21d;
+}
+.column-content ul li:hover{
+    background: url("../images/icon-strangel.png") 14px 8px no-repeat;
+}
+.column-content ul li a{
+    display: block;
+    text-decoration: none;
+}
+.column-content ul li a:hover{
+    color: #ffa21d;
+}
+.more {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 0 5px 0 17px;
+    color: #FFFFFF;
+    background: url("../images/more-icon-w.png") no-repeat left;
+    float: right;
+    margin-top: 12px;
+}
+.column-content table tr{
+    height: 30px;
+}
+.column-content table tr:first-child{
+    background-color: #e8e8e8;
+}
+.column-content table td{
+    text-align: center;
+    font-size: 14px;
+}
+.italic{
+    font-style: italic ;
+    font-weight: bold;
+}
+.scalable{
+    overflow: hidden;
+    height: 300px;
+}
+.ft14{
+    font-size: 16px;
+}
+.mrl5{
+    margin-left: 5px;
+}
+.btn-open{
+    text-align: center;
+    color: #cccccc;
+    margin: 10px 0;
+}
+/*侧边栏样式end*/

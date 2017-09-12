@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="author" content="m.9188.com  ">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta http-equiv="cleartype" content="on">
+	<title>投注记录</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="./css/global.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+</style>
+<body style="background:#eaebef;">
+	<div class="re_main">
+		<div class="re_top">
+			<div class="re_qiandao">
+				<span id="user_account">&nbsp;<i>&nbsp;</i></span>
+				<a id="qiandao">签到</a>
+			</div>
+			<div class="re_jifen">
+				<ul>
+					<li id="tab1">
+						<span >积分换金豆</span>
+						<span>1积分=10金豆</span>
+					</li>
+					<li id="tab2">
+						<span >兑奖中心</span>
+						<span>话费，手机天天抢</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="nodata" class="" style="display:none;width:100%;text-align:center;padding:.8rem 0 .3rem 0;margin-bottom:.5rem; background:#fff;">暂无投注记录<a style=" width: 5rem;margin: 1rem auto;display: inherit;text-align: center;padding: .4rem;background: green;color: #FFF;border-radius: .4rem;" href="/gq2/k3/k3.html">立即竞猜</a></div>
+		<ul class="re_connect" id="z_list">
+		</ul>
+		<div class="more" style="display:none;">查看更多</div>
+		<!--  签到送金豆 start  -->
+		<div class="mask" id="ceng" hidden></div>
+		<div class="jdpopup" id="jd"  hidden>
+			<i class="jdclock" id="close"></i>
+<!--  签到送金豆 start  -->
+	<article class="jdtext" style="">
+		<div class="gm_card">
+		    <div>
+		      <span style="font-size:0.76rem" id="qdsx">正在使用“签到千倍卡”,<i class="red" >3</i>天后失效。</span>
+		      <span style="" id="card_href">购买翻倍卡</span>
+		    </div>
+  		</div>
+		<ul>
+			<li class=""><cite>第1天</cite><b></b><span>+100</span></li>
+			<li class=""><cite>第2天</cite><b></b><span>+150</span></li>
+			<li><cite>第3天</cite><b></b><span>+200</span></li>
+			<li><cite>第4天</cite><b></b><span>+250</span></li>
+		</ul>
+		<ul class="lqjd2">
+			<li><cite>第5天</cite><b></b><span>+300</span></li>
+			<li><cite>第6天</cite><b></b><span>+350</span></li>
+			<li><cite>第7天</cite><b></b><span>+400</span></li>
+		</ul>
+		<p><span id="get_jd">立即签到</span></p>
+	</article>
+  <!--  签到送金豆 end  -->	
+
+		</div>
+	<!--  签到送金豆 end  -->	
+	</div>
+</body>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/gq2/k3/js/record.js" type="text/javascript" charset="utf-8"></script>

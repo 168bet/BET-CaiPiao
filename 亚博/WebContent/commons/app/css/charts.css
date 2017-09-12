@@ -1,0 +1,226 @@
+.trend-wrap .bodywrap{
+    background:url('../images/charts/histcode_bg1.png') no-repeat center top #ffffff;
+}
+.trend-wrap .trend-menu{
+    height:117px;
+}
+.trend-wrap .trend-menu .menulist{
+    margin:0;padding:28px 0 0 100px;
+}
+.trend-wrap .trend-menu .item{
+    margin-left:44px;height:56px;
+    display:inline-block;float:left;
+}
+.trend-wrap .trend-menu .item a{
+    display:inline-block;height:54px;width:129px;color:#000;text-align: center;font-size: 24px;line-height: 42px;
+}
+.trend-wrap .trend-menu .item a.current{
+    background:url('../images/charts/trend-menubg.png') no-repeat top center;
+    color:#fff;
+}
+.trend-wrap .trend-listwrap{
+    padding-bottom:32px;
+}
+
+.trend-wrap div.lottery_table{width:800px;margin:0 auto;}
+.trend-wrap div.histcode_table{width:900px;margin:0 auto;}
+.trend-wrap div.lottery_table table{
+    width:800px;
+    background-color:#E2E2E2;
+    line-height:40px;
+    font-size:13px;
+    color:#333;
+    text-align:center;
+}
+.trend-wrap div.lottery_table table th{
+    background-color:#F0F0F0;
+    color:#666;
+    font-size:14px;
+}
+.trend-wrap div.lottery_table table td{
+    background-color:#FFF;
+}
+.trend-wrap span.lottery_num{
+    display:inline-block;
+    width:28px;
+    height:40px;
+    color:#FFF;
+    background:url(../images/base/num.png) 0 center no-repeat;
+}
+.trend-wrap div.lottery_table .ico_order{
+    display: inline-block;
+    width:18px;height:14px;
+    background:url(../images/base/order_ico.gif) left top no-repeat;
+    vertical-align: middle;
+}
+.trend-wrap div.lottery_table .text{
+    display: inline-block;
+    vertical-align: middle;
+}
+#histcode{
+    position:relative;
+}
+#histcode .bor{
+    background-color:#f8f8fa;
+}
+#histcode table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-color: #eee;
+    text-align: center;
+    background: #fff;
+    border: 1px #ddd solid;
+    width:100%;
+    position: relative;
+}
+#histcode thead{
+    border-color: #b93131;
+    background-color: #E34040;
+    color: #fff;
+    display: table-header-group;
+    vertical-align: middle;
+}
+
+#histcode .code-line {
+	position: absolute;
+}
+
+#histcode th{ padding: 1px;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    min-width: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    border:1px solid #b93131;
+    background: transparent;
+    vertical-align: middle;
+}
+#histcode td{
+    padding: 1px;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    min-width: 20px;
+    white-space: nowrap;
+    border:1px solid #eee;
+    overflow: hidden;
+}
+
+#histcode .balltitle th{
+    width:16px;
+}
+
+#histcode tr td span{
+    display: inline-block;
+}
+#histcode .hist_ball{
+    display: inline-block;
+    text-align: center;
+    line-height: 18px;
+    min-width: 18px;
+    /*font-weight: bold;*/
+    border-radius: 3px;
+    /*background: #e74c3c;*/
+    color: #fff;
+}
+
+#histcode .bc_0{
+    background: #e74c3c;
+}
+#histcode .bc_1{
+    background: #0c0;
+}
+#histcode .bc_2{
+    background: #3C51E7;
+}
+#histcode .bc_3{
+    background: #bbb;
+}
+#histcode .hist_zb{
+    display: inline-block;
+    text-align: center;
+    line-height: 18px;
+    min-width: 18px;
+    border-radius: 2px;
+    background: #9F85F1;
+    color: #fff;
+}
+#histcode .hist_dx{
+    display: inline-block;
+    text-align: center;
+    line-height: 18px;
+    min-width: 18px;
+    border-radius: 2px;
+    background: #91a200;
+    color: #fff;
+}
+#histcode .hist_ds{
+    display: inline-block;
+    text-align: center;
+    line-height: 18px;
+    min-width: 18px;
+    border-radius: 2px;
+    background: #099;
+    color: #fff;
+}
+#histcode .hist_bz{
+    display: inline-block;
+    text-align: center;
+    line-height: 18px;
+    min-width: 18px;
+    border-radius: 2px;
+    background: #f66;
+    color: #fff;
+}
+#histcode .hist_jd,#histcode .hist_jx{
+    display: inline-block;
+    text-align: center;
+    line-height: 18px;
+    min-width: 18px;
+    background: #E73CBA;
+    color: #fff;
+}
+#histcode .hover td{
+    background:#ecf0f1;
+}
+#canvasline{
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width:100%;height:100%;
+}
+#canvasline canvas {
+    position: absolute;
+}
+#histcode .total_title td{
+    background:#FF9F3C;
+    color:#000;
+    border: 1px solid #E48E34;
+}
+#histcode .total_num td{
+    background:#fff;
+}
+#hist_opentime{
+    height:24px;
+    text-align: right;
+    font-size: 14px;
+    color:#888;
+}
+#hist_opentime .issue{
+    color:#f60;
+}
+
+.code-table thead {
+    border-color: #b93131;
+    background-color: #E34040;
+    color: #fff;
+    display: table-header-group;
+    vertical-align: middle;
+}
+
+
+
+
+

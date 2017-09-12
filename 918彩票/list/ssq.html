@@ -1,0 +1,118 @@
+<div id=buy_ssq class=cp-lot>
+	<!-- 选球区[[ -->
+	<article id="betball">
+	    <article>
+	   	    	<div class="p5kj clearfix" id='kj_slide'>
+	        		<div class="left" id='issue_info'>加载中...</div>
+	            	<div class="right"><span class="left">历史开奖</span><em class="ssqup ssqdown"></em></div>
+	        	</div>
+	          <div class="ssqkjlist" style="display:none"></div>
+	   </article>
+	   <article class="ssqText">
+	        <div id="cpttz" class="relative" style="display:block">
+	            <div class="shakeomit"><span class="left red" id="shake"><em class="shakeico"></em><cite>摇一注</cite></span><span class="left gray" id="yl"><em class="omitico"></em><cite>遗漏</cite></span></div>
+	            <p class="gray">至少选择<em class="red">6个红球</em>，<em class="blue">1个蓝球</em></p>
+	            <p class="gray" id="ylz" style="display:none">遗漏值：该号码自上次开出到本期间隔期数</p>
+	            <div id="pt_buyChoice">
+	            <div class="relative pdLeft08" id="ball_red" style='z-index:1'>	
+	            	<div class="ssqBall"><cite>01</cite><cite>02</cite><cite>03</cite><cite>04</cite><cite>05</cite><cite>06</cite><cite>07</cite><cite>08</cite><cite>09</cite><cite>10</cite><cite>11</cite><cite>12</cite><cite>13</cite><cite>14</cite><cite>15</cite><cite>16</cite><cite>17</cite><cite>18</cite><cite>19</cite><cite>20</cite><cite>21</cite><cite>22</cite><cite>23</cite><cite>24</cite><cite>25</cite><cite>26</cite><cite>27</cite><cite>28</cite><cite>29</cite><cite>30</cite><cite>31</cite><cite>32</cite><cite>33</cite></div>
+	       			<div class="omitnum" style="display:none"><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite></div>
+	            </div>
+	            <div class="ssqxhblue relative pdLeft08" id="ball_blue" style='z-index:1'>
+	            	<div class="ssqBall ssqblueBall"><cite>01</cite><cite>02</cite><cite>03</cite><cite>04</cite><cite>05</cite><cite>06</cite><cite>07</cite><cite>08</cite><cite>09</cite><cite>10</cite><cite>11</cite><cite>12</cite><cite>13</cite><cite>14</cite><cite>15</cite><cite>16</cite></div>
+	       			<div class="omitnum" style="display:none"><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite><cite></cite></div>
+	            </div>
+	            </div>
+	        </div>
+	    </article>
+	</article>
+	<!-- ]]选球区 -->
+
+	<!-- 投注列表区[[ -->
+	<article id="betlist" style=display:none;>
+	    <article>
+	    	<div class="clearfix ssqbtn"><input id='hand' type="submit" value="+ 自选一注" class="handBtn">
+	    	<input id="jxbtn" type="submit" value="+ 机选一注" class="handBtn">
+	    	<span class="handBtn relative clearBtn" id="clearAll">清空号码</span></div>
+	        <div class="ssqNum" id=bet_list></div>
+	        <!-- <p class="pact clearfix"><em class="left check"></em>我已阅读并同意《用户购彩服务协议》</p> -->
+	    </article>
+	</article>
+	<!-- ]]投注列表区 -->
+
+	<!-- 发起合买[[ -->
+	<article class="pdLeft04" id="bethm" style=display:none;>
+    	<p class="pdTop03 pdLeft06" id='hmDet'>本方案共<cite class="yellow"></cite>注<cite class="yellow"></cite>倍，总金额<cite class="yellow"></cite>元</p>
+        <div class="s2"><i>认购</i><span>
+	        <input type="tel" onkeyup="this.value=this.value.replace(/\D/g,'')" id="rg" class="hmInput" value="">
+	       	 元（<cite class="yellow" id="rg_bl"></cite>）</span>
+        </div>
+        <div class="s2"><i>保底</i><span>
+	        <input type="tel" onkeyup="this.value=this.value.replace(/\D/g,'')" id="bd" class="hmInput" value="0">
+	       	 元（<cite class="yellow" id="bd_bl">0%</cite>）<em class="check nocheck" id="chk"></em><em class="gray">全额保底</em></span>
+        </div>
+        <div class="s2">
+        	<i class="tcheight">提成比例</i>
+            <ul class="left scale" id="ratio">
+            	<li v='0'>0%</li>
+                <li v='1'>1%</li>
+                <li v='2'>2%</li>
+                <li v='3'>3%</li>
+                <li v='4'>4%</li>
+                <li v='5' class="cur">5%</li>
+                <li v='6'>6%</li>
+                <li v='7'>7%</li>
+                <li v='8'>8%</li>
+                <li v='9'>9%</li>
+                <li v='10'>10%</li>
+            </ul>
+        </div>
+        <div class="s2">
+        	<i class="gkheight">是否公开</i>
+            <ul class="left scale" id="isPublic">
+            	<li v="0" class="cur">公开</li>
+                <li v="2" class="along">对跟单用户公开</li>
+                <li v="1">截止后公开</li>
+                <li v="3" class="along">截止后对跟单用户公开</li>
+            </ul>
+        </div>
+        <div class="s2">
+        	<i class="faheight">方案宣言</i>
+            <textarea id='hmDesc' class="xyText" placeholder='一句好的口号将帮助方案尽快满员'></textarea>
+      	</div>
+  	</article>
+	<!-- ]]发起合买-->
+
+	<footer class="buyFooter fo_basket" id=lot_footer>
+			<!-- 选号fo[[ -->
+		    <div class="fixed buyFloat btn-addlist">
+		        <em class="ssqdeleted" id='deleted'>清空</em>
+		        <span class="gray">共<cite id="Notes">0</cite>注  <cite id="Money">0</cite>元</span>
+		        <a href="javascript:;" class="ture" id='addlist'>确认</a>
+		    </div>
+		    <!-- ]]选号fo -->
+		    
+		    <!-- 投注fo[[ -->
+		    <div class="fixed btn-buy">
+	    		<ul class="ssqdouble clearfix">
+	            	<li><cite>追</cite><input type="tel" value="1" id='tbox_qishu' readonly="true"><cite>期</cite></li>
+	                <li><cite>投</cite><input type="tel" value="1" id='tbox_beishu' readonly="true"><cite>倍</cite></li>
+	            </ul>
+	   	  		<div class="zjStop" style="display:none"><em class="left check"></em>中奖后停止追号</div>
+	            <div class="buyFloat">
+	        		<!-- <input id="dohm" type="button" class="fqhm" value="发起合买"> -->
+	        		<span class="gray">共<cite class="yellow" id="countNotes">0</cite>注  <cite class="yellow" id="countMoney">0</cite>元</span>
+	        		<a href="javascript:;" class="ture" id=dobuy>提 交</a>
+	    		</div>
+	    	</div>
+	    	<!-- ]]投注fo -->
+	    	
+	    	<!-- 发起合买[[ -->
+	    	<div class="buyFloat hmFloat fixed btn-hm">
+	        	<span id="hm_m">认购<cite>0</cite>元 保底<cite>0</cite>元 共<cite class="yellow">0</cite>元</span>
+	        	<a class="ture" href="javascript:;" id='hmSubmit'>提 交</a>
+    		</div>
+    		<!-- ]]发起合买-->
+	</footer>
+</div>
+<script type="text/javascript" src="/js/list/szc.js"></script>

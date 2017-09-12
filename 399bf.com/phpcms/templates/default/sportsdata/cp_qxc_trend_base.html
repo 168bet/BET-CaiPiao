@@ -1,0 +1,334 @@
+{php $css = array("lottery.css")}
+{php $nav_id = 4}
+{template "content","header_score"}
+<section>
+    <div class="container">
+        <div class="row">
+                
+                <div class="main">
+
+                    <div class="ticket-title">
+
+                        <a href="{APP_PATH}cp/info/?id=1" class="btn-back">返回</a>
+                        <span class="orange">七星彩</span>
+
+
+                    </div>
+
+                    <div class="ticket-nav mrgB15">
+                        <a href="" class="active">
+                            基本走势
+                        </a>
+                        <a href="">大小走势</a>
+                        <a href="">奇偶走势</a>
+                        <a href="">质合走势</a>
+                        <a href="">除3余数</a>
+                        <a href="">冷热分析</a>
+
+                        <div class="control-group fr">
+                            <form action="{APP_PATH}cp/qxc/trendbase/" method="post">
+                                <button type="button" {if $size == 30}class="active"{/if} data-action="link" data-url="{APP_PATH}cp/qxc/trendbase/?size=30">最近30期</button>
+                                <button type="button" {if $size == 50}class="active"{/if} data-action="link" data-url="{APP_PATH}cp/qxc/trendbase/?size=50">最近50期</button>
+                                <button type="button" {if $size == 100}class="active"{/if} data-action="link" data-url="{APP_PATH}cp/qxc/trendbase/?size=100">最近100期</button>
+                                <input type="text" name="begin" id="begin" value="{$begin}">
+                                期
+                                -
+                                <input type="text" name="end" id="end" value="{$end}">
+                                期
+                                <button class="btn-send" type="submit">查询</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="shop">
+                        <div class="btn-wrap">
+                            标注形式选择：
+                            <span><i id="omission" class="checkbox checkbox-on"></i>遗漏<input style="visibility: hidden;" type="checkbox" checked></span>
+                            <span><i id="foldLine" class="checkbox checkbox-on"></i>折线<input style="visibility: hidden;" type="checkbox" checked></span>
+                            <span><i id="layer" class="checkbox checkbox-off"></i>遗漏分层<input style="visibility: hidden;" type="checkbox"></span>
+                            <span><i id="splitLine" class="checkbox checkbox-off"></i>分隔线<input style="visibility: hidden;" type="checkbox"></span>
+                        </div>
+                    </div>
+                    <div style="overflow: auto;">
+                        <div class="trend" style="position: relative;width: 1850px;">
+                            <table cellspacing="0">
+                                <thead>
+                                <tr class="mi">
+                                    <th rowspan="2" style="width: 200px;" class="border-right border-left">期号</th>
+                                    <th rowspan="2" colspan="7" style="width: 127px" class="border-right">开奖号码</th>
+                                    <th colspan="10" class="border-right">第一位</th>
+                                    <th colspan="10" class="border-right">第二位</th>
+                                    <th colspan="10" class="border-right">第三位</th>
+                                    <th colspan="10" class="border-right">第四位</th>
+                                    <th colspan="10" class="border-right">第五位</th>
+                                    <th colspan="10" class="border-right">第六位</th>
+                                    <th colspan="10">第七位</th>
+                                </tr>
+                                <tr class="mi">
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                </tr>
+                                {loop $info $row $data}
+                                <tr data-row="{$row}">
+                                    <td class="border-right border-left">{$data['id']}</td>
+                                    <td><span class="lottery-number">{$data['n1']}</span></td>
+                                    <td><span class="lottery-number">{$data['n2']}</span></td>
+                                    <td><span class="lottery-number">{$data['n3']}</span></td>
+                                    <td><span class="lottery-number">{$data['n4']}</span></td>
+                                    <td><span class="lottery-number">{$data['n5']}</span></td>
+                                    <td><span class="lottery-number">{$data['n6']}</span></td>
+                                    <td class="border-right"><span class="lottery-number">{$data['n7']}</span></td>
+                                    {loop $data['trend'] $index $numbers}
+                                    {loop $numbers $key $trend}
+                                    {if $data['n'. $index] == $key}
+                                    {php $number = $data['n'. $index]}
+                                    <td class="on {if $key==9}border-right{/if}" data-index="{$index}" data-key="{$key}"><span class="color-{$index}">{$number}</span></td>
+                                    {else}
+                                    <td class="color {if $key==9}border-right{/if}" data-index="{$index}" data-key="{$key}">{$trend}</td>
+                                    {/if}
+                                    {/loop}
+                                    {/loop}
+                                </tr>
+                                {/loop}
+                                <tr>
+                                    <td class="border-right border-left">总次数</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="border-right"></td>
+                                    {loop $stat['count'] $index $data}
+                                    {loop $data $key $count}
+                                    <td class="{if $key==9}border-right{/if}">{$count}</td>
+                                    {/loop}
+                                    {/loop}
+                                </tr>
+                                <tr>
+                                    <td class="border-right border-left">最大连出</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="border-right"></td>
+                                    {loop $stat['continue'] $index $data}
+                                    {loop $data $key $continue}
+                                    <td class="{if $key==9}border-right{/if}">{max($continue)}</td>
+                                    {/loop}
+                                    {/loop}
+                                </tr>
+                                <tr>
+                                    <td class="border-right border-left">最大遗漏</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="border-right"></td>
+                                    {loop $stat['lost'] $index $data}
+                                    {loop $data $key $lost}
+                                    <td class="{if $key==9}border-right{/if}">{$lost}</td>
+                                    {/loop}
+                                    {/loop}
+                                </tr>
+                                <tr>
+                                    <td class="border-right border-left">平均遗漏</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="border-right"></td>
+                                    {loop $stat['avg'] $index $data}
+                                    {loop $data $key $avg}
+                                    <td class="{if $key==9}border-right{/if}">{$avg}</td>
+                                    {/loop}
+                                    {/loop}
+                                </tr>
+                                <tr>
+                                    <td class="border-right border-left">当前遗漏</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="border-right"></td>
+                                    {loop end($info)['trend'] $index $data}
+                                    {loop $data $key $value}
+                                    <td class="{if $key==9}border-right{/if}">
+                                        <div class="HistogramC" style="position: relative;">
+                                            <div class="Histogram his-bg-{$index}" style="height: {$value}px;">
+                                                <span class="persent">{$value}</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    {/loop}
+                                    {/loop}
+                                </tr>
+                                <tr class="mi">
+                                    <td rowspan="2" style="width: 200px;" class="border-right border-left">期号</td>
+                                    <th rowspan="2" colspan="7" style="width: 127px" class="border-right">开奖号码</th>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td class="border-right">9</td>
+                                </tr>
+                                <tr class="mi">
+                                    <th colspan="10" class="border-right">第一位</th>
+                                    <th colspan="10" class="border-right">第二位</th>
+                                    <th colspan="10" class="border-right">第三位</th>
+                                    <th colspan="10" class="border-right">第四位</th>
+                                    <th colspan="10" class="border-right">第五位</th>
+                                    <th colspan="10" class="border-right">第六位</th>
+                                    <th colspan="10">第七位</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{php $js = array("tree.js", "canvas_chart.js", "lottery.js")}
+{template "content","footer"}

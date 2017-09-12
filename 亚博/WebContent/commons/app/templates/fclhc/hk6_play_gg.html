@@ -1,0 +1,92 @@
+<div class="w1000 m0auto text_center fz14" style="padding:20px 0px">
+    <table>
+        <thead>
+            <tr class="hgt42 line_hgt42 border_btm5" style="background: #EB3D00">
+                <td></td>
+                <td class="white fz16">正码一</td>
+                <td class="border_r16"></td>
+                <td></td>
+                <td class="white fz16">正码二</td>
+                <td class="border_r16"></td>
+                <td></td>
+                <td class="white fz16">正码三</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="hgt36 line_hgt36 border_btm3" style="background: #82817F">
+                <td>号码</td>
+                <td>赔率</td>
+                <td class="border_r16">金额</td>
+                <td>号码</td>
+                <td>赔率</td>
+                <td class="border_r16">金额</td>
+                <td>号码</td>
+                <td>赔率</td>
+                <td>金额</td>
+            </tr>
+            <tr class="hgt36 line_hgt36 middle border_btm3" style="background: #DDDDDD" data-ng-repeat="(key, value) in range(0,zm1_pls.length)">
+                <td ng-class="{red:zm4_pls[key].number=='红波',green:zm4_pls[key].number=='绿波',blue:zm4_pls[key].number=='蓝波'}">{{zm1_pls[key].number}}</td>
+                <td>{{zm1_pls[key].pl}}</td>
+                <td class="border_r16">
+                    <input type="radio" value="1" name="zm1_pls_selected" ng-change="fun.singleCodeSelected(zm1_pls[key])" ng-model="data.betSelected[zm1_pls[key].id]" />
+                </td>
+                <td ng-class="{red:zm4_pls[key].number=='红波',green:zm4_pls[key].number=='绿波',blue:zm4_pls[key].number=='蓝波'}">{{zm2_pls[key].number}}</td>
+                <td>{{zm2_pls[key].pl}}</td>
+                <td class="border_r16">
+                    <input type="radio" value="1" name="zm2_pls_selected" ng-change="fun.singleCodeSelected(zm2_pls[key])" ng-model="data.betSelected[zm2_pls[key].id]" />
+                </td>
+                <td ng-class="{red:zm4_pls[key].number=='红波',green:zm4_pls[key].number=='绿波',blue:zm4_pls[key].number=='蓝波'}">{{zm3_pls[key].number}}</td>
+                <td>{{zm3_pls[key].pl}}</td>
+                <td >
+                    <input type="radio" value="1" name="zm3_pls_selected" ng-change="fun.singleCodeSelected(zm3_pls[key])" ng-model="data.betSelected[zm3_pls[key].id]" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="mt20">
+        <thead>
+            <tr class="hgt42 line_hgt42 border_btm5" style="background: #EB3D00">
+                <td></td>
+                <td class="white fz16">正码四</td>
+                <td class="border_r16"></td>
+                <td></td>
+                <td class="white fz16">正码五</td>
+                <td class="border_r16"></td>
+                <td></td>
+                <td class="white fz16">正码六</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="hgt36 line_hgt36 border_btm3" style="background: #82817F">
+                <td>号码</td>
+                <td>赔率</td>
+                <td class="border_r16">金额</td>
+                <td>号码</td>
+                <td>赔率</td>
+                <td class="border_r16">金额</td>
+                <td>号码</td>
+                <td>赔率</td>
+                <td>金额</td>
+            </tr>
+            <tr class="hgt36 line_hgt36 middle border_btm3" style="background: #DDDDDD" data-ng-repeat="(key, value) in range(0,zm4_pls.length)">
+                <td ng-class="{red:zm4_pls[key].number=='红波',green:zm4_pls[key].number=='绿波',blue:zm4_pls[key].number=='蓝波'}">{{zm4_pls[key].number}}</td>
+                <td>{{zm4_pls[key].pl}}</td>
+                <td class="border_r16">
+                    <input type="radio" value="1" name="zm4_pls_selected" ng-change="fun.singleCodeSelected(zm4_pls[key])" ng-model="data.betSelected[zm4_pls[key].id]" />
+                </td>
+                <td ng-class="{red:zm4_pls[key].number=='红波',green:zm4_pls[key].number=='绿波',blue:zm4_pls[key].number=='蓝波'}">{{zm5_pls[key].number}}</td>
+                <td>{{zm5_pls[key].pl}}</td>
+                <td class="border_r16">
+                    <input type="radio" value="1" name="zm5_pls_selected" ng-change="fun.singleCodeSelected(zm5_pls[key])" ng-model="data.betSelected[zm5_pls[key].id]" />
+                </td>
+                <td ng-class="{red:zm4_pls[key].number=='红波',green:zm4_pls[key].number=='绿波',blue:zm4_pls[key].number=='蓝波'}">{{zm6_pls[key].number}}</td>
+                <td>{{zm6_pls[key].pl}}</td>
+                <td >
+                    <input type="radio" value="1" name="zm6_pls_selected" ng-change="fun.singleCodeSelected(zm6_pls[key])" ng-model="data.betSelected[zm6_pls[key].id]" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

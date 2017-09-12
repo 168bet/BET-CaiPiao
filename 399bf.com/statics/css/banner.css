@@ -1,0 +1,107 @@
+
+/*banner css*/
+.banner{
+    position: relative;
+    overflow: hidden;
+}
+.banner .banner-bd{
+    position: relative;
+    height: 397px;
+    margin-bottom: 1px;
+    background-color: #333333;
+    overflow: hidden;
+}
+.banner-bd>a{
+    display: block;
+    text-align: center;
+}
+.banner-bd img{
+    width: 100%;
+    height: 100%;
+}
+/*.banner-bd .banner-title{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0,0,0,.6);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+    color: #fff;
+}*/
+.banner-title{
+    position: absolute;
+    width: 315px;
+    left: 20px;
+    bottom: 50px;
+    background-color: white;
+}
+.banner-title h1{
+    padding: 5px 10px;
+    font-size: 1.4em;
+    font-weight: bold;
+    background-color: #ea6723;
+}
+.banner-title h1 a{
+    color: white;
+}
+.banner-title a:hover{
+    text-decoration: underline;
+}
+.banner-title p{
+    padding: 5px 10px;
+    font-size: 1.4em;
+    line-height: 20px;
+    word-break: break-all;
+}
+.banner-title p a{
+    color: #999;
+}
+.banner-btn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 10px;
+    color: #fff;
+    z-index: 10;
+}
+.banner-btn.next{
+    left: auto;
+    right: 10px;
+}
+.banner .banner-fd{
+    position: relative;
+}
+.banner .banner-fd ul{
+    /*width: 110%;*/
+}
+.banner-fd li{
+    position: relative;
+    float: left;
+    border: #fff solid 1px;
+    width: 20%;
+}
+.banner-fd li.active{
+    border:#ffa21d solid 3px;
+}
+.banner-fd li.active:after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 0 10px 10px;
+    border-style: none solid solid;
+    border-color: transparent transparent #ffa21d;  
+    position: absolute;
+    left: 54px;
+    top: -10px;
+}
+.banner-fd li.active img{
+    height: 84px;
+}
+.banner-fd li img{
+    display: block;
+    height: 88px;
+    width: 100%;
+}
+/*banner end*/

@@ -1,0 +1,59 @@
+.layui-layer-title{text-align: center;height:42px;line-height:42px;border-bottom:1px solid #eee;font-size:18px;color:black;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background-color:#F8F8F8;border-radius:2px 2px 0 0;}
+
+#J-bet-form{
+    padding:0px 24px;line-height: 32px;
+}
+
+#J-bet-form .bet_confirm{
+    padding-bottom: 4px;
+}
+
+#J-bet-form .bet_confirm .bet_content{
+    padding:6px;
+    width:272px;
+    max-height: 240px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;line-height: 28px;
+    background:#f8f8f8;border-radius:4px;color:#aaa;
+    overflow-y:scroll;
+    margin-top:4px;
+    border:1px solid #E6E6E6;
+}
+
+#J-bet-form .bet_confirm .bet_content .balltips_title{
+    width:100%;text-align: center;background:#ffffff;
+    display: inline-block;color:#222;
+}
+
+#J-bet-form .bet_issue{
+    margin-bottom:4px;
+}
+
+#J-bet-form label{
+    width:84px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+#J-bet-form .label_issue{
+    color:#D90000;
+    font-weight: bold;
+}
+
+#J-bet-form .balltips_ball{
+    color:#D90000;
+}
+
+#J-bet-form .balltips_price{
+    color:#669900;
+}
+
+#J-select-issue{
+    width:120px;
+    height: 34px;
+    padding: 7px 4px;
+    border: 1px solid #CECECE;
+    vertical-align: middle;
+}

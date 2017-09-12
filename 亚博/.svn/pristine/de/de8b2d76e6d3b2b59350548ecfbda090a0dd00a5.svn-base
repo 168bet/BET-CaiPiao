@@ -1,0 +1,288 @@
+.login_wrapbox {
+	background: #cce4f0;
+	background: rgba(255, 255, 255, .8);
+	border-radius: 16px;
+	box-shadow: 1px 1px 16px rgba(0, 0, 0, .2);
+	box-sizing: content-box;
+	position: relative;
+	width: 980px;
+	margin: 0 auto;
+	margin-top: 24px;
+}
+
+#loginbox { /*height:550px;*/
+	margin: 32px auto;
+	width: 360px;
+	padding: 10px 36px;
+}
+
+/*ä¸­å¥–è½®æ»š*/
+#WinnerBox {
+	margin: 0 auto;
+	color: #0f0114;
+	line-height: 52px;
+	border-radius: 3px;
+	background: black;
+	overflow: hidden;
+	left: 0px;
+	position: absolute;
+	width: 100%;
+	height: 52px;
+}
+
+#WinnerBox1 {
+	width: 400px;
+	margin: 0 auto;
+	color: #0f0114;
+	height: 32px;
+	line-height: 32px;
+	border-radius: 3px;
+	background: #fefaf8;
+	background: rgba(255, 255, 255, .78);
+	/*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#baffffff,endColorstr=#baffffff);*/
+	position: relative;
+	overflow: hidden;
+	left: -20px;
+}
+
+#WinnerBox1 .title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	height: 100%;
+	width: 56px;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	background: #fa9304;
+	font-weight: bold;
+}
+
+#WinnerBox1 .list {
+	position: relative;
+	top: 0;
+	left: 56px;
+	width: 400px;
+	height: 32px;
+	display: block;
+}
+
+#WinnerBox1 .list .item {
+	padding-left: 14px;
+}
+
+#WinnerBox1 .user {
+	color: #f72105;
+}
+
+#WinnerBox1 .prize {
+	color: #f72105;
+}
+
+#loginbox #content,.page-register #content,.page-getpass #content {
+	height: 685px;
+	width: 1110px;
+	margin: 0 auto;
+}
+
+#loginbox #loginbox,.page-login #passbox {
+	padding: 106px 0 0 562px;
+	width: 460px;
+}
+
+#loginbox #registbox {
+	padding: 106px 0 0 551px;
+	width: 460px;
+}
+
+#loginbox .loginwrap {
+	padding: 30px 12px 0 12px;
+	width: 320px;
+}
+
+#loginbox .loginwrap .box_title {
+	height: 108px;
+}
+
+#loginbox .loginwrap .box_title .ico_titile {
+	display: inline-block;
+	margin-left: 32px;
+	vertical-align: middle;
+	width: 126px;
+	height: 88px;
+	background: url('../images/reg/login_pic.png') left top no-repeat;
+}
+
+#loginbox .loginwrap .box_title .txt_titile {
+	display: inline-block;
+	vertical-align: middle;
+	width: 152px;
+	height: 38px;
+	color: #222;
+	font-size: 32px;
+}
+
+#loginbox .loginwrap .box_row {
+	margin-bottom: 14px;
+	padding: 0;
+}
+
+#loginbox .loginwrap .box_ip {
+	height: 40px;
+	border: 1px solid #e5e2df;
+	border-radius: 3px;
+	background: #ffffff;
+	padding: 0;
+}
+
+#loginbox .loginwrap .box_info {
+	padding: 8px 0;
+}
+
+#loginbox .loginwrap .box_info .text1 {
+	color: #fa9304;
+}
+
+#loginbox .loginwrap .box_info .text2 {
+	color: #330033;
+}
+
+#loginbox .loginwrap .box_ip input,#loginbox .loginwrap .box_ip .ip_hold
+	{
+	outline: none;
+	display: inline-block;
+	border: none;
+	padding: 10px;
+	margin-top: 2px;
+	height: 16px;
+	line-height: 16px;
+	font-size: 16px;
+	width: 256px;
+	vertical-align: middle;
+	background:
+		url('data:image/gif;base64,R0lGODlhAQAVAJEAAPPw7vTw7vPw7wAAACH5BAAAAAAALAAAAAABABUAAAIGhICpixEFADs=')
+		left center no-repeat #ffffff;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-o-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+#loginbox .loginwrap .box_checkimg .box_ip {
+	background: #f0f0f0;
+	border: 1px solid #e1e1e1;
+	display: inline-block;
+}
+
+#loginbox .loginwrap .box_checkimg input,#loginbox .loginwrap .box_checkimg .ip_hold
+	{
+	width: 108px;
+	vertical-align: middle;
+	background-image: none;
+	background: #f0f0f0;
+}
+
+#checkimg {
+	display: inline-block;
+	vertical-align: middle;
+	width: 110px;
+	height: 40px;
+}
+
+#loginbox .loginwrap .box_checkimg .ip_link {
+	display: inline-block;
+	vertical-align: middle;
+	height: 40px;
+	line-height: 40px;
+}
+
+#loginbox .loginwrap .box_ip .ip_hold {
+	color: black;
+}
+
+#loginbox .loginwrap .box_checkimg .ip_hold {
+	color: #ccc;
+}
+
+#loginbox .loginwrap .box_ip i {
+	display: inline-block;
+	height: 32px;
+	width: 32px;
+	background-image: url('../images/reg/login_pic.png');
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	margin-top: 4px;
+}
+
+#loginbox .loginwrap .box_ip .user {
+	background-position: -135px -43px;
+}
+
+#loginbox .loginwrap .box_ip .pass {
+	background-position: -182px -47px;
+}
+
+#loginbox .loginwrap .box_row a {
+	color: #330033;
+	text-decoration: underline;
+	font-size: 14px;
+}
+
+#loginbox .loginwrap .getpass {
+	float: left;
+}
+
+#loginbox .loginwrap .reset {
+	float: right;
+}
+
+#loginbox .loginwrap .box_btn {
+	width: 100%;
+}
+
+#submitbtn,#submitbtn2 {
+	width: 100%;
+	display: inline-block;
+	height: 50px;
+	border-radius: 3px;
+	text-align: center;
+	background: #cb2514;
+	color: #fff;
+	padding: 0;
+}
+
+#submitbtn:hover,#submitbtn2:hover {
+	background: #e75647;
+	font-size: 16px;
+}
+
+#submitbtn i,#submitbtn2 i {
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	background: url('../images/reg/login_pic.png') -158px -4px no-repeat;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -9px;
+}
+
+#submitbtn span,#submitbtn2 span {
+	padding-left: 28px;
+	position: relative;
+	height: 50px;
+	line-height: 48px;
+}
+
+#submitbtn-box .disabled,#submitbtn-box2 .disabled {
+	color: #7c7c7c;
+	font-size: 18px;
+	background: #a8a8a8;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+	border-color: #888;
+	line-height: 50px;
+}

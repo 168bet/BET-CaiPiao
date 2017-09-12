@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$SEO['title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- build css -->
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+    <link rel="stylesheet" href="{WAP_CSS_PATH}font-awesome.min.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}main.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}ft_database.css">
+    <!-- build css end -->
+</head>
+<body>
+<div class="page-group">
+
+    <!-- 资料 详细页 -->
+    <div class="page page-current" id="ft_database">
+
+        <!-- header -->
+        <header class="bar bar-nav">
+            <a class="button pull-left btn-back" href="{WAP_PATH}zqevent/">
+                <i class="icon icon-left orange"></i>
+            </a>
+            <h1 class="title orange">{$competition_info['range']} {$competition_info['shortname']}</h1>
+            <!--<a href="#" class="button pull-right btn-orange open-about-race">赛季</a>-->
+        </header>
+        <!-- header end -->
+
+
+        <div class="content">
+
+
+            <!-- 二级导航 -->
+            <div class="buttons-tab">
+                <a href="{WAP_PATH}competition/{$competitionid}/standings/"
+                   class="tab-item button">积分</a>
+                <a href="{WAP_PATH}competition/{$competitionid}/schedule/"
+                   class="tab-item active button">赛程</a>
+                <a href="{WAP_PATH}competition/{$competitionid}/oddsway/"
+                   class="tab-item button">盘路</a>
+                <a href="{WAP_PATH}competition/{$competitionid}/hfstat/"
+                   class="tab-item button">半全场</a>
+                <a href="{WAP_PATH}competition/{$competitionid}/shooter/"
+                   class="tab-item button">射手榜</a>
+            </div>
+            <!-- 二级导航 end-->
+
+            <!-- 内联导航 -->
+            <div class=" inner-nav">
+                <div class="select">
+                    <input type="text" value="{$current}" id="picker-ring" class="input-select" readonly>
+                    <i class="fa fa-angle-down fa-lg"></i>
+                </div>
+            </div>
+            <!-- 内联导航 end -->
+
+            <!-- match table -->
+            <div class="match-table">
+                <table class="table table-lg">
+                    <thead>
+                    <tr>
+                        <td>时间</td>
+                        <td>&nbsp;</td>
+                        <td>对阵</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    {loop $list $data}
+                    <tr data-action="link" data-url="{WAP_PATH}game/{$data['gameid']}/analyse/">
+                        <td width="18%">
+                            <div class="line gray minfont">{date('y/m/d', $data['date'])}</div>
+                            <div class="line gray minfont">{date('H:i', $data['date'])}</div>
+                        </td>
+                        <td width="25%" class="text-right">
+                            {$team_info[$data['hometeamid']]['name']}
+                        </td>
+                        <td>
+                            <span class="orange">{$data['homescore']}-{$data['awayscore']}</span>
+                            <span class="gray minfont">
+                                {if $data['half']}
+                                ({$data['half']})
+                                {/if}
+                            </span>
+                        </td>
+                        <td width="25%" class="text-left">{$team_info[$data['awayteamid']]['name']}</td>
+                        <td>
+                            <a href="{WAP_PATH}game/{$data['gameid']}/analyse/" class="gray btn-link">
+                                <i class="fa fa-angle-right fa-lg"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {/loop}
+                    </tbody>
+                </table>
+            </div>
+            <!-- match table end -->
+
+
+            {template 'wap', 'footer_nav'}
+
+
+        </div>
+
+        <!-- 赛季弹窗 -->
+        <div class="popup popup-about-race">
+            <header class="bar bar-nav">
+                <h1 class="title">赛季</h1>
+                <a class="close pull-right popup-close-race">
+                    &times
+                </a>
+            </header>
+            <ul class="content-block season-select">
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+                <li>2016-2017</li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+</div>
+
+<script>
+    var WAP_PATH = '{WAP_PATH}';
+    var competitionid = {$competitionid};
+    var category_value = [];
+    var category_show = [];
+    {loop $competition_category $key $value}
+    category_show.push('{$key}');
+    category_value.push('{$value}');
+    {/loop}
+</script>
+{php $js =['ft_competition_schedule.js'];}
+{template 'wap', 'wap_footer'}
+

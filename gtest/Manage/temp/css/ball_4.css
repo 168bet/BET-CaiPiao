@@ -1,0 +1,24 @@
+.No_1, .No_2, .No_3, .No_4, .No_5, .No_6 {
+	background-image: url(images/ball_4.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.No_1 {
+	background-position:0 0px
+}
+.No_2 {
+    background-position:0 -27px
+}
+.No_3 {
+    background-position:0 -54px
+}
+.No_4 {
+    background-position:0 -81px
+}
+.No_5 {
+    background-position:0 -108px
+}
+.No_6 {
+    background-position:0 -135px
+}

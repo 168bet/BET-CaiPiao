@@ -1,0 +1,73 @@
+<div class="reg_new_form" style="padding-bottom:88px;height: 340px;">
+  <!--第一步-->
+  <form name="registerForm">
+    <ul class="lst_fields_reg">
+      <li>
+        <span class="img1_box"> <em class="reg_img reg_img_name"></em>
+        </span>
+        <span class="cell_input">
+        <input name="username" required type="text" ng-model="formdata.username" ng-minlength="6" class="input_txt" placeholder="用户名" ></span>
+        <span class="cell_tip" >
+          <span class="ico_type ico_tip"></span>
+          <label ng-if="registerForm.username.$error.required">请输入注册用户名</label>
+          <label ng-if="registerForm.username.$error.minlength">用户名最小长度为6个字符</label>
+          <label ng-if="registerForm.username.$error">用户名符合要求</label>
+        </span>
+      </li>
+         
+      <li>
+          <span class="img1_box"> <em class="reg_img reg_img_password "></em>
+          </span>
+          <span class="cell_input">
+          <input  ng-maxlength="20" ng-change="fun.pwdChange()" required type="password" ng-minlength="6"  name="password1" ng-model="formdata.password1" class="input_txt" placeholder="密码"></span>
+          <span class="cell_tip">
+            <span class="ico_type ico_tip"></span>
+            <label ng-if="!registerForm.password1.$dirty || registerForm.password1.$error.maxlength || registerForm.password1.$error.minlength">密码长度为6~20个字符，建议使用字母数字和符号的组合。</label>
+            <label ng-if="registerForm.password1.$error">密码符合要求</label>
+          </span>
+          <p class="bar_pass"> 密码强度：
+            <span class="bar_strength" >
+              <a id="pwd_safe" class="bar_strength_red" ng-style="{width: data.pwdStrongLength + '%'}"></a>
+            </span>
+          </p>
+      </li>
+          
+      <li>
+          <span class="img1_box">
+            <em class="reg_img reg_img_password"></em>
+          </span>
+          <span class="cell_input">
+            <input id="pwd2" ng-maxlength="20" ng-minlength="6" match-model="formdata.password1" type="password" ng-model="formdata.password2" class="input_txt" placeholder="确认密码" name="password2"></span>
+            <span class="cell_tip">
+              <span class="ico_type ico_tip"></span>
+              <label>请再次输入密码。</label>
+            </span>
+      </li>
+          
+      <li>
+          <span class="cell_input">
+            <span class="input_checkbox">
+              <label>
+                <input type="checkbox" name="formdata.allowRule" required ng-model="formdata.allowRule" class="ico_checkbox"/>
+                <span class="agree txt">我已阅读并且同意</span>
+              </label>
+            </span>
+            <span>
+              “
+              <a ui-sref="helps.provision" target="_blank" class="agreement_link">AG蛋蛋服务条款协议</a>
+              ”
+            </span>
+          </span>
+      </li>
+          
+      <li>
+          <span class="cell_input">
+            <a id="formsubmit" ng-click="fun.registerSubmit(registerForm)" style="cursor:pointer" class="btn_reg">提交注册</a>
+          </span>
+      </li>
+    </ul>
+    
+    <input type="hidden" name="regcode" ng-model="formdata.regCode" />
+    
+  </form>
+</div>

@@ -1,0 +1,28 @@
+<div class="user-funds-wrap padding-wrap user-center-wrap">
+	<div class="ui-tab-title tab-title-bg clearfix">
+		<ul id="recharge-type">
+			<li ui-sref="user.funds/bankcharge" ui-sref-active="current">网银汇款</li>
+			<li ui-sref="user.funds/charge" ui-sref-active="current">微信支付充值</li>
+		</ul>
+	</div>
+
+	<div class="content bank-select">
+		<div class="bank-check clearfix" style="border-color:#f4f4f4;">
+			<div style="width:402px;float:left;">
+				<h2 style="font-size:24px;">微信支付充值方法:</h2>
+				<p style="font-size:14px;line-height:30px;padding:24px 0;">
+					1.请添加官方财务<b style="color:#c00;">个人微信号</b>：<b style="color:#c00;">扫二维码添加</b>！ <img ng-src=" {{baseURI}}/member/getPayImg?payType=1" alt="" /><br>
+					2.添加好友后请直接向该账号发送上分等值金额转账或红包！<br> 3.发送您的游戏账号！<br>
+					4.我们收到转账并确认账号后3分钟将为您充值到账！<br>
+					<br>
+					<b style="color:#c00;">注:</b><br> <span
+						style="color:#c00;line-height: 18px;padding:0;display: inline-block;">1)如出现了公众号充值，都是骗子，请勿上当受骗！</span><br> <span
+						style="color:#c00;line-height: 18px;padding:0;display: inline-block;">2)平台只有转账或者红包上分充值，如出现扫二维码充值，都是骗子，请勿上当受骗！</span><br>
+					<span
+						style="color:#c00;line-height: 18px;padding:0;display: inline-block;">3)最近发现假冒充值公众号在本平台行骗，如上当受骗，平台概不负责！</span>
+				</p>
+			</div>
+
+		</div>
+	</div>
+</div>

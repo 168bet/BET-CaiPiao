@@ -1,0 +1,247 @@
+.pd0{
+    padding: 0;
+}
+table td{
+    word-break: break-all;
+}
+.text-section{
+    border-bottom: 1px solid #f2f2f2;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+.text-section table tr{
+    background-color: #f5f9fc;
+}
+.text-section table td{
+    text-align: left;
+    padding: 5px;
+    font-size: 14px;
+}
+.round{
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f2f2f2;
+}
+.info-item-select{
+    float: right;
+    border: #e6e6e6 solid 1px;
+    border-radius: 5px;
+    padding: 5px 5px;
+    margin-top: 4px;
+    font-size: 12px;
+    background:linear-gradient(to bottom,#ffffff,#dededf);
+}
+.round-index-wrap{
+    background-color: #ffffff;
+    font-size: 14px;
+}
+.round-index li{
+    float: left;
+    border: 1px solid #f2f2f2;
+    text-align: center;
+    line-height: 30px;
+    min-width: 50px;
+    width: auto;
+    background:linear-gradient(to bottom,#ffffff,#dededf);
+}
+.round-index li a{
+    display: block;
+    padding: 2px 5px;
+}
+.round-index li a:hover,.round-index li.current a{
+    background-color: red;
+    color: #ffffff;
+}
+.event-schedule{
+    padding-top: 10px;
+}
+.event-schedule>span{
+    display: block;
+    width: 191px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.4em;
+    text-align: center;
+    text-indent: -38px;
+    color: #ffffff;
+    background: url("../images/nav.png") 0 0 no-repeat;
+}
+.data-section{
+    font-size: 1.4em;
+}
+.data-section table tr{
+    height: 42px;
+    text-align: center;
+}
+.table-header{
+    background-color: #00a0e9;
+    color: #ffffff;
+}
+.data-tr tr:nth-of-type(even){
+    background-color: #f5f9fc;
+}
+.streak {
+    background-color: #f5f9fc;
+}
+.red{
+    color: red;
+}
+.lottery-info{
+    text-align: center;
+    margin: 40px auto;
+}
+
+
+.pathNav{
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+.pathNav .current{
+    padding: 8px 10px;
+    background-color: #00a0e9;
+    border-radius:5px ;
+    color: #fff;
+}
+.pathNav .pathBtn{
+    border: none;
+    color: #666;
+    background-color: transparent;
+    padding: 0 5px;
+}
+.pathNav .pathBtn:before{
+    content: ">";
+    padding-right: 5px;
+    color: #ccc;
+}
+.pathNav .pathLink{
+    padding: 0 10px;
+}
+
+
+
+
+
+
+.table-hd{
+    border-bottom: #00a0e9 solid 2px;
+}
+.table-logo{
+    float: left;
+    margin-right: 20px;
+}
+.table-logo img{
+    width: 130px;
+    border: 5px solid transparent;
+}
+.img-middle{
+    display: table-cell;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    vertical-align: middle;
+}
+.table-hd-content{
+    float: left;
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+.table-hd-title{
+    font-size: 1.8em;
+    font-weight: 800;
+    color: #4d4d4d;
+    margin-bottom: 10px;
+}
+.table-hd-content ul{
+    border:  #cccccc solid 1px;
+    border-radius: 5px;
+}
+.table-hd-content li{
+    float: left;
+    border-left: #cccccc solid 1px;
+    background: linear-gradient(to bottom,#fafafa,#e7e7e7);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e7e7e7',GradientType=0 ) ;
+}
+.table-hd-content li.current,.table-hd-content li:hover{
+    background:linear-gradient(to bottom,#ededed,#dbdbdc);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#dbdbdc',GradientType=0 ) ;
+}
+.table-hd-content li:first-child{
+    border-left: none;
+}
+.table-hd-content li>a{
+    display: block;
+    padding: 8px 30px;
+    font-size: 1.4em;
+    color: #252525;
+}
+
+/*波胆分布*/
+.distribution-nav{
+    height: 40px;
+    background: linear-gradient(to bottom,#ffffff,#dededf);
+    border-bottom: 1px solid #dfdfdf;
+    border-top: 1px solid #dfdfdf;
+    margin-top: 20px;
+    padding-top: 9px;
+    font-size: 1.4em;
+}
+.distribution-nav li{
+    float: left;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+.distribution-nav li a{
+    display: block;
+}
+.distribution-nav .active a{
+    background-color: #00a0e9;
+    color: #ffffff;
+}
+.distribution-nav li a:hover{
+    background-color: #00a0e9;
+    color: #ffffff;
+}
+.distribution-title{
+    background-color: #00a0e9;
+    color: #ffffff;
+    padding-left: 20px;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 20px;
+    font-size: 1.4em;
+}
+
+/*赛事比分统计*/
+.gray{
+    background:linear-gradient(to bottom,#f8f8f8,#e8e8e8);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#e8e8e8',GradientType=0 ) ;
+}
+.gray-s{
+    background-color: #cccccc;
+}
+.gray-border{
+    border-right:1px solid #cccccc;
+}
+
+/*赛事球队*/
+.team-info{
+    margin-top: 20px;
+}
+.team-title{
+    text-align: center;
+    font-size: 1.4em;
+    line-height: 35px;
+    font-size: 1.4em;
+    height: 35px;
+    color: #ffffff;
+    background-color: #00a0e9;
+    float: left;
+    padding: 0 10px;
+}

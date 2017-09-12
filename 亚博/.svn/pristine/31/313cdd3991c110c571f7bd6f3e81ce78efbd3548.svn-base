@@ -1,0 +1,737 @@
+<!-- 奖金详情 -->
+<div class="right-side">
+	<div class="sidewrap">
+	 <div class="content" id="user-bonus" style="padding:0;">
+         <style>.body-row td{background-color: #FFF;padding:0 16px;}</style>
+         <div class="ui-tab">
+             <div class="ui-tab-title tab-title-bg clearfix">
+                 <ul id="tabbutton">
+                     <li ng-click="crtTab = 1" ng-class="{current: crtTab == 1}">彩票游戏</li>
+                     <li ng-click="crtTab = 2" ng-class="{current: crtTab == 2}">28 奖金赔率</li>
+                     <li ng-click="crtTab = 3" ng-class="{current: crtTab == 3}">28 投注限额</li>
+                 </ul>
+             </div>
+         </div>
+       <div class="bonus_tab" ng-show="crtTab == 1" id="rebate-list" style="width: 720px; margin: 0px auto; padding: 36px 0px; min-height: 500px;">
+               <dl class="item" ng-repeat="betGame in data.betGameContents">
+                <dt>{{betGame.title}}</dt>
+                <dd class="bet-selected">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td rowspan="2">奖金组 {{betGame.bonusMoney}}：</td>
+                        <td><a class="label-like" href="javascript:" ng-click="fun.showGameContent(betGame)">游戏返点</a>
+                          <input type="input" readonly="" class="input w-2" value="{{betGame.bonusPoint}}">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </dd>
+              </dl>
+          </div>
+          <div class="body-row bonus_tab" ng-show="crtTab == 2" style="width: 600px; margin: 0px auto; padding: 36px 0px;">
+              <table class="bonus-28-table" style="background-color: #E2E2E2;line-height:36px;width:100%;" cellspacing="1" border="0" cellpadding="0">
+                  <thead>
+                      <tr><th style="font-size:14px;color:#222;background-color: #F0F0F0;">玩法</th>
+                      <th style="font-size:14px;color:#222;background-color: #F0F0F0;">赔率</th>
+                  </tr></thead>
+                  <tbody>
+                  <tr>
+                      <td align="center">特码</td>
+                      <td align="left">单选一个 0 - 27 的号码,开奖结果一致即中奖<br>
+			                      开奖号码 6~21 赔率 1 : 10<br>
+			                      开奖号码 5,22 赔率 1 : 11<br>
+			                      开奖号码 4,23 赔率 1 : 12<br>
+			                      开奖号码 3,24 赔率 1 : 13<br>
+			                      开奖号码 2,25 赔率 1 : 14<br>
+			                      开奖号码 1,26 赔率 1 : 15<br>
+			                      开奖号码 0,27 赔率 1 : 16 </td>
+                  </tr>
+                  <tr>
+                      <td align="center">特码包三</td>
+                      <td align="left">选取三个特码,三个特码中有任一号码和开奖结果一致即中奖,赔率 1 : 3.5</td>
+                  </tr>
+                  <tr>
+                      <td align="center">大小</td>
+                      <td align="left">
+                          总注1000(含1000)以上开13、14大小,赔下注金额的一半<br>
+                          如:下【小】投注1000,则开奖结果13就是中奖1500
+                      </td>
+                  </tr>
+                  <tr>
+                      <td align="center">单双</td>
+                      <td align="left">
+                          总注1000(含1000)以上开13、14单双,赔下注金额的一半<br>
+                          如:下【双】投注1000,则开奖结果14就是中奖1500
+                      </td>
+                  </tr>
+                  <tr>
+                      <td align="center">混合組合</td>
+                      <td align="left">
+                          组合形态:大双 大单 小双 小单<br>
+                          开非13、14赔率 : 1 : 4<br>
+                          开13、14赔率 : 总注 1000 以下 为 1 : 3 , 总注 1000以上(含1000)则为 1 : 1 (即为返本金)
+                      </td>
+                  </tr>
+                  <tr>
+                    <td align="center">极值</td>
+                    <td align="left">极小 : 0-5 &nbsp; 极大:22-27  &nbsp; 赔率 1 : 10</td>
+                  </tr>
+                  <tr>
+                    <td align="center">波色</td>
+                    <td align="left">
+                      绿波号码：1 , 4 , 7 , 10 , 16 , 19 , 22 , 25<br>
+                      蓝波号码：2 , 5 , 8 , 11 , 17 , 20 , 23 , 26<br>
+                      红波号码：3 , 6 , 9 , 12 , 15 , 18 , 21 , 24<br>
+                      赔率 1 : 3
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center">豹子</td>
+                    <td align="left">
+                      当期3个开奖号码一致则中奖,赔率 1 : 50 , 如当期开奖结果为 3+3+3=9 则中奖豹子。
+                    </td>
+                  </tr>
+                </tbody></table>
+          </div>
+          <div class="body-row bonus_tab" ng-show="crtTab == 3" style="width: 600px; margin: 0px auto; padding: 36px 0px;">
+              <table class="bonus-28-table" style="background-color: #E2E2E2;line-height:36px;width:100%;" cellspacing="1" border="0" cellpadding="0">
+                  <thead>
+                      <tr><th style="font-size:14px;color:#222;background-color: #F0F0F0;">玩法</th>
+                      <th style="font-size:14px;color:#222;background-color: #F0F0F0;">最小投注限额</th>
+                      <th style="font-size:14px;color:#222;background-color: #F0F0F0;">最大投注限额</th>
+                  </tr></thead>
+                  <tbody>
+                  <tr>
+                      <td align="center">特码</td>
+                      <td align="center">20</td>
+                      <td align="center">20000</td>
+                  </tr>
+                  <tr>
+                      <td align="center">特码包三</td>
+                      <td align="center">20</td>
+                      <td align="center">20000</td>
+                  </tr>
+                  <tr>
+                      <td align="center">大小单双</td>
+                      <td align="center">20</td>
+                      <td align="center">20000</td>
+                  </tr>
+                  <tr>
+                      <td align="center">混合組合</td>
+                      <td align="center">20</td>
+                      <td align="center">20000</td>
+                  </tr>
+                  <tr>
+                      <td align="center">极值</td>
+                      <td align="center">20</td>
+                      <td align="center">20000</td>
+                  </tr>
+                  <tr>
+                      <td align="center">波色</td>
+                      <td align="center">20</td>
+                      <td align="center">20000</td>
+                  </tr>
+                  <tr>
+                      <td align="center">豹子</td>
+                      <td align="center">20</td>
+                      <td align="center">1000</td>
+                  </tr>
+                </tbody></table>
+          </div>
+      </div>
+    </div>
+</div>
+
+<script type="text/template" id="test">
+<table class="table table-border">
+    <thead>
+        <tr>
+            <th>玩法分类</th>
+            <th>玩法组</th>
+            <th>玩法/投注方式</th>
+            <th>奖金（元）</th>
+            <th>返点</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="13" style="text-align:center;font-weight:bold;">五星</td>
+            <td rowspan="3">五星直选</td>
+            <td>直选复式</td>
+            <td>180000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选单式</td>
+            <td>180000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>五星组合</td>
+            <td><div>一等奖_五星 180000.00</div>
+                <div>二等奖_四星 18000.00</div>
+                <div>三等奖_三星 1800.00</div>
+                <div>四等奖_二星 180.00</div>
+                <div>五等奖_一星 18.00</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="6">五星组选</td>
+            <td>组选120</td>
+            <td>1500.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选60</td>
+            <td>3000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选30</td>
+            <td>6000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选20</td>
+            <td>9000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选10</td>
+            <td>18000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选5</td>
+            <td>36000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="4">五星特殊</td>
+            <td>一帆风顺</td>
+            <td>4.30</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>好事成双</td>
+            <td>22.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>三星报喜</td>
+            <td>210.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>四季发财</td>
+            <td>3900.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="7" style="text-align:center;font-weight:bold;">四星</td>
+            <td rowspan="3">四星直选</td>
+            <td>直选复式</td>
+            <td>18000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选单式</td>
+            <td>18000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>四星组合</td>
+            <td><div>一等奖_四星 18000.00</div>
+                <div>二等奖_三星 1800.00</div>
+                <div>三等奖_二星 180.00</div>
+                <div>四等奖_一星 18.00</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="4">四星组选</td>
+            <td>组选24</td>
+            <td>750.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选12</td>
+            <td>1500.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选6</td>
+            <td>3000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选4</td>
+            <td>4500.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="14" style="text-align:center;font-weight:bold;">后三</td>
+            <td rowspan="5">后三直选</td>
+            <td>直选复式</td>
+            <td>1800.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选单式</td>
+            <td>1800.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>后三组合</td>
+            <td><div>一等奖_三星 1800.00</div>
+                <div>二等奖_二星 180.00</div>
+                <div>三等奖_一星 18.00</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选和值</td>
+            <td>1800.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选跨度</td>
+            <td>1800.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="7">后三组选</td>
+            <td>组三复式</td>
+            <td>600.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组三单式</td>
+            <td>600.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组六复式</td>
+            <td>300.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组六单式</td>
+            <td>300.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>混合组选</td>
+            <td><div>组三 600.00</div>
+                <div>组六 300.00</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选和值</td>
+            <td><div>组三 600.00</div>
+                <div>组六 300.00</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选包胆</td>
+            <td><div>组三 600.00</div>
+                <div>组六 300.00</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="2">后三其它</td>
+            <td>和值尾数</td>
+            <td>18.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>特殊号</td>
+            <td><div>豹子 180.00</div>
+                <div>顺子 30.00</div>
+                <div>对子 6.60</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="14" style="text-align:center;font-weight:bold;">前三</td>
+            <td rowspan="5">前三直选</td>
+            <td>直选复式</td>
+            <td>1800.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选单式</td>
+            <td>1800.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>前三组合</td>
+            <td><div>一等奖_三星 1800.00</div>
+                <div>二等奖_二星 180.00</div>
+                <div>三等奖_一星 18.00</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选和值</td>
+            <td>1800.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选跨度</td>
+            <td>1800.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="7">前三组选</td>
+            <td>组三复式</td>
+            <td>600.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组三单式</td>
+            <td>600.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组六复式</td>
+            <td>300.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组六单式</td>
+            <td>300.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>混合组选</td>
+            <td><div>组三 600.00</div>
+                <div>组六 300.00</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选和值</td>
+            <td><div>组三 600.00</div>
+                <div>组六 300.00</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选包胆</td>
+            <td><div>组三 600.00</div>
+                <div>组六 300.00</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="2">前三其它</td>
+            <td>和值尾数</td>
+            <td>18.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>特殊号</td>
+            <td><div>豹子 180.00</div>
+                <div>顺子 30.00</div>
+                <div>对子 6.60</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="8" style="text-align:center;font-weight:bold;">后二</td>
+            <td rowspan="4">后二直选</td>
+            <td>直选复式</td>
+            <td>180.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选单式</td>
+            <td>180.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选和值</td>
+            <td>180.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选跨度</td>
+            <td>180.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="4">后二组选</td>
+            <td>组选复式</td>
+            <td>90.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选单式</td>
+            <td>90.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选和值</td>
+            <td>80.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选包胆</td>
+            <td>90.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="8" style="text-align:center;font-weight:bold;">前二</td>
+            <td rowspan="4">前二直选</td>
+            <td>直选复式</td>
+            <td>180.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选单式</td>
+            <td>180.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选和值</td>
+            <td>180.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选跨度</td>
+            <td>180.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="4">前二组选</td>
+            <td>组选复式</td>
+            <td>90.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选单式</td>
+            <td>90.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选和值</td>
+            <td>80.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选包胆</td>
+            <td>90.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="1" style="text-align:center;font-weight:bold;">一星</td>
+            <td rowspan="1">定位胆</td>
+            <td>复式</td>
+            <td>18.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="8" style="text-align:center;font-weight:bold;">不定位</td>
+            <td rowspan="4">三星</td>
+            <td>后三一码</td>
+            <td>6.60</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>前三一码</td>
+            <td>6.60</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>后三二码</td>
+            <td>33.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>前三二码</td>
+            <td>33.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="2">四星</td>
+            <td>四星一码</td>
+            <td>5.20</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>四星二码</td>
+            <td>18.40</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="2">五星</td>
+            <td>五星二码</td>
+            <td>12.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>五星三码</td>
+            <td>41.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="4" style="text-align:center;font-weight:bold;">大小单双</td>
+            <td rowspan="4">大小单双</td>
+            <td>前二大小单双</td>
+            <td>7.20</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>后二大小单双</td>
+            <td>7.20</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>前三大小单双</td>
+            <td>14.40</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>后三大小单双</td>
+            <td>14.40</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="1" style="text-align:center;font-weight:bold;">百家乐</td>
+            <td rowspan="1">百家乐</td>
+            <td>百家乐</td>
+            <td><div>庄闲 3.60</div>
+                <div>对子 11.37</div>
+                <div>豹子 30.32</div>
+                <div>天王 7.58</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="6" style="text-align:center;font-weight:bold;">任选二</td>
+            <td rowspan="3">任二直选</td>
+            <td>直选复式</td>
+            <td>180.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选单式</td>
+            <td>180.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选和值</td>
+            <td>80.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="3">任二组选</td>
+            <td>组选复式</td>
+            <td>90.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选单式</td>
+            <td>90.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选和值</td>
+            <td>80.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="9" style="text-align:center;font-weight:bold;">任选三</td>
+            <td rowspan="3">任三直选</td>
+            <td>直选复式</td>
+            <td>1800.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选单式</td>
+            <td>1800.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选和值</td>
+            <td>1800.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="6">任三组选</td>
+            <td>组三复式</td>
+            <td>600.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组三单式</td>
+            <td>600.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组六复式</td>
+            <td>300.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组六单式</td>
+            <td>300.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>混合组选</td>
+            <td><div>组三 600.00</div>
+                <div>组六 300.00</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选和值</td>
+            <td><div>组三 600.00</div>
+                <div>组六 300.00</div>
+            </td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="6" style="text-align:center;font-weight:bold;">任选四</td>
+            <td rowspan="2">任四直选</td>
+            <td>直选复式</td>
+            <td>18000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>直选单式</td>
+            <td>18000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td rowspan="4">任四组选</td>
+            <td>组选24</td>
+            <td>750.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选12</td>
+            <td>1500.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选6</td>
+            <td>3000.00</td>
+            <td>7.00%</td>
+        </tr>
+        <tr>
+            <td>组选4</td>
+            <td>4500.00</td>
+            <td>7.00%</td>
+        </tr>
+    </tbody>
+</table>
+</script>
+

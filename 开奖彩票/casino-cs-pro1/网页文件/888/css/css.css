@@ -1,0 +1,30 @@
+A:link,A:active,A:visited{TEXT-DECORATION:none ;Color:#000000}
+A:hover{TEXT-DECORATION: underline;Color:#4455aa}
+BODY{FONT-SIZE: 12px;COLOR: #000000;FONT-FAMILY: 宋体; background-color:#efefef; margin-left:1; margin-top:0;}
+
+td,br,p,div,span{font-family: 宋体;font-size: 9pt;line-height: 15px;}
+input,select,Textarea{font-family:宋体; font-size: 12px; line-height: 15px;}
+.normalTextSmall{font-size : 11px;color : #000000; font-family: Verdana, Arial, Helvetica, sans-serif;}
+
+tr.TableBody1{background-color: #ffffff;}
+
+td.TableBody1{background-color: #FFFFFF;}
+td.TableBody2{background-color: #E4E8EF;}
+
+.tableBorder1{border:1px; background-color:#0066CC}
+.tableBorder2{border:1px #DEDEDE solid; background-color: #EFEFEF;}
+
+table.tableNoBorder1{ background-color:Gray; border:0;}
+
+.normalTextSmall{font-size : 11px;color : #000000; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.text{background-color:#FEFEFF; border: 1 double #B4B4B4}
+.namecss{filter:glow(color=#FF9900,strength=2)}
+.namecss1{filter:glow(color=#FF0000,strength=2)}
+.tx{height: 16px; border-color: black black #000000; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; font-size: 9pt; background-color: #E2ECF5; color: #0000ff}
+.headertitle1{font-family: 宋体;font-size: 13px;color:#FFFFFF;font-weight:none;TEXT-ALIGN: center}
+.blueheader{font-family:宋体;font-size:13px;background-color:#0099ff;text-align:center;color:#FFFFFF}
+.pinkheader{font-family:宋体;font-size:13px;background-color:#0099ff;text-align:center;color:#FFFFFF}
+.dlsheader{font-size:13px;color:#ffffff;font-family:宋体;background-color:#0099ff;height:25;text-align:center;}
+.m_tline {  background-image: url(../images/top_03b.gif)}
+.hander{ cursor:hand;}
+

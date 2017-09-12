@@ -1,0 +1,124 @@
+.border-news{
+    border: 2px solid #f3f3f3;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    color: #000;
+    padding: 5px;
+    clear: both;
+    overflow: hidden;
+}
+.border-news:hover{
+    border: 1px solid #41f347;
+    -webkit-box-shadow:0 0 3px rgb(65, 243, 71);
+    -moz-box-shadow:0 0 3px rgb(65, 243, 71);
+    box-shadow:0 0 3px rgb(65, 243, 71);
+}
+.border-news .left{
+    width:30%;
+    float: left;
+}
+.border-news .right{
+    width:70%;
+    float: right;
+}
+.border-news .right .detail{
+    background-color: #d4fcd9;
+    height: 100px;
+    margin-top: 10px;
+}
+.ma-left-10{
+    margin-left: 10px;
+}
+.ma-left-40{
+    margin-left: 40px;
+}
+.left-auto{
+    float: left;
+    width: 408px;;
+}
+.round{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #0000ff;
+    border-radius: 100%;
+    line-height: 25px;
+}
+.blue{
+    background-color: #0000ff;
+}
+.green{
+    background-color: #309925;
+}
+.ma-right-10{
+    margin-right: 10px;
+    float: right;
+}
+.left-w-90{
+    width: 90px;
+    float: left;
+}
+.font-st{
+    font-size: 15px;
+    color: #309925;
+}
+.team-info{
+    color: #309925;
+    font-size: 14px;
+}
+.team-info li{
+    width: 76px;
+    float: left;
+    text-align: center;
+}
+.team-info li:nth-child(2){
+    margin-left: 60px;
+}
+.clearfloat{
+    overflow: hidden;
+}
+.asideBox{
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    border: #e5e5e5 solid 1px;
+    border-top: 3px solid #309925;
+}
+
+.asideBox a:hover{
+    color: #309925;
+}
+.news-list em{
+    background-color: #309925;
+    color: #FFFFFF;
+    padding:2px 7px;
+    border-radius: 3px;
+}
+.img-list ul{
+    width: 332px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.img-list li{
+    float: left;
+    width: 146px;
+    margin: 10px;
+    background-color: #f2f2f2;
+    overflow: hidden;
+}
+.ad{
+    width:100%;
+    margin-bottom: 20px;
+}
+
+.pager li >.aColor:hover{
+    background-color: #309925;
+    color: #FFFFFF;
+}

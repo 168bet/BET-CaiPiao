@@ -1,0 +1,21 @@
+TR {
+	FONT-SIZE: 12px; FONT-FAMILY: "Arial", "·s²Ó©úÅé"
+}
+.g-dot {
+	COLOR: #00234e
+}
+.m-dot {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 15px; BACKGROUND-IMAGE: url(../images/header_dot1.gif); COLOR: #4b4b4b; BACKGROUND-REPEAT: no-repeat; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #4b4b4b; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #4b4b4b; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #1a71a4; BORDER-BOTTOM: #4b4b4b 1px dashed
+}
+.mic {
+	PADDING-RIGHT: 10px; TEXT-ALIGN: right
+}

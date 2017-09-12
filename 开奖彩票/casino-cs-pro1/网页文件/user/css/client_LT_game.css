@@ -1,0 +1,66 @@
+a:link {  color: #CC0000; text-decoration: none; font-weight: bold; font-size: 15px}
+a:hover {  color: #000066; font-weight: bold; font-size: 15px}
+a:visited {  text-decoration: none; font-weight: bold; color: #CC0000; font-size: 15px}
+td {  font-family: "Arial"; font-size: 12px}
+.table_banner { background-color: #E5EAEE; border: 1px #CCCCCC solid; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px }
+.banner_set { border: none; background-color: #C1D7E5; padding-top: 1px; padding-right: 5px; padding-bottom: 1px; padding-left: 5px}
+.banner_link { color: #000066; }
+
+.table_title_line { border: none}
+.table_title { border: none ; background-color: #66A6A4}
+.tr_cen_title { color: #000000; }
+.select_cen {  font-size: 12px}
+
+
+.tr_title_set_cen { border: none; background-color: #85BAE4; padding-right: 1px; padding-left: 1px; color: #000000; font-size: 10px; text-align: center; padding-top: 3px; padding-bottom: 1px}
+.list_cen { border: none; background-color: #e4e4e4; padding-right: 1px; padding-left: 1px; color: #000000; font-size: 12px; text-align: center; padding-top: 3px; padding-bottom: 1px }
+.list_league2 { border: none; padding-right: 1px; padding-left: 1px; font-size: 10px; text-align: center; padding-top: 3px; padding-bottom: 1px ; color: #000000; background-color: #FFFFFF}
+.list_lef { border: none; background-color: #C1D7E5; padding-right: 1px; padding-left: 1px; color: #000000; font-size: 12px; text-align: left; padding-top: 3px; padding-bottom: 1px }
+.list_rig { border: none; background-color: #D1DADF; padding-right: 1px; padding-left: 1px; color: #000000; font-size: 12px; text-align: right; padding-top: 3px; padding-bottom: 1px }
+.select_lef { font-size: 12px ; text-align: left}
+.ball_td {
+	background-position: center;
+	background-color: #C1D7E5;
+	background-attachment: fixed;
+	background-repeat: no-repeat;	
+}
+.ball_td1 {
+	background-position: center;
+	background-color: #99BDD5;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+.ball_td2 {
+	background-position: center;
+	background-color: #C1D7E5;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	text-align: center;
+}
+.ball_td3 {
+	background-position: center;
+	background-color: #C1D7E5;
+	font-weight: bold;
+	color: #ff0000;
+	text-align: center;
+}
+body { background-color: #E5EAEE;
+	 }
+
+TR { FONT-SIZE: 12px; LINE-HEIGHT: 17px }
+
+.title_00 {
+	FONT-SIZE: 12px;
+	COLOR: #FFFFFF;
+	cursor: auto;
+	text-decoration: none;
+}
+.redBall {
+	 BACKGROUND-IMAGE: url(../images/ball/r.gif); 
+}
+.greenBall {
+	 BACKGROUND-IMAGE: url(../images/ball/g.gif); 
+}
+.blueBall {
+	 BACKGROUND-IMAGE: url(../images/ball/b.gif); 
+}

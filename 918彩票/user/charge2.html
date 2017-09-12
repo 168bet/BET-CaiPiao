@@ -1,0 +1,382 @@
+<style type="text/css">
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+.clearfix{ overflow:hidden; zoom:1}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.fontSize07{ font-size:.7rem}
+.pdLfrt09{ padding:.1rem .9rem 0 .9rem}
+.pdTop08{ padding-top:.8rem}
+.pdTop1{ padding-top:1rem}
+.gray{ color:#8e8e8e}
+.red{ color:#f03d3d}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2.1rem; padding-top:.6rem; background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.s3{ padding-top:1.6rem; height:1.6rem; font-size:.94rem}
+.s3 cite{ float:left; width:3.4rem; color:#222; letter-spacing:.6rem; padding-left:.5rem}
+.s3 input{ color:#d0d0d0; border:0; background:none; font-size:.94rem}
+.s3 em{ float:right; position:relative; margin-right:.1rem; width:.8rem; height:.8rem; border-left:1px solid #bdbdbd; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.s3 em:before{ position:absolute; content:""; top:.4rem; right:.42rem; width:.8rem; height:.8rem; border-left:1px solid #bdbdbd; transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg)}
+.s3line{ height:.3rem; border:1px solid #bdbdbd; border-top:none}
+.s3cur .s3line{ border:.15rem solid #c4311f; border-top:none}
+.s5 cite{ width:4.5rem; letter-spacing:0}
+.zhuce{ position:absolute; color:#fff; right:.8rem; top:.7rem; font-size:.95rem}
+.loginBtn{ display:block; width:100%; letter-spacing:.5rem; text-align:center; margin-top:1rem; line-height:2.6rem; color:#fff; background:#f26c60; font-size:1.1rem; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.loginBtn:active{ text-decoration:none; color:#fff}
+</style>
+<div id='charge2'>
+<!-- 绑定快捷支付 -->
+	<div class="pdLfrt09" id='kjzf' style='display:none;'>
+		<p class="pdTop1 fontSize07" id="add">
+			本次充值，实际到账 <cite class="red"></cite> 元<!-- ，手续费<cite class="red"></cite>元 -->
+		</p>
+		<div class="s3 s5 s3cur">
+			<div class="clearfix">
+				<cite>银行卡号</cite><input type="tel" id="No_card"
+					placeholder="请输入银行卡号"><em></em>
+			</div>
+			<div class="s3line"></div>
+		</div>
+		<p class="pdTop08 fontSize07 gray">该手机号开户名必须与绑定的真实姓名一致</p>
+		<a href="javascript:;" id="next" class="loginBtn"
+			style="margin-top: 2.5rem">下一步</a>
+	</div>
+<!-- 绑定快捷支付 -->
+
+<!-- 电话充值 -->
+	<div class="gray" id='yldh' style='display:none;'>
+		<div class="pd063" id='con'>
+			<p class="pdTop06">
+				真实姓名：<cite></cite>
+			</p>
+			<p class="pdTop03">
+				身份证号：<cite></cite>
+			</p>
+			<p class="pdTop06">
+				发卡地区：<cite></cite>
+			</p>
+			<p class="pdTop06">
+				开户银行：<cite></cite>
+			</p>
+			<p class="pdTop06">
+				银行卡号：<cite></cite>
+			</p>
+			<p class="pdTop06">
+				充值金额：<cite class="red"></cite> 元
+			</p>
+			<p class="pdTop06">
+				手 续 费：<cite class="red"></cite> 元
+			</p>
+			<p class="pdTop06">
+				实际到账：<cite class="red"></cite> 元
+			</p>
+			<div class="s1">
+				<span>手机号码</span><input id='phone' type="text" value=""
+					placeholder='请填写您的手机号码'>
+			</div>
+			<p class="pdTop06">手机号须为已绑定银行卡的银行预留手机号</p>
+			<a href="javascript:;" id='nextStep' class="payment">下一步</a>
+			<p class="pdTop08">仅支持工行、建行、农行、招行、中信、兴业、交行、深发、光大、平安、华夏、广发、广州银行、广州农信社等14家银行借记卡</p>
+		</div>
+		<div class="pd063" id='success' style='display: none;'>
+			<p class="fontSize095 black">充值订单已提交</p>
+			<p>请等待中国银联02096585的来电，按照语音提示输入银行卡密码完成充值。</p>
+			<div class="retel">
+				<em class="reline"></em>
+				<div class="retelText">
+					<em class="left"></em>
+					<div class="left">
+						<cite class="yellow fontSize095">02096585来电</cite><br>
+						输入银行卡密码就ok啦
+					</div>
+				</div>
+				<div class="retelText retelText2">
+					<p class="yellow fontSize095">支付成功后</p>
+					<p>可以到收支明细中查看</p>
+					<a href="#type=url&p=user/detail.html" class="payment">查看明细</a>
+				</div>
+			</div>
+			<p class="pdTop08">如未收到02096585的来电：</p>
+			<p>1.检查下手机号码是否输入正确？</p>
+			<p>2.核对绑定银行卡是否已开通该业务：目前仅支持工行、建行、农行、招行、中信、兴业、交行、深发、光大、平安、华夏、广发、广州银行、广州农信社等14家银行借记卡</p>
+		</div>
+	</div>
+	<!-- 电话充值 -->
+	
+	<!-- 手机充值卡充值 -->
+	<div class="gray" id='sjkcz' style='display:none;'>
+		<section class="telcz pdLfrt09" id='stepOne'>
+			<h2>1.充值卡类别</h2>
+			<div class="recharge" id='cardType'>
+				<div class="telczList" cardT='CMJFK' cName='中国移动通信'>
+					<i></i>
+					<p>
+						中国移动通信<cite>（仅支持全国卡）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardT='LTJFK' cName='中国联通'>
+					<i></i>
+					<p style="border-bottom: none">
+						中国联通<cite>（仅支持全国卡）</cite>
+					</p>
+				</div>
+			</div>
+			<div class="clearfix">
+				<h2 class="left">2.充值金额</h2>
+				<cite class="fontSize07 left pdTop08">(运营商将收取4%的服务费)</cite>
+			</div>
+			<div class="recharge" id='cardSize'>
+				<div class="telczList" cardS='10'>
+					<i></i>
+					<p>
+						10元<cite>（实际到账9.6元）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardS='20'>
+					<i></i>
+					<p>
+						20元<cite>（实际到账19.2元）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardS='30'>
+					<i></i>
+					<p>
+						30元<cite>（实际到账28.8元）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardS='50'>
+					<i></i>
+					<p>
+						50元<cite>（实际到账48元）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardS='100'>
+					<i></i>
+					<p>
+						100元<cite>（实际到账96元）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardS='300'>
+					<i></i>
+					<p>
+						300元<cite>（实际到账288元）</cite>
+					</p>
+				</div>
+				<div class="telczList" cardS='500'>
+					<i></i>
+					<p style="border-bottom: none">
+						500元<cite>（实际到账480元）</cite>
+					</p>
+				</div>
+			</div>
+			<h2>3.输入卡密充值</h2>
+			<div class="recharge" id='card'>
+				<div class="telczList telczList2">
+					<em>卡号：</em>
+					<p>
+						<input type="text" placeholder='纯数字' value="" maxlength='30'>
+					</p>
+				</div>
+				<div class="telczList telczList2">
+					<em>密码：</em>
+					<p style="border-bottom: none">
+						<input type="text" placeholder='纯数字' value="" maxlength='30'>
+					</p>
+				</div>
+			</div>
+			<a href="javascript:;" id='payOk' class="payment">确定充值</a>
+			<div class="pdTop06 pdLeft04">
+				<p>温馨提示：</p>
+				<p>1.充值卡内金额将一次性全额扣除，请选择与充值卡面额相同的金额。如果选择的充值金额与充值卡实际面额不一致，将无法给您退还差或损失部分。</p>
+				<p>2.手机充值卡支付过程有任何疑问请联系易宝支付客服，高阳捷迅客服中心（电话：400-019-1999）</p>
+			</div>
+		</section>
+
+		<section class="pdLfrt09 bankcard" id='stepTwo' style='display: none;'>
+			<p class="pdTop06">
+				<span class="gray left w4_6">充值卡：</span><cite></cite>
+			</p>
+			<p class="pdTop06">
+				<span class="gray left w4_6">充值金额：</span><cite class="yellow"></cite><cite></cite>
+			</p>
+			<p class="pdTop06">
+				<span class="gray left w4_6">卡号：</span><cite></cite>
+			</p>
+			<p class="pdTop06">
+				<span class="gray left w4_6">密码：</span><cite></cite>
+			</p>
+			<p class="yellow mgTop2">确认卡密、填写无误，若填写错误会导致充值失败</p>
+			<div class="clearfix" id='operation'>
+				<a href="javascript:;" class="left register">修改</a><a
+					href="javascript:;" class="right loginBtn">确定充值</a>
+			</div>
+		</section>
+		<section class="zfPop" id='success'
+			style='display: none; position: fixed; z-index: 10000;top:50%;left:50%;margin-left:-9.25rem;margin-top:-5rem;'>
+			<h4>收单成功</h4>
+			<div class="pdLeft1 gray">
+				<p>注意：</p>
+				<p class="yellow">1、收单成功不代表充值成功！</p>
+				<p>2、请到我的彩票账户余额中查看充值明细，确定是否到账。</p>
+			</div>
+			<a href="#type=url&p=user/index.html" class="tureBtn">确定</a>
+		</section>
+	</div>
+	<!-- 手机充值卡充值 -->
+</div>
+
+<script>
+CP.Charge2 = (function(){
+	/*
+	 * @param type
+	 * 1 电话充值
+	 * 2手机充值卡
+	 * 默认不填就是快捷支付过来的 或者 0
+	 * */
+	var type = CP.Util.getPara('t', window.location.href, 2) || '0';//需要展示页面的类型
+	var money = CP.Util.getPara('money', window.location.href, 2) || '0';//充值金额
+	var o = {
+		//页面跳转
+		pageGo: {
+			ybzf: function () {
+				TopAnch.init({
+					title:'易宝充值',
+					prevShow:true,
+					prevFun:function(){//左侧按钮绑定事件
+						window.history.back();
+					},
+					nextShow: true,
+					nextText: '充值明细',
+					nextFun: function(){
+						window.location.href = '#type=url&p=user/detail.html?in=cz';
+					},
+					isBack:true
+				});
+			}
+		
+		},
+		
+		//AES加密
+		Encrypt:function(word){  
+	    	var key = CryptoJS.enc.Utf8.parse("9188123123123345");   
+	    	var iv  = CryptoJS.enc.Utf8.parse('9188123123123345');   
+	    	var srcs = CryptoJS.enc.Utf8.parse(word);  
+	    	var encrypted = CryptoJS.AES.encrypt(srcs, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});  
+	    	var val = CryptoJS.enc.Utf8.stringify(encrypted).toString();
+	    	console.log(val)
+	    	return encrypted;  
+		},
+		
+		Decrypt:function(word){  
+	    	var key = CryptoJS.enc.Utf8.parse("9188123123123345");   
+	    	var iv  = CryptoJS.enc.Utf8.parse('9188123123123345');   
+	    	
+			
+			
+			
+			
+	    	var dencrypted = CryptoJS.AES.decrypt(word, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});  
+	    	console.log(dencrypted.toString(CryptoJS.enc.Utf8));
+	    	
+	    	return dencrypted;  
+		},
+		
+		ybzf : function(){
+			var fee = Math.round(money * 0.6)/100;
+			var realMoney = money-fee;
+			$("#add cite:eq(0)").html(realMoney);
+			//$("#add cite:eq(1)").html(fee);
+			
+			$("#next").Touch({fun:function(){
+				//获取银行卡信息
+				alert('检测卡号中...','load');
+				var val = $("#No_card").val();//获取银行卡号
+				val = o.Encrypt(val).toString();
+				val = val.replace(/\+/g,'%2B')
+				if(!val){remove_alert();alert('请输入卡号');return;}
+				console.log(val);
+				$.ajax({
+					url : CP.Data.apps+"/user/check_bankcard_bin.go?bankCard="+val,
+					type : "POST",
+					dataType : "XML",
+					success:function(data){
+						console.log("123")
+						if(data && data !=null){
+							var Resp = $(data).find("Resp");//查询结果代码
+							var ret_code = Resp.attr("code")
+							var desc = Resp.attr("desc")
+							if(ret_code == "0"){
+								bankcard = Resp.find("bankcard")
+								var bankCode = bankcard.attr("bankCode");//银行编号
+								var bankName = bankcard.attr("bankName");//银行名称
+								var cardType = bankcard.attr("cardType");//银行卡类型
+								var cardTypeCode = bankcard.attr("cardTypeCode");//银行卡类型
+								
+								var yzm = {'1':'31','0':'30'}[cardTypeCode];
+								
+								$.ajax({
+									url : CP.Data.apps+"/user/check_bank_card_info.go?bankCard="+val+"&yzm="+yzm+"&bankName="+bankName,
+									type : "POST",
+									dataType : "xml",	
+									success:function(xml){
+										remove_alert();
+										var R = $(xml).find("Resp")
+										var code = R.attr("code");
+										var desc = R.attr("desc");
+										if(code == "0"){//说明此卡支持连连支付
+											//bankid:支付类型编号(7006:借记卡,7005:"信用卡")
+											var bankid = {'1':'7005','0':'7006'}[cardTypeCode];
+											
+											//bankid="+bankid+"&bankCode="+bankCode+"&cardno="+val+"&addmoney="+money+"&cardtype="+cardTypeCode+"&webcallbackurl=http://5.9188.com "
+											var data={
+													"bankid":bankid,
+													"bankCode":bankCode,
+													"cardno":val,
+													"addmoney":money,
+													"cardtype":cardTypeCode,
+													"webcallbackurl":"http://5.9188.com "
+											}
+											console.log(111)
+											$.ajax({
+												url : CP.Data.apps+"/user/addmoney.go",
+												type : "POST",
+												data:data,
+												dataType : "xml",	
+												success:function(x){
+													var c = $(x).find("Resp").attr("code");
+													if(c==1){
+														var payurl = $(x).find("Resp").find("row").attr("payurl");
+														window.location.href=payurl;
+													}
+												},
+												error:function(){
+													alert("网络错误")
+												}
+											})
+										}else{
+											D.alert("暂不支持该卡");
+										}
+									}
+								});
+							}else{
+								remove_alert();
+								D.alert(desc);
+							}
+						}
+					}
+				});
+			}});
+		},
+		
+	};
+	var init = function(){
+		$('#kjzf').show();
+		o.pageGo.ybzf();
+		o.ybzf();
+	};
+	return {init:init};
+})();
+CP.Charge2.init();
+</script>
+<script type="text/javascript" src="/js/public/crypto-js.js"></script>
+<script type="text/javascript" src="/js/public/aes.js"></script>

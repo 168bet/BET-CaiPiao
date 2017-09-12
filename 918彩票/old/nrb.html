@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html manifest='/activity/nrb/cache.manifest'>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>周周竞足牛人榜</title>
+<style type="text/css">
+body{ margin:0; padding:0; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#272727; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+em,cite{ font-style:normal}
+ul,li{ list-style-type:none}
+figure img{ width:100%; height:9.875rem}
+a{ color:#716f6f; font-size:.94rem; text-decoration:none}
+.pd03{ padding:0 .3rem}
+.text{ width:96%; padding:0 2%; position:absolute; top:9rem}
+.text section{ display:block; background:#feffc6; padding-bottom:1rem}
+.title{ position:relative}
+.green{ background:#e4efa8}
+.title strong{ position:absolute; top:-.29rem; color:#fff; font-size:1.1rem; width:2.656rem; line-height:2.76rem; text-align:center; background:url(/activity/nrb/title.gif) no-repeat center; background-size:2.656rem 2.594rem; -webkit-background-size:2.656rem 2.656rem; -moz-background-size:2.656rem 2.594rem}
+.title strong.one{ background-image:url(/activity/nrb/title2.gif)}
+.title span{ display:block; margin-left:2.656rem; padding-left:.5rem; line-height:2.16rem; background:#72ad2e; color:#fff; font-size:1rem}
+.title span em{ color:#feffc6; font-size:.8rem; margin-left:.7rem}
+.cj{ color:#f1a86d; font-size:.94rem; padding:.8rem 0 .4rem 1.2rem; line-height:1.2rem}
+.cj em{ display:inline-block; width:2.44rem; text-align:center; background:#ee5e32; margin:0 .5rem; color:#fff}
+.cjlist li{ overflow:hidden; zoom:1; margin-top:.25rem; height:3.76rem}
+.cjlist li span{ float:left; width:24.2%; line-height:3.6rem; background:#ffbe40; font-size:1.21rem; margin-right:1%; text-align:center; color:#fff; box-shadow:0 .3rem .005rem #c28c23; -webkit-box-shadow:0 .3rem .005rem #c28c23; -moz-box-shadow:0 .3rem .005rem #c28c23}
+.cjlist li span:last-child{ margin-right:0}
+.cjlist li span.yellow{ background:#f6d891}
+.cjlist li span.wyhb{ overflow:hidden; zoom:1; width:49.5%; line-height:3.5rem; font-size:1.25rem; background:#ee5e32; box-shadow:0 .3rem .005rem #be370e; -webkit-box-shadow:0 .3rem .005rem #be370e; -moz-box-shadow:0 .3rem .005rem #be370e}
+.cjlist li span cite{ float:left; padding-left:12%}
+.cjlist li span em{ position:relative; float:left; width:1.94rem; height:1.94rem; background:#fff; margin:.8rem 0 0 4%; border-radius:1.94rem; -webkit-border-radius:1.94rem; -moz-border-radius:1.94rem}
+.cjlist li span em:before{ content:""; position:absolute; top:.45rem; left:.8rem; border-style:solid; border-width:.55rem; border-color:transparent transparent transparent #ee5e32}
+.jfdh{ display:block; font-size:1.12rem; width:55%; line-height:2.5rem; text-align:center; background:#feebac; color:#9b411a; margin:1rem auto; border:1px solid #f1a86d; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem;}
+a.hqhb{ display:block; text-decoration:underline; width:55%; text-align:center; font-size:1.12rem; color:#9b411a; margin:.8rem auto}
+.nrb p{ color:#ff3f2b; font-size:1rem; padding:.5rem 0 .4rem 0; overflow:hidden; zoom:1}
+.nrb p b{ float:left; width:.44rem; height:.75rem; background:#ff3f2b; margin:.2rem .5rem 0 .3rem}
+.nrb li{ line-height:1.81rem}
+.nrb li span,.nrb li em{ display:inline-block; width:50%; color:#59980f; text-align:center}
+.nrb li em{ color:#e68610}
+.sgw{ background:#ffa555; color:#fff; margin-top:-.2rem; padding:.8rem .6rem; line-height:1.5rem; font-size:.95rem; letter-spacing:.05rem}
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1}
+.popup{ position:fixed; top:35%; left:3.5%; background:#feffee; width:85%; padding:0 4% 1rem 4%; z-index:2}
+.clock{ position:absolute; right:.4rem; top:.4rem; display:block; width:1.45rem; height:1.45rem; background:url(/activity/nrb/clock.gif) no-repeat center; background-size:1.4rem 1.4rem; -webkit-background-size:1.4rem 1.4rem; -moz-background-size:1.4rem 1.4rem}
+.popup p{ color:#636363; line-height:1.5rem; font-size:.85rem}
+.ture{ display:block; width:6.5rem; line-height:2rem; text-align:center; color:#fff; background:#42922c; font-size:1.06rem; margin:.8rem auto 0 auto}
+.popup p.jfdhtk{padding-top:1.4rem; letter-spacing:.05rem; font-size:1.1rem; line-height:2rem; width:15rem; margin:0 auto}
+.popup p.hdgz{ color:#42922c; font-size:1.15rem; text-align:center; line-height:2rem; padding-top:.3rem}
+.scroll{ height:20.7rem; overflow:auto}
+.scroll p{ padding:0 4%;}
+.popup2{ background:#42922c; position:fixed; top:16%; left:3.5%; width:93%; color:#fff; z-index:2;}
+.popup2 .hdgz{ text-align:center; line-height:2.5rem; color:#fffce5; font-size:1.12rem}
+.popup2 li{ overflow:hidden; zoom:1; font-size:.875rem; line-height:1.8rem; padding:0 5%; border-bottom:1px solid #67c14e}
+.tittle{ background:#67c14e}
+.popup2 li:last-child{ border-bottom:none}
+.popup2 li strong{ float:left; width:20%; font-weight:normal}
+.popup2 li span{ float:left; width:40%; text-align:center}
+.popup2 li cite{ float:left; width:30%; color:#fcff00; text-align:right}
+.clock2{ position:absolute; right:.6rem; top:.35rem; display:block; width:1.8rem; height:1.8rem; background:url(/activity/nrb/clock2.gif) no-repeat center; background-size:.77rem .77rem; -webkit-background-size:.77rem .77rem; -moz-background-size:.77rem .77rem}
+.dlzc{ padding:1rem 0 .6rem 10%; overflow:hidden; zoom:1}
+.dlzc span{ float:left; color:#e84e40; font-size:1rem; text-align:center; width:40%; margin-right:5%; line-height:2.44rem; background:#feffc6; border:1px solid #f1a86d; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.tklogin{ display:inline-block; width:4rem; margin-left:.3rem; line-height:1.8rem; background:#f6971c; color:#fff; font-size:.8rem; font-size:1rem; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.tklist li strong{ width:45%; padding-left:13%}
+/**
+*msg弹窗
+*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+
+@keyframes alert_play {0% {transform: scale(0,0)}
+30% {transform: scale(1.06,1.06)}
+50% {transform: scale(1,1)}
+65% {transform: scale(1.02,1.02)}
+100% {transform: scale(1,1)}
+}
+@-moz-keyframes alert_play {0% {-moz-transform: scale(0,0)}
+30% {-moz-transform: scale(1.06,1.06)}
+50% {-moz-transform: scale(1,1)}
+65% {-moz-transform: scale(1.02,1.02);}
+100% {-moz-transform: scale(1,1)}
+}
+@-o-keyframes alert_play {0% {-o-transform: scale(0,0)}
+30% {-o-transform: scale(1.06,1.06)}
+50% {-o-transform: scale(1,1)}
+65% {-o-transform: scale(1.02,1.02)}
+100% {-o-transform: scale(1,1)}
+}
+@-webkit-keyframes alert_play {0% {-webkit-transform: scale(0,0)}
+30% {-webkit-transform: scale(1.06,1.06);}
+50% {-webkit-transform: scale(1,1);}
+65% {-webkit-transform: scale(1.02,1.02);}
+100% {-webkit-transform: scale(1,1);}
+}
+.scale_{animation-name: alert_play;-ms-animation-name: alert_play;-moz-animation-name: alert_play;-webkit-animation-name: alert_play;-o-animation-name: alert_play;animation-duration: 1s;-ms-animation-duration: 1s;-moz-animation-duration: 1s;-webkit-animation-duration: 1s;-o-animation-duration: 1s;transform: translate3d(0px, 0px, 0px);-ms-transform: translate3d(0,0,0);-moz-transform: translate3d(0,0,0);-webkit-transform: translate3d(0,0,0);-o-transform: translate3d(0,0,0)}
+</style>
+<!-- 如何获取红包 -->
+<div class="popup scale_" style="display:none" id='hqhb'>
+	<em class="clock"></em>
+    <p style="padding-top:2rem">1、用户连续登录2天即可抽1次，若连续登录的第2天不抽，不可累计到第三天，需重新计算。</p>
+    <p>2、当日在手机单笔代购竞足满10元即可再抽2次，代购越多，抽奖越多。</p>
+    <p>(因代购获得抽奖每天不超6次，抽奖机会均不可累计，当日不用次日清零)</p>
+</div>
+<!-- 未登录 -->
+<div class="popup scale_" style="display:none;" id=login_c>
+	<em class="clock"></em>
+    <p class="jfdhtk" style="text-align:center">参与活动前，需先<span class="tklogin" id=login2>登录</span></p>
+	<span class="ture" style="margin-top:2.2rem">确认</span>
+</div>
+<!-- 兑换积分 -->
+<div class="popup scale_" style="display:none" id='cash'>
+	<em class="clock"></em>
+    <p class="jfdhtk" style="width:12.5rem">您目前的积分可兑换<em style="color:red">XX</em><br>
+个1元红包，确认兑换？</p>
+	<div style="width:14.5rem; margin:0 auto; overflow:hidden; zoom:1"><span class="ture" style="float:left">取消</span><span class="ture" style="float:right">确认</span></div>
+</div>
+<!-- 积分不够 -->
+<div class="popup scale_" style="display:none" id='lose'>
+	<em class="clock"></em>
+    <p class="jfdhtk">萌萌哒，您目前的积分暂时不足兑换一元红包哦</p>
+	<span class="ture">确定</span>
+</div>
+<!-- 获取积分 -->
+<div class="popup scale_" style="display:none" id=outcome>
+	<em class="clock"></em>
+    <p class="jfdhtk" style="text-align:center">恭喜您获得5积分</p>
+	<span class="ture" style="margin-top:2.2rem">确认</span>
+</div>
+<!-- 活动规则 -->
+<div class="popup scale_" style="display:none; top:15%; padding:0 0 .6rem 0; width:93%" id='rule_c'>
+	<em class="clock"></em>
+    <p class="hdgz">活动规则</p>
+    <div class="scroll">
+    <p>1、活动时间：<br>2014年10月13日-2014年11月2日。</p>
+    <p>2、参与每周排行榜活动仅限9188彩票手机（包括客户端和触屏版）代购竞足方案所中奖金额，合买不参与。当前竞足中奖排行名单，每日0点刷新一次。</p>
+    <p>3、用户连续登录2天即可抽1次红包，不可累计次数，如连续登录的第2天未抽红包，则第三天登录时不可抽红包。</p>
+    <p>4、当日单笔代购竞足满10元即可再抽2次，代购越多，抽奖越多，但因代购而获得的抽奖机会每天不超过6次。当日满足代购条件未抽红包，次日抽红包机会将清零，不可累计。</p>
+    <p>5、活动期间三周内有两周获得竞足中奖排行榜冠军的，可额外获得888元红包，冲刺奖上奖！10积分=1元红包，累计满10元积分即可兑换，活动结束后未兑换的积分将清零。</p>
+    <p>6、用户以手机号和设备码为识别标准，若有用户作弊，有权要求返回相关奖励。</p>
+    <p>7、累计中奖金额根据方案派奖时间计算排行；例如10月19号为周日，当天24点前购买的方案若在次日派奖则算在次周排行榜。如中奖金额相同，按当期最后一个中奖方案的代购时间的先后来排序。</p>
+    <p>8、获得的奖励以红包形式赠送至个人账户，红包不可提现，使用红包中奖后方可提现。</p>
+    <p>9、中奖牛人榜红包于排行榜结算次周周一18点前派发至用户个人中心，有效期一个月。</p>
+    <p>10、活动最终解释权归9188彩票网所有，如有疑问请咨询400-673-9188。</p>
+    </div>
+</div>
+<!-- 上周牛人榜 -->
+<div class="popup2 scale_" style="display:none" id=rank>
+	<em class="clock2"></em>
+    <p class="hdgz">上周竞足牛人榜</p>
+    <ul><li class="tittle"><strong>排名</strong><span>用户名</span><cite>中奖金额</cite></li></ul>
+    <div class="scroll">
+    <ul>加载中...</ul>
+    </div>
+</div>
+<!-- 上周牛人榜end -->
+<!-- 更多排行 -->
+<div class="popup2 scale_" style="display:none" id=rank2>
+	<em class="clock2"></em>
+    <p class="hdgz">本周更多排行</p>
+    <ul><li class="tittle"><strong>排名</strong><span>用户名</span><cite>中奖金额</cite></li></ul>
+    <div class="scroll">
+    <ul>
+    	<li><strong>冠军</strong><span>小女子玩竞彩</span><cite>50000元</cite></li>
+    	<li><strong>季军</strong><span>tanmeiling</span><cite>30000元</cite></li>
+    	<li><strong>亚军</strong><span>dongdong</span><cite>2000元</cite></li>
+    	<li><strong>第四名</strong><span>havv</span><cite>1000元</cite></li>
+    	<li><strong>第五名</strong><span>Cherry</span><cite>800元</cite></li>
+    	<li><strong>第六名</strong><span>blair</span><cite>500元</cite></li>
+    	<li><strong>第七名</strong><span>roson</span><cite>400元</cite></li>
+    	<li><strong>第八名</strong><span>vivi</span><cite>300元</cite></li>
+    	<li><strong>第九名</strong><span>watch</span><cite>230元</cite></li>
+    	<li><strong>第十名</strong><span>Chuck</span><cite>200元</cite></li>
+    	<li><strong>第七名</strong><span>roson</span><cite>400元</cite></li>
+    	<li><strong>第八名</strong><span>vivi</span><cite>300元</cite></li>
+    	<li><strong>第九名</strong><span>watch</span><cite>230元</cite></li>
+    	<li><strong>第十名</strong><span>Chuck</span><cite>200元</cite></li>
+    </ul>
+    </div>
+</div>
+<!-- 更多排行end -->
+<!-- 更多奖品 -->
+<div class="popup2 scale_" style="display:none;" id=more_award>
+	<em class="clock2"></em>
+    <p class="hdgz">每周竞足中奖牛人榜奖品</p>
+    <ul class="tklist">
+    	<li class="tittle"><strong>排名</strong><cite>奖品</cite></li>
+    	<li><strong>冠军</strong><cite>388元红包</cite></li>
+    	<li><strong>季军</strong><cite>178元红包</cite></li>
+    	<li><strong>亚军</strong><cite>158元红包</cite></li>
+    	<li><strong>第四名</strong><cite>128元红包</cite></li>
+    	<li><strong>第五名</strong><cite>108元红包</cite></li>
+    	<li><strong>第六名</strong><cite>88元红包</cite></li>
+    	<li><strong>第七名</strong><cite>68元红包</cite></li>
+    	<li><strong>第八名</strong><cite>48元红包</cite></li>
+    	<li><strong>第九名</strong><cite>28元红包</cite></li>
+    	<li><strong>第十名</strong><cite>18元红包</cite></li>
+    </ul>
+</div>
+<!-- 更多奖品endend -->
+<div class="zhezhao" style="display:none"></div>
+<body style="background:#fff886">
+	<figure style="overflow:hidden"><img src="/activity/nrb/banner.jpg"></figure>
+    <article class="text">
+    	<section>
+        	<div class="title"><strong class="one">01</strong><span>沾喜气抢红包<em>(注：10积分=1元红包 ) </em></span></div>
+        	<p style="padding:1.2rem 0 0 1rem; font-size:.85rem">参与活动前，需先绑定手机号。</p>
+            <div class="dlzc" style='display:none;' id=unlisted><span id=login>登录</span><span id=enroll>注册</span></div>
+            <p class="cj" style='display:none;' id=already><label></label>,您今日可抽奖 <em></em>次<br>目前可兑奖积分为&nbsp;<label></label></p>
+            <a href="javascript:;" class="hqhb">如何获取红包机会？</a>
+            <div class="pd03">
+            	<ul class="cjlist">
+                	<li><span>10元</span>
+                	<span class="">再来</span>
+                	<span class="yellow">8元</span>
+                	<span>5积分</span></li>
+                	<li><span>3元</span>
+                	<span class="wyhb" id='wyhb2' style='display:none;'><cite>我要红包</cite><em></em></span>
+                	<span class="wyhb" id='wyhb'><cite>我要红包</cite><em></em>
+                	</span><span>18元</span></li>
+                	<li><span>1积分</span><span>5元</span><span>1元</span><span>118元</span></li>
+                </ul>
+            </div>
+            <div class="jfdh" id=exchange>积分兑换红包</div>            
+        </section>
+    	<section style="margin-top:.8rem">
+        	<div class="title"><strong>02</strong><span>周周竞足中奖牛人榜</span></div>
+            <p class="cj" id='jc_money'></p>
+            <div class="jfdh" id='football'>投竞足</div>
+            <div class="pd03 nrb">
+            	<p><b></b>当前本周竞足牛人榜</p>
+            	<ul id='bznrb'>
+            	<!-- 
+                	<li class="green"><span>9188账号</span><em>中奖金额</em></li>
+                	<li><span>小女子玩竞彩</span><em>50000元</em></li>
+                	<li class="green"><span>tanmeiling  </span><em>30000元</em></li>
+                	<li><span>小女子玩竞彩</span><em>20000元</em></li>
+               	 -->
+                </ul>
+                <div style=" margin-top:1rem; overflow:hidden; zoom:1"><span style="float:right"><a href="javascript:;" id='last_week' style="margin-right:1.5rem">上周牛人榜&gt;&gt;</a><a href="javascript:;" id=more_rank>更多排行&gt;&gt;</a></span></div>
+                <p style="padding-top:2rem"><b></b>每周竞足前10牛人榜奖品</p>
+            	<ul>
+                	<li class="green"><span>冠军</span><em>388元红包</em></li>
+                	<li><span>亚军</span><em>178元红包</em></li>
+                	<li class="green"><span>季军</span><em>158元红包</em></li>
+                </ul>
+                <div style=" margin-top:1rem; text-align:right"><a href="javascript:;" id=award>更多排行奖品&gt;&gt;</a></div>
+            </div>
+        </section>
+        <section style="margin-top:.8rem">
+        	<div class="title"><strong>03</strong><span>双冠王</span></div>
+            <div class="pd03">
+            	<figure style="margin:1.5rem 0 0 0"><img src="/activity/nrb/pic.gif" style="height:2.56rem; width:70%"></figure>
+                <div class="sgw">活动持续三周，若有两周（含两周以上）荣登榜首的用户，将额外获得双冠王奖</div>
+                <div style=" margin-top:1rem; overflow:hidden; zoom:1"><a href="javascript:;" id='rule' style="float:right; color:red">活动规则&gt;&gt;</a></div>
+            </div>
+        </section>
+    </article>
+</body>
+</html>
+<input type="hidden" id='chance_login' value=''>
+<input type="hidden" id='money' value=''>
+<input type="hidden" id='count' value=''>
+<!-- 百度统计 -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff6babc6e11c8122615416b76c3b54696' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- 百度统计 -->
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/activity/nrb/index.js"></script>

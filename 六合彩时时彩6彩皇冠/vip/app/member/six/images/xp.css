@@ -1,0 +1,92 @@
+@charset "gb2312";
+BODY {
+	BACKGROUND-COLOR: #ffffff
+	FONT-SIZE: 14xp;
+}
+
+BODY {
+	SCROLLBAR-FACE-COLOR: #ecf3fb; FONT-SIZE: 14xp; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #cccccc; COLOR: #000000; SCROLLBAR-3DLIGHT-COLOR: buttonface; SCROLLBAR-ARROW-COLOR: #000000; SCROLLBAR-TRACK-COLOR: #eaf0f5; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; SCROLLBAR-DARKSHADOW-COLOR: #ffffff; TEXT-DECORATION: none
+}
+INPUT {
+	BEHAVIOR: url(inputxp.htc)
+}
+SELECT {
+	BORDER-RIGHT: #7f9db9 1px solid; BORDER-TOP: #7f9db9 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #7f9db9 1px solid; COLOR: #0560a6; BORDER-BOTTOM: #7f9db9 1px solid; FONT-FAMILY: Verdana, Arial, ??им?; HEIGHT: 20px
+}
+A:link {
+	FONT-SIZE: 9pt; COLOR: #ff0000; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 9pt; COLOR: #ff0000; TEXT-DECORATION: none
+}
+A:active {
+	FONT-SIZE: 9pt; COLOR: #ff0000
+}
+A:hover {
+	FONT-SIZE: 9pt; COLOR: #ff0000
+}
+TR {
+	FONT-SIZE: 9pt; COLOR: #666666
+}
+.bg_line {
+	BORDER-RIGHT: #cccccc 0px solid; BORDER-TOP: #cccccc 0px solid; BORDER-LEFT: #cccccc 0px solid; COLOR: #999999; BORDER-BOTTOM: #ffffff 1px solid; TOP: -10px; TEXT-DECORATION: none
+}
+
+.button_a {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #f1f1f1 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #ffffff 1px solid; CURSOR: hand; PADDING-TOP: 2px; BORDER-BOTTOM: #f1f1f1 1px solid; BACKGROUND-COLOR: ##FCFACA;COLOR: #000000
+}
+.button_b {
+	BORDER-RIGHT: #ece9d8 1px solid; BORDER-TOP: #ece9d8 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #ece9d8 1px solid; CURSOR: hand; PADDING-TOP: 2px; BORDER-BOTTOM: #ece9d8 1px solid; BACKGROUND-COLOR: #ece9d8
+}
+.button_c {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #f1f1f1 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #ffffff 1px solid; CURSOR: hand; PADDING-TOP: 2px; BORDER-BOTTOM: #f1f1f1 1px solid; BACKGROUND-COLOR: #006600;COLOR: #ffffff
+}
+
+.headtd1 {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #ffffff 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #ffffff 1px solid; CURSOR: hand; PADDING-TOP: 2px; BORDER-BOTTOM: #999999 1px solid; BACKGROUND-COLOR: #3C0000
+}
+.headtd2 {
+	BORDER-RIGHT: #3C0000 1px solid; BORDER-TOP: #3C0000 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #3C0000 1px solid; CURSOR: hand; PADDING-TOP: 2px; BORDER-BOTTOM: #3C0000 1px solid; BACKGROUND-COLOR: #3C0000
+}
+
+.headtd3 {
+BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #f1f1f1 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #ffffff 1px solid; CURSOR: hand; PADDING-TOP: 2px; BORDER-BOTTOM: #f1f1f1 1px solid; BACKGROUND-COLOR: #D4E5F4;COLOR: #ff0000
+}
+.headtd4 {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #ffffff 1px solid; CURSOR: hand; PADDING-TOP: 2px; BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-COLOR: #ffffff;COLOR: #ff6600
+
+}
+
+
+.bodytd {
+	BORDER-RIGHT: #d6d3ce 0px outset; BORDER-TOP: #d6d3ce 0px outset; FONT-SIZE: 9pt; BACKGROUND: #d6d3ce; BORDER-LEFT: #d6d3ce 0px outset; BORDER-BOTTOM: #d6d3ce 0px outset
+}
+.input1 {
+	BACKGROUND-COLOR: #ffffff; BORDER-BOTTOM: #A7BCCB 1px solid; BORDER-LEFT: #A7BCCB 1px solid; BORDER-RIGHT: #A7BCCB 1px solid; BORDER-TOP: #A7BCCB 1px solid; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"; FONT-SIZE: 12px
+}
+.input_a {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; VERTICAL-ALIGN: middle; BORDER-LEFT: #999999 1px solid; COLOR: #000000; BORDER-BOTTOM: #999999 1px solid; BACKGROUND-COLOR: #e6e6e6
+}
+.cursor {
+	CURSOR: hand
+}
+.about {
+	LINE-HEIGHT: 21px
+}
+LEGEND {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px; PADDING-BOTTOM: 3px; COLOR: #ffff66; PADDING-TOP: 3px; BACKGROUND-COLOR: #B53A06
+}
+.tbtitle {
+	BACKGROUND: #0033ff;COLOR: #ffffff
+}
+
+.ball_r {font-weight:bold;background:#f1f1f1 url(r1.gif) no-repeat center;COLOR: #000000;font-size: 16;
+	font-weight: bold;}
+.ball_b {font-weight:bold;background:#f1f1f1 url(b1.gif) no-repeat center;COLOR: #000000;font-size: 16;
+	font-weight: bold;}
+.ball_g {font-weight:bold;background:#f1f1f1 url(g1.gif) no-repeat center;COLOR: #000000;font-size: 16;
+	font-weight: bold;}
+.ball_ff {font-weight:bold;COLOR: #FF0000;font-size: 16;background:#FFFFFF;}
+BODY {	Font-family: Arial; font-size: 12pt; cursor: default;
+            color:#000000;
+    }

@@ -1,0 +1,59 @@
+package com.mh.service;
+
+import java.util.List;
+
+import com.mh.entity.TLinkWebKjPay;
+import com.mh.entity.TWebBankHuikuan;
+import com.mh.entity.TWebThirdPay;
+import com.mh.entity.TWebThirdPayKj;
+import com.mh.entity.WebUser;
+
+public interface PayCenterService {
+	public List<TWebThirdPay> findTWebThirdPay(Integer usertypeId);
+	
+	public TWebThirdPayKj getTWebThirdPayKj(Integer type,Integer userType);
+	
+	public List<TLinkWebKjPay> getTWebKjPay(Integer usertype,Integer payType);
+	
+	public TWebThirdPay findTWebThirdPayById(int id);
+	
+	/**
+	 * @Description: 第三方支付订单信息入库
+	 * @param    
+	 * @return void  
+	 * @throws
+	 * @author Andy
+	 * @date 2015-6-7
+	 */
+	public void saveBankHuikuan(TWebBankHuikuan entity);
+	/**
+	 * 
+	 * @Description: 根据订单号查找订单支付信息
+	 * @param    
+	 * @return TWebBankHuikuan  
+	 * @throws
+	 * @author Andy
+	 * @date 2015-6-9
+	 */
+	public TWebBankHuikuan loadTWebBankHuikuanForBillno(String billno,int hkStatus);
+	/**
+	 * @Description: 支付成功入账操作
+	 * @param    
+	 * @return boolean
+	 * @author Andy
+	 * @throws Exception 
+	 * @date 2015-6-9
+	 */
+	public boolean updateWebUserDeposit(TWebBankHuikuan bankHk) throws Exception;
+	
+	
+	/**
+	 * 根据用户名查询用户信息
+	 * 方法描述: TODO</br> 
+	 * @param userName
+	 * @return  
+	 * WebUser
+	 */
+	public WebUser findWebrUseByUserName(String userName);
+	
+}

@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Setting Guide</title>
+
+<script>
+function chg_language(langx) {
+	var homepage = "";
+	if (langx != "zh-tw" && langx != "zh-cn") {
+		homepage = "/tpl/member/en-us/QA.html";
+	} else {
+		homepage = "/tpl/member/"+langx+"/QA.html";
+	}
+	self.location = homepage;
+}
+function OnMouseOverPIC(langx) {
+	document.getElementById("OverQA_"+langx).style.display = "block";
+	document.getElementById("OutQA_"+langx).style.display = "none";
+}
+function OnMouseOutPIC(langx) {
+	document.getElementById("OverQA_"+langx).style.display = "none";
+	document.getElementById("OutQA_"+langx).style.display = "block";
+}
+</script>
+<link href="/style/agents/control_body.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="divG">
+<div id="divG">
+  <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+   <td>
+    <ul>
+    <li class="sub">Setting Guide</li> 
+    </ul>
+    <table cellpadding="2" cellspacing="2">
+    <tr>
+        <td  valign="top">
+        <span class="T">1) Use <font color="#FF0000">Agent ID</font> for login.</span><br>
+        <img src="/images/agents/control/en-us/Guide_01.jpg" width="510" height="166"> </td></tr>
+     <tr>
+         <td valign="top"> 
+          <span class="T">2) Please Enter the &ldquo;Login ID&rdquo; and &ldquo;Re-confirm Login ID&rdquo; in the input field.<br>
+ Users have to re-login after completing.</span><br>
+        <img src="/images/agents/control/en-us/Guide_02.jpg" width="450" height="228"></td>
+     </tr>
+     <tr>
+        <td>
+         <span class="T">3) Use new <font color="#FF0000">"Login ID"</font>to login the Member URL. </span><br>
+        <img src="/images/agents/control/en-us/Guide_03.jpg" width="510" height="166">       </td>
+   </tr></table>    </td>
+    </tr>
+</table>
+ </div>
+</body>
+</html>

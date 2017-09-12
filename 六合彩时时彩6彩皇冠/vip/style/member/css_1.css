@@ -1,0 +1,280 @@
+ {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.bianbg {
+	BACKGROUND: url(/images/bianbg.jpg) #616378 repeat-y left 50%
+}
+BODY {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "ËÎÌו"
+}
+A:link {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+A:active {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #282828
+}
+.bottom_body {
+	BACKGROUND: url(/images/bottom_bg.jpg) #68e8d1 repeat-x 50% top
+}
+#bottom_1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(/images/bottom_11.jpg) no-repeat right top; PADDING-BOTTOM: 0px; WIDTH: 700px; PADDING-TOP: 17px
+}
+#bottom_1 .bottom_2 {
+	WORD-SPACING: 14px; WIDTH: 700px; LINE-HEIGHT: 16px; TEXT-ALIGN: center
+}
+#bottom_1 .bottom_3 {
+	WORD-SPACING: 3px; WIDTH: 700px; LINE-HEIGHT: 16px; TEXT-ALIGN: center
+}
+#top_1 {
+	BACKGROUND: url(/images/top_bg.jpg) repeat-x; WIDTH: 700px; HEIGHT: 90px
+}
+#top_1 #logo {
+	BACKGROUND: url(/images/logo.jpg) no-repeat; FLOAT: left; WIDTH: 237px; HEIGHT: 90px
+}
+#top_1 #right0 {
+	BACKGROUND: url(/images/top_bg2.jpg) no-repeat left top; FLOAT: left; WIDTH: 700px; HEIGHT: 90px
+}
+#top_1 #right0 #kefu {
+	WIDTH: 700px; HEIGHT: 44px; TEXT-ALIGN: right
+}
+#top_1 #right0 #kefu IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+#top_1 #rogjt0 #daohang {
+	WIDTH: 700px; HEIGHT: 46px
+}
+.left_body {
+	BACKGROUND: url(/images/left_bg.jpg) repeat-y
+}
+#left_1 {
+	BACKGROUND: url(/images/left_bg2.jpg) no-repeat; WIDTH: 160px; HEIGHT: 142px
+}
+#left_1 #dl_01 {
+	FONT-WEIGHT: bold; BACKGROUND: url(/images/left_dl_01.jpg) no-repeat; WIDTH: 160px; COLOR: #017c04; TEXT-INDENT: 40px; HEIGHT: 38px
+}
+#left_1 #dl_01 .dl_zc {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 21px
+}
+#left_1 #dl_02 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 19px; BACKGROUND: url(/images/left_dl_02.jpg) no-repeat; PADDING-BOTTOM: 0px; WIDTH: 141px; COLOR: #036142; PADDING-TOP: 5px; HEIGHT: 82px
+}
+#left_1 #dl_02 .y_hu01 {
+	WIDTH: 141px; HEIGHT: 14px
+}
+#left_1 #dl_02 .y_hu02 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 4px; WIDTH: 141px; PADDING-TOP: 4px; HEIGHT: 14px
+}
+.y_hu_wb01 {
+	BORDER-RIGHT: #0b888e 1px solid; BORDER-TOP: #0b888e 1px solid; FONT-SIZE: 12px; BACKGROUND: #cff8f4; BORDER-LEFT: #0b888e 1px solid; WIDTH: 74px; TEXT-INDENT: 1px; LINE-HEIGHT: 14px; BORDER-BOTTOM: #0b888e 1px solid; HEIGHT: 14px
+}
+.y_hu_wb02 {
+	BORDER-RIGHT: #0b888e 1px solid; BORDER-TOP: #0b888e 1px solid; FONT-SIZE: 12px; BACKGROUND: #cff8f4; BORDER-LEFT: #0b888e 1px solid; WIDTH: 30px; TEXT-INDENT: 1px; LINE-HEIGHT: 14px; BORDER-BOTTOM: #0b888e 1px solid; HEIGHT: 14px
+}
+#left_1 #dl_02 .anniu_01 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; WIDTH: 130px; PADDING-TOP: 12px; HEIGHT: 19px
+}
+#left_1 #dl_02 .anniu_01 .red {
+	MARGIN: 0px 0px 0px 5px; COLOR: #d20000; LINE-HEIGHT: 16px
+}
+.y_hu_wb03 {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: url(/images/left_dl_03.jpg) no-repeat; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 43px; HEIGHT: 19px; BORDER-RIGHT-WIDTH: 0px
+}
+#left_1 #dl_00 {
+	BACKGROUND: url(/images/left_dl_00.jpg) no-repeat; WIDTH: 160px; HEIGHT: 17px
+}
+#left_2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 21px; BACKGROUND: url(/images/left_bg_top.jpg) no-repeat 50% top; PADDING-BOTTOM: 0px; WIDTH: 139px; PADDING-TOP: 18px; HEIGHT: 81px
+}
+#left_2 .js1 {
+	FONT-WEIGHT: bold; WIDTH: 139px; COLOR: #000; TEXT-INDENT: 45px; LINE-HEIGHT: 25px; HEIGHT: 25px
+}
+#left_2 .js2 {
+	FONT-WEIGHT: bold; WIDTH: 139px; COLOR: #fff; TEXT-INDENT: 45px; LINE-HEIGHT: 25px; HEIGHT: 25px
+}
+#left_2 .js_zu1 {
+	BACKGROUND: url(/images/left_zu_bg1.jpg) no-repeat
+}
+#left_2 .js_zu2 {
+	BACKGROUND: url(/images/left_zu_bg2.jpg) no-repeat
+}
+#left_2 .js_00 {
+	BACKGROUND: url(/images/left_js_bg.jpg) no-repeat; WIDTH: 139px; COLOR: #016b04; TEXT-INDENT: 26px; LINE-HEIGHT: 20px; HEIGHT: 20px
+}
+#left_2 .js_00 .red {
+	MARGIN: 0px 0px 0px 3px; COLOR: #b00000
+}
+#left_2 .js1 .red {
+	MARGIN: 0px 0px 0px 3px; COLOR: #b00000
+}
+#left_2 .js2 .red {
+	MARGIN: 0px 0px 0px 3px; COLOR: #ff0000
+}
+.right_body {
+	BACKGROUND: url(/images/right_bg.jpg) repeat-y
+}
+#right_1 {
+	BACKGROUND: url(/images/right_bg2.jpg) repeat-x; WIDTH: 700px
+}
+#right_1 #gonggao {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 134px; BACKGROUND: url(/images/right_ggao.jpg) no-repeat; PADDING-BOTTOM: 0px; WIDTH: 682px; PADDING-TOP: 10px; HEIGHT: 37px
+}
+#right_1 #gonggao #gund {
+	WIDTH: 655px; COLOR: #016b04
+}
+#right_1 #shuaxin {
+	PADDING-RIGHT: 30px; PADDING-LEFT: 32px; BACKGROUND: url(/images/right_sx.jpg) no-repeat; PADDING-BOTTOM: 0px; WIDTH: 700px; PADDING-TOP: 0px; HEIGHT: 39px
+}
+#right_1 #shuaxin #a_shuaxin {
+	FLOAT: left; MARGIN: 8px 0px 0px; WIDTH: 30px; HEIGHT: 26px
+}
+#right_1 #shuaxin #dumiao {
+	FLOAT: left; MARGIN: 14px 0px 0px; WIDTH: 95px; COLOR: #006600
+}
+#right_1 #shuaxin #ladong_1 {
+	FLOAT: right; WIDTH: 400px
+}
+#right_1 #shuzi {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 25px; BACKGROUND: url(/images/right_szi.jpg) no-repeat; PADDING-BOTTOM: 0px; WIDTH: 700px; PADDING-TOP: 0px; HEIGHT: 20px
+}
+#right_1 #shuzi .sz_0 {
+	BORDER-RIGHT: #dfdfdf 1px solid; FLOAT: left; WIDTH: 33px; COLOR: #bd0000; LINE-HEIGHT: 18px; HEIGHT: 18px; TEXT-ALIGN: center
+}
+#right_2 {
+	MARGIN: 0px 0px 0px 25px; WIDTH: 700px
+}
+#right_2 #lantiao {
+	BACKGROUND: #0f93ff; WIDTH: 700px; COLOR: #ffffff; LINE-HEIGHT: 27px; BORDER-BOTTOM: #b7b7b7 2px solid; HEIGHT: 27px
+}
+#right_2 #lantiao .bai_x {
+	BORDER-RIGHT: #fff 1px solid; FLOAT: left; TEXT-ALIGN: center
+}
+#right_2 #lantiao .bai_z {
+	FLOAT: left; TEXT-ALIGN: center
+}
+#right_2 .zhudui {
+	LINE-HEIGHT: 18px; HEIGHT: 18px
+}
+#right_2 .kedui {
+	LINE-HEIGHT: 18px; HEIGHT: 18px
+}
+#rogjt_2 .heju {
+	LINE-HEIGHT: 18px; HEIGHT: 18px
+}
+#right_2 .hui_xx {
+	BORDER-RIGHT: #cacaca 1px solid; FLOAT: left; HEIGHT: 53px; TEXT-ALIGN: center
+}
+#right_2 .hui_x {
+	BORDER-RIGHT: #cacaca 1px solid; FLOAT: left; TEXT-INDENT: 3px; LINE-HEIGHT: 18px; HEIGHT: 18px
+}
+#right_2 .hui_z {
+	FLOAT: left; TEXT-INDENT: 3px
+}
+#right_2 .hui_d {
+	BORDER-TOP: #cacaca 1px solid; FLOAT: left; TEXT-INDENT: 3px; LINE-HEIGHT: 17px; HEIGHT: 17px
+}
+.zu_1 {
+	WIDTH: 60px
+}
+.zu_2 {
+	WIDTH: 200px
+}
+.zu_3 {
+	WIDTH: 49px
+}
+.zu_4 {
+	WIDTH: 92px
+}
+.zu_5 {
+	WIDTH: 515px
+}
+#right_2 .liansai {
+	WIDTH: 777px; LINE-HEIGHT: 26px; BORDER-BOTTOM: #b7b7b7 2px solid; HEIGHT: 26px; TEXT-ALIGN: center
+}
+#right_2 .bisai {
+	WIDTH: 700px; BORDER-BOTTOM: #b7b7b7 2px solid; HEIGHT: 54px
+}
+#zhuce_body {
+	BACKGROUND: url(/images/zhuce_bg.jpg) #ffffff repeat-y left 50%
+}
+
+#zhuce_top {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(/images/zhuce_top.jpg) no-repeat left top; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 700px; PADDING-TOP: 5px;
+}
+#zhuce_top H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 45px; FONT-WEIGHT: bold; FONT-SIZE: 14px; BACKGROUND: url(/images/zhuce_h1.jpg) no-repeat left 50%; PADDING-BOTTOM: 3px; MARGIN: 0px 0px 5px 12px; COLOR: #013801; PADDING-TOP: 12px
+}
+#zhuce_top H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 45px; FONT-WEIGHT: bold; FONT-SIZE: 14px; BACKGROUND: url(/images/zhuce_h2.jpg) no-repeat left 50%; PADDING-BOTTOM: 3px; MARGIN: 0px 0px 5px 12px; COLOR: #013801; PADDING-TOP: 12px
+}
+#zhuce_top .zhuce_00 {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 15px; PADDING-BOTTOM: 0px; WIDTH: 650px; PADDING-TOP: 12px
+}
+#zhuce_top .zhuce_008 {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 35px; MARGIN: 0px 10px 15px 12px;PADDING-BOTTOM: 0px; WIDTH: 650px; PADDING-TOP: 12px
+}
+.zhuce_01 {
+	FLOAT: left; WIDTH: 100px; LINE-HEIGHT: 18px; HEIGHT: 18px; TEXT-ALIGN: right
+}
+.zhuce_02 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 8px; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 210px; PADDING-TOP: 0px; HEIGHT: 20px
+}
+.zhuce_02 INPUT {
+	BORDER-RIGHT: #373737 1px solid; BORDER-TOP: #373737 1px solid; BACKGROUND: #ffffff; BORDER-LEFT: #373737 1px solid; BORDER-BOTTOM: #373737 1px solid; HEIGHT: 20px
+}
+.zhuce_02 .xingbie {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.zhuce_02 .yanzh {
+	WIDTH: 60px
+}
+.width_00 {
+	WIDTH: 150px
+}
+.zhuce_03 {
+	PADDING-RIGHT: 0px;BACKGROUND: url(/images/zhuce_h.gif) #ffecec no-repeat left 50%;
+}
+.zhuce_04 {
+	BORDER-RIGHT: #9ff291 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #9ff291 1px solid; PADDING-LEFT: 26px; BACKGROUND: url(/images/zhuce_lv.jpg) #dcffd2 no-repeat left 50%; FLOAT: left; PADDING-BOTTOM: 0px; BORDER-LEFT: #9ff291 1px solid; WIDTH: 260px; LINE-HEIGHT: 16px; PADDING-TOP: 0px; BORDER-BOTTOM: #9ff291 1px solid; HEIGHT: 16px
+}
+.zhuce_05 {
+	PADDING-RIGHT: 0px;
+}
+.zhuce_06 {
+	BORDER-RIGHT: #92dfed 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #92dfed 1px solid; PADDING-LEFT: 26px; BACKGROUND: url(/images/zhuce_lan.jpg) #caf8ff no-repeat left 50%; FLOAT: left; PADDING-BOTTOM: 0px; BORDER-LEFT: #92dfed 1px solid; WIDTH: 260px; LINE-HEIGHT: 16px; PADDING-TOP: 0px; BORDER-BOTTOM: #92dfed 1px solid; HEIGHT: 16px
+}
+.red {
+	COLOR: #ff0000
+}
+.tiao_00 {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 20px; PADDING-BOTTOM: 8px; MARGIN: 0px 0px 0px 80px; WIDTH: 555px; PADDING-TOP: 16px; BORDER-BOTTOM: #666666 1px solid
+}
+.tiao_01 {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 140px; PADDING-BOTTOM: 20px; PADDING-TOP: 16px
+}
+.tiao_01 INPUT {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: url(/images/zhuce_tb.jpg) no-repeat; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 51px; HEIGHT: 23px; BORDER-RIGHT-WIDTH: 0px
+}
+.tiao_01 .ju {
+	MARGIN: 0px 170px 0px 0px
+}
+.tiao_02 {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 120px; PADDING-BOTTOM: 0px; PADDING-TOP: 15px
+}
+#zhuce_top .daili_00 {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 35px; PADDING-BOTTOM: 0px; WIDTH: 650px; PADDING-TOP: 12px
+}
+.daili_01 {
+	FLOAT: left; WIDTH: 100px; LINE-HEIGHT: 18px; HEIGHT: 18px; TEXT-ALIGN: right
+}
+.daili_02 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 8px; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 510px; PADDING-TOP: 0px; HEIGHT: 16px
+}
+.daili_03 {
+	
+}

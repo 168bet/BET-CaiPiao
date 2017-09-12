@@ -1,0 +1,16 @@
+<div class="bank-selector">
+    <p class="selected-content" ng-class="{'bank-selected': data.selectedBank }" ng-click="fun.showSubBanks()">
+        <span ng-bind-html="data.selectedBankName | trustHTML"></span>
+        <a class="bank-drop" href="javascript:void(0);"><i class="ico-down" id="icoName"></i></a>
+    </p>
+    <div class="bank-items" ng-show="data.showBankItems">
+        <ul class="clearfix">
+            <li ng-repeat="bank in banks">
+                <input name="bankId" ng-value="bank.id" type="radio" checkable ng-model="data.selectedBank" class="radio_a"/>
+                <span ng-click="fun.setCrtBank(bank)" class="ico-bank" ng-class="bank.bankCode.toUpperCase()"></span>
+                <span>开户人姓名：{{bank.userRealName}}</span>
+                <span>银行卡号：{{bank.bankCard}}</span>
+            </li>
+        </ul>
+    </div>
+</div>

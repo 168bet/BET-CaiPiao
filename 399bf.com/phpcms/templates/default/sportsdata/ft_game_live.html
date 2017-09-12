@@ -1,0 +1,52 @@
+{php $css = ['ft_game_analyse.css'];}
+{template 'content', 'header_score'}
+
+<!-- nav -->
+{template 'sportsdata', 'ft_game_info'}
+<!-- nav end -->
+
+<!-- main body -->
+<section class="main pdB20" id="table-content">
+    <div class="container">
+        <div class="row">
+
+            <div class="score-item" id="statstable">
+
+                <div class="score-item-hd">
+                    <a href="{APP_PATH}game/{$gameid}/stats/" class=" btn btn-default">技术统计</a>
+                    <a href="" class="active btn btn-default">实况直播</a>
+                </div>
+                <div class="score-item-bd pdB20">
+                    <table class="table middle-table">
+                            <thead>
+                                <tr>
+                                    <td width="215" class="noBorder">{$gameinfo[homename]}</td>
+                                    <td class="noBorder">VS</td>
+                                    <td width="215">{$gameinfo[awayname]}</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="3">实况直播</td>
+                                </tr>
+                            </tbody>
+                    </table>
+
+                    <div class="live-box">
+                        <iframe class="a" frameborder="0" width="100%" height="6000" src="http://wlive.m.7m.cn/xiansu/index.shtml?id={$gameid}
+" allowfullscreen style="margin: 0 auto;display: block;"></iframe>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+<!-- main body -->
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js =['imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js']}
+{template 'content', 'footer'}

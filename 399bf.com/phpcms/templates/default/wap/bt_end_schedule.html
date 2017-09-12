@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$SEO['title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- build css -->
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+    <link rel="stylesheet" href="{WAP_CSS_PATH}font-awesome.min.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}main.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}bt_immediate.css">
+    <!-- build css end -->
+
+
+</head>
+<body>
+<div class="page-group">
+
+    <div class="page page-current">
+
+        <header class="bar bar-nav">
+            <a class="button pull-left btn-back" href="{WAP_PATH}lqscore/">
+                <i class="fa fa-angle-left fa-2x orange"></i>
+            </a>
+            <nav class="header-nav">
+                <div class="buttons-row">
+                    <a href="{WAP_PATH}lqwanchang/" class="button close-popup active">完场</a>
+                    <a href="{WAP_PATH}lqsaicheng/" class="button close-popup">下日</a>
+                </div>
+            </nav>
+        </header>
+        <!-- 你的html代码 -->
+        <div class="content">
+
+            <!-- 二级导航 -->
+            <div class="buttons-tab">
+                {loop $arr_date $data}
+                <a class="auto button close-popup {if $data['date'] == $date}active{/if}" href="{WAP_PATH}lqwanchang/?date={$data['date']}">
+                    <time>{$data['date_text']}</time>
+                    <div class="tab-week">{$data['week_text']}</div>
+                </a>
+                {/loop}
+                <div class="button">
+                    <i class="fa fa-calendar orange calendar-icon"></i>
+                    <input type="text" id="calendar" class="button" readonly placeholder="" value="">
+                </div>
+            </div>
+
+            <div class="content-block">
+                <div class="tabs">
+                    <div class="tab active">
+                        {loop $end_schedule $r}
+                        <div class="data-item clearfix">
+                            <div class="data-item-top">
+                                <span class="data-event-name">{$r['sclassname_cn']}</span>
+                                <span class="data-time">{$r['date']}</span>
+                                <span class="data-fields">{$r['status']}&nbsp;&nbsp;{$r['remaintime']}</span>
+                            </div>
+                            <div class="data-item-bottom">
+                                <div class="left">
+                                    <div class="team">{$r['homename_cn']}</div><div class="team">{$r['guestname_cn']}</div>
+                                </div>
+                                <div class="right">
+                                    <div class="team">
+                                        <span class="data-num orange">{if $r['letgoal'] >= 0 }{abs($r['letgoal'])}{/if}</span>
+                                        <span class="data-num">{$r['homeone']}</span>
+                                        <span class="data-num">{$r['hometwo']}</span>
+                                        <span class="data-num">{$r['homethree']}</span>
+                                        <span class="data-num">{$r['homefour']}</span>
+                                        <span class="data-num red fr">{$r['homescore']}</span>
+                                    </div>
+                                    <div class="team">
+                                        <span class="data-num orange">{if $r['letgoal'] < 0 }{abs($r['letgoal'])}{/if}</span>
+                                        <span class="data-num">{$r['guestone']}</span>
+                                        <span class="data-num">{$r['guesttwo']}</span>
+                                        <span class="data-num">{$r['guestthree']}</span>
+                                        <span class="data-num">{$r['guestfour']}</span>
+                                        <span class="data-num red fr">{$r['guestscore']}</span>
+                                    </div>
+                                </div>
+                                <div class="link">
+                                    <a href="{WAP_PATH}schedule/{$r['scheduleid']}/analyse/" class="icon_arrow close-popup"></a>
+                                </div>
+                            </div>
+                        </div>
+                        {/loop}
+                    </div>
+                </div>
+            </div>
+
+            {template 'wap', 'footer_nav'}
+        </div>
+    </div>
+</div>
+<script>
+    var maxDate = '{$today}';
+</script>
+{php $js = ['bt_end_schedule.js'];}
+{template 'wap', 'wap_footer'}

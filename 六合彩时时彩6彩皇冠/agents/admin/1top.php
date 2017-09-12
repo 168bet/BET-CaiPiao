@@ -1,0 +1,1 @@
+<font color="#FFFFFF">&nbsp;<a href="#" onClick="javascript:location.href='index.php?action=kithe';"><font color=ffffff>盘口管理</font></a>&nbsp;&nbsp;┊&nbsp;&nbsp;<a href="#" onClick="javascript:location.href='index.php?action=kakithe';"><font color=ffffff>历史开奖管理</font></a>

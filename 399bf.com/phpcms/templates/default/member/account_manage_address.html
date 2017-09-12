@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的帐户</title>
+    <!-- css start -->
+    <link href="{CSS_PATH}bootstrap.css" rel="stylesheet">
+    <link href="{CSS_PATH}font-awesome.css" rel="stylesheet">
+
+    <link href="{CSS_PATH}base.css" rel="stylesheet">
+    <link rel="stylesheet" href="{CSS_PATH}login.css">
+
+    <!-- css end -->
+    <!--[if lt IE 9]>
+    <script src="{JS_PATH}selectivizr.js"></script>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="row">
+            <!-- logo -->
+            <a href="index.html" class="logo">
+                <img src="{IMG_PATH}bt_logo.png" alt="">
+            </a>
+            <span class="title-text">个人中心</span>
+            <a href="##" class="back-btn">
+                返回首页
+            </a>
+
+        </div>
+    </div>
+</header>
+
+<section class="account-body">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-3 pdL0 pdR0">
+                <div class="side">
+                    <ul class="side-nav">
+                        <li>
+                            <a href="##" class="title-inner jicai">竞猜中心</a>
+                        </li>
+                        <li>
+                            <a href="{APP_PATH}index.php?m=member&c=index&a=init">我的竞猜</a>
+                        </li>
+                        <li>
+                            <a href="{APP_PATH}index.php?m=member&c=index&a=favorite">我的收藏</a>
+                        </li>
+                        <li>
+                            <a href="##">我的兑奖</a>
+                        </li>
+                        <li>
+                            <a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_info" class="title-inner vipinfo">会员信息</a>
+                        </li>
+                        <li>
+                            <a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_security">我的帐户</a>
+                        </li>
+                        <li >
+                            <a href="##" >收货地址</a>
+                        </li>
+                        <li>
+                            <a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_password">修改密码</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-9 plR0 ">
+                <div class="main">
+                    <h1 class="account-title">
+                        <a href="##" class="back-btn mrgR20">
+                            返回
+                        </a>
+                        新增地址
+                    </h1>
+                    <div class="address-info clearfix">
+
+                         <form id="myform" method="post">
+                            <div class="form-group row">
+                                <label for="" class="col-sm-2 label-control">
+                                    <span class="red">*</span>
+                                    收货人:
+                                </label>
+                                <div class="col-sm-5">
+                                    <div class="input-control">
+                                        <input type="text" placeholder="姓名" name="name" required>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-2 label-control">
+                                    <span class="red">*</span>
+                                    手机:
+                                </label>
+                                <div class="col-sm-5">
+                                    <div class="input-control">
+                                        <input type="text" placeholder="手机号码" name="phone">
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-2 label-control">
+                                    座机:
+                                </label>
+                                <div class="col-sm-5">
+                                    <div class="input-control short">
+                                        <input type="text" placeholder="" name="number"  maxlength="4" style="width: 50px">
+                                    </div>
+                                    -
+                                    <div class="input-control short">
+                                        <input type="text" placeholder="" name="number" maxlength="7">
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-2 label-control">
+                                    <span class="red">*</span>
+                                    所在地:
+                                </label>
+                                <div class="col-sm-10">
+
+                                    <select name="province" class="select" required></select>
+                                    <select name="city" class="select"></select>
+                                    <select name="area" class="select"></select>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-2 label-control">
+                                    <span class="red">*</span>
+                                    详细地址:
+                                </label>
+                                <div class="col-sm-5">
+                                    <div class="input-control">
+                                        <input type="text" name="address" placeholder="填写详细的街道名及门牌号、楼名及房间号" required>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-2 label-control">
+                                    设为默认:
+                                </label>
+                                <div class="col-sm-5">
+                                    <label for="checkbox" class="checkbox-control">
+                                        <input type="checkbox" id="checkbox" name="isdefault">
+                                        设置成我的默认收货信息
+                                    </label>
+                                    
+                                </div>
+                            </div>
+                             <div class="message" id="msg" style="display: none;">
+                                 <i class="error-icon"></i>
+                                 <span id="error_msg" style="color: red"></span>
+                             </div>
+                            <div class="form-group row">
+                                    <label for="" class="col-sm-2 label-control">
+                                        &nbsp;
+                                    </label>
+
+                                    <div class="col-sm-5">
+                                        <button type="button" class="btn-safe" id="submit-btn">确定保存</button>
+                                        
+                                    </div>
+
+                                    <div class="col-sm-5">
+                                    </div>
+                            </div>
+                        </form>  
+
+
+                    </div>
+                   
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <a href="index.html" class="f-logo">
+                <img src="{IMG_PATH}bt_logo.png" alt="">
+            </a>
+            <p class="copyright">© 2016 HuoYe. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<script>
+    var APP_PATH = '{APP_PATH}';
+</script>
+<!-- js -->
+<script src="{JS_PATH}jquery-1.11.3.min.js"></script>
+<script src="{JS_PATH}jquery.validate.min.js"></script>
+<script src="{JS_PATH}validate_messages_zh.js"></script>
+<script src="{JS_PATH}bf_validate.js"></script>
+
+<script src="{JS_PATH}cityselect.js"></script>
+<script src="{JS_PATH}login.js"></script>
+<script defer>
+    // 省级联动
+    new PCAS("province","city","area");
+
+    var validate =  $('#myform').validate({
+
+        degbug: true,
+
+        onkeyup:false,
+
+        rules: rules,
+
+        messages: messages,
+
+        errorClass:'invalid',
+
+
+        submitHander:function (form) {
+            console.log(form);
+            
+        }
+    });
+
+    $("#submit-btn").click(function () {
+       var status = validate.form();
+//        console.log(status);
+
+        if (status) {
+            $.ajax({
+                type:'POST',
+                url:'/index.php?m=member&c=index&a=account_manage_address',
+                data:$('#myform').serialize(),
+                dataType:'json',
+                success: function (jsonData) {
+                    console.log(jsonData);
+                    if (jsonData.status == false) {
+                        $('#msg').show();
+                        $('#error_msg').text(jsonData.msg);
+
+                    } else {
+                        $('#msg').show();
+                        $('#error_msg').text(jsonData.msg);
+                        setTimeout(function () {
+                            window.location.href = jsonData.data.url;
+                        }, 500);
+                    }
+                },
+                error: function () {
+                    $('#msg').show();
+                    $('#error_msg').text('登录异常');
+                }
+            })
+        }
+    });
+
+
+   /* $("#submit-btn").click(function(){
+        console.log()
+        $.ajax({
+            type:'POST',
+            url:'/index.php?m=member&c=index&a=account_manage_address',
+            data:$('#myform').serialize(),
+            dataType:'json',
+            success: function (jsonData) {
+                console.log(jsonData);
+                if (jsonData.status == false) {
+                    $('#msg').show();
+                    $('#error_msg').text(jsonData.msg);
+
+                } else {
+                    $('#msg').show();
+                    $('#error_msg').text(jsonData.msg);
+                    setTimeout(function () {
+                        window.location.href = jsonData.data.url;
+                    }, 2500);
+                }
+            },
+            error: function () {
+                $('#msg').show();
+                $('#error_msg').text('登录异常');
+            }
+        })
+    });*/
+
+</script>
+
+</body>

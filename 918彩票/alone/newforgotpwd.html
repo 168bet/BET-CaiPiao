@@ -1,0 +1,438 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>忘记密码</title>
+<style type="text/css">
+
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:9999;left:0;top:0; display: none;}
+
+.weui-vcode-img{width:90px;height:40px;}
+.Mask{position: fixed;z-index:100;top:0;left:0;width:100%;height: 100%; background: rgba(0,0,0,0.7);}
+.pop{position:absolute; z-index:101;top:50%;left:50%;margin-top:-5rem; margin-left:-43%;width:86%;height:10rem;
+    background: #fff;border-radius: 10px;
+}
+.pop_body{ display: flex; align-items: center; flex-direction: column;justify-content: center;height: 7rem;width:100%;}
+.pop_body h1{ text-align: center; font-weight: normal;width:100%; color: #1a1a1a;font-size:1.1rem;}
+.pop_body p{ width:80%;margin:0 auto; line-height: 1.3rem;color:#555;font-size:0.9rem; text-align: center;padding-top:0.7rem;}
+.pop_btn{ position: absolute;bottom:0;left:0;width:100%;}
+.pop_btn a{display: block;height: 3rem; line-height: 3rem; text-align: center;color:#fc5638; text-decoration: none;font-size:1.1rem;}
+.pop_btn::after {content: " ";position: absolute;left: 0;top: 0;width: 100%;height: 1px;background-image: -webkit-linear-gradient(0deg, #e0e0e0 50%, transparent 50%);background-image: -moz-linear-gradient(0deg, #e0e0e0 50%, transparent 50%);background-image: -ms-linear-gradient(0deg, #e0e0e0 50%, transparent 50%);background-image: -o-linear-gradient(0deg, #e0e0e0 50%, transparent 50%);background-image: linear-gradient(0deg, #e0e0e0 50%, transparent 50%);}
+
+</style>
+<link rel="stylesheet" href="/style/weui.css"/>
+<link rel="stylesheet" href="/style/example.css"/>
+<body>
+	<article>
+	<section class="page__hd">
+
+    <div class="weui-flex">
+      <a class="weui-cell__back" href="javascript:history.back()"></a>
+      <p class="weui-flex__item txt_center">忘记密码</p>
+    </div>    
+  </section>
+  <section class="page__bd">
+  	<div id='wangji'>   
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell weui-cell_vcode">
+          <div class="weui-cell__hd"><label class="weui-label">图形码</label></div>
+          <div class="weui-cell__bd">
+              <input id='yzmpic' class="weui-input" type="text" placeholder="请输入图形码" maxlength =10/>
+          </div>
+          <div class="weui-cell__ft">
+              <img class="weui-vcode-img" src="/img.jo" />
+          </div>
+      </div>
+      <div class="weui-cell">
+          <div class="weui-cell__hd">
+              <label class="weui-label">用户名</label>
+          </div>
+          <div class="weui-cell__bd">
+              <input id=username class="weui-input" type="text" placeholder="请输入用户名">
+          </div>          
+      </div>
+      <div class="weui-cell">
+          <div class="weui-cell__hd">
+              <label class="weui-label">手机号</label>
+          </div>
+          <div class="weui-cell__bd">
+              <input class="weui-input" id='mobile' type="tel" placeholder="用户名绑定的手机号码" maxlength =11>
+          </div>          
+      </div>
+      <div class="weui-cell weui-cell_vcode">
+          <div class="weui-cell__hd">
+              <label class="weui-label">验证码</label>
+          </div>
+          <div class="weui-cell__bd">
+              <input class="weui-input" id='yzm' type="text" placeholder="请输入验证码" maxlength =8>
+          </div>
+          <div class="weui-cell__ft">
+              <button class="weui-vcode-btn" id='hyzm'>获取验证码</button>
+          </div>
+      </div>
+    </div>
+    <div style='float:right;font-size:.85rem;color:#2395ff;margin:.5rem;' id='yym'>收不到短信？获取语音验证码</div>
+    <div class="weui-btn-area">
+      <button class="weui-btn weui-btn_disabled weui-btn_primary" disabled='true' id="btn_tj">下一步</button>
+    </div>
+    </div>
+    
+    <!-- 重新输入密码 -->
+    <div id='chongz' style='display:none'>
+    <div class="weui-cells weui-cells_form">      
+      <div class="weui-cell">
+          <div class="weui-cell__hd">
+              <label class="weui-label">新密码</label>
+          </div>
+          <div class="weui-cell__bd my_icon_box">
+              <input class="weui-input" id='pwd' type="password" placeholder="请输入新密码" maxlength =20>
+          </div>         
+      </div>
+      <div class="weui-cell">
+          <div class="weui-cell__hd">
+              <label class="weui-label">确认密码</label>
+          </div>
+          <div class="weui-cell__bd my_icon_box">
+              <input class="weui-input" id='repwd' type="password" placeholder="请再次输入新密码" maxlength =20>
+          </div>         
+      </div>
+    </div>
+    <div class="weui-btn-area" >
+      <button class="weui-btn weui-btn_primary weui-btn_disabled" disabled='true' id="btn_tj2">完成</button>
+    </div>
+    </div>
+  </section>
+  </article>
+  <div class="Mask" style='display:none;'></div>
+  <div class="pop" style='display:none;'>
+      <div class="pop_body">
+          <p>请注意收听电话，以获取您的语音验证码，谢谢。</p>
+      </div>
+      <div class="pop_btn">
+          <a href="javascript:;">知道了</a>
+      </div>
+  </div>
+<script src='/js/public/jquery-1.9.1.min.js'></script>
+<script src='/js/public/JQ.md5.js'></script>
+<script>
+//公用弹出层和加载层
+var win_alert = alert;
+window['alert'] = function (msg, loading) {
+	if (!loading) {
+		clearTimeout(window.alert.time);
+		var obj = $('<div class="alertBox">' + msg + '</div>');
+		$('body').append(obj);
+		window.alert.time = setTimeout(function () {
+			$(".alertBox").remove();
+		}, 2000);
+	} else {
+		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+		$('#mask').show();
+	}
+};
+
+var remove_alert = function () {
+	$('.alertBox').remove();
+	$('#mask').hide();
+};
+var clickLimit = true; // 限制点击
+
+
+$(function () {
+	var wait=60;
+	var name = localStorage.getItem("username") || '';
+	$("#username").val(name);
+	var mobile = '';
+	$("#btn_tj").click(function(){
+		mobile = $('#mobile').val().replace(/['\t]/g,'').replace(/\s*/g, '');
+		if($("#username").val() !="" && $("#username").length <= 32 ){
+			if(!(/^1[34578]\d{9}$/.test(mobile))){
+				alert("请输入有效手机号码");
+				return false;
+			}
+			tjyzm();
+		}else{
+			alert('请输入有效用户名')
+			return false;
+		}
+	});
+	$('.pop_btn a').bind('click', function(){
+		$('.Mask').hide();
+		$('.pop').hide();
+	})
+	$('#hyzm').click(function(){
+		if(clickLimit){
+			clickLimit = false;
+			yzmcheckout(true)
+		}
+	})
+	$('#yym').click(function(){
+		if(clickLimit){
+			clickLimit = false;
+			if(!$('#yym').hasClass('yym')){
+				yzmcheckout(false)
+			}
+		}
+	})
+	
+	$(".weui-cell__ft").on("click",function(){
+		$(this).find("img").attr("src","/img.jo?"+Math.random())
+	})
+	$('#btn_tj2').click(function(){
+		repwd();
+	})
+	
+	var yzmcheckout = function(bool){ //点击获取验证码 判断
+		mobile = $('#mobile').val().replace(/['\t]/g,'').replace(/\s*/g, '');
+		if($('#yzmpic').val()){
+			if($("#username").val() !="" && $("#username").length <= 32 ){
+				if(!(/^1[34578]\d{9}$/.test(mobile))){
+					alert("请输入有效手机号码");
+					clickLimit = true;
+					return false;
+				}
+				checkUserForm(bool);
+			}else{
+				alert('请输入有效用户名');
+				clickLimit = true;
+				return false;
+			}
+		}else{
+			clickLimit = true;
+			alert('请输入图形验证码');
+			return false;
+		}
+	}
+	
+	//获取验证码方法
+	var cont = 60;
+	var getyzmCode = function(bool){
+		mobile = $('#mobile').val().replace(/['\t]/g,'').replace(/\s*/g, '');
+		var imNo = mobile;
+		var stime = new Date().getTime();
+		var get_yzm_data={
+				mobileNo:mobile,
+				yzm: $("#yzmpic").val(),
+				newValue: 1,
+				flag: 1,
+				uid: $('#username').val(),
+				signtype: bool?'':'voice',
+				imNo: imNo,
+				stime: stime,
+				signmsg: $.md5("imNo="+imNo+'&timestamp='+stime+'&key='+'1.0^adhfjkas565a4sdf36a4s6df46^'),
+				source: 3002
+			};
+		$.ajax({
+			url : "/user/sendSms.go",
+			type : "POST",
+			dataType : "xml",
+			data : get_yzm_data,
+			success : function(xml){
+				var R = $(xml).find("Resp");
+				var code = R.attr("code");
+				var desc = R.attr("desc");
+				if (code == "0") {
+					clickLimit = false;
+					if(!bool){
+						$('.Mask').show();
+						$('.pop').show();
+						$('#yym').addClass('yym');
+					}
+					$('#yym').css({'color':'#999'});
+					var r = R.find("row");
+					var m = r.attr('mobileNo');
+					countDown()
+				}else{
+					clickLimit = true;
+					//$('.weui-cell__ft').find("img").attr("src","/img.jo?"+Math.random());
+					alert(desc);
+				}
+			},
+		});
+	}
+	
+	//提交验证码获取密码
+	var tjyzm = function(){
+		mobile = $('#mobile').val().replace(/['\t]/g,'').replace(/\s*/g, '');
+		var data ="mobileNo=" + mobile+"&yzm=" + $("#yzm").val()+"&tid=1";
+		$.ajax({
+			url : "/user/verifySms.go",
+			type : "POST",
+			dataType : "xml",
+			data : data,
+			success : function(xml) {
+				var R = $(xml).find("Resp");
+				var code = R.attr("code");
+				var desc = R.attr("desc");
+				if (code == "0") {
+					$('#chongz').show();
+					$('#wangji').hide();
+					$('.txt_center').html('设置密码');
+				}else{
+					/* $('.weui-cell__ft').find("img").attr("src","/img.jo?"+Math.random()); */
+					alert(desc)
+				}
+			}
+		});
+	}
+	//检查用户名是否存在
+	var checkUserForm = function(bool){
+		mobile = $('#mobile').val().replace(/['\t]/g,'').replace(/\s*/g, '');
+		if($('#username').val()){
+			var data ="uid=" + encodeURIComponent($("#username").val())+'&mobileNo='+mobile+'&mtype=4'+'&appversion=4.0.0'+'&source=3002';
+			$.ajax({
+				url : "/user/forgetpwd.go",
+				type : "POST",
+				dataType : "xml",
+				data : data,
+				success : function(xml) {
+					var R = $(xml).find("Resp");
+					var code = R.attr("code");
+					var desc = R.attr("desc");
+					if (code == '0') {//用户名存在
+						getyzmCode(bool);
+					}else{
+						clickLimit = true;
+						//$('.weui-cell__ft').find("img").attr("src","/img.jo?"+Math.random());
+						alert(desc);
+						return false
+					}	
+				}
+			});
+		}
+	}
+	//重置密码
+	var repwd = function(){
+		var pw = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/g;
+		if(($('#pwd').val() == $('#repwd').val()) && $('#pwd').val() && $('#repwd').val()){
+			if(pw.test($('#pwd').val())){
+			if($("#username").val() == $("#pwd").val()){
+				alert('用户名和密码不可以一致')
+			}else{
+				var jmyz = 'http://www.9188.com  /'
+					var data = 'pwd='+$.md5($('#pwd').val()+jmyz)
+							+'&confupwd='+$.md5($('#repwd').val()+jmyz)
+							+'&uid='+encodeURIComponent($('#username').val())
+							+'&flag=0'+'&signmsg='+$.md5($.md5($('#repwd').val()+jmyz)+'A9FK25RHT487ULMI');
+					
+					$.ajax({
+						url : "/user/setNewPwd.go",
+						dataType : "xml",
+						type:"POST",
+						data:data,
+						success : function(xml) {
+							var R = $(xml).find("Resp");
+							var desc = R.attr("desc");
+							var code = R.attr("code");
+							if(code == 0){
+								location.href='/alone/forsucces.html';
+							}else{
+								alert(desc);
+							}
+						}
+					});
+				}	
+			}else{
+				alert('密码6-20位字母、数字的组合')
+			}
+		}else{
+			alert('两个密码输入不一致')
+		}
+	}
+
+	var countDown= function(){
+		if(wait == 0){
+			$("#hyzm").removeAttr("disabled");			
+			$("#hyzm").html("重新发送");
+			$('.weui-cell__ft').find("img").attr("src","/img.jo?"+Math.random())
+			wait = 60;
+			if($('#yym').hasClass('yym')){
+				$('#yym').removeClass('yym');
+			}
+			$('#yym').css({'color':'#2395ff'});
+			clickLimit = true;
+		}else{
+			$("#hyzm").attr("disabled", true);
+			$("#hyzm").html("重新发送(" + wait + ")");
+			wait--;
+			setTimeout(function() {
+				countDown();
+			}, 1000);
+			
+		}
+	}
+	
+	//重新发送验证码
+	function zeroDownAjax(){
+		var data ="uid=" + encodeURIComponent($("#username").val())+"&flag=1"+"&mtype=4";
+		$.ajax({
+			url : "/user/usergetpwd.go",
+			dataType : "xml",
+			data:data,
+			success : function(xml) {
+				var R = $(xml).find("Resp");
+				var desc = $(R).attr("desc");
+				alert(desc);
+			}
+		});
+	}
+	
+	$("#yzmpic").keyup(function(){
+		btnLight(1)
+	});
+	$("#username").keyup(function(){
+		btnLight(1)
+	});
+	$("#mobile").keyup(function(){
+		btnLight(1)
+	});
+	$("#yzm").keyup(function(){
+		btnLight(1)
+	});
+	$("#pwd").keyup(function(){
+		btnLight(2)
+	});
+	$("#repwd").keyup(function(){
+		btnLight(2)
+	});
+	
+	//按钮点亮
+	var btnLight = function(a){
+		if(a == 1){
+			if($('#yzmpic').val() && $('#username').val() && $("#mobile").val() && $("#yzm").val()){
+		    	$('#btn_tj').removeClass('weui-btn_disabled');
+		    	$('#btn_tj').removeAttr('disabled');
+		    }else{
+		    	if(!($('#btn_tj').hasClass('weui-btn_disabled'))){
+		    		$('#btn_tj').addClass('weui-btn_disabled')
+		    		$('#btn_tj').attr('disabled','true');
+		    	}
+		    }
+		}else if(a == 2){
+			if($('#repwd').val() && $('#pwd').val()){
+		    	$('#btn_tj2').removeClass('weui-btn_disabled');
+		    	$('#btn_tj2').removeAttr('disabled');
+		    }else{
+		    	if(!($('#btn_tj2').hasClass('weui-btn_disabled'))){
+		    		$('#btn_tj2').addClass('weui-btn_disabled')
+		    		$('#btn_tj2').attr('disabled','true');
+		    	}
+		    }
+		}
+	}
+	//按钮点亮
+});
+</script>
+</body>
+</html>

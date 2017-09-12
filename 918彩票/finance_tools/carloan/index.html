@@ -1,0 +1,124 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>车贷计算器</title>
+<link href="./css/fd.css" rel="stylesheet" type="text/css">
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/carLoan.js"></script>
+<style>
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:85%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+.ts{ color:#fff; font-size:.8rem; margin-top:2rem; line-height:1.3rem; padding:0 4%; text-align:center}
+</style>
+<body>
+<article>
+
+<!-- 商业贷款 start -->
+<article>
+	<section style="display: block;">
+		<div class="top"></div>
+		<div class="calculator">
+			<dl class="calculator">
+				<dt>贷款金额：</dt>
+				<dd>
+				<div class="flexbox">
+					<input type="text" class="ipt-text" id="loanMoney" placeholder="请输入车贷金额" onkeyup="clearNoNum(this,1,9999)" >
+					<i>万元</i>
+				</div>
+				</dd>
+			</dl>
+			<dl class="calculator">
+				<dt>贷款年限：</dt>
+				<dd class="arr-rt">
+				<div class="flexbox" id="loanYear" data-value="3">
+					三成（30万）
+				</div>
+				</dd>
+			</dl>
+			<dl class="calculator bb">
+				<dt>商贷利率：</dt>
+				<dd class="arr-rt">
+					<div class="flexbox" id="loanRate" data-value="4.75" data-discount="1">
+						基准利率(4.90％)
+					</div>
+				</dd>
+			</dl>
+			<dl class="calculator">
+				<dt>还款方式：</dt>
+				<dd class="arr-rt">
+					<div class="flexbox" id="payMethod" data-value="0">
+						等额本息
+					</div>
+				</dd>
+			</dl>
+		</div>
+		<div class="methodbox nob">
+			<a href="javascript:void(0)" class="btn-cal" id="btnCal">开始计算</a>
+		</div>
+	</section>
+
+	<section class="txt-money" hidden>
+		<div><i></i><em>月供：</em><cite id="repayment">0.00</cite>元</div>
+		<!-- 等额本金的情况时显示该层 -->
+		<div id="decline" hidden><i></i>每月递减：<cite>0.00</cite>元</div>
+		<div><i class="red"></i>总利息：<cite id="interest">0.00</cite>元</div>
+	</section>
+
+</article>
+<!-- 商业贷款 end -->
+
+<!-- 遮罩层 -->
+<div class="mask" hidden></div>
+<!-- 贷款年限弹窗 -->
+<section class="dk-wrap year_wrap" hidden>
+	<ul>
+		<li data='5_4.75'>5年（基准利率：4.75%）</li>
+		<li data='4_4.75'>4年（基准利率：4.75%）</li>
+		<li class="cur" data='3_4.75'>3年（基准利率：4.75%）</li>
+		<li data='2_4.75'>2年（基准利率：4.75%）</li>
+		<li data='1_4.35'>1年（基准利率：4.35%）</li>
+		<li data='0.5_4.35'>6个月（基准利率：4.35%）</li>
+	</ul>
+</section>
+<!-- 还款方式弹窗 -->
+<section class="dk-wrap method_wrap" hidden>
+	<ul>
+		<li class="cur">等额本息</li>
+		<li>等额本金</li>
+	</ul>
+</section>
+
+<!-- 商贷利率弹窗 -->
+<section class="dk-wrap rate_wrap" hidden>
+	<ul>
+		<li class="prompt">2015年10月最新商贷基准率 : <i>4.75</i>%</li>
+		<li data="1" class="cur">无折扣（<i>4.9</i>%）</li>
+		<ul id="rebate">
+			<li>7折<cite>（3.34%）</cite></li>
+			<li>8折<cite>（3.34%）</cite></li>
+			<li>8.3折<cite>（3.34%）</cite></li>
+			<li>8.5折<cite>（3.34%）</cite></li>
+			<li>8.8折</cite>（3.34%）</cite></li>
+			<li>9折<cite>（3.34%）</cite></li>
+			<li>9.5折<cite>（3.34%）</cite></li>
+			<li>1.1倍<cite>（3.34%）</cite></li>
+			<li>1.2倍<cite>（3.34%）</cite></li>
+		</ul>
+		<li>其他</li>
+	</ul>
+</section>
+<!-- 其他弹窗 -->
+<section class="other_wrap" hidden>
+	<div>
+		<p>自定义利率：</p>
+		<input type="text" min="1" max="20" onkeyup="clearNoNum(this,1,20)" placeholder=""/><cite>%</cite>
+		<button>确定</button>
+		<i>×</i>
+	</div>
+</section>
+</body>

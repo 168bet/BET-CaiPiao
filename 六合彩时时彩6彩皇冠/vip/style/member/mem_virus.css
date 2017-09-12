@@ -1,0 +1,162 @@
+body{
+	background-image:url(/images/member/turn_bg.gif);
+	display: block;
+	padding-right: 10%;
+	padding-left: 10%;
+}
+.title{
+	background-image:url(/images/member/vi_top02.jpg);
+	background-repeat:repeat-x;
+	display: block;
+	position: absolute;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+	height: 123px;
+	width: 849px;
+	margin: 0px;
+	padding: 0px;
+	top: 0px;
+}
+.M  {
+	width: 849px;
+	background-image: url(/images/member/vi_mbg.jpg);
+	background-repeat: repeat-y;
+	position: absolute;
+	top: 123px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+}
+.down{
+	background-image: url(/images/member/turn_down.gif);
+	background-repeat: repeat-x;
+	background-position: top;
+}
+.word{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	background-position:left;
+	background-color: #FFFFFF;
+	width: 625px;
+	vertical-align: top;
+	text-indent: 10px;
+}
+.left_bg {
+	background-image: url(/images/member/vi_bg.jpg);
+	background-repeat: repeat-x;
+	width: 170px;
+	vertical-align: top;
+}
+.right_bg {
+	background-image: url(/images/member/vi_r.jpg);
+	background-repeat: no-repeat;
+}
+.foot{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+	background-color: #000000;
+	width: 849px;
+	padding-top: 8px;
+	text-indent: 40px;
+	text-align: center;
+	padding-bottom: 8px;
+}
+.sub{
+	font-size:18px;
+	color:#000066;
+	font-family:Arial, Helvetica, sans-serif;
+	position: absolute;
+	top: 10px;
+	padding-top: 30px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #999999;
+	width: 520px;
+	padding-bottom: 8px;
+	font-weight: bold;
+}
+li {
+	font-size: 13px;
+	color: #FFFF00;
+	font-family: Arial, Helvetica, sans-serif;
+	list-style-type: none;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+	padding-bottom: 5px;
+	text-decoration: none;
+	background-image: url(/images/member/vi_icon.gif);
+	background-repeat: no-repeat;
+	padding-left: 20px;
+	margin-top: 20px;
+	margin-left: -20px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+li a:link , li a:visited{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+li a:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FF9900;
+	text-decoration: none;
+}
+.h1_l {
+	display: inline;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+.h1_r {
+	float: right;
+	position: absolute;
+	right: -4px;
+	padding-top: 0px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #FFFFFF;
+}
+.download {
+	color: #666666;
+	display: inline;
+	float: right;
+	background-image: url(/images/member/vi_donwload.gif);
+	background-repeat: no-repeat;
+	height: 27px;
+	padding-left: 30px;
+	padding-top: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-decoration: none;
+	margin-top: -40px;
+	margin-right: 20px;
+	font-weight: bold;
+}
+.download a:link , .download a:visited{
+	color: #FF6600;
+	text-decoration: none;
+}
+.download a:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #0033FF;
+	text-decoration: none;
+}
+
+td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666666;
+}
+ul {
+	margin-left: 30px;
+}

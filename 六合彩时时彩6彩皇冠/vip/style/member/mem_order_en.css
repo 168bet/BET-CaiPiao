@@ -1,0 +1,222 @@
+/* 2006 07 26 */
+html, body {  background-color: #413C15; margin:0 0 0 2px; padding-top: 10px;}
+form { margin:0; padding:0;}
+.ord, .ord2 { width:220px; background: #DFD9CB url(/images/member/order_bg_ft.gif) repeat-y left top;font: 0.75em Arial, Helvetica, sans-serif;}
+span { display:block; background: url(/images/member/order_h1_ft.gif) no-repeat left bottom; padding-bottom:1px;}
+h1 {
+	font-size:1em ;font-weight: normal;
+	margin:0 0 5px 0;
+	padding:10px 6px 4px 10px;
+	background: url(/images/member/order_h1_ft.gif) no-repeat left top;
+}
+#info {}
+p { margin:0 4px 0 4px; padding: 1px 5px 1px 5px;}
+.error {	color: #FFF;	background-color: #900;}
+/*error ps*/
+p tt { color: #FF0; font:1em/140% Arial, Helvetica, sans-serif; display:block; border-bottom:1px solid #FFF; padding:5px 0px 5px 0px; margin-bottom:4px;}
+.team {	background-color: #FFF; text-align: center; border-bottom: 1px solid #900;}
+#OFIN .team {border-top: 1px solid #900;}
+.foot, .foot2 {
+	width:220px;
+	padding:10px 6px 4px 10px; margin:0;
+	background: #DFD9CB url(/images/member/order_foot_ft.gif) no-repeat left bottom;
+	height: 40px;
+	text-align: center;
+}
+.chk { font:0.75em Arial, Helvetica, sans-serif;/*EN chuang*/
+	width:220px;
+	color: #F00;
+	line-height: 17px;
+	text-align: center;
+	padding-top: 8px; padding-bottom:8px;
+	background: #FFF url(/images/member/order_foot_ft.gif) no-repeat left bottom;
+	}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~select <.foot2>~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.ord2 { margin-top:10px;}
+.ord {
+        margin-top: 5px;
+}
+.ord2 p { padding-right:0; padding-left:2px;}
+.foot2 {height: 5px;}
+.float { float:right; margin-top:-20px; margin-right:2px;}
+iframe { width:210px; height:200px; border:0; clear:right;}
+p.ps {margin: 0 8px; padding-bottom:4px;color:#C00; border-bottom: 1px solid #C00;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~history show10~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body#OHIS {	margin: 0px; padding: 0px; background: #DFD9CB none;}
+#OHIS .show { width:191px; font: 0.75em Arial, Helvetica, sans-serif; background: #DFD9CB none; padding: 0;}
+#OHIS p {border-bottom:1px solid #999; padding:5px 0 5px 0;}
+#OHIS em { color:00C;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~button~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+select {font: 1em Arial, Helvetica, sans-serif; height:18px ;}
+.foot input, .chk input, .ord2 input, .par, h1 input, #OFIN2 input { font:12px Arial, Helvetica, sans-serif; height:18px; margin-bottom: 2px; padding-top:0;}/*EN chuang*/
+h1 input { font-size:10px;}/*EN chuang*/
+#wstar { margin-left:37px; padding-top:0;}/*EN chuang*//*Mode button*/
+input.no { margin-right:8px; color:#C00;}
+input.yes {}
+.txt { height:20px; padding-left:2px; padding-right:2px;}
+.close {
+	height:14px;
+	background-color: #900;
+	color: #FFF;
+	font: 900 10px Arial, Helvetica, sans-serif;
+	margin-right:4px;
+	border: 2px solid;
+	border-color: #D36460 #480000 #480000 #D36460;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~font~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+em {	color:#C00;	font-style: normal;}
+strong {color:#C00;}
+#pc {color:#C00;}/*Mode*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~finish Fix~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.team span { display: inline; background-image: none !Important; padding:0;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ Game chuang ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*top*/
+body#OFU .ord { background-image: url(/images/member/order_bg_fu.gif); }
+body#OBK .ord { background-image: url(/images/member/order_bg_bk.gif); }
+body#OBU .ord { background-image: url(/images/member/order_bg_bu.gif); }
+body#OTN .ord { background-image: url(/images/member/order_bg_tn.gif); }
+body#OTU .ord { background-image: url(/images/member/order_bg_tu.gif); }
+body#OVB .ord { background-image: url(/images/member/order_bg_vb.gif); }
+body#OVU .ord { background-image: url(/images/member/order_bg_vu.gif); }
+body#OFS .ord { background-image: url(/images/member/order_bg_fs.gif); }
+body#OFIN .ord { background-image: url(/images/member/order_bg_fin.gif); }
+body#OBS .ord { background-image: url(/images/member/order_bg_bs.gif); }
+body#OBE .ord { background-image: url(/images/member/order_bg_be.gif); }
+
+body#OOP .ord { background-image: url(/images/member/order_bg_op.gif); }
+body#OOM .ord { background-image: url(/images/member/order_bg_om.gif); }
+
+/*bg*/
+body#OFU span, body#OFU h1 { background-image: url(/images/member/order_h1_fu.gif); }
+body#OBK span, body#OBK h1 { background-image: url(/images/member/order_h1_bk.gif); }
+body#OBU span, body#OBU h1 { background-image: url(/images/member/order_h1_bu.gif); }
+body#OTN span, body#OTN h1 { background-image: url(/images/member/order_h1_tn.gif); }
+body#OTU span, body#OTU h1 { background-image: url(/images/member/order_h1_tu.gif); }
+body#OVB span, body#OVB h1 { background-image: url(/images/member/order_h1_vb.gif); }
+body#OVU span, body#OVU h1 { background-image: url(/images/member/order_h1_vu.gif); }
+body#OFS span, body#OFS h1 { background-image: url(/images/member/order_h1_fs.gif); }
+body#OFIN span, body#OFIN h1 { background-image: url(/images/member/order_h1_fin.gif); }
+body#OBS span, body#OBS h1 { background-image: url(/images/member/order_h1_bs.gif); }
+body#OBE span, body#OBE h1 { background-image: url(/images/member/order_h1_be.gif); }
+
+body#OOP span, body#OOP h1 { background-image: url(/images/member/order_h1_op.gif); }
+body#OOM span, body#OOM h1 { background-image: url(/images/member/order_h1_om.gif); }
+/*foot*/
+body#OFU .foot, body#OFU .chk { background-image: url(/images/member/order_foot_fu.gif); }
+body#OBK .foot, body#OBK .chk { background-image: url(/images/member/order_foot_bk.gif); }
+body#OBU .foot, body#OBU .chk { background-image: url(/images/member/order_foot_bu.gif); }
+body#OTN .foot, body#OTN .chk { background-image: url(/images/member/order_foot_tn.gif); }
+body#OTU .foot, body#OTU .chk { background-image: url(/images/member/order_foot_tu.gif); }
+body#OVB .foot, body#OVB .chk { background-image: url(/images/member/order_foot_vb.gif); }
+body#OVU .foot, body#OVU .chk { background-image: url(/images/member/order_foot_vu.gif); }
+body#OFS .foot, body#OFS .chk { background-image: url(/images/member/order_foot_fs.gif); }
+body#OFIN .foot { background-image: url(/images/member/order_foot_fin.gif); }
+body#OBS .foot, body#OBS .chk { background-image: url(/images/member/order_foot_bs.gif); }
+body#OBE .foot, body#OBE .chk { background-image: url(/images/member/order_foot_be.gif); }
+
+body#OOP .foot, body#OOP .chk { background-image: url(/images/member/order_foot_op.gif); }
+body#OOM .foot, body#OOM .chk { background-image: url(/images/member/order_foot_om.gif); }
+/*foot-bgcolor*/
+body#OFU .foot { background-color: #E5E8D2; }
+body#OBK .foot { background-color: #F1FAE7; }
+body#OBU .foot { background-color: #F6F2E7; }
+body#OTN .foot { background-color: #FFF4E5; }
+body#OTU .foot { background-color: #FFF4E5; }
+body#OVB .foot { background-color: #E5E8D2; }
+body#OVU .foot { background-color: #E5E8D2; }
+body#OFS .foot { background-color: #D7E2DA; }
+body#OBS .foot { background-color: #E5E8D2; }
+body#OBE .foot { background-color: #E5E8D2; }
+
+body#OOP .foot { background-color: #E5E8D2; }
+body#OOM .foot { background-color: #E5E8D2; }
+
+/**/
+body#OFIN2 {  background-color:#EDAAAA;}
+body#OFIN2 div {	color: #C00; text-align:center; font-size:0.75em; border:5px solid #E78686; margin:6px; padding:6px;background-color:#EDC6C8;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~Comfirm window~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body#OFIN2, body#GRAY, body#BLUE, body#PINK { margin-top:39px;}
+body#GRAY div, body#BLUE div, body#PINK div {text-align:center; font-size:0.75em; border:5px solid; margin:6px; padding:6px;}
+body#GRAY {  background-color:#FC6;}
+body#GRAY div {	color: #000; border-color:#F90; background-color:#FFE39D;}
+body#BLUE {  background-color:#413C15;}
+body#BLUE div {	color: #000; border-color:#9D7C27; ;background-color:#DFD9CB;}
+body#PINK {  background-color:#EDAAAA;}
+body#PINK div {	color: #C00; border-color:#E78686; background-color:#EDC6C8;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ For Mac/Safari Fix ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+html > body .float { margin-top: -2px;}
+html > body { margin:0;}
+html > body .foot, html > body .foot2 { padding:10px 0 4px;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ Baccarat AD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#ad {
+	display:block;
+	text-align: center;
+}
+#ad {
+	margin-top:5px;
+	width:220px;
+	background-image: url(/images/member/raoo.gif);
+	background-repeat: no-repeat;
+	background-position: center 0;
+	height: 40px;
+}
+#ad a {
+	display:block;
+	width:220px;
+	height: 40px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ chg_passwd~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+h4 {background-color: #DFCA78;height: 30px;margin: 0px;padding-top: 5px;font-size: 12px;font-weight: lighter;}
+.chg {width:360px;font: 0.75em Arial, Helvetica, sans-serif;border: 4px ridge #FF9900;}
+.chg_bg {background-color: #FFFFCB;text-align: center;padding-top: 10px;}
+hr {color:#993300;height: 1px;}
+.showpic {padding-top: 10px;text-align: center;}
+.showpic2 {
+	position: absolute;
+	float: right;
+	margin-left: 42px;
+}
+input.pic {color:#000000;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 0;
+	margin-right: 4px;
+	margin-left: 4px;
+	padding-bottom: 3px;
+	padding-top: 3px;
+	margin-bottom: 2px;
+}
+input.confirm{
+	color:#000000;
+	font-size: 12px;
+	text-align: center;
+	padding-bottom: 2px;
+	margin-bottom: 2px;
+}
+/*-------- Chg_passwd----------*/
+#PWD html, #PWD body {padding-top: 10%;margin-top: 50;margin-right: 0;margin-bottom: 0;margin-left: 2px;}
+#PWD .pwd_title {color: #FFFFFF;background-color: #FF6600;text-align: center;padding: 5px;	}
+#PWD .pwd_bg ,#PWD .pwd_txt , #PWD .pwd_red{background-color: #FFFFCC;padding: 8px;font-family: Arial, Helvetica, sans-serif;font-size: 0.7em;}
+#PWD .pwd_side {background-color: #FFCC33;border: 4px solid #FFAC4B;margin-top: 50px;}
+#PWD .pwd_red {color: #FF0000;}
+#PWD .pwd_txt {color: #000000;}
+#PWD .point {color: #FFFFFF;background-color: #174755;text-align: center;}
+#PWD .point , #PWD .pwd_title{font-family: Arial, Helvetica, sans-serif;font-size: 12px;}
+.red_txt {color: #FF0000;}
+.white {
+	color: #FFFFFF;
+	font-size: 12px;
+	line-height: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.fifa {background-image: url(/images/member/FIFA.gif);}
+.fifa2 {background-image: url(/images/member/FIFA_fu.gif);}
+.fifa, .fifa2{
+	height: 32px;
+	display: none;
+	background-repeat: no-repeat;
+	background-position: 5px;
+	width: 220px;
+	}

@@ -1,0 +1,194 @@
+{php $css = array("list_picture.css", "football_live.css");}
+
+{template "content", "header"}
+
+<section class="hy-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <ol class="breadcrumb hy">
+                <li>
+                    <a href="{siteurl($siteid)}">首页</a>
+                </li>
+                <li class="active">
+                    <span>足球直播</span>
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row" style="background-color: #ffffff;margin-bottom: 15px;">
+        <div class="col-md-12">
+            <ul class="select-event-nav clearfix">
+                <li><a class="select" href="javascript:;">赛事直播<span class="tip">{if $live_count}{$live_count}{else}0{/if}</span></a></li>
+                <li><a href="{APP_PATH}end_live/">完场赛事<span class="tip">{if $end_count_info}{$end_count_info[0]['count']}{else}0{/if}</span></a></li>
+            </ul>
+            <div class="clearfix date-wrap">
+                <div class="date">
+                    <ul class="clearfix">
+                        {loop $date_arr $r}
+                        <li><a class="date-item {if $r['date'] == date('Y-m-d')}active{/if}" href="javascript:;" data-date="{$r['date']}">{$r['format']}</a></li>
+                        {/loop}
+                    </ul>
+                </div>
+                <div class="select-date">
+                    <form method="post" action="{APP_PATH}live/">
+                        日期：<input id="date" name="date" type="text" value="{if $_POST['date']}{$_POST['date']}{else}{date('Y-m-d')}{/if}" style="width: 145px;height: 26px">
+                        <button type="submit" class="search">查询</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+
+            {pc:get sql="$sql" num="10" page="$page" dbsource="sportsdt"}
+            <div class="main bg-white mrgB20">
+                {loop $data $r}
+                <div class="info-item">
+                    <div class="info-item-top">
+                        <div class="match">
+                            <div class="match-img">
+                                <a href="{APP_PATH}competition/{$r['competitionid']}/schedule/" target="_blank">
+                                    <img src="{PHOTO_PATH}competition/{$r['competitionid']}.jpg" class="img-responsive competition-photo">
+                                </a>
+                            </div>
+                            <span class="match-tip">{$r['competitionshortname']}&nbsp;{$r['period']}{if $r['round']}第{$r['round']}轮{/if}{if $r['group']}{$r['group']}组{/if}</span>
+                        </div>
+                        <div class="fight-l">
+                            <a href="{APP_PATH}team/{$r['hometeamid']}/" target="_blank">
+                                <span class="fight-l-title">{$r['homeshortname']}</span>
+                            </a>
+                            <div class="fight-team fr">
+                                <a href="{APP_PATH}team/{$r['hometeamid']}/" target="_blank">
+                                    <img src="{PHOTO_PATH}team/{$r['hometeamid']}.jpg" class="img-responsive team-photo">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="fight-m">
+                            <div class="vs">VS</div>
+                            <div class="ft14">{date('m-d H:i', $r['date'])}</div>
+                            {if $r['islive']}
+                            <div class="ft14">直播</div>
+                            {/if}
+                        </div>
+                        <div class="fight-r">
+                            <div class="fight-team fl">
+                                <a href="{APP_PATH}team/{$r['awayteamid']}/" target="_blank">
+                                    <img src="{PHOTO_PATH}team/{$r['awayteamid']}.jpg" class="img-responsive team-photo">
+                                </a>
+                            </div>
+                            <a href="{APP_PATH}team/{$r['awayteamid']}/" target="_blank">
+                                <span class="fight-r-title">{$r['awayshortname']}</span>
+                            </a>
+                        </div>
+                        <div class="analysis">
+                            <a href="{APP_PATH}game/{$r['gameid']}/analyse/" target="_blank" class="red">析</a>
+                            <a href="{APP_PATH}game/{$r['gameid']}/oddsasia/" target="_blank">亚</a>
+                            <a href="{APP_PATH}game/{$r['gameid']}/oddseuro/" target="_blank">欧</a>
+                            <a href="{APP_PATH}game/{$r['gameid']}/oddsou/" target="_blank">大</a>
+                            {if $r['islive']}
+                            <a href="{APP_PATH}game/{$r['gameid']}/live/" target="_blank">直播</a>
+                            {/if}
+                            <!--<div class="forecast">-->
+                                <!--预测：<a href="javascript:void(0);" class="victor">胜</a>-->
+                                <!--<a href="javascript:void(0);" class="equal">平</a>-->
+                                <!--<a href="javascript:void(0);" class="negative">负</a>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <div class="info-item-bottom">
+                        <a class="ft14" href="{APP_PATH}game/{$r['gameid']}/analyse/" target="_blank">{str_cut($r['content'], 300, '...')}</a>
+                    </div>
+                </div>
+                {/loop}
+                <!--分页-->
+                <div class="pageBar">
+                    <ul class="hy-pagination">
+                        {$pages}
+                    </ul>
+                </div>
+                <!--分页end-->
+            </div>
+            {/pc}
+        </div>
+        <div class="col-md-4">
+            <div class="side">
+                <div class="hot-live">
+                    <div class="main-title">
+                        <h1 class="focus">精华推荐</h1>
+                    </div>
+                    <div class="hot-live-info">
+                        {pc:get sql="SELECT * FROM v9_news WHERE `thumb` <> ''" num="4" order="id DESC"}
+                        <ul id="essence" class="hot-live-title">
+                            {loop $data $r}
+                            <li id="news-{$n}">
+                                <div id="title-{$n}" class="special-title"><a href="{$r['url']}">{str_cut($r['title'], 60, "...")}</a></div>
+                                <div id="img-{$n}" class="imgCon">
+                                    <a href="{$r['url']}">
+                                        <img src="{get_thumb($r['thumb'], 350)}">
+                                        <div class="mask">{str_cut($r['title'], 60, "...")}</div>
+                                    </a>
+                                </div>
+                            </li>
+                            {/loop}
+                        </ul>
+                        {/pc}
+                    </div>
+                </div>
+                <div class="hot-live mart side-collection">
+                    <div class="main-title">
+                        <h1 class="focus">赛事集锦<a href="{APP_PATH}21/" class="more">更多&gt;&gt;</a></h1>
+                    </div>
+                    <ul class="clearfix collection movie">
+                        {pc:get sql="SELECT * FROM v9_news WHERE `thumb` <> '' ORDER BY `id` DESC" num="4"}
+                            {loop $data $r}
+                            <li>
+                                <a href="{$r['url']}">
+                                    <div class="autoImg"><img src="{get_thumb($r['thumb'], 350)}"></div>
+                                    <p class="pic-title">
+                                        <i class="fa fa-caret-square-o-right ft14"></i>
+                                        {str_cut($r['title'], 28, "...")}
+                                    </p>
+                                </a>
+                            </li>
+                            {/loop}
+                        {/pc}
+                    </ul>
+                </div>
+                <div class="hot-live  mart side-collection">
+                    <div class="main-title">
+                        <h1 class="focus">
+                            热门图库
+                            <a href="{APP_PATH}20/" class="more">
+                                更多&gt;&gt;
+                            </a>
+                        </h1>
+                    </div>
+                    <ul class="clearfix collection">
+                        {pc:get sql="SELECT * FROM v9_picture WHERE `thumb` <> '' ORDER BY `id` DESC" num="4"}
+                            {loop $data $r}
+                            <li>
+                                <a href="{$r['url']}">
+                                    <div class="autoImg"><img src="{get_thumb($r['thumb'], 350)}"></div>
+                                    <p class="pic-title">
+                                        <i class="fa fa-eye"></i>
+                                        {str_cut($r['title'], 28, "...")}
+                                    </p>
+                                </a>
+                            </li>
+                            {/loop}
+                        {/pc}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{php $js = array("ft_live.js", "imagesloaded.pkgd.common.js","laydate.dev.js","control_date.js")}
+
+{template "content", "footer"}

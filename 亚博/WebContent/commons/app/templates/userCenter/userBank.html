@@ -1,0 +1,51 @@
+<!--银行卡管理  -->
+<div class="sidewrap merge-footer">
+	<div class="content" id="uesr-bank">
+		<div class="body-row">
+			<div class="notice" style="margin-bottom:24px;">
+				<i class="ico-warning"></i>
+				添加或修改绑定的银行卡，需要6小时后才能进行提现。
+            </div>
+            <table class="table table-bank">
+                <tbody>
+	               <tr>
+	                   <th>绑定银行</th>
+	                   <th>开户人姓名</th>
+	                   <th>银行卡账号</th>
+	                   <th>绑定时间</th>
+	                   <th>操作</th>
+	               </tr>
+	                  <tr ng-if="data.bankList.length <= 0">
+	                   <td colspan="5">
+	                     <div class="tips-no">
+	                                        您当前没有绑定任何银行卡，点击<a href="">添加银行卡</a>马上绑定~
+	                     </div>
+	                   </td> 
+	                  </tr>
+	                  
+	                  <tr ng-repeat="bank in data.bankList">
+	                   <td>{{bank['bankType']}}</td>
+                       <td>{{bank['userRealName']}}</td>
+                       <td>{{bank['bankCard']}}</td>
+                       <td>{{bank['createTime'] | date: "yyyy-MM-dd hh:mm"}}</td>
+                       <td>--</td>
+	                  </tr>
+                </tbody>
+              </table>
+              <ul class="ui-form">
+                <li class="ui-item ui-spline center" style="padding-bottom:32px;">
+                    <a ui-sref="user.bank/add" class="btn btn-important">添加银行卡</a>
+                </li>
+              </ul>
+              <dl class="prompt">
+                 <dt>提示：</dt>
+                 <dd>为了您的账户和资金安全，平台会在首次绑定后的1个小时内给予您继续绑定与删除银行卡的权限，超过1个小时后将锁定银行卡绑定与删除功能；</dd>
+                 <dd>如若您的银行卡已经被锁定，您需要解除锁定功能联系在线客服；</dd>
+                 <dd>解除锁定后，1小时内可以进行银行增加绑定与删除操作。</dd>
+              </dl>
+		</div>
+	</div>
+
+
+
+</div>

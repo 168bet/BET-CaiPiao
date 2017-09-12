@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- css start -->
+    <link href="{CSS_PATH}bootstrap.css" rel="stylesheet">
+    <link href="{CSS_PATH}font-awesome-3.0.css" rel="stylesheet">
+    <link href="{CSS_PATH}base.css" rel="stylesheet">
+    <link href="{CSS_PATH}main.css" rel="stylesheet">
+    <link href="{CSS_PATH}personal_center.css" rel="stylesheet">
+    <link href="{CSS_PATH}tips.css" rel="stylesheet">
+    <link href="{CSS_PATH}sweet-alert.css" rel="stylesheet">
+    <!-- css end -->
+    <!--[if lt IE 9]>
+    <script src="{JS_PATH}selectivizr.js"></script>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="personal-header">
+    <div class="header-nav">
+        <div class="personal-logo">
+            <img src="{IMG_PATH}bt_logo.png" alt="">
+        </div>
+        <div class="cur">个人中心</div>
+        <a class="back" href="">返回首页</a>
+    </div>
+</div>
+<div class="content clearfix">
+    <div class="content-left">
+        <div class="content-nav">
+            <ul>
+                <li class="nav-title"><i class="personal-start"></i><div class="pd40">竞猜中心</div></li>
+                <li><a>我的竞猜</a></li>
+                <li><a href="{APP_PATH}index.php?m=member&c=index&a=favorite">我的收藏</a></li>
+                <li class="nav-title"><i class="personal-member-w"></i><a class="pd40 active">会员信息</a></li>
+                <li><a>我的账户</a></li>
+                <li><a>收货地址</a></li>
+                <li><a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_password">修改密码</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-right" style="background-color: #ffffff;padding-bottom: 20px">
+        <div class="collection-title">
+            会员信息
+        </div>
+        <div class="info-list">
+            <div class="info-head-wrap">
+                <div id="preview" class="info-head">
+                    <img id="imghead" width="100%" border="0" src="{$avatar[90]}" onerror="this.src='{IMG_PATH}member/nophoto.gif'">
+                </div>
+                <div class="text-center" style="margin-top: 10px;">
+                    <button class="submit" data-toggle="modal" data-target="#avatar-content">更换头像</button>
+                </div>
+            </div>
+            <div class="info-list-wrap">
+                <form action="" method="post" id="commentForm">
+                    <div class="group-input">
+                        <label><span class="red">*</span>用户名：</label>
+                        <span>{$member_info['username']}</span>
+                    </div>
+                    <div class="group-input">
+                        <label for="mobile"><span class="red">*</span>手机号：</label>
+                        <input type="text" name="mobile" id="mobile" value="{$member_info['mobile']}"/>
+                    </div>
+                    <div class="group-input">
+                        <label for="email"><span class="red">*</span>电子邮箱：</label>
+                        <input type="text" name="email" id="email" value="{$member_info['email']}"/>
+                    </div>
+                    <div class="group-input">
+                        <label for="nickname"><span class="red">*</span>昵称：</label>
+                        <input type="text" name="nickname" id="nickname" value="{$member_info['nickname']}"/>
+                    </div>
+                    <div class="group-input">
+                        <label for="realname">真实姓名：</label>
+                        <input type="text" name="realname" id="realname" value="{$member_info['realname']}"/>
+                    </div>
+                    <div class="group-input">
+                        <label for="tel">固定电话：</label>
+                        <input type="text" name="tel" id="tel" value="{$member_info['tel']}"/>
+                    </div>
+                    <div class="group-input">
+                        <label>所在地：</label>
+                        <select name="province"></select>
+                        <select name="city"></select>
+                        <select name="area"></select>
+                    </div>
+                    <div class="group-input">
+                        <label for="street">详细地址</label>
+                        <input type="text" name="street" id="street" style="width: 372px;" value="{$street}">
+                    </div>
+                    <div class="group-input">
+                        <input class="submit" type="hidden" name="dosubmit" value="1" />
+                        <button class="submit" type="button" data-action="ajax-submit" data-target="#commentForm" data-url="{APP_PATH}index.php?m=member&c=index&a=account_manage_info">保存信息</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="avatar-content" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">上传头像</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div id="avatar-body"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="window.location.reload();">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var APP_PATH = '{APP_PATH}';
+    //验证规则，错误信息
+    var rules = {
+                nickname: {
+                    required: true,
+                    remote: {
+
+                        //后台处理程序
+                        url:APP_PATH + 'index.php?m=member&c=index&a=public_validate',
+
+                        // 数据发送方式
+                        type: 'post',
+
+                        // 接收数据格式
+                        dataType:'json',
+
+                        // 传递的数据
+                        data:{
+
+                            nickname:function(){
+                                return $('[name="nickname"]').val();
+                            },
+                            field: 'nickname',
+                            except: '{$member_info["userid"]}'
+                        },
+
+                        dataFilter: function (data, type) {
+                            return data ? true : false;
+                        }
+                    },
+                    minlength: 4,
+                    maxlength: 20
+                },
+                mobile: {
+                    required: true,
+                    phone: true,
+                    remote: {
+
+                        //后台处理程序
+                        url:APP_PATH + 'index.php?m=member&c=index&a=public_validate',
+
+                        // 数据发送方式
+                        type: 'post',
+
+                        // 接收数据格式
+                        dataType:'json',
+
+                        // 传递的数据
+                        data:{
+
+                            mobile:function(){
+                                return $('[name="mobile"]').val();
+                            },
+                            field: 'mobile',
+                            except: '{$member_info["userid"]}'
+                        },
+
+                        dataFilter: function (data, type) {
+                            return data ? true : false;
+                        }
+                    }
+                },
+                tel: {
+                    telphone: true
+                },
+                street: {
+                    zh_char: true
+                },
+                email: {
+                    required: true,
+                    remote: {
+
+                        //后台处理程序
+                        url:APP_PATH + 'index.php?m=member&c=index&a=public_validate',
+
+                        // 数据发送方式
+                        type: 'post',
+
+                        // 接收数据格式
+                        dataType:'json',
+
+                        // 传递的数据
+                        data:{
+
+                            email:function(){
+                                return $('[name="email"]').val();
+                            },
+                            field: 'email',
+                            except: '{$member_info["userid"]}'
+                        },
+
+                        dataFilter: function (data, type) {
+                            return data ? true : false;
+                        }
+                    }
+                }
+            },
+        messages = {
+                nickname: {
+                    required: '请输入昵称',
+                    minlength: '字符不能少于4位',
+                    maxlength: '字符不能大于20位',
+                    remote: '该用户名已注册'
+                },
+                mobile: {
+                    required: '请输入手机号',
+                    remote: '该手机号已被人使用'
+                },
+                tel: {
+                    telphone: '请输入正确的固定电话'
+                },
+                street: {
+                    zh_char: '请输入正确的地址'
+                },
+                email: {
+                    remote: '该邮箱已被人使用'
+                }
+
+        },
+        province = "{$province}",
+        city = "{$city}",
+        area = "{$area}",
+        url = "{$url}";
+    //头像上传回调函数
+    function return_avatar(data) {
+        if(data == 1) {
+            window.location.reload();
+        } else {
+            alert('failure');
+        }
+    }
+</script>
+{php $js = array('jquery.validate.min.js', 'cityselect.js', 'swfobject.js', 'tips.js', 'sweet-alert.js', 'account_manage_info.js')}
+{template 'content', 'footer'}

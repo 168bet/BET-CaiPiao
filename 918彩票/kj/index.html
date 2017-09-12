@@ -1,0 +1,128 @@
+<!-- 全部开奖 -->
+<article id=allAward>
+	<section class="all pklist" style="background: #fff">
+		<div style="padding-top: 50px; height: 1000px">
+			<em class="rotate_load" style="margin: auto"></em>
+		</div>
+	</section>
+</article>
+<!-- 全部开奖 -->
+<script>
+CP.KJ = (function () {
+	var o = {
+			pageGo : function(){
+				TopAnch.init({
+			        title: '开奖结果',
+			        prevShow: true,
+			        nextShow: false,
+			        prevFun: function () {//左侧按钮绑定事件
+			            window.location.href = '#type=index';
+			        }
+			    });
+			},
+			//给球填颜色
+			anyCode : function (str) {
+				var html = "";
+				if(str){
+					if(str.indexOf("|")!=-1){
+						var Q = str.split("|");
+						var Q1 = Q[0].split(',');
+						var Q2 = Q[1].split(',');
+						for(var i=0, l = Q1.length; i<l ;i++){
+							html+='<cite>'+Q1[i]+'</cite>';
+						}
+						for(var i=0, l = Q2.length; i<l ;i++){
+							html+='<cite class="blueBall">'+Q2[i]+'</cite>';
+						}
+					}else{
+						var Q = str.split(",");
+						for(var i=0, l = Q.length; i<l ;i++){
+							html+='<cite>'+Q[i]+'</cite>';
+						}
+					}
+				}
+				return html;
+			},
+			allAward : function () {
+				o.pageGo();
+				$.ajax({
+					url:CP.Data.data+'/data/app/lottery_results2.xml',
+					dataType:'xml',
+					success:function (xml) {
+						var R = $(xml).find("rows");
+						var r = R.find("row");
+						var _out = [];
+						r.each(function(){
+							var gid = $(this).attr("gid");
+							var code = $(this).attr("code");
+							var pid = $(this).attr("pid");
+							var awardtime = $(this).attr("awardtime").substr(0,10);
+							var trycode = $(this).attr("trycode");
+							
+							if(gid=='01' || gid=='50'|| gid=='53' || gid=='51' || gid=='52' || gid=='07' || gid=='04' || gid=='54'|| gid=='56' || gid=='57' || gid=='20' || gid=='06' || gid=='09' || gid=='10'){
+								_out.push('<a href="#type=url&p=kj/result.html?in_='+gid+'">\
+										<div class="clearfix kjTit"><h2>'+CP.Util.lot(gid)+'</h2><span>第'+pid+'期 </span></div>\
+										<div class="kjBall">'+o.anyCode(code)+'</div>\
+										<i class="rightArrow"></i></a>');
+							} else if (gid==03) {
+								_out.push('<a href="#type=url&p=kj/result.html?in_='+gid+'">\
+										<div class="clearfix kjTit"><h2>'+CP.Util.lot(gid)+'</h2><span>第'+pid+'期 </span></div>\
+										<div class="kjBall">'+o.anyCode(code)+'<span class="gray pdLeft08">试机号：'+trycode+'</span></div>\
+										<i class="rightArrow"></i></a>');
+							} else if (gid==80) {
+								_out.push('<a href="#type=url&p=kj/result.html?in_='+gid+'">\
+										<div class="clearfix kjTit"><h2>'+CP.Util.lot(gid)+'</h2><span>第'+pid+'期 </span></div>\
+										<div class="kjBox">'+o.anyCode(code)+'</div>\
+										<i class="rightArrow"></i></a>\
+										<a href="#type=url&p=kj/result.html?in_=81">\
+										<div class="clearfix kjTit"><h2>'+CP.Util.lot('81')+'</h2><span>第'+pid+'期 </span></div>\
+										<div class="kjBox">'+o.anyCode(code)+'</div>\
+										<i class="rightArrow"></i></a>');
+							} else if (gid==58) {
+								_out.push('<a href="#type=url&p=kj/result.html?in_='+gid+'">\
+										<div class="clearfix kjTit"><h2>'+CP.Util.lot(gid)+'</h2><span>第'+pid+'期 </span></div>\
+										<div class="kjdice">');
+				            	code = code.split(',');
+				            	for(var n=0; n<code.length; n++){
+				            		var co = code[n],co1,co2;
+				            		co1 = co.substr(0,1);
+				            		co1 = {'1':'spade','2':'heart','3':'club','4':'box'}[co1];//黑红梅方
+				            		co2 = co.substring(1);
+				            		co2 = {'01':'A','11':'J','12':'Q','13':'K'}[co2]||parseInt(co2);
+				            		_out.push('<span><cite class='+co1+'></cite><em '+(co1 == 'heart' || co1 == 'box' ?'class=red':'')+'>'+co2+'</em></span>');
+				            	}
+				            	_out.push('</div><i class="rightArrow"></i></a>');
+							} else if (gid==70) {
+								code = code.split('|');
+								var co = code[0].split('VS');
+								_out.push('<a href="#type=url&p=kj/zq.html">\
+										<div class="clearfix kjTit"><h2>竞彩足球</h2><span>'+awardtime+'</span></div>\
+										<div class="kjDz"><em>'+co[0]+'</em><em>'+code[1]+'</em><em>'+co[1]+'</em></div>\
+										<i class="rightArrow"></i></a>');
+							} else if (gid==71) {
+								code = code.split('|');
+								var co = code[0].split('VS');
+								_out.push('<a href="#type=url&p=kj/lq.html">\
+										<div class="clearfix kjTit"><h2>竞彩篮球</h2><span>'+awardtime+'</span></div>\
+										<div class="kjDz"><em>'+co[0]+'</em><em>'+code[1]+'</em><em>'+co[1]+'</em></div>\
+										<i class="rightArrow"></i></a>');
+							} else if (gid==85) {
+								code = code.split('|');
+								var co = code[0].split('VS');
+								_out.push('<a href="#type=url&p=kj/bjdc.html">\
+										<div class="clearfix kjTit"><h2>北京单场</h2><span>'+awardtime+'</span></div>\
+										<div class="kjDz"><em>'+co[0]+'</em><em>'+code[1]+'</em><em>'+co[1]+'</em></div>\
+										<i class="rightArrow"></i></a>');
+							}
+							$("#allAward .all").html(_out.join(''));
+						});
+					}
+				});
+			}
+	};
+	return {
+        init: o.allAward
+    };
+})();
+CP.KJ.init();
+</script>

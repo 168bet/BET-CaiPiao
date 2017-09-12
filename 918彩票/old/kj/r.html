@@ -1,0 +1,47 @@
+<style type="text/css">
+.pklist .kjdice{ overflow:hidden; zoom:1; padding-left:0; width:60%}
+.pklist .kjdice span{ width:2rem; padding:.1rem 0 .1rem .3rem; border:1px solid #e3e3e3; margin-top:.7rem}
+.all a{ height:4rem}
+</style>
+<script>
+if(location.hash == ''){
+	location.replace('/#class=url&xo=kj/index.html');
+}
+</script>
+	<header class="hmzxHeader">
+      <section class="fixed2">
+       <div class="kjHeader">
+    	<h1></h1>
+    	<a href="#class=url&xo=kj/index.html" class="backIco2"></a>
+        <div class="pullDown">
+        	<em id='pullIco' class="pullIco" style="display:none"></em>
+            <div id='pullText' class="pullText" style="display:none">
+            	<a href="javascript:;">选号</a>
+            	<a href="javascript:;">合买跟单</a>
+            	<a href="javascript:;" class="cur">开奖结果</a>
+            	<a href="javascript:;" style="border-bottom:none">玩法帮助</a>
+            </div>
+        </div>
+       </div>
+   	   <ul class="buyTab clearfix" id='ww_ul' >
+    	<li class="cur" id="newkj" style='display:none;'><h3>最新开奖</h3></li>
+       	<li id="historykj"><h3>历史开奖</h3></li>
+       </ul>
+      </section>
+    </header>
+    <section>
+   <!-- 最新开奖start -->
+        <div class="pd063" id="newinfo"></div>
+    <!-- 最新开奖end -->	
+    <!-- 历史开奖end -->
+    <div class="all kjall pklist" style="display:none;background:#fff" id="historyList"></div>
+        
+    <!-- 历史开奖end -->
+    </section>
+    <a href="javascript:;" class="myMore" id="moresult1" style="display:none">查看更多</a>
+    <footer class="buyFooter">
+   	  <div class="fixed kjFloat">
+        <a id='payment' href="javascript:;" class="payment" style='display:none;'>去投注</a>
+   	  </div>
+	</footer>
+<script src="/js/kj/r.js"></script>

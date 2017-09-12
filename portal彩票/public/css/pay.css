@@ -1,0 +1,8 @@
+﻿.zfText {background: none repeat scroll 0 0 #fff; border: 1px solid #dcdcdc;line-height: 1.3rem; margin-top: 1.5rem; padding: 0.5rem 0.87rem 0.5rem 1.25rem;}
+.zfNum p{ color:#f03d3d; word-break:break-all}
+.downArrow{ display:inline-block; background:#fff; margin-right:.01rem; width:.45rem; height:.45rem; border-left:.13rem solid #f6851f; border-bottom:.13rem solid #f6851f; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.downHover .downArrow{ transform:rotate(135deg); -webkit-transform:rotate(135deg); -moz-transform:rotate(135deg)}
+.tzNum p span cite,.zfNum p cite{ color:#177ffc; padding-left:.4rem}
+.zfMoney{ position:relative; padding:.7rem 0 .5rem 0; margin-bottom:.8rem; border-bottom:1px dashed #bebebd; line-height:1.5rem}
+
+.hmInput{ line-height:2rem; border:1px solid #dcdcdc; width:28%; margin-right:.2rem; padding-left:.6rem; font-size:1rem}

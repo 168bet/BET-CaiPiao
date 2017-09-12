@@ -1,0 +1,153 @@
+<div class="w1105 m0auto text_center fz14 white" style="padding:20px 0 0 0;">
+    <div class="hgt30 line_hgt30 p10_0" style="background: #EAEAEA">
+        <span class="inlilne-block border_red1 red p5_25" ng-click=" ezLists.ezList='ezzh'; fun.cancelOrder(); " ng-class="{ezActive:ezLists.ezList=='ezzh'}">二字组合</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click=" ezLists.ezList='bsdw'; fun.cancelOrder(); " ng-class="{ezActive:ezLists.ezList=='bsdw'}">百拾定位</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click=" ezLists.ezList='bgdw'; fun.cancelOrder(); " ng-class="{ezActive:ezLists.ezList=='bgdw'}">百个定位</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click=" ezLists.ezList='sgdw'; fun.cancelOrder(); " ng-class="{ezActive:ezLists.ezList=='sgdw'}">拾个定位</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click=" ezLists.ezList='bghs'; fun.cancelOrder(); " ng-class="{ezActive:ezLists.ezList=='bghs'}">百个和数</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click=" ezLists.ezList='sghs'; fun.cancelOrder(); " ng-class="{ezActive:ezLists.ezList=='sghs'}">拾个和数</span>
+    </div>
+    
+    <div  ng-show="ezLists.ezList== 'ezzh'" ng-init="swTabConfig = {
+        tabs: ['qsw', 'zsw', 'hsw']
+    }">
+        
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red white"></span>
+        </div>
+        <div class="text_center middle" ng-show="swTabs.swTab==swTab" ng-repeat="swTab in swTabConfig['tabs'] track by $index">
+            <div>
+                <div class="inline-block bg-gray" ng-repeat="(key,value) in range(0,cols)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div ng-repeat="(key,value) in range(0,ezzh_lines)">
+                <div class="inline-block bg-lightgray" ng-repeat="(index,item) in range(0,cols)">
+                    <span class="w50 inline-block"> {{ezzh[key*cols+index].number}}</span>
+                    <span class="w50 inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(ezzh[key*cols+index])" ng-class="{'peiyu-selected': data.betPeiyuSelected[ezzh[key*cols+index].id]}">{{ezzh[key*cols+index].pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[ezzh[key*cols+index].id]}" ng-model="data.betMoney[ezzh[key*cols+index].id]" ng-change="fun.codeSelected(ezzh[key*cols+index])" class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="ezLists.ezList=='sgdw'" ng-init="swTabConfig = {
+        tabs: ['qsw', 'zsw', 'hsw']
+    }">
+        
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red white"></span>
+        </div>
+        <div class="text_center middle" ng-show="swTabs.swTab==swTab" ng-repeat="swTab in swTabConfig['tabs'] track by $index">
+            <div>
+                <div class="inline-block bg-gray" ng-repeat="(key,value) in range(0,cols)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div ng-repeat="(key,value) in range(0,sgdw_lines)">
+                <div class="inline-block bg-lightgray" ng-repeat="(index,item) in range(0,cols)">
+                    <span class="w50 inline-block">{{sgdw[key*cols+index].number}}</span>
+                    <span class="w50 inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(sgdw[key*cols+index])" ng-class="{'peiyu-selected': data.betPeiyuSelected[sgdw[key*cols+index].id]}">{{sgdw[key*cols+index].pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[sgdw[key*cols+index].id]}" ng-model="data.betMoney[sgdw[key*cols+index].id]" ng-change="fun.codeSelected(sgdw[key*cols+index])" class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div ng-show="ezLists.ezList=='bsdw'" ng-init="swTabConfig = {
+        tabs: ['qsw', 'zsw', 'hsw']}">
+        
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red white"></span>
+        </div>
+        <div class="text_center middle" ng-show="swTabs.swTab==swTab" ng-repeat="swTab in swTabConfig['tabs']">
+            <div>
+                <div class="inline-block bg-gray" ng-repeat="(key,value) in range(0,cols)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div ng-repeat="(key,value) in range(0,bsdw_lines)">
+                <div class="inline-block bg-lightgray" ng-repeat="(index,item) in range(0,cols)">
+                    <span class="w50 inline-block">{{bsdw[key*cols+index].number}}</span>
+                    <span class="w50 inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(bsdw[key*cols+index])" ng-class="{'peiyu-selected': data.betPeiyuSelected[bsdw[key*cols+index].id]}">{{bsdw[key*cols+index].pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[bsdw[key*cols+index].id]}" ng-model="data.betMoney[bsdw[key*cols+index].id]" ng-change="fun.codeSelected(bsdw[key*cols+index])" class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div ng-show="ezLists.ezList=='bgdw'" ng-init="swTabConfig = {
+        tabs: ['qsw', 'zsw', 'hsw']}">
+        
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red white"></span>
+        </div>
+        <div class="text_center middle" ng-show="swTabs.swTab==swTab" ng-repeat="swTab in swTabConfig['tabs']">
+            <div>
+                <div class="inline-block bg-gray" ng-repeat="(key,value) in range(0,cols)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div ng-repeat="(key,value) in range(0,bgdw_lines)">
+                <div class="inline-block bg-lightgray" ng-repeat="(index,item) in range(0,cols)">
+                    <span class="w50 inline-block">{{bgdw[key*cols+index].number}}</span>
+                    <span class="w50 inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(bgdw[key*cols+index])" ng-class="{'peiyu-selected': data.betPeiyuSelected[bgdw[key*cols+index].id]}">{{bsdw[key*cols+index].pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[bgdw[key*cols+index].id]}" ng-model="data.betMoney[bgdw[key*cols+index].id]" ng-change="fun.codeSelected(bgdw[key*cols+index])" class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="ezLists.ezList=='bghs'" ng-init="swTabConfig = {
+        tabs: ['qsw', 'zsw', 'hsw']}">
+        
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red white"></span>
+        </div>
+        <div class="text_center middle"  ng-show="swTabs.swTab==swTab" ng-repeat="swTab in swTabConfig['tabs']" >
+            <div>
+                <div class="inline-block bg-gray" ng-repeat="(key,value) in range(0,cols)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div ng-repeat="(key,value) in range(0, bghs_lines)">
+                <div class="inline-block bg-lightgray" ng-repeat="(index,item) in range(0,cols)">
+                    <span  class="w50 inline-block">{{bghs[key*cols+index].number}}</span>
+                    <span  class="w50 inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(bghs[key*cols+index])" ng-class="{'peiyu-selected': data.betPeiyuSelected[bghs[key*cols+index].id]}">{{bghs[key*cols+index].pl}}</span>
+                    <input  ng-if="bghs[key*cols+index]" type="number" ng-class="{'has-error': data.inputErrors[bghs[key*cols+index].id]}" ng-model="data.betMoney[bghs[key*cols+index].id]" ng-change="fun.codeSelected(bghs[key*cols+index])" class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="ezLists.ezList=='sghs'" ng-init="swTabConfig = {
+        tabs: ['qsw', 'zsw', 'hsw']}">
+        
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red white"></span>
+        </div>
+        <div class="text_center middle"  ng-show="swTabs.swTab==swTab" ng-repeat="swTab in swTabConfig['tabs']">
+            <div>
+                <div class="inline-block bg-gray" ng-repeat="(key,value) in range(0,cols)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div ng-repeat="(key,value) in range(0,sghs_lines)">
+                <div class="inline-block bg-lightgray" ng-repeat="(index,item) in range(0,cols)">
+                    <span class="w50 inline-block">{{sghs[key*cols+index].number}}</span>
+                    <span  class="w50 inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(sghs[key*cols+index])" ng-class="{'peiyu-selected': data.betPeiyuSelected[sghs[key*cols+index].id]}">{{sghs[key*cols+index].pl}}</span>
+                    <input  ng-if="sghs[key*cols+index]" type="number" ng-class="{'has-error': data.inputErrors[sghs[key*cols+index].id]}" ng-model="data.betMoney[sghs[key*cols+index].id]" ng-change="fun.codeSelected(sghs[key*cols+index])" class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="sidewrap merge-footer bank-charge-wap">
+  <div class="content" id="user-fund">
+    <div class="body-row">
+      <div class="ui-tab-title tab-title-bg clearfix">
+        <ul id="recharge-type">
+          <li ui-sref="user.funds/onlinePay" ui-sref-active="current">在线支付</li>
+          <li ui-sref="user.funds/weixinPay" ui-sref-active="current">微信支付</li>
+          <li ui-sref="user.funds/culturePay" ui-sref-active="current">公司入款</li>
+        </ul>
+      </div>
+      <div class="content bank-select" ng-if="data.step == 1">
+        <div class="step">
+          <table class="step-table">
+            <tbody>
+              <tr>
+                <td class="current"><div class="con">1.查看公司账户并填表</div></td>
+                <td><div class="tri">
+                  <div class="con">2.正在操作，稍候查询</div>
+                </div></td>
+                <td><div class="tri">
+                  <div class="con">3.结束</div>
+                </div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <form name="culturePayForm">
+          <ul class="ui-form">
+            <li class="ui-item">
+              <label>会员账号：</label>
+              <span class="ui-text-info">{{global.user.userName}}</span>
+            </li>
+            <li class="ui-item">
+              <label>总账户余额：</label>
+              <span class="ui-text-info">{{global.user.userMoney}}</span>
+              <span class="ui-text-info">元</span>
+            </li>
+            <li class="ui-item">
+              <label>充值金额：</label>
+              <input type="number" style="width: 140px;" class="ip-text w200" required min="100" max="50000" name="money" autocomplete="off" ng-model="formdata.money">
+              <span class="ui-text-info">元</span>
+              &nbsp;&nbsp;<span id="ck_money" class="ui-check">单笔支付（100 ~ 500000）元！ </span>
+            </li>
+            <li class="ui-item">
+              <label>汇入银行：</label>
+               <select name="bank" id="" ng-model="formdata.bank">
+                   <option value="1">在线充值</option>
+               </select>
+            </li>
+            <li class="ui-item">
+              <label>汇入日期：</label>
+              <input type="text" style="width: 140px;" class="ip-text w200" ng-model="formdata.payTime" laydate format="YYYY-MM-DD hh:mm:ss">
+            </li>
+            <li class="ui-item">
+              <label>汇入方式：</label>
+               <select name="bankType" id="" ng-model="formdata.bankType">
+                  <option value="">请选择汇款方式</option>
+                  <option value="银行柜台">银行柜台</option>
+                  <option value="ATM现金">ATM现金</option>
+                  <option value="ATM卡转">ATM卡转</option>
+                  <option value="网银转账">网银转账</option>
+                  <option value="手机银行转帐">手机银行转帐</option>
+               </select>
+            </li>
+            <li class="ui-item">
+              <label>汇款人姓名：</label>
+              <input type="text" style="width: 140px;" class="ip-text w200" ng-model="formdata.payName" required>
+            </li>
+            <li class="ui-item"><label>&nbsp;</label><a href="javascript:void(0);" ng-click="" class="btn btn-important">下一步</a></li>
+          </ul>
+        </form>
+      </div>
+      
+      <div class="content bank-select" ng-if="data.step == 2">
+        正在进行相应操作请稍后查询！
+      </div>
+      <div class="content bank-select" ng-if="data.step == 3">
+        支付成功！
+      </div>
+    </div>
+  </div>
+</div>

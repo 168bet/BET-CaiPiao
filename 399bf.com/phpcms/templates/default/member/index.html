@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- css start -->
+    <link href="{CSS_PATH}bootstrap.css" rel="stylesheet">
+    <link href="{CSS_PATH}font-awesome-3.0.css" rel="stylesheet">
+    <link href="{CSS_PATH}base.css" rel="stylesheet">
+    <link href="{CSS_PATH}main.css" rel="stylesheet">
+    <link href="{CSS_PATH}personal_center.css" rel="stylesheet">
+    <!-- css end -->
+    <!--[if lt IE 9]>
+    <script src="{JS_PATH}selectivizr.js"></script>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="personal-header">
+        <div class="header-nav">
+            <div class="personal-logo">
+                <img src="{IMG_PATH}bt_logo.png" alt="">
+            </div>
+            <div class="cur">个人中心</div>
+            <a class="back" href="{APP_PATH}">返回首页</a>
+        </div>
+    </div>
+    <div class="content clearfix">
+        <div class="content-left">
+            <div class="dynamic" style="border-top: 2px solid #ffa21d;">
+                <div class="dynamic-tip orange">
+                    近7天动态
+                </div>
+                <div class="dynamic-detail">
+                    <ul class="clearfix">
+                        <li>
+                            <div class="red">5</div>
+                            <div>方案</div>
+                        </li>
+                        <li>
+                            <div class="red">5</div>
+                            <div>猜中</div>
+                        </li>
+                        <li>
+                            <div class="red">5</div>
+                            <div>积分奖励</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="division-wrap clearfix">
+                    <div class="count">累计</div><div class="line"></div>
+                </div>
+                <div class="dynamic-detail">
+                    <ul class="clearfix">
+                        <li>
+                            <div>5</div>
+                            <div>方案</div>
+                        </li>
+                        <li>
+                            <div>5</div>
+                            <div>猜中</div>
+                        </li>
+                        <li>
+                            <div>5</div>
+                            <div>积分奖励</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dynamic" style="border-top: 2px solid #a3d7ef;">
+                <div class="dynamic-tip blue">
+                    近7天预测
+                </div>
+                <div class="dynamic-detail">
+                    <ul class="clearfix">
+                        <li>
+                            <div class="red">5</div>
+                            <div>方案</div>
+                        </li>
+                        <li>
+                            <div class="red">5</div>
+                            <div>猜中</div>
+                        </li>
+                        <li>
+                            <div class="red">5</div>
+                            <div>积分奖励</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="division-wrap clearfix">
+                    <div class="count">累计</div><div class="line"></div>
+                </div>
+                <div class="dynamic-detail">
+                    <ul class="clearfix">
+                        <li>
+                            <div>5</div>
+                            <div>方案</div>
+                        </li>
+                        <li>
+                            <div>5</div>
+                            <div>猜中</div>
+                        </li>
+                        <li>
+                            <div>5</div>
+                            <div>积分奖励</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-nav">
+                <ul>
+                    <li class="nav-title"><i class="personal-start"></i><div class="pd40">竞猜中心</div></li>
+                    <li><a class="active">我的竞猜</a></li>
+                    <li><a href="{APP_PATH}index.php?m=member&c=index&a=favorite">我的收藏</a></li>
+                    <li><a >我的兑奖</a></li>
+                    <li class="nav-title"><i class="personal-member"></i><div class="pd40">会员信息</div></li>
+                    <li><a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_security">我的账户</a></li>
+                    <li><a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_address">收货地址</a></li>
+                    <li><a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_password">修改密码</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-right">
+            <div class="member">
+                <div class="member-head">
+                    <div class="head">
+                        <img src="{$avatar[90]}" width="85" height="85" onerror="this.src='{$phpsso_api_url}/statics/images/member/nophoto.gif'">
+                    </div>
+                    <a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_info" style="color: #098fd5;">编辑个人资料</a>
+                </div>
+                <div class="member-info">
+                    <div class="name"><span class="ftc24">您好~</span>{if $member_info['nickname']}{$member_info['nickname']}{else}{$member_info['username']}{/if}</div>
+                    <div class="money-count">
+                        <i class="money-icon"></i><div class="money-num">当前火冶币<span class="much">[{$member_info['amount']}]</span></div>
+                    </div>
+                </div>
+                <div class="goods">
+                    <div class="goods-title">
+                        <span style="font-weight: bold">我兑换的商品</span> <a href="" class="more-goods">更多</a>
+                    </div>
+                    <div class="goods-list">
+                        <ul>
+                            <li>
+                                <div class="goods-img">
+                                    <img src="{IMG_PATH}demo_food.png" alt="">
+                                    <div class="goods-status">待收货</div>
+                                </div>
+                                <div class="goods-name">芒果慕斯</div>
+                            </li>
+                            <li>
+                                <div class="goods-img">
+                                    <img src="{IMG_PATH}demo_food.png" alt="">
+                                    <div class="goods-status">待收货</div>
+                                </div>
+                                <div class="goods-name">芒果慕斯</div>
+                            </li>
+                            <li>
+                                <div class="goods-img">
+                                    <img src="{IMG_PATH}demo_food.png" alt="">
+                                    <div class="goods-status">待收货</div>
+                                </div>
+                                <div class="goods-name">芒果慕斯</div>
+                            </li>
+                            <li>
+                                <div class="goods-img">
+                                    <img src="{IMG_PATH}demo_food.png" alt="">
+                                    <div class="goods-status">待收货</div>
+                                </div>
+                                <div class="goods-name">芒果慕斯</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="guess">
+                <div class="guess-left">
+                    <div class="guest-title">
+                        我参与的还末开始的竞猜赛事
+                    </div>
+                    <div class="guest-list">
+                        <ul>
+                            {loop $guess $data}
+                            <li>
+                                <div class="myguest">
+                                    <div class="myguest-time">{$data['date']}</div>
+                                    <div class="guest-team-con clearfix">
+                                        <div class="guest-team">
+                                            <div class="guest-team-img fl"><img src="{$data['home_logo']}" width="28" height="28" alt="{$data['homeshortname']}" class="team-photo"></div>
+                                            <span class="fl mr5">{$data['homeshortname']}</span>
+                                        </div>
+                                        <span class="fl vs">VS</span>
+                                        <div class="guest-team">
+                                            <div class="guest-team-img fr"><img src="{$data['away_logo']}" width="28" height="28" alt="{$data['awayshortname']}" class="team-photo"></div>
+                                            <span class="fr mr5">{$data['awayshortname']}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="myguest-team-con fl">
+                                    <span class="myguest-team">我的竞猜：<span style="color: #ffa21d;">{$data['result']}</span></span>
+                                    <a class="detail">详情</a>
+                                </div>
+                            </li>
+                            {/loop}
+                        </ul>
+                    </div>
+                </div>
+                <div class="guess-right">
+                    <div class="guest-title">
+                        平台竞猜达人排行<a href="" class="more-goods" style="margin-top: 6px;">更多</a>
+                    </div>
+                    <div class="guess-peo">
+                        <ul>
+                            <li>
+                                 <span class="guess-index">1</span>
+                                 <div class="guess-img">
+                                     <img src="{IMG_PATH}demo_pic.png" alt="">
+                                 </div>
+                                <div class="guess-peo-info">
+                                    <div>会员昵称</div>
+                                    <div class="guess-count">猜中次数：<span style="color: #ffa21d;">100</span></div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="guess-index">2</span>
+                                <div class="guess-img">
+                                    <img src="{IMG_PATH}demo_pic.png" alt="">
+                                </div>
+                                <div class="guess-peo-info">
+                                    <div>会员昵称</div>
+                                    <div class="guess-count">猜中次数：<span style="color: #ffa21d;">100</span></div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="guess-index">3</span>
+                                <div class="guess-img">
+                                    <img src="{IMG_PATH}demo_pic.png" alt="">
+                                </div>
+                                <div class="guess-peo-info">
+                                    <div>会员昵称</div>
+                                    <div class="guess-count">猜中次数：<span style="color: #ffa21d;">100</span></div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="guess-index">1</span>
+                                <div class="guess-img">
+                                    <img src="{IMG_PATH}demo_pic.png" alt="">
+                                </div>
+                                <div class="guess-peo-info">
+                                    <div>会员昵称</div>
+                                    <div class="guess-count">猜中次数：<span style="color: #ffa21d;">100</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var IMG_PATH = '{IMG_PATH}';
+    </script>
+{php $js = array('imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js')}
+{template 'content', 'footer'}

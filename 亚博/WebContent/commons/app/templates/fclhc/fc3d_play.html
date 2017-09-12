@@ -1,0 +1,82 @@
+<div class="game-main-wrap">
+	<div class="w1105 m0auto hgt222 relative"
+		style="background: url({{staticURI}}/images/fc3d/fc3dBg.png) no-repeat center;">
+		<div class="absolute fz24"
+			style="right: 512px; top: 63px;color:#010103">
+			第 <span>{{lastNumber}}</span> 期 开奖结果
+		</div>
+		<div class="inline-block absolute fz24"
+			style="left: 370px; top: 118px;">
+			<span ng-class="{fcTopCircle:topCircle(result) == 'green',fcTopCircle_red:topCircle(result) == 'red',fcTopCircle_blue:topCircle(result) == 'blue'}"
+				ng-repeat="result in lastResults track by $index" style="margin-left: 5px;">{{result}}</span>
+		</div>
+		<div class="absolute hgt60 line_hgt30"
+			style="left: 580px; top: 110px;">
+			<div class="inline-block fz20">
+			     <div class="count-down-wrap">
+			         <span>距离封盘: </span><count-down class="fc3d-count-down" time="downTimeLeft" tick="fun.closeTickCb" />
+			     </div>
+			     <div class="count-down-wrap">
+			         <span>距离开奖: </span><count-down class="fc3d-count-down" time="closeTimeLeft" tick="fun.openTickCb" />
+			     </div>
+			</div>
+		</div>
+	</div>
+	<div class="w1105 m0auto text_center">
+		<div>
+			<span class="fc3dKind" ng-class="{fc3dKind_active:curPlay=='ZPS'}"
+				ng-click=" curPlay='ZPS';fun.cancelOrder(); ">主盘式</span> <span class="fc3dKind"
+				ng-class="{fc3dKind_active:curPlay=='YZ'}" ng-click=" curPlay='YZ';fun.cancelOrder(); ">一字</span>
+			<span class="fc3dKind" ng-class="{fc3dKind_active:curPlay=='EZ'}"
+				ng-click=" curPlay='EZ';fun.cancelOrder(); ">二字</span> <span class="fc3dKind"
+				ng-class="{fc3dKind_active:curPlay=='SZ'}" ng-click=" curPlay='SZ' ">三字</span>
+			<span class="fc3dKind" ng-class="{fc3dKind_active:curPlay=='YZGG'}"
+				ng-click=" curPlay='YZGG';fun.cancelOrder(); ">一字过关</span> <span class="fc3dKind"
+				ng-class="{fc3dKind_active:curPlay=='KD'}" ng-click=" curPlay='KD' ">跨度</span>
+			<span class="fc3dKind" ng-class="{fc3dKind_active:curPlay=='ZXS'}"
+				ng-click=" curPlay='ZXS';fun.cancelOrder(); ">组选三</span> <span class="fc3dKind"
+				ng-class="{fc3dKind_active:curPlay=='ZXL'}"
+				ng-click=" curPlay='ZXL';fun.cancelOrder(); ">组选六</span> <span class="fc3dKind"
+				ng-class="{fc3dKind_active:curPlay=='FSZH'}"
+				ng-click=" curPlay='FSZH';fun.cancelOrder(); ">复式组合</span> <span class="fc3dKind"
+				ng-class="{fc3dKind_active:curPlay=='QT'}" ng-click=" curPlay='QT';fun.cancelOrder(); ">其他</span>
+		</div>
+		<ng-include src="templateURI('/fclhc/fc3d_play_zps.html')"
+			ng-if=" curPlay=='ZPS' "></ng-include>
+		<ng-include src="templateURI('/fclhc/fc3d_play_yz.html')"
+			ng-if=" curPlay=='YZ' "></ng-include>
+		<ng-include src="templateURI('/fclhc/fc3d_play_ez.html')"
+			ng-if=" curPlay=='EZ' "></ng-include>
+		<ng-include src="templateURI('/fclhc/fc3d_play_sz.html')"
+			ng-if=" curPlay=='SZ' "></ng-include>
+		<ng-include src="templateURI('/fclhc/fc3d_play_yzgg.html')"
+			ng-if=" curPlay=='YZGG' "></ng-include>
+		<ng-include src="templateURI('/fclhc/fc3d_play_kd.html')"
+			ng-if=" curPlay=='KD' "></ng-include>
+		<ng-include src="templateURI('/fclhc/fc3d_play_zxs.html')"
+			ng-if=" curPlay=='ZXS' "></ng-include>
+		<ng-include src="templateURI('/fclhc/fc3d_play_zxl.html')"
+			ng-if=" curPlay=='ZXL' "></ng-include>
+		<ng-include src="templateURI('/fclhc/fc3d_play_fs.html')"
+			ng-if=" curPlay=='FSZH' "></ng-include>
+		<ng-include src="templateURI('/fclhc/fc3d_play_qt.html')"
+			ng-if=" curPlay=='QT' "></ng-include>
+	</div>
+	
+    <div class="quick-order clearfix fc3d-wrap-center">
+       <div class="right">
+           <label for="qucik-order-money">快速下注</label>
+           <input type="number" name="quick-order-money" ng-model="data.quickOrderMoney" ng-change="fun.quickOrderMoneyChanged(data.quickOrderMoney)" />
+           <button name="reset" class="quick-order-money-reset" ng-click="data.quickOrderMoney= ''">重填</button>
+       </div>
+    </div>
+	
+	<div class="mt35 pb50 text_center">
+		<div class="inline-block mr50">
+			<img src="{{staticURI}}/images/bjpk10/reset.png" ng-click="fun.cancelOrder()" />
+		</div>
+		<div class="inline-block ml50">
+			<img src="{{staticURI}}/images/bjpk10/bet.png" ng-click="fun.submitOrder()"/>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="author" content="m.9188.com  ">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta http-equiv="cleartype" content="on">
+	<title>签到翻倍卡</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="./css/global.css" rel="stylesheet" type="text/css">
+</head>
+<body class="bg_z">
+	<div class="head_bg">
+		<div class="result"></div>
+	</div>
+	<div class="main_fb">
+		<div class="qd_card" style="margin-bottom:-.5rem;">
+			<cite>签到翻倍卡:每日签到所送金豆翻倍</cite>
+			<div>
+				<span class="card_b"></span>
+				<span>
+					<p>14,000<i>积分</i></p>
+					<p>次日生效,有效期7天</p>
+					<p>最高送17.5万金豆</p>
+				</span>
+				<span class="gm1" id="bcard"></span>
+			</div>
+			<div>
+				<span class="card_q"></span>
+				<span>
+					<p>120,000<i>积分</i></p>
+					<p>次日生效，有效期7天</p>
+					<p>最高送175万金豆</p>
+				</span>
+				<span class="gm1" id="kcard"></span>
+			</div>
+		</div>
+		
+		
+		
+		
+		<div class="qd_card_bg"></div>
+		<div class="qd_card">
+			<cite>会员卡:上榜加送10%奖券，签到所送金豆翻百倍</cite>
+			<div>
+				<span class="seven_day"></span>
+				<span>
+					<p>150,000<i>积分</i></p>
+					<p>次日生效,有效期7天</p>
+					<p>最高送2457奖券</p>
+				</span>
+				<span class="gm1" id="vip1"></span>
+			</div>
+			<div>
+				<span class="month_card"></span>
+				<span>
+					<p>330,000<i>积分</i></p>
+					<p>次日生效,有效期30天</p>
+					<p>最高送6187奖券</p>
+				</span>
+				<span class="gm1"  id="vip2"></span>
+			</div>
+			<div>
+				<span class="ji_card"></span>
+				<span>
+					<p>880,000<i>积分</i></p>
+					<p>次日生效,有效期90天</p>
+					<p>最高送18561奖券</p>
+				</span>
+				<span class="gm1"  id="vip3"></span>
+			</div>
+		</div>
+		<div class="qd_card_bg1"></div>
+		<div class="qd_card qd_card_rules" style="margin-top:-.5rem;margin-bottom:.5rem;">
+			<h3>活动规则</h3>
+			<p style="font-weight:bold;">【签到翻倍卡】</p>
+			<p>1.每日签到今日翻N倍</p>
+			<p>2.购买次日生效，如果翻倍期间某日没有签到领取，则视为放弃当天的翻倍资格</p>
+			<p>3.每人只能持有一张翻倍卡，即翻倍卡失效前一天才能购买下一张</p>
+			<p style="margin-bottom:1rem;">4.会员只能购买千倍卡，但使用千倍卡期间，只能领取千倍金豆</p>
+			<p style="font-weight:bold;">【会员卡】</p>
+			<p>1.上榜加送10%奖券</p>
+			<p>会员有效期内的日榜、周榜(周日当天需要是会员)、月榜（当月最后一天需要会员）加送10%奖券</p>
+			<p>2.每日签到可领100倍金豆</p>
+			<p>3.排行榜尊贵展示</p>
+			<p>4.每人只能持有一张会员卡，即会员卡失效前一天才能购买下一张</p>
+		</div>
+	</div>
+	
+		<!-- 提示层 -->
+	<div class="ceng" style="display:none"></div>
+	<article>
+		<div class="ts_bg" id="b_buy" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p>您将花费<span style="color:#3da661;">14,000</span>积分购买“签到百倍卡”，有效期7天</p>
+					<div class="btn_bg">
+						<span id="bclose">取消</span>
+						<span id="bsure_buy">确定购买</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ts_bg" id="b_cz" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p id="czms">您积分余额不足，请充值！</p>
+					<div class="btn_bg">
+						<span id="czclose">取消</span>
+						<span id="cz_go">前往充值</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="ts_bg" id="k_buy" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p>您将花费<span style="color:#3da661;">120,000</span>积分购买“签到千倍卡”，有效期7天</p>
+					<div class="btn_bg">
+						<span id="kclose">取消</span>
+						<span id="ksure_buy">确定购买</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ts_bg" id="k_cz" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p id="kczms">您积分余额不足，请充值！</p>
+					<div class="btn_bg">
+						<span id="kczclose">取消</span>
+						<span id="kcz_go">前往充值</span>
+					</div>
+				</div>
+			</div>
+		</div>		
+		
+		
+		<!--  ***************会员卡-->
+			<!--  ***************周卡-->
+			<div class="ts_bg" id="vip1_buy" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p>您将花费<span style="color:#3da661;">150,000</span>积分购买7天会员卡，有效期7天</p>
+					<div class="btn_bg">
+						<span >取消</span>
+						<span >确定购买</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ts_bg" id="vip1_cz" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p id="vip1_ms">您积分余额不足，请充值！</p>
+					<div class="btn_bg">
+						<span >取消</span>
+						<span >前往充值</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+				<!--  ***************月卡-->
+	
+				<div class="ts_bg" id="vip2_buy" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p>您将花费<span style="color:#3da661;">330,000</span>积分购买月会员卡，有效期30天</p>
+					<div class="btn_bg">
+						<span id="">取消</span>
+						<span id="">确定购买</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ts_bg" id="vip2_cz" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p id="vip2_ms">您积分余额不足，请充值！</p>
+					<div class="btn_bg">
+						<span >取消</span>
+						<span >前往充值</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--  ***************季卡-->	
+					<div class="ts_bg" id="vip3_buy" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p>您将花费<span style="color:#3da661;">880,000</span>积分购买季会员卡，有效期90天</p>
+					<div class="btn_bg">
+						<span id="">取消</span>
+						<span id="">确定购买</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ts_bg" id="vip3_cz" style="display:none">
+			<div class="ts_img" ></div>
+			<div class="ts_main">
+				<div>
+					<p id="vip3_ms">您积分余额不足，请充值！</p>
+					<div class="btn_bg">
+						<span>取消</span>
+						<span >前往充值</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	
+		
+	</article>
+	
+</body>
+</html>
+
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/gq2/sign/qdfb.js" type="text/javascript" charset="utf-8"></script>

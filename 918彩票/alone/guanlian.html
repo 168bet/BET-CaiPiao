@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>关联账户</title>
+<style type="text/css">
+body{ background-color:#f5f4f9;  min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+
+
+
+
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+.gl_top{ padding:4rem 0; height:2rem; line-height:2rem; color:#191919; font-size:2rem;text-align:center;}
+.gl_icon{width:26px; height:26px; margin-left:10px;}
+.gl_icon img{width:26px; height:26px; vertical-align:-3px;}
+.gl_box{ padding:0 15px;background-color:#fff;}
+.cp9188-cell {
+  padding: 0 15px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.cp9188-cell:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #e8e8ea;
+  color: #e8e8ea;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  left: 15px;
+}
+.cp9188-cell:first-child:before {
+  display: none;
+}
+.cp9188-cell__bd {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+line-height: 32px; padding-top: 6px; padding-bottom:6px;
+}
+.cp9188-cell__hd{
+  height: 32px;
+  line-height: 32px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.cp9188-cell__bd > input.cp9188-input{
+  padding-top:0;
+  padding-bottom: 0;
+}
+.cp9188-input {
+  width: 100%;
+  height: 32px;
+  font-size:1.25rem;
+  font-weight:normal;
+  padding-top:0;
+  padding-bottom: 0;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  background-color: transparent;
+  color: inherit;
+  line-height: 32px;
+}
+.cp9188-label {
+  display: block;
+  width:50px;
+  margin-right: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.cp9188-label img{width:32px; height:32px;}
+
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:1000;left:0;top:0; display: none;}
+</style>
+<body>
+	<div class="gl_top">关联账户<i class="gl_icon"><!-- <img src="../img/table.png" /> --></i></div>
+	<div class="gl_box">
+		<ul id="usernamelist">
+			<!-- 
+			<li class="cp9188-cell">
+				<div class="cp9188-cell__hd"><label class="cp9188-label"><img src="images/logo.png" /></label></div>
+				<div class="cp9188-cell__bd">
+					<input class="cp9188-input" type="text" value="test031b1dgsd" />
+				</div>				
+			</li>	
+			 -->		
+		</ul>
+	</div>
+</body>
+
+<script src='/js/public/jquery-1.9.1.min.js'></script>
+<script src="/js/public/weui.min.js"></script>
+<script>
+
+String.prototype.getParam = function(n){
+	var r = new RegExp("[\?\&]"+n+"=([^&?]*)(\\s||$)", "gi");
+	var r1=new RegExp(n+"=","gi");
+	var m=this.match(r);
+	if(m==null){
+		return "";
+	}else{
+		return typeof(m[0].split(r1)[1])=='undefined'?'':decodeURIComponent(m[0].split(r1)[1]);
+	}
+};
+//公用弹出层和加载层
+var win_alert = alert;
+window['alert'] = function (msg, loading) {
+	if (!loading) {
+		clearTimeout(window.alert.time);
+		var obj = $('<div class="alertBox">' + msg + '</div>');
+		$('body').append(obj);
+		window.alert.time = setTimeout(function () {
+			$(".alertBox").remove();
+		}, 2000);
+	} else {
+		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+		$('#mask').show();
+	}
+};
+var remove_alert = function () {
+	$('.alertBox').remove();
+	$('#mask').hide();
+};
+
+
+var username="";
+var mobileNo="";
+$(function () {
+	mobileNo = location.search.getParam("mobileNo")||"";
+	console.log(mobileNo)
+	$.ajax({
+		url:'/user/query_band_mobile_users.go?mobileNo='+mobileNo,
+		type:'POST',
+		success:function(xml){
+			var R = $(xml).find("Resp")
+			var code = R.attr("code");
+			var desc = R.attr("desc");
+			var html = "";
+			if(code=="0"){
+				var row = R.find("row");
+				var len = row.length;
+				if(len){
+					row.each(function(){
+						var nickid = $(this).attr("nickid")
+						var loginpwd = $(this).attr("loginpwd")
+						var pwdflag = $(this).attr("pwdflag")
+						//html+='<li><a class="cp9188-datalist__bd" href="javascript:;">'+nickid+'</a><i class="weui-icon-close"></i></li>'
+						 
+						html+='<li class="cp9188-cell">'
+						html+='<div class="cp9188-cell__hd"><label class="cp9188-label"><img src="images/logo.png" /></label></div>'
+						html+='<div class="cp9188-cell__bd">'
+						html+='<div class="cp9188-input">'+nickid+'</div>'
+						html+='</div>'			
+						html+='</li>'
+					})
+					$("#usernamelist").html(html)
+				}else{
+					$("#usernamelist").html("暂无关联账户")
+				}
+				
+				$("#usernamelist li").bind("click",function(){
+					username=$(this).find("div.cp9188-input").html();
+					MiniLogin();
+				})
+				
+			}else{
+				
+			}
+		}
+	})
+});
+
+var MiniLogin = function(){
+	var uname = username
+    if (uname == "") {
+        alert('请输入用户名');
+        return false;
+    }else{
+    	alert('登录中，请稍后！','loading');
+		var data = "uid=" + encodeURIComponent(uname);
+	    $.ajax({
+	    	/* url: '/user/mlogin.go', */
+	    	url: '/user/select_user_login.go',
+	        type: "POST",
+	        dataType : "xml",
+	        data: data,
+	        cache: false,
+	        success : function (xml) {
+	        	remove_alert();
+	        	var R = $(xml).find("Resp");
+				var code = R.attr("code");
+				var desc = R.attr("desc");
+				if (code == "0") {
+					localStorage.setItem("username", uname);
+					
+					setTimeout(function(){
+						window.location.replace('/');
+					},1e3);
+				}else{
+					alert(desc);
+				}
+	        },error : function (){
+	        	remove_alert();alert('网络异常请刷新重试');
+	        	return
+	        }		        
+	    });
+    }
+}
+</script>

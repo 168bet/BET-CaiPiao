@@ -1,0 +1,450 @@
+BODY {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-FAMILY: arial; BACKGROUND-COLOR: #ffffff
+}
+TR {
+	BACKGROUND-COLOR: #ffffff
+}
+TD {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: black; FONT-FAMILY: arial; TEXT-ALIGN: center
+}
+TH {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: black; FONT-FAMILY: arial; TEXT-ALIGN: center
+}
+INPUT {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: navy; FONT-FAMILY: arial
+}
+SELECT {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: navy; FONT-FAMILY: arial
+}
+A:visited {
+	COLOR: #0000ff; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #0000ff; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #0000ff; TEXT-DECORATION: none
+}
+.del {
+	CURSOR: hand; BACKGROUND-COLOR: silver
+}
+.tdL {
+	TEXT-ALIGN: left
+}
+.tdR {
+	TEXT-ALIGN: right
+}
+.tdC {
+	TEXT-ALIGN: center
+}
+.tdB {
+	FONT-WEIGHT: bold
+}
+.transL {
+	BACKGROUND-COLOR: transparent; TEXT-ALIGN: left
+}
+.transR {
+	BACKGROUND-COLOR: transparent; TEXT-ALIGN: right
+}
+.odds {
+	FONT-WEIGHT: bold; COLOR: red
+}
+.hdp {
+	FONT-WEIGHT: bold; COLOR: blue
+}
+.teambet {
+	FONT-WEIGHT: normal; COLOR: maroon
+}
+.score {
+	COLOR: red
+}
+.error {
+	COLOR: red
+}
+#footer {
+	FONT-SIZE: 11px; COLOR: gray
+}
+.butt {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-FAMILY: arial
+}
+.buttsave {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: navy; FONT-FAMILY: arial
+}
+.buttcancel {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: maroon; FONT-FAMILY: arial
+}
+.buttquery {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: black; FONT-FAMILY: arial
+}
+.buttrefresh {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: darkgreen; FONT-FAMILY: arial
+}
+.buttx {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; CURSOR: hand; COLOR: darkred; FONT-FAMILY: tahoma
+}
+.currtype {
+	COLOR: #0000ff; TEXT-DECORATION: none
+}
+.title {
+	BACKGROUND-COLOR: #4f94cd
+}
+.title2 {
+	BACKGROUND-COLOR: #dedede
+}
+.title3 {
+	FONT-WEIGHT: bold; BACKGROUND-COLOR: wheat
+}
+.titleCap {
+	FONT-WEIGHT: bold; COLOR: white
+}
+.error {
+	COLOR: red
+}
+.small {
+	FONT-SIZE: 11px; BACKGROUND-COLOR: #dfefff; TEXT-ALIGN: right
+}
+.pageTitle {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; WORD-SPACING: 8px; PADDING-TOP: 2px
+}
+.maximum_payout {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; WORD-SPACING: 5px; COLOR: black; PADDING-TOP: 2px; BACKGROUND-COLOR: #87cefa
+}
+.bet_screen {
+	WIDTH: 600px; BACKGROUND-COLOR: #000066
+}
+.bet_screen TH {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; BACKGROUND-IMAGE: url(../images/texture.gif); PADDING-BOTTOM: 2px; COLOR: black; PADDING-TOP: 2px
+}
+.bet_screen TD {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; PADDING-TOP: 1px
+}
+.bet_screen .th2 {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; COLOR: black; PADDING-TOP: 3px; BACKGROUND-COLOR: #eeeeee
+}
+.bet_screen .league {
+	BACKGROUND-COLOR: #dcdcdc; TEXT-ALIGN: center
+}
+.bet_screen .league2 {
+	COLOR: white; TEXT-ALIGN: center
+}
+.bet_screen .team {
+	PADDING-LEFT: 3px; TEXT-ALIGN: left
+}
+.bet_screen .spacer {
+	BACKGROUND-COLOR: #999999
+}
+.bet_screen .danger {
+	BACKGROUND-COLOR: #ffc4c4
+}
+.bet_screen .nodanger {
+	BACKGROUND-COLOR: #ffffff
+}
+.bet_screen .cancel {
+	BACKGROUND-COLOR: #dedede
+}
+.bet_screen .ta {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FONT-WEIGHT: bold; PADDING-BOTTOM: 1px; WIDTH: 60px; COLOR: red; PADDING-TOP: 1px; TEXT-ALIGN: center;border-top-style: none;
+}
+.bet_screen .tb1 {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; LINE-HEIGHT:18px; PADDING-BOTTOM: 1px; WIDTH: 100px; PADDING-TOP: 1px; TEXT-ALIGN: left
+}
+.bet_screen .tb {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FONT-WEIGHT: bold; PADDING-BOTTOM: 1px; WIDTH: 60px; COLOR: red; PADDING-TOP: 1px; TEXT-ALIGN: center
+}
+.bet_screen .hdp {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FONT-WEIGHT: bold; PADDING-BOTTOM: 1px; WIDTH: 80px; COLOR: blue; PADDING-TOP: 1px; TEXT-ALIGN: center
+}
+.bet_screen .cs A:visited {
+	FONT-WEIGHT: bold; COLOR: #dc143c; TEXT-DECORATION: none
+}
+.bet_screen .cs A:hover {
+	FONT-WEIGHT: bold; COLOR: darkred; TEXT-DECORATION: none
+}
+.bet_screen .cs A:link {
+	FONT-WEIGHT: bold; COLOR: #dc143c; TEXT-DECORATION: none
+}
+.bet_enq {
+	BACKGROUND-COLOR: #000066
+}
+.bet_enq TH {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; BACKGROUND-IMAGE: url(../images/texture.gif); PADDING-BOTTOM: 2px; COLOR: black; PADDING-TOP: 2px
+}
+.bet_enq TD {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; VERTICAL-ALIGN: top; PADDING-TOP: 2px
+}
+.bet_enq .danger {
+	BACKGROUND-COLOR: #ffc4c4
+}
+.bet_enq .cancel {
+	BACKGROUND-COLOR: #dedede
+}
+.bet_enq .title {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; COLOR: white; PADDING-TOP: 2px; BACKGROUND-COLOR: #90aac6
+}
+.bet_enq .details {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 10px; TEXT-ALIGN: right
+}
+.bet_enq .positive {
+	COLOR: blue; TEXT-ALIGN: right
+}
+.bet_enq .negative {
+	COLOR: red; TEXT-ALIGN: right
+}
+.bet_enq .pick {
+	COLOR: red; FONT-WEIGHT: normal;
+}
+.password {
+	BACKGROUND-COLOR: #000066
+}
+.password TH {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; BACKGROUND-IMAGE: url(../images/texture.gif); PADDING-BOTTOM: 2px; COLOR: black; PADDING-TOP: 2px; TEXT-ALIGN: left
+}
+.password TD {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px
+}
+.profile {
+	BACKGROUND-COLOR: #000066
+}
+.profile TH {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 3px; BACKGROUND-IMAGE: url(../images/texture.gif); PADDING-BOTTOM: 4px; COLOR: black; PADDING-TOP: 4px; TEXT-ALIGN: left
+}
+.profile TD {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; TEXT-ALIGN: left
+}
+.wager {
+	WIDTH: 100%
+}
+.wager TH {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; COLOR: white; PADDING-TOP: 2px
+}
+.wager TD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BACKGROUND-COLOR: transparent; TEXT-ALIGN: left
+}
+.wager .hdp {
+	PADDING-LEFT: 2px; TEXT-ALIGN: left
+}
+.wager .odds {
+	PADDING-RIGHT: 2px; TEXT-ALIGN: right
+}
+.wager A:visited {
+	COLOR: #dc143c; TEXT-DECORATION: none
+}
+.wager A:hover {
+	COLOR: darkred; TEXT-DECORATION: none
+}
+.wager A:link {
+	COLOR: #dc143c; TEXT-DECORATION: none
+}
+.wager_danger {
+	WIDTH: 100%
+}
+.wager_danger TH {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; COLOR: white; PADDING-TOP: 2px
+}
+.wager_danger TD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BACKGROUND-COLOR: #ffc4c4; TEXT-ALIGN: left
+}
+.wager_danger .hdp {
+	PADDING-LEFT: 2px; TEXT-ALIGN: left
+}
+.wager_danger .odds {
+	PADDING-RIGHT: 2px; TEXT-ALIGN: right
+}
+.wager_danger A:visited {
+	COLOR: #dc143c; TEXT-DECORATION: none
+}
+.wager_danger A:hover {
+	COLOR: darkred; TEXT-DECORATION: none
+}
+.wager_danger A:link {
+	COLOR: #dc143c; TEXT-DECORATION: none
+}
+.bet_entry {
+	WIDTH: 218px; BACKGROUND-COLOR: transparent
+}
+.bet_entry TH {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; COLOR: black; PADDING-TOP: 0px; TEXT-ALIGN: center
+}
+.bet_entry TD {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; TEXT-ALIGN: left
+}
+.bet_entry .wager {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BACKGROUND-COLOR: lightyellow; TEXT-ALIGN: center
+}
+.bet_entry .hdp {
+	FONT-WEIGHT: bold; COLOR: blue
+}
+.bet_entry .odds {
+	FONT-WEIGHT: bold; COLOR: red
+}
+.bet_entry .pick {
+	FONT-WEIGHT: normal; COLOR: maroon
+}
+.bet_entry .payout {
+	FONT-WEIGHT: bold; COLOR: red
+}
+.bet_entry .amount {
+	FONT-WEIGHT: bold; COLOR: black
+}
+.bet_entry .green {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BACKGROUND-COLOR: #ffd6c1; TEXT-ALIGN: center
+}
+.bet_entry .score {
+	COLOR: red
+}
+.bet_entry .error {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 10px; COLOR: red; BACKGROUND-COLOR: #c0c0c0; TEXT-ALIGN: center
+}
+.bet_danger_entry {
+	WIDTH: 210px; BACKGROUND-COLOR: #232323
+}
+.bet_danger_entry TH {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; BACKGROUND-IMAGE: url(../images/texture.gif); PADDING-BOTTOM: 2px; COLOR: black; PADDING-TOP: 2px; TEXT-ALIGN: center
+}
+.bet_danger_entry TD {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BACKGROUND-COLOR: #ffc4c4; TEXT-ALIGN: left
+}
+.bet_danger_entry .wager {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BACKGROUND-COLOR: lightyellow; TEXT-ALIGN: center
+}
+.bet_danger_entry .hdp {
+	FONT-WEIGHT: bold; COLOR: blue
+}
+.bet_danger_entry .odds {
+	FONT-WEIGHT: bold; COLOR: red
+}
+.bet_danger_entry .pick {
+	FONT-WEIGHT: normal; COLOR: maroon
+}
+.bet_danger_entry .payout {
+	FONT-WEIGHT: bold; COLOR: red
+}
+.bet_danger_entry .amount {
+	FONT-WEIGHT: bold; COLOR: black
+}
+.bet_danger_entry .green {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BACKGROUND-COLOR: #ffd6c1; TEXT-ALIGN: center
+}
+.bet_danger_entry .score {
+	COLOR: red
+}
+.bet_danger_entry .error {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 10px; COLOR: red; BACKGROUND-COLOR: #c0c0c0; TEXT-ALIGN: center
+}
+.bet_status {
+	WIDTH: 210px; BACKGROUND-COLOR: #232323
+}
+.bet_status TH {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; BACKGROUND-IMAGE: url(../images/texture.gif); PADDING-BOTTOM: 2px; COLOR: black; PADDING-TOP: 2px; TEXT-ALIGN: center
+}
+.bet_status TD {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BACKGROUND-COLOR: #7fff00; TEXT-ALIGN: left
+}
+.bet_status .hdp {
+	FONT-WEIGHT: bold; COLOR: blue
+}
+.bet_status .odds {
+	FONT-WEIGHT: bold; COLOR: red
+}
+.bet_status .pick {
+	FONT-WEIGHT: normal; COLOR: maroon
+}
+.bet_status .status {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; PADDING-BOTTOM: 8px; PADDING-TOP: 8px; BACKGROUND-COLOR: white; TEXT-ALIGN: center
+}
+.bet_status .payout {
+	FONT-WEIGHT: bold; COLOR: red
+}
+.bet_status .amount {
+	FONT-WEIGHT: bold; COLOR: black
+}
+.bet_danger_status {
+	WIDTH: 210px; BACKGROUND-COLOR: #232323
+}
+.bet_danger_status TH {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; BACKGROUND-IMAGE: url(../images/texture.gif); PADDING-BOTTOM: 2px; COLOR: black; PADDING-TOP: 2px; TEXT-ALIGN: center
+}
+.bet_danger_status TD {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BACKGROUND-COLOR: #ffc4c4; TEXT-ALIGN: left
+}
+.bet_danger_status .hdp {
+	FONT-WEIGHT: bold; COLOR: blue
+}
+.bet_danger_status .odds {
+	FONT-WEIGHT: bold; COLOR: red
+}
+.bet_danger_status .pick {
+	FONT-WEIGHT: normal; COLOR: maroon
+}
+.bet_danger_status .status {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; PADDING-BOTTOM: 8px; PADDING-TOP: 8px; BACKGROUND-COLOR: white; TEXT-ALIGN: center
+}
+.bet_danger_status .payout {
+	FONT-WEIGHT: bold; COLOR: red
+}
+.bet_danger_status .amount {
+	FONT-WEIGHT: bold; COLOR: black
+}
+.matches {
+	BACKGROUND-COLOR: #000066
+}
+.matches TH {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; BACKGROUND-IMAGE: url(../images/texture.gif); PADDING-BOTTOM: 2px; COLOR: black; PADDING-TOP: 2px
+}
+.matches TD {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; TEXT-ALIGN: left
+}
+.matches .league {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BACKGROUND-COLOR: lightyellow; TEXT-ALIGN: left
+}
+#downloading {
+	PADDING-RIGHT: 22px; PADDING-LEFT: 22px; PADDING-BOTTOM: 22px; WIDTH: 105%; PADDING-TOP: 22px; POSITION: absolute; HEIGHT: 600px; BACKGROUND-COLOR: white
+}
+.league_select {
+	BACKGROUND-COLOR: #000066
+}
+.league_select TH {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; BACKGROUND-IMAGE: url(../images/texture.gif); PADDING-BOTTOM: 3px; COLOR: black; PADDING-TOP: 3px; TEXT-ALIGN: left
+}
+.league_select TD {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+.viewstation {
+	WIDTH: 780px; BACKGROUND-COLOR: #000066
+}
+.viewstation TH {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; COLOR: black; PADDING-TOP: 2px; BACKGROUND-COLOR: lightsteelblue
+}
+.viewstation TD {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; WHITE-SPACE: nowrap
+}
+.viewstation .fav {
+	COLOR: red
+}
+.viewstation .ah {
+	FONT-WEIGHT: bold; COLOR: #800000
+}
+.viewstation .ou {
+	FONT-WEIGHT: bold; COLOR: #b36666
+}
+.viewstation .running {
+	BACKGROUND-COLOR: #dfffff
+}
+.stake {
+	BACKGROUND-COLOR: #000066
+}
+.stake TH {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 3px; PADDING-BOTTOM: 4px; COLOR: white; PADDING-TOP: 4px; BACKGROUND-COLOR: #6495ed; TEXT-ALIGN: left
+}
+.stake tdC {
+	TEXT-ALIGN: center
+}
+.1x {
+	FONT-WEIGHT: bold; COLOR: navy
+}
+.xx {
+	FONT-WEIGHT: bold; COLOR: darkred
+}
+.csp {
+	FONT-WEIGHT: bold; COLOR: red
+}

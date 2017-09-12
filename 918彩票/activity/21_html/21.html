@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>21点下载</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<style>
+body{ background:#f7f7f7; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#606060; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+.clearfix{ overflow:hidden; zoom:1}
+.left{ float:left}
+.right{ float:right}
+/*21点*/
+.bg_color{ background-color:#f8f8f8;}
+.load_header{ position:relative; height:8.8rem;width:100%; background-color:#fff; box-sizing:border-box; padding:1.1rem 5%;border-bottom:1px solid #eaeaea;}
+.logo_21{ display:block; float:left;width:6.2rem; height:6.2rem;margin-right:1rem;}
+.load_title{ float:left; line-height:1.3rem; color:#999; font-size:0.8rem;padding-top:0.2rem;}
+.load_title p:first-child{ font-size:1rem; color:#000;padding-bottom:0.2rem;}
+.load_btn{ position:absolute; display:block;right:7%;bottom:1.1rem; color:#007aff; font-size:0.9rem; text-decoration:none;padding:2px 8px; border-radius:3px; background-color:#fff; border:1px solid #007aff;}
+.load_btn:link,.load_btn:visited{ color:#007aff;background-color:#fff; text-decoration:none;}
+.load_btn:hover,.load_btn:active{ color:#fff;background-color:#007aff; text-decoration:none;}
+/*内容摘要*/
+.load_info{ box-sizing:border-box;width:100%;padding:0 7% 2rem;}
+.load_info h2{ height:2.3rem; line-height:2.3rem; font-weight:normal; font-size:1rem; color:#020202;}
+.load_info p{ text-indent:2em;font-size:0.9rem; line-height:1.4rem; color:#333333;}
+#wrapper {
+	position: relative;
+	z-index: 1;
+	height: 23rem;
+	width: 100%;
+	overflow: hidden;
+	-ms-touch-action: none;
+	box-sizing:border-box;
+	padding:0.6rem 0;
+	border-bottom:1px solid #eaeaea;
+}
+
+#scroller {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	height:21.8rem;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+#scroller ul {
+	list-style: none;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#scroller li {
+	width: 13.5rem;
+	height: 21.8rem;
+	float: left;
+	overflow: hidden;
+	padding:0 0.6rem; 
+	box-sizing:border-box;
+}
+#scroller li img{ height:21.8rem;width:12.3rem;}
+</style>
+<script src="iscroll.js"></script>
+
+<script>
+
+var myScroll;
+
+function loaded () {
+	myScroll = new IScroll('#wrapper', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
+}
+
+</script>
+</head>
+
+<body class="bg_color" onload="loaded()">
+    <!--头部-->
+    <header class="load_header">
+    	<img src="images/logo_21.png" class="logo_21">
+        <div class="load_title">
+        	<p>全民21点</p>
+            <p>官方正版全民21点</p>
+            <p>娱乐&nbsp;|&nbsp;224M</p>
+        </div>
+        <a href="#" class="load_btn">下载</a>
+    </header>
+	<!--图片-->
+	<div id="wrapper">
+		<div id="scroller">
+            <ul id="scroller_ul">
+            	<li><img src="images/banner_1.jpg"></li>
+                <li><img src="images/banner_2.jpg"></li>
+                <li><img src="images/banner_3.jpg"></li>
+                <li><img src="images/banner_4.jpg"></li>
+                <li><img src="images/banner_5.jpg"></li>
+            </ul>
+         </div>
+     </div>
+     <!--内容提要-->
+     <section class="load_info">
+     	<h2>内容提要</h2>
+        <p>《全民21点》是9188倾力打造的官方正版娱乐手游，这是有史以来最好玩的赌博游戏，史上还原度最高的赌场游戏21点，多人赌桌对赌，豪赌一掷千金，原汁原味，千人同时在线，六人同桌对赌，要牌停牌，胜败仅在一瞬之间。实力与技术让你热血沸腾。赶快呼朋唤友一决胜负吧。</p>
+     </section>
+  <script>
+		var len=document.getElementById('scroller_ul').getElementsByTagName('li').length;
+	    var w=len*13.5;
+	    document.getElementById("scroller").style.width=w+"rem";
+  </script>
+</body>
+</html>

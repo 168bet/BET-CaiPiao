@@ -1,0 +1,18 @@
+/* pages/now/now.wxss */
+.nav-warp{ width: 100%;}
+.tab{ position: relative; width: 100%;}
+.tab text{ display: inline-block; width: 16.66%; height: 80rpx; font-size: 28rpx; line-height: 80rpx; text-align: center; color:#999;}
+.tab text.active{position:relative; color: #000;}
+.tab text.active:after{position:absolute;bottom:0;left:15%; content:""; width: 70%; height: 2rpx; background-color: #000;}
+.tab-list{ position: absolute; top:72rpx; right: 8rpx; border: 1px solid #ececec; border-bottom:none; background-color: #fff;}
+.tab-list text{ display: block; width: 160rpx; padding:10rpx 20rpx; text-align: left; border-bottom: 1px solid #ececec;}
+
+.article-list{border-top: 1px solid #e7e7e7;}
+.article-list_li{width:100%; padding:20rpx; border-bottom: 1px solid #e7e7e7;}
+.article-list_flex{ display: flex; justify-content: center;}
+.article-list_img{width:160rpx; height: 120rpx;}
+.article-list_img image{ width:100%; height: 120rpx;}
+.article-list_txt{ flex: 1; padding: 0 40rpx 0 20rpx; position: relative;}
+.article-list_h{ display: block; height: 44rpx;  font-size:32rpx; line-height: 44rpx; color: #333; overflow:hidden;}
+.article-list_ts{display: block;width:90%;height: 35rpx;  line-height:35rpx;font-size:24rpx;color: #999; padding-top:6rpx; overflow: hidden;}
+.article-list_p{ position: absolute; bottom:0; right:40rpx; display:block; font-size:26rpx;line-height: 30rpx; color:#999;}

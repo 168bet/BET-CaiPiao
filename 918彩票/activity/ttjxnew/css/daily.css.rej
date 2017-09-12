@@ -1,0 +1,9 @@
+diff a/activity/ttjxnew/css/daily.css b/activity/ttjxnew/css/daily.css	(rejected hunks)
+@@ -5,6 +5,7 @@
+ ul,li{ list-style-type:none}
+ em,cite,i{ font-style:normal}
+ a{ color:#106fe5; text-decoration:none}
++p{text-align:justify; text-justify:inter-ideograph;}
+ 
+ .fixed-top{position: fixed; top:2.7rem; left: 0; right: 0; z-index: 10; background-color:#f5f4f9; box-shadow: 0 2px 2px rgba(84,108,0,0.14); }
+ .daily_main-box{  padding-top:5.25rem;}

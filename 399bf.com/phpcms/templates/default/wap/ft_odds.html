@@ -1,0 +1,172 @@
+{php $css = array('ft_odds.css')}
+{php $nav_id = 1}
+{template 'wap', 'wap_header'}
+<div class="content">
+    <!-- 二级导航 -->
+    <div class="buttons-tab">
+        <a href="{WAP_PATH}zqscore/" class="button close-popup">即时</a>
+        <a href="{WAP_PATH}zqwanchang/" class="button close-popup">完场</a>
+        <a href="{WAP_PATH}zqsaicheng/" class="button close-popup">下日</a>
+        <a href="{WAP_PATH}zqevent/" class="button close-popup">资料</a>
+        <a href="{WAP_PATH}zqodds/" class="button active">指数</a>
+    </div>
+
+    <div class="zs-type border-1px">
+        <a class="open-about-company">公司</a>
+        <a class="open-about-type">类型</a>
+    </div>
+
+    <div class="zq-list">
+        {loop $live_games $data}
+        <div class="zq-list-title border-1px">
+            <span>
+                {$data['competitionshortname']}
+                {date('m-d', $data['date'])}
+                {if $data['time']}{$data['time']}'{else}{date('H:i', $data['date'])}{/if}
+                {$data['homeshortname']} VS {$data['awayshortname']}
+            </span>
+            <i class="icon icon-right pull-right"></i>
+        </div>
+
+        <div class="zq-list-content">
+            <table class="table" id="odds-table">
+                <thead>
+                <tr data-type="asia">
+                    <td width="29.3%">公司</td>
+                    <td width="12%"></td>
+                    <td>主赔</td>
+                    <td>盘口</td>
+                    <td>客赔</td>
+                </tr>
+                <tr data-type="euro" style="display: none;">
+                    <td width="29.3%">公司</td>
+                    <td width="10.3%"></td>
+                    <td>主胜</td>
+                    <td>和</td>
+                    <td>客胜</td>
+                </tr>
+                <tr data-type="ou" style="display:none;">
+                    <td width="29.3%">公司</td>
+                    <td width="10.3%"></td>
+                    <td>大球</td>
+                    <td>盘口</td>
+                    <td>小球</td>
+                </tr>
+                </thead>
+                <tbody>
+                {loop $data['odds'] $odds}
+                <tr data-type="asia">
+                    <td>{$odds['companyname']}</td>
+                    <td>
+                        <div class="line-lg">初盘</div>
+                        <div class="line-lg">即盘</div>
+                    <td>
+                        <div class="line-lg">{$odds['fup']}</div>
+                        <div class="line-lg"><span class="{if $odds['up'] > $odds['fup']}red{elseif $odds['up'] < $odds['fup']}green{/if}">{$odds['up']}</span></div>
+                    <td>
+                        <div class="line-lg">{get_handicap($odds['fgive'])}</div>
+                        <div class="line-lg"><span class="{if $odds['give'] > $odds['fgive']}red{elseif $odds['give'] < $odds['fgive']}green{/if}">{get_handicap($odds['give'])}</span></div>
+                    </td>
+                    <td>
+                        <div class="line-lg">{$odds['fdown']}</div>
+                        <div class="line-lg"><span class="{if $odds['down'] > $odds['fdown']}red{elseif $odds['down'] < $odds['fdown']}green{/if}">{$odds['down']}</span></div>
+                    </td>
+                </tr>
+                <tr data-type="euro" style="display: none;">
+                    <td>{$odds['companyname']}</td>
+                    <td>
+                        <div class="line-lg">初盘</div>
+                        <div class="line-lg">即盘</div>
+                    <td>
+                        <div class="line-lg">{$odds['fhomewin']}</div>
+                        <div class="line-lg"><span class="{if $odds['homewin'] > $odds['fhomewin']}red{elseif $odds['homewin'] < $odds['fhomewin']}green{/if}">{$odds['homewin']}</span></div>
+                    <td>
+                        <div class="line-lg">{$odds['fdraw']}</div>
+                        <div class="line-lg"><span class="{if $odds['draw'] > $odds['fdraw']}red{elseif $odds['draw'] < $odds['fdraw']}green{/if}">{$odds['draw']}</span></div>
+                    </td>
+                    <td>
+                        <div class="line-lg">{$odds['fawaywin']}</div>
+                        <div class="line-lg"><span class="{if $odds['awaywin'] > $odds['fawaywin']}red{elseif $odds['awaywin'] < $odds['fawaywin']}green{/if}">{$odds['awaywin']}</span></div>
+                    </td>
+                </tr>
+                <tr data-type="ou" style="display: none;">
+                    <td>{$odds['companyname']}</td>
+                    <td>
+                        <div class="line-lg">初盘</div>
+                        <div class="line-lg">即盘</div>
+                    <td>
+                        <div class="line-lg">{$odds['fbig']}</div>
+                        <div class="line-lg"><span class="{if $odds['big'] > $odds['fbig']}red{elseif $odds['big'] < $odds['fbig']}green{/if}">{$odds['big']}</span></div>
+                    <td>
+                        <div class="line-lg">{$odds['ftotal']}</div>
+                        <div class="line-lg"><span class="{if $odds['total'] > $odds['ftotal']}red{elseif $odds['total'] < $odds['ftotal']}green{/if}">{$odds['total']}</span></div>
+                    </td>
+                    <td>
+                        <div class="line-lg">{$odds['fsmall']}</div>
+                        <div class="line-lg"><span class="{if $odds['small'] > $odds['fsmall']}red{elseif $odds['small'] < $odds['fsmall']}green{/if}">{$odds['small']}</span></div>
+                    </td>
+                </tr>
+                {/loop}
+                </tbody>
+            </table>
+        </div>
+        {/loop}
+    </div>
+
+
+
+    {template 'wap', 'footer_nav'}
+
+
+</div>
+<!-- 公司弹窗 -->
+<div class="popup popup-about-company">
+    <header class="bar bar-nav">
+        <h1 class="title">公司</h1>
+        <a class="close pull-right popup-close-company">&times</a>
+    </header>
+    <div class="content-block">
+        <form action="{WAP_PATH}zqodds/" method="post">
+            <div class="ss-list">
+                {loop $company_info $data}
+                <div class="cell">
+                    <input type="checkbox" name="companyid[]" value="{$data['companyid']}" class="transparent-checkbox" {if $data['checked']}checked="true"{/if}>
+                    <a class="ss-item">{$data['companyname']}</a>
+                </div>
+                {/loop}
+            </div>
+            <div class="ss_ok">
+                <input type="submit" value="确定" class="ss_ok_button" id="company_ok">
+            </div>
+        </form>
+    </div>
+</div>
+<!-- 赔率类型弹窗 -->
+<div class="popup popup-about-type" data-action="table-tab" data-target="#odds-table">
+    <header class="bar bar-nav">
+        <h1 class="title">赔率类型选择</h1>
+        <a class="close pull-right popup-close-type">&times</a>
+    </header>
+    <div class="content-block">
+        <div class="ss-list">
+            <div class="cell">
+                <a class="ss-item active" data-type="asia">亚盘</a>
+            </div>
+            <div class="cell">
+                <a class="ss-item" data-type="euro">欧赔</a>
+            </div>
+            <div class="cell">
+                <a class="ss-item" data-type="ou">大小球</a>
+            </div>
+        </div>
+        <div class="ss_ok">
+            <a class="ss_ok_button" id="type_ok">确定</a>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+
+{php $js = array('ft_odds.js')}
+{template 'wap', 'wap_footer'}

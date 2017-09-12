@@ -1,0 +1,91 @@
+package com.mh.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import net.sf.json.JSONObject;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.mh.commons.orm.Page;
+import com.mh.dao.AccountOpeningCenterDao;
+import com.mh.entity.WebSpreadLink;
+import com.mh.entity.WebUser;
+import com.mh.service.AccountOpeningCenterService;
+@Service
+public class AccountOpeningCenterServiceImpl implements  AccountOpeningCenterService{
+	@Autowired
+	private AccountOpeningCenterDao accountOpeningCenterDao;
+	public void saveUserRagent(WebUser webUser) {
+		accountOpeningCenterDao.saveUserRagent(webUser);
+	}
+
+	public List<Map<String, Object>> findWebUser(WebUser webUser) {
+		return accountOpeningCenterDao.findWebUser(webUser);
+	}
+	public void delete(String id){
+		accountOpeningCenterDao.delete(id);
+	}
+
+	public void saveSpreadLink(WebSpreadLink webSpreadLink) {
+		accountOpeningCenterDao.saveSpreadLink(webSpreadLink);
+	}
+
+	public List<Map<String, Object>> findWebSpreadLink(WebSpreadLink webSpreadLink) {
+		return accountOpeningCenterDao.findWebSpreadLink(webSpreadLink);
+	}
+
+	public String generateUrl(String domain) throws Exception {
+		String rs = accountOpeningCenterDao.generateUrl(domain);
+		JSONObject json = JSONObject.fromObject(rs);
+		String url = json.getString("url");
+		String error = json.getString("error");
+		if(StringUtils.equals("null", error) && StringUtils.isNotEmpty(url)){
+			return url;
+		}
+		return "";
+	}
+
+	public Page getCustomer(Page page,WebUser user) throws Exception{
+		return accountOpeningCenterDao.getCustomer(page,user);
+	}
+
+	public Map<String, Object> getTeamDetail(String userName) throws Exception{
+		Map<String, Object> teamDetail = accountOpeningCenterDao.getTeamDetail(userName);
+		teamDetail.put("teamMoney", null == teamDetail.get("teamMoney") ? "0" : teamDetail.get("teamMoney"));
+		teamDetail.put("teamCount", null == teamDetail.get("teamCount") ? "0" : teamDetail.get("teamCount"));
+		return teamDetail;
+	}
+
+	public Map<String, Object> getBetMoney(Map<String, String> map) throws Exception{
+		Map<String, Object> betMoney = accountOpeningCenterDao.getBetMoney(map);
+		betMoney.put("teamCount", null == betMoney.get("teamCount") ? "0" : betMoney.get("teamCount"));
+		return betMoney;
+	}
+
+	public Map<String, Object> getNewRegisterUser(Map<String, String> map) throws Exception{
+		Map<String, Object> newRegisterUser = accountOpeningCenterDao.getNewRegisterUser(map);
+		newRegisterUser.put("registerCount", null == newRegisterUser.get("registerCount") ? "0" : newRegisterUser.get("registerCount"));
+		return newRegisterUser;
+	}
+
+	public Map<String, Object> getBackWaterMoney(Map<String, String> map) throws Exception{
+		Map<String, Object> backWaterMoney = accountOpeningCenterDao.getBackWaterMoney(map);
+		backWaterMoney.put("waterMoney", null == backWaterMoney.get("waterMoney") ? "0" : backWaterMoney.get("waterMoney"));
+		return backWaterMoney;
+	}
+
+	public Map<String, Object> getHuiKuanMoney(Map<String, String> map) throws Exception{
+		Map<String, Object> huiKuanMoney = accountOpeningCenterDao.getHuiKuanMoney(map);
+		huiKuanMoney.put("hkMoney", null == huiKuanMoney.get("hkMoney") ? "0" : huiKuanMoney.get("hkMoney"));
+		return huiKuanMoney;
+	}
+
+	public Map<String, Object> getWithdrawMoney(Map<String, String> map) throws Exception{
+		Map<String, Object> withdrawMoney = accountOpeningCenterDao.getWithdrawMoney(map);
+		withdrawMoney.put("withdrawMoney", null == withdrawMoney.get("withdrawMoney") ? "0" : withdrawMoney.get("withdrawMoney"));
+		return withdrawMoney;
+	}
+}

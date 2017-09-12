@@ -1,0 +1,435 @@
+{php $css = ['bt_info.css'];}
+{php $nav_id = 6;}
+{template 'content', 'header_score'}
+
+<nav>
+    <div class="container">
+        <div class="row">
+            <div class="matchNav">
+                <ul class="clearfix">
+                    <li><a {if ! in_array($id, [92,85,34,39,152,149,1,5])}class="active"{/if} href="javascript:;">热门联赛</a></li>
+                    <li><a {if $id == 92}class="active"{/if} href="{APP_PATH}competition/92/schedule/">英超</a></li>
+                    <li><a {if $id == 85}class="active"{/if} href="{APP_PATH}competition/85/schedule/">西甲</a></li>
+                    <li><a {if $id == 34}class="active"{/if} href="{APP_PATH}competition/34/schedule/">意甲</a></li>
+                    <li><a {if $id == 39}class="active"{/if} href="{APP_PATH}competition/39/schedule/">德甲</a></li>
+                    <li><a {if $id == 152}class="active"{/if} href="{APP_PATH}competition/152/schedule/">中超</a></li>
+                    <li><a {if $id == 149}class="active"{/if} href="{APP_PATH}competition/149/schedule/">世足</a></li>
+                    <li><a {if $id == 1}class="active"{/if} href="{APP_PATH}sclass/1/schedule/">NBA</a></li>
+                    <li><a {if $id == 5}class="active"{/if} href="{APP_PATH}sclass/5/schedule/">CBA</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<section>
+    <div class="container">
+        {template 'sportsdata', 'bt_sclass_crumbs'}
+        <div class="row">
+            <div class="col-sm-2 pdL0">
+
+                <!-- 树形菜单 start -->
+                <div class="navMenu treeMenu" id="treeMenu">
+                    <ul>
+
+                        <!-- 一级 -->
+                        {loop $event_menu $zone_name $item}
+                        <li class="tree-menu">
+
+                            <div class="tree-one-title" tree-title name="one">
+                                {$zone_name}
+                                <i class="icon-angle-right fr"></i>
+                            </div>
+
+
+                            <div class="tree" tree-menu >
+
+                                <!-- 二级 -->
+                                {loop $item $country_name $item2}
+                                <div class="tree-item">
+
+                                    <div class="tree-two-title" tree-title name="two">
+                                        <i class="icon-plus"></i>
+                                        {$country_name}
+                                    </div>
+                                    <div class="tree" tree-menu>
+
+                                        <ul>
+                                            {loop $item2 $r}
+                                            <li><a target="_blank" href="{APP_PATH}sclass/{$r['sclassid']}/playerTechnic/">{$r['name']}</a></li>
+                                            {/loop}
+                                        </ul>
+
+                                    </div>
+
+
+                                </div>
+                                {/loop}
+
+                            </div>
+                        </li>
+                        {/loop}
+
+                    </ul>
+                </div>
+                <!-- 树形菜单 end -->
+
+                <!--<div class="side-search">-->
+                    <!--<div class="search-title">资料库搜索</div>-->
+                    <!--<div class="search-control">-->
+                        <!--<input class="input-search" type="text" placeholder="搜索">-->
+                        <!--<button type="submit" class="btn-search">-->
+                            <!--<i class="icon-search"></i>-->
+                        <!--</button>-->
+                    <!--</div>-->
+                    <!--<div class="radio-group">-->
+                        <!--<label for="player" class="checkbox-inline">-->
+                            <!--<input type="checkbox" id="player">-->
+                            <!--<i class="table-checkbox"></i>-->
+                            <!--球员-->
+                        <!--</label>-->
+                        <!--<label for="team" class="checkbox-inline">-->
+                            <!--<input type="checkbox" id="team">-->
+                            <!--<i class="table-checkbox"></i>-->
+                            <!--球队-->
+                        <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+            <div class="col-sm-10 pdL0 pdR0">
+
+
+                <!-- iframe -->
+                <div class="iframe-page" id="iframe_page">
+
+                    <div class="iframe-head clearfix">
+                        <h1 class="m-title fl">
+                            <img src="{BT_SCLASS_PATH}{$sclassid}.jpg" width="59" height="59" alt="" class="fl bt-competition-photo">
+                            {$sclass_info['season']} {$sclass_info['name_cn']} 球员技术统计
+                        </h1>
+
+                        <div class="dropdown fr">
+                            <button class="btn btn-default" id="jw_dropA" data-toggle="dropdown" aria-expanded="true">
+                                <i class="icon-calendar"></i>
+                                {$sclass_info['season']}
+                                <i class="icon-angle-down"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="jw_dropA">
+                                <ul>
+                                    <li>&nbsp;</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="iframe-table">
+
+                        <div class="iframe-nav">
+                            <ul class="clearfix">
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/schedule/" >赛程赛果</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/standings/" >联盟排名</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/letgoal/" >让球盘路榜</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/totalscore/" >大小盘路榜</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/singleDouble/" >单双统计</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/teamTechnic/" >球队技术统计</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/playerTechnic/" class="active">球员技术统计</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/team/" >球队资料</a></li>
+                            </ul>
+                        </div>
+                        <div class="table-item table-min">
+                            <div class="table-tab clearfix">
+                                <ul>
+                                    {loop $cat_now $r}
+                                    <li class="{$r['style']} tab-btn">{$r['name']}</li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                            <div class="shop">
+                                <a class="active shop-btn">得分</a>
+                                <a class="shop-btn">投篮</a>
+                                <a class="shop-btn">三分</a>
+                                <a class="shop-btn">罚球</a>
+                                <a class="shop-btn">篮板</a>
+                                <a class="shop-btn">助攻</a>
+                                <a class="shop-btn">盖帽</a>
+                                <a class="shop-btn">抢断</a>
+                                <a class="shop-btn">失误</a>
+                                <a class="shop-btn">犯规</a>
+                                <a class="shop-btn">两双</a>
+                                <a class="shop-btn">三双</a>
+                            </div>
+                            {php $tab_item_id = 0;}
+                            {loop $stat $cat $info}
+                            <div class="tab-item tab-item-{$tab_item_id}" {if !$cat_now[$cat]['style']}style="display:none;"{/if}>
+                                <!--总得分 平均得分start-->
+                                <table class="table shop-item shop-item-0">
+                                    <tr>
+                                        <td>球员</td>
+                                        <td>球队</td>
+                                        <td>参赛次数</td>
+                                        <td>总得分</td>
+                                        <td>平均得分</td>
+                                    </tr>
+                                    {loop $info $r}
+                                    <tr>
+                                        <td>{$r['playername']}</td>
+                                        <td>{$r['teamname']}</td>
+                                        <td>{$r['total']}</td>
+                                        <td>{$r['score']}</td>
+                                        <td>{$r['avg_score']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                <!--总得分 平均得分end-->
+                                <!--总投篮次数	总命中次数	命中率start-->
+                                <table class="table shop-item shop-item-1" style="display: none;">
+                                    <tr>
+                                        <td>球员</td>
+                                        <td>球队</td>
+                                        <td>参赛次数</td>
+                                        <td>总投篮次数</td>
+                                        <td>总命中次数</td>
+                                        <td>命中率</td>
+                                    </tr>
+                                    {loop $info $r}
+                                    <tr>
+                                        <td>{$r['playername']}</td>
+                                        <td>{$r['teamname']}</td>
+                                        <td>{$r['total']}</td>
+                                        <td>{$r['shoot']}</td>
+                                        <td>{$r['shoot_hit']}</td>
+                                        <td>{$r['shoot_hit_rate']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                <!--总投篮次数	总命中次数	命中率end-->
+                                <!--投三分总数	三分命中数	命中率start-->
+                                <table class="table shop-item shop-item-2" style="display: none;">
+                                    <tr>
+                                        <td>球员</td>
+                                        <td>球队</td>
+                                        <td>参赛次数</td>
+                                        <td>投三分总数</td>
+                                        <td>三分命中数</td>
+                                        <td>命中率</td>
+                                    </tr>
+                                    {loop $info $r}
+                                    <tr>
+                                        <td>{$r['playername']}</td>
+                                        <td>{$r['teamname']}</td>
+                                        <td>{$r['total']}</td>
+                                        <td>{$r['threemin']}</td>
+                                        <td>{$r['threemin_hit']}</td>
+                                        <td>{$r['threemin_hit_rate']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                <!--投三分总数	三分命中数	命中率end-->
+                                <!--罚球总数	罚球命中数	命中率start-->
+                                <table class="table shop-item shop-item-3" style="display: none;">
+                                    <tr>
+                                        <td>球员</td>
+                                        <td>球队</td>
+                                        <td>参赛次数</td>
+                                        <td>罚球总数</td>
+                                        <td>罚球命中数</td>
+                                        <td>命中率</td>
+                                    </tr>
+                                    {loop $info $r}
+                                    <tr>
+                                        <td>{$r['playername']}</td>
+                                        <td>{$r['teamname']}</td>
+                                        <td>{$r['total']}</td>
+                                        <td>{$r['punishball']}</td>
+                                        <td>{$r['punishball_hit']}</td>
+                                        <td>{$r['punishball_hit_rate']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                <!--罚球总数	罚球命中数	命中率end-->
+                                <!--进攻篮板	防守篮板	篮板总数	平均篮板start-->
+                                <table class="table shop-item shop-item-4" style="display: none;">
+                                    <tr>
+                                        <td>球员</td>
+                                        <td>球队</td>
+                                        <td>参赛次数</td>
+                                        <td>进攻篮板</td>
+                                        <td>防守篮板</td>
+                                        <td>篮板总数</td>
+                                        <td>平均篮板</td>
+                                    </tr>
+                                    {loop $info $r}
+                                    <tr>
+                                        <td>{$r['playername']}</td>
+                                        <td>{$r['teamname']}</td>
+                                        <td>{$r['total']}</td>
+                                        <td>{$r['attack']}</td>
+                                        <td>{$r['defend']}</td>
+                                        <td>{$r['attack_defend']}</td>
+                                        <td>{$r['avg_attack_defend']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                <!--进攻篮板	防守篮板	篮板总数	平均篮板end-->
+                                <!--助攻总数	平均助攻start-->
+                                <table class="table shop-item shop-item-5" style="display: none;">
+                                    <tr>
+                                        <td>球员</td>
+                                        <td>球队</td>
+                                        <td>参赛次数</td>
+                                        <td>助攻总数</td>
+                                        <td>平均助攻</td>
+                                    </tr>
+                                    {loop $info $r}
+                                    <tr>
+                                        <td>{$r['playername']}</td>
+                                        <td>{$r['teamname']}</td>
+                                        <td>{$r['total']}</td>
+                                        <td>{$r['helpattack']}</td>
+                                        <td>{$r['avg_helpattack']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                <!--助攻总数	平均助攻end-->
+                                <!--盖帽总数	平均盖帽start-->
+                                <table class="table shop-item shop-item-6" style="display: none;">
+                                    <tr>
+                                        <td>球员</td>
+                                        <td>球队</td>
+                                        <td>参赛次数</td>
+                                        <td>盖帽总数</td>
+                                        <td>平均盖帽</td>
+                                    </tr>
+                                    {loop $info $r}
+                                    <tr>
+                                        <td>{$r['playername']}</td>
+                                        <td>{$r['teamname']}</td>
+                                        <td>{$r['total']}</td>
+                                        <td>{$r['cover']}</td>
+                                        <td>{$r['avg_cover']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                <!--盖帽总数	平均盖帽end-->
+                                <!--抢断总数	平均抢断start-->
+                                <table class="table shop-item shop-item-7" style="display: none;">
+                                    <tr>
+                                        <td>球员</td>
+                                        <td>球队</td>
+                                        <td>参赛次数</td>
+                                        <td>抢断总数</td>
+                                        <td>平均抢断</td>
+                                    </tr>
+                                    {loop $info $r}
+                                    <tr>
+                                        <td>{$r['playername']}</td>
+                                        <td>{$r['teamname']}</td>
+                                        <td>{$r['total']}</td>
+                                        <td>{$r['rob']}</td>
+                                        <td>{$r['avg_rob']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                <!--抢断总数	平均抢断end-->
+                                <!--失误总数	平均失误start-->
+                                <table class="table shop-item shop-item-8" style="display: none;">
+                                    <tr>
+                                        <td>球员</td>
+                                        <td>球队</td>
+                                        <td>参赛次数</td>
+                                        <td>失误总数</td>
+                                        <td>平均失误</td>
+                                    </tr>
+                                    {loop $info $r}
+                                    <tr>
+                                        <td>{$r['playername']}</td>
+                                        <td>{$r['teamname']}</td>
+                                        <td>{$r['total']}</td>
+                                        <td>{$r['misplay']}</td>
+                                        <td>{$r['avg_misplay']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                <!--失误总数	平均失误end-->
+                                <!--犯规总数	平均犯规start-->
+                                <table class="table shop-item shop-item-9" style="display: none;">
+                                    <tr>
+                                        <td>球员</td>
+                                        <td>球队</td>
+                                        <td>参赛次数</td>
+                                        <td>犯规总数</td>
+                                        <td>平均犯规</td>
+                                    </tr>
+                                    {loop $info $r}
+                                    <tr>
+                                        <td>{$r['playername']}</td>
+                                        <td>{$r['teamname']}</td>
+                                        <td>{$r['total']}</td>
+                                        <td>{$r['foul']}</td>
+                                        <td>{$r['avg_foul']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                <!--犯规总数	平均犯规end-->
+                                <!--得两双次数start-->
+                                <table class="table shop-item shop-item-10" style="display: none;">
+                                    <tr>
+                                        <td>球员</td>
+                                        <td>球队</td>
+                                        <td>参赛次数</td>
+                                        <td>得两双次数</td>
+                                    </tr>
+                                    {loop $info $r}
+                                    <tr>
+                                        <td>{$r['playername']}</td>
+                                        <td>{$r['teamname']}</td>
+                                        <td>{$r['total']}</td>
+                                        <td>{$r['double_2']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                <!--得两双次数end-->
+                                <!--得三双次数start-->
+                                <table class="table shop-item shop-item-11" style="display: none;">
+                                    <tr>
+                                        <td>球员</td>
+                                        <td>球队</td>
+                                        <td>参赛次数</td>
+                                        <td>得三双次数</td>
+                                    </tr>
+                                    {loop $info $r}
+                                    <tr>
+                                        <td>{$r['playername']}</td>
+                                        <td>{$r['teamname']}</td>
+                                        <td>{$r['total']}</td>
+                                        <td>{$r['double_3']}</td>
+                                    </tr>
+                                    {/loop}
+                                </table>
+                                <!--得三双次数end-->
+                            </div>
+                            {php ++$tab_item_id;}
+                            {/loop}
+                        </div>
+                        <div class="hint">
+                            最后更新时间:{date('Y-m-d H:i:s')}
+                        </div>
+
+                    </div>
+                </div>
+                <!-- iframe end -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = ['bt_tab.js','tree.js','imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js'];}
+{template 'content', 'footer'}
+<script>
+    $('#treeMenu').treeCreate();
+</script>

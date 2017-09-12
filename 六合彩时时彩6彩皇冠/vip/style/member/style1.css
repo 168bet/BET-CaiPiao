@@ -1,0 +1,608 @@
+body {
+	margin:0px;
+	font-family: 宋体 Tahoma MS Sans Serif Sans Serif; 
+	font-size: 13px;
+	color:#666666;
+	background: #1C6C20;
+}
+table{
+	font-family:arial;
+	font-size:12px;
+}
+a {
+	color:#ffffff;
+	text-decoration: none;
+}
+a:hover {
+	color:#ffffff;
+	text-decoration: none;
+}
+form {
+	margin:0px;
+}
+.clearBoth {
+	clear: both;
+}
+.Need {
+	font-size:13px;
+	font-family: 宋体 Tahoma MS Sans Serif Sans Serif; 
+	padding:2px;
+	color:red;
+}
+
+.Effect {
+	color:blue;
+}
+/* top */
+#TopBody {
+	background:url('../images/tophtmlbg.gif') fixed;
+}
+#TopMain {
+	margin:0 auto;
+	text-align:center;
+	width:100%;
+	background:url('../images/topbg.gif') no-repeat center;
+}
+
+#TopRow1 {
+	margin:0 auto;
+	text-align:left;
+	width:998px;
+	height:118px;
+	border-left:1px #0F9715 solid;
+	border-right:1px #0F9715 solid;
+}
+#TopRight {
+	float:right;
+	text-align:right;
+}
+#Logo {
+	float:left;
+	margin:20px 0 0 47px;
+	_margin:20px 0 0 27px;
+}
+#Timer {
+	color:#eeeeee;
+	float:right;
+	line-height:20px;
+	margin-top:15px;
+}
+#Lang {
+	margin-right:8px;
+	margin-top:15px;
+	float:right;
+}
+#Lang img{
+	margin-left:20px;
+}
+
+#LoginForm {
+	margin-top:70px;
+	width:724px;
+	height:45px;
+	background:url('../images/loginbg.gif');
+	text-align:center;
+}
+#LoginForm div {
+	float:left;
+	line-height:28px;
+}
+.LoginInput {
+	margin-top:9px;
+	float:left;
+	margin-left:7px;
+}
+.LoginInput input {
+	height:16px;
+	width:80px;
+}
+.LoginInput img {
+	margin-top:4px;
+	_margin-top:2px;
+	margin-right:3px;
+}
+#LoginSubmit {
+	margin:9px 12px 0 8px;
+	_margin:7px 12px 0 8px;
+}
+#LoginForm a {
+	text-decoration: underline;
+}
+#TopInput {
+	margin:11px 26px 0 10px;
+}
+
+#TopRow2 {
+	margin:0 auto;
+	text-align:left;
+	width:998px;
+	height:64px;
+	margin-top:-2px;
+	border-left:1px #0F9715 solid;
+	border-right:1px #0F9715 solid;
+}
+#TopRegBtn {
+	float:left;
+	padding-left:35px;
+}
+#TopNav {
+	float:right;
+	height:54px;
+	width:724px;
+	border-top:1px #0D9112 solid;
+	border-left:1px #0D9112 solid;
+	border-bottom:1px #0D9112 solid;
+}
+#topNavbarList { 
+	color:#ffffff;
+	font-size:15px;
+	background:url("../images/nav1bg2.gif");
+	width:724px;
+	height:27px;
+	border-top:2px #FEBB4B solid;
+}
+#topClassbarList {
+	float:right;
+	font-size:15px;
+	width:724px;
+	height:27px;
+	background:url("../images/nav2bg1.gif");
+}
+.topNavPartActive {
+	float:left;
+	line-height:27px;
+	overflow: hidden;
+	padding:0 11px 0 11px;
+	text-align:center;
+	cursor:pointer;
+	background:url("../images/nav1bg1.gif");
+	color:#222222;
+	font-weight:bold;
+}
+.topNavPart {
+	float:left;
+	line-height:27px;
+	overflow: hidden;
+	padding:0 11px 0 11px;
+	text-align:center;
+	cursor:pointer;
+	font-weight:bold;
+}
+.topNavPartLine {
+	float:left;
+	height:27px;
+	width:1px;
+}
+.topClassPart {
+	float:left;
+	line-height:27px;
+	overflow: hidden;
+	padding:0 15px 0 15px;
+	text-align:center;
+	cursor:pointer;
+	color:#222222;
+}
+.topClassPartActive {
+	float:left;
+	line-height:27px;
+	overflow: hidden;
+	padding:0 15px 0 15px;
+	text-align:center;
+	cursor:pointer;
+	color:#222222;
+}
+/* Main */
+#MainHtmlBg {
+	background: url("../images/mainbg.gif") fixed;
+}
+.MainBody {
+	margin:0 auto;
+	text-align:center;
+	width:998px;
+	height:100%;
+	border-left:1px #0F9715 solid;
+	border-right:1px #0F9715 solid;
+}
+
+/* left */
+#Left {
+	float:left;
+	width:216px;
+	padding-left:32px;
+	text-align:center;
+}
+#Notice {
+	width:212px;
+	height:150px;
+	border:1px #439507 solid;
+	background: url("../images/noticebg.gif");
+	margin-bottom:3px;
+	margin-left:3px;
+}
+#NoticeTitle {
+	margin:2px 0 0 10px;
+	text-align:left;
+	line-height:26px;
+}
+#NoticeBody {
+	margin:0 auto;
+	width:90%;
+	height:110px;
+	text-align:left;
+}
+#NoticeBody div{
+	margin-top:8px;
+	cursor:pointer;
+}
+.LeftService1 {
+	margin-bottom:4px;
+	margin-left:3px;
+}
+.LeftService2 {
+	margin-bottom:3px;
+	margin-left:3px;
+}
+.LeftService3 {
+	margin-left:3px;
+}
+
+/* Right */
+#Right {
+	float:right;
+	width:724px;
+	margin-left:20px;
+	text-align:left;
+}
+/* foot */
+#Foot {
+	margin:0 auto;
+	text-align:center;
+	width:998px;
+	height:110px;
+	border-left:1px #0F9715 solid;
+	border-right:1px #0F9715 solid;
+	border-bottom:1px #0F9715 solid;
+}
+#FootHr {
+	padding-top:12px;
+}
+#FootImg {
+	padding-top:9px;
+}
+#FootImg img{
+	margin:0 2px 0 2px;
+}
+#CopyRight {
+	margin-top:4px;
+	width:100%;
+	height:26px;
+	line-height:26px;
+	color:#828282;
+}
+#CopyRight a {
+	color:#828282;
+}
+
+#RightContent{
+	width: 722px;
+	margin: 0 auto;
+	background:#666666;
+	border:1px #cccccc solid;
+}
+#ContentBlock {
+	width:690px;
+	margin:0 auto;
+	margin-top:15px;
+	margin-bottom:15px;
+	background:#ffffff;
+	color:#333333;
+    min-height:392px; 
+    height:auto !important; 
+    height:392px; 
+}
+.blockTitle, .title{
+	width: 680px;
+	height: 20px;
+	background: url("../images/section1.gif") no-repeat center bottom;
+	line-height: 20px;
+	text-indent: 20px;
+	margin: 8px auto 12px auto;
+	padding-top:8px;
+	_padding-top:0px !important;
+	color: black;
+	font-weight: bold;
+}
+/***注册新帐号reg****/
+#ContentBlock .content{
+	width: 718px;
+	margin: 0px auto;
+	text-indent: 6px;
+	margin-bottom: 0px;
+	border:0px #fff solid;
+}
+#ContentBlock a{
+	color:#333333;
+}
+.regItemLine{
+	width: 662px;
+	text-indent: 0px;
+	line-height: 20px;	
+	border-left:1px #A6F1AF solid;
+	border-right:1px #A6F1AF solid;
+	border-bottom:1px #A6F1AF solid;
+	background:#DCEED4;
+	overflow:hidden;
+}
+.regItemLineLeft{
+	text-align: center;
+	text-indent: 0px;
+	width: 20px;
+	float: left;
+}
+.regItemLineCenter{
+	text-align: left;
+	width: 150px;
+	float: left;
+	text-indent: 0px;
+}
+.regItemLineRight{
+	width: 479px;
+	float: left;
+	text-indent: 0px;
+	padding-left: 12px;
+	background:#EFF7EC;
+	border-left:1px #A6F1AF solid;
+}
+.regItemLineRight input{
+	margin-top:2px;
+	margin-bottom:2px;
+}
+#ContentBlock .btn{
+	text-align: center;
+	margin-top: 20px;
+	width:560px;
+}
+
+#ContentBlock #regAgree{
+	padding: 0px 160px;
+	text-indent: 0px;
+	margin-top: 20px;
+}
+
+/*联系我们中的发送EMAIL*/
+#emailBody{
+	margin-top:0px;
+	background:#AA0000;
+}
+#emailBody #emailTitle{
+	background:url("../images/section1.gif") no-repeat;
+	padding-top:2px;
+	height: 19px;
+	color:white;
+	font-weight: bold;
+	margin: 12px 0px;
+	text-indent: 32px;
+	line-height: 19px;
+}
+#emailBody .left{
+	float:left;	
+	width:60px;
+	text-align: right;
+}
+#emailBody .center{
+	float:left;
+	width:20px;	
+}
+#emailBody .right{
+	float:left;
+	width:410px;
+}
+
+#emailBody .btn{
+	text-align: center;
+	margin-top: 20px;	
+}
+
+/* HelpNav */
+#HelpNav {
+	margin:10px auto;
+	margin-bottom:10px;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+	color:#ffffff;
+}
+#HelpNav a {
+	color:#ffffff;
+	text-decoration:none;
+}
+#HelpNav a:hover {
+	color:#ff8400;
+}
+
+#HelpNavNavActive {
+	color:#ff8400;
+}
+.answerspan {
+	border:1px #520404 dashed;
+	line-height:150%;
+	padding:4px;
+	margin:8px;
+}
+#HelpGameList{
+	padding-left:3px;
+	padding-right:3px;
+	margin:0 auto;
+	text-align:center;
+	margin-top:12px;
+	margin-bottom:12px;
+}
+#HelpGameList a{
+	padding-left:3px;
+	padding-right:3px;
+	color:blue;
+}
+/* sport */
+.tablelist {
+	width:664px;
+	margin:-12px auto;
+}
+.tablelist td {
+	line-height:24px;
+	border:1px #cccccc solid;
+}
+.table_noline td {
+	border:0px;
+}
+
+/* agentlogin.tpl */
+.AgentLoginItemLine{
+	width: 680px;
+	line-height: 20px;	
+}
+.AgentLoginItemLineLeft{
+	text-align: right;
+	font-weight: bold;
+	width: 220px;
+	float: left;
+}
+.AgentLoginItemLineCenter{
+	text-align: left;
+	width: 20px;
+	float: left;
+}
+.AgentLoginItemLineRight{
+	width: 415px;
+	float: right;
+}
+.AgentLoginBtn{
+	margin:20px 0 0 220px;
+}
+
+#AgentregExplain {
+	line-height:150%;
+}
+
+/* callme.tpl */
+.callmeItem {
+	width:570px;
+	margin:0 auto;
+}
+#callmeQuestion {
+	float:left;
+	width:380px;
+}
+#callmeBoard {
+	float:left;
+	width:170px;
+	line-height:137%;
+	margin:10px 0 0 20px;
+}
+.callmeItemLinePart1 {
+	float:left;
+	width:60px;
+	height:30px;
+	line-height:30px;
+	text-align:right;
+}
+.callmeItemLinePart2 {
+	float:left;
+	height:30px;
+	line-height:30px;
+	width:20px;
+	text-align:right;
+}
+.callmeItemLinePart3 {
+	float:left;
+	width:300px;
+	height:30px;
+	line-height:30px;
+}
+.callmeItemLinePart3 textarea {
+	width:280px;
+	height:110px;
+}
+#callmeSubmit {
+	width:85%;
+	margin-top:35px;
+	margin-bottom:25px;
+	text-align:center;
+}
+
+/* notice.tpl */
+#NoticeTable {
+	border:1px #0F9715 solid;
+}
+#NoticeTable #title{
+	background:#2A8221;
+	color:#FFCF4D;
+	font-size:13px;
+}
+
+#NoticeTable td {
+	border:1px #0F9715 solid;
+	padding:5px;
+	line-height:130%;
+}
+
+/* ips_receive.tpl */
+.ips {
+	margin-left:150px;
+	width:430px;
+}
+
+.ips .header{
+	float:left;
+	width:150px;
+	height:30px;
+	border: 1px #520404 solid;
+	font-weight:bold;
+	line-height:30px;
+	text-align:right;
+}
+.ips .cont{
+	float:left;
+	width:270px;
+	height:30px;
+	border-top: 1px #520404 solid;
+	border-right: 1px #520404 solid;
+	border-bottom: 1px #520404 solid;
+	line-height:30px;
+}
+
+.ips .btn{
+	margin-top:55px;
+	margin-left:150px;
+	margin-bottom:80px;
+}
+
+/* paymentback.tpl */
+.paymentback {
+	margin-left:150px;
+	width:430px;
+}
+
+.paymentback .header{
+	float:left;
+	width:150px;
+	height:30px;
+	border: 1px #520404 solid;
+	font-weight:bold;
+	line-height:30px;
+	text-align:right;
+}
+.paymentback .cont{
+	float:left;
+	width:270px;
+	height:30px;
+	border-top: 1px #520404 solid;
+	border-right: 1px #520404 solid;
+	border-bottom: 1px #520404 solid;
+	line-height:30px;
+}
+
+.paymentback .btn{
+	margin-top:55px;
+	margin-left:150px;
+	margin-bottom:80px;
+}

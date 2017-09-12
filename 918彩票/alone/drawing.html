@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>提款</title>
+<script type="text/javascript" src="/js/public/zepto.js"></script>
+<style type="text/css">
+body{ background:#f7f7f7; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+p{ line-height:1.2rem}
+a{ color:#333; text-decoration:none}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}
+.gray{ color:#8e8e8e}
+.left{ float:left}
+.right{ float:right}
+a.blue{ color:#008aff}
+.fontSize08{ font-size:.8rem}
+.clearfix{ overflow:hidden; zoom:1}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.pdLfrt09{ padding:.1rem .9rem 0 .9rem}
+.pdTop06{ padding-top:.6rem}
+.pdTop08{ padding-top:.8rem}
+.pdBot03{ padding-bottom:.3rem}
+.pdLeft04{ padding-left:.4rem}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.s1{ line-height:2.5rem; background:#fff; margin-top:.7rem; overflow:hidden; zoom:1}
+.s1 span{ float:left; width:26%; margin-right:1%; text-align:center; color:#222; font-size:.93rem}
+.s1 input{ width:73%; border:none;height:1.3rem; line-height:1.3rem; margin-top:.7rem; font-size:.92rem}
+.cancel{ position:absolute; color:#fff; font-size:.9rem; right:.9rem; top:.9rem}
+.payment{ display:block; line-height:2.5rem; text-align:center; letter-spacing:.1rem; margin-top:.8rem; color:#fff; font-size:1.1rem; background:#f26c60; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.payment:active{ color:#fff}
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:9999;left:0;top:0; display: none;}
+
+</style>
+<body>
+<article class="gray">
+	<header class="tzHeader">
+	  	<article class="fixed2">	
+    		<section class="fcHeader"><h1>提款</h1></section>
+    		<a href="/#type=url&p=user/index.html" class="fcbackIco2"></a>
+            <a href="/#type=url&p=user/detail.html?in=tk" class="cancel">提款明细</a>    	
+    	</article>
+    </header>
+  <div class="pdLfrt09">
+  	<p class="pdTop08 fontSize08" id="bankname"></p>
+    <div class="s1"><span>开户姓名</span><input type="text" placeholder="请输入您的开户姓名" style="color:#333;font-size:.8rem" id="rname"></div>
+    <div class="s1"><span>提款金额</span><input type="tel" placeholder="最少提款10元" style="font-size:.8rem" id="tkMoney"></div>
+    <p class="pdBot03 pdTop06 fontSize08 clearfix"><span class="left">可提现金额：<cite id="usermoney">--</cite>元</span><a href="http://www.9188.com  /mbhtml/lotteryrules/tkdzsjb.html" class="right blue">提款到账时间表</a></p>
+    <a href="javascript:;" class="payment" id="tk">确认提款</a>
+    <div class="pdTop08 pdLeft04 fontSize08">
+    	<p>温馨提示：</p>
+		<p>1.提款不收取手续费，为防止恶意提现，每日提款次数最多为3次(提款处理中与提款成功次数的总和)。</p>
+		<p>2.为了防止套现和洗钱，每次充值后需消费充值金额50%后才能提现。</p>
+        <p>3.工作日18点前申请提款，当日处理，18点后申请提款，次日处理，到账时间为1~3个银行工作日<em id='tellphone'>，若3个工作日后还未到账，请联系客服电话：400-673-9188</em>。</p>
+    </div>
+  </div>
+</article>
+<div class="mask" style='display:none;' id='mask'></div>
+<script>
+//公用弹出层和加载层
+var win_alert = alert;
+window['alert'] = function (msg, loading) {
+	if (!loading) {
+		clearTimeout(window.alert.time);
+		var obj = $('<div class="alertBox">' + msg + '</div>');
+		$('body').append(obj);
+		window.alert.time = setTimeout(function () {
+			$(".alertBox").remove();
+		}, 2000);
+	} else {
+		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+		$('#mask').show();
+	}
+};
+
+var remove_alert = function () {
+	$('.alertBox').remove();
+	$('#mask').hide();
+};
+
+$(function () {
+	if(document.domain ==  '1ydb.5.9188.com '){
+		$('#tellphone').hide();
+	}
+	gain();
+	$('#tk').bind('click', function () {
+		var bank = $('#bankname').html();
+		var rname = $('#rname').val();
+		var tkMoney = $('#tkMoney').val();
+		if (bank == '') {
+			alert('信息初始化中 请稍候');
+		} else if (rname == '') {
+			alert('请填写开户姓名')
+		} else if (tkMoney == '') {
+			alert('请填写需要提款的金额')
+		} else if (tkMoney<10) {
+			alert('提款金额不能低于10元')
+		} else {
+			tk();
+		}
+	});
+});
+function tk(){
+	alert('提交中，请稍候','load');
+	var data = {
+			'realName':$.trim($('#rname').val()),
+			'tkMoney':$.trim($('#tkMoney').val()),
+			'tkType':0
+	}
+	$.ajax({
+        url: '/user/drawmoney.go',
+        type:'POST',
+        data:data,
+        success:function (xml){
+        	remove_alert();
+        	var R = $(xml).find('Resp');
+        	var code = R.attr('code');
+        	var desc = R.attr('desc');
+        	if(code == '0'){
+        		window.history.back();
+        	}else{
+        		alert(desc);
+        		if (desc.indexOf('未登录')>=0) {
+					setTimeout(function () {
+						window.location.href = '/alone/login.html';
+					}, 1500)
+				}
+        	}
+        }
+	})
+}
+function gain(){
+	$.ajax({
+		url:'/user/queryIdBankBinding.go',
+		type:'get',
+		dataType:'xml',
+		success:function (xml) {
+			var R = $(xml).find("Resp");
+        	var c = R.attr('code');
+        	var d = R.attr('desc');
+        	if(c == '0'){
+        		var U = R.find('row');
+	        	var m = U.attr("dmoney");//可提现金额
+	        	$("#usermoney").html(m);
+	        	$('#tkMoney').keyup(function(){
+	        		if($(this).val()>parseFloat(m)){
+	        			$('#tkMoney').val(m)
+	        		}
+	        	});
+        	}else{
+        		alert(d);
+        	}
+		}
+		
+	});
+	$.ajax({
+		url:'/user/query.go?flag=4',
+		type:'POST',
+		dataType:'xml',
+		success:function (xml) {
+			 var R = $(xml).find("Resp");
+			 var r = R.find("row");
+			 var code = r.attr("code");
+			 var card = r.attr("card").substr(-4);
+			 var prov = r.attr("prov");
+			 var city = r.attr("city");
+			 var name = r.attr("name");
+			 if(code != ''){
+				 var bname={
+						 '1':'招商银行',
+						 '2':'工商银行',
+						 '3':'建设银行',
+						 '4':'中国银行',
+						 '5':'中国人民银行',
+						 '6':'交通银行',
+						 '8':'中信银行',
+						 '9':'兴业银行',
+						 '10':'光大银行',
+						 '12':'中国民生银行',
+						 '13':'中国农业银行',
+						 '15':'农村信用合作社',
+						 '25':'中国邮政储蓄银行',
+						 '1000':'广东发展银行',
+						 '1001':'深圳发展银行',
+						 '4000':'上海浦东发展银行',
+						 '4001':'上海银行'
+				 };
+				 bname = bname[code] || '';
+				 if (bname != "") {
+					 $("#bankname").html("提款银行:"+bname+"(尾号"+card+")");
+				 }else{
+					 $("#bankname").html(prov+","+city+","+name);
+				 }
+			 }else{
+				 /***
+				 $("#bankname").html('您尚未绑定银行卡，请点击此处<u>去绑定</u>');
+				 $("#bankname u").css({'color':'red'});
+				 $('#bankname').bind('click', function(){
+					 window.location.href='bankcard.html';
+				 });
+				 ***/
+				 $("#bankname").html('您尚未绑定银行卡，请点击此处<u>去绑定</u>');
+				 $("#bankname u").css({'color':'red'});
+				 $('#bankname').bind('click', function(){
+					 window.location.href='bankcard.html';
+				 });
+			 }
+		}
+	});
+}
+</script>
+</body>
+</html>

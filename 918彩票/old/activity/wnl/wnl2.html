@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>完善领奖信息</title>
+<style type="text/css">
+body{ margin:0; padding:0; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#272727; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+i,o,cite,em{ font-style:normal}
+.clearfix{ overflow:hidden; zoom:1}
+.text{ padding:.875rem}
+.text p{ line-height:1.5rem; color:#b7321f; font-size:.81rem; border-bottom:1px solid #b7321f; padding:.9rem 0 .2rem 0; margin-bottom:.3rem}
+.text input{ width:96%; border:none; height:2.1rem; font-weight:normal; background:#fff; padding:.3rem 0 .3rem 4%; margin-top:.8rem; font-family:"黑体"; font-size:.9rem; box-shadow:0 0 0 1px #eaeaea inset; -webkit-box-shadow:0 0 0 1px #eaeaea inset; -moz-box-shadow:0 0 0 1px #eaeaea inset; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.text input.tell{ width:60%; float:left}
+.text input.yzm{ float:right; width:30%; height:2.5rem; border:none; text-align:center; padding-left:0; background:#18b2d9; color:#fff; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.text a{ display:block; margin-top:1.5rem; background:#ff9f00; letter-spacing:.1rem; color:#fff; line-height:2.7rem; text-align:center; font-size:1.13rem; text-decoration:none; text-shadow:0 .1rem 0 rgba(188,121,9,0.53); -webkit-text-shadow:0 .1rem 0 rgba(188,121,9,0.53); -moz-text-shadow:0 .1rem 0 rgba(188,121,9,0.53); border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.logints{ z-index:1001;width:10rem;position:fixed; bottom:3.5rem; left:45%; text-align:center; line-height:1.7rem; font-size:.8rem; color:#fff; background:#4c4c4c; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem; box-shadow:0 .1rem .4rem rgba(0,0,0,0.6); -webkit-box-shadow:0 .1rem .4rem rgba(0,0,0,0.6); -moz-box-shadow:0 .1rem .4rem rgba(0,0,0,0.6); background:linear-gradient(top,#6c6c6c,#4c4c4c); background:-webkit-gradient(linear,0 0,0 100%,from(#6c6c6c),to(#4c4c4c)); background:-moz-linear-gradient(top,#6c6c6c,#4c4c4c)}
+.text a:hover{ background:#aaa}
+</style>
+<body style="background:#f6f6f6">
+	<div class="text">
+    	<p>为方便中奖后与您联系，请填写您的领奖信息</p>
+        <input type="tel" placeholder="请输入领奖手机号" id="phone">
+        <div class="clearfix"><input type="number" placeholder="输入手机验证码" class="tell" id="yzm"><input name="" type="button" value="获取验证码" id="getyzm" class="yzm"></div>
+        <input type="password" placeholder="设置您的密码" id="pwd">
+        <a href="javascript:;" id="sure">提交</a>
+    </div>
+<!-- 百度统计 -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff6babc6e11c8122615416b76c3b54696' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- 百度统计 -->
+</body>
+<input type="hidden" value="01" id="gid" name="gid"/>
+<div class="logints" id="tx_c" style='display:none;'></div>
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/activity/wnl/wnl2.js"></script>

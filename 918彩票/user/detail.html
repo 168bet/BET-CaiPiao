@@ -1,0 +1,341 @@
+<article class="gray" id=detail>
+  	<div id="wrapper">
+		<div id="scroller">
+             <div class="all details" id="list_detail">
+             	<div style='padding:58px;height:1000px'><em class="rotate_load" style='margin:auto'></em></div>
+             </div>
+            <div id="pullUp" style=display:none;>
+                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉查看更多...</span>
+            </div>
+        </div>
+    </div>
+</article>
+<script>
+CP.Detail = (function () {
+	var in_ = CP.Util.getPara('in', window.location.href, 2);//获取url上面的参数in_
+	console.log(in_)
+	in_ = in_ || 'zh';//默认不传打开账户明细
+	var g = {
+			in_ : {'0':'zh','1':'cz','2':'tk','3':'gc','4':'zj'},
+			cPage : '1',//初始化的时候显示第一页
+			total : '1',//默认总页数为1
+			type : {'zh':['账户明细',0,13],'cz':['充值明细',1,14],'tk':['提款明细',2,15],'gc':['购彩明细',3,16],'zj':['中奖明细',4,17]},
+			obj : {'89':'积分充值','113':'打赏发单人','200':'用户充值','201':'自购中奖','202':'跟单中奖','203':'中奖提成','204':'追号中奖','210':'自购撤单返款','211':'认购撤单返款',
+				'212':'追号撤销返款','213':'提现撤销返款','214':'提款失败转款','215':'保底返款','216':'红包派送','300':'转款','100':'自购','101':'认购',
+					'102':'追号','103':'保底认购','104':'提现','105':'保底冻结','99':'转账','98':'套餐追号','255':'天天分钱','256':'跟买中奖','257':'收到打赏'},
+			addmoneytype:{'1':'快钱支付','2':'财付通支付','3':'支付宝支付','4':'百付宝支付','5':'手机充值卡(易宝)','6':'银联手机支付','9':'19pay手机充值卡',
+				'10':'支付宝快捷支付','11':'盛付通支付','12':'联动优势信用卡','13':'上海导购预付卡','14':'支付宝扫码','15':'mo9先玩后付','19':'建行支付','20':'兴业银行支付',
+				'24':'支付宝转账','25':'支付宝转账','27':'支付宝转账','28':'支付宝转账',
+				'30':'微信支付','31':'微信支付','32':'微信支付','40':'微信支付','41':'微信支付','42':'微信扫码支付','43':'微信支付','44':'支付宝扫码支付','45':'支付宝支付','46':'支付宝支付','47':'支付宝支付','50':'微信支付','51':'微信支付',
+				'60':'支付宝支付','61':'支付宝支付','62':'支付宝支付',
+				'97':'提款失败转款','98':'购彩返利','99':'手工加款','998':'红包派送','999':'网吧充值','9000':'支付宝(安卓)','9001':'支付宝(苹果)',
+				'9002':'支付宝wap(苹果)','9003':'联动优势(苹果)','9004':'联动优势(安卓)','9005':'支付宝wap(安卓)','9006':'银联手机(苹果)','9007':'银联手机(安卓)',
+				'9008':'手机充值卡(苹果)','9009':'手机充值卡(安卓)','9010':'联通华建(苹果)','9011':'联通华建(安卓)','2003':'支付宝(东方网)','2010':'支付宝扫码(东方网)',
+				'2014':'支付宝快捷(东方网)','2015':'银联手机(3g触屏)','2016':'19pay充值卡(3g触屏)','2017':'支付宝(3g触屏)','3000':'微信支付(4g&触屏)','3014':'支付宝(4g&触屏)'}
+			
+	};
+	
+	var myScroll;
+	var detailData = [];//列表信息
+	var u = {
+			showcmemo : function (ibiztype, wf){
+				var memo='';	
+				ibiztype=parseInt(ibiztype);
+				switch (ibiztype){
+				case 200:
+					/***
+					switch(wf){
+						case '26':
+							memo='宝币兑换彩金';
+							break;
+						case '9014':
+							memo='充值';
+							break;
+						case '2070':
+							memo='安智充值';
+							break;
+						case '2056':
+							memo = '快捷支付';
+							break;
+						case '2057':
+							memo = '快捷支付';
+							break;
+						default:
+							memo = g.addmoneytype[wf];
+							break;
+					}
+					***/
+					memo = '用户充值';
+					break;
+				case 117:
+					memo = '彩金兑换宝币';
+					break;
+				case 100:
+				case 101:
+				case 103:
+				case 105:
+				case 201:		
+				case 202:
+				case 203:	
+				case 210:
+				case 211:	
+				case 252:
+				case 253:
+				case 215:			
+				case 98:
+				case 102:	
+				case 212:
+				case 254:
+				case 113:
+				case 256:
+				case 257:
+				case 204:
+					memo=CP.Util.lot(wf);//
+					break;	
+				case 300:
+					memo="转款";
+					break;
+				case 255:
+					memo=wf;
+					break;
+				case 107:	
+				case 216:	
+				case 213:
+				default:
+					break;
+				}
+				return memo;
+			}
+	};
+	var o = {
+			//渲染数据        
+			pageGo : {//页面跳转
+					goBack: function () {
+						TopAnch.init({
+							title:g.type[in_][0],
+							prevShow:true,
+							prevFun:function(){//左侧按钮绑定事件
+								window.location.href = '#type=url&p=user/index.html';
+							},
+							nextShow:false,
+							isBack:true,
+							headerSelect:[{name:'账户明细',fun:o.changePlayType,cur:g.type[in_][1]},{name:'充值明细'},{name:'提款明细'},
+								{name:'购彩明细'},{name:'中奖明细'}]
+						});
+		            }
+			},
+			changePlayType : function (index) {
+				window.location.href = '#type=url&p=user/detail.html?in='+g.in_[index];
+			},
+			//渲染对阵
+			render : function (opt) {
+				var opt_ = opt || [];
+				var out_ = [];
+				out_.push($('#list_detail').html());
+				console.log($('#list_detail').html())
+				for ( var Q1 in opt_ ) {
+					var Q = opt_[Q1];
+					if ( in_ == 'zh' ) {//帐户明细
+						if (Q.bh.indexOf('HM')>=0 || Q.bh.indexOf('DG')>=0) {
+							out_.push('<a href="#type=url&p=user/viewpath.html?hid='+Q.bh+'">');
+						} else if (Q.bh.indexOf('ZH')>=0) {
+							var Q2 = (Q.bh.indexOf('_')>=0) && Q.bh.split('_')[0] || Q.bh;
+							out_.push('<a href="#type=url&p=user/chase.html?hid='+Q2+'">');
+						} else {
+							out_.push('<a href="javascript:;">');
+						}
+						out_.push('<span><cite>'+(Q.itype==1?'-':'+')+''+Q.imoney+'</cite><em>'+(g.obj[Q.ibiztype] || '')+'</em></span>\
+								<span class="number"><cite>'+u.showcmemo(Q.ibiztype, Q.wf)+'</cite><em>'+Q.cadddate+'</em></span>');
+						if(Q.bh.indexOf('HM')>=0 || Q.bh.indexOf('DG')>=0 || Q.bh.indexOf('ZH')>=0){
+							out_.push('<i class="rightArrow"></i>');
+						}
+						out_.push('</a>');
+					} else if ( in_ == 'cz' ) {//充值
+						out_.push('<a href="javascript:;">\
+								<span><cite class="yellow">+'+Q.money+'</cite><em>订单号:'+Q.applyid+'</em></span>\
+								<span class="number"><cite>'+Q.type+'</cite><em>'+Q.confdate+'</em></span>\
+								</a>');
+					} else if ( in_ == 'tk' ) {//提款
+					        	out_.push('<a href="javascript:;">\
+					        			<span><cite>-'+Q.money+'</cite><em>订单号:'+Q.cashid+'</em></span>\
+					        			<span class="number"><cite>'+Q.state+'</cite><em>'+Q.cashdate+'</em></span>\
+					        			</a>');
+					} else if ( in_ == 'gc' ) {//购彩
+						if (Q.hid.indexOf('ZH')>=0) {
+							var Q2 = (Q.hid.indexOf('_')>=0) && Q.hid.split('_')[0] || Q.hid;
+							out_.push('<a href="#type=url&p=user/chase.html?hid='+Q2+'">');
+						} else {
+							out_.push('<a href="#type=url&p=user/viewpath.html?hid='+Q.hid+'">');
+						}
+						out_.push('<span><cite>-'+Q.money+'</cite><em>'+Q.type+'</em></span>\
+								<span class="number"><cite>'+Q.memo+'</cite><em>'+Q.cadddate+'</em></span>\
+								<i class="rightArrow"></i>\
+								</a>');
+					} else if ( in_ == 'zj' ) {//中奖
+						if (Q.hid.indexOf('ZH')>=0) {
+							var Q2 = (Q.hid.indexOf('_')>=0) && Q.hid.split('_')[0] || Q.hid;
+							out_.push('<a href="#type=url&p=user/chase.html?hid='+Q2+'">');
+						} else {
+							out_.push('<a href="#type=url&p=user/viewpath.html?hid='+Q.hid+'">');
+						}
+						out_.push('<span><cite class="yellow">+'+Q.money+'</cite><em>'+Q.type+'</em></span>\
+								<span class="number"><cite>'+Q.memo+'</cite><em>'+Q.cadddate+'</em></span>\
+								<i class="rightArrow"></i>\
+								</a>');
+					}
+				}
+				
+				$('#list_detail').html(out_.join(''));
+				if(g.cPage<g.total){
+					$("#pullUp").show();	
+				}else{
+					$("#pullUp").hide();	
+				}
+				myScroll.refresh();
+			},
+			//获取接口信息
+			gain : function () {
+				
+				if ( g.cPage<=g.total ) {
+					var data = {
+							pn : g.cPage,
+							ps : '10',
+							flag : g.type[in_][2],
+							source:'3021'
+					};
+					$.ajax({
+						url:CP.Data.apps+"/user/queryAccount.go?"+jQuery.param(data),
+						type:'POST',
+						dataType:'xml',
+						success : function (xml){
+							if(g.cPage == '1'){
+								$('#list_detail').html('');
+							}
+							var rs = $(xml).find('rows');
+							g.total = rs.attr('tp');
+							var r = rs.find('row');
+							detailData = [];//先清空保险
+							r.each(function () {
+								var t = {};
+								if ( in_ == 'zh' ) {//帐户明细
+									t.imoney = $(this).attr('imoney');
+									t.itype = $(this).attr('itype');
+									t.cadddate = $(this).attr('cadddate');
+									t.ioldmoney = $(this).attr('ioldmoney');
+									t.ibalance = $(this).attr('ibalance');
+									t.ibiztype = $(this).attr('ibiztype');
+									t.wf = $(this).attr('wf');
+									t.bh = $(this).attr('bh');
+								} else if ( in_ == 'cz' ) {//充值明细
+									t.applyid = $(this).attr('applyid');
+									t.money = $(this).attr('money');
+									t.rate = $(this).attr('rate');
+									t.confdate = $(this).attr('confdate');
+									t.memo = $(this).attr('memo');
+									t.type = $(this).attr('type');
+								} else if ( in_ == 'tk' ) {//提款明细
+									t.cashid = $(this).attr('cashid');
+									t.money = $(this).attr('money');
+									t.rate = $(this).attr('rate');
+									t.cashdate = $(this).attr('cashdate');
+									t.memo = $(this).attr('memo');
+									t.state = $(this).attr('state');
+								} else if ( in_ == 'gc' ) {//购彩明细
+									t.cashid = $(this).attr('cashid');
+									t.money = $(this).attr('money');
+									t.ibalance = $(this).attr('ibalance');
+									t.cadddate = $(this).attr('cadddate');
+									t.type = $(this).attr('type');
+									t.gid = $(this).attr('gid');
+									t.hid = $(this).attr('hid');
+									t.memo = $(this).attr('memo');
+								} else if ( in_ == 'zj' ) {//中奖明细
+									t.cashid = $(this).attr('cashid');
+									t.money = $(this).attr('money');
+									t.ibalance = $(this).attr('ibalance');
+									t.cadddate = $(this).attr('cadddate');
+									t.type = $(this).attr('type');
+									t.gid = $(this).attr('gid');
+									t.hid = $(this).attr('hid');
+									t.memo = $(this).attr('memo');
+								}
+								detailData.push(t);
+							});
+							if (!r.length) {//吐槽：这奇葩接口 有记录的时候竟然木有Resp节点 去你吗的。解决：只能判断木有记录的时候去取一下Resp节点看下提示什么
+								var R = $(xml).find('Resp');
+								var code = R.attr('code');
+								var desc = R.attr('desc');
+								if (code == '0') {
+									desc = '暂无记录';
+								} else {
+									if (desc.indexOf('未登录')>=0) {
+										setTimeout(function () {
+											location.href = '#type=fun&fun=CP.Home.openLogin';
+										}, 1e3);
+									}
+								}
+								$('#list_detail').html('<div style="padding-top:50px;height:200px;text-align:center;">'+desc+'</div>');
+							} else {
+								console.log(detailData)
+								o.render(detailData);
+							}
+						}
+					});
+				}
+			},
+			init : function () {
+				o.pageGo.goBack();
+				o.gain();
+				o.layOut();
+				if ( in_ == 'cz' ) {
+					$('#list_detail').addClass('czmx');
+				}
+			},
+			layOut : function(){
+				var w = window.innerHeight;
+				$("#wrapper").height(w - 55);//94是下面加载更多的高度
+				window.onresize = function(){	
+					var w = window.innerHeight;
+					$("#wrapper").height(w - 55);
+					window.myScroll&&myScroll.refresh&&myScroll.refresh();	
+				};
+				o.loadScroll();
+			},
+			//滚动条
+			loadScroll:function(){
+					var pullUpEl = document.getElementById('pullUp');	
+					var pullUpOffset = pullUpEl.offsetHeight;
+					myScroll = new iScroll('wrapper', {
+						onRefresh: function () {
+							if (pullUpEl.className.match('loading')) {
+								pullUpEl.className = '';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉查看更多';
+							}
+						},
+						onScrollMove: function () {
+							if (this.y < (this.maxScrollY - 20) && !pullUpEl.className.match('flip')) {
+								pullUpEl.className = 'flip';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '松开加载数据';
+							} else if (this.y > (this.maxScrollY) && pullUpEl.className.match('flip')) {
+								pullUpEl.className = '';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉查看更多';
+							}
+						},
+						onScrollEnd: function () {
+							if (pullUpEl.className.match('flip')) {
+								pullUpEl.className = 'loading';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '正在加载';
+								o.gain(++g.cPage);
+							}
+						}
+					});					
+			}
+			//渲染数据        
+	};
+	 
+	return {init: o.init};
+})();
+
+CP.Detail.init();
+
+</script>

@@ -1,0 +1,473 @@
+<style>
+.tbox-num{ text-align:center;}
+.wrapper {position:absolute; z-index:1; top:44px; left:0; width:100%; overflow:hidden;}
+.wrapper1 {position:absolute; z-index:1; top:76px; left:0; width:100%; overflow:hidden;}
+.scroller { position:absolute; z-index:1;-webkit-tap-highlight-color:rgba(0,0,0,0);width:100%; padding:0;}
+
+.wrapper {position:relative; height:160px; top:1px;}
+#wrapperYear{width:40%;}
+.dateWrap{width:27%; display:inline-block;top:3px;}
+.cp-lucky .list-date{width:100%}
+#ulYear,#ulMonth,#ulDay{width:100%}
+
+.cp-lucky .btn-lucky{ padding: 16px 19px; font:bold 16px/16px 微软雅黑; background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fb1807), color-stop(68%,#c61d07), color-stop(100%,#d83a05)); background: -webkit-linear-gradient(top, #fb1807 0%,#c61d07 68%,#d83a05 100%);  background: -o-linear-gradient(top, #fb1807 0%,#c61d07 68%,#d83a05 100%);  background: -ms-linear-gradient(top, #fb1807 0%,#c61d07 68%,#d83a05 100%); display: inline-block; color: #fff; border-radius:8px; -webkit-border-radius: 8px; border:2px solid #8d0212;}
+.cp-lucky .box-footerbtn{ text-align: center; margin-top: 15px; display: none;}
+.cp-lucky .box-content{-webkit-box-shadow: 0 10px 10px -10px rgba(0,0,0,0.8); -o-box-shadow: 0 10px 10px -10px rgba(0,0,0,0.8); -ms-box-shadow: 0 10px 10px -10px rgba(0,0,0,0.8); box-shadow: 0 10px 10px -10px rgba(0,0,0,0.8); width: 264px; height: 286px;margin:0px auto; margin-top: 38px;}
+.cp-lucky .box-choiceSwitch{ width: 175px; margin-left: 42px; background: #fff;-webkit-box-shadow:0 0 10px rgba(0,0,0,0.2);-o-box-shadow: 0 0 10px rgba(0,0,0,0.2);box-shadow: 0 0 10px rgba(0,0,0,0.2); height: 26px;border-radius: 8px; -webkit-border-radius: 8px;display: -webkit-box;display: -ms-flexbox;}
+.cp-lucky .btn-switch{-webkit-box-flex: 1; -ms-flex: 1 auto; display: block; width:1px; text-align: center; margin-top: 2px; margin-bottom: 2px; font:14px/22px 微软雅黑; color: #333; position: relative;}
+.cp-lucky .btn-switch:first-child{border-right: 1px solid #c8c8c8; }
+.cp-lucky .btn-switch b{border: 4px solid;font-size: 0px;line-height: 0px; right:8px; top: 10px ; border-color: #c49635 transparent transparent transparent; position: absolute; }
+.cp-lucky .box-play{ padding-top:8px;height: 204px;background: #fff;-webkit-box-shadow:0 0 10px rgba(0,0,0,0.2); -o-box-shadow: 0 0 10px rgba(0,0,0,0.2); box-shadow: 0 0 10px rgba(0,0,0,0.2);border-radius: 8px; -webkit-border-radius: 8px; margin-top: 8px;}
+.cp-lucky .box-xz{background-position: 0px -198px;}
+.cp-lucky .list-play{margin-right: -4px;}
+.cp-lucky .list-play li{float: left; width: 56px; height: 54px;  cursor: pointer; margin-right: 4px; margin-bottom: 7px;border:#fff 3px solid;border-radius: 5px; -webkit-border-radius: 5px;}
+.cp-lucky .list-play li.m0{ margin-right: 0px;}
+.cp-lucky .list-play li.on{border-color:#d71212; }
+.cp-lucky .box-xz,.cp-lucky .box-sr,.cp-lucky .box-qq,.cp-lucky .box-name{display: none;}
+.cp-lucky .box-body.xz .box-sx,.cp-lucky .box-body.xz .box-sr,.cp-lucky .box-body.xz .box-name,.cp-lucky .box-body.xz .box-qq{display: none;}
+.cp-lucky .box-body.sr .box-sx,.cp-lucky .box-body.sr .box-xz, .cp-lucky .box-body.sr .box-name, .cp-lucky .box-body.sr .box-qq{display: none;}
+.cp-lucky .box-body.qq .box-sx,.cp-lucky .box-body.qq .box-xz,.cp-lucky .box-body.qq .box-name,.cp-lucky .box-body.qq .box-sr{display: none;}
+.cp-lucky .box-body.name .box-sx,.cp-lucky .box-body.name .box-xz,.cp-lucky .box-body.name .box-sr,.cp-lucky .box-body.name .box-qq{display: none;}
+.cp-lucky .box-body.xz .box-xz,.cp-lucky .box-body.sr .box-sr,.cp-lucky .box-body.sx .box-sx,.cp-lucky .box-body.qq .box-qq,.cp-lucky .box-body.name .box-name{display: block;}
+.cp-lucky .box-body.xz .box-footerbtn,.cp-lucky .box-body.sx .box-footerbtn{display: block;}
+
+.cp-lucky .txt-title{ text-align: center; color: #acacac; font:16px/30px 微软雅黑;}
+.cp-lucky .box-middle{ height: 46px; background: #f7e4c1; margin-top: 5px; overflow: hidden;}
+.cp-lucky .box-middlein{margin: 5px; background: #fff; border-radius: 5px; -webkit-border-radius: 5px; height: 35px; border: 1px solid #edc578; text-align: center;}
+.cp-lucky .box-middlein span{ display: inline-block;color: #333333; font:bold 20px/29px 微软雅黑; padding-left: 10px; padding-right: 10px; border-right: 1px solid #c8c8c8; margin-top: 3px; margin-bottom: 3px;  }
+.cp-lucky .box-middlein span:first-child{padding-left: 0px;}
+.cp-lucky .box-middlein span:last-child{padding-right: 0px; border: none;}
+.cp-lucky .box-btn{text-align: center; margin-top: 11px;}
+.cp-lucky .box-body.name .icon-play{ background-position: -81px -397px; width: 46px; height: 43px;}
+.cp-lucky .box-body.qq .icon-play{ background-position: -43px -397px;}
+.cp-lucky .box-body.sr .icon-play{ background-position: -5px -397px;}
+
+.cp-lucky .tbox-txt{padding:0px; margin:0px; width: 98%; text-align: center;color: #333333; font:bold 20px/20px 微软雅黑; border: none; padding-top: 7px; padding-bottom: 7px; height: 19px;}
+
+.cp-lucky .box-out{position:fixed;z-index:9999; left: 0; width: 100%; top: 50%; margin-top: -133px; display: none;}
+.cp-lucky .box-out.on{display: block;}
+.cp-lucky .box-out.birth{ margin-top: -160px;}
+.cp-lucky .box-out.num{ margin-top: -92px;}
+
+.cp-lucky .box-out .bd{ margin:0 46px; background: #eeb731; border-radius: 8px; -webkit-border-radius: 8px; height: 265px; overflow: hidden;}
+.cp-lucky .box-out.birth .bd{height: 320px;}
+.cp-lucky .box-out.num .bd{height: 185px;}
+
+.cp-lucky .box-outlist{ margin:13px; background: #ffcd52; border-radius: 8px; -webkit-border-radius: 8px; border:1px solid #ce9040;}
+.cp-lucky .box-outlistbd{ margin:4px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c0c0c0), color-stop(50%,#ffffff), color-stop(100%,#c1c1c1)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #c0c0c0 0%,#ffffff 50%,#c1c1c1 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #c0c0c0 0%,#ffffff 50%,#c1c1c1 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #c0c0c0 0%,#ffffff 50%,#c1c1c1 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #c0c0c0 0%,#ffffff 50%,#c1c1c1 100%); /* W3C */ border-radius: 8px; -webkit-border-radius: 8px; border:1px solid #a7a7a7; position: relative;}
+.cp-lucky .list-loty{padding-top: 5px; padding-bottom: 5px;}
+.cp-lucky .list-loty li{ text-align: center;font:16px/32px 微软雅黑; color: #333; height: 32px; }
+.cp-lucky .box-outlistbd .box-highlight{ background: #ffcd52; position: absolute; width: 100%; height: 32px; border:1px solid #ce9040; border-left:none; border-right: none; top: 50%; margin-top: -16px;opacity:0.46;}
+
+.cp-lucky .box-outbtn{ margin: 13px;}
+.cp-lucky .btn-out,.cp-lucky .btn-close{ width: 94px; height: 42px; background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6c13a), color-stop(100%,#e2aa22));  background: -webkit-linear-gradient(top, #f6c13a 0%,#e2aa22 100%); background: -o-linear-gradient(top, #f6c13a 0%,#e2aa22 100%); background: -ms-linear-gradient(top, #f6c13a 0%,#e2aa22 100%); /* IE10+ */ background: linear-gradient(to bottom, #f6c13a 0%,#e2aa22 100%); /* W3C */ font:16px/42px 微软雅黑; color: #333; float:left;border-radius: 8px; -webkit-border-radius: 8px; border:1px solid #b8841e; text-align: center;}
+.cp-lucky .box-outbtn .btn-out:last-child{float:right;}
+
+.cp-lucky .box-out h2{ height: 48px; font:17px/48px 微软雅黑; color: #333; text-align: center;}
+.cp-lucky .box-out .txt-info{ text-align: center; color: #333;font-size:14px;line-height:normal;}
+
+.cp-lucky .list-year,.cp-lucky .list-month,.cp-lucky .list-day{ float: left; width: 30%;}
+.cp-lucky .list-year{width: 40%;}
+.cp-lucky .list-year li,.cp-lucky .list-month li,.cp-lucky .list-day li{text-align: center;font:16px/32px 微软雅黑; color: #333; height: 32px;}
+.cp-lucky .box-out.birth .box-border{border-right: 1px solid #cecece; position: absolute; left: 40%; height: 160px; width: 0px; font-size: 0px; line-height: 0px;}
+.cp-lucky .box-out.birth .box-border.b2{left: 70%;}
+
+.cp-lucky .box-out.num h2{ position: relative;}
+.cp-lucky .btn-close{ width: 28px; height: 28px;position: absolute; line-height: 24px; font-size: 24px; color: #a97f0f; top: 8px; right: 13px;}
+.cp-lucky .box-out.num .box-outbtn{ text-align: center;}
+.cp-lucky .box-out.num .box-outbtn .btn-out{ float: none; display: inline-block;}
+.cp-lucky .box-out.num .box-outlist{ background: #fff; margin-top: 0px;}
+.cp-lucky .box-out.num .box-outlist .num{padding-right: 0px;}
+
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:2;left:0;top:0; display: none;}
+
+</style>
+<article id="delete_parent">
+    <div id='content'>
+	    <div>
+		    <div class="sfcTitle"></div>
+		    <section class="jczqkj sfcopt"></section>
+	    </div>
+    </div>
+    <div class='cp-lucky'>
+    
+    <div id='birth_box' class="box-out birth">
+        <div class="bd">
+            <h2>日期设置</h2>
+            <p class="txt-info"><span id='box_y'>2015</span> 年 <span id='box_m'>01</span> 月 <span id='box_d'>01</span> 日 星期<span id='box_w'>日</span></p>
+            <div class="box-outlist">
+                <div class="box-outlistbd clearfix">
+                    <div class="box-highlight"></div>
+                    <div class="box-border"></div>
+                    <div class="box-border b2"></div>
+                    <div id="wrapperYear" class="wrapper dateWrap">
+						<div class="scroller">
+                            <ul id='ulYear' class="list-year list-date">
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                                <li>2015</li>
+                                <li>2016</li>
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="wrapperMonth" class="wrapper dateWrap">
+						<div class="scroller">
+                            <ul id='ulMonth' class="list-month list-date">
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                                <li>01</li>
+                                <li>02</li>
+                                <li>03</li>
+                                <li>04</li>
+                                <li>05</li>
+                                <li>06</li>
+                                <li>07</li>
+                                <li>08</li>
+                                <li>09</li>
+                                <li>10</li>
+                                <li>11</li>
+                                <li>12</li>
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="wrapperDay" class="wrapper dateWrap">
+						<div class="scroller">
+                            <ul id='ulDay' class="list-day list-date">
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                                <li>01</li>
+                                <li>02</li>
+                                <li>03</li>
+                                <li>04</li>
+                                <li>05</li>
+                                <li>06</li>
+                                <li>07</li>
+                                <li>08</li>
+                                <li>09</li>
+                                <li>10</li>
+                                <li>11</li>
+                                <li>12</li>
+                                <li>13</li>
+                                <li>14</li>
+                                <li>15</li>
+                                <li>16</li>
+                                <li>17</li>
+                                <li>18</li>
+                                <li>19</li>
+                                <li>20</li>
+                                <li>21</li>
+                                <li>22</li>
+                                <li>23</li>
+                                <li>24</li>
+                                <li>25</li>
+                                <li>26</li>
+                                <li>27</li>
+                                <li>28</li>
+                                <li id='d29'>29</li>
+                                <li id='d30'>30</li>
+                                <li id='d31'>31</li>
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                            </ul>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-outbtn">
+                <a id='date_cancel' class="btn-out" href="javascript:void(0);">取消</a>
+                <a id='date_ok' class="btn-out" href="javascript:void(0);">确定</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer class="buyFooter">
+   	  <div class="fixed kjFloat">
+        <a rel="external" href="#type=url&p=list/jczq.html" class="payment">去投注</a>
+   	  </div>
+	</footer>
+</article>
+<div class="mask" id='mask'></div>
+<script type="text/javascript" src="/js/public/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src='/js/public/iscroll.js'></script>
+<script>
+$(function(){
+	var start_ev = ('ontouchstart' in window ) ? 'touchstart' : 'mousedown';
+	var end_ev = ('ontouchend' in window ) ? 'touchend' : 'mouseup';
+	var move_ev = ('ontouchend' in window ) ? 'touchmove' : 'mousemove';
+	
+	var wrapperDateYear,wrapperDateMonth,wrapperDateDay;
+	var $did = '';
+	var Box = {
+			dateShow:function(){
+				$('#mask').show();
+				var maxDay=31;	//当月的最大天数
+				var scrollNoFun;	//不同月份天数变化时，是否需要改变日值
+				var mark = false;	//标记滚动是否开始
+				var Y,M,D;
+				var Q = $did.split('-');
+				//获取年月日值
+				function getY(){
+					var y=(wrapperDateYear.currPageY===null?Q[0]:wrapperDateYear.currPageY+2015);
+					y = y>2016?2016:y;
+					return y;
+				}
+				function getM(){
+					var m=(wrapperDateMonth.currPageY===null?Q[1]:wrapperDateMonth.currPageY+1);
+					m=m>12?12:m;
+					return CP.Util.pad(m,2);
+				}
+				function getD(){
+					var d=(wrapperDateDay.currPageY===null?Q[2]:wrapperDateDay.currPageY+1);
+					if(d>maxDay){
+						d=maxDay;
+						scrollNoFun=true;
+						wrapperDateDay.scrollToElement('li:nth-child('+d+')',0);
+						wrapperDateDay.currPageY=d-1;
+						scrollNoFun=false;
+					}
+					return CP.Util.pad(d,2);
+				}
+				$("#luck_mask").show();
+				$("#birth_box").addClass('on');
+
+				//确定取消按钮
+				$("#date_ok").off().bind(end_ev,function(){
+						$("#luck_mask").hide();
+						$("#birth_box").removeClass('on');
+						var out_ = [];
+						out_.push($("#box_y").html());
+						out_.push($("#box_m").html());
+						out_.push($("#box_d").html());
+						kj.gain(out_.join('-'));
+						$('#mask').hide();
+					})
+				$("#date_cancel").off().bind(end_ev,function(){
+					$("#luck_mask").hide();
+					$("#birth_box").removeClass('on');
+					$('#mask').hide();
+				})
+
+				if(!wrapperDateYear){
+					//动态改变天数
+					function setDays(d){
+						//获取当前月下有多少天
+						function getDays(){
+							var y = Number(getY());
+							var m = Number(getM());
+							if(m == 2){
+								return y % 4 == 0 ? 29 : 28;
+							}else if(m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12){
+								return 31;
+							}else{
+								return 30;
+							}
+						}
+						if(!d){
+							maxDay = getDays();
+							switch(maxDay){
+								case 28:$("#d29").add($("#d30")).add($("#d31")).hide();break;
+								case 29:$("#d29").show();$("#d30").add($("#d31")).hide();break;
+								case 30:$("#d29").add($("#d30")).show();$("#d31").hide();break;
+								case 31:$("#d29").add($("#d30")).add($("#d31")).show();break;
+							}
+							wrapperDateDay.refresh();
+
+						}
+
+						if(mark){
+							Y = getY();
+							M = getM();
+							D = getD();
+							$("#box_y").html(Y);
+							$("#box_m").html(M);
+							$("#box_d").html(D);
+							$("#box_w").html('日一二三四五六'.charAt((new Date(Y+'-'+M+'-'+D)).getDay()));
+						}
+					}
+
+					wrapperDateYear =  new iScroll('wrapperYear',{
+						momentum: false,
+						hScroll: false,
+						vScrollbar: false,
+						snap: 'li',
+						onScrollEnd: function () {
+							setDays();
+						}
+					});
+					wrapperDateMonth =  new iScroll('wrapperMonth',{
+						momentum: false,
+						hScroll: false,
+						vScrollbar: false,
+						snap: 'li',
+						onScrollEnd: function () {
+							setDays();
+						}
+					});
+					wrapperDateDay =  new iScroll('wrapperDay',{
+						momentum: false,
+						hScroll: false,
+						vScrollbar: false,
+						snap: 'li',
+						onScrollEnd: function () {
+							!scrollNoFun&&setDays(true);
+						}
+					});
+					if($did){
+						var y_ = {'2015':'1','2016':'2'}[Q[0]] || '1';
+						$('#box_y').html(Q[0]);
+						$('#box_m').html(Q[1]);
+						$('#box_d').html(Q[2]);
+						$("#box_w").html('日一二三四五六'.charAt((new Date($did)).getDay()));
+						wrapperDateYear.scrollToElement('li:nth-child('+y_+')',0);
+						wrapperDateMonth.scrollToElement('li:nth-child('+Q[1]+')',0);
+						wrapperDateDay.scrollToElement('li:nth-child('+Q[2]+')',0);
+					}
+					wrapperDateYear.currPageY=wrapperDateMonth.currPageY=wrapperDateDay.currPageY=null;
+					mark = true;
+				}
+			}
+		}
+	var kj={
+			init:function(){
+				TopAnch.init({
+					title:'竞彩足球开奖',
+					prevShow:true,
+					prevFun:function(){//左侧按钮绑定事件
+						window.location.replace('#type=url&p=kj/index.html');
+					},
+					isBack:true,
+					nextShow:true,
+					nextText:'选择日期',
+					nextFun : function(){
+						Box.dateShow();
+					}
+				});
+				kj.gain();
+			},
+			//获取接口信息
+			gain:function(d){//2015-01-30
+				var data;
+				if(d){
+					var dd = d.split('-');
+					dd = dd[0].substr(-2)+''+dd[1]+''+dd[2];
+					data = {
+							gid : '70',
+							did : dd
+					};
+				}else{
+					data = {
+							gid : '70'
+					};
+				}
+				$.ajax({
+					url:'/trade/list.go',
+					data: data,
+					type:'POST',
+					DataType:'xml',
+					success:function(xml){
+						$('.loading').hide();
+						var R = $(xml).find('rows');
+						var did = R.attr('did');//开奖结果的时间
+						$did = !d && did || '';
+						var r = R.find('row');
+						var html = '';
+						if(r.length ==0){
+							alert('亲，木有赛事哦！');
+							html = '';
+						}
+						$('#content div.sfcTitle').html(did+'&nbsp;&nbsp;'+r.length+'场比赛');
+						$('#content div.sfcTitle').show();
+						r.each(function(){
+							var pid = $(this).attr('pid');//期次编号
+							var mid = $(this).attr('mid');//比赛场次
+							var mn = $(this).attr('mn');//主队名称
+							var sn = $(this).attr('sn');//客队名称
+							var ms = parseInt($(this).attr('ms')) || 0;//主队进球数
+							var ss = parseInt($(this).attr('ss')) || 0;//客队进球数
+							var zclose = $(this).attr('zclose');// (北单 竞彩足球没有该字段)
+							var mname = $(this).attr('mname');//联赛名称
+							var mt = $(this).attr('mt');//比赛结束时间
+							var hms = parseInt($(this).attr('hms')) || 0;//半场主队进球数 (北单 竞彩足球没有该字段)
+							var hss = parseInt($(this).attr('hss')) || 0;//半场客队进球数 (北单 竞彩足球没有该字段)
+							var lose = parseInt($(this).attr('lose')) || 0;//让球数 (北单没有该字段)
+							var cid = $(this).attr('cid');//场次名称  (北单没有该字段)
+							var end_time = mt.substr(5,11);//截止时间
+							
+							var sum = ms+ss;
+							var z,rz,tag,c;
+							if(parseInt(ms)>parseInt(ss)){//主>客
+								z = '<span class="red">主胜</span>';
+							}else if(parseInt(ms)==parseInt(ss)){
+								z = '<span class="blue">平</span>';
+							}else{
+								z = '<span class="green">主负</span>';
+							}
+							if((parseInt(ms)+parseInt(lose))>parseInt(ss)){
+								rz = '<span class="red jclqsf">让主胜</span>';
+							}else if((parseInt(ms)+parseInt(lose))==parseInt(ss)){
+								rz = '<span class="blue jclqsf">让平</span>';
+							}else{
+								rz = '<span class="green jclqsf">让主负</span>';
+							}
+							var str = kj.createModel(hms, hss, ms, ss);
+							
+							html+='<ul class="sfcxs">';
+							html+='<li><em>'+cid+'</em><p>'+mname.substr(0,4)+'</p><cite>'+end_time+'</cite></li>';
+							html+='<li>';
+							html+='<p class="spfzpkNum"><span>(主)'+mn+'</span><span class="spfvs">'+ms+':'+ss+'</span><span>'+sn+'(客)</span></p>';
+							html+='<div>';
+							html+='<p><span>胜平负</span><span>让球('+lose+')</span><span>总进球</span><span>半全场</span></p>';
+							html+='<p>'+z+''+rz+'<span>'+sum+'</span><span>'+str+'</span></p>';
+							html+='</div>';
+							html+='</li>';
+							html+='</ul>';
+						});
+						$('#content section').html(html);
+					}
+				});
+			},
+			createModel:function(hb,mb,hq,mq){
+				var str = "";
+				if(hb>mb && hq>mq){
+					str+='<em class="red">胜</em>';
+					str+='<em class="red">胜</em>';
+				}else if(hb>mb && hq==mq){
+					str+='<em class="red">胜</em>';
+					str+='<em class="blue">平</em>';
+				}else if(hb>mb && hq<mq){
+					str+='<em class="red">胜</em>';
+					str+='<em class="green">负</em>';
+				}else if(hb<mb && hq<mq){
+					str+='<em class="green">负</em>';
+					str+='<em class="green">负</em>';
+				}else if(hb<mb && hq==mq){
+					str+='<em class="green">负</em>';
+					str+='<em class="blue">平</em>';
+				}else if(hb<mb && hq>mq){
+					str+='<em class="green">负</em>';
+					str+='<em class="red">胜</em>';
+				}else if(hb==mb && hq>mq){
+					str+='<em class="blue">平</em>';
+					str+='<em class="red">胜</em>';
+				}else if(hb==mb && hq<mq){
+					str+='<em class="blue">平</em>';
+					str+='<em class="green">负</em>';
+				}else if(hb==mb && hq==mq){
+					str+='<em class="blue">平</em>';
+					str+='<em class="blue">平</em>';
+				}
+				return str;
+			}
+	};
+	kj.init();
+});
+</script>

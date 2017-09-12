@@ -1,0 +1,187 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+<div class="page-bg1">
+    <div class="page-wrap gamecodes-wrap">
+        <div class="bodywrap" style="min-height:720px;">
+            <div class="gamecodes_table" id="gamecodes">
+                <table>
+                    <thead>
+                        <tr>
+                            <th ng-repeat="th in theads track by $index">{{th}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name">{{chineseNames.CQSSC||'?'}}</td>
+                            <td class="issue">{{datas.CQSSC[0].formatQs||'?'}}</td>
+                            <td class="otime">{{datas.CQSSC[0].gtKjsj||'?'}}</td>
+                            <td class="codes">
+                                <b ng-repeat="(index, code) in sscCodes track by $index">{{code}}</b>
+                            </td>
+                            <td>{{sscMoney||'?'}}</td>
+                            <td>
+                                <a ui-sref="drawDetail({drawDatas:datas,code:datas.CQSSC[0].code,date:datas.CQSSC[0].gtKjsj,chineseNames:chineseNames})">详情</a>
+                            </td>
+                            <td>
+                                <a>---</a>
+                            </td>
+                            <td>
+                                <a ui-sref="ssc.name({name:'CQSSC'})">去投注</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">{{chineseNames.BJPK10||'?'}}</td>
+                            <td class="issue">{{datas.BJPK10[0].formatQs||'?'}}</td>
+                            <td class="otime">{{datas.BJPK10[0].gtKjsj||'?'}}</td>
+                            <td class="codes">
+                                <b ng-repeat="(index, code) in pk10Codes track by $index">{{code}}</b>
+                            </td>
+                            <td>{{pk10Money||'?'}}</td>
+                            <td>
+                                <a ui-sref="drawDetail({drawDatas:datas,code:datas.BJPK10[0].code,date:datas.BJPK10[0].gtKjsj,chineseNames:chineseNames})">详情</a>
+                            </td>
+                            <td>
+                                <a>---</a>
+                            </td>
+                            <td>
+                                <a ui-sref="bjpk10Bet">去投注</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">{{chineseNames.BJKL8||'?'}}</td>
+                            <td class="issue">{{datas.BJKL8[0].formatQs||'?'}}</td>
+                            <td class="otime">{{datas.BJKL8[0].gtKjsj||'?'}}</td>
+                            <td class="codes">
+                                <b class="grey">{{datas.BJKL8[0].d1q}}</b>
+                                +
+                                <b class="grey">{{datas.BJKL8[0].d2q}}</b>
+                                +
+                                <b class="grey">{{datas.BJKL8[0].d3q}}</b>
+                                =
+                                <b>{{datas.BJKL8[0].xy28Kjjg||'?'}}</b>
+                            </td>
+                            <td>{{kl8Money||'?'}}</td>
+                            <td>
+                                <a ui-sref="drawDetail({drawDatas:datas,code:datas.BJKL8[0].code,date:datas.BJKL8[0].gtKjsj,chineseNames:chineseNames})">详情</a>
+                            </td>
+                            <td>
+                                <a ui-sref="charts.name({name: 'lucky'})">走势图</a>
+                            </td>
+                            <td>
+                                <a ui-sref="game.name({name:'BJKL8'})">去投注</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">{{chineseNames.CAKENO||'?'}}</td>
+                            <td class="issue">{{datas.CAKENO[0].formatQs||'?'}}</td>
+                            <td class="otime">{{datas.CAKENO[0].gtKjsj||'?'}}</td>
+                            <td class="codes">
+                                <b class="grey">{{datas.CAKENO[0].d1q}}</b>
+                                +
+                                <b class="grey">{{datas.CAKENO[0].d2q}}</b>
+                                +
+                                <b class="grey">{{datas.CAKENO[0].d3q}}</b>
+                                =
+                                <b>{{datas.CAKENO[0].jndKjjg||'?'}}</b>
+                            </td>
+                            <td>{{cakeMoney||'?'}}</td>
+                            <td>
+                                <a ui-sref="drawDetail({drawDatas:datas,code:datas.CAKENO[0].code,date:datas.CAKENO[0].gtKjsj,chineseNames:chineseNames})">详情</a>
+                            </td>
+                            <td>
+                                <a ui-sref="charts.name({name: 'canada'})">走势图</a>
+                            </td>
+                            <td>
+                                <a ui-sref="game.name({name:'CAKENO'})">去投注</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">{{chineseNames.FC3D||'?'}}</td>
+                            <td class="issue">{{datas.FTC[0].formatQs||'?'}}</td>
+                            <td class="otime">{{datas.FTC[0].gtKjsj||'?'}}</td>
+                            <td class="codes">
+                                <b ng-repeat="(key, code) in fc3dCodes track by $index">{{code}}</b>
+                            </td>
+                            <td>{{fc3dMoney||'?'}}</td>
+                            <td>
+                                <a ui-sref="drawDetail({drawDatas:datas,code:datas.FTC[0].code,date:datas.FTC[0].gtKjsj,chineseNames:chineseNames})">详情</a>
+                            </td>
+                            <td>
+                                <a>---</a>
+                            </td>
+                            <td>
+                                <a ui-sref="fclhc.name({name:'FC3D'})">去投注</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">{{chineseNames.PL3||'?'}}</td>
+                            <td class="issue">{{datas.FTC[1].formatQs||'?'}}</td>
+                            <td class="otime">{{datas.FTC[1].gtKjsj||'?'}}</td>
+                            <td class="codes">
+                                <b ng-repeat="(key, code) in pl3Codes track by $index">{{code}}</b>
+                            </td>
+                            <td>{{pl3Money||'?'}}</td>
+                            <td>
+                                <a ui-sref="drawDetail({drawDatas:datas,code:datas.FTC[1].code,date:datas.FTC[1].gtKjsj,chineseNames:chineseNames})">详情</a>
+                            </td>
+                            <td>
+                                <a>---</a>
+                            </td>
+                            <td>
+                                <a ui-sref="fclhc.name({name:'PL3'})">去投注</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">{{chineseNames.TJKLSF||'?'}}</td>
+                            <td class="issue">{{datas.KLSF[0].formatQs||'?'}}</td>
+                            <td class="otime">{{datas.KLSF[0].gtKjsj||'?'}}</td>
+                            <td class="codes">
+                                <b ng-repeat="(index, code) in pk10Codes track by $index">{{code}}</b>
+                            </td>
+                            <td>{{klsfMoney||'?'}}</td>
+                            <td>
+                                <a ui-sref="drawDetail({drawDatas:datas,code:datas.KLSF[0].code,date:datas.KLSF[0].gtKjsj,chineseNames:chineseNames})">详情</a>
+                            </td>
+                            <td>
+                                <a>---</a>
+                            </td>
+                            <td>
+                                <a ui-sref="klsf.name({name:'TJKLSF'})">去投注</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">{{chineseNames.HK6||'?'}}</td>
+                            <td class="issue">{{datas.HK6[0].formatQs||'?'}}</td>
+                            <td class="otime">{{datas.HK6[0].gtKjsj||'?'}}</td>
+                            <td class="codes">
+                                <b class="grey">{{datas.HK6[0].p1}}</b>
+                                +
+                                <b class="grey">{{datas.HK6[0].p2}}</b>
+                                +
+                                <b class="grey">{{datas.HK6[0].p3}}</b>
+                                 +
+                                <b class="grey">{{datas.HK6[0].p4}}</b>
+                                 +
+                                <b class="grey">{{datas.HK6[0].p5}}</b>
+                                 +
+                                <b class="grey">{{datas.HK6[0].p6}}</b>
+                                =
+                                <b>{{datas.HK6[0].tm||'?'}}</b>
+                            </td>
+                            <td>{{hk6Money||'?'}}</td>
+                            <td>
+                                <a ui-sref="drawDetail({drawDatas:datas,code:datas.HK6[0].code,date:datas.HK6[0].gtKjsj,chineseNames:chineseNames})">详情</a>
+                            </td>
+                            <td>
+                                <a>---</a>
+                            </td>
+                            <td>
+                                <a ui-sref="fclhc.name({name:'HK6'})">去投注</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-include src="templateURI('/footer.html')"></ng-include>

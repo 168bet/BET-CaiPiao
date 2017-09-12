@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="author" content="m.9188.com  ">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta http-equiv="cleartype" content="on">
+	<title>活动入口</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+</head>
+<style>
+	@charset "utf-8";
+/*-----------------------初始化--------------------------------------*/
+/* 禁用iPhone中Safari的字号自动调整 */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+input {-webkit-appearance:none; /*去除input默认样式*/}
+
+input[type="submit"],
+
+input[type="reset"],
+
+input[type="button"],
+
+input{-webkit-appearance:none;}
+a{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* 取消链接高亮 */ }
+section{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* 取消链接高亮 */ }
+.tapArea{-webkit-tap-highlight-color:rgba(0, 0, 0, 0); }
+/* 设置HTML5元素为块 */
+article, aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section {
+display: block;
+}
+.main .content .img_bg img{
+	width:100%;
+	height:7rem;
+}
+/* 图片自适应 */
+img {
+max-width: 100%;
+height: auto;
+width:auto\9; /* ie8 */
+-ms-interpolation-mode:bicubic;/*为了照顾ie图片缩放失真*/
+}
+
+/* 初始化 */
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article, 
+aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section{margin:0; padding:0; border:0;}
+body{ background-color:#f1f4f5;font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#212121;}
+em,i{font-style:normal;}
+strong{font-weight: normal;}
+.clearfix:after{content:""; display:block; visibility:hidden; height:0; clear:both; color:#212121;}
+.clearfix{zoom:1;}
+a,a:link,a:visited,a:hover,a:active{text-decoration:none; font-family:arial,Microsoft YaHei, Helvetica, sans-serif;}
+ul,ol{list-style:none;}
+h1, h2, h3, h4, h5, h6{ font-size:100%; font-family: Microsoft YaHei;}
+img{border: none;}
+
+/* 通用基样式 */
+.t-css{width:100%; overflow:hidden; display:table; }
+.t-img-css{display:block; width:100%; height:auto; overflow:hidden;} 
+.t-row-css{display:table-row; width:100%; }
+.t-cell-css{display:table-cell; overflow:hidden; vertical-align:middle; text-align:center; height:100%; box-sizing:border-box; }
+.rm-a-css{-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
+.set-img-css{display:block; width:100%; height:auto; overflow:hidden;}
+.base-box-css{width:100%; overflow:hidden;}
+
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+
+/*--------------------------活动入口------------------------------*/
+.main{
+	width: 95%;
+	margin: 0 auto;
+	padding-top: .6rem;
+}
+.main .content{
+	display:block;
+	width: 100%;
+	border-top-left-radius:.2rem;
+	border-top-right-radius:.2rem;
+	border-bottom-left-radius:.6rem;
+	border-bottom-right-radius:.6rem;
+	border:.1rem #bfbfbf solid;
+	border-bottom:.15rem #bfbfbf solid;
+	margin-bottom:.6rem; 	  
+}
+.main .content .img_bg{
+	width: 100%;
+	height: 7rem;
+	background: url() no-repeat center;
+	background-size: 100% 7rem;
+	overflow:hidden;
+}
+.main .content span{
+	display: block;
+	margin-left: .6rem;
+}
+.main .content span:first-child{
+	font-size: .9rem;
+	color: #404040;
+	margin-top: .2rem;
+}
+.main .content span:last-child{
+	font-size: .7rem;
+	color: #9b9b9b;
+	margin-bottom: .2rem;
+}
+.main .content span:last-child i{
+	color:#e6456f;
+}
+
+.fixed2{ 
+	position:fixed; 
+	top:0; 
+	left:0; 
+	z-index:9; 
+	width:100%
+}
+.fcbackIco2{ 
+	position:absolute; 
+	top:.9rem; 
+	left:1.1rem; 
+	color:#fff; 
+	display:inline-block; 
+	width:.7rem; 
+	height:.65rem; 
+	border-left:.2rem solid #fff; 
+	border-bottom:.2rem solid #fff; 
+	transform:rotate(-315deg); 
+	-webkit-transform:rotate(-315deg); 
+	-moz-transform:rotate(-315deg)
+}
+.tzHeader{ 
+	position:relative; 
+	padding-bottom:2.7rem; 
+	z-index:5
+}
+.cgjHeader{ 
+	width:100%; 
+	height:2rem; 
+	padding-top:.7rem; 
+	background:#0b7e07;
+} 
+.cgjHeader h1{ 
+	width:11rem; 
+	margin:0 auto; 
+	text-align:center; 
+	font-size:1.1rem; 
+	color:#fff;
+}
+
+</style>
+<body style="background:#f3f3f3;">
+	<header class="tzHeader" style="display:none;">
+		<section class="cgjHeader fixed2">
+			<h1>签到翻倍卡</h1>
+			<a href="javascript:history.go(-1)" class="fcbackIco2"></a>
+		</section>
+	</header>
+	<div class="main">
+		<a class="content" href="/gq2/sign/qdfb.html">
+			<div class="img_bg">
+				<img src="/gq2/banner/img_03.png"/>
+			</div>
+			<div>
+				<span>积分商城，多种超值道具</span>
+				<span>活动时间：<i>2015-08-23起</i></span>
+			</div>
+		</a>
+		<a class="content" href="/news/appgonggao/20150906130407.html?1442225015">
+			<div class="img_bg">
+				<img src="/gq2/banner/JD20w.png">
+			</div>
+			<div>
+				<span>积分兑换总金豆，最高送20万金豆</span>
+				<span>活动时间：<i>2015-08-31起</i></span>
+			</div>
+		</a>	
+		<a class="content" href="/gonggao/gunqiu/sj/zq/2015/0814/129508.html?1442225385">
+			<div class="img_bg">
+				<img src="/gq2/banner/jqdouble.png">
+			</div>
+			<div>
+				<span>周末冲榜！奖券翻倍！</span>
+				<span>活动时间：<i>2015-08-15起</i></span>
+			</div>
+		</a>
+	</div>	
+</body>

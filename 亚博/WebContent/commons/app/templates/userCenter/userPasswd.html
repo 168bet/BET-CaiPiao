@@ -1,0 +1,73 @@
+<div class="user-updatepasswd-wrap user-center-form-wrap form-wrap">
+	<ul class="ui-tab-title tab-title-from clearfix">
+		<li ng-class="{'current': loginPasswdForm == 1}"
+			ng-click="loginPasswdForm = 1; subFun.setTitle(1);">修改登录密码</li>
+		<li ng-class="{'current': loginPasswdForm == 0}"
+			ng-click="loginPasswdForm = 0; subFun.setTitle(0);">修改安全密码</li>
+	</ul>
+	<form name="passwdForm">
+		<ul class="ui-form" ng-if="loginPasswdForm == 1">
+			<li class="ui-item"><label for="oldpassword">当前登录密码：</label> 
+			     <input
+				name="oldpassword" ng-model="data.loginPasswd.oldpwd"
+				type="password" ng-minlength="6" ng-maxlength="20" required
+				class="input input-normal input-radius"> &nbsp; <span
+				class="ui-check" ng-show="passwdForm.oldpassword.$dirty && passwdForm.oldpassword.$error.required">
+					登陆密码不能为空</span> <span class="ui-check"
+				ng-show="passwdForm.oldpassword.$dirty && ( passwdForm.oldpassword.$error.minlength || passwdForm.oldpassword.$error.maxlength)">长度有误，请输入6-20位字符</span>
+			</li>
+			<li class="ui-item"><label for="password">新登录密码：</label> <input
+				name="passwd" type="password" ng-model="data.loginPasswd.newpwd"
+				required ng-minlength="6" ng-maxlength="20"
+				class="input input-normal input-radius" value=""> &nbsp; <span
+				class="ui-check" ng-show="passwdForm.passwd.$dirty && passwdForm.passwd.$error.required">新登陆密码不能为空</span>
+				<span class="ui-check"
+				ng-show="passwdForm.passwd.$dirty && ( passwdForm.passwd.$error.minlength || passwdForm.passwd.$error.maxlength )">长度有误，请输入6-20位字符</span>
+			</li>
+			<li class="ui-item"><label for="password2">确认新密码：</label> <input
+				name="cfmPasswd" type="password" ng-model="data.loginPasswd.cfmpwd"
+				required ng-minlength="6" ng-maxlength="20"
+				class="input input-normal input-radius" value=""> &nbsp; <span
+				class="ui-check" ng-show="passwdForm.cfmPasswd.$dirty &&  passwdForm.cfmPasswd.$error.required">确认新密码不能为空</span>
+				<span class="ui-check"
+				ng-show="passwdForm.cfmPasswd.$dirty && (passwdForm.cfmPasswd.$error.minlength || passwdForm.cfmPasswd.$error.maxlength)">长度有误，请输入6-20位字符</span>
+			</li>
+
+			<li class="ui-item"><label for=""></label> <input type="button" submit-dirty="passwdForm"
+				ng-click="subFun.updateLoginPasswd(passwdForm)" class="btn btn-red" value="保存">
+			</li>
+		</ul>
+	</form>
+
+	<form name="withdrawForm">
+		<ul class="ui-form" ng-if="loginPasswdForm == 0">
+			<li class="ui-item">
+			 <label for="oldpassword">当前安全密码：</label> 
+			 <input ng-model="data.withdrawPasswd.oldpwd" name="oldpassword" type="password" ng-minlength="6" ng-maxlength="20" required class="input input-normal input-radius" /> &nbsp; 
+			     <span class="ui-check" ng-show="passwdForm.oldpassword.$dirty &&  withdrawForm.oldpassword.$error.required"> 安全密码不能为空</span> 
+                 <span class="ui-check" ng-show="withdrawForm.oldpassword.$error.minlength ||withdrawForm.oldpassword.$error.maxlength">长度有误，请输入6-20位字符</span>
+			</li>
+			<li class="ui-item"><label for="password">新安全密码：</label> <input
+			    name="newpwd"
+			    ng-model="data.withdrawPasswd.newpwd"
+			    ng-minlength="6" ng-maxlength="20" required 
+				type="password"
+				class="input input-normal input-radius"  /> &nbsp; 
+				<span class="ui-check" ng-show="passwdForm.newpwd.$dirty &&  withdrawForm.newpwd.$error.required"> 新安全密码不能为空</span> 
+               <span class="ui-check" ng-show="withdrawForm.newpwd.$error.minlength ||withdrawForm.newpwd.$error.maxlength">长度有误，请输入6-20位字符</span>
+			</li>
+			<li class="ui-item"><label for="password2">确认新密码：</label> <input
+                ng-model="data.withdrawPasswd.cfmpwd"
+                ng-minlength="6" ng-maxlength="20" required 
+				name="cfmpwd" type="password"
+				class="input input-normal input-radius" > &nbsp; 
+                <span class="ui-check" ng-show="withdrawForm.cfmpwd.$dirty && withdrawForm.cfmpwd.$error.required"> 安全确认密码不能为空</span> 
+               <span class="ui-check" ng-show="withdrawForm.cfmpwd.$error.minlength ||withdrawForm.cfmpwd.$error.maxlength">长度有误，请输入6-20位字符</span>
+			</li>
+
+			<li class="ui-item"><label for=""></label> <input type="button" submit-dirty="withdrawForm"
+			     ng-click="subFun.updateWithdrawPasswd(withdrawForm)"
+				class="btn btn-red" value="保存"></li>
+		</ul>
+	</form>
+</div>

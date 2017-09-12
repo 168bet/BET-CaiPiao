@@ -1,0 +1,199 @@
+<div class="w1000 m0auto text_center fz14 white" style="padding:20px 0 0 0;">
+    <div class="hgt30 line_hgt30 p10_0" style="background: #EAEAEA">
+        <span class="inlilne-block border_red1 red p5_25" ng-click=" swTabs.swTab='qsw' " ng-class="{swActive:swTabs.swTab=='qsw'}">前三位</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click=" swTabs.swTab='zsw' " ng-class="{swActive:swTabs.swTab=='zsw'}">中三位</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click=" swTabs.swTab='hsw' " ng-class="{swActive:swTabs.swTab=='hsw'}">后三位</span>
+    </div>
+    <table class="black" ng-show="swTabs.swTab=='qsw'">
+        <thead>
+            <tr class="hgt40 line_hgt40 border_b1 border_l1" style="background: #CCCCCC">
+                <td class="border_r1">百XX</td>
+                <td class="border_r1">勾选</td>
+                <td class="border_r1">X拾X</td>
+                <td class="border_r1">勾选</td>
+                <td class="border_r1">XX个</td>
+                <td class="border_r1">勾选</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="hgt36 line_hgt36 border_b1 border_l1" style="background: #F1F1F1" ng-repeat="(index,item) in range(0,10)">
+                <td class="border_r1">{{fs_qsw_b[index].number}}</td>
+                <td class="border_r1">
+                    <input type="checkbox" class="middle" ng-model="fs_qsw_b[index].money">
+                </td>
+                <td class="border_r1">{{fs_qsw_s[index].number}}</td>
+                <td class="border_r1">
+                    <input type="checkbox" class="middle" ng-model="fs_qsw_s[index].money">
+                </td>
+                <td class="border_r1">{{fs_qsw_g[index].number}}</td>
+                <td class="border_r1">
+                    <input type="checkbox" class="middle" ng-model="fs_qsw_g[index].money">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="black" ng-show="swTabs.swTab=='zsw'">
+        <thead>
+            <tr class="hgt40 line_hgt40 border_b1 border_l1" style="background: #CCCCCC">
+                <td class="border_r1">百XX</td>
+                <td class="border_r1">勾选</td>
+                <td class="border_r1">X拾X</td>
+                <td class="border_r1">勾选</td>
+                <td class="border_r1">XX个</td>
+                <td class="border_r1">勾选</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="hgt36 line_hgt36 border_b1 border_l1" style="background: #F1F1F1" ng-repeat="(index,item) in range(0,10)">
+                <td class="border_r1">{{fs_zsw_b[index].number}}</td>
+                <td class="border_r1">
+                    <input type="checkbox" class="middle" ng-model="fs_zsw_b[index].money">
+                </td>
+                <td class="border_r1">{{fs_zsw_s[index].number}}</td>
+                <td class="border_r1">
+                    <input type="checkbox" class="middle" ng-model="fs_zsw_s[index].money">
+                </td>
+                <td class="border_r1">{{fs_zsw_g[index].number}}</td>
+                <td class="border_r1">
+                    <input type="checkbox" class="middle" ng-model="fs_zsw_g[index].money">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="black" ng-show="swTabs.swTab=='hsw'">
+        <thead>
+            <tr class="hgt40 line_hgt40 border_b1 border_l1" style="background: #CCCCCC">
+                <td class="border_r1">百XX</td>
+                <td class="border_r1">勾选</td>
+                <td class="border_r1">X拾X</td>
+                <td class="border_r1">勾选</td>
+                <td class="border_r1">XX个</td>
+                <td class="border_r1">勾选</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="hgt36 line_hgt36 border_b1 border_l1" style="background: #F1F1F1" ng-repeat="(index,item) in range(0,10)">
+                <td class="border_r1">{{fs_hsw_b[index].number}}</td>
+                <td class="border_r1">
+                    <input type="checkbox" class="middle" ng-model="fs_hsw_b[index].money">
+                </td>
+                <td class="border_r1">{{fs_hsw_s[index].number}}</td>
+                <td class="border_r1">
+                    <input type="checkbox" class="middle" ng-model="fs_hsw_s[index].money">
+                </td>
+                <td class="border_r1">{{fs_hsw_g[index].number}}</td>
+                <td class="border_r1">
+                    <input type="checkbox" class="middle" ng-model="fs_hsw_g[index].money">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="fz20 mt10 mb_20 green text_center">
+        投注金额(￥)：<input type="number" class="green boder_green" ng-model="swTabs.perMoney"/>
+</div>
+<script type="text/ng-template" id="qsw_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div>
+                            <span>
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">
+                                <span class="black">(百{{swTabs.bwNum}}) x (拾{{swTabs.swNum}}) x (个{{swTabs.gwNum}})</span>@<span class="red">{{swTabs.orderList[0].rate}}</span>
+                            </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{swTabs.perMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="zsw_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div>
+                            <span>
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">
+                                <span class="black">{{swTabs.orderList[0].number}}</span>@<span class="red">{{swTabs.orderList[0].rate}}</span>
+                            </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{swTabs.perMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="hsw_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div>
+                            <span>
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">
+                                <span class="black">{{swTabs.orderList[0].number}}</span>@<span class="red">{{swTabs.orderList[0].rate}}</span>
+                            </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{swTabs.perMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>边看边猜</title>
+<link href="gq.css" rel="stylesheet" type="text/css">
+<body>
+<style>
+.list ul li:nth-child(1).vip::before{
+	content:"";
+	width:2.4rem;
+	height:1rem;
+	background:url(./img/vip.png) no-repeat center;
+	background-size:1.4rem .8rem;
+	position:absolute;
+	left:.2rem;
+	margin-top:.4rem;	
+}
+</style>
+<div class="popup" style="display:none">
+	<h4>提示</h4>
+    <ul class="phbts">
+    	<li style="font-weight:bold;text-align:center"><em>榜单</em><span >统计时间</span><cite>派奖时间</cite></li>
+    	<li><em>日榜</em><span>当日00:00:00~23:59:59</span><cite>次日</cite></li>
+    	<li><em>周榜</em><span>本周一00:00:00~周日23:59:59</span><cite>次周周一</cite></li>
+    	<li><em>月榜</em><span>本月1号00:00:00~月末23:59:59</span><cite>次月1号</cite></li>
+    </ul>
+	<div class="zfTrue"><a  id="ture" href="#" style="width:100%">确定</a></div>
+</div>
+<div class="zhezhao" style="display:none"></div>
+<header class="tzHeader" style="display:none">
+	<section class="cgjHeader fixed2">
+		<h1>排行榜</h1>
+		<a href="javascript:history.go(-1)" class="fcbackIco2"></a>
+	</section>
+</header>
+<nav class="kctab">
+	<span>篮球</span>
+	<span class="cur">足球</span>
+	<em id="help"></em>
+</nav>
+<article id="footBall" style="display:">
+	<ul class="phbtab clearfix" id="phb_nav">
+		<li class="cur">日榜</li>
+		<li>周榜</li>
+		<li>月榜</li>
+	</ul>
+ <!-- 日榜排行start -->   
+	<article class="list" style="display:" id="phb_list">
+		<div class="phscroll" id="changeDate">
+			<span class="prev">8-22</span>
+			<!-- 
+			<ul>
+				<li>2015年8月21</li>
+				<li>2015年8月22</li>
+				<li>2015年8月23</li>
+			</ul>
+			 -->
+			 <b>2015年8月23</b>
+			<span class="prov">8-23</span>
+		</div>
+		<strong id="dyz" style="display:none"></strong>
+   		<ul class="first" id="ul_header" style="display:none">
+        	<li>排名</li>
+        	<li>用户名</li>
+        	<li>金豆盈利</li>
+        	<li>红包奖励</li>
+        </ul>
+        <div id="z_list">
+        	<!-- 
+	   		<ul class="graybg">
+	        	<li><em>1</em></li>
+	        	<li>如果</li>
+	        	<li>288</li>
+	        	<li>288</li>
+	        </ul>
+	   		<ul>
+	        	<li><em>2</em></li>
+	        	<li>如果</li>
+	        	<li>288</li>
+	        	<li>288</li>
+	        </ul>
+	   		<ul class="graybg">
+	        	<li><em>3</em></li>
+	        	<li>如果</li>
+	        	<li>288</li>
+	        	<li>288</li>
+	        </ul>
+	   		<ul>
+	        	<li>4</li>
+	        	<li>如果</li>
+	        	<li>288</li>
+	        	<li>288</li>
+	        </ul>
+	   		<ul class="graybg">
+	        	<li>5</li>
+	        	<li>如果</li>
+	        	<li>288</li>
+	        	<li>288</li>
+	        </ul>
+	         -->
+        </div>
+       <!--   <p>日排行榜每隔8分钟更新一次。</p>-->
+	</article>
+  <!-- 日榜排行end --> 
+</article>
+<footer class="pdtop3" style="padding-top: 4.5rem;">
+	<article class="fixed">
+		<article class="newft clearfix">
+    		<div id="yl_info">
+    			<span>您今日盈利<em>123</em>金豆，排名<em>100+</em></span>
+    		</div>
+    	</article>
+		<div class="kcfooter clearfix">
+			<a href="bkbc.html"><cite class="kcico"></cite>边看边猜</a>
+			<a href="phb.html" class="cur"><cite class="phbico"></cite>排行榜</a>
+			<a href="fx.html"><cite class="fxico"></cite>兑换中心</a>
+			<a href="myjc.html"><cite class="myjcico"></cite>我的竞猜</a>
+		</div>
+	</article>
+</footer>
+</body>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/gq2/js/phb.js" type="text/javascript" charset="utf-8"></script>

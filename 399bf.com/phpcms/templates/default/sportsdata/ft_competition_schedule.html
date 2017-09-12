@@ -1,0 +1,290 @@
+{php $css = array('database_info.css')}
+{php $nav_id = 6}
+{template 'content', 'header_score'}
+<nav>
+    <div class="container">
+        <div class="row">
+            <div class="matchNav">
+                <ul class="clearfix">
+                    <li><a {if ! in_array($id, [92,85,34,39,152,149,1,5])}class="active"{/if} href="javascript:;">热门联赛</a></li>
+                    <li><a {if $id == 92}class="active"{/if} href="{APP_PATH}competition/92/schedule/">英超</a></li>
+                    <li><a {if $id == 85}class="active"{/if} href="{APP_PATH}competition/85/schedule/">西甲</a></li>
+                    <li><a {if $id == 34}class="active"{/if} href="{APP_PATH}competition/34/schedule/">意甲</a></li>
+                    <li><a {if $id == 39}class="active"{/if} href="{APP_PATH}competition/39/schedule/">德甲</a></li>
+                    <li><a {if $id == 152}class="active"{/if} href="{APP_PATH}competition/152/schedule/">中超</a></li>
+                    <li><a {if $id == 149}class="active"{/if} href="{APP_PATH}competition/149/schedule/">世足</a></li>
+                    <li><a {if $id == 1}class="active"{/if} href="{APP_PATH}sclass/1/schedule/">NBA</a></li>
+                    <li><a {if $id == 5}class="active"{/if} href="{APP_PATH}sclass/5/schedule/">CBA</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<section>
+    <div class="container">
+        {template 'sportsdata', 'ft_competition_crumbs'}
+        <div class="row">
+            <div class="page-head clearfix">
+                <h1 class="m-title fl">
+                    <img src="{PHOTO_PATH}competition/{$competitionid}.jpg" width="59" height="59" alt="" class="fl competition-photo">
+                    {$info['name']}
+                </h1>
+
+                <!--<div class="m-control-item fl">-->
+                    <!--<div class="m-control-title">赛季</div>-->
+                    <!--<div>-->
+                        <!--<div class="dropdown">-->
+                            <!--<button class="btn btn-default" id="jw_dropA" data-toggle="dropdown" aria-expanded="true">-->
+                                <!--<i class="icon-calendar"></i>-->
+                                <!--2016-2017-->
+                                <!--<i class="icon-angle-down"></i>-->
+                            <!--</button>-->
+                            <!--<div class="dropdown-menu" aria-labelledby="jw_dropA">-->
+                                <!--<ul>-->
+                                    <!--<li>123</li>-->
+                                    <!--<li>123</li>-->
+                                    <!--<li>123</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="m-control-item fl">
+                    <div class="m-control-title">选择球队</div>
+                    <div>
+                        <div class="dropdown">
+                            <button class="btn btn-default" id="team-btn" data-toggle="dropdown" aria-expanded="true">
+                                <span id="team">{if $_GET['teamid']}{$team_info[$_GET['teamid']]['name']}{else}请选择球队{/if}</span>
+                                <i class="icon-angle-down"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="team-btn">
+                                <input type="hidden" name="teamid" id="teamid" value="{$_GET['teamid']}">
+                                <ul data-action="filter" data-target="#teamid" data-show="#team" data-type="all">
+                                    {loop $team_ids $data}
+                                    <li class="text-center" data-value="{$data}">{$team_info[$data]['name']}</li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-control-item fl">
+                    <div class="m-control-title">选择两支球队的本季对阵</div>
+                    <div>
+                        <div class="dropdown">
+                            <button class="btn btn-default" id="home-btn" data-toggle="dropdown" aria-expanded="true">
+                                <span id="hometeam">{if $_GET['hometeamid']}{$team_info[$_GET['hometeamid']]['name']}{else}请选择球队{/if}</span>
+                                <i class="icon-angle-down"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="home-btn">
+                                <input type="hidden" name="hometeamid" id="hometeamid" value="{$_GET['hometeamid']}">
+                                <ul data-action="filter" data-target="#hometeamid" data-show="#hometeam" data-type="home">
+                                    {loop $team_ids $data}
+                                    <li class="text-center" data-value="{$data}">{$team_info[$data]['name']}</li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="vs">VS</span>
+                        <div class="dropdown">
+                            <button class="btn btn-default" id="away-btn" data-toggle="dropdown" aria-expanded="true">
+                                <span id="awayteam">{if $_GET['awayteamid']}{$team_info[$_GET['awayteamid']]['name']}{else}请选择球队{/if}</span>
+                                <i class="icon-angle-down"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="away-btn">
+                                <input type="hidden" name="awayteamid" id="awayteamid" value="{$_GET['awayteamid']}">
+                                <ul data-action="filter" data-target="#awayteamid" data-show="#awayteam" data-type="away">
+                                    {loop $team_ids $data}
+                                    <li class="text-center" data-value="{$data}">{$team_info[$data]['name']}</li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="col-sm-9 pdL0 pdR0">
+
+                <div id="iframe_page">
+
+                    <div class="page-item">
+                        <div class="database-title mrgB10">
+                            赛程赛果
+                        </div>
+                        <div class="table-item table-min">
+                            <div class="table-title">
+                                全季赛程
+                                <label for="player" class="checkbox-inline fr">
+                                    <input type="checkbox" id="player">
+                                    <i class="table-checkbox"></i>
+                                    显示备注
+                                </label>
+                            </div>
+                            <table class="table table-head">
+                                {loop $competition_category $data}
+                                <tr>
+                                    {loop $data $name $category}
+                                    <td {if $name==$_GET[$category]}class="avtive"{/if}>
+                                        <a href="javascript:;" data-action="link" data-base="{APP_PATH}competition/{$competitionid}/schedule/{$category}/{$name}/" class="center-block">{$name}</a>
+                                    </td>
+                                    {/loop}
+                                </tr>
+                                {/loop}
+                            </table>
+                        </div>
+                        <div class="table-item ">
+                            <table class="table" id="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>联赛</th>
+                                        <th>时间</th>
+                                        <th>主队</th>
+                                        <th>比分</th>
+                                        <th>客队</th>
+                                        <th>半场</th>
+                                        <th>胜负</th>
+                                        <th>数据中心</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {loop $list $data}
+                                    <tr data-home="{$data['hometeamid']}" data-away="{$data['awayteamid']}">
+                                        <td>{$data['competitionshortname']}</td>
+                                        <td>{date("Y-m-d H:i", $data['date'])}</td>
+                                        <td>
+                                            <a href="{APP_PATH}team/{$data['hometeamid']}/" target="_blank">
+                                                {$data['homeshortname']}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <span {if $data['homescore'] > $data['awayscore']}class="red"{/if}>{$data['homescore']}</span>
+                                            -
+                                            <span {if $data['homescore'] < $data['awayscore']}class="red"{/if}>{$data['awayscore']}</span>
+                                        </td>
+                                        <td>
+                                            <a href="{APP_PATH}team/{$data['awayteamid']}/" target="_blank">
+                                                {$data['awayshortname']}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {if $data['half']}
+                                            {php list($half['home'], $half['away']) = explode('-', $data['half'])}
+                                            <span {if $half['home'] > $half['away']}class="red"{/if}>{$half['home']}</span>
+                                            -
+                                            <span {if $half['home'] < $half['away']}class="red"{/if}>{$half['away']}</span>
+                                            {/if}
+                                        </td>
+                                        <td>
+                                            <span class="{$data['result']}">{L($data['result'])}</span>
+                                        </td>
+                                        <td>
+                                            <a href="{APP_PATH}game/{$data['gameid']}/analyse/" target="_blank">析</a>
+                                            <a href="{APP_PATH}game/{$data['gameid']}/oddsasia/" target="_blank">亚</a>
+                                            <a href="{APP_PATH}game/{$data['gameid']}/oddsou/" target="_blank">大</a>
+                                            <a href="{APP_PATH}game/{$data['gameid']}/oddseuro/" target="_blank">欧</a>
+                                        </td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="hint">
+                            以上资料仅供参考  更新于{$update_time}
+                        </div>
+                    </div>
+
+                    <div class="page-item">
+                        <div class="database-title">
+                            赛制
+                        </div>
+                        <div class="text-content">
+                            <p>{$info['system']}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-3 pdR0">
+
+                <div class="sideNav">
+                    <div class="database-title">
+                        <em class="icon-list mrgR"></em>
+                        联赛数据中心
+                    </div>
+                    <ul class="sideNav-menu">
+                        <li class="active"><a href="{APP_PATH}competition/{$competitionid}/schedule/">赛程结果</a></li>
+                        <li><a href="{APP_PATH}competition/{$competitionid}/standings/">积分表</a></li>
+                        <li><a href="{APP_PATH}competition/{$competitionid}/oddsway/">盘路统计</a></li>
+                        <li><a href="{APP_PATH}competition/{$competitionid}/hsscores/">上 / 下半场入球较多</a></li>
+                        <li><a href="{APP_PATH}competition/{$competitionid}/overunder/">上，下盘全场入球</a></li>
+                        <li><a href="{APP_PATH}competition/{$competitionid}/hfstat/">半全场统计</a></li>
+                        <li><a href="{APP_PATH}competition/{$competitionid}/oddeven/">入球总数及单双数</a></li>
+                        <li><a href="{APP_PATH}competition/{$competitionid}/teamscores/">球队总入球数</a></li>
+                        <li><a href="{APP_PATH}competition/{$competitionid}/frequentresults/">最常见赛果</a></li>
+                        <li><a href="{APP_PATH}competition/{$competitionid}/getmiss/">攻守统计</a></li>
+                        <li><a href="{APP_PATH}competition/{$competitionid}/shooter/">神射手榜</a></li>
+                        <li><a href="{APP_PATH}competition/{$competitionid}/goaltime/">进球时间分布</a></li>
+                        <li ><a href="{APP_PATH}competition/{$competitionid}/fgetmiss/">最先入球 / 失球</a></li>
+                        <li><a href="{APP_PATH}competition/{$competitionid}/correctscore/">波胆分布</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sideRank">
+                    <div class="database-title">
+                        {$info['shortname']}积分榜
+                        <a href="" class="more fr">更多</a>
+                    </div>
+                    <div id="table_siderank" style="overflow: hidden;">
+                        <table class="table table-siderank">
+                        <tr>
+                            <th>排名</th>
+                            <th>球队</th>
+                            <th>赛</th>
+                            <th>胜</th>
+                            <th>平</th>
+                            <th>负</th>
+                            <th>积分</th>
+                        </tr>
+                        {loop $standings $rank $data}
+                            {loop $data $value}
+                            <tr>
+                                <td>{$rank}</td>
+                                <td>
+                                    <a href="{APP_PATH}/team/{$value['teamid']}/" target="_blank">
+                                        {if $value['teamshortname']}{$value['teamshortname']}{else}{$value['teamname']}{/if}
+                                    </a>
+                                </td>
+                                <td>{$value['total']}</td>
+                                <td>{$value['win']}</td>
+                                <td>{$value['draw']}</td>
+                                <td>{$value['lose']}</td>
+                                <td>{$value['score']}</td>
+                            </tr>
+                            {/loop}
+                        {/loop}
+                    </table>
+                    </div>
+                    <div class="side-footer-link">
+                        <a href="javascript:;" id="toggle_btn">
+                            展开全部
+                            <em class="icon-chevron-down"></em>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = array('ft_competition_schedule.js', 'imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js', 'ft_database.new.js')}
+{template 'content', 'footer'}

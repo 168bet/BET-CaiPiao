@@ -1,0 +1,69 @@
+.page-bg1{
+  background: url('../images/helps/bg.gif')  repeat;
+}
+.page-wrap{
+  background: url('../images/helps/trend-bgshadow.png') repeat-y center;
+}
+.bodywrap {
+    width: 1102px;
+    margin: 0 auto;
+    background-color: #fff;
+    min-height: 560px;
+}
+.gamecodes-wrap .bodywrap{
+    background:url('../images/draw/gamecodes_bg.png') no-repeat center top #ffffff;
+}
+.gamecodes-wrap .gamecodes_table{
+    width:980px;margin-left:96px;padding-bottom:48px;
+}
+.gamecodes-wrap table{
+    width:100%;border-spacing:0;border-collapse:collapse;
+    border-bottom:1px solid #ececec;
+}
+.gamecodes-wrap th{
+    height: 58px;
+    line-height: 58px;
+    color:#c12727;
+    font-size: 14px;
+    text-align: center;margin:0;padding:0;
+}
+.gamecodes-wrap td{
+    color:#999999;margin:0;padding:0;
+    font-size: 12px;
+    text-align: center;
+    line-height: 48px;
+    border-left:1px solid #ececec;
+}
+.gamecodes-wrap td a{
+    color:#ff9933;
+    font-size: 12px;
+    text-decoration: underline;
+}
+.gamecodes-wrap td a:hover{
+    color:#ef7801;
+}
+.gamecodes-wrap td.name{
+    color:#c12727;
+}
+.gamecodes-wrap td.issue{
+    color:#ff9933;
+}
+.gamecodes-wrap td.otime{
+    color:#99cc66;
+}
+.gamecodes-wrap td.codes b{
+    display:inline-block;
+    width:22px;
+    height:22px;
+    line-height:22px;
+    margin-left:6px;
+    color:#fff;background:#c12727;
+    border-radius:22px;
+    font-weight: normal;
+}
+.gamecodes-wrap td.codes b.red{
+    color:#fff;background:#c12727;
+}
+.gamecodes-wrap td.codes b.grey{
+    color:#000;background:#ccc;
+}

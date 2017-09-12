@@ -1,0 +1,1354 @@
+﻿body
+{
+    background-color: #FFF;
+    background-color: #ffffff;
+}
+
+.clear
+{
+    clear: both;
+}
+ul li
+{
+    float: none;
+}
+.faqiren
+{
+    width: 3.8rem;
+    text-align: center;
+    color: #606060;
+    display: inline-block;
+}
+.szcwidth
+{
+    width: 14rem;
+}
+.fcbackHome
+{
+    background: url("../images/home.png") no-repeat scroll center center / 1.56rem 1.35rem;
+    display: block;
+    height: 1.35rem;
+    left: 0.9rem;
+    position: absolute;
+    top: 0.6rem;
+    width: 1.56rem;
+}
+.pullDown
+{
+    height: 1.4375rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.6rem;
+    width: 1.5rem;
+}
+.pullText
+{
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #b6b6b6;
+    position: absolute;
+    right: 0rem;
+    top: 1.7rem;
+    width: 7rem;
+    z-index: 1;
+}
+.pullText a
+{
+    border-bottom: 1px solid #cacaca;
+    display: block;
+    font-size: 0.93rem;
+    line-height: 2.45rem;
+    text-align: center;
+}
+.pullText a.cur
+{
+    color: #f6851f;
+}
+.fcpullIco
+{
+    background: url("../images/pulldown.png") no-repeat scroll center center / 1.5rem 1.5rem rgba(0, 0, 0, 0);
+    display: block;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.pullHover .fcpullIco
+{
+    background-image: url("../images/pulldown2.png");
+}
+
+.rightArrow, .hmArrow
+{
+    border-bottom: 0.16rem solid #ccc;
+    border-right: 0.16rem solid #ccc;
+    height: 0.45rem;
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    width: 0.45rem;
+}
+.hmzxHeader, .hmzxHeader2
+{
+    padding-bottom: 5rem;
+    position: relative;
+    z-index: 1;
+}
+.fixed2
+{
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+.buyHeader h1, .hmHeader h1, .kjHeader h1, .fcHeader h1, .pkHeader h1, .zcHeader h1
+{
+    font-weight: 100;
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 0 auto;
+    text-align: center;
+    text-align: left;
+    text-indent: 0.6rem;
+    height: 2.6rem;
+    line-height: 2.6rem;
+}
+.hmHeader, .kjHeader
+{
+    background: #CD0508;
+    color: #fff;
+    border-bottom: 1px solid #d5d5d5;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    width: 100%;
+    text-indent: 0.6rem;
+}
+/*
+.hmHeader h1:after
+{
+
+    border-color: transparent transparent transparent #CD0508;
+    border-style: solid;
+    border-width: 0.5rem;
+    content: "";
+    position: absolute;
+    top: 1.4rem;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+}
+.hmHeader h1.hmTit:after
+{
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+    border-width: 0.5rem;
+    content: "";
+    position: absolute;
+    top: 2.1rem;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+}*/
+.hmPull
+{
+    background: none repeat scroll 0 0 #fff;
+    border-left: 1px solid #d5d5d5;
+    margin-left: 1px;
+    position: absolute;
+    top: 2.68rem;
+    width: 100%;
+    z-index: 1;
+}
+.hmPull a, .competitions span
+{
+    border-bottom: 1px solid #d5d5d5;
+    border-right: 1px solid #d5d5d5;
+    float: left;
+    font-size: 1rem;
+    line-height: 3rem;
+    position: relative;
+    text-align: center;
+    width: 33%;
+}
+.hmPull a.cur, .hmSort li.cur, .competitions span.cur
+{
+    color: #f6851f;
+}
+.hmPull a.cur:before, .competitions span.cur:before
+{
+    border: 1px solid #f6851f;
+    content: "";
+    height: 3rem;
+    left: -1px;
+    position: absolute;
+    top: -1px;
+    width: 100%;
+}
+.hmPull a.cur:after, .competitions span.cur:after
+{
+    background: url("../images/gou.png") no-repeat scroll center center / 1.4rem 1.4rem rgba(0, 0, 0, 0);
+    bottom: -1px;
+    content: "";
+    height: 1.4rem;
+    position: absolute;
+    right: -1px;
+    width: 1.4rem;
+}
+.hmSort li, .hmSort2 li
+{
+    background: none repeat scroll 0 0 #f9f9f9;
+    border-bottom: 1px solid #d9d9d9;
+    float: left;
+    font-size: 1rem;
+    line-height: 2.4rem; /*padding-left: 36px;*/
+    position: relative;
+    text-align: left;
+    width: 20%;
+}
+.hmSort li:before, .hmSort li:after
+{
+    border-color: transparent transparent #b9b8b8;
+    border-style: solid;
+    border-width: 0.35rem;
+    content: "";
+    left: 50%;
+    position: absolute;
+    top: 0.6rem;
+}
+.hmSort li:after
+{
+    border-color: #b9b8b8 transparent transparent;
+    top: 1.31rem;
+}
+.hmSort li.cur:before
+{
+    border-color: transparent transparent #f6851f;
+}
+.hmSort li.cur:after
+{
+    border-color: #f6851f transparent transparent;
+}
+.hmAll li
+{
+    border-bottom: 1px solid #ebebeb;
+    height: 92px;
+    line-height: 92px;
+}
+.hmAll a.authority
+{
+    /*border-bottom: 1px solid #ebebeb;*/
+    color: #777;
+    display: block;
+    font-size: 0.8rem;
+    line-height: 1.6rem;
+    padding: 0.69rem 0 0.69rem 0.8rem;
+    float: left;
+    width: 70%;
+}
+.hmAll a.detail
+{
+    display: block;
+    float: right;
+    height: 92px;
+    position: relative;
+    width: 9%;
+}
+.hmAll a dl
+{
+    overflow: hidden;
+}
+.hmAll a dl dt
+{
+    float: left;
+    width: 25%;
+}
+.hmAll a dl dt h2
+{
+    font-size: 0.8rem;
+    font-weight: normal;
+    line-height: 1.1rem;
+    margin-top: 0.05rem;
+}
+.per
+{
+    color: #f6851f;
+    display: block;
+    font-size: 1.4rem;
+}
+.per o
+{
+    font-size: 1rem;
+}
+.pro
+{
+    background: none repeat scroll 0 0 #b9b8b8;
+    border-radius: 0.5rem;
+    color: #fff;
+    display: block;
+    font-size: 0.7rem;
+    line-height: 1rem;
+    text-align: center;
+    width: 3.2rem;
+}
+.hmAll a dl dd
+{
+    float: left;
+    width: 24%;
+}
+.hmAll a dl dd.hmNum
+{
+    width: 25%;
+}
+span.dzgd
+{
+    background: url("../images/dzgd.png") no-repeat;
+    color: #fff;
+    display: block;
+    height: 18px;
+    line-height: 18px;
+    margin-top: 38px;
+    text-align: center;
+    width: 65px;
+    font-size: 13px;
+}
+.hmAll a dl dd.hmTtile
+{
+    margin-top: -0.1rem;
+    width: 49%;
+}
+.hmAll a dl dd cite
+{
+    color: #222;
+    font-size: 1rem;
+}
+.hmAdimi
+{
+    background: url("../images/hmadmi.png") no-repeat scroll center center / 0.73rem 0.73rem rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 0.73rem;
+    margin-right: 0.2rem;
+    width: 0.73rem;
+}
+.hmTop
+{
+    background: url("../images/hmtop.png") no-repeat scroll center center / 1.43rem 1.43rem rgba(0, 0, 0, 0);
+    display: block;
+    height: 1.43rem;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1.43rem;
+}
+a.lastm
+{
+    cursor:pointer;
+    float: left;
+    height: 92px;
+    line-height: 92px;
+    position: relative;
+    width: 5%;
+}
+.hmArrow
+{
+    border-color: #c2c2c2;
+    right: 0.5rem;
+    top: 2.4rem;
+}
+.fiveStar
+{
+    background: url("../images/star.png") no-repeat scroll center center / 0.625rem 0.625rem rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 0.625rem;
+    margin-left: 0.2rem;
+    width: 0.625rem;
+}
+.myMore
+{
+    background: none repeat scroll 0 0 #fff;
+    color: #f89c49;
+    display: block;
+    font-size: 1rem;
+    line-height: 3.45rem;
+    text-align: center;
+}
+.relative
+{
+    position: relative;
+}
+.hmTxt
+{
+    background: none repeat scroll 0 0 #f3f3f3;
+    border-bottom: 1px solid #fff;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    padding: 0.6rem;
+    word-break: break-all;
+}
+.hmTxt .w3_6
+{
+    width: 4rem;
+}
+.hmTxt .w15
+{
+    width: 78%;
+}
+a.hmTxt2
+{
+    color: #606060;
+    display: block;
+    padding-right: 1.4rem;
+    position: relative;
+}
+.hmTxt2 .hmArrow
+{
+    background: none repeat scroll 0 0 #f3f3f3;
+    right: 0.6rem;
+    top: 0.8rem;
+}
+.progress
+{
+    clear: both;
+    margin: 2rem 0 0 0.5rem;
+}
+.progress em
+{
+    background: none repeat scroll 0 0 #e0e0e0;
+    border-radius: 1.18rem;
+    float: left;
+    height: 1.18rem;
+    width: 1.18rem;
+}
+.progress i
+{
+    background: none repeat scroll 0 0 #e0e0e0;
+    float: left;
+    height: 0.33rem;
+    margin: 0.4rem -0.1rem;
+    width: 5rem;
+}
+.waitKj
+{
+    color: #606060;
+    font-size: 0.8rem;
+    position: absolute;
+    top: -1.5rem;
+}
+.waitKj:after
+{
+    border-color: #f6851f transparent transparent;
+    border-style: solid;
+    border-width: 0.35rem;
+    bottom: -0.7rem;
+    content: "";
+    left: 40%;
+    position: absolute;
+}
+.progressHover
+{
+    height: 0.9rem;
+    left: 0.2rem;
+    overflow: hidden;
+    position: absolute;
+    top: 0.22rem;
+}
+.progressHover cite
+{
+    background: none repeat scroll 0 0 #f6851f;
+    border-radius: 0.85rem;
+    display: block;
+    height: 0.85rem;
+    position: absolute;
+    width: 0.85rem;
+}
+.progressHover o
+{
+    background: none repeat scroll 0 0 #f6851f;
+    border-top: medium none;
+    display: block;
+    height: 0.15rem;
+    position: absolute;
+    top: 0.36rem;
+    width: 5.34rem;
+}
+.barLine
+{
+    left: 0.84rem;
+}
+.barCircle2
+{
+    left: 6rem;
+}
+.barLine2
+{
+    left: 6.8rem;
+}
+.barCircle3
+{
+    left: 12rem;
+}
+.barLine3
+{
+    left: 12.8rem;
+}
+.barCircle4
+{
+    left: 17.94rem;
+}
+#hemai h2
+{
+    margin-top: -0.1rem;
+}
+.progressTxt
+{
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+.progressTxt span, .progressTxt cite, .progressTxt o, .progressTxt i
+{
+    color: #606060;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+.progressTxt span
+{
+    width: 5.1rem;
+}
+.progressTxt cite
+{
+    width: 6.6rem;
+}
+.progressTxt o
+{
+    width: 5.5rem;
+}
+.since
+{
+    background: none repeat scroll 0 0 #f3f3f3;
+    border-bottom: 1px solid #fff;
+    font-size: 0.9rem;
+}
+.since i, .sinceTxt
+{
+    float: left;
+    padding: 0.625rem 0;
+}
+.since i
+{
+    color: #606060;
+    text-align: center;
+    width: 4.6rem;
+}
+.sinceTxt
+{
+    padding-left: 0.35rem;
+    width: 74%;
+}
+.inUser
+{
+    border: 1px solid #dedede;
+    border-radius: 0.5rem;
+    color: #666;
+    font-size: .75rem;
+}
+.inUser li
+{
+    border-bottom: 1px solid #ebebeb;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    overflow: hidden;
+}
+.inUser li:last-child
+{
+    border-bottom: medium none;
+}
+.inUser li span
+{
+    border-right: 1px solid #ebebeb;
+    float: left;
+    text-align: center;
+    width: 33%;
+}
+.inUser li span.inFirst
+{
+    width: 40%;
+}
+.inUser li span.inLast
+{
+    border-right: medium none;
+    font-size: 0.75rem;
+    line-height: 0.5rem;
+    width: 26%;
+}
+.inUser li span.inLast em, .inUser li span.inLast cite
+{
+    display: block;
+    padding-top: 0.3rem;
+}
+.inUser .hmbg
+{
+    background-color: #f3f3f3;
+}
+.inUser .passway
+{
+    line-height: 2rem;
+    padding-left: 1rem;
+    height: 2rem;
+}
+.inUser li .hmcc_jc
+{
+    width: 15%;
+    line-height: 1rem;
+    padding: 0.625rem 0;
+    height: 2.2rem;
+    display: inline-block;
+}
+.inUser li .hmcc_bc
+{
+    width: 16%;
+    line-height: 2.2rem;
+    padding: 0.625rem 0;
+    height: 2rem;
+    display: inline-block;
+}
+.inUser li .team
+{
+    width: 65%;
+}
+.inUser li .team div
+{
+    height: 1.7rem;
+    border-bottom: 1px solid #ebebeb;
+    line-height: 1.7rem;
+}
+.inUser li .team div:last-child
+{
+    border-bottom: none;
+    text-align: left;
+}
+.inUser li .team div:last-child cite
+{
+    padding: 0 4px;
+}
+.inUser li .hmbf
+{
+    width: 17%;
+    border-right: none;
+    line-height: 2.2rem;
+    padding: 0.625rem 0;
+}
+/*追号*/
+.zhuihao .zhui_qi
+{
+    width: 12%;
+}
+.zhuihao .zhui_kai
+{
+    width: 35%;
+    display: inline-block;
+}
+.zhuihao .zhui_di
+{
+    width: 18%;
+}
+.zhuihao .zhui_ji
+{
+    width: 15%;
+}
+.zhuihao .zhui_zj
+{
+    width: 18%;
+    border-right: none;
+}
+
+.kjFloat
+{
+    background: none repeat scroll 0 0 #f9f9f9;
+    border-top: 1px solid #d5d5d5;
+}
+.kjFloat a.payment
+{
+    margin: 0.5rem 0.8rem;
+}
+
+
+
+.double input, .hmbuyInput
+{
+    background: none repeat scroll 0 0 #fff;
+    border: medium none;
+    border-radius: 0.2rem;
+    color: #f6851f;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    margin: 0 0.4rem;
+    text-align: center;
+    width: 3.3rem;
+}
+
+.hmbuyInput
+{
+    border: 1px solid #d5d5d5;
+}
+
+
+/*合买页面修改 2014-12-12 cy 修改*/
+body
+{
+    background-color: #fff;
+}
+body
+{
+    background-color: #f2f2f2;
+    color: #222;
+    font-family: arial,Microsoft YaHei,Helvetica,sans-serif;
+    font-size: 14px;
+    margin: auto;
+    min-width: 320px;
+}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td
+{
+    margin: 0;
+    padding: 0;
+}
+p
+{
+    line-height: 1.2rem;
+}
+p
+{
+    line-height: 1.2rem;
+}
+html, body, button, input, select, textarea, figure, h1, h2, h3, h4, h5, ul, li, dl, dt, dd, p, span
+{
+    margin: 0;
+    padding: 0;
+}
+.pd063
+{
+    padding: 0.63rem;
+    background-color: #ffffff;
+}
+.yellow
+{
+    color: #f6851f;
+}
+.pdTop08
+{
+    padding-top: 0.8rem;
+}
+.clearfix
+{
+    overflow: hidden;
+}
+#hemai h2
+{
+    margin-top: -0.1rem;
+}
+.fontSize1
+{
+    font-size: 1rem;
+}
+.left
+{
+    float: left;
+}
+.pdLeft06
+{
+    padding-left: 0.6rem;
+}
+.gray
+{
+    color: #8e8e8e;
+}
+i, o, cite, em
+{
+    font-style: normal;
+}
+.cance
+{
+    background: none repeat scroll 0 0 #f6851f;
+    border-radius: 0.2rem;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.875rem;
+    margin-top: -0.4rem;
+    padding: 0 0.8rem;
+    text-align: center;
+}
+.right
+{
+    float: right;
+}
+.hmTxt
+{
+    background: none repeat scroll 0 0 #f3f3f3;
+    border-bottom: 1px solid #fff;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    padding: 0.6rem;
+    word-break: break-all;
+}
+.fontSize095
+{
+    font-size: 0.95rem;
+    margin-left: 1.8rem;
+}
+.pdLeft04
+{
+    padding-left: 0.4rem;
+}
+.gray
+{
+    color: #8e8e8e;
+}
+.relative
+{
+    position: relative;
+}
+.hmTxt .w3_6
+{
+    width: 4rem;
+}
+.mgTop04
+{
+    margin-top: 0.4rem;
+}
+.hmTxt .per
+{
+    margin-left: -0.2rem;
+    text-align: center;
+}
+.per
+{
+    color: #f6851f;
+    display: block;
+    font-size: 1.2rem;
+}
+.pro
+{
+    background: none repeat scroll 0 0 #b9b8b8;
+    border-radius: 0.5rem;
+    color: #fff;
+    display: block;
+    font-size: 0.7rem;
+    line-height: 1rem;
+    text-align: center;
+    width: 3.2rem;
+}
+.mgTop06
+{
+    margin-top: 0.6rem;
+}
+.hmTxt .w15
+{
+    width: 68%;
+    margin-left: 1rem;
+}
+.w15
+{
+    width: 15rem;
+}
+.progress
+{
+    clear: both;
+    margin: 2rem 0 0 0.5rem;
+}
+.mgTop2
+{
+    margin-top: 2rem;
+}
+.mgLeft05
+{
+    margin-left: 0.5rem;
+}
+.relative
+{
+    position: relative;
+}
+.progress em
+{
+    background: none repeat scroll 0 0 #e0e0e0;
+    border-radius: 1.18rem;
+    float: left;
+    height: 1.18rem;
+    width: 1.18rem;
+}
+.progress i
+{
+    background: none repeat scroll 0 0 #e0e0e0;
+    float: left;
+    height: 0.33rem;
+    margin: 0.4rem -0.1rem;
+    width: 5rem;
+}
+.clear
+{
+    clear: both;
+}
+.waitKj:after
+{
+    border-color: #f6851f transparent transparent;
+    border-style: solid;
+    border-width: 0.35rem;
+    bottom: -0.7rem;
+    content: "";
+    left: 40%;
+    position: absolute;
+}
+.waitKj
+{
+    color: #606060;
+    font-size: 0.8rem;
+    position: absolute;
+    top: -1.5rem;
+    padding-top: 2rem;
+}
+.progressHover
+{
+    height: 0.9rem;
+    left: 0.2rem;
+    overflow: hidden;
+    position: absolute;
+    top: 0.22rem;
+}
+.progressHover_
+{
+    margin-top: 1.9rem;
+}
+.progressHover cite
+{
+    background: none repeat scroll 0 0 #f6851f;
+    border-radius: 0.85rem;
+    display: block;
+    height: 0.85rem;
+    position: absolute;
+    width: 0.85rem;
+}
+.progressHover o
+{
+    background: none repeat scroll 0 0 #f6851f;
+    border-top: medium none;
+    display: block;
+    height: 0.15rem;
+    position: absolute;
+    top: 0.36rem;
+    width: 5.34rem;
+}
+.barLine
+{
+    left: 0.84rem;
+}
+.barLine2
+{
+    left: 6.8rem;
+}
+.barLine3
+{
+    left: 12.8rem;
+}
+.barCircle2
+{
+    left: 6rem;
+}
+.barCircle3
+{
+    left: 12rem;
+}
+.barCircle4
+{
+    left: 17.94rem;
+}
+.progressTxt
+{
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+.pdTop03
+{
+    padding-top: 0.3rem;
+}
+.progressTxt span
+{
+    width: 5.1rem;
+}
+.progressTxt span, .progressTxt cite, .progressTxt o, .progressTxt i
+{
+    color: #606060;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+.progressTxt cite
+{
+    width: 6.6rem;
+}
+.progressTxt o
+{
+    width: 5.5rem;
+}
+.since
+{
+    background: none repeat scroll 0 0 #f3f3f3;
+    border-bottom: 1px solid #fff;
+    font-size: 0.9rem;
+}
+.mgTop06
+{
+    margin-top: 0.6rem;
+}
+.since i
+{
+    color: #606060;
+    text-align: center;
+    width: 4.6rem;
+}
+.since i, .sinceTxt
+{
+    float: left;
+    padding: 0.625rem 0;
+}
+.sinceTxt
+{
+    padding-left: 0.35rem;
+    width: 64%;
+    margin-left: 1rem;
+    font-weight: 600;
+}
+.since i, .sinceTxt
+{
+    float: left;
+    padding: 0.625rem 0;
+}
+a.hmTxt2
+{
+    color: #606060;
+    display: block;
+    padding-right: 1.4rem;
+    position: relative;
+}
+.black
+{
+    color: #222;
+}
+.hmTxt2 .hmArrow
+{
+    background: none repeat scroll 0 0 #f3f3f3;
+    right: 0.6rem;
+    top: 0.8rem;
+}
+.hmArrow
+{
+    border-color: #c2c2c2;
+    right: 0.5rem;
+    top: 2.4rem;
+}
+.buyFooter, .buyFooter1
+{
+    padding-top: 9rem;
+}
+.buyFloat
+{
+    background: none repeat scroll 0 0 #f9f9f9;
+    border-top: 1px solid #d5d5d5;
+    font-size: 0.95rem;
+    line-height: 3rem;
+    text-align: center;
+}
+.fixed
+{
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+.hmbuyInput
+{
+    border: 1px solid #d5d5d5;
+}
+.double input, .hmbuyInput
+{
+    background: none repeat scroll 0 0 #fff;
+    border: medium none;
+    border-radius: 0.2rem;
+    color: #f6851f;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    margin: 0 0.4rem;
+    text-align: center;
+    width: 3.3rem;
+}
+.ture, .fqhm, .useRed, .fqhmGray
+{
+    background: none repeat scroll 0 0 #db150b;
+    border-radius: 0.2rem;
+    bottom: 0.5rem;
+    color: #fff;
+    font-size: 0.875rem;
+    line-height: 1.875rem;
+    padding: 0 1.3rem;
+    position: absolute;
+    right: 0.65rem;
+    text-align: center;
+}
+a
+{
+    color: #333;
+    text-decoration: none;
+}
+.kjFloat
+{
+    background: none repeat scroll 0 0 #f9f9f9;
+    border-top: 1px solid #d5d5d5;
+}
+.kjFloat a.payment
+{
+    margin: 0.5rem 0.8rem;
+}
+.payment
+{
+    background: none repeat scroll 0 0 #f6851f;
+    border-radius: 0.2rem;
+    color: #fff;
+    display: block;
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
+    line-height: 2.5rem;
+    margin-top: 0.8rem;
+    text-align: center;
+}
+.NoSpan
+{
+    color: #F6851F;
+    display: block;
+    padding-top: 1rem;
+    margin: 0 auto;
+    width: 8rem;
+}
+/* 投注内容*/
+body
+{
+    font-size: 1rem;
+    background-color: #ffffff;
+}
+.lctablediv
+{
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+.lctable
+{
+    margin: 0 auto;
+}
+.lcfont
+{
+    font-size: 0.8rem;
+}
+.lcbetTitle
+{
+    font-size: 1rem;
+}
+.mgTop06
+{
+    margin-top: 0.6rem;
+}
+.lcbetTitle td
+{
+    border-bottom: medium none;
+}
+.lcbetTitle td, .lcbetTable td
+{
+    border-bottom: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+    line-height: 1rem;
+    padding: 0.4rem 0;
+    text-align: center;
+}
+.lcbetTable td:first-child
+{
+    color: #aeacab;
+    font-size: 0.8rem;
+    border-left: 1px solid #D5D5D5;
+}
+.lcbetTitle td, .lcbetTable td
+{
+    border-bottom: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+    line-height: 1rem;
+    padding: 0.4rem 0;
+    text-align: center;
+}
+.tdleft
+{
+    padding: 0 4%;
+    text-align: left;
+    word-break: break-all;
+}
+.tdleft span
+{
+    margin-right: 8%;
+}
+.lcbetTable td.r9last
+{
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+}
+.lcbetTitle td, .lcbetTable td
+{
+    border-bottom: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+    line-height: 2rem;
+    padding: 0.4rem 0;
+    text-align: center;
+}
+.lcfootdiv
+{
+    width: 97.8%;
+    margin: 0 auto;
+    line-height: 2rem;
+    font-size: 0.8rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    border-bottom: 1px solid #D5D5D5;
+    border-right: 1px solid #D5D5D5;
+    border-left: 1px solid #D5D5D5;
+}
+.lctopdiv
+{
+    width: 97.8%;
+    margin: 0 auto;
+    line-height: 2rem;
+    font-size: 0.8rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    border-top: 1px solid #D5D5D5;
+    border-right: 1px solid #D5D5D5;
+    border-left: 1px solid #D5D5D5;
+    background: none repeat scroll 0 0 #f7f5f4;
+}
+/*单式上传*/
+.passway a
+{
+    float: right;
+    padding-right: 1rem;
+    color: #4dade9;
+}
+.single_tab
+{
+    width: 100%;
+    border: 1px solid #d5d5d5;
+}
+.single_tab th, .single_tab td
+{
+    line-height: 32px;
+    text-align: center;
+    font-size: 0.87rem;
+}
+.single_tab th
+{
+    background-color: #ebebeb;
+}
+
+.single_tab .short
+{
+    width: 20%;
+}
+.ni2
+{
+    background-color: #f5f5f5;
+}
+.lcfootdiv a
+{
+    float: right;
+    padding-right: 1rem;
+    color: #4dade9;
+}
+.cc_red
+{
+    color: red;
+}
+.cc_gray
+{
+    color: #999;
+}
+.SingleCopy_main{ font-size: 12px;padding: 0.63rem;}
+.sc_h {
+    height: 36px;
+    line-height: 36px;
+    background-color: #EFFAFF;
+    border: 1px solid #CAE5FF;
+    padding-left: 5px;
+}
+.con_head{ height: 36px;padding: 0 5px;}
+.con_head h4 {
+    color: #2d2d2d;
+    font: bold 12px/36px Arial;
+    padding-left: 5px;
+}
+.con_head h4 a {
+    color: #2c60a9;
+    font-weight: bold;
+    text-decoration: none;
+}
+.con_head h4, .con_head .paiming, .con_head .fensi {
+    color: #666;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    font-size: 9px;
+}
+.hod{ font-size: 12px;}
+.user_logo {
+    background: url("../images/xuandantouzhu.png") repeat scroll -36px -524px;
+    display: inline-block;
+    height: 23px;
+    position: relative;
+    right: 0px;
+    top: 7px;
+    width: 23px;
+}
+.touzpng {
+    background: url("../images/xuandantouzhu.png") no-repeat scroll 0 0;
+    overflow: hidden;
+}
+.changeState .timek {
+   background-position: -120px -104px;
+    height: 18px;
+    left: 15px;
+    position: absolute;
+    top: 6px;
+    width: 21px;
+}
+.changeState .gk {
+    background-position: -5px -388px;
+    height: 18px;
+    left: 15px;
+    position: absolute;
+    top: 6px;
+    width: 21px;
+}
+.bdgkx {
+    float: right;  height: 36px; line-height: 36px; width: 100px;
+    position: relative;
+}
+.bdgkxtext {
+    position: absolute; left: 38px;
+}
+.fatcmx {
+    height: 36px;
+    line-height: 36px;
+    font-size: 10px;
+}
+.fatcmx span{
+    display: inline-block;
+    float: left;
+}
+.font_fd6c00 {
+    color: #fd6c00;
+}
+.font_7DC643{
+    color: #7DC643;
+}
+.bdfx_main em {
+    color: #CD0508;
+    font-weight: bold;
+    margin: 0 2px;
+}

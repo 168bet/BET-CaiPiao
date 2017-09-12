@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>一分钱猜球赛</title>
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<style type="text/css">
+body{ margin:0; padding:0; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#272727; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ul,li{ list-style-type:none}
+em,cite,i{ font-style:normal}
+.left{ float:left}
+.right{ float:right}
+.banner{ position:relative}
+.login{ position:absolute; width:76%; bottom:8%; left:12%}
+.login a{ line-height:2.2rem; width:42%; text-align:center; color:#fff; background:#018107; font-size:1.15rem; text-decoration:none; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.time{ line-height:1.82rem; background:#fffb98; padding:0 4%; color:#1d600c; font-size:.75rem; overflow:hidden; zoom:1}
+.gddgScroll{ padding:1rem 6% 0 6%; overflow:hidden; zoom:1}
+.next,.prev{ margin-top:.75rem; width:.75rem; height:.75rem; border-right:.15rem solid #fffee9; border-bottom:.15rem solid #fffee9}
+.prev,.prevStop{ float:left; transform:rotate(135deg); -webkit-transform:rotate(135deg); -moz-transform:rotate(135deg)}
+.next,.nextStop{ float:right; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+
+.gddgbd{ float:left; width:89%; height:2.88rem; text-align:center; overflow:hidden; zoom:1}
+.gddgScroll ul li{ float:left; height:2.88rem; width:100%}
+.gddgScroll ul li div{ font-size:1rem; color:#1c8101; margin-bottom:.3rem}
+.gddgScroll ul li div cite{ display:inline-block; width:43%; text-align:right}
+.gddgScroll ul li div i{ display:inline-block; width:14%}
+.gddgScroll ul li div em{ display:inline-block; width:43%; text-align:left}
+.gddgScroll ul li p{ font-size:.8rem; color:#666}
+.gddgxhList{ padding:0 3%}
+.gddgxhList p{ line-height:1.5rem; font-size:.94rem; text-align:center}
+.gddgxhList ul li,.gddghot,.tab{ overflow:hidden; zoom:1}
+.gddgxhList ul li span{ float:left; width:30.2%; height:2.26rem; padding-top:.3rem; line-height:1.1rem; text-align:center; color:#51b236; font-size:1.12rem; margin:.45rem 3% 0 0; border:.1rem solid #51b236; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.gddgxhList ul li span:last-child,.gddgxhList ul li em:last-child{ margin-right:0}
+.gddgxhList ul li em{ float:left; width:31%; font-size:.75rem; text-align:center; margin:.4rem 3% 0 0}
+.gddgxhList ul li span.cur{ position:relative; background:#51b236; border:.1rem solid #51b236; color:#ffef37}
+.gddgxhList ul li span.cur:before{ position:absolute; content:""; bottom:0rem; right:0rem; width:1.344rem; height:1.156rem; background:url(/activity/yfq/curico.png) no-repeat center; -webkit-background-size:1.344rem 1.156rem}
+.gddgxhList ul li span cite{ display:block; font-size:.75rem}
+.gddgxhList ul li span i{ font-size:.75rem} 
+.gddghot p{ position:relative; float:left; width:30.4%; font-size:.75rem; color:#666; height:3.9rem; margin:.5rem 3% 0 0; text-align:center}
+.gddghot p:last-child{ margin-right:0}
+.gddghot span{ display:block; width:60%; position:absolute; bottom:0; left:21%;}
+.gddghot i{ display:block; background:#ffd542}
+.buy{ width:85%; margin:0 auto}
+.buy a{ display:block; line-height:2.4rem; background:#ff9c1c; margin:.7rem 0; color:#fff; font-size:1.12rem; text-align:center; text-decoration:none; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.buy p{ color:#626161; font-size:.75rem; padding-left:3%}
+.buy p em,.list ul li span i,.popup p em{ color:#ff221f}
+.buy u{ display:block; padding:.5rem 0 0 3%; font-size:.7rem; color:#29941b}
+.buy a.gray{ background:#bdbdbd; color:#fff; cursor:default}
+.tab{ margin-top:-.2rem; background:#29941b}
+.tab li{ float:left; font-size:1rem; width:50%; text-align:center;line-height:2.3rem; color:#fff;}
+.tab li.cur{ background:#ffd532; color:#29941b}
+.list{ position:relative; margin:1.2rem 1% 0 1%; padding:1rem .5rem}
+.title{ position:absolute; width:100%; height:2.1rem; overflow:hidden; zoom:1; top:0; left:0; z-index:1}
+.title em{ float:left; width:2rem; height:2.1rem; background:url(/activity/yfq/ltbg.png) no-repeat center; background-size:2rem 2.1rem; -webkit-background-size:2rem 2.1rem; -moz-background-size:2rem 2.1rem}
+.title em:last-child{ background-image:url(/activity/yfq/rtbg.png)}
+.title span{ float:left; text-align:center; width:79.5%; line-height:2.1rem; background:#56b83a; color:#fff; font-size:.94rem; margin-top:.21rem}
+.zjlist{ width:78%; padding:1.8rem 2rem .8rem 2rem; border:1px solid #51b236; background:#fffee9; color:#626161; height:6rem;overflow:hidden}
+.zjlist ul li{ line-height:1.4rem; font-size:.81rem}
+.zjlist ul li em{ display:inline-block; width:35%}
+.zjlist ul li cite{ display:inline-block; width:30%; text-align:center}
+.zjlist ul li span{ display:inline-block; width:35%; text-align:right}
+.hdgz{ padding:1rem 0 0 .3rem; color:#626161; font-size:.8rem}
+.hdgz span{ display:block; margin-bottom:.3rem; color:#1c8101; font-size:1rem}
+.hdgz p{ line-height:1.4rem; padding-top:.2rem}
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:2}
+.popup{ position:fixed; top:35%; left:3.5%; background:#feffee; width:85%; padding:0 4% 1rem 4%; z-index:3}
+.clock{ position:absolute; right:.4rem; top:.4rem; display:block; width:1.45rem; height:1.45rem; background:url(/activity/yfq/clock.gif) no-repeat center; background-size:1.4rem 1.4rem; -webkit-background-size:1.4rem 1.4rem; -moz-background-size:1.4rem 1.4rem}
+.popup p{ padding:2.8rem .5rem 1rem .5rem; font-size:.875rem; line-height:1.3rem; text-align:center; letter-spacing:.05rem; color:#636363}
+.popup p.yhm{ font-size:1.06rem}
+.btn{width:85%; margin:0 auto; overflow:hidden; zoom:1}
+.btn span,.btn a{ width:45%;  text-decoration:none; padding:.4rem 0 .2rem 0; line-height:1.5rem; text-align:center; color:#fff; background:#51b236; font-size:1.06rem; margin:.8rem auto 0 auto; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.wxts{ line-height:2.09rem; color:#6e642b; background:#f7efc2; font-size:1.06rem; text-align:center}
+.popup2{ padding:0 0 1rem 0; width:93%}
+.popup p.yhm2{ padding:1.2rem 0}
+.popup p.yhm3{ text-align:left; width:70%; margin:0 auto; padding:1.5rem 0 .5rem 0; line-height:1.5rem}
+.login p{ text-align:center; font-size:.9rem; line-height:2.2rem; color:#fff}
+.login p em{ color:#ffff00; margin:0 .2rem; font-weight:bold}
+gddghot2{ line-height:4.4rem; text-align:center}
+.back{ display:block; position:absolute; top:0; left:0; width:4.53rem; height:4.53rem; background:url(/activity/yfq/back.png) no-repeat center; background-size:4.53rem 4.53rem; -webkit-background-size:4.53rem 4.53rem; -moz-background-size:4.53rem 4.53rem}
+
+/**
+*msg弹窗
+*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+
+</style>
+<!-- 先登录 -->
+<div class="popup" style="display:none" id="notLogin">
+    <em class="clock" id="notLoginClose" ></em>
+    <p class="yhm">参加活动前，请先登录！</p>
+    <div class="btn"><a href="#" class="left" id="toLogin" >登录</a><a href="#" class="right" id="toRegister" >注册</a></div>
+</div>
+<!-- 绑定手机 -->
+<div class="popup popup2" style="display:none" id="notBind" >
+    <div class="wxts">温馨提示</div>
+    <p class="yhm2">参与活动请先绑定手机号！</p>
+    <div class="btn"><span class="left" id="notBindClose" >关闭</span><a href="/useraccount/setup/bindtel.html" class="right">去绑定</a></div>
+</div>
+<!-- 非第一次 -->
+<div class="popup popup2" style="display:none" id="haveBuy" >
+    <div class="wxts">温馨提示</div>
+    <p class="yhm3">抱歉，您绑定的手机号非首次购彩，不能参与本次活动。</p>
+    <div class="btn"><span class="left" id="haveBuyClose" >关闭</span><a href="/#class=url&xo=gddg/index.html" class="right">2元买球赛</a></div>
+</div>
+<!-- 参加过 -->
+<div class="popup popup2" style="display:none" id="haveJoin" >
+    <div class="wxts">温馨提示</div>
+    <p class="yhm3">本活动每位用户仅能参加<em>1</em>次，您已参加过！</p>
+    <div class="btn"><span class="left" id="haveJoinClose" >关闭</span><a href="/#class=url&xo=gddg/index.html" class="right">2元买球赛</a></div>
+</div>
+<!-- 活动未开始 -->
+<div class="popup popup2" style="display:none" id="notBegin" >
+    <div class="wxts">温馨提示</div>
+    <p class="yhm2">活动未开始，敬请期待哦！</p>
+    <div class="btn"><span class="left" style="width:75%; margin-left:12%" id="notBeginClose" >确定</span></div>
+</div>
+<!-- 活动已结束 -->
+<div class="popup popup2" style="display:none" id="alreadyEnd" >
+    <div class="wxts">温馨提示</div>
+    <p class="yhm2">活动已结束，多谢关注！</p>
+    <div class="btn"><span class="left" style="width:75%; margin-left:12%" id="alreadyEndClose" >确定</span></div>
+</div>
+
+<!-- 余额不足 -->
+<div class="popup popup2" style="display:none" id="noMoney" >
+    <div class="wxts">温馨提示</div>
+    <p class="yhm2">余额不足，请充值后再参与本活动！</p>
+    <div class="btn"><span class="left" id="noMoneyClose" >关闭</span><a href="/#class=url&xo=useraccount/recharge.html" class="right">去充值</a></div>
+</div>
+
+<!-- 未有充值记录 -->
+<div class="popup popup2" style="display:none" id="noChongzhi" >
+    <div class="wxts">温馨提示</div>
+    <p class="yhm2">抱歉，您的账户在我站没有充值记录，请充值后参与！</p> 
+    <div class="btn"><span class="left" id="noChongzhiClose" >关闭</span><a href="/#class=url&xo=useraccount/recharge.html" class="right">去充值</a></div>
+</div>
+
+<!-- 未有充值记录 -->
+<div class="popup popup2" style="display:none" id="yebzw" >
+    <div class="wxts">温馨提示</div>
+    <p class="yhm2">抱歉，您余额不足，请充值后参与！</p>
+    <div class="btn"><span class="left" id="yebzwClose" >关闭</span><a href="/#class=url&xo=useraccount/recharge.html" class="right">去充值</a></div>
+</div>
+
+<!-- 让球是什么？ -->
+<div class="popup" style="display:none" id="rqdis" >
+    <em class="clock" id="rqdisClose" ></em>
+    <p style="text-align:left"><strong style="color:#1c8101">让球：</strong>即主队让客队1球，主队需至少赢客队2球方可胜，赢1球则为平，打平局则为负。</p>
+</div>
+
+<div class="zhezhao" style="display:none"></div>
+<body style="background:#f7efc2">
+    <figure class="banner"><img src="/activity/yfq/banner.jpg" width="100%">
+    	<a href="/"  id="bac"  style="display:none" class="back"></a>
+        <div class="login">
+            <p id="loginNo" ><a href="#" class="left" id="login" >登录</a><a href="#" class="right" id="register" >注册</a></p>
+            <p style="display:none" id="loginYes" >尊敬的<em id="user" ></em>,欢迎您</p>
+        </div>
+    </figure>
+    <section>
+        <ul class="tab" id=top_menu style="display:none" >
+            <li class="cur" v="sf" id="sf_cur">胜平负</li>
+            <li v="rq" id="rq_cur" >让球胜平负</li>
+        </ul>
+        <article style="background:#fffee9; padding-bottom:1rem" >
+          <div class="time" id="sf_time" style="display:none"><cite class="left">当前共<font id="sf_num">1</font>场</cite></div>
+          <div class="time" id="rq_time" style="display:none"><cite class="left" style="display:none">当前共<font id="rq_num">-</font>场</cite></div>
+        <!-- 胜平负  --> 
+         <div id="dg_sf">
+          <div class="gddgScroll clearfix" id=sfScroll>
+                <span class="prev prevStop" id="sf_prev" style=""></span>
+                
+                <div class='gddgbd'>
+                    <ul id="spf_dz"></ul>
+                </div>  
+                
+                <span class="next" id="sf_next" style=""></span>
+            </div>
+            <div class="gddgxhList">
+                <div class="gddghot">
+
+                    <p><span><em></em><i></i></span></p>
+                    <p><span><em></em><i></i></span></p>
+                    <p><span><em></em><i></i></span></p>
+                </div>
+                <ul class=tzxx>
+                    <li><span v='3'>胜<cite></cite></span><span v='1'>平<cite>VS</cite></span><span v='0'>胜<cite></cite></span></li>
+                    <li><em></em><em></em><em></em></li>
+                </ul>
+            </div>
+          </div>
+       <!-- 胜平负  -->
+       <!-- 让球胜平负  --> 
+         <div id="dg_rq" style="display:none">
+          <div class="gddgScroll clearfix" id=rqScroll>
+                <span class="prev prevStop" id="rq_prev" style=""></span>
+                <div class='gddgbd'>
+                    <ul id="rqspf_dz"></ul>
+                </div>
+                <span class="next" id="rq_next" style=""></span>
+            </div>
+            <div class="gddgxhList">
+                <div class="gddghot">
+                     
+                    <p><span><em></em><i></i></span></p>
+                    <p><span><em></em><i></i></span></p>
+                    <p><span><em></em><i></i></span></p>
+                </div>
+                
+                <ul class=tzxx>
+                     <li><span v='3'>胜<cite></cite></span><span v='1'>平<cite>VS</cite></span><span v='0'>胜<cite></cite></span></li>
+                     <li><em></em><em></em><em></em></li>
+                </ul>
+            </div>
+          </div>
+       <!-- 让球胜平负  -->    
+          <div class="buy">
+                <a href="javascript:void(0)" id="buy">立即购买</a>
+                <p>预计奖金<em id="yjjj">0</em>元，应付0.01元（本站代付1.99元）</p>
+                <u id="rqwhat" style="display:none">让球是什么？</u>
+            </div>
+      </article>
+    </section>
+    <article class="list" id="phb">
+        <div class="title"><em></em><span>目前已有<font id="phbcount">0</font>人参加</span><em></em></div>
+     <div class="zjlist">
+            <div id="zjlist" class="cm_left" style="position:relative; height:12rem; overflow:hidden">
+                <div style="height: 100000px;">
+                    <div id="zjlist1" class="cm_left" style="width:100%;">
+                    </div>
+                    <div id="zjlist2" class="cm_left" style="width:100%;">
+                    </div>
+                </div>
+            </div>
+         </div>
+        <div class="hdgz">
+            <span id="hdgzButton">活动规则&gt;&gt;</span>
+            <section id="hdgz" style="display:none">
+                <p>1、参与前须完成手机号验证，本活动仅首次购彩用户参与，每用户一次机会；（手机号所绑定的任何账户有过购彩记录的都不能参与）</p>
+                <p>2、用户必须在活动页面才可参与1分钱购彩，不可用天天分钱活动所得去享受优惠，参与前需先进行充值，方可成功扣款一分钱</p>
+                <p>3、同一用户只能参与一次（手机号相同的所有用户视为同一用户），对于通过作弊方式多次参与的用户，将被采取冻结账户等措施</p>
+                <p>4、本次活动在网站、手机触屏网、安卓和IOS客户端均可参与，活动时间：11月4日 00:00:00——12月1日 23:59:59</p>
+                <p>5、本网站对本活动保留最终解释权,如有疑问请致电咨询客服400-673-9188</p>
+            </section>
+        </div>
+    </article>
+    
+</body>
+
+</html>
+<!-- 百度统计 -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff6babc6e11c8122615416b76c3b54696' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- 百度统计 -->
+<script type="text/javascript" src="http://4g.9188.com/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src='http://4g.9188.com/activity/yfq/index.js'></script>
+
+
+
+
+
+

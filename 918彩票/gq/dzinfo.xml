@@ -1,0 +1,5 @@
+<Resp code="0" desc="统计成功" utime="2015-05-15 17:34:42">
+<row mid="20142015000" mname="NBA" hname="快船" gname="老鹰" hid="1353" gid="1352" tzl="21,15" jctype="1" jcname="总冠军" sp="1.8,1.8" cyrs="108" isale="0" score="0:0" g1="" g2="" g3="" g4="" g5="" g6="" g7=""/>
+<row mid="20142015002" mname="NBA" hname="老鹰" gname="骑士" hid="1352" gid="1337" tzl="69,25" jctype="2" jcname="东部冠军" sp="1.68,1.85" cyrs="283" isale="0" score="0:0" g1="" g2="" g3="" g4="" g5="" g6="" g7=""/>
+<row mid="20142015001" mname="NBA" hname="勇士" gname="快船" hid="1335" gid="1353" tzl="75,35" jctype="1" jcname="西部冠军" sp="1.8,1.75" cyrs="332" isale="0" score="0:0" g1="" g2="" g3="" g4="" g5="" g6="" g7=""/>
+</Resp>

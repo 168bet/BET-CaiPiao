@@ -1,0 +1,42 @@
+.content-found{
+    width:100%;
+    height:600px;
+    text-align: center;
+    margin-bottom:100px;
+}
+.content-found .pic{
+    width:1000px;
+    height:537px;
+    position:relative;
+    background: url(../images/404_01.png) no-repeat;
+    background-size:100% 100%;
+    margin:0 auto;
+}
+.content-found .return{
+    position: absolute;
+    bottom: 25px;
+    display:inline-block;
+    width:200px;
+    height:50px;
+    line-height:50px;
+    left:50%;
+    margin-left:-100px;
+    text-align: center;
+}
+.content-found .link_con{
+    width:1000px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px 0;
+    margin: 20px auto;
+}
+.content-found .linkTo{
+    text-decoration: none;
+    color: #717171;
+    display: inline-block;
+    margin-right: 5px;
+}
+.content-found .linkTo:hover, .content-found .link_con .active{
+    color:#feb560;
+    text-decoration: underline;
+}

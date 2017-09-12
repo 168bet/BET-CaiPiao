@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>忘记密码</title>
+    <link rel="stylesheet" href="/style/weui.css"/>
+    <link rel="stylesheet" href="/style/example.css"/>
+</head>
+<body>
+<article class="container">
+	<div class="weui-msg">
+        <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">设置密码成功，请重新登录</h2>
+            <p class="gray"><span>3</span>s后自动为您跳转</p>
+        </div>        
+    </div>
+    <div class="weui-btn-area">
+      <a class="weui-btn weui-btn_primary" >返回登录页面</a>
+    </div>
+</article> 
+</body>
+<script src='/js/public/jquery-1.9.1.min.js'></script>
+<script>
+	var cont = 3 
+	var timer = setInterval(function(){
+		cont--;
+		$('.gray span').html(cont);
+		if(cont == 0){
+			clearInterval(timer);
+			location.href='/alone/newlogin.html';
+		}
+	},1000)
+	$('.weui-btn').click(function(){
+		$(this).attr({'href':'/alone/newlogin.html'})
+	})
+</script>
+</html>

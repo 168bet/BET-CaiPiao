@@ -1,0 +1,161 @@
+<style>
+.details li{ height:3rem; padding:.5rem 0 0 .7rem; font-size:.93rem; border-bottom:1px solid #ebebeb; overflow:hidden; zoom:1}
+.details li span{ float:left; width:35%; padding-left:.3rem}
+.details li span:last-child{ width:60%}
+.details li span cite{ display:block; font-size:.94rem; line-height:1.5rem}
+.details li span em{ display:block; color:#979695; font-size:.75rem; line-height:1rem}
+</style>
+<article>
+  	<div id="wrapper">
+		<div id="scroller">
+			<ul class="details">
+             	<div style='padding:58px;height:1000px'><em class="rotate_load" style='margin:auto'></em></div>
+				<!-- <li>
+		            <span>
+		                <cite class="red">+15</cite>
+		                <em>余额:3352946</em>
+		            </span>
+		            <span>
+		            	<cite>验证手机送积分</cite>
+		                <em>2013-12-31 10:01:52</em>
+		            </span>
+		        </li> -->
+		    </ul>
+	        <div id="pullUp" style=display:none;>
+	            <span class="pullUpIcon"></span><span class="pullUpLabel">上拉查看更多...</span>
+	        </div>
+        </div>
+    </div>
+</article>
+<script>
+CP.JFMX = (function () {
+	var g = {
+			cPage : '1',//初始化的时候显示第一页
+			total : '1'//默认总页数为1
+	};
+	var o = {
+			//页面跳转
+			pageGo: {
+				goBack: function () {
+					TopAnch.init({
+						title:'积分明细',
+						prevShow:true,
+						prevFun:function(){//左侧按钮绑定事件
+							window.history.back();
+						},
+						/*
+						nextShow: true,
+						nextText: '购买积分',
+						nextFun: function(){
+							window.location.href = '/user/jfcz.html';
+						},*/
+						isBack:true
+					});
+				}
+			},
+			layOut : function(){
+				var w = window.innerHeight;
+				$("#wrapper").height(w - 50);//50是下面加载更多的高度
+				window.onresize = function(){	
+					var w = window.innerHeight;
+					$("#wrapper").height(w - 50);
+					window.myScroll&&myScroll.refresh&&myScroll.refresh();	
+				};
+				o.loadScroll();
+			},
+			//滚动条
+			loadScroll:function(){
+					var pullUpEl = document.getElementById('pullUp');	
+					var pullUpOffset = pullUpEl.offsetHeight;
+					myScroll = new iScroll('wrapper', {
+						onRefresh: function () {
+							if (pullUpEl.className.match('loading')) {
+								pullUpEl.className = '';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉查看更多';
+							}
+						},
+						onScrollMove: function () {
+							if (this.y < (this.maxScrollY - 20) && !pullUpEl.className.match('flip')) {
+								pullUpEl.className = 'flip';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '松开加载数据';
+							} else if (this.y > (this.maxScrollY) && pullUpEl.className.match('flip')) {
+								pullUpEl.className = '';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉查看更多';
+							}
+						},
+						onScrollEnd: function () {
+							if (pullUpEl.className.match('flip')) {
+								pullUpEl.className = 'loading';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '正在加载';				
+								o.init(++g.cPage);
+							}
+						}
+					});					
+			},
+			init : function(){
+				if ( g.cPage<=g.total ) {
+					$.ajax({
+						url:'/user/querymypoints.go?pn='+g.cPage+'&ps=10',
+						dataType:'xml',
+						success:function(xml){
+							if(g.cPage == '1'){
+								$(".details").html('');
+							}
+							var R = $(xml).find("Resp");
+							var code = R.attr("code");
+							if(code == 0){
+								var rs = R.find("rows");
+								var r = R.find("row");
+								g.total = rs.attr('tp');
+								var _out = [];
+								_out.push($('.details').html());
+								r.each(function(a){
+									var inPoints = $(this).attr("inPoints");//增加积分值
+									var outPoints = $(this).attr("outPoints");//使用积分值
+									var ibalance = $(this).attr("ibalance");//剩余积分
+									var cadddate = $(this).attr("cadddate");//操作时间
+									var ibiztype = $(this).attr("ibiztype");//交易类型
+									var color = '';
+									var points = '';
+									if(inPoints){
+										color = "red";
+										points = inPoints;
+									}else if(outPoints){
+										color = "green";
+										points = outPoints;
+									}
+									_out.push("<li><span><cite class="+color+">"+points+"</cite><em>余额:"+ibalance+"</em></span><span><cite>"+ibiztype+"</cite><em>"+cadddate+"</em></span></li>"); 
+								});
+								$(".details").html(_out.join(''));
+								if(g.cPage<g.total){
+									$("#pullUp").show();
+								}else{
+									$("#pullUp").hide();	
+								}
+								myScroll.refresh();
+							}else{
+								var d = R.attr("desc");
+								if(d.indexOf('未登录') != -1){
+									alert(d);
+									setTimeout(function () {
+										location.href = '#type=fun&fun=CP.Home.openLogin';
+									}, 1e3);
+								}else{
+									$('.details').html('<div style="padding:58px;height:1000px;text-align:center">'+d+'</div>');
+								}
+							}
+						}
+					});
+				}
+				
+			}
+	};
+	var init = function () {
+		o.pageGo.goBack();
+		o.init();
+		o.layOut();
+	};
+	return{init : init};
+})();
+CP.JFMX.init();
+</script>

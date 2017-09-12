@@ -1,0 +1,183 @@
+<ul class="all2 all3">
+	<li>
+		<a href="#type=url&amp;p=list/qlc.html" id='tag_07'> 
+			<em></em>
+			<span class="icoLogo qlcLogo"></span>
+			<h2>七乐彩</h2>
+			<p>30选7能赢百万</p>
+		</a>
+		 <a href="#type=url&amp;p=list/qxc.html" id='tag_51'>
+			<em></em>
+			<span class="icoLogo qxcLogo"></span>
+			<h2>七星彩</h2>
+			<p>2元可中500万</p>
+		</a>
+	</li>
+	<li id='kp_1' style=''>
+	  <a href="#type=url&amp;p=list/gddg.html" id='tag_jcdg'>
+      	<em></em>
+		<span class="icoLogo gddgLogo"></span>
+		<h2>竞足单关</h2>
+		<p>猜中一场就中奖</p>
+	  </a>
+	  
+	  <!-- <a href="#type=url&amp;p=list/bjdc.html" id='tag_85'>
+		<em></em>
+		<span class="icoLogo bjdcLogo"></span>
+		<h2>足球单场</h2>
+        <p>比赛多奖金浮动</p>
+     </a> -->
+     	<a href="#type=url&amp;p=list/sfc.html" id='tag_80'>
+			<em></em>
+			<span class="icoLogo sfcLogo"></span>	
+			<h2>胜负彩</h2>
+		    <p>猜14场比赛赢大奖</p>
+		</a>
+		
+	</li>
+	<li>
+		<a href="#type=url&amp;p=list/sfgg.html" id='tag_84'>
+			<em></em> 
+			<span class="icoLogo sfggLogo"></span>
+			<h2>胜负过关</h2>
+			<p>体育项目混着买</p>
+		</a>
+		<a href="#type=url&amp;p=list/p3.html" id='tag_53'>
+		 <em></em>
+		  <span class="icoLogo p3Logo"></span>
+				<h2>排列三</h2>
+				<p>猜3位数赚千元</p>
+		</a>
+		
+	</li>
+	
+	<li>
+		 <a href="#type=url&amp;p=list/p5.html" id='tag_52'>
+			<em></em>
+			<span class="icoLogo p5Logo"></span>
+			<h2>排列五</h2>
+			<p>猜5位数中10万</p>
+		</a>
+		<a href="#type=url&amp;p=list/3d.html" id='tag_03'>
+			<em></em>
+		 	<span class="icoLogo sdLogo"></span>
+			<h2>福彩3D</h2>
+			<p>猜3位数赢千元</p>
+		</a>
+		
+	</li>
+	
+	<li id='kp_2' style=''>
+		<a href="#type=url&amp;p=list/hb11x5.html" id='tag_59' style='display:none'>
+			<em></em>
+		 	<span class="icoLogo x11x5Logo"></span>
+			<h2>新11选5</h2>
+			<p>10分开奖超快感</p>
+		</a>
+	</li>
+	<li id='kp_2' style='display:none'>
+		<a href="#type=url&amp;p=list/gd11x5.html" id='tag_55' >
+			<em></em>
+		 	<span class="icoLogo y11x5Logo"></span>
+			<h2>粤11选5</h2>
+			<p>10分开奖超快感</p>
+		</a>
+	</li>
+	
+	<li style='display:none'>
+	 <a href="#type=url&amp;p=list/lqgddg.html" id='tag_96'>
+	 <em></em>
+	  <span class="icoLogo qxcLogo"></span>
+			<h2>竞彩篮球单关</h2>
+			<p>浮动奖金</p>
+	</a>
+	</li>
+	<!-- <li><a href="#type=url&amp;p=list/pk3.html" id='tag_58'> <span
+			class="icoLogo pk3Logo"></span>
+			<h2>快乐扑克3</h2>
+			<p></p>
+	</a></li> -->
+</ul>
+<script>
+$(function(){
+	TopAnch.init({
+        title:'9188彩票',
+        prevShow:true,
+        prevFun:function(){location.href = '#type=index';},
+        nextShow:false
+    });
+
+	
+	
+	if(CP.Data.source!='3021'){
+		//$('#kp_1,#kp_2').show();
+		
+	}
+		/***
+		$.ajax({
+			url:CP.Data.data+"/data/app/latest-lottery-touch-brief.xml",
+			success  : function (xml){
+				var brief = $(xml).find('brief');
+				brief.each(function(){
+					var g_ = $(this).attr('gid');
+					var b_ = $(this).attr('brief');//彩种简介
+					var addtional = $(this).attr('addtional');//是否加奖 yes是 no否
+					$('#tag_'+g_).find('p').html(b_);
+					if(addtional === 'yes'){
+						$('#tag_'+g_).find('em').eq(0).addClass('jjico');
+					}
+				});
+			}
+		});
+		$.ajax({
+			url: '/data/info/config/sysexp/gameconfig.xml',
+			type:'GET',
+			dateType:'xml',
+			success : function(xml){
+				var R = $(xml).find('rows');
+				var r = R.find('row');
+				r.each(function(){
+					var gid = $(this).attr('gid');
+					var isale = $(this).attr('webisale');
+					if(isale == '0'){
+						if(CP.Data.source!='3021'){
+							$('#tag_'+gid).find('em').addClass('stopico');
+						}
+					}
+				});
+			}
+		});
+		***/
+		
+		CP.Data.grade(function(){
+			//如果是白名单用户
+			$.ajax({
+				url:'/trade/start.go?source=3191&mtype=4&come=3191&qtype=4',
+				type:'POST',
+				dateType:'xml',
+				success : function(xml){
+					var R = $(xml).find('Resp');
+					var lots = R.find('lots');
+					var lot = lots.find("lot");
+					
+					lot.each(function(){
+						var index = $(this).attr('index');//序号=》 只有当lot.level=1时才生效
+						var gid = $(this).attr('gid');//彩种id
+						var jiajiang = $(this).attr('jiajiang');//是否嘉奖 0=不嘉奖  1=嘉奖
+						var level = $(this).attr('level');//是否置顶
+						var desc = $(this).attr('desc');//彩种描述
+						var ishow = $(this).attr('ishow');//彩种是否显示 ： 0-显示，1-不显示
+						if(des != ''){
+							$('#tag_'+gid).find('p').html(desc);//对每个彩种的描述
+						}
+						//$('#ball a:last').html("立即预约");
+					});
+				}
+			});
+		
+			
+		})
+	
+	
+});
+</script>

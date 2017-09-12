@@ -1,0 +1,44 @@
+<div class="w1105 m0auto text_center fz14 white" style="padding:20px 0 0 0;" ng-init="szConfig = {
+    props: {
+        szzh: {
+            key: 'szzh',
+            line: 'szzh_lines'
+        },
+        bsgdw:{
+            key: 'bsgdw',
+            line: 'bsgdw_lines'
+        },
+        bsghs: {
+            key: 'bsghs',
+            line: 'bsghs_lines'
+        }
+    }
+}">
+    <div class="hgt30 line_hgt30 p10_0" style="background: #EAEAEA">
+        <span class="inlilne-block border_red1 red p5_25" ng-click=" szLists.szList='szzh'; fun.cancelOrder(); " ng-class="{ezActive:szLists.szList=='szzh'}">三字组合</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click=" szLists.szList='bsgdw'; fun.cancelOrder(); " ng-class="{ezActive:szLists.szList=='bsgdw'}">百拾个定位</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click=" szLists.szList='bsghs'; fun.cancelOrder(); " ng-class="{ezActive:szLists.szList=='bsghs'}">百拾个和数</span>
+    </div>
+    <div ng-show="szLists.szList== szListTab" ng-repeat="(szListTab, szListItem) in szConfig['props'] track by $index" ng-init="swTabsConfig = ['qsw', 'zsw', 'hsw']">
+        
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red white"></span>
+        </div>
+        <div class="text_center middle" ng-show="swTabs.swTab== szTab " ng-repeat="szTab in swTabsConfig track by $index">
+            <div>
+                <div class="inline-block bg-gray" ng-repeat="(key,value) in range(0,cols)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div ng-repeat="(key,value) in range(0, this[szListItem['line']] )">
+                <div class="inline-block bg-lightgray" ng-repeat="(index,item) in range(0,cols)">
+                    <span class="w50 inline-block">{{ this[szListItem['key']][key*cols+index].number}}</span>
+                    <span class="w50 inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(this[szListItem['key']][key*cols+index])" ng-class="{'peiyu-selected': data.betPeiyuSelected[this[szListItem['key']][key*cols+index].id]}">{{this[szListItem['key']][key*cols+index].pl}}</span>
+                    <input ng-if="this[szListItem['key']][key*cols+index]" ng-class="{'has-error': data.inputErrors[this[szListItem['key']][key*cols+index].id]}" ng-model="data.betMoney[this[szListItem['key']][key*cols+index].id]" ng-change="fun.codeSelected(this[szListItem['key']][key*cols+index])" type="number" class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

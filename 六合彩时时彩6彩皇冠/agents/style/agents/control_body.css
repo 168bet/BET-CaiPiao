@@ -1,0 +1,59 @@
+.title_01 {  color: #FFFFFF; text-align: center}
+.table_00 {  background-color: #CCCCCC; border: #CCCCCC; border-style: solid; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px}
+.za_text_01 {  background-color: #FFFFFF; vertical-align: middle; height: 20px; padding-right: 2px; padding-left: 2px; border: #000000; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; cursor: text; font-family: "Arial"; font-size: 12px; margin-bottom: 4px; width: 80px}
+.td_12 {  background-color: #FFEBEB}
+.za_dot_01 {  vertical-align: bottom; height: 12px; width: 12px; margin-top: 1px; margin-bottom: 3px}
+td {  font-family: "Arial"; font-size: 12px; padding-top: 2px; padding-right: 2px; padding-left: 4px}
+.za_text_02 { background-color: #FFFFFF; vertical-align: middle; height: 20px; padding-right: 2px; padding-left: 2px; border: 1px #000000 solid; cursor: text; font-family: "Arial"; font-size: 12px; margin-bottom: 4px ; margin-left: 4px; margin-top: 2px; width: 80px}
+.td_wr {  color: #CC0000}
+.za_button_01 {  font-size: 12px; background-color: #FFFFFF; height: 20px; padding-top: 1px; padding-right: 2px; padding-left: 2px; border: #000000; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; padding-bottom: 2px; margin-bottom: 3px; vertical-align: middle; margin-top: 2px}
+.za_select_01 {  font-size: 12px; vertical-align: bottom; height: 20px; margin-bottom: 3px; margin-top: 2px}
+.za_select_02 { font-size: 12px; vertical-align: bottom; height: 20px; margin-bottom: 4px; margin-top: 2px ; margin-left: 4px}
+/*-------- Chg_passwd----------*/
+#PWD html, body {padding-top: 10%;margin-top: 50;margin-right: 0;margin-bottom: 0;margin-left: 2px;}
+#PWD .pwd_title {color: #FFFFFF;background-color: #FF6600;text-align: center;padding: 5px;	}
+#PWD .pwd_bg ,#PWD .pwd_txt , #PWD .pwd_red{background-color: #FFFFCC;padding: 8px;font-family: Arial, Helvetica, sans-serif;font-size: 0.7em;}
+#PWD .pwd_side {background-color: #FFCC33;border: 4px solid #FFAC4B;margin-top: 50px;}
+#PWD .pwd_red {color: #FF0000;}
+#PWD .pwd_txt {color: #000000;}
+#PWD .point {color: #FFFFFF;background-color: #174755;text-align: center;}
+#PWD .point , #PWD .pwd_title{font-family: Arial, Helvetica, sans-serif;font-size: 12px;}
+.red_txt {color: #FF0000;}
+.white {
+	color: #333333;
+	font-size: 12px;
+	line-height: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+/*--------------³]¸m«ü¤Þ---------------------*/
+#divG {
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+#divG .sub{
+	color: #000000;
+	display: block;
+	list-style-type: none;
+	height: 28px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	background-image: url(/images/agents/control/Guide_icon.gif);
+	background-repeat: no-repeat;
+	padding-left: 32px;
+	padding-top: 8px;
+	background-position: left;
+	margin-left: -30px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #413A10;
+	padding-bottom: 5px;
+}
+#divG .T{
+	color: #333333;
+	padding: 8px;
+	list-style-type: none;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}

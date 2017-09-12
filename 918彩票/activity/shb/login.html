@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>登录</title>
+<style type="text/css">
+body{ background:#f7f7f7; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+p{ line-height:1.2rem}
+a{ color:#333; text-decoration:none}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}.clearfix{ overflow:hidden; zoom:1}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.right{ float:right}
+.pdLfrt09{ padding:.1rem .9rem 0 .9rem}
+.pdTop1{ padding-top:1rem}
+.aGreen{ color:#106fe5}
+.relative{ position:relative}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcbackHome{ display:block; position:absolute; left:.9rem; top:.6rem; width:1.56rem; height:1.35rem; background:url(/img/fc/home.png) no-repeat center; background-size:1.56rem 1.35rem; -webkit-background-size:1.56rem 1.35rem; -moz-background-size:1.56rem 1.35rem}
+.s3{ padding-top:1.6rem; height:1.6rem; font-size:.94rem}
+.s3 cite{ float:left; width:3.4rem; color:#222; letter-spacing:.6rem; padding-left:.5rem}
+.s3 input{ border:0; background:none; font-size:.94rem}
+.s3 em{ float:right; position:relative; margin-right:.1rem; width:.8rem; height:.8rem; border-left:1px solid #bdbdbd; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.s3 em:before{ position:absolute; content:""; top:.4rem; right:.42rem; width:.8rem; height:.8rem; border-left:1px solid #bdbdbd; transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg)}
+.s3line{ height:.3rem; border:1px solid #bdbdbd; border-top:none}
+.s3cur .s3line{ border:.15rem solid #c4311f; border-top:none}
+.zhuce{ position:absolute; color:#fff; right:.8rem; top:.6rem; font-size:1rem}
+.loginBtn{ display:block; width:100%; letter-spacing:.5rem; text-align:center; margin-top:1rem; line-height:2.6rem; color:#fff; background:#f26c60; font-size:1.1rem; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.loginBtn:active{ text-decoration:none; color:#fff}
+.fcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:9999;left:0;top:0; display: none;}
+</style>
+<body>
+	<header class="tzHeader">
+	<div class="fixed2">
+		<section class="fcHeader">
+			<h1>登录</h1>
+			<a href="/" class="fcbackIco2"></a>
+			<a href="/alone/register.html" class="zhuce">注册</a>
+		</section>
+	</div>
+	</header>
+	<article class="pdLfrt09" id='login'>
+		<div class="s3">
+			<div class="clearfix">
+				<cite>账户</cite><input id=username type="text"
+					placeholder="请输入用户名或手机号"><em style='display:none;'></em>
+			</div>
+			<div class="s3line"></div>
+		</div>
+		<div class="s3">
+			<div class="clearfix">
+				<cite>密码</cite><input id=password type="password"
+					placeholder="请输入密码"><em style='display:none;'></em>
+			</div>
+			<div class="s3line"></div>
+		</div>
+		<p class="clearfix pdTop1">
+			<a href="/alone/forgotpwd.html" class="right aGreen">忘记密码？</a>
+		</p>
+		<a href="javascript:;" class="loginBtn" id='loginBtn'>登录</a>
+	</article>
+	<div class="mask" style='display: none;' id='mask'></div>
+	<script type="text/javascript" src="/js/public/zepto.js"></script>
+<script>
+//公用弹出层和加载层
+var win_alert = alert;
+window['alert'] = function (msg, loading) {
+	if (!loading) {
+		clearTimeout(window.alert.time);
+		var obj = $('<div class="alertBox">' + msg + '</div>');
+		$('body').append(obj);
+		window.alert.time = setTimeout(function () {
+			$(".alertBox").remove();
+		}, 2000);
+	} else {
+		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+		$('#mask').show();
+	}
+};
+var remove_alert = function () {
+	$('.alertBox').remove();
+	$('#mask').hide();
+};
+$(function () {
+	if(document.domain == '1ydb.5.9188.com '){
+		alert('登录失效,请重新进入')
+		setTimeout(function(){
+			location.href = localStorage.getItem('target_url')
+		},1e3);
+		return;
+	}
+	
+	var user_name = localStorage.getItem("username");
+	!!user_name && $('#username').val(user_name).next().show();//填装用户名
+	$("#login").off().keydown(function(e){
+		if(e.which == 13){//按回车的时候提交登录
+			MiniLogin();
+			return false;
+		}
+	});
+	$('#login .s3').bind('click', function(){
+		$(this).find('input').focus();
+		$(this).addClass('s3cur').siblings().removeClass('s3cur');
+	});
+	$('#loginBtn').bind('click', function(){MiniLogin();});
+	$('.s3 input').bind('keyup', function(){$(this).val() != '' && $(this).next().show() || $(this).next().hide();});
+	$('.s3 em').bind('click', function(){$(this).hide().prev().val('');});	
+});
+function MiniLogin(){
+	var uname = $("#username").val();
+    var upwd = $("#password").val();
+    if (uname == "") {
+        alert('请输入合法的用户名');
+        return false;
+    }else if (upwd == "") {
+    	alert('密码不能为空');
+        return false;
+    }else{
+    	alert('登录中，请稍后！','loading');
+		var data = "uid=" + encodeURIComponent(uname)+ "&pwd=" + encodeURIComponent(upwd)+ "&source=3000";
+	    $.ajax({
+	    	url: '/user/login.go',
+	        type: "POST",
+	        dataType : "xml",
+	        data: data,
+	        cache: false,
+	        success : function (xml) {
+	        	remove_alert();
+	        	var R = $(xml).find("Resp");
+				var code = R.attr("code");
+				var desc = R.attr("desc");
+				if (code == "0") {
+					localStorage.setItem("username", uname);
+					alert(desc);
+					setTimeout(function(){
+						window.location.replace('/');
+					},1e3);
+				}else{
+					alert(desc);
+				}
+	        },error : function (){
+	        	remove_alert();alert('网络异常请刷新重试');
+	        	return
+	        }		        
+	    });
+    }
+}
+</script>
+</body>

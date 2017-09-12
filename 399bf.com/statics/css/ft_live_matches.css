@@ -1,0 +1,262 @@
+.pd0{
+    padding: 0;
+}
+.mt15{
+    margin-top: 15px;
+}
+.mb15{
+    margin-bottom: 15px;
+}
+
+
+.nav-wrap{
+    height: 40px;
+    border: 1px solid #cfd4d7;
+    background-color: #eef9ff;
+    line-height: 40px;
+    font-size: 16px;
+}
+.nav-item{
+    text-align: center;
+}
+.nav-item a{
+    display: block;
+    border-left: #dbe3e7 solid 1px;
+    margin:0 -15px;
+    color: #00a0e9;
+}
+.nav-item .active,.nav-item a:hover{
+    background-color: #1e88d2;
+    color: #ffffff;
+}
+
+.into-match-nav{
+    margin-bottom: 15px;
+    height: 38px;
+    border-bottom: #1e88d2 solid 2px;
+}
+.into-match-nav-item.active,.into-match-nav-item:hover{
+    color: white;
+    background-color:#1e88d2 ;
+}
+.into-match-nav-item{
+    display: inline-block;
+    line-height: 38px;
+    font-size: 1.4em;
+    padding:  0 40px;
+}
+
+/*ft-game-stats*/
+.middleBox{
+    margin-left: -30px;
+    margin-right:-30px ;
+}
+.runBall{
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    width: 17px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-image: url("../images/statsIcons.png");
+
+}
+.runBall.status{
+    background-image: url("../images/in_.gif");
+    background-position:center center;
+}
+.runBall.status_{
+    background-image: url("../images/inStatic.gif");
+    background-position:center center;
+}
+.runBall.cornerBall{
+    background-position:0px center;
+}
+.runBall.hasGoal{
+    background-position:0px center;
+}
+.runBall.penalty{
+    background-position:-17px center;
+}
+.runBall.oolong{
+    background-position:-34px center;
+}
+.runBall.yellowCard{
+    background-position:-51px center;
+}
+.runBall.yellowCard2{
+    background-position:-85px center;
+}
+.runBall.redCard{
+    background-position:-68px center;
+}
+.runBall.downed{
+    /*background-image: url('../images/actionicon.gif');*/
+    background-position:-119px center;
+}
+.runBall.uped{
+    /*background-image: url('../images/actionicon.gif');*/
+    background-position:-102px center;
+}
+.icon-meta .icon-meta-tip{
+    position: relative;
+    top: 5px;
+    font-weight: bold;
+    font-size: 1.4em;
+    line-height: 1.5em;
+}
+.icon-meta .icons{
+    margin-left: -20px;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    color: gray;
+}
+.icon-meta .runBall{
+    margin:0 5px;
+}
+.table>tbody>tr>td,.table>tbody>tr>th{
+    padding: 0;
+    line-height: 38px;
+}
+.table tr td [data-id]{
+    color:red
+}
+.table tr.reserve td [data-id]{
+    color:#1e88d2
+}
+.table{
+    color: #231815;
+}
+.table th{
+    border-top:none !important;
+    background-color: #1e88d2;
+    color: white;
+}
+.table tr .text-left{
+    text-align: left;
+}
+.table tr .text-right{
+    text-align: right;
+}
+.table tr.streak{
+    background-color: #eef9ff;
+}
+.table tr .isBlock{
+    line-height: 22px;
+}
+.stats-table{
+    border: none;
+}
+.stats-table tr>th{
+    border: none;
+    background-color:#dbdcdc ;
+    font-weight: bold;
+    color: #1e88d2;
+}
+.stats-table td.indent{
+    text-indent: -25px;
+}
+.stats-table tr>th.hometeam{
+    color: red;
+}
+.stats-table tr{
+    background-color: #052838;
+}
+.stats-table tr>td{
+    border: none;
+    color: white;
+    border-top: #35505d solid 1px!important;
+}
+.stats-table tr.into-th td{
+    border-color: #dbdcdc;
+    background-color: #dbdcdc;
+    color: #4a4442;
+}
+.stats-table tr.black{
+    background-color: #02141e;
+}
+
+.into-thead,.into-thead td,.into-thead th{
+    border: none;
+}
+.into-thead td{
+    padding:0 10px!important;
+    font-weight: bold;
+    border-bottom: 1px #b4b4b5 solid;
+}
+
+.table-noborder,.table-noborder td{
+    border: none;
+}
+.table-noborder{
+    border-bottom: 1px solid #ddd;
+}
+
+.action-icon{
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    height: 22px;
+    width: 20px;
+    background-repeat: no-repeat;
+    background-image: url('../images/actionicon.gif');
+}
+.action-icon.angle{
+    background-position:-45px center;
+    width: 50px;
+}
+.action-icon.red{
+    background-position:-22px center;
+}
+.action-icon.green{
+    background-position:-2px center;
+}
+
+.table-noborder td{
+    padding:  0 10px!important;
+}
+.table-hasborder tr:first-child td{
+    padding: 0 10px;
+    font-weight: bold;
+}
+.table-tips{
+    line-height: 35px;
+    font-size: 1.2em;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.table-tip{
+    margin: 0 5px;
+}
+.block-tip{
+    margin-top: 5px;
+    line-height: 28px;
+    padding: 0 5px;
+    background-color: #fcf0de;
+    border: #fae4c2 solid 1px;
+}
+.hy-progress{
+    position: relative;
+    top: 6px;
+    display: inline-block;
+    height: 22px;
+    width: 100px;
+}
+.hy-progress.red{
+    background-color: red;
+}
+.hy-progress.blue{
+    background-color: blue;
+}
+.mt4{
+    margin-top: 4px;
+}
+.mt6{
+    margin-top: 6px;
+}
+.pd5{
+    padding: 0 5px;
+}
+.mt-2{
+  margin-top: -2px;
+ }

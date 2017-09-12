@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>9188彩票VIP专享</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<link rel="stylesheet" type="text/css" href="css/vip.css" />
+</head>
+<body class="backgroundColor">
+<article class="padding_top80">
+  <div class="vip_head head_identity"></div>
+  <h1 class="vip_head_h">绑定身份证</h1>
+  <h3 class="vip_head_h3">为保证账号安全，请绑定身份证，<br/>
+保证奖金仅本人可领取</h3>
+  <form class="vip_form">
+  	<ul class="input-group" >
+        <li class="input">
+          <i class="icons icon_user"></i>
+          <input type="text" id="realName" name="username" placeholder="真实姓名" max="15"/>
+        </li>
+        <li class="input">
+          <i class="icons icon_message"></i>
+          <input type="text" id="idCardNo" name="message" placeholder="身份证号码"/>
+        </li>        
+     </ul>
+  </form>
+  <button type="button" class="button  button-3d button-primary" disabled="disabled">完成</button>
+</article>
+
+</body>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/vipRegister/js/jquery.md5.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/vipRegister/js/my.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#realName").html('');//真实姓名
+	$("#pwd").html('');
+	$("#idCardNo").html('');//身份证
+	
+	
+	function dry(){
+		var realName = $("#realName").val()
+		var idCardNo = $("#idCardNo").val()
+		
+		if(realName && idCardNo){
+			$(".button").attr("disabled",false);
+		}else{
+			$(".button").attr("disabled",true);
+		}
+	}
+	
+	$("#realName").bind("input propertychange",function(){
+		dry();
+	});
+	
+	$("#idCardNo").bind("input propertychange",function(){
+		dry();
+	});
+	
+	
+	$(".button").bind("click",function(){
+		binding();
+	})
+	
+	$(".input-group li:eq(0)").bind("click",function(){
+		$("#realName").focus();
+	})
+	
+	$(".input-group li:eq(1)").bind("click",function(){
+		$("#idCardNo").focus();
+	})
+});	
+function binding(){// 提交表单
+	var upwd = localStorage.getItem("iCode")||getParam("iCode");
+	//var upwd = getParam("iCode");
+	var realName = $.trim($("#realName").val())
+	var idCardNo = $.trim($("#idCardNo").val())
+	
+	/***
+	var reg = /^[\u4E00-\u9FA5]+$/;
+	if ($.trim($("#realName").val())==""){
+		alert('请输入您的真实姓名');
+		return false;
+	}
+	if(!reg.test($("#realName").val())){
+		alert('真实姓名必须是中文');
+		return false;
+	}
+	***/
+	
+	var reg = /^[\u4E00-\u9FA5]+$/;
+	var tt = realName;
+	tt = tt.replace(/·/g,'');
+	if(realName.indexOf('.')>=0){
+		realName=realName.replace('.','·');
+		$("#realName").val(realName);
+	}
+	else if(!reg.test(tt) && tt !=''){
+		//$("#ts").show();
+		alert("真实姓名只能为中文")
+		return false;
+	}
+	
+	
+	if (idCardNo==""){
+		alert('请输入您的身份证号码');
+		return false;
+	}
+	if(!IdCardValidate(idCardNo)){
+		alert('请输入正确的身份证');
+		return false;
+	}
+	
+   	 var data={
+   			 "idCardNo":$.md5(idCardNo),
+   			 "realName":encodeURIComponent(realName),
+   			 "upwd":$.md5(upwd+"http://www.9188.com  /"),
+   			 "flag":7
+   	 };
+   	 
+   	 var data1={
+   			realName:$.trim(realName),
+ 			idCardNo:$.trim(idCardNo),
+ 			upwd:$.trim(upwd),
+ 			flag:7
+   	 };
+   	 
+        $.ajax({
+		//url : "http://normal.vip.9188.com  /user/modify.go?flag=7",
+		url : "/user/modify.go",
+		type : "POST",
+		dataType : "xml",
+		data:data1,
+		success : function(xml) {
+			var R = $(xml).find("Resp");
+			var code = R.attr("code");
+			var desc = R.attr("desc");
+			if (code == "0") {
+				window.location.href="download.html";
+			}else {
+				alert(desc)
+			}
+		},
+		error : function() {
+			alert('网络异常');
+			return false;
+		}
+	});
+        return false;
+}
+</script>
+</html>

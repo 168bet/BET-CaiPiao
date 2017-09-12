@@ -1,0 +1,200 @@
+BODY {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; BACKGROUND: #fcfaf8; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+DIV {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+SPAN {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+P {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+B {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+TEXTAREA {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+INPUT {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+SELECT {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+FORM {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+TABLE {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+TR {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+TD {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, "宋体", Arial,Sans; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+BODY {
+	MARGIN: 8px 0px 0px
+}
+
+IMG {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-COLLAPSE: collapse; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+TABLE {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-COLLAPSE: collapse; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+TD {
+	CURSOR: default
+}
+A {
+	COLOR: #1a2e7b; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.a1 {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.inp1 {
+	BORDER-BOTTOM: #a7bccb 1px solid; BORDER-LEFT: #a7bccb 1px solid; BACKGROUND-COLOR: #ffffff; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"; FONT-SIZE: 12px; BORDER-TOP: #a7bccb 1px solid; BORDER-RIGHT: #a7bccb 1px solid
+}
+.inp1m {
+	BACKGROUND-IMAGE: url(frame1.gif); BACKGROUND-REPEAT: no-repeat; CURSOR: text
+}
+.inp1 {
+	BORDER-BOTTOM: #abb2c5 1px solid; BORDER-LEFT: #abb2c5 1px solid; PADDING-LEFT: 2px; HEIGHT: 18px; COLOR: #000; BORDER-TOP: #abb2c5 1px solid; CURSOR: text; BORDER-RIGHT: #abb2c5 1px solid; PADDING-TOP: 1px
+}
+.inp1m {
+	BORDER-BOTTOM: #abb2c5 1px solid; BORDER-LEFT: #abb2c5 1px solid; PADDING-LEFT: 2px; HEIGHT: 18px; COLOR: #000; BORDER-TOP: #abb2c5 1px solid; CURSOR: text; BORDER-RIGHT: #abb2c5 1px solid; PADDING-TOP: 1px
+}
+.inp1 {
+	BACKGROUND-POSITION: 0px 0px; COLOR: #000
+}
+.inp1m {
+	BORDER-BOTTOM: #a7bbd3 1px solid; BORDER-LEFT: #a7bbd3 1px solid; BACKGROUND-POSITION: -476px 0px; COLOR: #000; BORDER-TOP: #a7bbd3 1px solid; BORDER-RIGHT: #a7bbd3 1px solid
+}
+.but_c1 {
+	PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 1px; BACKGROUND-COLOR: #ece9d8; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; BORDER-TOP-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; HEIGHT: 20px; FONT-SIZE: 12px; BORDER-LEFT-WIDTH: 1px; PADDING-TOP: 2px
+}
+.but_c1M {
+	PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 1px; BACKGROUND-COLOR: #ece9d8; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; BORDER-TOP-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; HEIGHT: 20px; FONT-SIZE: 12px; BORDER-LEFT-WIDTH: 1px; PADDING-TOP: 2px
+}
+.but_top {
+	BACKGROUND-IMAGE: url(But_top.gif); BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 2px; BACKGROUND-COLOR: transparent; WIDTH: 62px; BACKGROUND-REPEAT: no-repeat; MARGIN-BOTTOM: 0px; HEIGHT: 23px; BORDER-TOP: 0px; CURSOR: hand; FONT-WEIGHT: bold; BORDER-RIGHT: 0px; PADDING-TOP: 3px
+}
+.but_topM {
+	BACKGROUND-IMAGE: url(But_top.gif); BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 2px; BACKGROUND-COLOR: transparent; WIDTH: 62px; BACKGROUND-REPEAT: no-repeat; MARGIN-BOTTOM: 0px; HEIGHT: 23px; BORDER-TOP: 0px; CURSOR: hand; FONT-WEIGHT: bold; BORDER-RIGHT: 0px; PADDING-TOP: 3px
+}
+.but_top {
+	BACKGROUND-POSITION: 0px 0px; COLOR: #ffffff
+}
+.but_topM {
+	BACKGROUND-POSITION: -63px 0px; COLOR: #ffffa2
+}
+.but_s {
+	BACKGROUND-IMAGE: url(But_s.gif); BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 2px; BACKGROUND-COLOR: transparent; PADDING-LEFT: 4px; WIDTH: 77px; BACKGROUND-REPEAT: no-repeat; MARGIN-BOTTOM: 0px; HEIGHT: 23px; BORDER-TOP: 0px; CURSOR: hand; FONT-WEIGHT: bold; BORDER-RIGHT: 0px; PADDING-TOP: 3px
+}
+.but_sM {
+	BACKGROUND-IMAGE: url(But_s.gif); BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 2px; BACKGROUND-COLOR: transparent; PADDING-LEFT: 4px; WIDTH: 77px; BACKGROUND-REPEAT: no-repeat; MARGIN-BOTTOM: 0px; HEIGHT: 23px; BORDER-TOP: 0px; CURSOR: hand; FONT-WEIGHT: bold; BORDER-RIGHT: 0px; PADDING-TOP: 3px
+}
+.but_s {
+	BACKGROUND-POSITION: 0px 0px; COLOR: #ffffff
+}
+.but_sM {
+	BACKGROUND-POSITION: -78px 0px; COLOR: #ffffa2
+}
+.Ball_List {
+	BORDER-BOTTOM: #f7f0fb 1px solid; BORDER-LEFT: #f7f0fb 1px solid; BACKGROUND-COLOR: #c19ce1; BORDER-TOP: #f7f0fb 1px solid; BORDER-RIGHT: #f7f0fb 1px solid
+}
+.Ball_tr_H {
+	TEXT-ALIGN: center; LINE-HEIGHT: 16px; BACKGROUND-COLOR: #ffffff; HEIGHT: 27px
+}
+.button_a {
+	BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BACKGROUND-COLOR: #d4e5f4; COLOR: #000000; FONT-SIZE: 9pt; BORDER-TOP: #cccccc 1px solid; CURSOR: hand; BORDER-RIGHT: #cccccc 1px solid; PADDING-TOP: 2px
+}
+.tbtitle {
+	BACKGROUND: #f5ece2; COLOR: #000000
+}
+.Jut_caption_1 {
+	BACKGROUND-COLOR: #f7f0fb
+}
+.td_caption_1 {
+	BACKGROUND-IMAGE: url(table_Caption.gif); TEXT-ALIGN: center; LINE-HEIGHT: 22px; COLOR: #ffffff; VERTICAL-ALIGN: 10%
+}
+.Jut_caption_2 {
+	BACKGROUND-COLOR: #e4e4ff
+}
+.td_caption_2 {
+	BACKGROUND-IMAGE: url(td_caption_2.jpg); TEXT-ALIGN: center; LINE-HEIGHT: 22px; BACKGROUND-COLOR: #bfdfff; COLOR: #ffffff; VERTICAL-ALIGN: 10%; FONT-WEIGHT: bold
+}
+.multiple_Red {
+	FONT-FAMILY: Arial, Helvetica, Verdana, Geneva,  sans-serif; COLOR: #0000ff; FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+.Font_R {
+	COLOR: #ff0000
+}
+.Font_B {
+	COLOR: #2836f4
+}
+.Font_G {
+	COLOR: #299a26
+}
+.F_bold {
+	FONT-WEIGHT: bold
+}
+.TD_R {
+	BACKGROUND-COLOR: #f5a9a9
+}
+.TD_B {
+	BACKGROUND-COLOR: #a9b9f5
+}
+.TD_G {
+	BACKGROUND-COLOR: #a9f5b0
+}
+.t_list_tr_0 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 17px; BACKGROUND-COLOR: #ffffff; HEIGHT: 20px
+}
+.t_list_tr_1 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 17px; BACKGROUND-COLOR: #f7f0fb; HEIGHT: 20px
+}
+.t_list_tr_sum {
+	TEXT-ALIGN: center; LINE-HEIGHT: 20px; BACKGROUND-COLOR: #eaeaea; FONT-WEIGHT: bold
+}
+.t_Edit_td {
+	TEXT-ALIGN: left; LINE-HEIGHT: 28px; BACKGROUND-COLOR: #ffffff; TEXT-INDENT: 3px; PADDING-LEFT: 5px
+}
+.t_list {
+	BORDER-BOTTOM: #f7f0fb 1px solid; BORDER-LEFT: #f7f0fb 1px solid; BACKGROUND-COLOR: #c19ce1; BORDER-TOP: #f7f0fb 1px solid; BORDER-RIGHT: #f7f0fb 1px solid
+}
+.t_list_caption {
+	BACKGROUND-IMAGE: url(table_Caption.gif); TEXT-ALIGN: center; LINE-HEIGHT: 22px; COLOR: #ffffff
+}
+.t_list_bottom {
+	BACKGROUND-IMAGE: url(table_bottom.gif); TEXT-ALIGN: center; LINE-HEIGHT: 22px; COLOR: #ffffff
+}
+.f_left {
+	TEXT-ALIGN: left; TEXT-INDENT: 3px
+}
+.f_center {
+	TEXT-ALIGN: center; TEXT-INDENT: 3px
+}
+.f_right {
+	TEXT-ALIGN: right
+}
+.jeu_XZ_Type {
+	COLOR: #2836f4
+}
+.jeu_multiple {
+	COLOR: #ff0000; FONT-WEIGHT: bold
+}
+.jeu_OpenLottery {
+	COLOR: #299a26
+}
+.TDb_R {
+	BACKGROUND-COLOR: #ffd5d5; COLOR: #ff0000
+}
+.Check_NO {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffa2
+}
+#allgold{ display:none}

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>新人大礼，55元免费送</title>
+<style type="text/css">
+body{ margin:0; padding:0; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#272727; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+em,cite{ font-style:normal}
+.jion{ display:block; width:67%; text-align:center; line-height:2.3rem; margin:1.2rem auto; text-decoration:none; background:#ff9130; color:#fff; font-size:1.2rem; letter-spacing:.1rem; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem; box-shadow:0 .25rem 0 #db8229; -webkit-box-shadow:0 .25rem 0 #db8229; -moz-box-shadow:0 .25rem 0 #db8229}
+.text{ padding:1.5rem 7%}
+.bz{ background:#ffe7c2; height:4rem; padding:.9rem 0 0 4%; overflow:hidden; zoom:1}
+.bz span{ float:left; width:37%}
+.bz span em{ display:block; width:5.81rem; height:3.34rem; margin-left:.3rem; background:url(xrlb/pic.png) no-repeat center; background-size:5.81rem 3.34rem; -webkit-background-size:5.81rem 3.34rem; -moz-background-size:5.81rem 3.34rem}
+.bz span em.five{ width:6.12rem; height:3.59rem; background:url(xrlb/pic2.png) no-repeat center; background-size:6.12rem 3.59rem; -webkit-background-size:6.12rem 3.59rem; -moz-background-size:6.12rem 3.59rem; margin-left:0}
+.left{ float:left; width:61%; padding-left:2%}
+.left p{ font-size:.95rem; color:#7e4e1b}
+.left em{ display:block; color:#b18556; font-size:.75rem; margin:.5rem 0 0 0}
+.arrow{ position:relative; width:1.94rem; height:1.94rem; background:#e9a462; margin:.5rem auto; border-radius:1.94rem; -webkit-border-radius:1.94rem; -moz-border-radius:1.94rem}
+.arrow:before{ position:absolute; content:""; top:.45rem; left:.6rem; width:.6rem; height:.6rem; border-left:.2rem solid #ffe1bf; border-bottom:.2rem solid #ffe1bf; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.hdgz{ padding:.8rem 0 0 0; color:#7e4e1b; font-size:.9rem}
+.hdgz span{ display:block; color:#ff2c2c; font-size:1.1rem}
+.hdgz p{ line-height:1.2rem; padding-top:.8rem}
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:1}
+.popup{ position:fixed; display:none; top:30%; left:3.5%; background:#feffee; padding:0 0 1rem 0; width:93%; z-index:2}
+.popup p{ width:80%; margin:0 auto; padding:1rem 0 .5rem 0; line-height:1.5rem; font-size:.875rem; text-align:left; letter-spacing:.05rem; color:#636363}
+.btn{width:88%; margin:0 auto; overflow:hidden; zoom:1}
+.btn span{ float:left; width:45%; text-decoration:none; padding:.4rem 0 .2rem 0; line-height:1.5rem; text-align:center; color:#fff; background:#ff9130; font-size:1.06rem; margin:.8rem auto 0 auto; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.btn span:last-child{ float:right}
+.wxts{ line-height:2.13rem; color:#6e642b; background:#ffedc1; font-size:1.06rem; text-align:center}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:1;left:0;top:0; display: none;}
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -90px;background:#000;color:#fff;width:180px;height:35px;line-height:35px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:100}
+
+.zfPop {
+    background: none repeat scroll 0 0 #fff;
+    border-radius: 0.4rem;
+    width: 18.5rem;
+    position: fixed;
+    z-index: 2;
+    top:50%;
+    left:50%;
+    margin-left:-9.25rem;
+    margin-top:-4rem;
+    height:8rem;
+    display:none;
+}
+.pdLeft08 {
+    text-align: center;
+    height:1.5rem;
+    padding-top:2rem;
+}
+.clearfix {
+    overflow: hidden;
+}
+.zfTrue {
+    border-top: 1px solid #ccc;
+    font-size: 1rem;
+    line-height: 2.5rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+.zfTrue a {
+    color: #106fe5;
+    float: left;
+    width: 49.5%;
+}
+.zfTrue a.zfqx {
+    border-right: 1px solid #ccc;
+}
+.tureBtn {
+    border-top: 1px solid #ccc;
+    color: #f6851f;
+    display: block;
+    font-size: 1.05rem;
+    line-height: 2.5rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+.pdTop03{
+	text-align: center;
+    height:1.5rem;
+    padding-top:2rem;
+}
+</style>
+<body style="background:#f9d2a5">
+<div class="mask" id='mask'></div>
+<section class="zfPop" id="dAlert"><p class="pdTop03"></p><a id=ok class="tureBtn" href="javascript:;">确定</a></section>
+<section class="zfPop" id="dconfirm_"><div class="clearfix pdLeft08"></div><div class="zfTrue clearfix"><a id=xo class="zfqx" href="javascript:;">关闭</a><a id=ox href="javascript:;">去完善</a></div></section>
+	<figure style="overflow:hidden"><img src="xrlb/banner.png" width="100%"></figure>
+    <article class="text">
+        <div class="bz">
+            <span><em></em></span>
+            <div class="left">
+				<p>限新注册用户</p>
+				<em>（需验证手机号）</em>
+			</div>
+		</div>
+    	<a href="javascript:get5();" class="jion">立即领取</a>
+        <div class="bz">
+            <span><em class="five"></em></span>
+            <div class="left">
+				<p>限首次充值满20元用户</p>
+				<em>（需验证手机号、实名认证）</em>
+			</div>
+		</div>
+    	<a href="javascript:get50();" class="jion">立即领取</a>
+    	<div class="hdgz">
+    		<span>活动规则&gt;&gt;</span>
+    		<p>1、本次活动限新用户参与，每用户仅1次机会(手机号/身份证号任一信息已在网站使用过的均视为老用户)，享受网他其他优惠的用户不能参与；</p>
+    		<p>2、注册并验证手机号即送5元（满10减1）；</p>
+    		<p>3、首次充值满20送20元（5元无限制红包+15元满10减1红包），充值前须实名认证；活动前注册的用户如果是首次充值也能参与；</p>
+    		<p>4、注册次月起每月自购满50元即送10元红包，连续送3月（如12月注册，1-3月每月均自购满50元可获10元无限制红包）；</p>
+    		<p>5、用户首次充值金额及所赠红包不可提现，赠送红包自派送之日起，一个月内有效。</p>
+            <p>6、安卓用户限客户端版本号3.5.1以上参与，IOS暂不限制版本号。</p>
+            <p>7、在法律许可范围内，9188彩票网保留本次活动解释权，若用户作弊将查封账号，如有疑问请致电400-673-9188。</p>
+    	</div>
+    </article>
+    <script type="text/javascript" src='xrlb/zepto.js'></script>
+    <script>
+    var CP = {};
+    CP.MobileVer = (function () {
+    	var u = navigator.userAgent;
+    	var obj = {
+    		android: false,
+    		ios: false,
+    		ios7: false,
+    		ipad: false
+    	};
+    	obj.android = (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1);
+    	obj.ios = (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/));
+    	obj.ipad = u.indexOf('iPad') > -1;
+    	if (obj.ios) {
+    		if (u.indexOf('7_') > -1) {
+    			obj.ios7 = true;
+    		}
+    	}
+    	return obj;
+    })();
+  //公用弹出层和加载层
+    var win_alert = alert;
+    window['alert'] = function (msg, loading) {
+    	if (!loading) {
+    		clearTimeout(window.alert.time);
+    		var obj = $('<div class="alertBox">' + msg + '</div>');
+    		$('body').append(obj);
+    		window.alert.time = setTimeout(function () {
+    			$(".alertBox").remove();
+    		}, 1e3);
+    	} else {
+    		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+    		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+    		$('#mask').show();
+    	}
+    };
+    var source = location.search.getParam('source');
+    var appversion = location.search.getParam('appversion');
+    var remove_alert = function () {
+    	$('.alertBox').remove();
+    	$('#mask').hide();
+    };
+    function confirm_(msg){
+		$('#mask').show();
+		$('#dconfirm_').show();
+		$('#dconfirm_ div.pdLeft08').html(msg);
+	}
+    function alert_(msg){
+    	$('#mask').show();
+		$('#dAlert').show();
+		$('#dAlert p.pdTop03').html(msg);
+    }
+    $('#xo').bind('click',function (){//取消
+		$('#dconfirm_, #mask').hide();
+	});
+    $('#ok').bind('click',function (){//取消
+		$('#dAlert, #mask').hide();
+	});
+    function get5(){
+    	if(CP.MobileVer.android){
+   			window.caiyiandroid.clickAndroid(1000, '');
+    	}else{//ios
+    		alert('加载中...','load');
+    		$.ajax({
+    			url:'/activity/getRegisterCoupon.go',
+    			data:{
+    				'source':source,
+    				'appversion':appversion
+    			},
+    			type:'POST',
+    			dataType:'xml',
+    			success:function (xml) {
+    				remove_alert();
+    				var R = $(xml).find('Resp');
+    				var code = R.attr('code');//0 领取成功 1 领取失败  -2 未绑定手机   -3 未实名  -4 未实名且未绑定手机 -5未充值过
+    				var desc = R.attr('desc');
+    				if(code == '0'){
+    					alert_('恭喜您已成功领取红包，请在”我的彩票--红包余额“里查看吧！');
+    				}else if(code == '2'){//手机未绑定
+    						confirm_('领取红包前,需先完善手机绑定哦!');
+    						$('#ox').one('click',function (){//确定
+    							$('#mask').hide();
+    							$('#dconfirm_').hide();
+    							window.location.href='/m/alone/phone.html';
+    						})
+    				}else{
+    					if(desc.indexOf('未登录')>=0){
+    						window.location.href='/m/alone/register.html?source='+source;
+    					}else{
+    						alert_(desc);
+    					}
+    				}
+    			},
+    			error:function(){
+    				remove_alert();
+    				alert('信息获取失败请重试');
+    			}
+    		});
+    	}
+    }
+	function get50(){
+		if(CP.MobileVer.android){
+   			window.caiyiandroid.clickAndroid(1001, '');
+    	}else{//ios
+    		alert('加载中...','load');
+    		$.ajax({
+    			url:'/activity/getRechargeCoupon.go',
+    			data:{
+    				'source':source,
+    				'appversion':appversion
+    			},
+    			type:'POST',
+    			dataType:'xml',
+    			success:function (xml) {
+    				remove_alert();
+    				var R = $(xml).find('Resp');
+    				var code = R.attr('code');//0 领取成功 1 领取失败  -2 未绑定手机   -3 未实名  -4 未实名且未绑定手机 -5未充值过
+    				var desc = R.attr('desc');
+    				if(code == '0'){
+    					alert_('恭喜您已成功领取红包，请在”我的彩票--红包余额“里查看吧！')
+    				}else if(code == '4'){
+    					confirm_('领取红包前，需先完善手机绑定和实名认证哦！');
+    					$('#ox').one('click',function (){//确定
+							$('#mask').hide();
+							$('#dconfirm_').hide();
+							window.location.href='/m/alone/phone.html';
+						});
+    				}else if(code == '2'){//手机未绑定
+    					confirm_('领取红包前，需先完善手机绑定哦!');
+						$('#ox').one('click',function (){//确定
+							$('#mask').hide();
+							$('#dconfirm_').hide();
+							window.location.href='/m/alone/phone.html';
+						});
+    				}else if(code == '3'){//身份证未绑定
+    					confirm_('领取红包前，需先完善实名认证哦!');
+    					$('#ox').one('click',function (){//确定
+							$('#mask').hide();
+							$('#dconfirm_').hide();
+							window.location.href='/m/alone/idcard.html';
+						});
+    				}else if(code == '5'){
+    					confirm_('萌萌哒，需首次充值满20元方可领取哦!');
+    				}else{
+    					if(desc.indexOf('未登录')>=0){
+    						window.location.href='/m/alone/register.html?source='+source;
+    					}else{
+    						alert_(desc);
+    					}
+    				}
+    			},
+    			error:function(){
+    				remove_alert();
+    				alert('信息获取失败请重试');
+    			}
+    		});
+    	}
+    }
+    </script>
+</body>

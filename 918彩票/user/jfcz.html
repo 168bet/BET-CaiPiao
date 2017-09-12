@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>购买积分</title>
+<style type="text/css">
+body{ background:#f7f7f7; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+p{ line-height:1.2rem}
+a{ color:#333; text-decoration:none}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}.clearfix{ overflow:hidden; zoom:1}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.left{ float:left}
+.right{ float:right}
+.red{ color:#db150b}
+.clear{ clear:both}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#db150b}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.cztitle{ line-height:2.5rem; background:#fff; padding:0 0 0 2%; border-bottom:1px solid #dadddd; font-size:.75rem}
+.cztitle span{ display:inline-block; width:31%}
+.cztitle cite{ display:inline-block; width:34.5%}
+.cztext{ padding:0 5%}
+.cztext p{ line-height:3rem; font-size:.75rem}
+.cztext p cite{ font-size:.94rem; color:#db150b; padding-right:.2rem}
+.cztext p em{ color:#8e8e8e}
+.cztext ul li{ overflow:hidden; zoom:1}
+.cztext ul li span{ float:left; width:30.6%; margin:0 4% .94rem 0; text-align:center; line-height:2.2rem; font-size:.75rem; background:#fff; color:#db150b; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.cztext ul li span.cur{ background:#db150b; color:#fff}
+.cztext ul li span:last-child{ margin-right:0}
+.ture{ display:block; text-align:center; line-height:2.8rem; background:#f26c60; font-size:1.2rem; margin-top:.6rem; color:#fff; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(163,163,163,0.6); z-index:999}
+.zfpop{ position:absolute; width:90%; top:20%; left:5%; z-index:1000; background:#fff; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem}
+.zfpop h4{ padding:1rem 0; font-size:1.125rem; text-align:center}
+.poptzText{ padding-left:1rem}
+.poptzText p{ line-height:1.8rem; font-size:.875rem}
+.zfTrue{ line-height:2.5rem; font-size:1rem; margin-top:1rem; text-align:center; border-top:1px solid #ccc; background:#fff; overflow:hidden; zoom:1; border-radius:0 0 .4rem .4rem; -webkit-border-radius:0 0 .4rem .4rem; -moz-border-radius:0 0 .4rem .4rem}
+.zfTrue a{ float:left; color:#106fe5; width:49.5%}
+.zfTrue a.zfqx{ border-right:1px solid #ccc }
+
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+</style>
+<body>
+<section class="zfpop" id="buyConfirm" style="display:none;">
+    <h4>提示</h4>
+    <div class="poptzText" id="confirm">
+    	<p>购买金额： <cite class="red">0元</cite></p>
+    	<p>账户余额： <cite class="red">2.54元</cite></p>
+    </div>
+    <div class="zfTrue"><a href="#" class="zfqx">取消</a><a href="#">去充值</a></div>
+</section>
+<div class="zhezhao" style="display:none;"></div>
+<header class="tzHeader">
+	<section class="fcHeader fixed2">
+		<h1>购买积分</h1>
+		<a id="prevClick" href="javascript:;" class="fcbackIco2"></a>
+	</section>
+</header>
+<article>
+	<div class="cztitle" id="user"><span><!-- 小女子玩竞彩 --></span><cite><!-- 余额:500 --></cite><cite><!-- 积分:20043 --></cite></div>
+	<div class="cztext">
+    	<p>选择购买积分的个数</p>
+        <ul id="select">
+        	<li><span data="1000" class="cur">1000积分</span><span data="2000">2000积分</span><span data="5000">5000积分</span></li>        	
+        	<li><span data="10000">1万积分</span><span data="20000">2万积分</span><span data="50000">5万积分</span></li>
+        	<li><span data="100000">10万积分</span><span data="500000">50万积分</span><span data="1000000">100万积分</span></li>
+        </ul>
+        <p id="toMoney">应付金额：<cite>100元</cite><em>(1000积分/元)</em></p>
+        <div class="ture" id="buy">立即购买</div>
+    </div>
+</article>
+</body>
+
+<script src="/js/public/jquery-1.9.1.min.js"></script>
+<script>
+var CP = {};
+/**
+ * @description 获取手机系统
+ * @return {object}
+ * @example CP.MobileVer.android;
+ * @memberOf CP
+ */
+CP.MobileVer = (function ($) {
+	var u = navigator.userAgent;
+	var obj = {
+		android: false,
+		ios: false,
+		ios7: false,
+		ipad: false
+	};
+	obj.android = (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1);
+	obj.ios = (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/));
+	obj.ipad = u.indexOf('iPad') > -1;
+	if (obj.ios) {
+		if (u.indexOf('7_') > -1) {
+			obj.ios7 = true;
+		}
+	}
+	return obj;
+})();
+	
+//公用弹出层和加载层
+var win_alert = alert;
+window['alert'] = function (msg, loading) {
+	if (!loading) {
+		clearTimeout(window.alert.time);
+		var obj = $('<div class="alertBox">' + msg + '</div>');
+		$('body').append(obj);
+		window.alert.time = setTimeout(function () {
+			$(".alertBox").remove();
+		}, 2000);
+	} else {
+		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+		$('#mask').show();
+	}
+};
+var remove_alert = function () {
+	$('.alertBox').remove();
+	$('#mask').hide();
+};
+var D = {
+		/*
+		 * @param msg 弹窗内容
+		 * @param fn 回调方法
+		 * @param tag 需要改版按钮的文字
+		 */
+		confirm:function(fn, tag1, tag2, fn1){
+			tag1 && $('.zfTrue a:eq(0)').html(tag1) || $('.zfTrue a:eq(0)').html('取消');
+			tag2 && $('.zfTrue a:eq(1)').html(tag2) || $('.zfTrue a:eq(1)').html('确定');
+			$('.zhezhao, #buyConfirm').show();
+			$('.zfTrue a:eq(0)').off().bind('click',function(){//取消
+				if(typeof(fn1) == "function"){fn1();}
+				$('.zhezhao, #buyConfirm').hide();
+			});
+			$('.zfTrue a:eq(1)').off().bind('click',function(){//确定
+				if(typeof(fn) == "function"){fn();}
+				$('.zhezhao, #buyConfirm').hide();
+			});
+		},
+};
+$(function(){
+	var czjf = '';
+	var money = '';
+	var loding = function(){
+		$.ajax({ //更新最新用户资金信息
+			url: "/user/query.go?flag=61&rnd=" + Math.random(),
+			dataType:'xml',
+			success:function(xml){
+			var R = $(xml).find("Resp");
+			var code = R.attr("code")
+			if (code == 0) {
+				$(xml).find("row").each(function() {
+					var cnickid = $(this).attr('nickid');
+					var userMoney = parseFloat($(this).attr("usermoeny"));
+					var ipoint = parseFloat($(this).attr('ipoint'));
+					
+					$('#user span').html(cnickid);	//用户名
+					$('#user cite:eq(0)').html("余额：" + userMoney + "元");	//账户余额
+					$('#user cite:eq(1)').html("积分：" + ipoint);	//可用积分
+					$("#confirm p:eq(1) cite").html(userMoney + "元");	//确认购买-账户余额
+					money = userMoney;
+				});
+			}else if(code == 1){
+				alert('用户未登录');
+				setTimeout(function () {
+					var url='/alone/login.html';
+					if(CP.MobileVer.android){//android
+						try {
+							window.caiyiandroid.clickAndroid(3, '');
+						} catch (e){
+							window.location.href = url;
+						}
+					}else if(CP.MobileVer.ios || CP.MobileVer.ipad){//ios
+						try {
+							WebViewJavascriptBridge.callHandler('clickIosLogin');
+						} catch (e){
+							window.location.href = url;
+						}
+					}else{//4g
+						window.location.href = url;
+					}
+				}, 1e3);
+			}
+			}
+		});
+	};
+	var init = function(){
+		czjf = $(".cur").attr('data');//充值积分
+		$("#toMoney cite,#confirm p:eq(0) cite").html(czjf/1000 + "元");	//购买金额
+	};
+	
+	//选择充值积分数量
+	$("#select span").click(function(){
+		$("#select span").removeClass('cur');
+		$(this).addClass('cur');
+		init();
+	});
+	
+	//立即购买
+	$("#buy").click(function(){
+		if(money < (czjf/1000)){
+			D.confirm(function(){
+				//window.location.href = "/user/charge.html";
+				var url = '/#type=url&p=user/charge.html';
+				if(CP.MobileVer.android){//android
+					try {
+						window.caiyiandroid.clickAndroid(7, '');//充值
+					} catch (e){
+						window.location.href = url;
+					}
+				}else if(CP.MobileVer.ios || CP.MobileVer.ipad){//ios
+					try {
+						WebViewJavascriptBridge.callHandler('callBackIOS','3');
+					} catch (e){
+						window.location.href = url;
+					}
+				}else{//4g
+					window.location.href = url;
+				}
+			},'取消','去充值');
+		}else{
+			D.confirm(function(){
+				var param = {
+						purchase: czjf/1000,	//充值金额
+						purchval: czjf	//充值积分
+					};
+				$.ajax({
+					url: '/user/buypoints.go',
+					method: 'POST',
+					data: param,
+					success: function(xml) {
+						var R = $(xml).find("Resp");
+						var code = R.attr("code");
+						var desc = R.attr('desc');
+						
+						if (code == 0) {	//充值成功
+							alert(desc);
+							loding();
+						} else {
+							alert(desc);
+						}
+					}
+				});
+			},'取消','确定');
+		}
+	});
+	
+	//返回上一页
+	$("#prevClick").click(function(){
+		/***
+		if(document.referrer !=''){//上一个页面为空
+			//window.history.back();
+		***/
+			if (/(iPhone|iPad|iPod)/i.test(navigator.userAgent)) {             
+	           // window.location.href = window.document.referrer;
+		    	window.history.go("-1");
+
+			} else {
+		    	window.history.go("-1");
+		    }
+		/***
+		}else{
+			window.location.replace('/#type=url&p=user/jfmx.html');
+		}
+		***/
+	});
+	
+	init();
+	loding();
+});
+</script>

@@ -1,0 +1,77 @@
+<nav>
+    <div class="container">
+        <div class="crumbs" style="margin-top: 5px;">
+            <i class="crumbs-icon"></i>当前位置：
+            <a href="{APP_PATH}" class="orange">首页</a>&gt;
+            <a href="{APP_PATH}zqevent/" class="orange">足球资料库</a>&gt;
+            <a href="{APP_PATH}competition/{$gameinfo['competitionid']}/schedule/" class="orange">{$gameinfo['competitionshortname']}</a>&gt;
+            {$gameinfo['homeshortname']} vs {$gameinfo['awayshortname']}
+        </div>
+        <div class="row matchNav">
+
+            <div class="matchNav-hd clearfix">
+                <div class="col-md-4">
+                    <div class="match-tip">
+                        <a target="_blank" href="{APP_PATH}competition/{$gameinfo['competitionid']}/schedule/">
+                            <span>{$gameinfo['competitionshortname']}</span>
+                        </a>
+                        <time>{date('Y-m-d H:i', $gameinfo['date'])}</time>
+                    </div>
+                    <div class="match-team">
+                        <div class="team-rank">联赛排名：{$gameinfo['homerank']}</div>
+                        <div class="team-name">
+                            <a target="_blank" href="{APP_PATH}team/{$gameinfo['hometeamid']}/">
+                                {$gameinfo['homeshortname']}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="match-team-icon">
+                        <a target="_blank" href="{APP_PATH}team/{$gameinfo['hometeamid']}/">
+                            <img src="{PHOTO_PATH}team/{$gameinfo['hometeamid']}.jpg" alt="{$gameinfo['homename']}" class="team-photo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="match-score">
+                        <div class="line-score">
+                            <div class="team-score">{$gameinfo['homescore']}:{$gameinfo['awayscore']}</div>
+                            <div>半场{join(':',explode('-',$gameinfo['half']))}</div>
+                        </div>
+                        <div class="line-site">
+                            <div><i class="site-icon"></i>{$gameinfo['stadium']}</div>
+                            <div>
+                                <i class="weather-icon {$gameinfo['weather_style']}"></i>{$gameinfo['weather']}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 right">
+                    <div class="match-team-icon">
+                        <a target="_blank" href="{APP_PATH}team/{$gameinfo['awayteamid']}/">
+                            <img src="{PHOTO_PATH}team/{$gameinfo['awayteamid']}.jpg" alt="{$gameinfo['awayname']}" class="team-photo">
+                        </a>
+                    </div>
+                    <div class="match-team">
+                        <div class="team-rank">联赛排名：{$gameinfo['awayrank']}</div>
+                        <div class="team-name">
+                            <a target="_blank" href="{APP_PATH}team/{$gameinfo['awayteamid']}/">
+                                {$gameinfo['awayshortname']}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="matchNavBar">
+                <ul class="clearfix">
+                    <li><a href="{APP_PATH}game/{$gameid}/analyse/"  class="{if $tag_analyse}active{/if}">数据统计</a></li>
+                    <li><a href="{APP_PATH}game/{$gameid}/oddseuro/"  class="{if $tag_euro}active{/if}">欧洲指数</a></li>
+                    <li><a href="{APP_PATH}game/{$gameid}/oddsasia/"  class="{if $tag_asia}active{/if}">亚洲盘口</a></li>
+                    <li><a href="{APP_PATH}game/{$gameid}/oddsou/"  class="{if $tag_ou}active{/if}">大小指数</a></li>
+                    <li><a href="{APP_PATH}game/{$gameid}/stats/"  class="{if $tag_stat}active{/if}">技术统计</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>

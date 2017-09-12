@@ -1,0 +1,52 @@
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<script>
+function init() {
+	if (top.flash_cont_cutoff == "Y") {
+		var swf_str = "";
+		swf_str = "<object id=\"FlashContent\" classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\""+
+		              "width=\"0%\" height=\"0%\" codebase='http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab'>"+
+		              "<param name=\"movie\" value=\"../../app/other_set/Content.swf\" />"+
+		              "<param name=\"quality\" value=\"high\" />"+
+		              "<param name=\"bgcolor\" value=\"#869ca7\" />"+
+		              "<param name=\"allowScriptAccess\" value=\"sameDomain\" />"+
+		              "<embed name=\"FlashContent\" id=\"FlashContent\" src=\"../../app/other_set/Content.swf\" quality=\"high\" bgcolor=\"#869ca7\""+
+		                  "width=\"0%\" height=\"0%\" align=\"middle\""+
+		                  "play=\"true\""+
+		                  "loop=\"false\""+
+		                  "quality=\"high\""+
+		                  "allowScriptAccess=\"sameDomain\""+
+		                  "type=\"application/x-shockwave-flash\""+
+		                  "pluginspage='http://www.adobe.com/go/getflashplayer'>"+
+		              "</embed>"+
+		          "</object>";
+		document.getElementById("swf").innerHTML = swf_str;
+	}
+}
+
+function callas(Datas){
+	Datas = document.location.href;
+	FlashContent.JScall(Datas);
+}
+
+function getHostName(){
+	var HostName = document.location.protocol+"//"+document.location.host;
+	return HostName;
+}
+
+function getUID(){
+	return top.user_id;
+}
+
+function initApp() {
+	FlashContent.GetJSData(document.domain,8080,top.flash_cont_flag);
+}
+</script>
+</head>
+
+<body oncontextmenu="window.event.returnValue=false" onload="init();">
+<div id="swf"></div>
+<iframe id="WriteRecord" name="WriteRecord" width="0" height="0" src="../../ok.html"></iframe>
+</body>
+</html>

@@ -1,0 +1,105 @@
+/*page start*/
+.mr5 {
+    margin-right: 5px;
+}
+.page{
+    text-align: center;
+    overflow: hidden;
+    margin: 0 auto;
+    font-size: 14px;
+    display: table;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.page li {
+    margin: 0 5px;
+    display: inline-block;
+    float: left;
+    line-height: 30px;
+}
+.page li a{
+    color: #bbbbbb;
+    font-weight: bold;
+}
+.page li:first-child,.page li:last-child{
+
+
+}
+.page li.prev,.page li.next{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e7ebeb;
+    margin: 0 5px;
+}
+.page li:first-child a,.page li:last-child a{
+    color: #000;
+}
+.page li a {
+    width: auto;
+}
+.page li.active{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffa21d;
+    color: #fff;
+}
+.page .page-grey{
+    color:#bbb;
+}
+.page .page-cur{
+    color: #606263;
+}
+.page .arrow-color{
+    color: #606263;
+}
+/*page end*/
+
+/*微信start*/
+.weixin-share{
+    display: none;
+    width:360px;
+    height:360px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-left:-180px;
+    margin-top:-180px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1),-2px 0px 2px rgba(0,0,0,0.1);
+    background:#fff;
+    border-radius:5px;
+    padding:10px;
+    z-index:9999;
+}
+.weixin-share .weixin-header{
+    height:50px;
+    line-height:30px;
+    font-size:24px;
+    position:relative;
+    padding:10px;
+    text-align: center;
+}
+.weixin-share .weixin-share-close{
+    position: absolute;
+    right:10px;
+    top:10px;
+    width:28px;
+    height:28px;
+    line-height:28px;
+    cursor: pointer;
+}
+.weixin-share .weixin-code{
+    width:250px;
+    margin:0 auto;
+    height:250px;
+    padding-top:15px;
+}
+.weixin-share .weixin-footer{
+    height:30px;
+    line-height:30px;
+    font-size:12px;
+}
+
+
+/*微信end*/

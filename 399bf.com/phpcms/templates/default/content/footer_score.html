@@ -1,0 +1,31 @@
+<!--footer start-->
+<footer class="footer bf-footer">
+    <div class="container">
+        <div class="row ">
+            <a href="{APP_PATH}" class="footer-logo" title="...">
+                <img src="{IMG_PATH}logo.png">
+            </a>
+            <div class="content">
+                <h3>为您提供快速、稳定的即时比分服务</h3>
+                <p>看比分直播上火冶网，为您提供全网最全最快的足球比分直播，同时为您提供最详细的足球比分赛程、足球完场比分、足
+                    彩比分等数据服务，比分直播涵盖世界范围足球联赛的精准权威足球比分服务。</p>
+            </div>
+        </div>
+        <div class="row copytight">
+            © 2016 HuoYe. All rights reserved.
+        </div>
+    </div>
+</footer>
+<!--footer end-->
+<script src="{JS_PATH}jquery-1.11.3.min.js"></script>
+<script src="{JS_PATH}bootstrap.js"></script>
+<script src="{JS_PATH}common.js"></script>
+<script src="{JS_PATH}navication.js"></script>
+{if isset($js) && is_array($js) && count($js)}
+{loop $js $data}
+<script src="{JS_PATH}{$data}"></script>
+{/loop}
+{/if}
+
+</body>
+</html>

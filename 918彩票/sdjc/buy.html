@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<link href="css/dashen.css" rel="stylesheet">
+<link href="css/swiper.css" rel="stylesheet">
+<style type="text/css">
+	.myMore {
+	    display: block;
+	    height:2.4rem; line-height:2.4rem;
+	    background: #fff;
+	    text-align: center;
+	    font-size:.875rem; 
+	    color:#2395ff;
+	    text-decoration: none;
+	    cursor:pointer;
+	}
+
+	/* 弹出确认框 */
+	.que_t{padding: 1rem 0;}        
+	.que_h{display:block; padding: .5rem 0 1rem;line-height:1rem;  font-size:1rem; font-weight:bold;}
+	.que_x{display:block; padding:0 8% .8rem; line-height: 1.5rem;font-size:.875rem; border-bottom:1px solid #dadad9;}
+	.ok{ display:block; width:100%; height:1.5rem; line-height:1.3rem;color:#2e92fe;font-size:1rem;}
+	a.ok:link,a.ok:visited,a.ok:hover,a.ok:active{text-decoration: none;}
+	
+
+	.buy_box .p8{font-size:1.125rem;color:#999999;line-height:3.125rem; text-align:center;}
+
+	.empty_user{ width:100%;height:13rem;background:url(/sdjc/img/empty.png) center 2.2rem no-repeat; background-size:5.625rem 5.625rem;}
+	.empty_user p{ text-align:center;font-size:0.9375rem;color:#cfcfcf;padding-top:8.5rem;}
+
+
+	.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:10000}
+	.popup{ width:76%; padding: .7rem 7%; position:fixed; top:20%; left:5%; background:#f4f5db; color:#da8620; z-index:10001; -webkit-border-radius:.4rem}
+	.popup h4{ padding: .7rem 0 .4rem 0; margin-bottom: .4rem; font-size:1.0rem; text-align:center; font-weight:normal; border-bottom: 1px solid #c69902;}
+	.zfTrue{ overflow:hidden; zoom:1}
+	.zfTrue a{ float:right; line-height:2.2rem; font-size:1.1rem; margin:1.25rem 0 .8rem 0; text-align:center; color:#fff; background:#f0360b; width:35%; text-decoration:none; -webkit-border-radius:.4rem}
+	.zfTrue a.zfqx{ float: left}
+	
+	.zfTrue a.bfb{ float:none; display:block; width:90%; margin:1.5rem auto 1rem auto}
+	
+		/*msg弹窗*/
+	@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+	@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+	@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+	.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+	
+	
+	/*遮罩层*/
+.mask{background:#000;background: -webkit-radial-gradient(center,rgba(0,0,0,.3),rgba(0,0,0,1) 80%);opacity:.4;width:100%;height:150%;position:fixed;z-index:9998;left:0;top:0; display: none;}
+</style>
+<title>神单详情</title>
+</html>
+<body>
+	<!--下载置顶-->
+	<div class="head_load clearfix" style='display:none'>
+		<div class="head_close"></div><!--close-->
+		<div class="head_logo"></div><!--logo-->
+		<a  class="head_btn"></a><!--load-->
+	</div>
+	<div class="height_h" id="heah_h"></div>
+	<div class="height_h" id="heah_h" style="height:2.5rem"></div>
+	<section class="jcds_head line_gray" style='top:3.125rem'>
+		<i class="jcds_head_back"></i>
+		<h1>神单详情</h1>
+	</section>
+	<!-- <div class  id='heah_h'></div> -->
+	<!--  "height_h"-->
+	<!--下载置顶-->
+	<section class="wrap">
+			<!--头部-->
+			<div class="title_box line_gray">
+				<div class="title_h line_gray"><h3 id="gameType"></h3><span class="span1" id="wrate">---</span><span class="span2" id="endtime">----</span><span class="clear"></span></div>
+				<div class="clear"></div>
+				<div class="title_info clearfix">
+					<div class="title_info1">
+						<p class="p1">发单人购买</p>
+						<p class="p2" id="tmoney">---</p>
+					</div>
+					<div class="title_info1">
+						<p class="p1">起投金额</p>
+						<p class="p2" id="averageMoney">---</p>
+						<p class="p_xg"></p>
+					</div>
+				</div>
+				<div class="genmai-progress">
+				<div class="genmai-progress__bar">
+					<div class="genmai-progress__inner-bar js_progress" style="display:none;width: 0%;">
+						<span class="genmai-progress__opr" style="left:0%;">12312312</span>
+					</div>
+				</div>
+				</div>
+				<div class="zhong_div zhong_div_big" style='display:none'>
+					<p><!-- 发单人中奖35.23元<br/>
+						收到打赏323.45元<br/>
+						跟买中奖122203231.22元 --></p>
+				</div>
+			</div>
+			<!--间距-->
+			<div class="spacing"></div>
+			<!--发单人-->
+			<div class="promoter_box line_gray1">
+				<div class="promoter_h line_gray" id="fdrInfo">
+					<span class="span3">发单人</span><img id="imgUrl" src="img/zwtp.png" /><span class="span4" id="nickid">----</span><em></em>
+				</div>
+				<div class="clear"></div>
+				<!--swiper-->
+				<div class="swiper-container line_gray" id="nickidContent" style="display:none">
+					
+				</div>
+				<!--swiper end-->
+				
+			</div>
+			<!--间距-->
+			<div class="spacing"></div>
+			<!--发单内容  跟买用户-->
+			<div class="tab_title line_gray line_gray1">
+				<span class="active" id="btn1">发单内容</span><span id="btn2">跟买用户</span>
+			</div>
+			<div class="tab_box swiper-container1 swiper-container-horizontal">
+					<div class="swiper-wrapper swiper-no-swiping" id="swip_inse">
+						<!--发单内容-->
+						<div class="swiper-slide" id="info">
+							<div class="table_title clearfix"><span class="span8">编号</span><span class="span9">主队VS客队/投注</span><span class="span10">比分/彩果</span></div>
+							<!--开赛--><!-- 未开赛 -->
+							<table class="table" style=" display:table;"><!--显示 只能用 diaplay:table 不能用 display:block;-->
+								<tbody id="bettingInfo">
+									<!-- 
+									<tr>
+										<td class="width1" rowspan="3"><p>周一</p><p>001</p></td>
+										<td class="width2"><p class="c_gray">西纳人竞技(-1) VS 巴黎圣日耳曼<span class="span14">胆</span></p></td>
+										<td class="width3">半1:0/全2:0</td>
+									</tr>
+									<tr>
+										<td align="left"><span>主胜(2.00)</span><span>平(2.00)</span><br><span>客胜(2.00)</span></td>
+										<td><label>主胜</label></td>
+										
+									</tr>
+									<tr>
+										<td align="left"><span>主胜(2.00)</span><span>平(2.00)</span><br><span>客胜(2.00)</span><span>主胜(2.00)</span><br><span>平(2.00)</span><span>客胜(2.00)</span></td>
+										<td><label>主负</label></td>
+									</tr>
+									
+									<tr>
+										<td class="width1" rowspan="3"><p>周一</p><p>001</p></td>
+										<td class="width2"><p class="c_gray">西纳人竞技(-1) VS 巴黎圣日耳曼</p></td>
+										<td class="width3">半1:0/全2:0</td>
+									</tr>
+									<tr>
+										<td align="left"><span>主胜(2.00)</span><span>平(2.00)</span><br><span>客胜(2.00)</span></td>
+										<td><label>主胜</label></td>
+									</tr>
+									<tr>
+										<td align="left"><span>主胜(2.00)</span><span>平(2.00)</span><br><span>客胜(2.00)</span><span>主胜(2.00)</span><br><span>平(2.00)</span><span>客胜(2.00)</span></td>
+										<td><label>主负</label></td>
+									</tr>
+									<tr><td colspan="3"  class="width4"><p>过关方式：2串1、3串1</p><a href="#" class="table_a">出票明细</a></td></tr>
+									 -->
+								</tbody>
+							</table>
+							<!--开赛 end-->
+						</div>
+						<!--跟买用户-->
+						<div class="swiper-slide" id="sec">
+							<div class="user_total" id="followInfo">
+								当前35人已跟买，累计跟买35,000元
+							</div>
+							<div class="table_title clearfix" id="tt_hid"><span class="span11">用户</span><span class="span12">跟买金额</span><span class="span13">时间</span></div>
+							<ul class="user_list line_gray1" id="user_list">
+								<!-- 
+								<li class="line_gray"><div class="div1"><img src="img/user_pic.jpeg"><span>xia***</span></div><div class="div2">50元</div><div class="div3">09-06 20:40</div></li>
+								<li class="line_gray"><div class="div1"><img src="img/user_pic.jpeg"><span>xia***</span></div><div class="div2">50元</div><div class="div3">09-06 20:40</div></li>
+								<li class="line_gray"><div class="div1"><img src="img/user_pic.jpeg"><span>xia***</span></div><div class="div2">50元</div><div class="div3">09-06 20:40</div></li>
+								<li class="line_gray"><div class="div1"><img src="img/user_pic.jpeg"><span>xia***</span></div><div class="div2">50元</div><div class="div3">09-06 20:40</div></li>
+								 -->
+							</ul>
+						</div>
+					</div>
+			</div>
+			<!--间距-->
+			<div class="spacing"></div>
+			<!---->
+			<div class="info_box line_gray1">
+					<div class="info_h line_gray">
+							 本单盈利后，需向发单人打赏盈利金额的<span id="fdwrate">---</span>
+					</div>
+					<div class="info_info line_gray">
+						<p>盈利条件 : 跟买奖金>跟买本金</p>
+						<p>打赏金额=(跟买奖金-跟买本金)*打赏比例</p>
+					</div>
+			</div>
+			<!--间距-->
+			<div class="spacing"></div>
+		<div class="about_more">
+			<div class="about_moreh clearfix">
+				<h2>更多TA的神单</h2>
+			</div>
+			<ul class="jcds_dsbul">
+				<!-- <li class="clearfix">
+					<div class="jcds_dsblit clearfix">
+						<p class="jcds_dsbp1">已满额</p>
+						<p class="jcds_dsbp3">11-11 22:00截止</p>
+					</div>
+					<div class="jcds_dsblic clearfix">
+						<p class="jcds_dsbp4">100,000元</p>
+						<p class="jcds_dsbp5"><em>起投</em><span>9999元</span><i>打赏 2%</i></p>
+
+					</div>
+					<div class="jcds_dsblib clearfix">
+						<p class="jcds_dsbp6">发单人购买</p>
+						<p class="jcds_dsbp7">4场 2串1</p>
+						<p class="jcds_dsbp8">999人跟投</p>
+					</div>
+					<div class="zhong_div zhong_div_small"></div>
+				</li> -->
+			</ul>
+		</div>
+		<div class="spacing1"></div>
+	</section>
+	<!--立即跟买-->
+	<div class="buy_box" id="buy_box">
+		<div class="buy_btns">
+			<i id="reduce">-</i>
+			<input type="text" value="1" id="bs">
+			<i class="green" id="plus">+</i>
+			<span class="span5">倍</span>
+			<span class="span6" id="pMoney">----</span>
+		</div>
+		<button class="buy_btn">立即跟买</button>
+	</div>
+
+	<!--截止投注-->
+	<div class="buy_box" id="end" style="display:none">
+		<p class="p8">方案已截止投注</p>
+	</div>
+	<div class="buy_box text_align" id='endme' style="display:none">
+		<p class="p_full">跟单限额已满<a href="#"><img class="p_full_img" src="img/table.png"></a></p>
+	</div>
+	<!--没有用户-->
+	
+	
+	<section id="buy" class="zfpop zfpopNone" style="position:fixed; top:50%; left:5%; z-index:10000;display:none;">
+    <h4>投注确认</h4>
+    <div class="poptzText pdLeft1" id=buy_reveal>
+    	<p>投注金额： <cite class="red">0元</cite></p>
+    	<p>奖金范围： <cite class="red">2.54~4.98元</cite></p>
+    	<div class="clearfix popuseRed"><p class="left">账户余额： <cite class="red">0元</cite></p><!-- <span class="right">使用红包</span> --></div>
+    </div>
+    <div class="zfRed pdTop08" id='buy_hide'></div> 
+    <div class="zfTrue clearfix">
+    	<div style="padding:0 3rem;">
+	    	<a href="javascript:;" class="zfqx">取消</a>
+	    	<a href="javascript:;" style='display:none;'>去充值</a>
+	    	<a href="javascript:;">确认</a>
+    	</div>
+    </div>
+	</section>
+	
+	<!-- 遮罩层[[ -->
+	<div class="mask" id='mask'></div>
+	
+	<div id="queren" class="mask-zindex" style="z-index:9999;display:none;">
+	 <div class="que_t">
+	     <span class="que_h">开赛后公开</span>
+	     <span class="que_x">方案中最晚场次开赛后，方可查看方案投注内容</span>
+	 </div>
+	 <a href="javascript:;" class="ok">知道了</a>
+	</div>
+	<div class="mask-zindex" style="z-index:9999;display:none;" id='gmme'>
+	 <div class="que_t">	     
+	     <span class="que_x">本方案跟买金额已经达到发单人购买金额的10倍，无法跟买。</span>
+	 </div>
+	 <a href="javascript:;" class="ok">下次早点来~</a>
+	</div> 
+	<!-- Swiper JS -->
+	<script src="/sdjc/js/jquery-1.8.3.min.js"></script>
+	<script src="/sdjc/js/swiper.min.js"></script>
+	<script src="/sdjc/js/base.js"></script>
+	<script src="/sdjc/js/buy.js"></script>
+	
+	<!-- Initialize Swiper -->
+</body>
+</html>

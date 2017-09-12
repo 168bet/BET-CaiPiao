@@ -1,0 +1,62 @@
+<div class="sidewrap merge-footer">
+	<div class="content bank_type_normal" id="user-bank">
+	  <form name="addBankForm">
+		<ul class="ui-form">
+			<li class="ui-item"><label>开户银行：</label><select
+			    required
+			    ng-model="formdata.bankCode"
+			    ng-options="bank.bankCode as bank.bankName for bank in data.options.bankList"
+				class="ui-select" name="bankid" id="bankid">
+					<option value="">请选择银行</option>
+			</select> &nbsp;&nbsp;<span  ng-if="addBankForm.bankid.$dirty && addBankForm.bankid.$error.required" class="ui-check">请选择银行</span></li>
+			<li class="ui-item bank-type-normal"><label>开户银行所在城市：</label><select
+			    ng-options="province as province for (id, province) in data.options.cityAndProvince.provinces "
+			    ng-change="fun.loadCity()"
+			    ng-model="formdata.province"
+			    required
+				name="province" class="ui-select" id="province"><option value="">请选择省</option></select> 
+				<select ng-model="formdata.city" required name="city" class="ui-select" id="city" ng-options="city as city for (id, city) in data.options.cityAndProvince.cities">
+			        <option value="">请选择市</option>
+			</select> &nbsp;&nbsp;<span ng-if="addBankForm.province.$dirty && ( addBankForm.province.$error.required || addBankForm.city.$error.required )" class="ui-check">请选择银行所属省市</span></li>
+			<li class="ui-item bank-type-normal">
+				<div>
+					<label>支行名称：</label> <input ng-model="formdata.subBranch" type="text" value=""
+						class="ip-text h16 w240" name="branchAddr" id="branchAddr"
+						required
+						autocomplete="off"> &nbsp;&nbsp;<span ng-if="addBankForm.bankid.$dirty && addBankForm.branchAddr.$error.required" class="ui-check">请输入银行支行名称</span>
+				</div>
+				<div>
+					<label> </label> <span>&nbsp;&nbsp;填写支行名称遇到问题，请点击这里</span><a
+						style="font-size:14px;vertical-align:inherit;color:#0D63BF;text-decoration:underline;"
+						href="http://www.cardbaobao.com/bank/index.asp" target="_blank">参考</a>
+				</div></li>
+			<li class="ui-item"><label>银行地址：</label> <input required ng-model="formdata.bankAddress" type="text"
+                value="" class="ip-text h16 w240" maxlength="16" name="bankAddress"
+                id="bankAccount" autocomplete="off"> &nbsp;&nbsp;<span
+                class="ui-check" ng-if="addBankForm.bankAddress.$dirty && addBankForm.bankAddress.$error.required">请输入银行地址</span></li>
+			<li class="ui-item"><label>开户人：</label> <input required ng-model="formdata.userRealName" type="text"
+				value="" class="ip-text h16 w240" maxlength="16" name="bankAccount"
+				id="bankAccount" autocomplete="off"> &nbsp;&nbsp;<span
+				class="ui-check" ng-if="addBankForm.bankAccount.$error.required"></span></li>
+			<li class="ui-item bank-type-normal"><label>银行卡号：</label> <input
+			    required
+				type="text" value="" class="ip-text h16 w240" name="bankNumber" ng-model="formdata.bankCard"
+				id="bankNumber" autocomplete="off"> &nbsp;&nbsp;<span
+				ng-if="addBankForm.bankNumber.$dirty &&  addBankForm.bankNumber.$error.required" class="ui-check">请输入银行卡号</span></li>
+			<li class="ui-item bank-type-normal"><label>确认银行卡号：</label> <input
+				type="text" onpaste="return false" value="" name="confirmBankCard" match-model="formdata.bankCard" class="ip-text h16 w240" ng-model="formdata.confirmBankCard"
+				id="bankNumber2" autocomplete="off"> &nbsp;&nbsp;<span
+				class="ui-check" ng-if="addBankForm.confirmBankCard.$dirty &&  addBankForm.confirmBankCard.$error.matchModel">请输入确认银行卡号</span></li>
+
+			<li class="ui-item"><label>安全密码：</label> <input ng-model="formdata.withDrawPwd" type="password"
+				value="" class="ip-text h16 w240" name="securityPassword" required
+				id="securityPassword" autocomplete="off"> &nbsp;&nbsp;<span
+				class="ui-check" ng-if="addBankForm.securityPassword.$dirty &&  addBankForm.securityPassword.$error.required">请输入安全密码</span></li>
+				
+			<li class="ui-item"><label>&nbsp;</label>&nbsp;&nbsp;<a
+				href="javascript:void(0);" ng-click="fun.saveBankInfo(addBankForm)" submit-dirty="addBankForm" class="btn btn-important" id="J-Submit">提
+					交</a>
+			</li>
+		</ul></form>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#每隔30秒获取一次赔率变化数据
+
+step=30; #时间间隔30秒，不能超过60
+
+for ((i = 0; i < 60; i = (i + step))); do
+    php 'cron_odds_detail.php'
+    sleep $step
+done
+
+exit 0

@@ -1,0 +1,418 @@
+.fleft
+{
+    float: left;
+}
+
+.fright
+{
+    float: right;
+}
+
+.w1105
+{
+    width: 1102px;
+}
+
+.w1000
+{
+    width: 1000px;
+}
+
+.w705
+{
+    width: 705px;
+}
+
+.w700
+{
+    width: 700px;
+}
+
+.w220
+{
+    width: 220px;
+}
+
+.w200
+{
+    width: 200px;
+}
+
+.w180
+{
+    width: 180px;
+}
+
+.w100
+{
+    width: 100px;
+}
+
+.hgt200
+{
+    height: 200px;
+}
+
+.hgt198
+{
+    height: 198px;
+}
+
+.hgt150
+{
+    height: 150px;
+}
+
+.hgt120
+{
+    height: 120px;
+}
+.hgt55
+{
+    height: 55px;
+}
+.line_hgt55
+{
+    line-height: 55px;
+}
+.hgt42
+{
+    height: 42px;
+}
+
+.hgt40
+{
+    height: 40px;
+}
+
+.hgt6
+{
+    height: 6px;
+}
+.hgt60
+{
+    height: 60px;
+}
+.line_hgt30
+{
+    line-height: 30px;
+}
+
+.line_hgt60
+{
+    line-height: 60px;
+}
+
+.line_hgt66
+{
+    line-height: 66px;
+}
+
+.line_hgt42
+{
+    line-height: 42px;
+}
+
+.line_hgt40
+{
+    line-height: 40px;
+}
+
+.line_hgt50
+{
+    line-height: 50px;
+}
+
+.line_hgt120
+{
+    line-height: 120px;
+}
+
+.m0auto
+{
+    margin: 0 auto;
+}
+
+.mt31
+{
+    margin-top: 31px;
+}
+
+.mt8
+{
+    margin-top: 8px;
+}
+
+.ml90
+{
+    margin-left: 90px;
+}
+
+.ml_50
+{
+    margin-left: -50px;
+}
+
+.text_center
+{
+    text-align: center;
+}
+
+.block
+{
+    display: block;
+}
+
+.white
+{
+    color: white;
+}
+
+.fz16
+{
+    font-size: 16px;
+}
+
+.fz20
+{
+    font-size: 20px;
+}
+
+.fz24
+{
+    font-size: 24px;
+}
+
+.pktopcircle
+{
+    line-height: 40px;
+
+    display: inline-block;
+
+    width: 40px;
+    height: 40px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    border: white 1px solid;
+    border-radius: 50%;
+}
+
+.topBtnActive
+{
+    line-height: 30px;
+
+    display: inline-block;
+
+    width: 98px;
+    height: 30px;
+
+    border-radius: 5px;
+    background: #198ef8;
+}
+
+.middle
+{
+    vertical-align: middle;
+}
+
+.tdBetBtn
+{
+    line-height: 25px;
+
+    display: inline-block;
+
+    width: 60px;
+    height: 25px;
+
+    color: white;
+    border-radius: 10px;
+    background: #198ef7;
+}
+
+.tdCircle
+{
+    line-height: 20px;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    color: white;
+    border: white 1px solid;
+    border-radius: 50%;
+}
+
+/* bet */
+.inline-block
+{
+    display: inline-block;
+}
+.pk10Kind
+{
+    font-size: 14px;
+    line-height: 25px;
+
+    display: inline-block;
+
+    width: 70px;
+    height: 25px;
+
+    border: 2px solid #be2829;
+    border-radius: 13.5px 13.5px;
+}
+.pk10Kind_active
+{
+    color: white;
+    background: #be2829;
+}
+.p0_10{
+    padding: 0 10px;
+}
+.w50h20{
+    width:50px;
+    height:20px
+}
+.mt20
+{
+    margin-top: 20px;
+}
+.mt35
+{
+    margin-top: 35px;
+}
+.ml16
+{
+    margin-left: 16px;
+}
+.w800
+{
+    width: 800px;
+}
+.w140
+{
+    width: 140px;
+}
+.w130
+{
+    width: 130px;
+}
+.w128
+{
+    width: 128px;
+}
+.w110
+{
+    width: 110px;
+}
+.w108
+{
+    width: 108px;
+}
+.hgt45
+{
+    height: 45px;
+}
+.line_hgt45
+{
+    line-height: 45px;
+}
+.thBetBg
+{
+    padding: 0;
+
+    color: white;
+    border-bottom: 3px solid white;
+    border-left: 3px solid white;
+    background: #2a0b51;
+}
+.tdBetBg
+{
+    padding: 0;
+
+    color: #5f5f5f;
+    border-bottom: 3px solid white;
+    border-left: 3px solid white;
+    background: #e5e5e5;
+}
+.mr50
+{
+    margin-right: 50px;
+}
+.ml50
+{
+    margin-left: 50px;
+}
+.mb35
+{
+    margin-bottom: 35px;
+}
+.pb30
+{
+    padding-bottom: 30px;
+}
+.pb50
+{
+    padding-bottom: 50px;
+}
+/* gj */
+.tbGj
+{
+    font-size: 14px;
+    line-height: 42px;
+
+    width: 179px;
+    height: 42px;
+
+    color: white;
+    border-bottom: 6px solid white;
+    border-left: 4px solid white;
+    background: gray;
+}
+.m0_40
+{
+    margin: 0 40px;
+}
+.m0_25
+{
+    margin: 0 21px;
+}
+.w70
+{
+    width: 70px;
+}
+.w50
+{
+    width: 50px;
+}
+.border_black
+{
+    border: 1px solid black;
+}
+.num_circle
+{
+    line-height: 30px;
+
+    display: inline-block;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+}
+.he_circle
+{
+    line-height: 30px;
+
+    display: inline-block;
+
+    width: 40px;
+    height: 30px;
+
+    border-radius: 50%;
+}

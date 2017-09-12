@@ -1,0 +1,307 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>live TV</title>
+<style type="text/css"> 
+<!--
+.divQA{
+	width: 701px;
+	border: 1px solid #FFFFFF;
+	background-image: url(../../../images/member/QA_mem_bg.jpg);
+	background-repeat: repeat-y;
+}
+ 
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #000000;
+}
+.QA {
+	height: 33px;
+	width: 120px;
+	position: relative;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	float: right;
+	top: 20px;
+	left: 1px;
+}
+h1 {
+	background-image: url(../../../images/member/QA_head.jpg);
+	background-repeat: no-repeat;
+	height: 56px;
+	width: 700px;
+	position: absolute;
+}
+h2 {
+	background-image: url(../../../images/member/QA_head_bg.gif);
+	background-repeat: repeat-x;
+	width: 699px;
+	top: 56px;
+	position: absolute;
+	height: 25px;
+	text-align: right;
+}
+#divT {
+	text-align: center;
+	padding-top: 100px;
+	padding-bottom: 10px;
+}
+#divT table {
+	width: 90%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+#divT .Q{
+	color: #FFFFFF;
+	display: block;
+	list-style-type: none;
+	background-image: url(../../../images/member/QA_Qtop.gif);
+	background-repeat: no-repeat;
+	height: 25px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	white-space: nowrap;
+}
+#divT .A{
+	color: #000000;
+	width: 500px;
+	padding: 8px;
+	line-height: 18px;
+	list-style-type: none;
+}
+#top {
+	display: block;
+	background-image: url(../../../images/member/QA_top.gif);
+	background-repeat: no-repeat;
+	background-position: 545px;
+	text-align: right;
+}
+ 
+#top a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-repeat: no-repeat;
+	background-position: left;
+	color: #666666;
+	list-style-type: none;
+	padding-left: 20px;
+	margin-right: 20px;
+	text-decoration: none;
+}
+.top {
+	text-decoration: none;
+	list-style-type: none;
+	background-image: url(../../../images/member/QA_icon01.gif);
+	background-repeat: no-repeat;
+	padding: 3px;
+	background-position: 5px;
+	margin-left: 15px;
+}
+.top a:link, .top a:visited {
+	color: #990000;
+	text-decoration: none;
+	list-style-type: none;
+}
+.top a:hover {
+	color: #042C60;
+}
+.foot {
+	background-color: #000000;
+	width: 700px;
+	display: block;
+	margin-top: 20px;
+	height: 25px;
+}
+-->
+</style>
+<script> 
+function chg_language(langx) {
+	var homepage = "";
+	if (langx != "zh-tw" && langx != "zh-cn") {
+		homepage = "/tpl/member/en-us/QA.html";
+	} else {
+		homepage = "/tpl/member/"+langx+"/QA.html";
+	}
+	self.location = homepage;
+}
+function OnMouseOverPIC(langx) {
+	document.getElementById("OverQA_"+langx).style.display = "block";
+	document.getElementById("OutQA_"+langx).style.display = "none";
+}
+function OnMouseOutPIC(langx) {
+	document.getElementById("OverQA_"+langx).style.display = "none";
+	document.getElementById("OutQA_"+langx).style.display = "block";
+}
+</script>
+</head>
+ 
+ 
+<div class="divQA">
+<h1></h1>
+<h2>
+  <table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+	<td><span onMouseOver="OnMouseOverPIC('tw')" onMouseOut="OnMouseOutPIC('tw')" onClick="chg_language('zh-tw');">
+			<img src="/images/member/QA_tw.gif" width="68" height="25" border="0" id="OutQA_tw" style="display:block;cursor:hand;">
+			<img src="/images/member/QA_tw2.gif" width="68" height="25" border="0" id="OverQA_tw" style="display:none;cursor:hand;">
+		</span>
+	</td>
+	<td><span onMouseOver="OnMouseOverPIC('cn')" onMouseOut="OnMouseOutPIC('cn')" onClick="chg_language('zh-cn');">
+			<img src="/images/member/QA_cn.gif" width="68" height="25" border="0" id="OutQA_cn" style="display:block;cursor:hand;">
+			<img src="/images/member/QA_cn2.gif" width="68" height="25" border="0" id="OverQA_cn" style="display:none;cursor:hand;">
+		</span>
+	</td>
+	<td><span onMouseOver="OnMouseOverPIC('us')" onMouseOut="OnMouseOutPIC('us')" onClick="chg_language('zh-us');">
+			<img src="/images/member/QA_us.gif" width="68" height="25" border="0" id="OutQA_us" style="display:block;cursor:hand;">
+			<img src="/images/member/QA_us2.gif" width="68" height="25" border="0" id="OverQA_us" style="display:none;cursor:hand;">
+		</span>
+	</td>
+  </tr></table></h2>
+  <div id="divT">
+  <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+    <a name="top"></a>
+    <li class="top"><a href="#Q01">Do I need to pay to watch on Live TV?</a></li>
+    <li class="top"><a href="#Q02">How do i know which matches I can watch ?</a></li>
+    <li class="top"><a href="#Q03">Why I cannot view live streaming in other country other then China?</a></li>
+    <li class="top"><a href="#Q04">Why can't I watch events held in my country ?</a></li>
+    <li class="top"><a href="#Q05">Why can't I watch events held in my country ?</a></li>
+    <li class="top"><a href="#Q06">Why sometime there is a delay compare to normal TV?</a></li>
+    <li class="top"><a href="#Q07">What if the jersey color is wrong ?</a></li>
+    <li class="top"><a href="#Q08">What can I do if the site is slow or if the connection is regularly lost?</a></li>
+    <li class="top"><a href="#Q09">When can I start watching the Live TV ?</a></li>
+    <li class="top"><a href="#Q10">Are there any requirements on the systems and browsers that I use?</a></li>
+    <li class="top"><a href="#Q11">What player is use to play the Live TV?</a></li>
+    <li class="top"><a href="#Q12">Why did my flash video streaming stopped/changed to a black screen?</a></li>
+    <li class="top"><a href="#Q13">Why can't I watch the live video streaming when I have met all the above system and browser requirements?</a></li>
+    <li class="top"><a href="#Q14">I can view the video but is there is no audio coming from the stream?</a></li>
+    <li class="top"><a href="#Q15">Why is there an audio but no video?</a></li>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+   <td>
+    <ul>
+    <li class="Q"><a name="#Q01"></a>Do I need to pay to watch on Live TV?</li>
+    <li class="A">Live TV is currently free of charge.</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q02"></a>How do i know which matches I can watch ?</li>
+    <li class="A">Matches that you can watch are identified with a icon beside the event. Clicking on this icon will take you through the video player within in -running.(Alternatively, you can click on the 'Live TV' tab on top.)</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q03"></a>Why I cannot view live streaming in other country other then China?</li>
+    <li class="A">Only China is permitted to view the Live Streaming.</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+ <ul>
+    <li class="Q"><a name="#Q04"></a>Why can't I watch events held in my country ?</li>
+    <li class="A">We will use your ip address to present the events available to you.</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+    
+     <ul>
+    <li class="Q"><a name="#Q05"></a>Which countries can i watch from ?</li>
+    <li class="A">Currently, only China is allowed to watch Live TV due to broadcast right</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+    
+     <ul>
+    <li class="Q"><a name="#Q06"></a>Why sometime there is a delay compare to normal TV?</li>
+    <li class="A">Pictures on liveTV are subject to a small time delay, we accepts no liability for accuracy of information and comment.</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+ <ul>
+    <li class="Q"><a name="#Q07"></a>What if the jersey color is wrong ?</li>
+    <li class="A">Jersey color is for reference only, we accepts no liabilty for accuracy of information.</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+      <ul>
+    <li class="Q"><a name="#Q08"></a>What can I do if the site is slow or if the connection is regularly lost?</li>
+    <li class="A">Try to access other internet sites and determine whether the problems are confined to our live video streaming. If you are unable to use any other internet services please contact your internet Service Provider。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+     <ul>
+    <li class="Q"><a name="#Q09"></a>When can I start watching the Live TV ?</li>
+    <li class="A">Each event will begin streaming 2 minutes prior to the scheduled start time of the event/watch. Once you click on the live event name, the media file will automatically start to stream.</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q10"></a>Are there any requirements on the systems and browsers that I use?</li>
+    <li class="A">Operating System：Windows 2000 / XP / Vista<br>
+Web Browser(any of)：IE6 or above<br>
+  Broadband Speed：A connection speed of 512kbp/s or higher.</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q11"></a>What player is use to play the Live TV?</li>
+    <li class="A">Flash Player is needed to play our Live TV, you can download the software free from <a href="http://get.adobe.com/flashplayer/" target="_blank">http://get.adobe.com/flashplayer/</a></li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q12"></a>Why did my flash video streaming stopped/changed to a black screen?</li>
+    <li class="A">Very occasionally there may be flash streaming issues. If this occurs, you may need to refresh your browser. You can do this by clicking the refresh button in your browser or pressing the F5 key on your keyboard.</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q13"></a>Why can't I watch the live video streaming when I have met all the above system and browser requirements?</li>
+<li class="A">If you have a Firewall (security hardware/software) or any other related security software running on your pc, it might have affected your access to the site. You should consult the manufacturer's manual/handbook or contact them directly regarding the package/hardware configuration.
+</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q14"></a>I can view the video but is there is no audio coming from the stream?</li>
+    <li class="A">Make sure that your comuter has a sound card to play the audio and your audio levels are turned up.To make sure that you have the necessary software that is currently supported, reinstall Flash.</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q15"></a>Why is there an audio but no video?</li>
+    <li class="A">This issue may occur if there is not enough bandwidth to play both audio and video.You may receive sound even though the video is not present because audio requires less available bandwidth.</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>Back Top</span></a></div>
+ 
+</td>
+    </tr>
+</table>
+ </div>
+ <div class="foot"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<style>
+.jczqkj .cancel_jczq{
+    border: 0px;
+    color: #f6851f;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+ }
+
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:2;left:0;top:0; display: none;}
+
+</style>
+<article id="delete_parent">
+    <div id='content'></div>
+    <footer class="buyFooter">
+   	  <div class="fixed kjFloat">
+        <a rel="external" href="#type=url&p=list/jczq.html" class="payment">去投注</a>
+   	  </div>
+	</footer>
+</article>
+<div class="mask" id='mask'></div>
+<script type="text/javascript" src="/js/public/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src='/js/public/iscroll.js'></script>
+<script>
+$(function(){
+	var start_ev = ('ontouchstart' in window ) ? 'touchstart' : 'mousedown';
+	var end_ev = ('ontouchend' in window ) ? 'touchend' : 'mouseup';
+	var move_ev = ('ontouchend' in window ) ? 'touchmove' : 'mousemove';
+	
+
+	var kj={
+			init:function(){
+				TopAnch.init({
+					title:'竞彩足球开奖',
+					prevShow:true,
+					prevFun:function(){//左侧按钮绑定事件
+						window.location.replace('#type=url&p=kj/index.html');
+					},
+					isBack:true,
+					nextShow:true,
+					nextText:'',
+					nextFun : function(){
+						/* Box.dateShow(); */
+					}
+				});
+				kj.gain();
+			},
+			//获取接口信息
+			gain:function(){
+				$.ajax({
+					url:'/tradeios/secondaryLotteryList.go?gid=70',
+					type:'get',
+					DataType:'xml',
+					success:function(xml){
+						$('.loading').hide();
+						var R = $(xml).find('Resp')
+						var rs = R.find('rows')
+						var html = '';
+						if(!rs.length){
+							alert('亲，木有赛事哦！');
+							html = '';
+						}else{
+							for(var i = 0; i<rs.length; i++){
+								var rows = $(rs[i])
+								var did =rows.attr('did'),c = rows.attr('c')
+								html += '<div class="sfcTitle">'+did+'&nbsp;&nbsp;'+c+'场比赛</div>'
+								var row = rows.find('row')
+								row.each(function(){
+									var pid = $(this).attr('pid');//期次编号
+									var mid = $(this).attr('mid');//比赛场次
+									var mn = $(this).attr('mn');//主队名称
+									var sn = $(this).attr('sn');//客队名称
+									var ms = parseInt($(this).attr('ms')) || 0;//主队进球数
+									var ss = parseInt($(this).attr('ss')) || 0;//客队进球数
+									var zclose = $(this).attr('zclose');// (北单 竞彩足球没有该字段)
+									var mname = $(this).attr('mname');//联赛名称
+									var mt = $(this).attr('mt');//比赛结束时间
+									var hms = parseInt($(this).attr('hms')) || 0;//半场主队进球数 (北单 竞彩足球没有该字段)
+									var hss = parseInt($(this).attr('hss')) || 0;//半场客队进球数 (北单 竞彩足球没有该字段)
+									var lose = parseInt($(this).attr('lose')) || 0;//让球数 (北单没有该字段)
+									var cid = $(this).attr('cid');//场次名称  (北单没有该字段)
+									var end_time = mt.substr(5,11);//截止时间
+									var icancel = $(this).attr('icancel');//是否取消比赛 1取消
+									console.log(icancel)
+									var sum = ms+ss;
+									var z,rz,tag,c;
+									if(parseInt(ms)>parseInt(ss)){//主>客
+										z = '<span class="red">主胜</span>';
+									}else if(parseInt(ms)==parseInt(ss)){
+										z = '<span class="blue">平</span>';
+									}else{
+										z = '<span class="green">主负</span>';
+									}
+									if((parseInt(ms)+parseInt(lose))>parseInt(ss)){
+										rz = '<span class="red jclqsf">让主胜</span>';
+									}else if((parseInt(ms)+parseInt(lose))==parseInt(ss)){
+										rz = '<span class="blue jclqsf">让平</span>';
+									}else{
+										rz = '<span class="green jclqsf">让主负</span>';
+									}
+									var bifen = '<span>(主)'+mn+'</span><span class="spfvs">'+ms+':'+ss+'</span><span>'+sn+'(客)</span>'
+									if(icancel == '1'){
+										bifen = '<span>(主)'+mn+'</span><span class="spfvs" style="font-size:17px">取消</span><span>'+sn+'(客)</span>'
+									}
+									console.log(bifen)
+									var str = kj.createModel(hms, hss, ms, ss);
+									html+='<section class="jczqkj sfcopt">';
+									html+='<ul class="sfcxs">';
+									html+='<li><em>'+cid+'</em><p>'+mname.substr(0,4)+'</p><cite>'+end_time+'</cite></li>';
+									html+='<li>';
+									html+='<p class="spfzpkNum">'+bifen+'</p>';
+									
+									if(icancel == '1'){
+										html+='<div class="cancel_jczq">';
+										html+='注:本场比赛官方按照取消处理,赔率(SP)按照1进行计算'
+									}else{
+										html+='<div>';
+										html+='<p><span>胜平负</span><span>让球('+lose+')</span><span>总进球</span><span>半全场</span></p>';
+										html+='<p>'+z+''+rz+'<span>'+sum+'</span><span>'+str+'</span></p>';
+									}
+									html+='</div>';
+									html+='</li>';
+									html+='</ul>';
+									html+='</section>';
+								});
+								
+							}
+						}
+						
+						$('#content').html(html);
+					}
+				});
+			},
+			createModel:function(hb,mb,hq,mq){
+				var str = "";
+				if(hb>mb && hq>mq){
+					str+='<em class="red">胜</em>';
+					str+='<em class="red">胜</em>';
+				}else if(hb>mb && hq==mq){
+					str+='<em class="red">胜</em>';
+					str+='<em class="blue">平</em>';
+				}else if(hb>mb && hq<mq){
+					str+='<em class="red">胜</em>';
+					str+='<em class="green">负</em>';
+				}else if(hb<mb && hq<mq){
+					str+='<em class="green">负</em>';
+					str+='<em class="green">负</em>';
+				}else if(hb<mb && hq==mq){
+					str+='<em class="green">负</em>';
+					str+='<em class="blue">平</em>';
+				}else if(hb<mb && hq>mq){
+					str+='<em class="green">负</em>';
+					str+='<em class="red">胜</em>';
+				}else if(hb==mb && hq>mq){
+					str+='<em class="blue">平</em>';
+					str+='<em class="red">胜</em>';
+				}else if(hb==mb && hq<mq){
+					str+='<em class="blue">平</em>';
+					str+='<em class="green">负</em>';
+				}else if(hb==mb && hq==mq){
+					str+='<em class="blue">平</em>';
+					str+='<em class="blue">平</em>';
+				}
+				return str;
+			}
+	};
+	kj.init();
+});
+</script>

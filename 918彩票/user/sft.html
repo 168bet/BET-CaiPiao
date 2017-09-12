@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8" />
+    <meta content="银行卡支付" name="description">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="author" content="m.9188.com  ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="cleartype" content="on">
+    <title>银行卡支付</title>
+    
+    <link rel="stylesheet" href="/style/weui.css"/>
+    <link rel="stylesheet" href="/style/iosSelect.css"/>
+    <link rel="stylesheet" href="/style/style.css"/>
+    <style>
+    	/*.ico1{ background-image: url("../img/me.png");}*/
+		.addcard,.cardlist{ display: box;	
+	display: -webkit-box;	
+	display: -moz-box;
+		display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex; margin-top: 1rem; padding: 1rem; height: 3rem;  background-color: #fff; border-radius: .5rem;}
+		.addcard{ color: #bbb;border: 1px dotted #c1c1c1; }
+		.addcard span{ margin: auto;}
+		.cardlist{ position: relative;
+		    background: -moz-linear-gradient(left, rgba(231,92,101,1)0, rgba(233,80,126,1)100%);
+		    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(231,92,101,1)), color-stop(100%, rgba(233,80,126,1)));
+		    background: -webkit-linear-gradient(left, rgba(231,92,101,1)0, rgba(233,80,126,1)100%);
+		    background: -o-linear-gradient(left, rgba(231,92,101,1)0, rgba(233,80,126,1)100%);
+		}
+		.cardlist img{ width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 1px solid #dcdcdc; padding: .25rem; background-color: #fff;}
+		.cardlist-title{ padding-left:.5rem;}
+		.cardlist-title h4{ color: #fff; font-size: 1rem; line-height: 1.8rem;}
+		.cardlist-title p{ color: #fff; font-size: .875rem; line-height: 1.2rem;}
+		.cardlist-number{ margin-left: 1rem; color: #fff;font-size: .875rem; line-height: 1.8rem; }
+		.cardlist i.weui-icon-clear{ position: absolute; top:-3px; right: -5px;}
+		.weui-icon-clear{ font-size: 18px; }
+		/*.border-box{ border-radius: 5px;}
+		.border{ border: 1px solid #ededec; border-radius: 5px;}*/
+		.weui-icon-info-circle{ color: #fc6347;}
+		.cardholder{ position: relative;}
+		.cardholder a{ position: absolute; top:0; right: .55rem;}
+		.weui-cell__bd{ text-align: left;}
+		.weui-msg__icon-area{ margin-bottom: 0;}
+		.weui-msg__desc{ min-height: 22px;}
+		.rechar{ font-size: 24px; color: #565656; line-height: .71;}
+		.cp9188-table{ font-size: 12px;}
+		.cp9188-table > tbody > tr > th,.cp9188-table > tbody > tr > td{ padding:8px 0;}
+		.cp9188-table th{ text-align: center;}
+		
+		
+		.weui-cells__title{font-size: 13px;}
+        .weui-cells_form .weui-cell__ft{position:relative;font-size: 17px; }
+        .weui-cells_form .weui-cell__ft:after{position:absolute; top:-9px; left:-9px; content:""; width:1px; height:44px;border-left: 1px solid #e5e5e5;}
+		
+		/*msg弹窗*/
+		@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+		@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+		@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+		.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+    </style>
+</head>
+<body>
+<header class="cp9188-header">
+    <i class="cp9188-header_back"></i>
+    <h1 class="text-center" id="title_content">添加银行卡</h1>
+    <a class="cp9188-header_txt" href="javascript:;" id='guanli' style='display:none'>管理</a>
+</header>
+<section class="container" id='zfBank'>
+    <div id='Banklist'>
+    </div>
+    <a class="addcard" id='addcard'><span><i class="weui-icon-add">+</i>添加银行卡</span></a>
+</section>
+<article style='display:none' id='bdBank'>
+    <div class="weui-cells__title cardholder"> 请绑定持卡人<span class="red">***</span>的银行卡</div>
+    <div class="weui-cells weui-cells_form border-box">
+        <div class="weui-cell border" >
+            <div class="weui-cell__hd"><label for="" class="weui-label">卡类型</label></div>
+            <div class="weui-cell__bd" >
+            	<input data-card-code="CMB" data-card-type="0"  id="show_contact" class="weui-input" value='' placeholder="请选择银行卡类型" readonly='readonly'>
+                
+                <input type="hidden" name="contact_card_code" data-id="0001" id="contact_card_code" value="" data-card-code="" disabled='true'>                     
+        		<input type="hidden" name="contact_card_type" id="contact_card_type" value="" data-card-type="" disabled='true'>
+            </div>
+        </div>
+        <div class="weui-cell border">
+            <div class="weui-cell__hd"><label for="" class="weui-label">卡号</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" value="" placeholder="请输入银行卡号" type="tel" maxlength='30' id='cardcode'>
+            </div>
+        </div>
+    </div>
+    
+    <div class="weui-cells weui-cells_form border-box">
+        <div class="weui-cell border" >
+            <div class="weui-cell__hd"><label for="" class="weui-label">手机号</label></div>
+            <div class="weui-cell__bd" >
+                <input id="mobile" class="weui-input" value="" placeholder="请输入银行预留手机号" type="">
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <button href="javascript:;" class="weui-btn weui-btn_primary margin_top" id='success' disabled='true'>下一步</button>
+    </div>
+</article>
+
+<article id="sureBank" style="display:none">
+    <div class="weui-cells__title cardholder"> 请输入尾号<span class="red" id="tail_number">7484</span>，银行预留手机号收到的验证码</div>
+    <div class="weui-cells weui-cells_form border-box">
+        <div class="weui-cell border" >
+            <div class="weui-cell__bd" >
+                <input id="yzm" class="weui-input" value="" placeholder="短信验证码" type="">
+            </div>
+            <div class="weui-cell__ft red" id="hyzm">
+                	重新发送(54s)
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <a href="javascript:;" class="weui-btn weui-btn_primary margin_top" id="surebtn">确定</a>
+    </div>
+</article>
+
+
+
+</body>
+<script src='/js/public/jquery-1.9.1.min.js'></script>
+<script src="/js/public/zepto.js"></script>
+<script src="/js/public/aes_1.js"></script>
+<script src="/js/public/iscroll1.js"></script>
+<script src="/js/public/iosSelect.js"></script>
+
+<script>
+	//公用弹出层和加载层
+	var win_alert = alert;
+	window['alert'] = function (msg, loading) {
+		if (!loading) {
+			clearTimeout(window.alert.time);
+			var obj = $('<div class="alertBox">' + msg + '</div>');
+			$('body').append(obj);
+			window.alert.time = setTimeout(function () {
+				$(".alertBox").remove();
+			}, 2000);
+		} else {
+			$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+			$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+			$('#mask').show();
+		}
+	};
+	
+	var wait = 60;
+	
+	var remove_alert = function () {
+		$('.alertBox').remove();
+		$('#mask').hide();
+	};
+	
+	var tt_=true;
+	
+	 function Encrypt(word){  
+	        var key = CryptoJS.enc.Utf8.parse("9188123123123345");
+			var iv  = CryptoJS.enc.Utf8.parse('9188123123123345');
+			var srcs = CryptoJS.enc.Utf8.parse(word);
+			var encrypted = CryptoJS.AES.encrypt(srcs, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});
+			var val = CryptoJS.enc.Utf8.stringify(encrypted).toString();
+			return encrypted;
+	    }  
+	
+	String.prototype.getParam = function(n){
+		var r = new RegExp("[\?\&]"+n+"=([^&?]*)(\\s||$)", "gi");
+		var r1=new RegExp(n+"=","gi");
+		var m=this.match(r);
+		if(m==null){
+			return "";
+		}else{
+			return typeof(m[0].split(r1)[1])=='undefined'?'':decodeURIComponent(m[0].split(r1)[1]);
+		}
+	};
+	var money = location.search.getParam('add') || '';
+	if(!money){
+		setTimeout(function(){
+			location.href='/#type=url&p=user/charge.html';
+		} , 1000)
+	}
+	
+	var BankInfo ={bank:[],cardType:[]};
+	
+	var cz={
+		addmoney:money,
+		mobile:"",
+		bankid:"",
+		bankCode:"",
+		cardtype:"",
+		cardno:"",
+		mtype:"4",
+		appversion:"4.4.5"
+	};
+	
+	//确认充值需要传的参数
+	var bank={
+			cardno:"",
+			bankCode:"",
+			applyid:"",
+			verifycode:"",
+			sessionToken:""
+	}
+	var CP = {}
+	CP.Ld = {
+		init:function(){
+			this.card_list()
+			this.bank_list();
+			this.bindEvent();
+		},
+		//获取用户银行卡信息
+		card_list:function(){
+			$.ajax({
+				url:'/user/get_umpay_card_list.go',
+				data:{
+					verifycode:2,
+					addmoney:money,
+					mtype : 4
+				},
+				type : "POST",
+				dataType : "xml",
+				success:function(xml){
+					var R = $(xml).find('Resp');
+					var code = R.attr('code');
+					var row = R.find('row');
+					var userinfo = R.find('userinfo');
+					var realname = userinfo.attr('realname');
+					var html = ''
+					if(code == 0){
+						if(row.length > 0){
+							row.each(function(a,b){
+								var bankid = $(this).attr('bankid') //联动优势银行编码
+								var bankname = $(this).attr('bankname') //银行名称
+								var cardno  = $(this).attr('cardno')  //银行卡号
+								var cardtype  = $(this).attr('cardtype')  //卡类型
+								var cardtypename = $(this).attr('cardtypename')  //卡类型名称
+								var linkimg = $(this).attr('linkimg')  // 银行图标
+								var userpayid = $(this).attr('userpayid')
+								var mobile = $(this).attr('mobile')
+								html += '<a class=cardlist href="javascript:;" cardtype='+cardtype+' mobile='+mobile+' bankid='+bankid+' cardno='+cardno+' userpayid='+userpayid+'>';
+								html += '<img src='+linkimg+'>';
+								html += '<div class=cardlist-title><h4>'+bankname+'</h4>'
+								if(cardtype == 0){
+									html += '<p>借记卡</p></div>'	
+								}else{
+									html += '<p>信用卡</p></div>'	
+								}
+								var carco = CP.Ld.Aes_code(cardno).toString(CryptoJS.enc.Utf8);
+								var len = carco.length-4; //卡号后四位
+								html += '<div class="cardlist-number"><i>'+carco.substring(len)+'</i></div>'
+								html += '<i class=weui-icon-clear id=delet style=display:none;></i></a>'
+								
+							})
+								$('#Banklist').html(html);
+								if($('#Banklist').length > 0){
+									$('#guanli').show();
+								}
+						}
+						relname = '*'+realname.substring(1);
+						$('.cardholder .red').html(relname);
+					}else if(code == '1'){//未登录
+						setTimeout(function(){
+							location.href = '/alone/newlogin.html';
+						},1e3);
+					}
+				}
+			})
+		},
+		rStr:function(str){
+			str = str.toString()
+			str=str.replace(/\+/g,"%2B");
+			return str;
+		},
+		
+		//卡bin检测
+		checkBankCard:function(func){
+			var bankCard = "";
+			$.ajax({
+				url : '/user/check_bankcard_bin.go?bankCard='+bankCard,
+				type : 'POST',
+				dataType : 'xml',
+				success : function(xml){
+					var R=$(xml).find("Resp");
+					var code = R.attr("code");
+					var desc = R.attr("desc");
+					if(code==0){//卡bin检测成功
+						if(typeof func=="function") func();
+					}else{
+						alert(desc)
+					}
+				}
+			})
+		},
+		
+		//盛付通支付
+		pay_card:function(addmoney, bankid, bankCode,cardtype,cardno,mobile){
+			console.log(cardno)
+			var cardno_ = Encrypt(cardno)
+			console.log(CP.Ld.rStr(cardno_))
+			var mobile_ = mobile;
+			var param = "cardno="+CP.Ld.rStr(cardno_)+"&mobile="+mobile+"&addmoney="+addmoney+"&bankid="+bankid+"&bankCode="+bankCode+"&cardtype="+cardtype+"&mtype=4&appversion=4.4.5"
+			$.ajax({
+				url : '/user/addmoney.go?'+param,
+				type : 'POST',
+				dataType : 'xml',
+				success : function(xml){
+					var R = $(xml).find('Resp')
+					var code = R.attr('code');
+					var desc = R.attr('desc');
+					var row = R.find('row')
+					if(code == 0){
+						$("#success").removeClass("tt_");
+						$('#Banklist a').removeClass("tt_");
+						$("#hyzm").removeClass("tt_");
+						var that = $(this);
+						//var h5payUrl  = row.attr('h5payUrl');
+						//location.href = "chargesure.html";
+						var applyid =bank["applyid"]= row.attr("applyid");
+						var needSms = row.attr("needSms");
+						var sessionToken = bank["sessionToken"] = row.attr("sessionToken");
+						document.title="充值确认";
+						$("#title_content").html("充值确认")
+						$("#tail_number").html(cardno.substring(cardno.length-4))
+						$("#zfBank").hide();
+						$("#bdBank").hide();
+						$("#sureBank").show();
+						$("#guanli").hide();
+						CP.Ld.countDown();
+					}else{
+						alert(desc);
+					}
+				},
+				error : function(){
+					alert("网络错误")
+				}
+			})
+		},
+		sureCharge:function(bank){
+			console.info(bank);
+			//var cardno = data["cardno"]
+			$.ajax({
+				url : '/user/sft_app_pay_agreePayment.go?applyid='+bank['applyid']+'&verifycode='+bank['verifycode']+'&sessionToken='+bank['sessionToken']+'&cardno='+bank['cardno']+'&bankCode='+bank['bankCode']+"&mtype=4&appversion=4.4.5",
+				type : 'POST',
+				//data : data,
+				dataType : 'xml',
+				success : function(xml){
+					var R = $(xml).find("Resp");
+					var code = R.attr("code");
+					var desc = R.attr("desc");
+					if(code==0){
+						alert("充值成功")
+						location.href="/#type=url&p=user/index.html";
+					}else{
+						alert(desc)
+					}
+				}
+			})
+		},
+		// 支持的银行列表(获取银行卡列表verifycode=2时为盛付通支持类型)
+		bank_list: function(){
+			$.ajax({
+				url : '/user/select_support_card_list.go?verifycode=2',
+				type : 'POST',
+				dataType : 'xml',
+				success : function(xml){
+					var R = $(xml).find('Resp')
+					var code = R.attr('code');
+					var desc = R.attr('desc');
+					var row = R.find('row')
+					if(code == 0){
+						row.each(function(i){
+							var bankid = $(this).attr('bankid');
+							var bankname = $(this).attr('bankname');
+							var cardtype = $(this).attr('cardtype');
+							var type = '';
+							
+							BankInfo.bank.push({id:bankid,value:bankname,parentId:0})
+							if(cardtype == '1'){
+								BankInfo.cardType.push({id:1,value:'信用卡',parentId:bankid})
+							}else if(cardtype == '2'){
+								BankInfo.cardType.push({id:0,value:'借记卡',parentId:bankid})
+								BankInfo.cardType.push({id:1,value:'信用卡',parentId:bankid})
+							}else if(cardtype == '0'){
+								BankInfo.cardType.push({id:0,value:'借记卡',parentId:bankid})
+							}
+						})
+					}else{
+						alert(desc)
+					}
+				},
+				error : function(){
+					alert("网络错误")
+				}
+			})
+		},
+		
+		countDown:function(){
+			if(wait == 0){
+				$("#hyzm").removeAttr("disabled");	
+				$("#hyzm").removeClass("tt_");	
+				$("#hyzm").html("重新发送");
+				wait = 60;
+			}else{
+				$("#hyzm").attr("disabled", true);
+				$("#hyzm").addClass("tt_")
+				$("#hyzm").html("重新发送(" + wait + ")");
+				wait--;
+				setTimeout(function() {
+					CP.Ld.countDown();
+				}, 1000);
+			}
+		},
+		Aes_code:function(word){ //aes解密
+			var key = CryptoJS.enc.Utf8.parse("9188123123123345");   
+			var iv  = CryptoJS.enc.Utf8.parse('9188123123123345');   
+			var dencrypted = CryptoJS.AES.decrypt(word, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});  
+			//console.log(dencrypted.toString(CryptoJS.enc.Utf8));
+			
+			return dencrypted;    
+		},
+		bindEvent: function(){
+			$("#btn_prev").bind("click",function(){
+				history.go(-1);
+			});
+			
+			$(".cp9188-header_back").bind("click",function(){
+				history.go(-1);
+			})
+			
+			$("#hyzm").bind("click",function(){
+				//addmoney, bankid, bankCode,cardtype,cardno,mobile
+				if($(this).hasClass("tt_")){
+					return;
+				}
+				CP.Ld.pay_card(cz["addmoney"], cz["bankid"], cz["bankCode"],cz["cardtype"],cz["cardno"],cz["mobile"])
+			})
+			
+			$("#surebtn").bind("click",function(){
+				bank["verifycode"]=$("#yzm").val();
+				CP.Ld.sureCharge(bank);
+			});
+			
+			$('#show_contact').bind('click', function () { // 点击显示卡类型
+		        var oneLevelId = $(this).attr('data-card-code');
+		        var twoLevelId = $(this).attr('data-card-type');
+		        $('#show_contact').blur();
+		        var iosSelect = new IosSelect(2, 
+		            [BankInfo.bank, BankInfo.cardType],
+		            {
+		                title: '银行卡支持列表',
+		                itemHeight: 35,
+		                relation: [1, 0, 0, 0],
+		                oneLevelId: oneLevelId,
+		                twoLevelId: twoLevelId,
+		                callback: function (selectOneObj, selectTwoObj, selectThreeObj) {
+		                	$('#contact_card_code').val(selectOneObj.id); 
+		                	$('#contact_card_code').attr('data-card-code', selectOneObj.value);
+		                	$('#contact_card_type').val(selectTwoObj.id);
+		                	$('#contact_card_type').attr('data-card-type', selectTwoObj.value);
+
+		                	$('#show_contact').attr('data-card-code', selectOneObj.id);
+		                	$('#show_contact').attr('data-card-type', selectTwoObj.id);
+		                	$('#show_contact').val(selectOneObj.value + ' ' + selectTwoObj.value );
+		                }
+		        });
+		    });
+			
+			$("#cardcode").bind("input propertychange",function(){
+				this.value = this.value.replace(/\D/g,'');
+				this.value = this.value.replace(/\s/g,'').replace(/(\d{4})(?=\d)/g,"$1 ");
+			});
+			
+			
+			$('#guanli').bind('click' , function(){//点击管理
+				if($(this).html() == '管理'){
+					$(this).html('完成');
+					$('.weui-icon-clear').show();
+				}else if($(this).html() == '完成'){
+					$(this).html('管理');
+					$('.weui-icon-clear').hide();
+				}
+			})
+			
+			//删除现有银行卡 
+			$('#Banklist').delegate('i.weui-icon-clear','click' , function(event){
+				var ev = event || window.event;
+				ev.stopPropagation();
+				var par = $(this).parent();
+				var cardtype = par.attr('cardtype');
+				var userpayid = par.attr('userpayid');
+				var bankid = 0
+				if(cardtype == 0){
+					bankid = 4004//联动优势=>借记卡
+				}else{
+					bankid = 4005//联动优势=>信用卡
+				}
+				$.ajax({
+					url : '/user/delete_sign_card.go',
+					type : 'POST',
+					data : {
+						userpayid : userpayid,
+						bankid : bankid,
+						mtype : 4
+					},
+					dataType : 'xml',
+					success : function(xml){
+						var R = $(xml).find('Resp')
+						var code = R.attr('code');
+						if(code == 0){
+							par.remove();
+							$('#Banklist a').length == 0 && $('#guanli').hide();
+						}
+					},
+					error : function(){
+						alert("网络错误")
+					}
+				})
+			})
+			
+			//点击绑定的银行卡
+			$('#Banklist').delegate('a','click' , function(event){//存在银行卡 直接点击充值
+				if($(this).hasClass("tt_")){
+					return;
+				}else{
+					$(this).addClass("tt_");
+				}
+				
+				var addmoney = money;
+				var id = 4004;
+				var cardtype = $(this).attr('cardtype');
+				var bankCode =bank["bankCode"]= $(this).attr('bankid');
+				var cardtype = $(this).attr('cardtype');
+				var cardno =bank["cardno"]= $(this).attr('cardno');
+				var mobile = $(this).attr("mobile");
+				mobile = CP.Ld.Aes_code(mobile).toString(CryptoJS.enc.Utf8)
+				cardno = CP.Ld.Aes_code(cardno).toString(CryptoJS.enc.Utf8)
+				if(cardtype == 0){
+					id = 4004 //支付网关=盛付通
+				}else{
+					id = 4005 //支付网关=盛付通
+				}
+				//CP.Ld.pay_card(addmoney, id, 2, bankCode,cardtype,cardno,mobile)
+				CP.Ld.pay_card(addmoney,id,bankCode,cardtype,cardno,mobile)
+			})
+			
+			
+			$('#addcard').click(function(){ //点击充值添加银行卡
+				$('#zfBank').hide();
+				$('#guanli').hide();
+				$('#bank-title').html('添加银行卡')
+				document.title='添加银行卡';
+				$('#bdBank').show();
+			})
+			
+			$('#success').click(function(){ //点击下一步
+				if($(this).hasClass("tt_")){
+					return;
+				}else{
+					$(this).addClass("tt_")
+				}
+				
+			
+				var addmoney = cz[addmoney]=money
+				var cardtype = cz["cardtype"]=$('#show_contact').attr('data-card-type');
+				var bankCode = cz["bankCode"]=bank["bankCode"] = $('#show_contact').attr('data-card-code');
+				
+				var mobile = $("#mobile").val();
+				
+				var cardno = cz["cardno"]=$('#cardcode').val().replace(/['\t]/g,'').replace(/\s*/g, '');
+				bank["cardno"]=CP.Ld.rStr(Encrypt(cardno));
+				cz["mobile"]=mobile;
+				var bankid= 4004;
+				if(cardtype == 0){
+					bankid = 4004 
+				}else{
+					bankid = 4005 //支付网关
+				}
+				cz["bankid"]=bankid;
+				
+				CP.Ld.pay_card(addmoney,bankid,bankCode,cardtype,cardno,mobile)
+			})
+			$("#show_contact").keyup(function(){
+				if($(this).val() && $("#cardcode").val() ){
+					$('#success').removeAttr('disabled');
+				}else{
+					$('#success').attr('disabled','true');
+				}
+			});
+			$("#cardcode").keyup(function(){
+				if($(this).val() && $("#show_contact").val() ){
+					$('#success').removeAttr('disabled');
+				}else{
+					$('#success').attr('disabled','true');
+				}
+			});
+		}
+	}
+	CP.Ld.init()	
+</script>
+</html>

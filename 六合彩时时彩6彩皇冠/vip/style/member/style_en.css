@@ -1,0 +1,120 @@
+BODY {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; FONT-SIZE: 12px; BACKGROUND: url(/images/beij.gif); BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #878787; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; BORDER-RIGHT-WIDTH: 0px
+}
+SELECT {
+	FONT-SIZE: 12px; COLOR: #878787; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+INPUT {
+	FONT-SIZE: 12px; COLOR: #878787; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+TEXTAREA {
+	FONT-SIZE: 12px; COLOR: #878787; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.al_ul .li02 SPAN {
+	FONT-SIZE: 10px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.rightTips .tips01 SPAN {
+	PADDING-RIGHT: 18px; DISPLAY: block; PADDING-LEFT: 0px; BACKGROUND: url(/images/jyzk_bg_r.gif) no-repeat right 0px; FLOAT: left; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 24px; TEXT-ALIGN: center
+}
+.rightTips_l .tips01 SPAN {
+	PADDING-RIGHT: 18px; DISPLAY: block; PADDING-LEFT: 0px; BACKGROUND: url(/images/jyzk_bg_r.gif) no-repeat right 0px; FLOAT: left; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 24px; TEXT-ALIGN: center
+}
+.rightTips_tk .tips01 SPAN {
+	PADDING-RIGHT: 18px; DISPLAY: block; PADDING-LEFT: 0px; BACKGROUND: url(/images/jyzk_bg_r.gif) no-repeat right 0px; FLOAT: left; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 24px; TEXT-ALIGN: center
+}
+.contact {
+	BORDER-RIGHT: #e4e8e9 1px solid; PADDING-RIGHT: 18px; BORDER-TOP: #e4e8e9 1px solid; MARGIN-TOP: 12px; PADDING-LEFT: 76px; PADDING-BOTTOM: 24px; BORDER-LEFT: #e4e8e9 1px solid; PADDING-TOP: 24px; BORDER-BOTTOM: #e4e8e9 1px solid; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.contact01 {
+	BORDER-RIGHT: #e4e8e9 1px solid; PADDING-RIGHT: 18px; BORDER-TOP: #e4e8e9 1px solid; MARGIN-TOP: 12px; PADDING-LEFT: 76px; PADDING-BOTTOM: 24px; BORDER-LEFT: #e4e8e9 1px solid; PADDING-TOP: 24px; BORDER-BOTTOM: #e4e8e9 1px solid; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.contact SPAN {
+	FONT-SIZE: 14px; COLOR: #f90; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.contact01 SPAN {
+	FONT-SIZE: 14px; COLOR: #f90; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.btn_blue {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: url(/images/wyss1.gif) no-repeat; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; WIDTH: 62px; CURSOR: pointer; COLOR: #fff; LINE-HEIGHT: 21px; PADDING-TOP: 0px; HEIGHT: 21px; TEXT-ALIGN: center; BORDER-RIGHT-WIDTH: 0px
+}
+.btn_gray {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: url(/images/jrtzqx.gif) no-repeat; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; WIDTH: 47px; CURSOR: pointer; COLOR: #fff; LINE-HEIGHT: 21px; PADDING-TOP: 0px; HEIGHT: 21px; TEXT-ALIGN: center; BORDER-RIGHT-WIDTH: 0px
+}
+.leftTil_pad {
+	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 196px; PADDING-TOP: 0px; TEXT-ALIGN: center
+}
+.leftTil_pad2 {
+	MARGIN-TOP: 1px; DISPLAY: inline; FLOAT: left; WIDTH: 20px; HEIGHT: 21px
+}
+.leftTil_pad3 {
+	DISPLAY: inline; FLOAT: left; MARGIN-LEFT: 20px; WIDTH: 156px; LINE-HEIGHT: 23px; TEXT-ALIGN: center
+}
+.memberleft {
+	BACKGROUND: #fbfbfb; FLOAT: left; WIDTH: 196px; LINE-HEIGHT: 21px; BORDER-BOTTOM: #ffffff 1px solid; HEIGHT: 21px
+}
+.memberleft1 {
+	BACKGROUND: #f4f4f4; FLOAT: left; WIDTH: 196px; LINE-HEIGHT: 21px; BORDER-BOTTOM: #ffffff 1px solid; HEIGHT: 21px
+}
+.memberleft2 {
+	BACKGROUND: url(/images/yhxx_jt.gif) no-repeat center 50%; FLOAT: left; WIDTH: 21px; COLOR: #336699; LINE-HEIGHT: 21px; HEIGHT: 21px
+}
+.memberleft3 {
+	FLOAT: left; WIDTH: 70px; COLOR: #336699; LINE-HEIGHT: 21px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 21px
+}
+.memberleft4 {
+	FLOAT: left; WIDTH: 102px; COLOR: #336699; LINE-HEIGHT: 21px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 21px
+}
+.memberleft5 {
+	MARGIN-TOP: 2px; FLOAT: left; MARGIN-LEFT: 6px; WIDTH: 80px; LINE-HEIGHT: 19px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 19px
+}
+.memberleft6 {
+	MARGIN-TOP: 2px; FLOAT: left; WIDTH: 77px; LINE-HEIGHT: 19px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 19px; TEXT-ALIGN: center
+}
+.memberleft7 {
+	MARGIN-TOP: 2px; FLOAT: left; WIDTH: 25px; LINE-HEIGHT: 19px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 19px
+}
+.loginBar UL .regNow {
+	BACKGROUND: url(/images/regNow_en.gif) no-repeat 0px center; WIDTH: 110px
+}
+.btn_after01 {
+	WIDTH: 48px
+}
+.btn_after02 {
+	WIDTH: 58px
+}
+.btn_after03 {
+	WIDTH: 46px
+}
+.btn_after04 {
+	WIDTH: 67px
+}
+.btn_after01_1 {
+	BACKGROUND: url(/images/top1_03.gif) no-repeat 0px center; MARGIN: 1px 0px 0px; WIDTH: 50px; COLOR: #ffffff; BORDER-TOP-STYLE: none; LINE-HEIGHT: 21px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; LETTER-SPACING: 0px; HEIGHT: 21px; BORDER-BOTTOM-STYLE: none
+}
+.btn_after02_2 {
+	BACKGROUND: url(/images/top1_04.gif) no-repeat 0px center; MARGIN: 1px 0px 0px; WIDTH: 45px; COLOR: #ffffff; BORDER-TOP-STYLE: none; LINE-HEIGHT: 21px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; LETTER-SPACING: 0px; HEIGHT: 21px; BORDER-BOTTOM-STYLE: none
+}
+.btn_after03_3 {
+	BACKGROUND: url(/images/top1_05.gif) no-repeat 0px center; MARGIN: 1px 0px 0px; WIDTH: 49px; COLOR: #ffffff; BORDER-TOP-STYLE: none; LINE-HEIGHT: 21px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; LETTER-SPACING: 0px; HEIGHT: 21px; BORDER-BOTTOM-STYLE: none
+}
+.btn_after04_4 {
+	BACKGROUND: url(/images/top1_06.gif) no-repeat 0px center; MARGIN: 1px 0px 0px; WIDTH: 65px; COLOR: #ffffff; BORDER-TOP-STYLE: none; LINE-HEIGHT: 21px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; LETTER-SPACING: 0px; HEIGHT: 21px; BORDER-BOTTOM-STYLE: none
+}
+.btn_after05_5 {
+	BACKGROUND: url(/images/top1_07.gif) no-repeat 0px center; MARGIN: 1px 0px 0px; WIDTH: 48px; COLOR: #ffffff; BORDER-TOP-STYLE: none; LINE-HEIGHT: 21px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; LETTER-SPACING: 0px; HEIGHT: 21px; BORDER-BOTTOM-STYLE: none
+}
+.btn_after06_6 {
+	BACKGROUND: url(/images/top1_08.gif) no-repeat 0px center; MARGIN: 1px 0px 0px; WIDTH: 56px; COLOR: #ffffff; BORDER-TOP-STYLE: none; LINE-HEIGHT: 21px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; LETTER-SPACING: 0px; HEIGHT: 21px; BORDER-BOTTOM-STYLE: none
+}
+.btn_orange_c {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: url(/images/btn_ornge_c.gif) red no-repeat center center; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 1px 0px 0px; WIDTH: 61px; COLOR: #fff; LINE-HEIGHT: 23px; PADDING-TOP: 0px; HEIGHT: 23px; BORDER-RIGHT-WIDTH: 0px
+}
+.afterLogin INPUT {
+	FONT-SIZE: 9pt
+}
+.btn_blue1 {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: url(/images/wyss1.gif) no-repeat; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; WIDTH: 62px; CURSOR: pointer; COLOR: #fff; LINE-HEIGHT: 21px; PADDING-TOP: 0px; HEIGHT: 21px; TEXT-ALIGN: center; BORDER-RIGHT-WIDTH: 0px
+}
+.btn_gray1 {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: url(/images/jrtzqx.gif) no-repeat; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; WIDTH: 47px; CURSOR: pointer; COLOR: #fff; LINE-HEIGHT: 21px; PADDING-TOP: 0px; HEIGHT: 21px; TEXT-ALIGN: center; BORDER-RIGHT-WIDTH: 0px
+}

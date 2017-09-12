@@ -1,0 +1,67 @@
+﻿<view class="nav-warp">  
+    <view class="tab">  
+        <text class="active">全部</text>
+        <text>双色球</text>
+        <text>大乐透</text>
+        <text>竞足</text>
+        <text>竞篮</text>
+        <text> . . . </text>
+        <view class="tab-list">
+            <text>胜负彩</text>
+            <text>北京单场</text>
+            <text>福彩3D</text>
+            <text>排3</text>
+        </view>        
+    </view>  
+</view>
+
+
+<view class="article-list">
+    <view class="article-list_li">
+        <navigator url="url" class="article-list_flex">
+            <view class="article-list_img">
+                <image src="/img/article_list.png"></image>
+            </view>
+            <view class="article-list_txt">
+                <text class="article-list_h">建业想要吉马良斯前锋葡媒建业想要吉马良斯</text>
+                <text class="article-list_ts">葡媒：建业想要吉马良斯前锋葡媒：建业斯锋</text>
+                <text class="article-list_p">01-11</text>
+            </view>
+        </navigator>        
+    </view>
+    <view class="article-list_li">
+        <navigator url="url" class="article-list_flex">
+            <view class="article-list_img">
+                <image src="/img/article_list.png"></image>
+            </view>
+            <view class="article-list_txt">
+                <text class="article-list_h">葡媒：建业想要吉马良斯前锋葡媒前锋</text>
+                <text class="article-list_p">01-11</text>
+            </view>
+        </navigator>        
+    </view>
+    <view class="article-list_li">
+        <navigator url="url" class="article-list_flex">
+            <view class="article-list_img">
+                <image src="/img/article_list.png"></image>
+            </view>
+            <view class="article-list_txt">
+                <text class="article-list_h">葡媒：建业想要吉斯前锋</text>
+                <text class="article-list_p">01-11</text>
+            </view>
+        </navigator>        
+    </view>
+    <view class="article-list_li">
+        <navigator url="url" class="article-list_flex">
+            <view class="article-list_img">
+                <image src="/img/article_list.png"></image>
+            </view>
+            <view class="article-list_txt">
+                <text class="article-list_h">葡媒：建业想要吉马良斯前锋葡媒：建业想要吉马良斯前锋</text>
+                <text class="article-list_p">01-11</text>
+            </view>
+        </navigator>        
+    </view>
+    
+    
+</view>  

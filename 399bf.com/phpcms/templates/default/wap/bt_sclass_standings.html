@@ -1,0 +1,58 @@
+{php $css = array('bt_immediate.css')}
+{php $nav_id = 2} 
+{template 'wap', 'wap_header'}
+        <div class="content">
+            <div class="buttons-tab">
+                <a href="{WAP_PATH}sclass/{$sclassid}/standings/" class="close-popup button active">积分</a>
+                <a href="{WAP_PATH}sclass/{$sclassid}/schedule/" class="close-popup button">赛程</a>
+                <a href="{WAP_PATH}sclass/{$sclassid}/teamTechnic/" class="close-popup button">球队统计</a>
+                <a href="{WAP_PATH}sclass/{$sclassid}/playerTechnic/" class=" close-popup button">球员统计</a>
+            </div>
+            <div class="content-block">
+                <div class="tabs">
+                    <!--积分-->
+                    <div id="tab1" class="tab active">
+                        {loop $standings_info $type $standings}
+                        <div class="standing-title">
+                            {$type}
+                        </div>
+                        <table class="integral-table">
+                            <tr class="head-tr">
+                                <td>排名</td>
+                                <td>球队</td>
+                                <td>胜</td>
+                                <td>负</td>
+                                <td>胜率</td>
+                                <td>主场战绩</td>
+                                <td>客场战绩</td>
+                                <td>近10场</td>
+                                <td>状态</td>
+                            </tr>
+                               {loop $standings $data}
+                            <tr>
+                                <td>{$data['totalrank']}</td>
+                                <td><span class="orange"> {$data['teamname']}</span></td>
+                                    <td>{$data['win']}</td>
+                                    <td>{$data['loss']}</td>
+                                    <td class="orange2">{$data['winscale']}</td>
+                                    <td>{$data['result']['home']}</td>
+                                    <td>{$data['result']['guest']}</td>
+                                    <td>{$data['near']}</td>
+                                    <td {if $data['state'] > 0}class="red"{else}class="green"{/if}>{$data['status']}</td>
+                            </tr>
+                              {/loop}
+                        </table>
+                          {/loop}
+                    </div>
+                </div>
+            </div>
+
+            {template 'wap', 'footer_nav'}
+
+        </div>
+
+</div>
+</div>
+
+
+{template 'wap', 'wap_footer'}

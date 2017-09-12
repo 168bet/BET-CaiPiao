@@ -1,0 +1,13 @@
+<!--用户中心底部-->
+ <div class="footer">
+    <div class="row12 clearfix">
+        <p class="align-r">
+        	<a class="fl" ui-sref="helps.about">关于我们</a><span class="fl">|</span>
+        	<a class="fl" ui-sref="helps.help">帮助中心</a><span class="fl">|</span>
+        	<a class="fl" ui-sref="user.security">安全中心</a><span class="fl">|</span>
+        	<a class="fl" href="/Index/app" >手机APP客户端</a>
+        	<span class="fl">|</span>
+        	<a class="fl" href="">在线客服</a>Copyright © 2015-2016 AG蛋蛋 版权所有
+         </p>
+    </div>
+</div>

@@ -1,0 +1,204 @@
+{php $css = ['bt_team_player.css'];}
+{php $nav_id = 6;}
+{template 'content', 'header_score'}
+<div class="crumbs">
+    <i class="crumbs-icon"></i>当前位置：<span class="orange">篮球资料库</span>&gt;<span class="orange">{$sclass_info['name_s']}</span>&gt;{$team_info['name_cn']}
+</div>
+<div class="content clearfix">
+    <div class="left">
+        <div class="player-info clearfix">
+            <div class="player-head">
+                <img src="{$playerinfo['photo']}" alt="" class="bt-player-photo">
+            </div>
+            <div class="player-intro">
+                <table>
+                    <tr>
+                        <td align="right" class="bg1">中文名：</td>
+                        <td class="bg2">{$playerinfo['name_cn']}</td>
+                        <td align="right" class="bg1">身高：</td>
+                        <td class="bg2">{$playerinfo['tallness']}</td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="bg1">粤语名：</td>
+                        <td class="bg2">{$playerinfo['name_tw']}</td>
+                        <td align="right" class="bg1">体重：</td>
+                        <td class="bg2">{$playerinfo['weight']}</td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="bg1">英文名：</td>
+                        <td class="bg2">{$playerinfo['name_en']}</td>
+                        <td align="right" class="bg1">在NBA年资：</td>
+                        <td class="bg2">{$playerinfo['nbaage']}</td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="bg1">生日：</td>
+                        <td class="bg2">{$playerinfo['birthday']}</td>
+                        <td align="right" class="bg1">16-17常规赛平均得分：</td>
+                        <td class="bg2">{$playerinfo['avg_score']}</td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="bg1">位置：</td>
+                        <td class="bg2">{$playerinfo['place']}</td>
+                        <td align="right" class="bg1">16-17常规赛平均助攻：</td>
+                        <td class="bg2">{$playerinfo['avg_helpattack']}</td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="bg1">来自：</td>
+                        <td class="bg2"></td>
+                        <td align="right" class="bg1">16-17常规赛平均篮板：</td>
+                        <td class="bg2">{$playerinfo['avg_attack_defend']}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="data-list">
+            <div class="data-list-con">
+                <table>
+                    <tr>
+                        <td colspan="19" class="data-title" style="border: none;">技术统计</td>
+                    </tr>
+                    <tr style="background-color: #f5f5f5;">
+                        <td colspan="19">
+                            <div class="btn-wrap">
+                                <span><i class="checkbox checkbox-on" data-classname="normal" onclick="cat(this);"></i>常规赛<input style="visibility: hidden;" type="checkbox" checked ></span>
+                                <span><i class="checkbox checkbox-on" data-classname="back" onclick="cat(this);"></i>季后赛<input style="visibility: hidden;" type="checkbox" checked ></span>
+                                <span><i class="checkbox checkbox-off" data-classname="front" onclick="cat(this);"></i>季前赛<input style="visibility: hidden;" type="checkbox" ></span>
+                                <span><i class="checkbox checkbox-off"></i>明星赛<input style="visibility: hidden;" type="checkbox"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="background-color: #fff;">
+                        <td rowspan="2">赛季</td>
+                        <td rowspan="2">效力球队</td>
+                        <td colspan="2">首发</td>
+                        <td colspan="2">替补</td>
+                        <td rowspan="2">时间</td>
+                        <td rowspan="2">投篮</td>
+                        <td rowspan="2">3分</td>
+                        <td rowspan="2">罚球</td>
+                        <td colspan="3">篮板</td>
+                        <td rowspan="2">抢断</td>
+                        <td rowspan="2">盖帽</td>
+                        <td rowspan="2">失误</td>
+                        <td rowspan="2">犯规</td>
+                        <td rowspan="2">得分</td>
+                    </tr>
+                    <tr style="background-color: #fff;">
+                        <td>次数</td>
+                        <td>胜率</td>
+                        <td>次数</td>
+                        <td>胜率</td>
+                        <td>进攻</td>
+                        <td>防守</td>
+                        <td>总计</td>
+                    </tr>
+                    <!--一条数据start-->
+                    {loop $stat $cat $r}
+                    <tr style="background-color: #f5f5f5;" class="{$r['style']}">
+                        <td rowspan="2">{$cat}</td>
+                        <td rowspan="2">{$r['name_cn']}</td>
+                        <td rowspan="2">{$r['first']}</td>
+                        <td rowspan="2">{$r['first_win_rate']}</td>
+                        <td rowspan="2">{$r['reserve']}</td>
+                        <td rowspan="2">{$r['reserve_win_rate']}</td>
+                        <td>{$r['playtime']}</td>
+                        <td>{$r['shoot_hit']}-{$r['shoot']}</td>
+                        <td>{$r['threemin_hit']}-{$r['threemin']}</td>
+                        <td>{$r['punishball_hit']}-{$r['punishball']}</td>
+                        <td>{$r['attack']}</td>
+                        <td>{$r['defend']}</td>
+                        <td>{$r['attack_defend']}</td>
+                        <td>{$r['rob']}</td>
+                        <td>{$r['cover']}</td>
+                        <td>{$r['misplay']}</td>
+                        <td>{$r['foul']}</td>
+                        <td>{$r['score']}</td>
+                    </tr>
+                    <tr style="background-color: #f5f5f5;" class="{$r['style']}">
+                        <td>{$r['avg_playtime']}</td>
+                        <td>{$r['shoot_hit_rate']}</td>
+                        <td>{$r['threemin_hit_rate']}</td>
+                        <td>{$r['punishball_hit_rate']}</td>
+                        <td>{$r['avg_attack']}</td>
+                        <td>{$r['avg_defend']}</td>
+                        <td>{$r['avg_attack_defend']}</td>
+                        <td>{$r['avg_rob']}</td>
+                        <td>{$r['avg_cover']}</td>
+                        <td>{$r['avg_misplay']}</td>
+                        <td>{$r['avg_foul']}</td>
+                        <td>{$r['avg_score']}</td>
+                    </tr>
+                    {/loop}
+                    <!--一条数据end-->
+                </table>
+            </div>
+            <div class="data-list-con">
+                <table>
+                    <tr>
+                        <td colspan="9"  class="data-title" style="border: none;">球员荣誉</td>
+                    </tr>
+                    <tr>
+                        <td>荣誉名称</td>
+                        <td>所属球队</td>
+                        <td>获得赛季/月份</td>
+                    </tr>
+                    <tr>
+                        <td>总冠军</td>
+                        <td>洛杉矶湖人</td>
+                        <td><span class="win-time">&nbsp;</span><span class="win-time">&nbsp;</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="data-list-con">
+                <div class="data-title">
+                    球员介绍
+                </div>
+                <div class="intro-content">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right" style="border-top: 1px solid #ffa21d;">
+        <div class="side">
+            <div class="side-title">{$team_info['name_cn']}主教练</div>
+            <div class="peo-info clearfix">
+                <div class="coach"><img src="{$drillmaster_info['photo']}" alt="" class="bt-player-photo"></div>
+                <div class="fr">
+                    <div class="list-info">中文名：{$drillmaster_info['name_cn']}</div>
+                    <div class="list-info">英文名：{$drillmaster_info['name_en']}</div>
+                    <div class="list-info">粤语名：{$drillmaster_info['name_tw']}</div>
+                    <div class="list-info">&nbsp;&nbsp;&nbsp;&nbsp;国籍：</div>
+                </div>
+                <div class="list-info" style="width: 100%"><span class="w130">生日：{$drillmaster_info['birthday']}</span>性别：男</div>
+                <div class="list-info" style="width: 100%"><span class="w130">身高：{$drillmaster_info['tallness']}</span>体重：{$drillmaster_info['weight']}<br>
+                    所属俱乐部：{$team_info['name_cn']}</div>
+            </div>
+        </div>
+        <div class="side">
+            <div class="side-title">{$team_info['name_cn']}球员</div>
+            {loop $player_info $place $info}
+            <div class="forward">
+                <div class="pos-title">{$place}</div>
+            </div>
+            <div class="member-info clearfix">
+                <ul>
+                    {loop $info $r}
+                    <li>
+                        <a href="{APP_PATH}lq/player/{$r['playerid']}/">
+                            <img src="{$r['photo']}" alt="{$r['name_s']}" class="bt-player-photo">
+                            <div class="member-name">{str_cut($r['name_s'], 15, '...')}</div>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/loop}
+        </div>
+    </div>
+</div>
+
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = ['bt_team_player.js','imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js'];}
+{template 'content', 'footer'}

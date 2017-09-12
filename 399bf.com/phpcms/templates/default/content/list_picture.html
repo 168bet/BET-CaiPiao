@@ -1,0 +1,55 @@
+{php $css = array('list_pic_video.css','water.css', 'page.css')}
+{php $nav_id = 9}
+{php $category = get_category(7)}
+{template 'content', 'header_score'}
+<div class="pic-banner">
+    <div class="select-wrap">
+        <ul class="clearfix">
+            <li class="nav-li"><a href="{APP_PATH}tuku/">图库</a></li>
+            {loop $category['children'] $id $data}
+            <li class="nav-li {if in_array($catid, $data['child_arr'])}active{/if}">
+                <a href="{APP_PATH}{$data['catdir']}/">{$data['catname']}</a>
+            </li>
+            {/loop}
+            <li class="nav-li"><a href="{APP_PATH}video/">体坛视频</a></li>
+        </ul>
+        <div class="tab-content">
+            {loop $category['children'] $id $data}
+            {if in_array($catid, $data['child_arr'])}
+            <ul class="inner-nav">
+                {loop $data['children'] $key $value}
+                <li><a href="{APP_PATH}{$value['catdir']}/" {if $catid == $key}class="active"{/if}>{$value['catname']}</a></li>
+                {/loop}
+            </ul>
+            {/if}
+            {/loop}
+        </div>
+    </div>
+</div>
+{pc:content action="lists" thumb="1" keywords="$keywords" catid="$catid" order="id DESC" num="24" page="$page"}
+<div id="container" style="width: 1000px;margin: 0 auto;">
+    <div id="main" role="main">
+        <ul id="tiles">
+            {loop $data $r}
+            <li>
+                <a href="{$r['url']}" target="_blank" title="{$r['title']}">
+                    {if $n <= 10}
+                    <img src="{$r['thumb']}"  alt="{$r['title']}" width="238">
+                    {else}
+                    <img src="{IMG_PATH}blank.gif" data-echo="{$r['thumb']}"  alt="{$r['title']}" width="238">
+                    {/if}
+                    <p><i>{str_cut($r['title'], 200, '...')}</i></p>
+                </a>
+            </li>
+            {/loop}
+
+        </ul>
+    </div>
+</div>
+
+<div class="page">
+    {$pages}
+</div>
+{/pc}
+{php $js = array('jquery.wookmark.js','echo.min.js','list_pic_new.js')}
+{template 'content', 'footer'}

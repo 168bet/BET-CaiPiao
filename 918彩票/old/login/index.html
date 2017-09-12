@@ -1,0 +1,39 @@
+
+<article class="gray">
+	<header class="tzHeader">
+    	<section class="buyHeader">
+    		<a href="#class=home" class="backHome"></a>
+    		<h1>登录</h1>
+    	</section>
+    </header>
+    <div class="pdLfrt09 pdTop06">
+    	<div class="s1 relative"><em class="admi"></em><input type="text" id="username" placeholder="请输入您的用户名"><em class="error" style="display:none;"></em></div>
+    	<div class="s1 relative"><em class="password"></em><input type="password" id="password" placeholder="请填写您的密码"><em class="error" style="display:none;"></em></div>
+        <p class="clearfix pdTop06"><a href="/useraccount/setup/forgotpass.html" class="right aGreen">忘记密码？</a></p>
+        <div class="clearfix"><a href="javascript:;" id='loginBtn' class="left loginBtn">登录</a><a href="javascript:;" class="right register">注册</a></div>
+    </div> 
+</article>
+<script type="text/javascript">
+
+$(function(){
+	$('#loginBtn').on('click',function(){
+		MiniLogin();
+	});
+	$('.register').on('click',function(){
+		location.replace('/#class=url&xo=login/register.html');
+	});
+	var user_name = localStorage.getItem("username");
+	!!user_name && $('#username').val(user_name);
+	$('.pdLfrt09 .relative input').keyup(function(){
+		if($(this).val().length >0 ){
+			$(this).parent().find('.error').show();
+		}else{
+			$(this).parent().find('.error').hide();
+		}
+	});
+	$('.error').click(function(){
+		$(this).parent().find('input').val('');
+		$(this).hide();
+	});
+})
+</script>

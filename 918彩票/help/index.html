@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>帮助中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+    	body>a{
+    		display: none;
+    	}
+    </style>
+    <script>
+        window.onload=function() {
+            document.body.addEventListener('touchstart', function () {
+            });
+        }
+    </script>
+</head>
+<script src="https://s4.cnzz.com/z_stat.php?id=1261608320&web_id=1261608320" language="JavaScript"></script>
+
+<body>
+    <!--常见问题--->
+    <section class="wrapper">
+        <p class="title_p">常见问题</p>
+        <div class="list" id="list">
+            
+        </div>
+    </section>
+    <!--问题分类--->
+    <section class="wrapper p_b">
+        <p class="title_p">问题分类</p>
+        <div>
+            <a class="class_div" href="javascript:;" name="zhwt">
+                <img src="img/icon_1.png" class="icon_img">
+                <div class="class_info">
+                    <p>账户问题</p>
+                    <p><span>账户信息</span><span>充值提款</span><span>积分红包</span></p>
+                </div>
+            </a>
+            <a class="class_div" href="javascript:;" name="gcwt">
+                <img src="img/icon_2.png" class="icon_img">
+                <div class="class_info">  
+                    <p>购彩问题</p>
+                    <p><span>购彩投注</span><span>奖金计算</span><span>开奖兑奖</span></p>
+                </div>
+            </a>
+            <a class="class_div" href="javascript:;" name="aqwt">
+                <img src="img/icon_3.png" class="icon_img">
+                <div class="class_info">
+                    <p>安全问题</p>
+                    <p><span>权益保护</span><span>信息绑定</span></p>
+                </div>
+            </a>
+        </div>
+    </section>
+    <!--在线客服-->
+    <div class="tel_fixed">
+        <a class="tel_a" href=''>在线客服</a>
+        <!-- <script language="javascript" src="http://chat8.live800.com/live800/chatClient/textButton.js?jid=4543042755&companyID=152373&configID=127313&codeType=custom"></script>
+		<script id='write' language="javascript">function writehtml(){var temptext=text_generate();document.getElementById("live800iconlink").className="tel_a";document.getElementById('live127313').innerHTML=temptext;setTimeout('write.src',9000);}writehtml();</script> -->
+    </div>
+    
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <!-- <script src="js/swiper.min.js"></script> -->
+    <script type="text/javascript">
+	    String.prototype.getParam = function(n){
+	    	var r = new RegExp("[\?\&]"+n+"=([^&?]*)(\\s||$)", "gi");
+	    	var r1=new RegExp(n+"=","gi");
+	    	var m=this.match(r);
+	    	if(m==null){
+	    		return "";
+	    	}else{
+	    		return typeof(m[0].split(r1)[1])=='undefined'?'':decodeURIComponent(m[0].split(r1)[1]);
+	    	}
+	    };
+    	$(function(){
+    		try{ 
+    			_czc.push(['_trackEvent', '帮助中心', '移动端', '链接','1','点击次数']);
+    		}catch(e){}
+    		var pagetitle = location.search.getParam("pagetitle")||"";
+    		
+			var init = function(){
+				$(".tel_a").attr("href","https://chat8.live800.com/live800/chatClient/chatbox.jsp?companyID=152373&configID=126236&jid=4543042755&pagetitle="+pagetitle)
+				commonProblem();
+				bindEvent();
+        	}
+            //跳转
+            var commonProblem = function(){
+            	var html=""
+            	$.ajax({
+        			url : "/data/app/HelpManualXml/templateCommon.xml",
+    				type:'GET',
+    				dataType:'xml',
+    				success:function(xml){
+    					var rows = $(xml).find("rows");
+    					var row = rows.find("row");
+    					if(row.length>0){
+    						row.each(function(){
+    							var cqtitle = $(this).attr("cqtitle")
+    							var cqanswer = $(this).attr("cqanswer")
+    							 html +='<div class="help_div">'
+   	   	    					 html +='<p>'+cqtitle+'<i></i></p>'
+   	   	    					 html +='<div style="display:none">'+cqanswer+'</div>'
+   	   	    					 html +='</div>'
+    						})
+    						$("#list").html(html);
+    					}
+    				}
+        		})
+            }
+            var bindEvent=function(){
+            	$('.class_div').click(function(){
+            		localStorage.setItem("help",$(this).attr('name'))
+                    location.href='./list.html';
+                })
+                //下拉
+                $("#list").delegate(".help_div p","click",function(){
+                    if($(this).hasClass("down")){
+                        $(this).removeClass("down");
+                        $(this).next("div").hide();
+                    }else{
+                        $(this).addClass("down");
+                        $(this).next("div").show();
+                    }
+                    $(this).parent().siblings().find("p").removeClass("down");
+                    $(this).parent().siblings().find("div").hide();
+                })
+            }
+            
+            init()
+            
+    	})
+    	
+    </script>
+</body>
+</html>

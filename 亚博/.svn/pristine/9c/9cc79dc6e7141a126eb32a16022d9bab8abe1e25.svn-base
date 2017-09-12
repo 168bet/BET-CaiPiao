@@ -1,0 +1,59 @@
+<div class="proxy-index-wrap padding-wrap">
+	<div class="statistical-info">
+		<table class="table">
+			<tbody>
+				<tr>
+					<td width="40%">团队成员：<span class="boldtext">{{data.summary.teamNum}}人</span>
+					</td>
+					<td>团队余额：<span class="boldtext">{{data.summary.teamMoney}}元（不包含自己）</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="ui-tab statistical">
+		<div class="ui-tab-title tab-title-bg clearfix" >
+			<ul id="getDayBound">
+				<li pro-day="0" ng-click="fun.setDay(0)" ng-class="{current:day==0}">今天</li>
+				<li pro-day="-1" ng-click="fun.setDay(1)" ng-class="{current:day==1}">昨天</li>
+				<li pro-day="-6" ng-click="fun.setDay(7)" ng-class="{current:day==7}">最近7天</li>
+			</ul>
+			<div class="calendar">
+				<input  type="text" class="input input-normal input-radius" ng-model="totalDates.fromDate" laydate format="YYYY-MM-DD"> - <input type="text" class="input input-normal input-radius" ng-model="totalDates.toDate" laydate format="YYYY-MM-DD"> &nbsp; <a id="J-button-submit" class="btn"
+					 ng-click="fun.agentIndex()">查 询</a>
+			</div>
+		</div>
+		<div class="ui-tab-content ui-tab-content-current">
+			<div class="statistical-data">
+				<ul>
+					<li>投注量<span id="J-data-nums-buy">{{data.summary.betIncome|number:2}}</span>
+					</li>
+					<li>充值量<span id="J-data-nums-load">{{data.summary.hkMoney|number:2}}</span>
+					</li>
+					<li>提现量<span id="J-data-nums-withdraw">{{data.summary.withdrawMoney|number:2}}</span>
+					</li>
+					<li>新增用户数<span id="J-data-nums-newMem">{{data.summary.newMember}}</span>
+					</li>
+					<li>返点<span id="J-data-nums-rebates">{{data.summary.backWaterMoney|number:2}}</span>
+					</li>
+				</ul>
+			</div>
+			<div class="statistical-radio" prodata="2">
+				<label for="J-r1" ng-repeat="(type, label) in data.typeLabels track by $index">
+				    <input type="radio" name="ra_group1" ng-change="fun.agentIndex()"
+					value="0" ng-model="data.type" ng-value="type" class="radio sta-radio" id="J-r1" > {{label}}</label>
+			</div>
+			<div class="statistical-graph" >
+                <canvas class="chart chart-line" 
+                    chart-data="data.chart.data" 
+                    chart-labels="data.chart.labels" 
+                    chart-series="data.chart.series" 
+                    chart-options="data.chart.options"
+                    chart-dataset-override="data.chart.datasetOverride"
+                    chart-click="fun.chartClick">
+                    
+                    </canvas>
+			</div>
+		</div>
+	</div>
+</div>

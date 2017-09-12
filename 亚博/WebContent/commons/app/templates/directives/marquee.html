@@ -1,0 +1,4 @@
+<div class="listwrap marquee-wap marquee-wap-animate">
+  <li class="item" ng-repeat="item in items" ng-bind-html="item.content | trustHTML"></li>
+  <li class="item" ng-repeat="item in items.slice(0, 1)" ng-bind-html="item.content | trustHTML"></span></li>
+</div>

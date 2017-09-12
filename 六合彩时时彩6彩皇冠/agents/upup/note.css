@@ -1,0 +1,31 @@
+.title {
+	font-size: 14px;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+ul {
+	list-style-image: url(up_images/li.jpg);
+	line-height: 200%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-top: 20px;
+}
+.tidot {
+	font-size: 12px;
+	color: #333333;
+	background-position: 15px;
+}
+body {
+	background-image: url(up_images/bgicon.gif);
+	background-color: #003366;
+}
+.ad {
+	font-size: 12px;
+	color: #FFFFFF;
+}
+.tab {
+	background-image: url(up_images/tab_bg2.gif);
+	background-repeat: repeat-y;
+}

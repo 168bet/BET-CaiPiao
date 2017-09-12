@@ -1,0 +1,54 @@
+tr {font-family:"Arial"; font-size:12px}
+a:link {color:#CC0000; text-decoration:none; font-weight:bold}
+a:hover {color:#000066; font-weight:bold}
+a:visited {text-decoration:none; font-weight:bold}
+.b_ad {
+	font-size:15px;
+	background-image: url("../images/body_ad_012b.jpg");
+	padding-top: 6px;
+	font-family: "Arial";
+	color: #000000;
+	padding-right: 3px;
+	padding-left: 3px;
+	background-repeat: repeat-x;
+}
+.b_tab {padding:3px 2px 0px 2px; background-color: #BBB1A1}
+.b_title {
+	padding: 4px 2px 0px 0px;
+	background-color: #BBD5F8;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #707161;
+	border-right-color: #707161;
+	border-bottom-color: #707161;
+	border-left-color: #707161;
+
+}
+.b_hline {text-align:center; background-color: #DADADA}
+.b_lef {background-color:#FFFFFF; text-align:left}
+.b_cen { background-color: #FFFFFF; text-align:center}
+.b_rig {background-color:#FFFFFF; text-align:right}
+.b_fwn {font-weight:normal}
+.za_button {font-family:"Arial"; font-size:12px; height:18px; padding-right:1px; margin-bottom: 2px}
+.za_text {font-family:"Arial"; font-size:12px; height:18px; padding-left:2px; padding-right:2px; background-color: #FFFFFF; border: #000000; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; padding-bottom: 1px}
+.za_dot {height:12px; width:12px; margin-bottom:2px}
+.b_pradio {  color: #CC0000; background-color: #e4f0f3; font-weight: bold}
+.b_radio { color: #006600; background-color: #e4f0f3 ; font-weight: bold}
+.b_rig_02 { text-align:right ; padding-right: 5px}
+.b_foot {font-size:11px; text-align:right}
+.za_select {font-family:Arial; font-size:12px; height:18px}
+body {  background-color: #FFFFFF; padding-top: 0px; padding-left: 10px}
+
+.b_sw {  color: #FFFF00}
+.b_sw a:link{ color:#FFFF00; text-decoration:none}
+.b_sw a:hover{ color:#FFFFFF; text-decoration:none}
+.b_sw a:visited{ color:#FFFF00; text-decoration:none}
+.b_sw a:visited:hover{ color:#FFFFFF; text-decoration:none}
+.b_tbline {  background-color: #BBB1A1; padding-top: 1px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; border: #707161 solid; width: 530px; border-width: 0px 1px 1px}
+.b_tline_bk { text-align:center; background-color: #F1EFEF}

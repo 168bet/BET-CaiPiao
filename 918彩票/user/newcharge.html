@@ -1,0 +1,690 @@
+<style>
+.recharge a .downArrow_{transform:rotate(-135deg); -webkit-transform:rotate(-135deg); -moz-transform:rotate(-135deg);-o-transform:rotate(-135deg); -ms-transform:rotate(-135deg)}
+</style>
+<div>
+	<article class="rechList pdLfrt09">
+		<div class="s3 s5 s3cur">
+			<div class="clearfix">
+				<cite>充值金额</cite><input id='money_' type="tel" class="moneyNum"
+					placeholder="请输入充值金额" value='100' onkeyup= "value=value.replace(/\D/g, '')"><i>元</i>
+			</div>
+			<div class="s3line"></div>
+		</div>
+		<ul class="clearfix" id="tab">
+			<li>10元</li>
+			<li>50元</li>
+			<li class="cur">100元</li>
+			<li>500元</li>
+		</ul>
+	</article>
+	<div class="recharge">
+		<a href="javascript:;" id='zfb' style="">
+			<h3>
+				支付宝
+			</h3>
+			<p>免手续费，最高1万/笔，本渠道需100%消费，奖金提款不受限制</p> <em class="zfbIco"></em> <i
+			class="rightArrow"></i>
+		</a>
+		<!-- 
+		<a href="javascript:;" id='fee_zfb' style="">
+			<h3>
+				支付宝<em>fee</em>
+			</h3>
+			<p>免手续费，最高1万/笔，本渠道需100%消费，奖金提款不受限制</p> <em class="zfbIco"></em> <i
+			class="rightArrow"></i>
+		</a>
+		 -->
+		<a href="javascript:;"  id='wx' style='display:;'>
+			<h3>
+				微信支付
+			</h3>
+			<!-- <p>单日限额1000，收取1%手续费</p> <em class="wxIco"></em> <i class="rightArrow"></i> -->
+			<p>免手续费，最高5千/笔，充值款需100%消费，奖金提现无限制</p> <em class="wxIco_1"></em> <i class="rightArrow"></i>
+		</a>
+		<a href="javascript:;" style='display:block;'>
+			<h3>银行卡-联动优势支付</h3>			
+			<p>免手续费，最高5千/笔、5次/日、1万/日/卡，支持借记卡和信用卡</p> <em class="cxkIco"></em> <i class="rightArrow"></i>
+		</a>
+		<!-- 
+		<a href="javascript:;" class="rechargeLong" id='kjzf'>
+			<h3>
+				快捷支付<cite>(借记卡/信用卡均可)</cite><em>荐</em>
+			</h3>
+			<p>单笔最高5000，单日10000元，收取0.6%手续费</p> <em class="kjzfIco"></em> <i
+			class="rightArrow" style='-webkit-transition:all .2s ease;-ms-transition:all .5s ease;-o-transition:all .5s ease;-moz-transition:all .5s ease;'></i>
+		</a>
+		<ul style="display:none;" id="is_bind_card"
+			class="rechargeCar clearfix">
+			<div><em class="rotate_load" style="margin:auto"></em></div>
+		</ul>
+		 -->
+		<a href="javascript:;" class="rechargeLong" id='cxkcz' style='display:none;'>
+			<h3>
+				储蓄卡充值<cite>(支付宝提供)</cite>
+			</h3>
+			<p>单笔单日2000元，单月10000元，免手续费</p> <em class="cxkIco"></em> <i
+			class="rightArrow"></i>
+		</a> <a href="javascript:;" class="rechargeLong" id='xykcz' style='display:none;'>
+			<h3>
+				信用卡充值<cite>(支付宝提供)</cite>
+			</h3>
+			<p>单笔单日2000元，单月10000元，免手续费</p> <em class="cxkIco"></em> <i
+			class="rightArrow"></i>
+		</a> <a href="javascript:;"
+			style="padding-top: .9rem; height: 2.9rem; border-bottom: none;display:none;" id='ccb'>
+			<h3>建设银行卡充值</h3>
+			<p>单日限500元,免手续费</p> <em class="jhkIco"></em> <i class="rightArrow"></i>
+		</a> <a href="javascript:;"
+			style="padding-top: .9rem; height: 2.9rem; border-bottom: none;display:none;" id=cib>
+			<h3>兴业银行卡充值</h3>
+			<p>单日限500元,免手续费</p> <em class="xyyhIco"></em> <i class="rightArrow"></i>
+		</a>
+		
+		
+		<a href="javascript:;"  id='ybzf' style='display:none;'><!-- 易宝支付 -->
+			<h3>
+				易宝支付<cite>(借记卡/信用卡均可)</cite><em>荐</em>
+			</h3>
+			<p>免手续费，最高2千/笔、5次/日、1万/月/卡</p> <em class="ybzfIco"></em> <i class="rightArrow"></i>
+		</a> 
+		
+		<ul style="display:none;" id="is_bind_card"
+			class="rechargeCar clearfix">
+			<div><em class="rotate_load" style="margin:auto"></em></div>
+		</ul>
+	</div>
+	<article style="display:"><!-- 因为使用易宝支付所以隐藏 -->
+		<div class="rechargeOther rechargeOther2">其它充值方式</div>
+		<div class="recharge" id="pay_con2" style='display:none;'>
+		<!-- 
+			<a href="javascript:;" class="rechargeLong" id='phonecz'>
+				<h3>储蓄卡电话充值</h3>
+				<p>单笔21-1000,1%手续费，手续费最低1元/笔</p> <em class="cxcallIco"></em> <i
+				class="rightArrow"></i>
+			</a> 
+			 -->
+			<a href="#type=url&p=user/charge2.html?t=2">
+				<h3>手机卡充值卡</h3>
+				<p>移动联通充值卡均可，4%手续费，充值款需100%消费</p> <em class="telczIco"></em> <i
+				class="rightArrow"></i>
+			</a>
+		</div>
+	</article>
+	<!-- 
+	<div class="pdTop1 pdLeft04 gray">
+		<p>温馨提示：</p>
+		<p>1.为防止套现和洗钱，借记卡单笔充值后需消费50%才能提现</p>
+		<p>2.信用卡充值不能提现，可以原路退回，但需收1%手续费</p>
+		<p>3.“信用卡－银联提供”的《各银行信用卡额度表》</p>
+	</div>
+	 -->
+	<footer class="buyFooter">
+		<div class="buyFloat fixed tellNum">
+			<a href="tel:4006739188"><em class="tell"></em>客服电话：400-673-9188</a>
+		</div>
+	</footer>
+</div>
+
+
+
+<script type="text/javascript" src="/js/public/crypto-js.js"></script>
+<script type="text/javascript" src="/js/public/aes.js"></script>
+<script>
+function decrypt(word){  
+	var key = CryptoJS.enc.Utf8.parse("9188123123123345");   
+	var iv  = CryptoJS.enc.Utf8.parse('9188123123123345');   
+	
+	
+	var dencrypted = CryptoJS.AES.decrypt(word, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});  
+	//console.log(dencrypted.toString(CryptoJS.enc.Utf8));
+	
+	return dencrypted;  
+}
+
+/***
+var DD = {
+		
+		alert:function(msg, fn, tag ,tt){
+			$('#dAlert1 p').html(msg);
+			tag && $('#dAlert1 a.tureBtn').html(tag) || $('#dAlert1 a.tureBtn').html('确定');
+			tt && $('#dAlert1 h4').html(tt) || $('#dAlert1 h4').html('');
+			$('#mask1, #dAlert1').show();
+			$('#dAlert1 a.tureBtn').one('click',function(){
+				if(typeof(fn) == "function"){fn();}
+				$('#dAlert1,#mask1').hide();
+				sessionStorage.removeItem("wxcz");//删除微信充值标识
+			});
+		}
+	
+};
+***/
+
+CP.Charge = (function(){
+	var agent = localStorage.getItem("agent");
+	var applyid=""
+	var g = {
+			grade : {'0':'10','1':'50','2':'100','3':'500'},
+			index : {'10':'0','50':'1','100':'2','500':'3'}
+	};
+	var back = 'http://'+window.location.host+'/user/index2.html';
+	var back2 = 'http://'+window.location.host;
+	var o = {
+			new_zfb_pay:function(tempvalue){//盛付通=>支付宝
+				$.ajax({
+					url : "/user/addmoney.go",
+					type : "POST",
+					dataType : "xml",
+					data : "bankid=45&addmoney="+tempvalue,//42=>微信，44=>支付宝
+					success : function(xml) {
+						var code = $(xml).find("Resp").attr("code");
+						var desc = $(xml).find("Resp").attr("desc");
+						var R = $(xml).find("Resp");
+						var row = R.find("row");
+						var prepay_url=row.attr("prepay_url");
+						applyid = row.attr("applyid");
+						
+						window.location.href=prepay_url ;
+					}
+				});
+			},
+			fee_new_zfb_pay:function(tempvalue){//飞客=>支付宝
+				$.ajax({
+					url : "/user/addmoney.go",
+					type : "POST",
+					dataType : "xml",
+					data : "osversion=1.0.0&bankid=62&addmoney="+tempvalue,//42=>微信，44=>支付宝
+					success : function(xml) {
+						var code = $(xml).find("Resp").attr("code");
+						var desc = $(xml).find("Resp").attr("desc");
+						var R = $(xml).find("Resp");
+						var row = R.find("row");
+						var payParam=row.attr("payParam");
+						//applyid = row.attr("applyid");
+						window.location.href=payParam ;
+					}
+				});
+			},
+			zfb_pay : function(tkType,m){//callbackUrl充值成功   merchantUrl充值失败返回
+				var bankid = '9014';
+				var notifyUrl = 'http://mopay.9188.com  /user/zfbwaptouch_notify.go?mtype=4';//默认9014
+				var one = CP.Cookie.get("JSESSIONID-CLUSTER-RBC");
+				$.ajax({
+					url : CP.Data.data+"/data/info/config/pay/xml/bankconfig.xml",
+					type : "GET",
+					dataType : "xml",
+					success : function(xml) {
+						var rows = $(xml).find('rows');
+						var r = rows.find('row');
+						r.each(function(){
+							var bankvalue = $(this).attr('bankvalue');
+							var bankconfig = $(this).attr('bankconfig');
+							if(bankvalue=="32"){//支付宝wap(4g触屏)
+								bankid = bankconfig;
+							}
+						});
+						if(bankid == '3014'){
+							notifyUrl = 'http://mopay.9188.com  /user/zfbwaptouch_notify_eastday.go?mtype=4';
+						}
+						window.location.href='/user/addmoney.go?sessionId1='+one+'&sessionId2='+one+'&addmoney='+m+'&bankid='+bankid+'&tkType='+tkType+'&notifyUrl='+notifyUrl+'&callbackUrl='+back+'&merchantUrl='+back+'&mtype=4';
+					},
+					error:function(){
+						window.location.href='/user/addmoney.go?sessionId1='+one+'&sessionId2='+one+'&addmoney='+m+'&bankid='+bankid+'&tkType='+tkType+'&notifyUrl='+notifyUrl+'&callbackUrl='+back+'&merchantUrl='+back+'&mtype=4';
+					}
+				});
+			},
+			/*
+			 * @param opt
+			 * 0 支付宝网页充值
+			 * 1 微信支付
+			 * 2快捷支付
+			 * 3储蓄卡充值
+			 * 4信用卡充值
+			 * 6建设银行
+			 * 7兴业银行
+			 */
+			charge : function(opt){
+				var money = $.trim($('#money_').val());
+				
+				if(opt == '0'){
+					/***
+					if(money == '' || money<1){
+						alert('最小充值1元');
+						return;
+					}
+					***/
+					
+					
+					if(!money || money<1){
+						D.alert('支付宝支付每次最低充值1元，最高充值10000元',"","","温馨提示");
+						return;
+					}
+					
+					if(!money || money>10000){
+						D.alert('支付宝支付每次最低充值1元，最高充值10000元',"","","温馨提示");
+						return;
+					}
+					
+					//o.zfb_pay('0',money);
+					o.new_zfb_pay(money);
+				}else if(opt == '1'){//微信支付
+					
+					var sxmoney = money*0.01;
+					var sjmoney = money - money*0.01;
+					
+					if(!money || money<1){
+						D.alert('微信支付每次最低充值1元，最高充值5000元',"","","温馨提示");
+						return;
+					}
+					
+					if(!money || money>5000){
+						D.alert('微信支付每次最低充值1元，最高充值5000元',"","","温馨提示");
+						return;
+					}
+					
+					
+					//D.confirm("实际到账<cite style='color:red'>"+sjmoney+"元</cite>,手续费<cite style='color:red'>"+sxmoney+"元<cite>",function(){
+						//window.location.href='/user/addmoney.go?bankid=3000&addmoney='+money;
+					//});
+					
+					
+					
+					
+					var money = $.trim($('#money_').val());
+					
+					var data={
+						addmoney:money,
+						bankid:"42"//H5
+					};
+					
+					$.ajax({
+						url : "/user/addmoney.go",
+						type : "POST",
+						data:data,
+						dataType : "xml",	
+						success:function(x){
+							var c = $(x).find("Resp").attr("code");
+							var d = $(x).find("Resp").attr("desc");
+							if(c==0){
+								var prepay_url  = $(x).find("Resp").find("row").attr("prepay_url");
+								alert(prepay_url)
+								window.location.href=prepay_url ;
+							}else{
+								alert(d)
+							}
+						},
+						error:function(){
+							alert("网络错误")
+						}
+					})
+					
+					
+					
+					
+					//o.zfb_pay('0',money);
+				}else if(opt == '2'){//快捷支付
+					$('#is_bind_card').slideToggle();
+					$('#kjzf i').toggleClass('downArrow_')
+				}else if(opt == '3'){
+					if(money>2000){
+						alert('单笔单日不能超过2000元');
+					}else{
+						o.zfb_pay('1',money);
+					}
+				}else if(opt == '4'){
+					if(money>2000){
+						alert('单笔单日不能超过2000元');
+					}else{
+						o.zfb_pay('2',money);
+					}
+				}else if(opt == '6'){
+					if(money>500){
+						alert('单笔不能超过500元');
+					}else{
+						window.location.href='/user/addmoney.go?bankid=19&addmoney='+money;
+					}
+				}else if(opt == '7'){//兴业银行
+					window.location.href='/user/addmoney.go?bankid=20&addmoney='+money;
+				}else if(opt == '8'){//易宝支付
+					$('#is_bind_card').slideToggle();
+					$('#ybzf i').toggleClass('downArrow_')
+				}
+			},
+			
+			checkbind : function(fn, tab){//tab 不为空的时候是银联电话充值 为空是快捷充值
+				alert('安全性息检测中..','load');
+				//先判断有木有绑定银行卡 身份证 再判断绑定的银行卡支不支持电话充值
+				$.ajax({
+					url : CP.Data.apps+'/user/query.go?flag=2',//查询安全资料
+					type : "POST",
+					dataType : "xml",
+					success : function(xml) {
+						remove_alert();
+						var R = $(xml).find("Resp");
+						var code = R.attr("code");
+						var desc = R.attr("desc");
+						if (code == "0") {
+							var r = R.find('row');
+							var bank = r.attr('bank');//银行卡号
+							var idcard = r.attr('idcard');//身份证
+							var c = r.attr('code');//银行
+							var t = !!tab && '银联电话' || '';
+							if(bank == '' && idcard == '' && tab){
+								D.alert(t+'充值前先绑定真实身份证和银行卡，确保账户安全',function(){
+									window.location.href='/alone/idcard.html';
+								},'去绑定');
+							}else if(idcard == ''){
+								D.alert(t+'充值前先绑定真实身份证，确保账户安全',function(){
+									window.location.href='/alone/idcard.html';
+								},'去绑定');
+							}else if(bank == '' && tab){
+								D.alert(t+'充值前先绑定银行卡，确保账户安全',function(){
+									window.location.href='/alone/bankcard.html';
+								},'去绑定');
+							}else{
+								if(tab == 'phone'){
+									if(c!="2" && c!="3" && c!="10" && c!="11" && c!="23" && c!="1" && c!="6" && c!="8" && c!="9" && c!="13" && c!="1001" && c!="1000" && c!="1002" && c!="15"){
+										D.alert('仅支持工行、建行、农行、招行、中信、兴业、交行、民生、光大、平安、华夏、广发、广州银行、广州农信社14家银行借记卡');
+									}else{
+										fn();
+									}
+								}else{
+									fn();
+								}
+							}
+						} else {
+							alert(desc);
+							if(desc.indexOf('未登录') != -1){
+								setTimeout(function(){
+									location.href = '#type=fun&fun=CP.Home.openLogin';
+								},1e3);
+							}
+						}
+					}
+				});
+			},
+			
+			/*银联电话充值[[*/
+			phone : function(){
+				o.checkbind(function(){
+					var money = $.trim($('#money_').val());
+					if(money == '' || money<21){
+						alert('最小充值21元');
+					}else if(money>1000){
+						alert('单笔不能超过1000元');
+					}else{
+						$.ajax({
+							url : CP.Data.apps+"/user/dna_check.go",
+							type : "POST",
+							dataType : "xml",
+							data : "rnd=" + Math.random(),
+							success : function(xml) {
+								code1 = $(xml).find("Resp").attr("code");
+								d = $(xml).find("Resp").attr("desc");
+								if(code1=="0"){
+									window.location.href="#type=url&p=user/charge2.html?money="+money+'&t=1';
+								}else{
+									D.alert(d);
+								}
+							},
+							error : function() {
+								D.alert('不支持的卡');
+							}
+						});
+					}
+				}, 'phone');
+ 			},
+			/*银联电话充值*/
+			
+			bind : function() {
+				/*充值金额[[*/
+				$('#tab').Touch({children:'li', fun:function(el){
+					$(el).addClass('cur').siblings().removeClass('cur');
+					$('#money_').val(g.grade[$(el).index()]);
+				}});
+				$('#money_').keyup(function(){
+					var Q = $(this).val();
+					var Q1 = g.index[Q] || false;
+					$('#tab li').removeClass();
+					!!Q1 && $('#tab li').eq(Q1).addClass('cur');
+				});
+				/*]]充值金额*/
+
+				/*充值方式[[*/
+				$('#zfb').Touch({fun:function(){o.charge('0');}});//支付宝充值
+				$('#wx').Touch({fun:function(){o.charge('1');}});//微信充值
+				$('#fee_zfb').Touch({fun:function(){o.charge('1');}});//支付宝充值
+				$('#kjzf').Touch({fun:function(){o.charge('2');}});//快捷支付
+				$('#cxkcz').Touch({fun:function(){o.charge('3');}});//储蓄卡充值
+				$('#xykcz').Touch({fun:function(){o.charge('4');}});//信用卡充值
+				$('#ccb').Touch({fun:function(){o.charge('6');}});//建行充值
+				$('#cib').Touch({fun:function(){o.charge('7');}});//兴业银行充值
+				
+				$('#ybzf').Touch({fun:function(){o.charge('8');}});//易宝支付
+				$('#phonecz').bind('click', function(){o.phone();});//电话充值
+				/*]]充值方式*/
+				
+				$('.rechargeOther').Touch({fun:function(el){
+					$('#pay_con2').slideToggle();
+					$(el).toggleClass('rechargeOther2')
+				}});
+				
+			},
+			
+			
+			Decrypt:function(word){  
+		    	var key = CryptoJS.enc.Utf8.parse("9188123123123345");   
+		    	var iv  = CryptoJS.enc.Utf8.parse('9188123123123345');   
+		    	
+				
+		    	var dencrypted = CryptoJS.AES.decrypt(word, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});  
+		    	var t = dencrypted.toString(CryptoJS.enc.Utf8);
+		    	
+		    	return t;  
+			},
+			
+			init : function(){
+				/***
+				//点击签约银行
+				$("#is_bind_card").delegate('li:not(:last-child)','click', function(){
+					var money = $.trim($('#money_').val());
+					var bankid = $(this).attr("bankid");
+					var bankCode = $(this).attr("bankCode");
+					var dealid = $(this).attr("dealid");
+					var sx = Math.round(money * 0.6)/100;
+					var sj = money - sx;
+					D.confirm("实际到账<cite style='color:red'>"+sj+"元</cite>,手续费<cite style='color:red'>"+sx+"元<cite>",function(){
+						window.location.href="/user/pay.html?addmoney="+money+"&times=second&bankid="+bankid+"&bankCode="+bankCode+"&dealid="+dealid;//+"&callbackUrl="+back2
+						
+					});
+				});
+				***/
+				
+				/**
+				var data={
+						"bankid":bankid,
+						"bankCode":bankCode,
+						"cardno":val,
+						"addmoney":money,
+						"cardtype":cardTypeCode,
+						"webcallbackurl":"http://5.9188.com "
+				}
+				***/
+				
+				$("#is_bind_card").delegate('li:not(:last-child)','click', function(){
+					var money = $.trim($('#money_').val());
+					
+					var bankid = $(this).attr("bankid");
+					var bankCode = $(this).attr("bankCode");
+					var cardtype=$(this).attr("cardtype");
+					var cardno=$(this).attr("cardno");
+					var sx = Math.round(money * 0.6)/100;
+					var sj = money - sx;
+					
+					
+					var data={
+							"bankid":bankid,
+							"bankCode":bankCode,
+							"cardno":cardno,
+							"addmoney":money,
+							"cardtype":cardtype,
+							"webcallbackurl":"http://5.9188.com "
+						}
+					
+					D.confirm("本次充值<cite style='color:red'>"+money+"元</cite>",function(){
+						//window.location.href="/user/pay.html?addmoney="+money+"&bankid="+bankid+"&bankCode="+bankCode+"&cardno="+cardno+"&cardtype="+cardtype+"&webcallbackurl=http://5.9188.com ";//+"&callbackUrl="+back2
+						
+						$.ajax({
+								url : "/user/addmoney.go",
+								type : "POST",
+								data:data,
+								dataType : "xml",	
+								success:function(x){
+									var c = $(x).find("Resp").attr("code");
+									if(c==1){
+										var payurl = $(x).find("Resp").find("row").attr("payurl");
+										window.location.href=payurl;
+									}
+								},
+								error:function(){
+									alert("网络错误")
+								}
+							})
+					});
+				});
+				
+				
+				//点击添加银行
+				$("#is_bind_card").delegate("#addBank","click",function(){
+					o.checkbind(function(){
+						var money = $.trim($('#money_').val());
+						window.location.href="#type=url&p=user/charge2.html?money="+money;
+					});
+				});
+				
+				
+				//易宝支付
+				/***
+				$("#ybzf").bind("click",function(){
+					o.checkbind(function(){
+						var money = $.trim($('#money_').val());
+						window.location.href="#type=url&p=user/charge2.html?money="+money;
+					});
+				})
+				***/
+				if(agent=="3019"){
+					$("#cib").show();
+					$("#cib").siblings().hide();
+					$('.rechargeOther').hide();//其他充值方式
+					$('.rechargeOther').siblings().hide()
+					//$("#is_bind_card").hide();
+				}else{
+					var money = $.trim($('#money_').val());
+					$.ajax({
+						//url : CP.Data.apps+'/user/getuseragreebanklist.go',//连连支付路径
+						url : CP.Data.apps+'/user/get_umpay_card_list.go?addmoney='+money+'&verifycode=3',
+						type:'POST',
+						dataType:'XML',
+						success : function(data){
+							var ret_code = $(data).find("Resp").attr("code");
+							var out_ = [];
+							if(ret_code == '0'){
+								/***
+								var agreement_list = data.agreement_list;
+								$.each(agreement_list,function(i, value){
+									var bank_name = value.bank_name;//银行名称
+									var bank_code = value.bank_code;//银行编号
+									var dealid = value.no_agree;
+									var cd = value.card_type;//卡号类型
+									card_type = {'0':'全部','2':'借记卡','3':'信用卡'}[cd];
+									cd = {'2':'2056','3':'2057'}[cd] || cd;
+									var card_no = value.card_no;
+									out_.push('<li bankid="'+cd+'" bankCode="'+bank_code+'" dealid="'+dealid+'">\
+											<p><span>'+bank_name+'</span><em>'+card_type+'</em></p>\
+											<p><cite>**** **** ****</cite> <cite>'+card_no+'</cite></p></li>');
+								});
+								$("#is_bind_card").show();
+								$('#kjzf i').addClass('downArrow_');
+								***/
+								var row = $(data).find("Resp").find("row");
+								row.each(function(){
+									var bankCode = $(this).attr("bankid")
+									var bankname = $(this).attr("bankname")
+									var cardno = $(this).attr("cardno")
+									var cardtypename = $(this).attr("cardtypename")
+									var linkimg = $(this).attr("linkimg")
+									var cardtype = $(this).attr("cardtype")
+									
+									
+									//dencrypted.toString(CryptoJS.enc.Utf8)
+									//console.log(cardno);
+									var t = decrypt(cardno);
+									t=t.toString(CryptoJS.enc.Utf8)
+									
+									
+									
+									
+									var bankid1 = {'1':'7005','0':'7006'}[cardtype];
+									//console.log(cardno)
+									
+									out_.push('<li bankid="'+bankid1+'" cardno="'+cardno+'" cardtype="'+cardtype+'" bankCode="'+bankCode+'">\
+											<p><span>'+bankname+'</span><em>'+cardtypename+'</em></p>\
+											<p><cite>**** **** ****</cite> <cite>'+t.substr(-4)+'</cite></p></li>');
+								})
+								//console.log(out_.join(''));
+								//$("#is_bind_card").show();
+								$('#ybzf i').addClass('downArrow_');
+							}else if(ret_code == '1'){//未登录
+								setTimeout(function(){
+									location.href = '#type=fun&fun=CP.Home.openLogin';
+								},1e3);
+							}
+							out_.push('<li id="addBank">＋ 添加银行卡</li>');
+							//console.log(out_.join(''));
+							$("#is_bind_card").html(out_.join(''));
+							
+						},error:function(){//有可能是未登录
+							alert('请先登录');
+							setTimeout(function(){
+								location.href = '#type=fun&fun=CP.Home.openLogin';
+							},1e3);
+						}
+					});
+				}
+			}
+	};
+	var init = function () {
+		
+		
+		
+		TopAnch.init({
+			title:'充值',
+			prevShow:true,
+			prevFun:function(){//左侧按钮绑定事件
+				window.history.back();
+			},
+			nextShow: true,
+			nextText: '充值明细',
+			nextFun: function(){
+				window.location.href = '#type=url&p=user/detail.html?in=cz';
+			},
+			isBack:true
+		});
+		var ua = window.navigator.userAgent.toLowerCase();
+	    if(ua.match(/MicroMessenger/i) == 'micromessenger' && agent=="3001" ){//微信支付
+	    	$('#wx').hide();
+	    	$('#zfb').hide();
+	    	$('#xykcz').hide();
+	    }
+	    if(CP.Data.source == '3021'){
+	    	$('#zfb,.buyFooter').hide();
+	    	$('#pay_con2').show();
+	    	$('.rechargeOther').removeClass('rechargeOther2');
+	    }
+		$('#money_').val('100');
+		o.init();
+		o.bind();
+	};
+	return {init:init}
+})();
+CP.Charge.init()
+</script>

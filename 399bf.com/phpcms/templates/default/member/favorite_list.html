@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- css start -->
+    <link href="{CSS_PATH}bootstrap.css" rel="stylesheet">
+    <link href="{CSS_PATH}font-awesome.min.css" rel="stylesheet">
+    <link href="{CSS_PATH}base.css" rel="stylesheet">
+    <link href="{CSS_PATH}main.css" rel="stylesheet">
+    <link href="{CSS_PATH}personal_center.css" rel="stylesheet">
+    <!-- css end -->
+    <!--[if lt IE 9]>
+    <script src="{JS_PATH}selectivizr.js"></script>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="personal-header">
+    <div class="header-nav">
+        <div class="personal-logo">
+            <img src="{IMG_PATH}bt_logo.png" alt="">
+        </div>
+        <div class="cur">个人中心</div>
+        <a class="back" href="">返回首页</a>
+    </div>
+</div>
+<div class="content">
+    <div class="content-left">
+        <div class="content-nav">
+            <ul>
+                <li class="nav-title"><i class="personal-start"></i><div class="pd40">竞猜中心</div></li>
+                <li><a href="{APP_PATH}index.php?m=member&c=index&a=init">我的竞猜</a></li>
+                <li><a class="active">我的收藏</a></li>
+                <li><a >我的兑奖</a></li>
+                <li class="nav-title"><i class="personal-member"></i><a class="pd40">会员信息</a></li>
+                <li><a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_security">我的账户</a></li>
+                <li><a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_address">收货地址</a></li>
+                <li><a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_password">修改密码</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-right" style="background-color: #ffffff;padding-bottom: 20px">
+       <div class="collection-title">
+           我的收藏
+       </div>
+        <div class="coll-nav">
+            <ul class="clearfix">
+                <li id="btnNotf" class="active">未结束赛事</li>
+                <li id="btnf">已结束赛事</li>
+            </ul>
+        </div>
+        <div class="coll-data">
+            <div class="table-header">
+                <table>
+                    <tr>
+                        <td width="11%">赛事</td>
+                        <td width="22%">时间</td>
+                        <td width="7.2%">状态</td>
+                        <td width="20%">主队</td>
+                        <td width="7.2%">比分</td>
+                        <td width="20%">客队</td>
+                        <td></td>
+                        <td width="21.8%"><span class="clean">清空</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-data">
+                <div id="not-finished">
+                <table>
+                    {if !empty($gameData['not_finish'])}
+                    {loop $gameData['not_finish'] $item}
+                    <tr>
+                        <td width="11%"><span class="coll-team">{$item['competitionshortname']}</span></td>
+                        <td width="22%">{$item['time']}</td>
+                        <td width="7.2%" style="color: #ffa21d;">{$item['status_cn']}</td>
+                        <td width="20%">{$item['homename']}</td>
+                        <td width="7.2%" style="color: #ffa21d;">{$item['score']}</td>
+                        <td width="20%">{$item['awayname']}</td>
+                        <td>{if $item['live']}123{/if}</td>
+                        <td width="21.8%"><i class="media-icon"></i><i class="cf mrr5 icon-star-empty"></i><a class="data-detail">详情</a></td>
+                    </tr>
+                    {/loop}
+                    {else}
+                    <div class="remind">
+                        <div style="height: 80px;">
+                            <i class="coll-icon"></i>
+                        </div>
+                        <div class="remind-text">您没有收藏相关的比赛哦111~</div>
+                        <div class="remind-chance">
+                            <a style="color:#fdb349;">去看比赛</a>
+                            <span style="color: #bbbbbb;margin-right: 10px">可能有您想看的</span>
+                        </div>
+                    </div>
+                    {/if}
+                </table>
+                    <div class="pic-page">
+                        <ul class="clearfix">
+                    {$notPages}
+                        </ul>
+                    </div>
+                </div>
+                <div id="finished" style="display: none;">
+                <table >
+                    {if !empty($gameData['finish'])}
+                    {loop $gameData['finish'] $item}
+                    <tr>
+                        <td width="11%"><span class="coll-team">{$item['competitionshortname']}</span></td>
+                        <td width="22%">{$item['time']}</td>
+                        <td width="7.2%" style="color: #ffa21d;">{$item['status_cn']}</td>
+                        <td width="20%">{$item['homename']}</td>
+                        <td width="7.2%" style="color: #ffa21d;">{$item['score']}</td>
+                        <td width="20%">{$item['awayname']}</td>
+                        <td>{if $item['live']}123{/if}</td>
+                        <td width="21.8%"><i class="media-icon"></i><i class="cf mrr5 icon-star-empty"></i><a class="data-detail">详情</a></td>
+                    </tr>
+                    {/loop}
+                    {else}
+                    <div class="remind">
+                        <div style="height: 80px;">
+                            <i class="coll-icon"></i>
+                        </div>
+                        <div class="remind-text">您没有收藏相关的比赛哦222~</div>
+                        <div class="remind-chance">
+                            <a style="color:#fdb349;">去看比赛</a>
+                            <span style="color: #bbbbbb;margin-right: 10px">可能有您想看的</span>
+                        </div>
+                    </div>
+                    {/if}
+                </table>
+                    <!--{$pages}-->
+                </div>
+            </div>
+
+        </div>
+        <!--<div class="pic-page">-->
+            <!--<ul class="clearfix">-->
+                <!--<li class="prev-btn"><i class="grey icon-arrow-left"></i></li>-->
+                <!--<li class="active">1</li>-->
+                <!--<li>2</li>-->
+                <!--<li>3</li>-->
+                <!--<li>..</li>-->
+                <!--<li>24</li>-->
+                <!--<li class="next-btn"><i class="grey icon-arrow-right"></i></li>-->
+            <!--</ul>-->
+            <!--<div class="page-index">PAGE 1/24</div>-->
+        <!--</div>-->
+    </div>
+</div>
+<script src="{JS_PATH}jquery-1.11.3.min.js"></script>
+<script src="{JS_PATH}personal_collection.js"></script>
+</body>
+</html>

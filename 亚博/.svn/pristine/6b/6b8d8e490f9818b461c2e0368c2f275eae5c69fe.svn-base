@@ -1,0 +1,20 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+
+<div class="game-section">
+	<div class="page-bg-game">
+	    <div class="body-wrap">
+	        <div class="game-wrap">
+	            <div class="game-nav">
+	                <ul class="clearfix">
+	                    <li><a ui-sref-active="active" ui-sref="game.name({name:'BJKL8'})">幸运28</a></li>
+	                    <li><a ui-sref-active="active" ui-sref="game.name({name:'CAKENO'})">加拿大28</a></li>
+	                    <li><a ui-sref="bjpk10({name:'BJPK10'})">北京PK10</a></li>
+	                </ul>
+	            </div>
+	            <div ui-view="game" class="ui-view-load-animate"></div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<ng-include src="templateURI('/footer.html')"></ng-include>

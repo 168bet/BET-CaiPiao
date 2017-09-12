@@ -1,0 +1,167 @@
+<div class="pdLfrt09">
+	<div class="great" style="width:100%； padding:3.5rem 0 1.5rem 0">
+		<p style="width:13rem; margin: 0 auto;">
+			<em class="greatIco"></em><em id="yycg">恭喜您，购彩成功！</em>
+		</p>
+		<!-- <p style="font-size:0.8rem;color:gray">资金已冻结,彩票o2o系统正在为您出票</p> -->
+		<p style="font-size:0.8rem;color:#bebebe;padding-top:.8rem; text-align: center;">资金已冻结,彩票o2o系统正在为您出票</p>
+		<span style="display: none"></span>
+	</div>
+	<div class="clearfix">
+		<a href="javascript:;" class="left loginBtn" id="fenx" style="margin-top:2rem;display:none">分享赢打赏</a>
+		<a href="javascript:;" class="left register" id=cxgcjl>查询购彩记录</a>
+		<a href="javascript:;" class="right loginBtn" id="rebuy" style="margin-top:2rem">继续购买</a>
+	</div>
+</div>
+<div class="layer_bg" id="layer_bg" style="display:none"></div>
+<div class="fxy_layer" id="fxy_layer" style="display:none">
+	<h2 class="fxylayer_h2">分享赢打赏</h2>  
+  <h3 class="fxylayer_h3">打赏比例</h3>
+  <ul class="fxylayer_bfb clearfix">
+    <li><span>1</span><i>%</i></li>
+    <li><span>2</span><i>%</i></li>
+    <li class="on"><span>3</span><i>%</i></li>
+    <li><span>4</span><i>%</i></li>
+    <li><span>5</span><i>%</i></li>
+    <li><span>6</span><i>%</i></li>
+    <li><span>7</span><i>%</i></li>
+    <li><span>8</span><i>%</i></li>
+    <li><span>9</span><i>%</i></li>
+    <li><span>10</span><i>%</i></li>
+  </ul>
+  <ul class="fxylayer_txt">
+  	<li>分享后，他人可以复制跟买该方案</li>
+    <li>若该方案中奖且盈利，所有跟买该方案的用户，需给您打赏；打赏金额=跟买用户盈利金额*打赏比例</li>
+    <li>为保护发单人利益，分享方案的投注内容将在方案中最后一场比赛开赛后公开</li>
+  </ul>
+  <a class="loginBtn" id='fenxBtn'>确认分享</a>
+</div>
+<script>
+String.prototype.getParam = function(n){
+	var r = new RegExp("[\?\&]"+n+"=([^&?]*)(\\s||$)", "gi");
+	var r1=new RegExp(n+"=","gi");
+	var m=this.match(r);
+	if(m==null){
+		return "";
+	}else{
+		return typeof(m[0].split(r1)[1])=='undefined'?'':decodeURIComponent(m[0].split(r1)[1]);
+	}
+};
+CP.WIN = (function(){
+	var hasTouch = 'ontouchstart' in window;
+	var end_ev = hasTouch ? 'touchend' : 'mouseup';
+	var $dom = {
+			rebuy : $('#rebuy'),//继续购买
+			record : $('#cxgcjl'),//查询购彩记录
+			fenx : $('#fenx'),
+			layer_bg : $('#layer_bg'),
+			on : $('#fxy_layer ul li'),
+			fenxBtn : $('#fenxBtn')
+	}
+	var projid = CP.Util.getPara('projid',window.location.href,2);//方案编号
+	var gid = projid.substr(0,2);//彩种编号
+	
+	var grade = localStorage.getItem("grade");
+	var o = {
+		init:function(){
+			TopAnch.init({
+				title:function(){
+					return parseInt(grade)>0?"预约订单发布":"购买成功"
+				},
+				prevShow:true,
+				prevFun:function(){//左侧按钮绑定事件
+					window.location.href = '#type=index';
+				},
+				nextShow:false
+			});
+			$("#yycg").html(parseInt(grade)>0?"预约订单发布成功":"购买成功")
+			$("#cxgcjl").html(parseInt(grade)>0?"查看约单详情":"查询购彩记录")
+			$("#rebuy").html(parseInt(grade)>0?"继续预约":"继续购买")
+			var hideHeader = sessionStorage.getItem('hideHeader')||false
+			if(!!hideHeader){
+				$('#box_header').hide()
+			}
+			if(gid == '90' || gid == '91' || gid == '92' || gid == '70' || gid == '72' || gid == '73'){
+				if(location.hash.getParam('sdjc')){
+					$('#rebuy').hide();
+					$('#fenx').hide();
+				}else{
+					$('#rebuy').hide();
+					$('#fenx').show();
+				}
+			}
+			o.bindEvent();
+		},
+		bindEvent : function(){
+			$dom.rebuy.bind(end_ev, function () {
+				if(CP.Data.source = '2145' || gid == '71' || gid=='98' || gid=='99'){
+					console.log(gid);
+					history.back();
+				}else{
+					console.log(gid)
+					location.replace('#type=url&p=list/'+ CP.Util.lot(gid, '1') +'.html');
+				}
+			});
+			$dom.record.bind(end_ev, function (){
+				if(projid.indexOf('ZH')>=0){
+					location.replace('#type=url&p=user/chase.html?hid='+projid);
+				}else{
+					location.replace('#type=url&p=user/viewpath.html?hid='+projid);
+				}
+			});
+			$dom.fenx.bind(end_ev, function (){
+				$('#layer_bg').show();
+				$('#fxy_layer').show();
+			});
+			$dom.layer_bg.bind(end_ev, function (event){
+				var ev = event || window.event;
+				ev.stopPropagation();
+				$('#layer_bg').hide();
+				$('#fxy_layer').hide();
+			});
+			$dom.on.bind(end_ev, function (event){
+				var ev = event || window.event;
+				ev.stopPropagation();
+				$(this).addClass('on').siblings().removeClass('on');
+			});
+			$dom.fenxBtn.bind(end_ev, function (event){
+				var ev = event || window.event;
+				ev.stopPropagation();
+				$('#layer_bg').hide();
+				$('#fxy_layer').hide();
+				var iwrate = $('#fxy_layer ul .on').find('span').html();
+				$.ajax({
+					url:'/trade/share_god_proj_buy.go',
+					type:'POST',
+					data:{
+						gid: gid,	 
+						hid: projid,
+						iwrate: iwrate
+					},
+					success:function(xml){
+						var R = $(xml).find('Resp');
+						var code = R.attr('code');
+						var des = R.attr('desc')
+						alert(1+ ' ' + code);
+						if(code == 0){
+							window.location.href = '/#type=url&p=user/viewpath.html?hid='+projid
+						}else{
+							remove_alert();
+							alert(des);
+						}
+					},
+					error : function () {
+						remove_alert();
+						alert('网络异常请刷新重试');
+					}
+				})
+			});
+		}		
+	}	
+	return {init:o.init}
+})();
+
+$(function(){
+CP.WIN.init();
+})
+</script>

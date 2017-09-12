@@ -1,0 +1,897 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+<div class="page-bg1">
+    <div class="page-wrap game-wrap-ssc">
+        <div class="bodywrap">
+            <div class="game-head clearfix">
+                <div class="game-head_l">
+                    <div class="game-menu">
+                        <a href="javascript:;" class="current">重庆时时彩</a>
+                        <a href="/game/bjpk10">北京PK拾</a>
+                        <a href="/game/xjpzoon">动物转盘</a>
+                    </div>
+                    <div class="box_issue clearfix">
+                        <div class="b_logo logo-ssc"></div>
+                        <div class="b_last">
+                            <h2>
+                                第 <b id="game-lastissue">20161005-048</b>
+                                期开奖结果
+                            </h2>
+                            <div class="codes" id="game-lastcodes"> <b>7</b>
+                                <b>4</b>
+                                <b>9</b>
+                                <b>4</b>
+                                <b>0</b>
+                            </div>
+                        </div>
+                        <div class="b_link">
+                            <a href="/Hist/cqssc" target="_blank"> <i class="bg bg_a"></i>
+                                开奖号码
+                            </a>
+                            <a href="/Trend/cqssc-nor" target="_blank"> <i class="bg bg_b"></i>
+                                号码走势
+                            </a>
+                            <a href="/Index/helps/cid/1" target="_blank">
+                                <i class="bg bg_c"></i>
+                                游戏说明
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box_nav">
+                        <div class="box_navwrap" id="game-type">
+                            <a href="javascript:;" mid="0">五星</a>
+                            <a href="javascript:;" mid="1">四星</a>
+                            <a href="javascript:;" mid="2" class="current">后三</a>
+                            <a href="javascript:;" mid="3">前三</a>
+                            <a href="javascript:;" mid="4">后二</a>
+                            <a href="javascript:;" mid="5">前二</a>
+                            <a href="javascript:;" mid="6">一星</a>
+                            <a href="javascript:;" mid="7">不定位</a>
+                            <a href="javascript:;" mid="8">大小单双</a>
+                            <a href="javascript:;" mid="9">百家乐</a>
+                        </div>
+                        <div class="box_navwrap" id="game-type-rx">
+                            <a href="javascript:;" mid="10">任选二</a>
+                            <a href="javascript:;" mid="11">任选三</a>
+                            <a href="javascript:;" mid="12">任选四</a>
+                        </div>
+                        <a href="javascript:;" class="type" style="display: inline-block;">任选</a>
+                    </div>
+                    <div class="box_label clearfix">
+                        <div class="b_label" id="game-labels">
+                            <div class="type">
+                                <span>
+                                    后三直选
+                                    <i class="shape"></i>
+                                </span>
+                                <div class="lable">
+                                    <a href="javascript:;" mids="2_0_0" class="on">直选复式</a>
+                                    <a href="javascript:;" mids="2_0_1">直选单式</a>
+                                    <a href="javascript:;" mids="2_0_2">后三组合</a>
+                                    <a href="javascript:;" mids="2_0_3">直选和值</a>
+                                    <a href="javascript:;" mids="2_0_4">直选跨度</a>
+                                </div>
+                            </div>
+                            <div class="type">
+                                <span>
+                                    后三组选
+                                    <i class="shape"></i>
+                                </span>
+                                <div class="lable">
+                                    <a href="javascript:;" mids="2_1_0">组三复式</a>
+                                    <a href="javascript:;" mids="2_1_1">组三单式</a>
+                                    <a href="javascript:;" mids="2_1_2">组六复式</a>
+                                    <a href="javascript:;" mids="2_1_3">组六单式</a>
+                                    <a href="javascript:;" mids="2_1_4">混合组选</a>
+                                    <a href="javascript:;" mids="2_1_5">组选和值</a>
+                                    <a href="javascript:;" mids="2_1_6">组选包胆</a>
+                                </div>
+                            </div>
+                            <div class="type">
+                                <span>
+                                    后三其它
+                                    <i class="shape"></i>
+                                </span>
+                                <div class="lable">
+                                    <a href="javascript:;" mids="2_2_0">和值尾数</a>
+                                    <a href="javascript:;" mids="2_2_1">特殊号</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b_bg" id="game-hist_list">
+                            <i class="bg-s"></i>
+                            <div class="histwrap">
+                                <a href="javascript:;" class="bg-s btn_show1 btn_histlist_show"></a>
+                                <div class="hist_table">
+                                    <div class="histtab">
+                                        <a href="javascript:;" class="tab active">投注记录</a>
+                                        <a href="javascript:;" class="tab">追号记录</a>
+                                    </div>
+                                    <div class="tabbody">
+                                        <table border="0" cellspacing="0" id="history_box_fa">
+                                            <thead>
+                                                <tr>
+                                                    <th>期号</th>
+                                                    <th>投注金额</th>
+                                                    <th>状态</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="3">您最近7天暂时没有投注记录！</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>
+                                            <a href="/User/histplay" target="_blank">更多...</a>
+                                        </p>
+                                    </div>
+                                    <div class="tabbody" style="display:none;">
+                                        <table border="0" cellspacing="0" id="history_box_fa">
+                                            <thead>
+                                                <tr>
+                                                    <th>起始期号</th>
+                                                    <th>已追/总</th>
+                                                    <th>总金额</th>
+                                                    <th>状态</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="3">您最近7天暂时没有追号记录！</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>
+                                            <a href="/User/tracelist" target="_blank">更多...</a>
+                                        </p>
+                                    </div>
+                                    <a href="javascript:;" class="bg btn_show2 btn_histlist_show"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-head_r bg">
+                    <div class="b_issue">
+                        离
+                        <b id="game-curissue">20161005-049</b>
+                        期
+                        <br>投注截止时间还有</div>
+                    <div class="b_time">
+                        <b class="hour" id="lefttime-h">00</b>
+                        <b class="min" id="lefttime-m">07</b>
+                        <i class="bg sec" id="lefttime-sec" style="transform: rotate(186deg);"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="game-body mode-analy" id="game-betbody">
+                <div class="box_info clearfix">
+                    <div class="analy" id="game-analy">
+                        <div class="btn-tab">
+                            <span class="on" anatype="yl">遗漏</span>
+                            <span anatype="lr">冷热</span>
+                        </div>
+                        <div class="btn-tab" style="display: inline-block;">
+                            <span class="on" anavalue="cur">当前遗漏</span>
+                            <span anavalue="max">最大遗漏</span>
+                        </div>
+                        <div class="btn-tab btn-fixed" style="display: none;">
+                            <span anavalue="30">30期</span>
+                            <span class="" anavalue="60">60期</span>
+                            <span anavalue="100">100期</span>
+                        </div>
+                    </div>
+                    <div class="rxpos" id="game-rxpos">
+                        <p>
+                            当前选择了
+                            <b>4</b>
+                            个位置，系统自动根据位置组合成
+                            <b>1</b>
+                            个方案。
+                        </p>
+                        <div class="rxpos-wrap"></div>
+                    </div>
+                    <div class="guide">
+                        <a class="bg-s more" prodiv="moretext"></a>
+                        <a class="example" prodiv="moreexample">选号示例</a>
+                        <span class="gtext" id="game-info_text">从百位、十位、个位各选一个号码组成一注。</span>
+                        <div class="moretext" id="game-info_more">
+                            <i class="bg"></i>
+                            从百位、十位、个位中选择一个3位数号码组成一注，所选号码与开奖号码后3位相同，且顺序一致，即为中奖。
+                        </div>
+                        <div class="moreexample" id="game-info_tips">
+                            <i class="bg"></i>
+                            投注方案：345
+                            <br>开奖号码：345，即中后三直选。</div>
+                    </div>
+                </div>
+                <div class="game-body_bet" id="game-betarea" style="display: block;">
+                    <div class="brow">
+                        <div class="type">
+                            <b class="title">百位</b>
+                            <span class="atype">当前遗漏</span>
+                        </div>
+                        <div class="balls">
+                            <span>
+                                <a bids="0_0_0">0</a>
+                                <i>9</i>
+                            </span>
+                            <span>
+                                <a bids="0_0_1">1</a>
+                                <i>8</i>
+                            </span>
+                            <span>
+                                <a bids="0_0_2">2</a>
+                                <i>0</i>
+                            </span>
+                            <span>
+                                <a bids="0_0_3">3</a>
+                                <i>1</i>
+                            </span>
+                            <span>
+                                <a bids="0_0_4">4</a>
+                                <i>4</i>
+                            </span>
+                            <span>
+                                <a bids="0_0_5">5</a>
+                                <i>6</i>
+                            </span>
+                            <span>
+                                <a bids="0_0_6">6</a>
+                                <i>3</i>
+                            </span>
+                            <span>
+                                <a bids="0_0_7">7</a>
+                                <i>27</i>
+                            </span>
+                            <span>
+                                <a bids="0_0_8">8</a>
+                                <i>12</i>
+                            </span>
+                            <span>
+                                <a bids="0_0_9">9</a>
+                                <i>14</i>
+                            </span>
+                        </div>
+                        <div class="actions">
+                            <span>
+                                <a bids="0_1_all">全</a>
+                            </span>
+                            <span>
+                                <a bids="0_1_big">大</a>
+                            </span>
+                            <span>
+                                <a bids="0_1_small">小</a>
+                            </span>
+                            <span>
+                                <a bids="0_1_odd">奇</a>
+                            </span>
+                            <span>
+                                <a bids="0_1_even">偶</a>
+                            </span>
+                            <span>
+                                <a bids="0_1_clear">清</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="brow">
+                        <div class="type">
+                            <b class="title">十位</b>
+                            <span class="atype">当前遗漏</span>
+                        </div>
+                        <div class="balls">
+                            <span>
+                                <a bids="1_0_0">0</a>
+                                <i>6</i>
+                            </span>
+                            <span>
+                                <a bids="1_0_1">1</a>
+                                <i>21</i>
+                            </span>
+                            <span>
+                                <a bids="1_0_2">2</a>
+                                <i>14</i>
+                            </span>
+                            <span>
+                                <a bids="1_0_3">3</a>
+                                <i>12</i>
+                            </span>
+                            <span>
+                                <a bids="1_0_4">4</a>
+                                <i>8</i>
+                            </span>
+                            <span>
+                                <a bids="1_0_5">5</a>
+                                <i>25</i>
+                            </span>
+                            <span>
+                                <a bids="1_0_6">6</a>
+                                <i>0</i>
+                            </span>
+                            <span>
+                                <a bids="1_0_7">7</a>
+                                <i>3</i>
+                            </span>
+                            <span>
+                                <a bids="1_0_8">8</a>
+                                <i>1</i>
+                            </span>
+                            <span>
+                                <a bids="1_0_9">9</a>
+                                <i>5</i>
+                            </span>
+                        </div>
+                        <div class="actions">
+                            <span>
+                                <a bids="1_1_all">全</a>
+                            </span>
+                            <span>
+                                <a bids="1_1_big">大</a>
+                            </span>
+                            <span>
+                                <a bids="1_1_small">小</a>
+                            </span>
+                            <span>
+                                <a bids="1_1_odd">奇</a>
+                            </span>
+                            <span>
+                                <a bids="1_1_even">偶</a>
+                            </span>
+                            <span>
+                                <a bids="1_1_clear">清</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="brow">
+                        <div class="type">
+                            <b class="title">个位</b>
+                            <span class="atype">当前遗漏</span>
+                        </div>
+                        <div class="balls">
+                            <span>
+                                <a bids="2_0_0">0</a>
+                                <i>2</i>
+                            </span>
+                            <span>
+                                <a bids="2_0_1">1</a>
+                                <i>23</i>
+                            </span>
+                            <span>
+                                <a bids="2_0_2">2</a>
+                                <i>14</i>
+                            </span>
+                            <span>
+                                <a bids="2_0_3">3</a>
+                                <i>8</i>
+                            </span>
+                            <span>
+                                <a bids="2_0_4">4</a>
+                                <i>3</i>
+                            </span>
+                            <span>
+                                <a bids="2_0_5">5</a>
+                                <i>0</i>
+                            </span>
+                            <span>
+                                <a bids="2_0_6">6</a>
+                                <i>1</i>
+                            </span>
+                            <span>
+                                <a bids="2_0_7">7</a>
+                                <i>18</i>
+                            </span>
+                            <span>
+                                <a bids="2_0_8">8</a>
+                                <i>28</i>
+                            </span>
+                            <span>
+                                <a bids="2_0_9">9</a>
+                                <i>4</i>
+                            </span>
+                        </div>
+                        <div class="actions">
+                            <span>
+                                <a bids="2_1_all">全</a>
+                            </span>
+                            <span>
+                                <a bids="2_1_big">大</a>
+                            </span>
+                            <span>
+                                <a bids="2_1_small">小</a>
+                            </span>
+                            <span>
+                                <a bids="2_1_odd">奇</a>
+                            </span>
+                            <span>
+                                <a bids="2_1_even">偶</a>
+                            </span>
+                            <span>
+                                <a bids="2_1_clear">清</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-body_input clearfix" style="display:none;">
+                    <div class="input-wrap">
+                        <textarea id="game-input_balls" style="display:none;"></textarea>
+                        <p id="inpuContentdesc" style="display:block;">
+                            说明：
+                            <br>
+                            1、请参照"标准格式样本"格式录入或上传方案。
+                            <br>
+                            2、单注号码之间不同数字使用空格[ ]分隔开,多注号码可使用回车 逗号[,] 分号[;] 冒号[:] 竖线 [|]分隔
+                            <br>
+                            3、文件格式必须是.txt格式。
+                            <br>
+                            4、文件较大时会导致上传时间较长，请耐心等待！
+                            <br>5、导入文本内容后将覆盖文本框中现有的内容。</p>
+                    </div>
+                    <div class="action-wrap">
+                        <a href="javascript:;" class="btn_deleterep" id="btn_deleterep">删除重复项</a>
+                        <!-- <a href="#">导入文件</a>
+                    -->
+                    <a href="javascript:;" onclick="$('#game-input_balls').val('')">清空号码</a>
+                </div>
+            </div>
+        </div>
+        <div class="game-opt clearfix">
+            <div class="game-opt_l">
+                <div class="box_set">
+                    <div class="box_wrap">
+                        您选择了
+                        <b id="game-info_num">0</b>
+                        注,共
+                        <b id="game-info_total">0.00</b>
+                        元
+                        <div class="UI-select-inputbox UI-select2" style="width:70px;" id="game-sel_times">
+                            <input type="text" value="1" style="width:30px;">
+                            <span class="UI-select-cur">&nbsp;</span>
+                            <i class="UI-select-listico"><em></em></i>
+                            <ul class="UI-options" style="display: none;">
+                                <li>1</li>
+                                <li>2</li>
+                                <li>5</li>
+                                <li>8</li>
+                                <li>10</li>
+                                <li>15</li>
+                                <li>20</li>
+                            </ul>
+                        </div>
+                        倍
+                        <div class="UI-select2" style="width:64px;" id="game-sel_mode">
+                            <span class="UI-select-cur">元</span>
+                            <i class="UI-select-listico"><em></em></i>
+                            <ul class="UI-options" style="display: none;">
+                                <li uivalue="1">元</li>
+                                <li uivalue="0.1">角</li>
+                                <li uivalue="0.01">分</li>
+                            </ul>
+                        </div>
+                        <span style="display: inline-block;">
+                            奖金返点
+                            <div class="UI-select2" style="width:144px;" id="game-sel_point">
+                                <span class="UI-select-cur">1800-5%</span>
+                                <i class="UI-select-listico">
+                                    <em></em>
+                                </i>
+                                <ul class="UI-options" style="display: none;">
+                                    <li uivalue="5">1800-5%</li>
+                                    <li uivalue="0">1900-0%</li>
+                                </ul>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+                <div class="game-basket clearfix">
+                    <ul id="game-sel_orders"></ul>
+                    <div id="lottery-details" style="display:none;"></div>
+                </div>
+            </div>
+            <div class="game-opt_r">
+                <a href="javascript:;" class="btn-bet" id="game-btn_done">
+                    <i class="bg"></i>
+                    <span>选好了</span>
+                </a>
+                <a href="javascript:;" class="btn-action btn_rnd1" id="game-btn_rand1">
+                    <i class="bg"></i>
+                    <span>机选一注</span>
+                </a>
+                <a href="javascript:;" class="btn-action btn_rnd5" id="game-btn_rand5">
+                    <i class="bg"></i>
+                    <span>机选五注</span>
+                </a>
+                <a href="javascript:;" class="btn-action btn_cls" id="game-btn_empty">
+                    <i class="bg"></i>
+                    <span>清空号码</span>
+                </a>
+            </div>
+            <div class="box_total">
+                <span>
+                    方案注数
+                    <b id="game-orders-num">0</b>
+                    注,金额
+                    <b id="game-orders-total">0.00</b>
+                    元,投注第
+                </span>
+                <div class="UI-select2" style="width:192px;" id="game-sel_issue">
+                    <span class="UI-select-cur">20161005-049 (当前期)</span>
+                    <i class="UI-select-listico">
+                        <em></em>
+                    </i>
+                    <ul class="UI-options" style="display: none;">
+                        <li uivalue="20161005-049">20161005-049 (当前期)</li>
+                        <li>20161005-050</li>
+                        <li>20161005-051</li>
+                        <li>20161005-052</li>
+                        <li>20161005-053</li>
+                        <li>20161005-054</li>
+                        <li>20161005-055</li>
+                        <li>20161005-056</li>
+                        <li>20161005-057</li>
+                        <li>20161005-058</li>
+                        <li>20161005-059</li>
+                        <li>20161005-060</li>
+                        <li>20161005-061</li>
+                        <li>20161005-062</li>
+                        <li>20161005-063</li>
+                        <li>20161005-064</li>
+                        <li>20161005-065</li>
+                        <li>20161005-066</li>
+                        <li>20161005-067</li>
+                        <li>20161005-068</li>
+                        <li>20161005-069</li>
+                        <li>20161005-070</li>
+                        <li>20161005-071</li>
+                        <li>20161005-072</li>
+                        <li>20161005-073</li>
+                        <li>20161005-074</li>
+                        <li>20161005-075</li>
+                        <li>20161005-076</li>
+                        <li>20161005-077</li>
+                        <li>20161005-078</li>
+                        <li>20161005-079</li>
+                        <li>20161005-080</li>
+                        <li>20161005-081</li>
+                        <li>20161005-082</li>
+                        <li>20161005-083</li>
+                        <li>20161005-084</li>
+                        <li>20161005-085</li>
+                        <li>20161005-086</li>
+                        <li>20161005-087</li>
+                        <li>20161005-088</li>
+                        <li>20161005-089</li>
+                        <li>20161005-090</li>
+                        <li>20161005-091</li>
+                        <li>20161005-092</li>
+                        <li>20161005-093</li>
+                        <li>20161005-094</li>
+                        <li>20161005-095</li>
+                        <li>20161005-096</li>
+                        <li>20161005-097</li>
+                        <li>20161005-098</li>
+                        <li>20161005-099</li>
+                        <li>20161005-100</li>
+                        <li>20161005-101</li>
+                        <li>20161005-102</li>
+                        <li>20161005-103</li>
+                        <li>20161005-104</li>
+                        <li>20161005-105</li>
+                        <li>20161005-106</li>
+                        <li>20161005-107</li>
+                        <li>20161005-108</li>
+                        <li>20161005-109</li>
+                        <li>20161005-110</li>
+                        <li>20161005-111</li>
+                        <li>20161005-112</li>
+                        <li>20161005-113</li>
+                        <li>20161005-114</li>
+                        <li>20161005-115</li>
+                        <li>20161005-116</li>
+                        <li>20161005-117</li>
+                        <li>20161005-118</li>
+                        <li>20161005-119</li>
+                        <li>20161005-120</li>
+                        <li>20161006-001</li>
+                        <li>20161006-002</li>
+                        <li>20161006-003</li>
+                        <li>20161006-004</li>
+                        <li>20161006-005</li>
+                        <li>20161006-006</li>
+                        <li>20161006-007</li>
+                        <li>20161006-008</li>
+                        <li>20161006-009</li>
+                        <li>20161006-010</li>
+                        <li>20161006-011</li>
+                        <li>20161006-012</li>
+                        <li>20161006-013</li>
+                        <li>20161006-014</li>
+                        <li>20161006-015</li>
+                        <li>20161006-016</li>
+                        <li>20161006-017</li>
+                        <li>20161006-018</li>
+                        <li>20161006-019</li>
+                        <li>20161006-020</li>
+                        <li>20161006-021</li>
+                        <li>20161006-022</li>
+                        <li>20161006-023</li>
+                        <li>20161006-024</li>
+                        <li>20161006-025</li>
+                        <li>20161006-026</li>
+                        <li>20161006-027</li>
+                        <li>20161006-028</li>
+                        <li>20161006-029</li>
+                        <li>20161006-030</li>
+                        <li>20161006-031</li>
+                        <li>20161006-032</li>
+                        <li>20161006-033</li>
+                        <li>20161006-034</li>
+                        <li>20161006-035</li>
+                        <li>20161006-036</li>
+                        <li>20161006-037</li>
+                        <li>20161006-038</li>
+                        <li>20161006-039</li>
+                        <li>20161006-040</li>
+                        <li>20161006-041</li>
+                        <li>20161006-042</li>
+                        <li>20161006-043</li>
+                        <li>20161006-044</li>
+                        <li>20161006-045</li>
+                        <li>20161006-046</li>
+                        <li>20161006-047</li>
+                        <li>20161006-048</li>
+                    </ul>
+                </div>
+                <span>期</span>
+                <a class="bg-s trace" id="game-btn_trace"></a>
+                <span class="bg-s tracetips"></span>
+            </div>
+        </div>
+        <div class="game-trace" id="game-trace">
+            <div class="game-trace_wrap">
+                <div class="trace-title">
+                    <b>追号设置</b>
+                    <a href="javascript:;" class="active" type="baseTrace">普通追号</a>
+                    <a href="javascript:;" type="advTrace">高级追号</a>
+                </div>
+                <div class="trace-option">
+                    <div class="baseOption">
+                        连续追
+                        <div class="btn-group" style="margin-right:30px;" id="traissue-group">
+                            <span class="btn" pronum="5">5期</span>
+                            <span class="btn active" pronum="10">10期</span>
+                            <span class="btn" pronum="15">15期</span>
+                            <span class="btn" pronum="20">20期</span>
+                        </div>
+                        <input id="game-basetranum" class="ip-num" type="text" value="10">
+                        期,倍数
+                        <div class="UI-select-inputbox UI-select2" style="width:64px;" id="game-sel_tratimes">
+                            <input type="text" value="1" style="width:30px;">
+                            <ul class="UI-options" style="display: none;">
+                                <li>1</li>
+                                <li>5</li>
+                                <li>10</li>
+                                <li>15</li>
+                                <li>20</li>
+                                <li>50</li>
+                            </ul>
+                            <i class="UI-select-listico">
+                                <em></em>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="advOption" style="display:none;">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="title">基本参数</td>
+                                    <td class="baseTd" style="width:400px;">
+                                        <div class="baseBox">
+                                            <div class="item">
+                                                <label>起始期号 :</label>
+                                                <div class="UI-select2" style="width:192px;" id="game-sel_traissue">
+                                                    <span class="UI-select-cur">20161005-049 (当前期)</span>
+                                                    <i class="UI-select-listico">
+                                                        <em></em>
+                                                    </i>
+                                                    <ul class="UI-options" style="display: none;">
+                                                        <li uivalue="20161005-049">20161005-049 (当前期)</li>
+                                                        <li>20161005-050</li>
+                                                        <li>20161005-051</li>
+                                                        <li>20161005-052</li>
+                                                        <li>20161005-053</li>
+                                                        <li>20161005-054</li>
+                                                        <li>20161005-055</li>
+                                                        <li>20161005-056</li>
+                                                        <li>20161005-057</li>
+                                                        <li>20161005-058</li>
+                                                        <li>20161005-059</li>
+                                                        <li>20161005-060</li>
+                                                        <li>20161005-061</li>
+                                                        <li>20161005-062</li>
+                                                        <li>20161005-063</li>
+                                                        <li>20161005-064</li>
+                                                        <li>20161005-065</li>
+                                                        <li>20161005-066</li>
+                                                        <li>20161005-067</li>
+                                                        <li>20161005-068</li>
+                                                        <li>20161005-069</li>
+                                                        <li>20161005-070</li>
+                                                        <li>20161005-071</li>
+                                                        <li>20161005-072</li>
+                                                        <li>20161005-073</li>
+                                                        <li>20161005-074</li>
+                                                        <li>20161005-075</li>
+                                                        <li>20161005-076</li>
+                                                        <li>20161005-077</li>
+                                                        <li>20161005-078</li>
+                                                        <li>20161005-079</li>
+                                                        <li>20161005-080</li>
+                                                        <li>20161005-081</li>
+                                                        <li>20161005-082</li>
+                                                        <li>20161005-083</li>
+                                                        <li>20161005-084</li>
+                                                        <li>20161005-085</li>
+                                                        <li>20161005-086</li>
+                                                        <li>20161005-087</li>
+                                                        <li>20161005-088</li>
+                                                        <li>20161005-089</li>
+                                                        <li>20161005-090</li>
+                                                        <li>20161005-091</li>
+                                                        <li>20161005-092</li>
+                                                        <li>20161005-093</li>
+                                                        <li>20161005-094</li>
+                                                        <li>20161005-095</li>
+                                                        <li>20161005-096</li>
+                                                        <li>20161005-097</li>
+                                                        <li>20161005-098</li>
+                                                        <li>20161005-099</li>
+                                                        <li>20161005-100</li>
+                                                        <li>20161005-101</li>
+                                                        <li>20161005-102</li>
+                                                        <li>20161005-103</li>
+                                                        <li>20161005-104</li>
+                                                        <li>20161005-105</li>
+                                                        <li>20161005-106</li>
+                                                        <li>20161005-107</li>
+                                                        <li>20161005-108</li>
+                                                        <li>20161005-109</li>
+                                                        <li>20161005-110</li>
+                                                        <li>20161005-111</li>
+                                                        <li>20161005-112</li>
+                                                        <li>20161005-113</li>
+                                                        <li>20161005-114</li>
+                                                        <li>20161005-115</li>
+                                                        <li>20161005-116</li>
+                                                        <li>20161005-117</li>
+                                                        <li>20161005-118</li>
+                                                        <li>20161005-119</li>
+                                                        <li>20161005-120</li>
+                                                        <li>20161006-001</li>
+                                                        <li>20161006-002</li>
+                                                        <li>20161006-003</li>
+                                                        <li>20161006-004</li>
+                                                        <li>20161006-005</li>
+                                                        <li>20161006-006</li>
+                                                        <li>20161006-007</li>
+                                                        <li>20161006-008</li>
+                                                        <li>20161006-009</li>
+                                                        <li>20161006-010</li>
+                                                        <li>20161006-011</li>
+                                                        <li>20161006-012</li>
+                                                        <li>20161006-013</li>
+                                                        <li>20161006-014</li>
+                                                        <li>20161006-015</li>
+                                                        <li>20161006-016</li>
+                                                        <li>20161006-017</li>
+                                                        <li>20161006-018</li>
+                                                        <li>20161006-019</li>
+                                                        <li>20161006-020</li>
+                                                        <li>20161006-021</li>
+                                                        <li>20161006-022</li>
+                                                        <li>20161006-023</li>
+                                                        <li>20161006-024</li>
+                                                        <li>20161006-025</li>
+                                                        <li>20161006-026</li>
+                                                        <li>20161006-027</li>
+                                                        <li>20161006-028</li>
+                                                        <li>20161006-029</li>
+                                                        <li>20161006-030</li>
+                                                        <li>20161006-031</li>
+                                                        <li>20161006-032</li>
+                                                        <li>20161006-033</li>
+                                                        <li>20161006-034</li>
+                                                        <li>20161006-035</li>
+                                                        <li>20161006-036</li>
+                                                        <li>20161006-037</li>
+                                                        <li>20161006-038</li>
+                                                        <li>20161006-039</li>
+                                                        <li>20161006-040</li>
+                                                        <li>20161006-041</li>
+                                                        <li>20161006-042</li>
+                                                        <li>20161006-043</li>
+                                                        <li>20161006-044</li>
+                                                        <li>20161006-045</li>
+                                                        <li>20161006-046</li>
+                                                        <li>20161006-047</li>
+                                                        <li>20161006-048</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <label>追号期数 :</label>
+                                                <input id="game-advtranum" class="ip-num" type="text">
+                                                期 (最多可以追
+                                                <span id="game-info_advmax">20</span>
+                                                期)
+                                            </div>
+                                            <div class="item">
+                                                <label>起始倍数 :</label>
+                                                <input class="ip-num" type="text" id="game-advtimes">倍</div>
+                                        </div>
+                                    </td>
+                                    <td class="title">高级参数</td>
+                                    <td class="advTd">
+                                        <div class="advMenu">
+                                            <a href="javascript:;" advtype="times">翻倍追号</a>
+                                            <a href="javascript:;" advtype="rate">利润率追号</a>
+                                        </div>
+                                        <div class="advBox">
+                                            <div class="item" advtype="times_base">
+                                                <em></em>
+                                                每隔
+                                                <input class="ip-num" type="text" value="2">
+                                                期 倍数 x
+                                                <input class="ip-num" type="text" value="2"></div>
+                                            <div class="item" advtype="times_margin">
+                                                <em></em>
+                                                前
+                                                <input class="ip-num" type="text" value="5">
+                                                期 倍数 = 起始倍数,之后倍数 =
+                                                <input class="ip-num" type="text" value="2"></div>
+                                        </div>
+                                        <div class="advBox" style="display:none;">
+                                            <div class="item" advtype="rate_min">
+                                                <em></em>
+                                                最低盈利率
+                                                <input class="ip-num" type="text" value="100">%</div>
+                                            <div class="item" advtype="rate_margin">
+                                                <em></em>
+                                                前
+                                                <input class="ip-num" type="text" value="10">
+                                                期 预期盈利率 ≥
+                                                <input class="ip-num" type="text" value="100">
+                                                % , 之后预期盈利率 ≥
+                                                <input class="ip-num" type="text" value="150">%</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="trace-maker">
+                    <a href="javascript:;" class="bg-s" id="game-btn_maketrace"></a>
+                </div>
+                <div class="trace-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>追号期次</th>
+                                <th>倍数</th>
+                                <th>金额</th>
+                                <th>预计开奖时间</th>
+                            </tr>
+                        </thead>
+                        <tbody id="game-tracelist"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="game-bet">
+            <a href="javascript:;" id="game-btn_submit">马上投注</a>
+        </div>
+    </div>
+</div>
+</div>
+<ng-include src="templateURI('/footer.html')"></ng-include>

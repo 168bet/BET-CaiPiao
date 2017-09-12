@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>微信授权登录</title>
+<style>
+body{ min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+img { border:0; }
+.clearfix{ overflow:hidden; zoom:1}
+.clear{ clear:both}
+.left{ float:left}
+.right{ float:right}
+.pdLeft06{ padding-left:.6rem}
+a{ color:#333; text-decoration:none}
+p{ line-height:1.2rem}
+.gray{ color:#8e8e8e}
+.pdTop1{ padding-top:1rem}
+.fontSize07{ font-size:.7rem}
+.payment{ display:block; line-height:2.5rem; text-align:center; letter-spacing:.1rem; margin-top:.8rem; color:#fff; font-size:1.1rem; background:#f6851f; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.payment:active{ color:#fff}
+.pdTop03{ padding-top:.3rem}
+.center{ text-align:center}
+.bindBanner img{ width:100%; height:10.4rem}
+.bindBanner h1{ position:absolute; top:23%; left:37%; width:5.84rem; height:7rem; background:url(logo.png) no-repeat center; background-size:5.84rem 7rem; -webkit-background-size:5.84rem 7rem; -moz-background-size:5.84rem 7rem}
+.bindTab ul{ border-top:1px solid #e2e2e2}
+.bindTab li{ float:left; width:49.84%; text-align:center; border-bottom:1px solid #e2e2e2; border-right:1px solid #e2e2e2; background:#f6f6f6; color:#bbb; font-size:.94rem; line-height:2.28rem}
+.bindTab li:last-child{ border-right:none}
+.bindTab li.cur{ background:#fff; border-bottom:none; color:#222}
+.bindText{ width:94%; margin:0 auto; padding-top:.8rem; font-size:.81rem}
+.bindLogin{ margin:.7rem 0; border:.12rem solid #dedede; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem}
+.bindLogin .s2{ line-height:2.6rem; border-bottom:1px solid #dedede; overflow:hidden; zoom:1}
+.bindLogin .s2 input{ width:85%; border:none;height:1.7rem; font-family:"微软雅黑"; line-height:1.7rem; margin-top:.3rem; color:#bfc1c4;outline:none;-webkit-tap-highlight-color:rgba(255,255,255,0); font-size:.875rem}
+.username{ float:left; width:1rem; height:1.125rem; margin:.7rem .5rem 0 .7rem; background:url(username.png) no-repeat center; background-size:1rem 1.125rem; -webkit-background-size:1rem 1.125rem; -moz-background-size:1rem 1.125rem}
+.password{ float:left; width:.87rem; height:1.16rem; margin:.7rem .5rem 0 .8rem; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAqCAYAAADS4VmSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIiSURBVFhH7VctbwJBEL2kouJkVW312f6C2v6FJsiKilosv6C+qqkDgYMjOAQJgo8zCIKs6T/A0Xlk9npMF2524EqbQLJh2dt57+3s27kligI+o9HoajqdPlPrzGazD/peoXG/g2eYEwCpm9psNi8IvMFkayLc2VhUY7FYXOrQS2YRWUygg32kvmccEx8kAquwkDtBiD0oE0i7XB2NLbHXNJ4gO9wS9sbSM79hygII5J7T79a+FbGY96IIxkiCRVDgmwAawIxlQGzYLc8Aqyxu6zkbD8crd/tkMrnVgmCuJwt6Q1LwvQDItORuHq06K2JkWXanxpDmo98v6mCeiBixCL0ZYTYRXDMIqAmMlhpDnv2g9DELYqSJQwRs7V+IAR2Jx4h6H0kDoSao1fNELlT5KQKmGgPqkULXcCzVwd8C4iKGOovdbve63+/fVNGA7V0Iqlev16unafpJ3+sqG3PU86rK5O0qSXdgtzciSNHTCcg3WQZ3RJ3xqQSAGwJWJxSwgoBKTVeGfxZgzQB8U0dhQUPf6iWTACJ9kBUNY2X77XseLACVzHc3xJilkloEzHe9mEjAPDQLwQKw177/fxiz+MAiAHWjXfx/gD7GQleP+VYBazLdo9sK9C3kZwH/OwN05F6dB9D/dQ8wIZxvcr8TbD4F1hXLuD9xIRkeazUGnGFkfYsZyH7cvPK36iEutgopnqLNaeJM4IZc5SUV2OPifeILJ6UxqunO9qkAAAAASUVORK5CYII=) no-repeat center; background-size:.87rem 1.16rem; -webkit-background-size:.87rem 1.16rem; -moz-background-size:.87rem 1.16rem}
+.bindpayment{ line-height:2.8rem; margin:1.5rem 0; background:#e75735; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem}
+/**.bindpayment:active{ background:#e74c28}**/
+.bindText2 .bindpayment{ margin-bottom:.6rem}
+.bindGreat{ text-align:center; padding:5.7rem 0 7rem 0; background:linear-gradient(top,#6dbcde 3%,#83cee2 12%,#d1f1f2 33%,#fff 60%); background:-webkit-linear-gradient(top,#6dbcde 3%,#83cee2 12%,#d1f1f2 33%,#fff 60%); background:-moz-linear-gradient(top,#6dbcde 3%,#83cee2 12%,#d1f1f2 33%,#fff 60%)}
+.bindGreat h2{ font-weight:normal; font-size:1.2rem; color:#585858;}
+.bindGreat p{ font-size:.8rem; color:#717171; padding-top:.7rem}
+.zfPop{ margin-top:3rem; width:18.5rem; background:#fff; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem}
+.zfpop{ position:fixed; display:none; width:90%; top:10%; left:5%; z-index:10000; background:#fff; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem}
+.zfPop h4,.zfpop h4{ padding:1rem 0; font-size:1.125rem; text-align:center}
+.tureBtn{ display:block; line-height:2.5rem; font-size:1.05rem; margin-top:2rem; text-align:center; border-top:1px solid #ccc; color:#f6851f}
+/*遮罩层*/
+.mask{background:#000;background: -webkit-radial-gradient(center,rgba(0,0,0,.3),rgba(0,0,0,1) 80%);opacity:.4;width:100%;height:150%;position:fixed;z-index:9999;left:0;top:0; display: none;}
+
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+
+</style>
+<article id='div_1' style='display:none;'>
+	<figure class="bindBanner relative"><img src="banner.jpg"><h1></h1></figure>
+	<div class="gray pdTop1 fontSize07 pdLeft06">验证9188帐号,购彩无需再手动登录。</div>
+    <div class="bindTab pdTop03">
+    	<ul class="clearfix" id='tab_u'>
+            <li class="cur" v='2'>已有9188账户</li>    	
+        	<li v='1'>新用户注册</li>
+        </ul>
+     <!-- 新用户注册  -->
+        <div class="bindText" id='nuser_1' style='display:none;'>
+        	<!-- <p class="gray">欢迎您，<em id='name_3'></em></p> -->
+            <section class="bindLogin">
+    			<div class="s2"><em class="username"></em><input type="text" id='new_user' value="" placeholder='设置您的9188账户用户名'></div>
+    			<div class="s2" style="border-bottom:none"><em class="password"></em><input type="password" id='new_pwd' placeholder='设置您的9188账户密码' value=""></div>
+			</section>
+            <a href="javascript:;" class="payment bindpayment" id='isEnroll'>立即注册</a>
+        </div>
+     <!-- 已有账户  -->
+        <div class="bindText" id='nuser_2'>
+        	<!-- <p class="gray">欢迎您，<em id='name_1'></em></p> -->
+            <section class="bindLogin">
+    			<div class="s2"><em class="username"></em><input type="text" id='old_user' placeholder='输入您的9188账户用户名' value=""></div>
+    			<div class="s2" style="border-bottom:none"><em class="password"></em><input type="password" id='old_pwd' placeholder='输入您的9188账户密码' value=""></div>
+			</section>
+            <a href="javascript:;" class="payment bindpayment" id='isBind'>提&nbsp;&nbsp;交</a>
+        </div>
+    </div>
+</article>
+
+<article id='div_2' style='display:none;'>
+	<div class="bindGreat">
+		<h2>恭喜您，<em id='win'></em>成功！</h2>
+		<p>您现在可以直接购买彩票了</p>
+	</div>
+	<div class="bindText bindText2">
+		<a href="/?from=wxfw" class="payment bindpayment">购买彩票</a>
+	</div>
+</article>
+
+<article id='div_3' style='display:none;'>
+	<div class="bindGreat">
+		<h2>微信昵称：<em id='name_2'></em></h2>
+		<p>您已绑定的9188账户：<em id='u9188'></em></p>
+	</div>
+	<div class="bindText bindText2">
+		<a href="/?agent=3001" class="payment bindpayment">购买彩票</a>
+		<a href="javascript:;" class="right blue" id='relieve'>修改绑定</a>
+	</div>
+</article>
+
+<article id='div_4' style='display:none;'>
+	<div class="bindBanner relative"><img src="banner.jpg"><h1></h1></div>
+        <div class="bindText pdTop1">
+            <section class="bindLogin">
+    			<div class="s2"><em class="username"></em><input id='r_user' type="text" placeholder='输入您的9188账户用户名' value=""></div>
+    			<div class="s2" style="border-bottom:none"><em class="password"></em><input id='r_pwd' type="password" placeholder='输入您的9188账户密码' value=""></div>
+			</section>
+            <a href="javascript:;" id='revise' class="payment bindpayment">修改绑定</a>
+        </div>
+</article>
+<div class="mask" id='mask'></div>
+<section id="dAlert" class="zfPop" style="position: fixed;z-index: 10000;top:50%;left:50%;margin-left:-9.25rem;margin-top:-3.35rem;display:none;">
+<h4></h4><p class="pdTop03 center"></p>
+<a href="javascript:;" class="tureBtn">确定</a></section>
+<script src="/js/public/zepto.js"></script>
+<script src="index.js"></script>

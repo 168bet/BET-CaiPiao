@@ -1,0 +1,94 @@
+{php $css = ['lottery.css','page.css'];}
+{php $nav_id = 4;}
+{template 'content', 'header_score'}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 pdL0">
+                <div class="side" id="treeMenu">
+                    <ul>
+                        {loop $class $type $item}
+                        <li class="ticket">
+                            <div class="ticket-one-title" tree-title name="one">
+                                <span class="ticket-name">{$class_name[$type]}</span>
+                                <i class="icon-open fr"></i>
+                            </div>
+                            <div class="ticket-menu" tree-menu>
+                                {if $type == 'not_all'}
+                                {loop $item $key $val}
+                                <div class="tree-item">
+                                    <div class="ticket-two-title" tree-title name="two">
+                                        <span class="ticket-name">{$area[$key]}</span>
+                                    </div>
+                                    <div class="ticket-menu" tree-menu>
+                                        <ul>
+                                            {loop $val $r}
+                                            <li><a class="{if $pinyin == $r['pinyin']}active{/if}" href="{APP_PATH}cp/info/?pinyin={$r['pinyin']}">{$r['name']}</a></li>
+                                            {/loop}
+                                        </ul>
+                                    </div>
+                                </div>
+                                {/loop}
+                                {else}
+                                <ul>
+                                    {loop $item $r}
+                                    <li><a class="{if $pinyin == $r['pinyin']}active{/if}" href="{APP_PATH}cp/info/?pinyin={$r['pinyin']}">{$r['name']}</a></li>
+                                    {/loop}
+                                </ul>
+                                {/if}
+                            </div>
+                        </li>
+                        {/loop}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8 pdR0 pdL0">
+                <div class="main">
+
+                    <div class="ticket-title">
+
+                        <a href="{APP_PATH}cp/info/?id={$info['id']}" class="btn-back">返回</a>
+                        <span class="orange">{$info['name']}</span>历史开奖数据
+
+
+                    </div>
+
+
+                    <div class="ticket-table general" id="ticket-table">
+                            <table class="table">
+                                <tr>
+                                    <th>开奖日期</th>
+                                    <th>期号</th>
+                                    <th width="160px">中奖号码</th>
+                                    <th>本期销量</th>
+                                </tr>
+                                {loop $history_data $r}
+                                <tr>
+                                    <td>{date('Y.m.d', $r[uptime])}</td>
+                                    <td>{$r[id]}</td>
+                                    <td>
+                                        {loop $r[numbers] $r2}
+                                        <span class="{$r2['color']}">{$r2['number']}</span>
+                                        {/loop}
+                                    </td>
+                                    <td>{mt_rand(0, 10000000)}</td>
+                                </tr>
+                                {/loop}
+                            </table>
+
+                    </div>
+
+                    <div class="page">
+                        {$pages}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{php $js = ['tree.js', 'lottery.js'];}
+{template 'content', 'footer'}
+

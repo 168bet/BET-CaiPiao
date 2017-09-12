@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type">
+		<meta content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<title>爱夺宝</title>		
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="email=no">
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/animations.css" />
+	</head>
+	<body onload='share()'>
+		<div>
+			<div class="page page-1-1 page-current">
+				<div class="wrap">
+					<img class="img_1 pt-page-moveFromTop" src="img/img1_1.png" />
+					<img class="img_2 pt-page-moveFromLeft" src="img/img1_2.png" />
+                    <img class="img_3 pt-page-moveFromLeft" src="img/img1_3.png" />
+                    <label onclick="download()"><a href="javascript:void(0);" class="load_button pt-page-moveFromRight" >立即下载</a></label>
+					<img class="pt-page-moveIconUp" src="img/icon_up.png" />
+				</div>
+			</div>
+            <div class="page page-2-1 hide">
+				<div class="wrap">
+					<img class="img_1 hide pt-page-flipInLeft" src="img/img5_1.png" />
+					<img class="img_2 hide pt-page-moveCircle" src="img/img5_2.png" />
+					<img class="img_3 hide pt-page-moveFromLeft" src="img/img5_3.png" />
+					<img class="hide pt-page-moveIconUp" src="img/icon_up.png" />
+				</div>
+			</div>
+			<div class="page page-3-1 hide">
+				<div class="wrap">
+					<img class="img_1 hide pt-page-moveFromBottom" src="img/img2_1.png" />
+					<img class="img_2 hide pt-page-moveCircle" src="img/img2_2.png" />
+					<img class="img_3 hide pt-page-moveFromLeft" src="img/img2_3.png" />
+					<img class="img_4 hide pt-page-scaleUp" src="img/img2_4.png" />
+					<img class="hide pt-page-moveIconUp" src="img/icon_up.png" />
+				</div>
+			</div>
+
+			<div class="page page-4-1 hide">
+				<div class="wrap">
+					<img class="img_1 hide pt-page-flipInBottom" src="img/img3_1.png" />
+					<img class="img_2 hide pt-page-flipInLeft" src="img/img3_2.png" />
+					<img class="img_3 pt-page-flipInRight hide" src="img/img3_3.png" />
+					<img class="hide pt-page-moveIconUp" src="img/icon_up.png" />
+				</div>
+			</div>
+
+			<div class="page page-5-1 hide">
+				<div class="wrap">
+					<img class="img_1 hide pt-page-rotateCarouselTopIn" src="img/img4_1.png" />
+					<img class="img_2 hide pt-page-moveCircle" src="img/img4_2.png" />
+					<img class="img_3 pt-page-moveFromRight hide" src="img/img4_3.png" />
+                    <label onclick="download()"><a href="#" class="load_button1 hide">立即下载</a></label>
+				</div>
+			</div>
+
+		</div>	
+		<script src="js/zepto.min.js"></script>
+		<script src="js/touch.js"></script>
+		<script src="js/index.js"></script>
+		<script src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js'></script>
+	</body>
+
+            <script type="text/javascript">
+            
+            
+            
+            function share(){
+            	$.ajax({
+            		url:'/requestService.go',
+            		type:'POST',
+            		data:{
+            			action : 'getShareParam',
+            			shareurl : location.href
+            		},
+            		success:function(xml){
+            			var R = $(xml).find('Resp');
+            			var r = R.find('row');
+            			var appId = r.attr('appId');
+            			var timestamp = r.attr('timestamp');
+            			var nonceStr = r.attr('nonceStr');
+            			var signature = r.attr('signature');
+            			wx.config({
+            			    debug: false,// 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            			    appId: appId, // 必填，公众号的唯一标识
+            			    timestamp: timestamp, // 必填，生成签名的时间戳
+            			    nonceStr: nonceStr, // 必填，生成签名的随机串
+            			    signature: signature,// 必填，签名，见附录1
+            			    jsApiList: ['onMenuShareTimeline',
+            			                'onMenuShareAppMessage',
+            			                'onMenuShareQQ',
+            			                'onMenuShareWeibo'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+
+            			});
+            			wx.ready(function(){
+            				var title = '1元就能买iPhone 6s,整个人都不好了～'; // 分享标题
+                			var desc = '1元即可参与，小伙伴一起拼单买肾6s吧～我要中！我要中！我要中！'; // 分享描述
+                			var link = location.href; // 分享链接
+                			var imgUrl = 'http://5.9188.com /activity/d/img/img1_1.png'; // 分享图标
+                			var dataUrl = location.href;// 如果type是music或video，则要提供数据链接，默认为空
+                			
+                			wx.onMenuShareAppMessage({//分享给朋友
+                			    title: title,
+                			    desc: desc,
+                			    link: link, // 分享链接
+                			    imgUrl: imgUrl, // 分享图标
+                			    type: 'link', // 分享类型,music、video或link，不填默认为link
+                			    dataUrl: dataUrl, // 如果type是music或video，则要提供数据链接，默认为空
+                			    success: function () { 
+                			        // 用户确认分享后执行的回调函数
+                			    },
+                			    cancel: function () { 
+                			        // 用户取消分享后执行的回调函数
+                			    }
+                			});
+                			wx.onMenuShareTimeline({//分享到朋友圈
+                			    title: title, // 分享标题
+                			    link: link, // 分享链接
+                			    imgUrl: imgUrl, // 分享图标
+                			    success: function () { 
+                			        // 用户确认分享后执行的回调函数
+                			    },
+                			    cancel: function () { 
+                			        // 用户取消分享后执行的回调函数
+                			    }
+                			});
+                			
+                			wx.onMenuShareQQ({//分享到QQ
+                			    title: title, // 分享标题
+                			    desc: desc, // 分享描述
+                			    link: link, // 分享链接
+                			    imgUrl: imgUrl, // 分享图标
+                			    success: function () { 
+                			       // 用户确认分享后执行的回调函数
+                			    },
+                			    cancel: function () { 
+                			       // 用户取消分享后执行的回调函数
+                			    }
+                			});
+                			
+                			wx.onMenuShareWeibo({//分享到腾讯微博
+                			    title: title, // 分享标题
+                			    desc: desc, // 分享描述
+                			    link: link, // 分享链接
+                			    imgUrl: imgUrl, // 分享图标
+                			    success: function () { 
+                			       // 用户确认分享后执行的回调函数
+                			    },
+                			    cancel: function () { 
+                			        // 用户取消分享后执行的回调函数
+                			    }
+                			});
+            			    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+            			});
+
+            			
+            		}
+            	});
+            }
+            
+            
+            
+function docEle() {
+    return document.getElementById(arguments[0]) || false;
+}
+
+function download() {
+    var ua = navigator.userAgent;
+    if (ua.toLowerCase().indexOf("micromessenger") != -1) { //微信
+        showMask();
+    } else if(ua.indexOf('Android') > -1 || ua.indexOf('Linux') > -1){ //android
+        window.open('http://5.9188.com /activity/d/adb.apk');
+    } else if(ua.indexOf('iPhone') > -1 || ua.indexOf('iPad') > -1 || ua.indexOf('iPod') > -1){ // ios
+        window.location.href="itms-services://?action=download-manifest&url=https://app.down.9188inc.com/app/aiduobao_IOS/1.0.0/aiduobao.plist";
+    } else {
+        window.open('http://5.9188.com /activity/d/adb.apk');
+    }
+}
+
+function showMask() {
+    hideMask();
+
+    var mask = document.createElement("div");
+    mask.setAttribute("id", "maskDiv");
+    mask.onclick = hideMask;
+
+    var img = document.createElement("img");
+	img.setAttribute("id", "shareImg");
+    img.src = "http://1.9188.com  /h5/app/img/shareImg.png";
+    mask.appendChild(img);
+    document.body.appendChild(mask);
+}
+
+function hideMask(){
+    var mask = docEle("maskDiv");
+    if(mask){
+        document.body.removeChild(mask);
+    }
+}
+
+</script>
+<!--统计代码-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e7763b7b687f42b89f38927e5b797c71";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</html>

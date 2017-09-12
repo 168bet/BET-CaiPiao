@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>{$SEO['title']}</title>
+      <meta name="keywords" content="{$SEO['keyword']}">
+      <meta name="description" content="{$SEO['description']}">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <link rel="shortcut icon" href="/favicon.ico">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+      <!-- build css -->
+      <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+      <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+      <link rel="stylesheet" href="{WAP_CSS_PATH}font-awesome.min.css">
+      <link rel="stylesheet" href="{WAP_CSS_PATH}main.css">
+      <link rel="stylesheet" href="{WAP_CSS_PATH}ft_match.css">
+    <!-- build css end -->
+
+
+  </head>
+  <body>
+    <div class="page-group">
+
+        <div class="page page-current" id="ft_database">
+
+            {template 'wap', 'ft_game_info'}
+
+            <div class="content">
+                <!-- 二级导航 -->
+                <div class="buttons-tab">
+                    <a href="{WAP_PATH}game/{$gameid}/event/" class="tab-item button">事件</a>
+                    <a href="{WAP_PATH}game/{$gameid}/lineup/" class="tab-item active button">阵容</a>
+                    <a href="{WAP_PATH}game/{$gameid}/analyse/" class="tab-item button">分析</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddsasia/" class="tab-item button">亚赔</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddseuro/" class="tab-item button">欧赔</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddsou/" class="tab-item button">大小</a>
+                </div>
+                <!-- 二级导航 end-->
+
+
+                <!-- 阵容 -->
+                <div class="match-card">
+                    <div class="match-title">首发阵容</div>
+
+                    <div class="table-inline">
+                        <table class="table table-min">
+                            {loop $lineup['home']['starter'] $data}
+                            <tr>
+                                <td class="border-right">{$data['Name']}</td>
+                                <td class="noborder hasbg" width="30%">{$data['Pos']}</td>
+                            </tr>
+                            {/loop}
+                        </table>
+                        <table class="table table-min">
+                            {loop $lineup['away']['starter'] $data}
+                            <tr>
+                                <td class="noborder hasbg" width="30%">{$data['Pos']}</td>
+                                <td class="border-right">{$data['Name']}</td>
+                            </tr>
+                            {/loop}
+                        </table>
+                    </div>
+
+                </div>
+                
+                <div class="match-card">
+                    <div class="match-title">替补阵容</div>
+                    <div class="table-inline">
+                        <table class="table table-min">
+                            {loop $lineup['home']['reserve'] $data}
+                            <tr>
+                                <td class="border-right">{$data['Name']}</td>
+                                <td class="noborder hasbg" width="30%">{$data['Pos']}</td>
+                            </tr>
+                            {/loop}
+                        </table>
+                        <table class="table table-min">
+                            {loop $lineup['away']['reserve'] $data}
+                            <tr>
+                                <td class="noborder hasbg" width="30%">{$data['Pos']}</td>
+                                <td class="border-right">{$data['Name']}</td>
+                            </tr>
+                            {/loop}
+                        </table>
+                    </div>
+                </div>
+
+                {template 'wap', 'footer_nav'}
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+    {template 'wap', 'wap_footer'}

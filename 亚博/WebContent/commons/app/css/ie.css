@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+
+.index-intro .xyrow .bg {
+	opacity: 1 !important;
+}
+.index-intro .bg {
+	opacity: 1 !important;
+}
+.index-intro .xyrow .textwrap {
+	opacity: 1 !important;
+}
+.index-intro .xyrow .text {
+	opacity: 1 !important;
+}
+.index-intro .xjprow .text {
+	opacity: 1 !important;
+}
+.ui-search .ui-item{
+	padding-right:5px;
+}
+.btn-important{
+	background-color: #cd2928 !important;
+	border-color: #cd3f3e !important
+}
+#rebate-list .item dd{
+	margin:3px 0px;
+}
+.pure-g.ie-left{
+	margin-top:10px;
+}
+.table table, .table th , .table td{
+    width:auto;
+}
+

@@ -1,0 +1,254 @@
+A:link, A:active, A:visited
+{
+	text-decoration: none;
+	color: blue;
+}
+A:hover
+{
+	text-decoration: underline;
+	color: #4455aa;
+}
+BODY
+{
+	font-size: 9pt;
+	color: #000000;
+	font-family: "宋体" , "Arial";
+	background-color: #efefef;
+}
+td, br, p, div, span, th
+{
+	font-family: Arial, "宋体";
+	font-size: 9pt;
+	line-height: 15px;
+	font-weight: normal;
+}
+input, select, Textarea
+{
+	font-family: 宋体;
+	font-size: 12px;
+	line-height: 15px;
+}
+.normalTextSmall
+{
+	font-size: 11px;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+tr.TableBody1
+{
+	background-color: #ffffff;
+	height: 22px;
+}
+td.TableBody1
+{
+	background-color: #FFFFFF;
+}
+td.TableBody2
+{
+	background-color: #E4E8EF;
+}
+.tableBorder1
+{
+	border: 1px;
+	background-color: #0066CC;
+}
+.tableBorder2
+{
+	border: 1px #DEDEDE solid;
+	background-color: #EFEFEF;
+}
+table.tableNoBorder1
+{
+	background-color: #000066;
+	border: 0;
+}
+
+
+.text
+{
+	background-color: #FEFEFF;
+	border: 1 double #B4B4B4;
+}
+.namecss
+{
+	filter: glow(color=#FF9900,strength=2);
+}
+.namecss1
+{
+	filter: glow(color=#FF0000,strength=2);
+}
+.tx
+{
+	height: 16px;
+	border-color: black black #000000;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	font-size: 9pt;
+	background-color: #E2ECF5;
+	color: #0000ff;
+}
+.headertitle1
+{
+	font-family: 宋体;
+	font-size: 13px;
+	color: #FFFFFF;
+	font-weight: none;
+	text-align: center;
+}
+.blueheader
+{
+	font-family: 宋体;
+	font-size: 13px;
+	background-color: #0099ff;
+	text-align: center;
+	color: #FFFFFF;
+	height: 20;
+	vertical-align: middle;
+}
+.pinkheader
+{
+	font-family: 宋体;
+	font-size: 13px;
+	background-color: #0099ff;
+	text-align: center;
+	color: #FFFFFF;
+}
+.dlsheader
+{
+	font-size: 13px;
+	color: #ffffff;
+	font-family: 宋体;
+	background-color: #0099ff;
+	height: 20;
+	text-align: center;
+}
+.greenheader
+{
+	font-family: 宋体;
+	font-size: 13px;
+	background-color: #0099ff;
+	text-align: center;
+	color: #FFFFFF;
+}
+.searchorder
+{
+	font-family: 宋体;
+	font-size: 13px;
+	text-align: center;
+	color: #000000;
+	background-color: #000066;
+}
+.bet_enq
+{
+	background-color: #000066;
+}
+.bet_enq th
+{
+	background-color: #7BD7D6;
+	padding: 2px;
+	color: black;
+}
+.bet_enq td
+{
+	padding: 2px;
+	padding-left: 4px;
+	padding-right: 4px;
+	white-space: nowrap;
+	vertical-align: top;
+}
+.bet_enq .details
+{
+	text-align: right;
+	padding-left: 10px;
+	padding-right: 5px;
+}
+.bet_enq .sum
+{
+	background-color: #dadada;
+}
+.bet_enq .sum td
+{
+	font-weight: bold;
+	text-align: right;
+	color: #191970;
+}
+.hander
+{
+	cursor: hand;
+}
+/*
+.numeric
+{
+	font-weight: 900;
+	color: Blue;
+}
+*/
+.addmember
+{
+	font-family: 宋体;
+	font-size: 13px;
+	background-color: #7BD7D6;
+	text-align: center;
+	color: #000000;
+}
+.reportTotalchar
+{
+	font-weight: bold;
+	background-color: #dfefff;
+	font-size: 9pt;
+	text-align: center;
+	font-family: "宋体";
+	color: #000000;
+}
+.reportTotalnum
+{
+	color: #FF0000;
+	text-align: right;
+	font-family: "宋体";
+	font-weight: bold;
+	background-color: #dfefff;
+	font-size: 9pt;
+}
+.reportLink
+{
+	color: Blue;
+}
+.odds
+{
+	font-weight: bold;
+	color: red;
+}
+.hdp
+{
+	font-weight: bold;
+	color: blue;
+}
+.pick
+{
+	color: red;
+}
+.dlsreport
+{
+	font-size: 13px;
+	color: #ffffff;
+	font-family: 宋体;
+	background-color: #6b7584;
+	height: 20;
+	text-align: center;
+}
+.dlsreport1
+{
+	font-size: 13px;
+	color: #ffffff;
+	font-family: 宋体;
+	background-color: #7bd7d6;
+	height: 20;
+	text-align: center;
+}
+table.tableNoBorder1
+{
+	background-color: #000066;
+	border: 0;
+}

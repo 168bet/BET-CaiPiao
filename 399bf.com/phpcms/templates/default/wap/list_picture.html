@@ -1,0 +1,46 @@
+{php $css = ['bt_information.css'];}
+{template 'wap', 'wap_header'}
+<div class="content h100">
+    <div class="buttons-tab">
+        <a href="{WAP_PATH}zqbaobei/" class="{if $catid == 9}active{/if} button" >足球宝贝</a>
+        <a href="{WAP_PATH}lqbaobei/" class="{if $catid == 13}active{/if} button" >篮球宝贝</a>
+        <a href="{WAP_PATH}ttmt/" class="{if $catid == 32}active{/if} button" >体坛美图</a>
+
+    </div>
+        <div class="tabs h100">
+            <div class="tab active h100">
+                <div class="h100" style="margin:5px 0;">
+                    {pc:content action="lists" catid="$catid" order="id DESC" num="6" thumb="1"}
+                    <div class="list-block media-list h100" id="main-img">
+                        {loop $data $r}
+                        {if $r['id'] != $id}
+                        <div class="box oldbox">
+                            <div class="pic">
+                                <a href="{$r['url']}">
+                                        <!--<img src="{$r['thumb']}"  alt="{$r['title']}">-->
+
+                                        <img src="{IMG_PATH}blank.gif" data-echo="{$r['thumb']}" alt="{$r['title']}">
+
+                                </a>
+                            </div>
+                        </div>
+                        {/if}
+                        {/loop}
+                    </div>
+                    <div class="scroll-alert">加载中...</div>
+                    {/pc}
+                </div>
+            </div>
+        </div>
+{template 'wap', 'footer_nav'}
+
+</div>
+</div>
+</div>
+<script>
+    var catid = {$catid},
+            page = 2;
+</script>
+{php $js = ['waterfall.js','echo.js','list_picture.js'];}
+
+{template 'wap', 'wap_footer'}

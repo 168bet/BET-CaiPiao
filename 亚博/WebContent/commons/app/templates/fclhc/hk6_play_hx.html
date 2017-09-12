@@ -1,0 +1,67 @@
+<div class="w1000 m0auto text_center fz14 white" style="padding:20px 0;" ng-init="lxConfig = {
+    props: {
+        ex: ['shu_ex_pls', 'niu_ex_pls', 'hu_ex_pls', 'tu_ex_pls', 'long_ex_pls', 'she_ex_pls', 'ma_ex_pls', 'yang_ex_pls', 'hou_ex_pls', 'ji_ex_pls', 'gou_ex_pls', 'zhu_ex_pls'],
+        sx: ['shu_sx_pls', 'niu_sx_pls', 'hu_sx_pls', 'tu_sx_pls', 'long_sx_pls', 'she_sx_pls', 'ma_sx_pls', 'yang_sx_pls', 'hou_sx_pls', 'ji_sx_pls', 'gou_sx_pls', 'zhu_sx_pls'],
+        lx: ['shu_lx_pls', 'niu_lx_pls', 'hu_lx_pls', 'tu_lx_pls', 'long_lx_pls', 'she_lx_pls', 'ma_lx_pls', 'yang_lx_pls', 'hou_lx_pls', 'ji_lx_pls', 'gou_lx_pls', 'zhu_lx_pls'],
+    },
+    nums: [
+        [9, 21, 33, 45],
+        [8, 20, 32, 44],
+        [7, 19, 31, 43],
+        [6, 18, 30, 42],
+        [5, 17, 29, 41],
+        [4, 16, 28, 40],
+        [3, 15, 27, 39],
+        [2, 14, 26, 38],
+        [1, 13, 25, 37, 49],
+        [12, 24, 36, 48],
+        [11, 23, 35, 47],
+        [10, 22, 34, 46],
+    ],
+    lxProps: ['ex', 'sx', 'lx'],
+    sxProps: ['shu', 'niu', 'hu', 'tu', 'long', 'she', 'ma', 'yang', 'hou', 'ji', 'gou', 'zhu']
+}">
+    <div class="hgt30 line_hgt30 text_left p10_0" style="background: #EAEAEA" data-test="{{lxConfig['lxProps']}}">
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.hxTab='ex' " ng-class="{tm_active:data.hxTab=='ex'}">二肖</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.hxTab='sx' " ng-class="{tm_active:data.hxTab=='sx'}">四肖</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.hxTab='lx' " ng-class="{tm_active:data.hxTab=='lx'}">六肖</span>
+    </div>
+    
+    <div ng-show="data.hxTab == lxItem" ng-repeat="lxItem in lxConfig['lxProps']" data-lxitem="{{data.lxTab}} - {{lxItem}}">
+        <table>
+            <thead>
+                <tr class="hgt40 line_hgt42 border_btm5" style="background: #82817F">
+                    <td>生肖</td>
+                    <td>赔率</td>
+                    <td>勾选</td>
+                    <td class="border_r8">号码</td>
+                    <td>生肖</td>
+                    <td>赔率</td>
+                    <td>勾选</td>
+                    <td>号码</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="hgt40 line_hgt42 border_btm5" style="background: #DDDDDD" ng-repeat="index in range(0, lxConfig['sxProps'].length, 2)">
+                    <td style="background: #EB3D00">{{this[lxConfig['props'][lxItem][index]].number}}</td>
+                    <td class="red">{{this[lxConfig['props'][lxItem][index]].pl}}</td>
+                    <td class="w78">
+                        <input type="checkbox" style="vertical-align: middle;" value="1" class="w40 green" ng-class="{'has-error': data.inputErrors[this[lxConfig['props'][lxItem][index]].id] }" ng-model="data.betMoney[this[lxConfig['props'][lxItem][index]].id]" ng-change="fun.zybzCodeSelected(this[lxConfig['props'][lxItem][index]])"/>
+                    </td>
+                    <td  class="border_r8">
+                        <ball number="num" class="smaller-circle" ng-repeat="num in lxConfig['nums'][index]"/>
+                    </td>
+                    <td style="background: #EB3D00">{{this[lxConfig['props'][lxItem][index+1]].number}}</td>
+                    <td class="red">{{this[lxConfig['props'][lxItem][index+1]].pl}}</td>
+                    <td class="w78">
+                        <input type="checkbox" style="vertical-align: middle;" value="1" class="w40 green" ng-class="{'has-error': data.inputErrors[this[lxConfig['props'][lxItem][index+1]].id] }" ng-model="data.betMoney[this[lxConfig['props'][lxItem][index+1]].id]" ng-change="fun.zybzCodeSelected(this[lxConfig['props'][lxItem][index+1]])"/>
+                    </td>
+                    <td  class="border_r8">
+                        <ball number="num" class="smaller-circle" ng-repeat="num in lxConfig['nums'][index+1]"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>

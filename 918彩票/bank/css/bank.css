@@ -1,0 +1,150 @@
+﻿@charset "utf-8";
+/*-----------------------初始化--------------------------------------*/
+/* 禁用iPhone中Safari的字号自动调整 */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+input {-webkit-appearance:none; /*去除input默认样式*/}
+a{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* 取消链接高亮 */ }
+section{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* 取消链接高亮 */ }
+.tapArea{-webkit-tap-highlight-color:rgba(0, 0, 0, 0); }
+/* 设置HTML5元素为块 */
+article, aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section {
+display: block;
+}
+
+/* 图片自适应 */
+img {
+max-width: 100%;
+height: auto;
+width:auto\9; /* ie8 */
+-ms-interpolation-mode:bicubic;/*为了照顾ie图片缩放失真*/
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+input[type="number"]{-moz-appearance:textfield;}
+/* 初始化 */
+html,body{-webkit-overflow-scrolling: touch;}
+*{margin:0; padding:0; border:0;}
+body{ background-color:#fff;font-family:Microsoft YaHei, Helvetica, sans-serif; color:#212121;}
+.clearfix:after{content:""; display:block; visibility:hidden; height:0; clear:both; color:#212121;}
+.clearfix{zoom:1;}
+a,a:link,a:visited,a:hover,a:active{text-decoration:none; font-family:Microsoft YaHei, Helvetica, sans-serif;}
+ul,ol{list-style:none;}
+h1, h2, h3, h4, h5, h6{ font-size:100%; font-family: Microsoft YaHei;}
+img{border: none;}
+
+/*--------------------------银行------------------------------*/
+.scope{width:100%; box-sizing:border-box; height:100%; overflow:hidden; background-color:#f1f5f8; position:absolute;top:0;left:0;}
+.info{ width:100%;height:12.56rem; background-color:#2798e6; color:#fff; box-sizing:border-box;padding:2rem 5% 0;}
+.info dl{width:57%; float:left;padding-bottom:1.5rem;padding-left:3%;}
+.info dl:nth-child(2n){width:40%;padding-left:0;}
+.info dl dt{ font-size:0.8rem;}
+.info dl dd{ font-size:1.5rem;padding-top:0.5rem;}
+
+.selectUl{ background-color:#fff; height:9.48rem;width:100%; box-sizing:border-box;padding:0 5%;margin-top:0.5rem; color:#212121; font-size:1rem;}
+.selectUl li{ height:3.16rem; width:100%; display:block; line-height:3.16rem;border-bottom:1px solid #e2dfdf;}
+.selectUl li:last-child{border-bottom:none;}
+.selectUl li div{ float:left;width:50%;}
+.selectUl li div:last-child{ text-align:right;}
+
+.inputMoney{ background-color:#fff; font-size:1rem;font-family:Microsoft YaHei, Helvetica, sans-serif; text-align:right; outline:none; resize:none;border:0; padding:0;height:3rem;width:100%;}
+.spanArrow{ background:url(../images/arrow.png) right center no-repeat;padding-right:1rem; background-size:0.5rem 0.8rem;color:#a7a7a7; box-sizing:border-box;}
+.spanArrow1{ background:url(../images/arrow1.png) right center no-repeat;padding-right:1rem; background-size:0.5rem 0.8rem;color:#a7a7a7;}
+
+.spanArrow:link,.spanArrow:visited{color:#a7a7a7;}
+.spanArrow:hover,.spanArrow:active{color:#212121;}
+
+.spanArrow1:link,.spanArrow1:visited{color:#a7a7a7;}
+.spanArrow1:hover,.spanArrow1:active{color:#212121;}
+
+.bottomDiv{width:100%; text-align:center;margin-top:2rem;}
+.bottomDiv a{ color:#212121;}
+.bottomDiv a.active{ color:#1f92e2}
+
+/*遮罩层*/
+.mask{ position:fixed;top:0;left:0; width:100%; height:100%; background-color:rgba(0,0,0,.5); z-index:10;}
+
+/*银行列表*/
+.bankList{ position:fixed; z-index:20; left:0;bottom:0; height:17.5rem; width:100%; background-color:#fff; overflow:scroll;}
+.bankInfo{ height:3.125rem;width:100%; line-height:3.125rem; background-color:#fff; border-bottom:1px solid #e2dfdf;box-sizing:border-box;}
+.bankInfo:link,.bankInfo:visited{ background-color:#fff;}
+.bankInfo:hover,.bankInfo:active{ background-color:#f1f5f8;}
+.bankIconDiv{ float:left;width:20%; text-align:center; height:3.125rem;}
+.bankIcon{width:2rem; height:2rem; margin:0 auto; vertical-align:middle;}
+.bankTxt{ float:left;width:80%; font-size:1rem; height:3.125rem;}
+..bankInfo:last-child .bankTxt{ border-bottom:0;}
+/*分期*/
+.repaymentList{position:fixed; z-index:20; left:0;bottom:0; height:14.375rem; width:100%; background-color:#fff; overflow:scroll; padding:0 5%; box-sizing:border-box;}
+.repaymentTxt{height:3.125rem;width:100%; line-height:3.125rem;border-bottom:1px solid #e2dfdf;box-sizing:border-box; text-align:center;background-color:#fff;}
+.repaymentTxt:last-child{border-bottom:0;}
+.repaymentTxt:link,.repaymentTxt:visited{ background-color:#fff;}
+.repaymentTxt:hover,.repaymentTxt:active{ background-color:#f1f5f8;}
+/*招商选择*/
+.ZhaoshangInfo{height:4.1rem; width:100%; background-color:#fff; overflow:auto; padding:0 5%; box-sizing:border-box; text-align:right; border-top:1px solid #e2dfdf;}
+.ZhaoshangInfo div{line-height:2rem;}
+.zhaoshangTxt:first-child{border-bottom:1px solid #e2dfdf;width:50%; float:right;}
+.zhaoshangTxt:last-child{width:100%; float:right;}
+/*比比价*/
+.scope1{ width:100%; padding:2rem 0;}
+.price{width:100%; overflow:auto;border-top:1px solid #e2dfdf;font-size:0.9rem;border-bottom:1px solid #e2dfdf;}
+.price1{border-bottom:1px solid #e2dfdf;font-size:0.8rem;background-color:#fff;}
+.price1:link,.price1:visited{ background-color:#fff;}
+.price1:hover,.price1:active{ background-color:#f1f5f8;}
+.price li,.price1 li{ float:left; text-align:center;height:2.19rem; line-height:2.19rem;box-sizing:border-box;}
+.width_14{ width:14%;}
+.width_20{ width:20%;border-right:1px solid #e2dfdf;}
+.width_22{ width:22%;border-right:1px solid #e2dfdf;}
+
+.apply_a{ color:#44a3ff;}
+.apply_a:link,.apply_a:visited{ color:#44a3ff;}
+.apply_a:hover,.apply_a:active{ color:#44a3ff; text-decoration:underline;}
+
+.red{ color:#de1212;}
+.green{ color:#1a9f26;}
+.blod{ font-weight:bold;}
+/*选择的银行*/
+.gongshang{ background:url(../images/gongshang.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.nongye{ background:url(../images/nongye.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.zhongguo{ background:url(../images/zhongguo.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.jianshe{ background:url(../images/jianshe.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.jiaotong{ background:url(../images/jiaotong.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.minsheng{ background:url(../images/minsheng.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.guangda{ background:url(../images/guangda.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.zhongxin{ background:url(../images/zhongxin.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.zhaoshang{ background:url(../images/zhaoshang.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.xingye{ background:url(../images/xingye.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.pufa{ background:url(../images/pufa.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.guangfa{ background:url(../images/guangfa.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.pingan{ background:url(../images/pingan.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.huaxia{ background:url(../images/huaxia.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+.youzheng{ background:url(../images/youzheng.png) 0 center no-repeat; background-size:1.2rem 1.2rem; color:#212121;padding-left:1.5rem;}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+::-webkit-scrollbar  
+{  
+    width: 1px;  
+    height: 1px;   
+    background-color: #fff;  
+}  
+  
+/*定义滚动条轨道 内阴影+圆角*/  
+::-webkit-scrollbar-track  
+{  
+    -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,0);  
+    border-radius: 1px;  
+    background-color: #fff;  
+}  
+  
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb  
+{  
+    border-radius: 1px;  
+    -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,0);  
+    background-color: #fff;  
+}
+

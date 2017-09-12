@@ -1,0 +1,1766 @@
+var c,b,minrmb
+c="#ffff00";
+b="#F0F0F0";
+minrmb=5;
+
+function red(){
+this.myform.check.value="01,02,07,08,12,13,18,19,23,24,29,30,34,35,40,45,46,";
+n01.style.background=c;
+n02.style.background=c;
+n07.style.background=c;
+n08.style.background=c;
+n12.style.background=c;
+n13.style.background=c;
+n18.style.background=c;
+n19.style.background=c;
+n23.style.background=c;
+n24.style.background=c;
+n29.style.background=c;
+n30.style.background=c;
+n34.style.background=c;
+n35.style.background=c;
+n40.style.background=c;
+n45.style.background=c;
+n46.style.background=c;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n09.style.background=b;
+n10.style.background=b;
+n11.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n20.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n22.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n47.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function blue(){
+this.myform.check.value="03,04,09,10,14,15,20,25,26,31,36,37,41,42,47,48,";
+n03.style.background=c;
+n04.style.background=c;
+n09.style.background=c;
+n10.style.background=c;
+n14.style.background=c;
+n15.style.background=c;
+n20.style.background=c;
+n25.style.background=c;
+n26.style.background=c;
+n31.style.background=c;
+n36.style.background=c;
+n37.style.background=c;
+n41.style.background=c;
+n42.style.background=c;
+n47.style.background=c;
+n48.style.background=c;
+n01.style.background=b;
+n02.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n30.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n34.style.background=b;
+n35.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n40.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n49.style.background=b;
+}
+
+function green(){
+this.myform.check.value="05,06,11,16,17,21,22,27,28,32,33,38,39,43,44,49,";
+n05.style.background=c;
+n06.style.background=c;
+n11.style.background=c;
+n16.style.background=c;
+n17.style.background=c;
+n21.style.background=c;
+n22.style.background=c;
+n27.style.background=c;
+n28.style.background=c;
+n32.style.background=c;
+n33.style.background=c;
+n38.style.background=c;
+n39.style.background=c;
+n43.style.background=c;
+n44.style.background=c;
+n49.style.background=c;
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n10.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n20.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n29.style.background=b;
+n30.style.background=b;
+n31.style.background=b;
+n34.style.background=b;
+n35.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n40.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n47.style.background=b;
+}
+
+function single(){
+this.myform.check.value="01,03,05,07,09,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,";
+n01.style.background=c; 
+n02.style.background=b;
+n03.style.background=c; 
+n04.style.background=b;
+n05.style.background=c; 
+n06.style.background=b;
+n07.style.background=c; 
+n08.style.background=b;
+n09.style.background=c; 
+n10.style.background=b;
+n11.style.background=c; 
+n12.style.background=b;
+n13.style.background=c; 
+n14.style.background=b;
+n15.style.background=c; 
+n16.style.background=b;
+n17.style.background=c; 
+n18.style.background=b;
+n19.style.background=c; 
+n20.style.background=b;
+n21.style.background=c; 
+n22.style.background=b;
+n23.style.background=c; 
+n24.style.background=b;
+n25.style.background=c; 
+n26.style.background=b;
+n27.style.background=c; 
+n28.style.background=b;
+n29.style.background=c; 
+n30.style.background=b;
+n31.style.background=c; 
+n32.style.background=b;
+n33.style.background=c; 
+n34.style.background=b;
+n35.style.background=c; 
+n36.style.background=b;
+n37.style.background=c; 
+n38.style.background=b;
+n39.style.background=c; 
+n40.style.background=b;
+n41.style.background=c; 
+n42.style.background=b;
+n43.style.background=c; 
+n44.style.background=b;
+n45.style.background=c; 
+n46.style.background=b;
+n47.style.background=c; 
+n48.style.background=b;
+}
+
+function double(){
+this.myform.check.value="02,04,06,08,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,";
+n01.style.background=b; 
+n02.style.background=c;
+n03.style.background=b; 
+n04.style.background=c;
+n05.style.background=b; 
+n06.style.background=c;
+n07.style.background=b; 
+n08.style.background=c;
+n09.style.background=b; 
+n10.style.background=c;
+n11.style.background=b; 
+n12.style.background=c;
+n13.style.background=b; 
+n14.style.background=c;
+n15.style.background=b; 
+n16.style.background=c;
+n17.style.background=b; 
+n18.style.background=c;
+n19.style.background=b; 
+n20.style.background=c;
+n21.style.background=b; 
+n22.style.background=c;
+n23.style.background=b; 
+n24.style.background=c;
+n25.style.background=b; 
+n26.style.background=c;
+n27.style.background=b; 
+n28.style.background=c;
+n29.style.background=b; 
+n30.style.background=c;
+n31.style.background=b; 
+n32.style.background=c;
+n33.style.background=b; 
+n34.style.background=c;
+n35.style.background=b; 
+n36.style.background=c;
+n37.style.background=b; 
+n38.style.background=c;
+n39.style.background=b; 
+n40.style.background=c;
+n41.style.background=b; 
+n42.style.background=c;
+n43.style.background=b; 
+n44.style.background=c;
+n45.style.background=b; 
+n46.style.background=c;
+n47.style.background=b; 
+n48.style.background=c;
+n49.style.background=b; 
+}
+
+function mins(){
+this.myform.check.value="01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,";
+n01.style.background=c;
+n02.style.background=c;
+n03.style.background=c;
+n04.style.background=c;
+n05.style.background=c;
+n06.style.background=c;
+n07.style.background=c;
+n08.style.background=c;
+n09.style.background=c;
+n10.style.background=c;
+n11.style.background=c;
+n12.style.background=c;
+n13.style.background=c;
+n14.style.background=c;
+n15.style.background=c;
+n16.style.background=c;
+n17.style.background=c;
+n18.style.background=c;
+n19.style.background=c;
+n20.style.background=c;
+n21.style.background=c;
+n22.style.background=c;
+n23.style.background=c;
+n24.style.background=c;
+n25.style.background=b; 
+n26.style.background=b; 
+n27.style.background=b; 
+n28.style.background=b; 
+n29.style.background=b; 
+n30.style.background=b; 
+n31.style.background=b; 
+n32.style.background=b; 
+n33.style.background=b; 
+n34.style.background=b; 
+n35.style.background=b; 
+n36.style.background=b; 
+n37.style.background=b; 
+n38.style.background=b; 
+n39.style.background=b; 
+n40.style.background=b; 
+n41.style.background=b; 
+n42.style.background=b; 
+n43.style.background=b; 
+n44.style.background=b; 
+n45.style.background=b; 
+n46.style.background=b; 
+n47.style.background=b; 
+n48.style.background=b; 
+n49.style.background=b; 
+}
+
+function maxs(){
+this.myform.check.value="25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,";
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n10.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n20.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n25.style.background=c; 
+n26.style.background=c; 
+n27.style.background=c; 
+n28.style.background=c; 
+n29.style.background=c; 
+n30.style.background=c; 
+n31.style.background=c; 
+n32.style.background=c; 
+n33.style.background=c; 
+n34.style.background=c; 
+n35.style.background=c; 
+n36.style.background=c; 
+n37.style.background=c; 
+n38.style.background=c; 
+n39.style.background=c; 
+n40.style.background=c; 
+n41.style.background=c; 
+n42.style.background=c; 
+n43.style.background=c; 
+n44.style.background=c; 
+n45.style.background=c; 
+n46.style.background=c; 
+n47.style.background=c; 
+n48.style.background=c; 
+}
+
+function adddouble(){
+this.myform.check.value="02,04,06,08,11,13,15,17,19,20,22,24,26,28,31,33,35,37,39,40,42,44,46,48,";
+n01.style.background=b;
+n02.style.background=c;
+n03.style.background=b;
+n04.style.background=c;
+n05.style.background=b;
+n06.style.background=c;
+n07.style.background=b;
+n08.style.background=c;
+n09.style.background=b;
+n10.style.background=b;
+n11.style.background=c;
+n12.style.background=b;
+n13.style.background=c;
+n14.style.background=b;
+n15.style.background=c;
+n16.style.background=b;
+n17.style.background=c;
+n18.style.background=b;
+n19.style.background=c;
+n20.style.background=c;
+n21.style.background=b;
+n22.style.background=c;
+n23.style.background=b;
+n24.style.background=c;
+n25.style.background=b;
+n26.style.background=c;
+n27.style.background=b;
+n28.style.background=c;
+n29.style.background=b;
+n30.style.background=b;
+n31.style.background=c;
+n32.style.background=b;
+n33.style.background=c;
+n34.style.background=b;
+n35.style.background=c;
+n36.style.background=b;
+n37.style.background=c;
+n38.style.background=b;
+n39.style.background=c;
+n40.style.background=c;
+n41.style.background=b;
+n42.style.background=c;
+n43.style.background=b;
+n44.style.background=c;
+n45.style.background=b;
+n46.style.background=c;
+n47.style.background=b;
+n48.style.background=c;
+n49.style.background=b;
+}
+
+function addsingle(){
+this.myform.check.value="01,03,05,07,09,10,12,14,16,18,21,23,25,27,29,30,32,34,36,38,41,43,45,47,";
+n01.style.background=c;
+n02.style.background=b;
+n03.style.background=c;
+n04.style.background=b;
+n05.style.background=c;
+n06.style.background=b;
+n07.style.background=c;
+n08.style.background=b;
+n09.style.background=c;
+n10.style.background=c;
+n11.style.background=b;
+n12.style.background=c;
+n13.style.background=b;
+n14.style.background=c;
+n15.style.background=b;
+n16.style.background=c;
+n17.style.background=b;
+n18.style.background=c;
+n19.style.background=b;
+n20.style.background=b;
+n21.style.background=c;
+n22.style.background=b;
+n23.style.background=c;
+n24.style.background=b;
+n25.style.background=c;
+n26.style.background=b;
+n27.style.background=c;
+n28.style.background=b;
+n29.style.background=c;
+n30.style.background=c;
+n31.style.background=b;
+n32.style.background=c;
+n33.style.background=b;
+n34.style.background=c;
+n35.style.background=b;
+n36.style.background=c;
+n37.style.background=b;
+n38.style.background=c;
+n39.style.background=b;
+n40.style.background=b;
+n41.style.background=c;
+n42.style.background=b;
+n43.style.background=c;
+n44.style.background=b;
+n45.style.background=c;
+n46.style.background=b;
+n47.style.background=c;
+n48.style.background=b;
+}
+
+function fowl(){
+this.myform.check.value="03,06,07,08,09,11,15,18,19,20,21,23,27,30,31,32,33,35,39,42,43,44,45,47,";
+n03.style.background=c;
+n06.style.background=c;
+n07.style.background=c;
+n08.style.background=c;
+n09.style.background=c;
+n11.style.background=c;
+n15.style.background=c;
+n18.style.background=c;
+n19.style.background=c;
+n20.style.background=c;
+n21.style.background=c;
+n23.style.background=c;
+n27.style.background=c;
+n30.style.background=c;
+n31.style.background=c;
+n32.style.background=c;
+n33.style.background=c;
+n35.style.background=c;
+n39.style.background=c;
+n42.style.background=c;
+n43.style.background=c;
+n44.style.background=c;
+n45.style.background=c;
+n47.style.background=c;
+n01.style.background=b;
+n02.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n10.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n22.style.background=b;
+n24.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n34.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n40.style.background=b;
+n41.style.background=b;
+n46.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function animal(){
+this.myform.check.value="01,02,04,05,10,12,13,14,16,17,22,24,25,26,28,29,34,36,37,38,40,41,46,48,49,";
+n01.style.background=c;
+n02.style.background=c;
+n04.style.background=c;
+n05.style.background=c;
+n10.style.background=c;
+n12.style.background=c;
+n13.style.background=c;
+n14.style.background=c;
+n16.style.background=c;
+n17.style.background=c;
+n22.style.background=c;
+n24.style.background=c;
+n25.style.background=c;
+n26.style.background=c;
+n28.style.background=c;
+n29.style.background=c;
+n34.style.background=c;
+n36.style.background=c;
+n37.style.background=c;
+n38.style.background=c;
+n40.style.background=c;
+n41.style.background=c;
+n46.style.background=c;
+n48.style.background=c;
+n49.style.background=c;
+n03.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n11.style.background=b;
+n15.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n20.style.background=b;
+n21.style.background=b;
+n23.style.background=b;
+n27.style.background=b;
+n30.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n35.style.background=b;
+n39.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n45.style.background=b;
+n47.style.background=b;
+}
+
+function for0(){
+this.myform.check.value="01,02,03,04,05,06,07,08,09,";
+n01.style.background=c;
+n02.style.background=c;
+n03.style.background=c;
+n04.style.background=c;
+n05.style.background=c;
+n06.style.background=c;
+n07.style.background=c;
+n08.style.background=c;
+n09.style.background=c;
+n10.style.background=b; 
+n11.style.background=b; 
+n12.style.background=b; 
+n13.style.background=b; 
+n14.style.background=b; 
+n15.style.background=b; 
+n16.style.background=b; 
+n17.style.background=b; 
+n18.style.background=b; 
+n19.style.background=b; 
+n20.style.background=b; 
+n21.style.background=b; 
+n22.style.background=b; 
+n23.style.background=b; 
+n24.style.background=b; 
+n25.style.background=b; 
+n26.style.background=b; 
+n27.style.background=b; 
+n28.style.background=b; 
+n29.style.background=b; 
+n30.style.background=b; 
+n31.style.background=b; 
+n32.style.background=b; 
+n33.style.background=b; 
+n34.style.background=b; 
+n35.style.background=b; 
+n36.style.background=b; 
+n37.style.background=b; 
+n38.style.background=b; 
+n39.style.background=b; 
+n40.style.background=b; 
+n41.style.background=b; 
+n42.style.background=b; 
+n43.style.background=b; 
+n44.style.background=b; 
+n45.style.background=b; 
+n46.style.background=b; 
+n47.style.background=b; 
+n48.style.background=b; 
+n49.style.background=b; 
+}
+
+function for1(){
+this.myform.check.value="10,11,12,13,14,15,16,17,18,19,";
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n10.style.background=c; 
+n11.style.background=c; 
+n12.style.background=c; 
+n13.style.background=c; 
+n14.style.background=c; 
+n15.style.background=c; 
+n16.style.background=c; 
+n17.style.background=c; 
+n18.style.background=c; 
+n19.style.background=c; 
+n20.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n30.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n34.style.background=b;
+n35.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n40.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n47.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function for2(){
+this.myform.check.value="20,21,22,23,24,25,26,27,28,29,";
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n10.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n20.style.background=c; 
+n21.style.background=c; 
+n22.style.background=c; 
+n23.style.background=c; 
+n24.style.background=c; 
+n25.style.background=c; 
+n26.style.background=c; 
+n27.style.background=c; 
+n28.style.background=c; 
+n29.style.background=c; 
+n30.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n34.style.background=b;
+n35.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n40.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n47.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function for3(){
+this.myform.check.value="30,31,32,33,34,35,36,37,38,39,";
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n10.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n20.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n30.style.background=c; 
+n31.style.background=c; 
+n32.style.background=c; 
+n33.style.background=c; 
+n34.style.background=c; 
+n35.style.background=c; 
+n36.style.background=c; 
+n37.style.background=c; 
+n38.style.background=c; 
+n39.style.background=c; 
+n40.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n47.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function for4(){
+this.myform.check.value="40,41,42,43,44,45,46,47,48,49,";
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n10.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n20.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n30.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n34.style.background=b;
+n35.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n40.style.background=c; 
+n41.style.background=c; 
+n42.style.background=c; 
+n43.style.background=c; 
+n44.style.background=c; 
+n45.style.background=c; 
+n46.style.background=c; 
+n47.style.background=c; 
+n48.style.background=c; 
+n49.style.background=c; 
+}
+
+function end0(){
+this.myform.check.value="10,20,30,40,";
+n10.style.background=c;
+n20.style.background=c;
+n30.style.background=c;
+n40.style.background=c;
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n34.style.background=b;
+n35.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n47.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function end1(){
+this.myform.check.value="01,11,21,31,41,";
+n01.style.background=c;
+n11.style.background=c;
+n21.style.background=c;
+n31.style.background=c;
+n41.style.background=c;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n10.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n20.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n30.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n34.style.background=b;
+n35.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n40.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n47.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function end2(){
+this.myform.check.value="02,12,22,32,42,";
+n02.style.background=c;
+n12.style.background=c;
+n22.style.background=c;
+n32.style.background=c;
+n42.style.background=c;
+n01.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n11.style.background=b;
+n10.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n21.style.background=b;
+n20.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n31.style.background=b;
+n30.style.background=b;
+n33.style.background=b;
+n34.style.background=b;
+n35.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n41.style.background=b;
+n40.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n47.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function end3(){
+this.myform.check.value="03,13,23,33,43,";
+n03.style.background=c;
+n13.style.background=c;
+n23.style.background=c;
+n33.style.background=c;
+n43.style.background=c;
+n01.style.background=b;
+n02.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n10.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n20.style.background=b;
+n24.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n30.style.background=b;
+n34.style.background=b;
+n35.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n40.style.background=b;
+n44.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n47.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function end4(){
+this.myform.check.value="04,14,24,34,44,";
+n04.style.background=c;
+n14.style.background=c;
+n24.style.background=c;
+n34.style.background=c;
+n44.style.background=c;
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n10.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n20.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n30.style.background=b;
+n35.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n40.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n47.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function end5(){
+this.myform.check.value="05,15,25,35,45,";
+n05.style.background=c;
+n15.style.background=c;
+n25.style.background=c;
+n35.style.background=c;
+n45.style.background=c;
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n10.style.background=b;
+n14.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n20.style.background=b;
+n24.style.background=b;
+n26.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n30.style.background=b;
+n34.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n40.style.background=b;
+n44.style.background=b;
+n46.style.background=b;
+n47.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function end6(){
+this.myform.check.value="06,16,26,36,46,";
+n06.style.background=c;
+n16.style.background=c;
+n26.style.background=c;
+n36.style.background=c;
+n46.style.background=c;
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n10.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n20.style.background=b;
+n25.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n34.style.background=b;
+n30.style.background=b;
+n35.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n40.style.background=b;
+n45.style.background=b;
+n47.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function end7(){
+this.myform.check.value="07,17,27,37,47,";
+n07.style.background=c;
+n17.style.background=c;
+n27.style.background=c;
+n37.style.background=c;
+n47.style.background=c;
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n08.style.background=b;
+n09.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n10.style.background=b;
+n18.style.background=b;
+n19.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n20.style.background=b;
+n28.style.background=b;
+n29.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n34.style.background=b;
+n35.style.background=b;
+n36.style.background=b;
+n30.style.background=b;
+n38.style.background=b;
+n39.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n40.style.background=b;
+n48.style.background=b;
+n49.style.background=b;
+}
+
+function end8(){
+this.myform.check.value="08,18,28,38,48,";
+n08.style.background=c;
+n18.style.background=c;
+n28.style.background=c;
+n38.style.background=c;
+n48.style.background=c;
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n09.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n10.style.background=b;
+n19.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n27.style.background=b;
+n20.style.background=b;
+n29.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n34.style.background=b;
+n35.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n30.style.background=b;
+n39.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n47.style.background=b;
+n40.style.background=b;
+n49.style.background=b;
+}
+
+function end9(){
+this.myform.check.value="09,19,29,39,49,";
+n09.style.background=c;
+n19.style.background=c;
+n29.style.background=c;
+n39.style.background=c;
+n49.style.background=c;
+n01.style.background=b;
+n02.style.background=b;
+n03.style.background=b;
+n04.style.background=b;
+n05.style.background=b;
+n06.style.background=b;
+n07.style.background=b;
+n08.style.background=b;
+n11.style.background=b;
+n12.style.background=b;
+n13.style.background=b;
+n14.style.background=b;
+n15.style.background=b;
+n16.style.background=b;
+n17.style.background=b;
+n18.style.background=b;
+n10.style.background=b;
+n21.style.background=b;
+n22.style.background=b;
+n23.style.background=b;
+n24.style.background=b;
+n25.style.background=b;
+n26.style.background=b;
+n27.style.background=b;
+n28.style.background=b;
+n20.style.background=b;
+n31.style.background=b;
+n32.style.background=b;
+n33.style.background=b;
+n34.style.background=b;
+n35.style.background=b;
+n36.style.background=b;
+n37.style.background=b;
+n38.style.background=b;
+n30.style.background=b;
+n41.style.background=b;
+n42.style.background=b;
+n43.style.background=b;
+n44.style.background=b;
+n45.style.background=b;
+n46.style.background=b;
+n47.style.background=b;
+n48.style.background=b;
+n40.style.background=b;
+}
+
+function sel(arr,menu,num){
+ nums=num+",";
+ if(arr==c){
+ menu.style.background=b;
+ this.myform.check.value=(this.myform.check.value).replace(nums,"");
+ }else{
+ if(this.myform.check.value.indexOf(num)<0){
+ this.myform.check.value+=nums;
+ menu.style.background=c;
+ }
+ }
+}
+
+function cancel(arr){
+var ss;
+if(arr==1) ss=b;
+if(arr==2){ ss=c;
+this.myform.check.value="01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,";
+}
+n01.style.background=ss;
+n02.style.background=ss;
+n03.style.background=ss;
+n04.style.background=ss;
+n05.style.background=ss;
+n06.style.background=ss;
+n07.style.background=ss;
+n08.style.background=ss;
+n09.style.background=ss;
+n10.style.background=ss;
+n11.style.background=ss;
+n12.style.background=ss;
+n13.style.background=ss;
+n14.style.background=ss;
+n15.style.background=ss;
+n16.style.background=ss;
+n17.style.background=ss;
+n18.style.background=ss;
+n19.style.background=ss;
+n20.style.background=ss;
+n21.style.background=ss;
+n22.style.background=ss;
+n23.style.background=ss;
+n24.style.background=ss;
+n25.style.background=ss;
+n26.style.background=ss;
+n27.style.background=ss;
+n28.style.background=ss;
+n29.style.background=ss;
+n30.style.background=ss;
+n31.style.background=ss;
+n32.style.background=ss;
+n33.style.background=ss;
+n34.style.background=ss;
+n35.style.background=ss;
+n36.style.background=ss;
+n37.style.background=ss;
+n38.style.background=ss;
+n39.style.background=ss;
+n40.style.background=ss;
+n41.style.background=ss;
+n42.style.background=ss;
+n43.style.background=ss;
+n44.style.background=ss;
+n45.style.background=ss;
+n46.style.background=ss;
+n47.style.background=ss;
+n48.style.background=ss;
+n49.style.background=ss;
+}
+
+function re(){
+ var arr="yes,"+this.myform.check.value;
+ var rmb=document.myform.txtrmb.value;
+ if(rmb<0)
+ {alert('赔率传送最低为 1 ');
+ }else
+ { if(arr.indexOf("01",0)>0)
+ { 
+ //var ads=document.myform.N01.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N01.value=rmb;
+}
+if(arr.indexOf("02",0)>0)
+ { 
+ //var ads=document.myform.N02.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N02.value=rmb;
+}
+if(arr.indexOf("03",0)>0)
+ { 
+ //var ads=document.myform.N03.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N03.value=rmb;
+}
+if(arr.indexOf("04",0)>0)
+ { 
+ //var ads=document.myform.N04.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N04.value=rmb;
+}
+if(arr.indexOf("05",0)>0)
+ { 
+ //var ads=document.myform.N05.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N05.value=rmb;
+}
+if(arr.indexOf("06",0)>0)
+ { 
+ //var ads=document.myform.N06.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N06.value=rmb;
+}
+if(arr.indexOf("07",0)>0)
+ { 
+ //var ads=document.myform.N07.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N07.value=rmb;
+}
+if(arr.indexOf("08",0)>0)
+ { 
+ //var ads=document.myform.N08.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N08.value=rmb;
+}
+if(arr.indexOf("09",0)>0)
+ { 
+ //var ads=document.myform.N09.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N09.value=rmb;
+}
+if(arr.indexOf("10",0)>0)
+ { 
+ //var ads=document.myform.N10.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N10.value=rmb;
+}
+if(arr.indexOf("11",0)>0)
+ { 
+ //var ads=document.myform.N11.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N11.value=rmb;
+}
+if(arr.indexOf("12",0)>0)
+ { 
+ //var ads=document.myform.N12.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N12.value=rmb;
+}
+if(arr.indexOf("13",0)>0)
+ { 
+ //var ads=document.myform.N13.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N13.value=rmb;
+}
+if(arr.indexOf("14",0)>0)
+ { 
+ //var ads=document.myform.N14.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N14.value=rmb;
+}
+if(arr.indexOf("15",0)>0)
+ { 
+ //var ads=document.myform.N15.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N15.value=rmb;
+}
+if(arr.indexOf("16",0)>0)
+ { 
+ //var ads=document.myform.N16.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N16.value=rmb;
+}
+if(arr.indexOf("17",0)>0)
+ { 
+ //var ads=document.myform.N17.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N17.value=rmb;
+}
+if(arr.indexOf("18",0)>0)
+ { 
+ //var ads=document.myform.N18.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N18.value=rmb;
+}
+if(arr.indexOf("19",0)>0)
+ { 
+ //var ads=document.myform.N19.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N19.value=rmb;
+}
+if(arr.indexOf("20",0)>0)
+ { 
+ //var ads=document.myform.N20.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N20.value=rmb;
+}
+if(arr.indexOf("21",0)>0)
+ { 
+ //var ads=document.myform.N21.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N21.value=rmb;
+}
+if(arr.indexOf("22",0)>0)
+ { 
+ //var ads=document.myform.N22.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N22.value=rmb;
+}
+if(arr.indexOf("23",0)>0)
+ { 
+ //var ads=document.myform.N23.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N23.value=rmb;
+}
+if(arr.indexOf("24",0)>0)
+ { 
+ //var ads=document.myform.N24.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N24.value=rmb;
+}
+if(arr.indexOf("25",0)>0)
+ { 
+ //var ads=document.myform.N25.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N25.value=rmb;
+}
+if(arr.indexOf("26",0)>0)
+ { 
+ //var ads=document.myform.N26.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N26.value=rmb;
+}
+if(arr.indexOf("27",0)>0)
+ { 
+ //var ads=document.myform.N27.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N27.value=rmb;
+}
+if(arr.indexOf("28",0)>0)
+ { 
+ //var ads=document.myform.N28.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N28.value=rmb;
+}
+if(arr.indexOf("29",0)>0)
+ { 
+ //var ads=document.myform.N29.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N29.value=rmb;
+}
+if(arr.indexOf("30",0)>0)
+ { 
+ //var ads=document.myform.N30.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N30.value=rmb;
+}
+if(arr.indexOf("31",0)>0)
+ { 
+ //var ads=document.myform.N31.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N31.value=rmb;
+}
+if(arr.indexOf("32",0)>0)
+ { 
+ //var ads=document.myform.N32.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N32.value=rmb;
+}
+if(arr.indexOf("33",0)>0)
+ { 
+ //var ads=document.myform.N33.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N33.value=rmb;
+}
+if(arr.indexOf("34",0)>0)
+ { 
+ //var ads=document.myform.N34.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N34.value=rmb;
+}
+if(arr.indexOf("35",0)>0)
+ { 
+ //var ads=document.myform.N35.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N35.value=rmb;
+}
+if(arr.indexOf("36",0)>0)
+ { 
+ //var ads=document.myform.N36.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N36.value=rmb;
+}
+if(arr.indexOf("37",0)>0)
+ { 
+ //var ads=document.myform.N37.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N37.value=rmb;
+}
+if(arr.indexOf("38",0)>0)
+ { 
+ //var ads=document.myform.N38.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N38.value=rmb;
+}
+if(arr.indexOf("39",0)>0)
+ { 
+ //var ads=document.myform.N39.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N39.value=rmb;
+}
+if(arr.indexOf("40",0)>0)
+ { 
+ //var ads=document.myform.N40.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N40.value=rmb;
+}
+if(arr.indexOf("41",0)>0)
+ { 
+ //var ads=document.myform.N41.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N41.value=rmb;
+}
+if(arr.indexOf("42",0)>0)
+ { 
+ //var ads=document.myform.N42.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N42.value=rmb;
+}
+if(arr.indexOf("43",0)>0)
+ { 
+ //var ads=document.myform.N43.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N43.value=rmb;
+}
+if(arr.indexOf("44",0)>0)
+ { 
+ //var ads=document.myform.N44.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N44.value=rmb;
+}
+if(arr.indexOf("45",0)>0)
+ { 
+ //var ads=document.myform.N45.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N45.value=rmb;
+}
+if(arr.indexOf("46",0)>0)
+ { 
+ //var ads=document.myform.N46.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N46.value=rmb;
+}
+if(arr.indexOf("47",0)>0)
+ { 
+ //var ads=document.myform.N47.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N47.value=rmb;
+}
+if(arr.indexOf("48",0)>0)
+ { 
+ //var ads=document.myform.N48.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N48.value=rmb;
+}
+if(arr.indexOf("49",0)>0)
+ { 
+ //var ads=document.myform.N49.value;
+	// if(ads=="") ads=0;parseFloat(ads)+parseFloat(rmb)
+ document.myform.N49.value=rmb;
+}
+}
+}
+
+function txt(ta,num){ 
+ nums=num+",";
+ if(ta.value==""){ 
+ this.myform.check.value=(this.myform.check.value).replace(nums,"");
+ }else{
+ if(this.myform.check.value.indexOf(num)<0)
+ this.myform.check.value+=nums;
+ }
+}
+
+function Isnum(){
+return ((event.keyCode <= 57));
+}

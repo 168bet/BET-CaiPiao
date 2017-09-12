@@ -1,0 +1,67 @@
+{php $css = ['bt_information.css'];}
+{template 'wap', 'wap_header'}
+
+<header class="bar bar-nav border-1px">
+    <a class="icon icon-left pull-left " onclick="javascript:history.back(-1);"></a>
+    <h1 class="title"><a href="{url_replace($CAT['url'],WAP_PATH)}">{$CAT['catname']}</a></h1>
+</header>
+
+<div class="content">
+    
+    <div class="content-block mgt1">
+        <div class="detail-title" >
+            <h2>{$title}</h2>
+            
+        </div>
+        <div class="detail-desc">{$inputtime}&nbsp;来自：{$copyfrom}</div>
+        <div class="detail-content" id="detail-content">
+            {loop $pics $key $r}
+             <img src="{get_thumb($r['url'], 300)}" alt="{$r['alt']}" data-index="{$key}">
+            {/loop}
+        </div>
+    </div>
+     <div class="list-block media-list">
+        <div class="tagMain">
+            <div class="tag">标签：
+                {loop $keywords $keyword}
+                <a href="{WAP_PATH}tag/{urlencode($keyword)}/"><span class="tagContent">{$keyword}</span></a>
+                {/loop}
+            </div>
+            <div class="relatedInfo">相关资讯</div>
+            {pc:content action="lists" catid="$catid" order="id DESC" num="4" thumb="1"}
+            <ul>
+                {loop $data $r}
+                {if $r['id'] != $id}
+                <li class="border-1px">
+                    <a href="{url_replace($r['url'], WAP_PATH)}" class="item-link item-content pd ">
+                        <div class="item-media">
+                            <img src="{get_thumb($r['thumb'], 350)}" alt="{$r['title']}">
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">
+                                    {$r['title']}
+                                </div>
+                            </div>
+                            <div class="item-text">
+                                {$r['description']}
+                            </div>
+                            <div class="list_desc">
+                                <span>{date('Y-m-d H:i', $r['inputtime'])}</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                {/if}
+                {/loop}
+            </ul>
+            {/pc}
+        </div>
+    </div>
+    {template 'wap', 'footer_nav'}
+</div>
+<div class="img-mask" id="img-mask">
+</div>
+
+{php $js = ['show_picture.js'];}
+{template 'wap', 'wap_footer'}

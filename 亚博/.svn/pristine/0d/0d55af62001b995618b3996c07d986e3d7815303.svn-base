@@ -1,0 +1,252 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+
+<!--banner start-->
+<home-slider></home-slider>
+<!--登陆框-->
+<div class="loginbox" ng-if="!isLogged()">
+  <div class="boxtitle clearfix">
+    <p>登陆AG娱乐</p>
+    <a ui-sref="register.step/one">免费注册</a>
+  </div>
+  <form name="loginForm">
+    <div class="box_row">
+      <input type="text" placeholder="请输入账户" required ng-model="formdata.user.uname"></div>
+    <div class="box_row">
+      <input type="password" placeholder="请输入密码" required ng-model="formdata.user.upwd"></div>
+    <div class="box_row">
+      <a ui-sref="forget">忘记密码</a>
+    </div>
+    <div class="box_row">
+      <input type="submit" ng-click="fun.login(loginForm)" value="立即登陆" id="btn-login">
+    </div>
+  </form>
+  <app-marquee id="WinnerBox" speed="200" direction="v" items="marqueeItems"></app-marquee>
+
+</div>
+<!--登陆框-登陆后-->
+<div class="logged-box loginbox" ng-if="isLogged()">
+  <div class="userinfo">
+    <div class="u_row1 clearfix">
+      AG平台欢迎您 :
+      <span>{{global.user.userName}}</span>
+      <a class="fr" ng-click="logout()" href="javascript:void(0);">安全退出</a>
+    </div>
+    <div class="u_row2">
+      <div class="u_r1">当前可用余额:</div>
+      <div class="u_r2">{{global.user.userMoney}}</div>
+    </div>
+    <div class="u_row2 clearfix">
+      <div class="u_r1">当前安全等级：中</div>
+      <div class="u_rsafe">
+        <span id="index-scorebar" class="safe_level_2"></span>
+      </div>
+      <a ui-sref="user.security" class="getsafe"> [提升] </a>
+    </div>
+    <div class="u_row3 clearfix">
+      <div class="u_r1"> 上次登陆时间: {{global.user.userLastLoginTime | date: "yyyy-MM-dd HH:mm:ss"}}</div>
+      <div class="u_r1">上次登陆IP:{{global.user.userLastLoginIp}}</div>
+    </div>
+    <div class="u_row2 clearfix">
+      <a href="" class="btn-charge" ui-sref="user.funds/charge" >充值 </a>
+      <a href="" class="btn-withdraw" ui-sref="user.funds/charge">提现</a>
+    </div>
+    
+	<app-marquee id="WinnerBox" speed="100" direction="v" items="marqueeItems"></app-marquee>
+  </div> 
+</div>
+<!--游戏模块-->
+<div class="index-games">
+  <div class="layer_bg"></div>
+  <div class="row12" id="wrap-gametype">
+    <div class="row_game fl">
+      <div class="game_info clearfix">
+        <div class="game_pic game-xy28 fl"> <i></i>
+        </div>
+        <div class="game_result fl">
+          <div class="issue">
+                                            第 <b>{{lastIssue['BJKL8']['lastNumber']}}</b>期开奖结果
+          </div>
+          <div class="codes" ng-init="totalSum = 0">
+            <ng-repeat ng-repeat="num in lastIssue['BJKL8']['lotteryBalls'].split(',') track by $index">
+                <span  class="ball-ye">{{num}}</span> <font ng-if="!$last">+</font> 
+            </ng-repeat>
+             = <span class="ball-pr">{{fun.totalInArray(lastIssue['BJKL8']['lotteryBalls'].split(','))}}</span>
+          </div>
+          <div class="game_prize">
+                                        当前奖池 ￥ <b>83112588.00</b>
+          </div>
+        </div>
+      </div>
+      <div class="game_ltime" pro-cid="32">  第<b>{{lastIssue['BJKL8']['gameNumbers'][0]['number']}}</b>期在<b>
+        <count-down class="home-count-down" time="lastIssue['BJKL8']['downTimeLeft']" tick="fun.closeTickCb" />
+      </b>后截止投注 </div>
+      <div class="game_action">
+        <a ui-sref="game.name({name:'BJKL8'})">立即投注</a>
+      </div>
+    </div>
+    <div class="row_game fl">
+      <div class="game_info clearfix">
+        <div class="game_pic game-jnd28 fl"> <i></i>
+        </div>
+        <div class="game_result fl">
+          <div class="issue">
+            第
+            <b>{{lastIssue['CAKENO']['lastNumber']}}</b>
+            期开奖结果
+          </div>
+          <div class="codes">
+            <ng-repeat ng-repeat="num in lastIssue['CAKENO']['lotteryBalls'].split(',') track by $index">
+                <span  class="ball-ye">{{num}}</span> <font ng-if="!$last">+</font> 
+            </ng-repeat>
+            = <span class="ball-pr">{{fun.totalInArray(lastIssue['CAKENO']['lotteryBalls'].split(','))}}</span>
+          </div>
+          <div class="game_prize">
+            当前奖池 ￥
+            <b>27098734.00</b>
+          </div>
+        </div>
+      </div>
+      <div class="game_ltime" pro-cid="33">
+        第
+        <b>{{lastIssue['CAKENO']['gameNumbers'][0]['number']}}</b>
+        期在
+        <b><count-down class="home-count-down" time="lastIssue['CAKENO']['downTimeLeft']" tick="fun.closeTickCb" /></b>
+        后截止投注
+      </div>
+      <div class="game_action">
+        <a ui-sref="game.name({name:'CAKENO'})">立即投注</a>
+      </div>
+    </div>
+    <div class="row_game fl">
+      <div class="game_info clearfix">
+        <div class="game_pic game-ssc fl">
+          <i></i>
+        </div>
+        <div class="game_result fl">
+          <div class="issue">
+            第
+            <b>{{lastIssue['TJSSC']['lastNumber']}}</b>
+            期
+          </div>
+          <div class="codes">
+            <ng-repeat ng-repeat="num in lastIssue['TJSSC']['lotteryBalls'].split(',') track by $index">
+                <span class="ball-pr">{{num}}</span>
+            </ng-repeat>
+          </div>
+          <div class="game_prize">
+            当前奖池 ￥
+            <b>5527426.88</b>
+          </div>
+        </div>
+      </div>
+      <div class="game_ltime" pro-cid="1">
+        第
+        <b>{{lastIssue['TJSSC']['gameNumbers'][0]['number']}}</b>
+        期在
+        <b><count-down class="home-count-down" time="lastIssue['TJSSC']['downTimeLeft']" tick="fun.closeTickCb" /></b>
+        后截止投注
+      </div>
+      <div class="game_action">
+        <a ui-sref="ssc.name({name:'TJSSC'})">立即投注</a>
+      </div>
+    </div>
+    <div class="fig_left"></div>
+    <div class="fig_right"></div>
+  </div>
+</div>
+<!--手机板块-->
+<div class="index-layer_bg2"></div>
+<div class="index-phone">
+  <div class="row-left clearfix">
+    <div class="phone-left clearfix">
+      <div class="item_blue">
+        <a class="iconimg">
+          <i></i>
+        </a>
+        <h4>更稳定</h4>
+        <p>实力站点，致力于打造一个</br>
+        公平、诚信、共赢的娱乐平台
+      </p>
+    </div>
+    <div class="item_green">
+      <a class="iconimg">
+        <i></i>
+      </a>
+      <h4>更快捷</h4>
+      <p>7X24小时服务</br>
+      随时随地 轻松畅玩
+    </p>
+  </div>
+  <div class="item_orange">
+    <a class="iconimg">
+      <i></i>
+    </a>
+    <h4>更优秀</h4>
+    <p>平台会员稳定增长，至今已拥有</br>
+    超过85万的会员，累计为用户
+  </br>
+  兑换现金超680万元人民币
+</p>
+</div>
+<div class="item_pure">
+<a class="iconimg">
+  <i></i>
+</a>
+<h4>更安全</h4>
+<p>实力保障 让你安心游戏</p>
+</div>
+</div>
+</div>
+<div class="phone_code">
+<a class="phone_ecode phone_android"></a>
+<a
+
+class="phone_ecode phone_ios"></a>
+</div>
+</div>
+<!--动态游戏-->
+<div class="index-intro">
+<!-- 幸运28 -->
+<div class="row12 xyrow pageshow">
+<div class="bg"></div>
+<div class="ball"></div>
+<div class="textwrap">
+<div class="text">
+<p class="info">
+  2008年至今火热游戏,每天179期
+  <br>5分钟一期,高速开奖,玩法多,活动多~</p>
+<a ui-sref="game.name({name:'BJKL8'})" class="btn">立即游戏</a>
+
+</div>
+</div>
+</div>
+<!-- 新加坡28 -->
+<div class="row12 xjprow pageshow">
+<div class="bg"></div>
+<div class="ball"></div>
+<div class="textwrap">
+<div class="text">
+<p class="info">
+  新加坡28是一款超高频游戏，2分钟一期，每天660期开
+
+奖
+  <br>4月22日活动截止前更有连中多期奖金翻倍活动。</p>
+<a ui-sref="game.name({name:'CAKENO'})" class="btn">马上投注</a>
+
+</div>
+</div>
+</div>
+<!-- 下载 -->
+<div class="row12 downrow pageshow">
+<div class="bg"></div>
+<div class="text">
+<p class="info">
+预测98%准确度，免费使用!
+<br>还不赶快下载电脑版预测计划软件？</p>
+<a ng-click="fun.alert('预测软件紧急开发中, 稍等片刻...')" class="btn">快速下载</a>
+
+</div>
+</div>
+</div>
+<!--首页底部-->
+<ng-include src="templateURI('/footer.html')"></ng-include>

@@ -1,0 +1,388 @@
+#nginx rewrite rule for 399bf.com
+
+#不带www的域名重定向到带www的域名(注意if后面和{前面要有空格)
+if ($http_host ~ '^399cm.com$') {
+   rewrite  ^(.*) http://www.399cm.com$1 permanent;
+}
+
+#301重定向到加斜杠的url ?与.排除
+set $and 0;
+if ($request_uri ~ '[^/]$') {
+    set $and '${and}1';
+}
+if ($request_uri !~ '(\?|\.)') {
+	set $and '${and}2';
+}
+if ($and = '012') {
+	rewrite ^(.*) http://$http_host$1/ permanent;
+}
+
+##############
+#各大赛事频道页#
+#############
+
+#中超
+rewrite ^/csl/$ /index.php?m=content&c=index&a=csl last;
+#英超
+rewrite ^/premierleague/$ /index.php?m=content&c=index&a=premierleague last;
+#西甲
+rewrite ^/laliga/$ /index.php?m=content&c=index&a=laliga last;
+#意甲
+rewrite ^/seriea/$ /index.php?m=content&c=index&a=seriea last;
+#德甲
+rewrite ^/bundesliga/$ /index.php?m=content&c=index&a=bundesliga last;
+#法甲
+rewrite ^/ligue1/$ /index.php?m=content&c=index&a=ligue1 last;
+#亚冠
+rewrite ^/ACL/$ /index.php?m=content&c=index&a=lists&catid=10 last;
+#国足/世界杯预选
+rewrite ^/cft/$ /index.php?m=content&c=index&a=lists&catid=11 last;
+#欧冠
+rewrite ^/ucl/$ /index.php?m=content&c=index&a=ucl last;
+#欧洲杯
+rewrite ^/euro/$ /index.php?m=content&c=index&a=lists&catid=12 last;
+
+###########
+#足球大数据#
+##########
+
+#足球直播
+rewrite ^/live/$ /index.php?m=sportsdata&c=football&a=live last;
+#足球直播(包含分页)
+rewrite ^/live/(\d+)/$ /index.php?m=sportsdata&c=football&a=live&page=$1 last;
+#足球完场直播
+rewrite ^/end_live/$ /index.php?m=sportsdata&c=football&a=end_live last;
+#足球完场直播(包含分页)
+rewrite ^/end_live/(\d+)/$ /index.php?m=sportsdata&c=football&a=end_live&page=$1 last;
+#足球比分
+rewrite ^/zqscore/$ /index.php?m=sportsdata&c=football&a=live_game last;
+#完场比分
+rewrite ^/zqwanchang/ /index.php?m=sportsdata&c=football&a=end_game&$query_string last;
+#下日赛程
+rewrite ^/zqsaicheng/ /index.php?m=sportsdata&c=football&a=future_game&$query_string last;
+#足球指数
+rewrite ^/zqodds/$ /index.php?m=sportsdata&c=football&a=odds&$query_string last;
+#欧赔指数
+rewrite ^/zqoddseuro/$ /index.php?m=sportsdata&c=football&a=odds_euro&$query_string last;
+#亚盘指数
+rewrite ^/zqoddsasia/$ /index.php?m=sportsdata&c=football&a=odds_asia&$query_string last;
+#大小对比
+rewrite ^/zqoddsou/$ /index.php?m=sportsdata&c=football&a=odds_ou&$query_string last;
+#赛事资料库
+rewrite ^/zqevent/$ /index.php?m=sportsdata&c=football&a=event last;
+
+##################
+#联赛/杯赛 数据中心#
+#################
+
+#联赛赛程
+rewrite ^/competition/(\d+)/schedule/$ /index.php?m=sportsdata&c=football&a=competition_schedule&competitionid=$1 last;
+#联赛赛程(查询轮次、分组、阶段)
+rewrite ^/competition/(\d+)/schedule/(round|group|period)/([^/]+)/$ /index.php?m=sportsdata&c=football&a=competition_schedule&competitionid=$1&$2=$3 last;
+#联赛赛程(查询轮次、分组、阶段、球队)
+rewrite ^/competition/(\d+)/schedule/(round|group|period)/([^/]+)/teamid/(\d+)/$ /index.php?m=sportsdata&c=football&a=competition_schedule&competitionid=$1&$2=$3&teamid=$4 last;
+#联赛赛程(查询轮次、分组、阶段、主队)
+rewrite ^/competition/(\d+)/schedule/(round|group|period)/([^/]+)/hometeamid/(\d+)/$ /index.php?m=sportsdata&c=football&a=competition_schedule&competitionid=$1&$2=$3&hometeamid=$4 last;
+#联赛赛程(查询轮次、分组、阶段、客队)
+rewrite ^/competition/(\d+)/schedule/(round|group|period)/([^/]+)/awayteamid/(\d+)/$ /index.php?m=sportsdata&c=football&a=competition_schedule&competitionid=$1&$2=$3&awayteamid=$4 last;
+#联赛赛程(查询轮次、分组、阶段、球队、主队)
+rewrite ^/competition/(\d+)/schedule/(round|group|period)/([^/]+)/teamid/(\d+)/hometeamid/(\d+)/$ /index.php?m=sportsdata&c=football&a=competition_schedule&competitionid=$1&$2=$3&teamid=$4&hometeamid=$5 last;
+#联赛赛程(查询轮次、分组、阶段、球队、客队)
+rewrite ^/competition/(\d+)/schedule/(round|group|period)/([^/]+)/teamid/(\d+)/awayteamid/(\d+)/$ /index.php?m=sportsdata&c=football&a=competition_schedule&competitionid=$1&$2=$3&teamid=$4&awayteamid=$5 last;
+#联赛赛程(查询轮次、分组、阶段、球队、主队、客队)
+rewrite ^/competition/(\d+)/schedule/(round|group|period)/([^/]+)/teamid/(\d+)/hometeamid/(\d+)/awayteamid/(\d+)/$ /index.php?m=sportsdata&c=football&a=competition_schedule&competitionid=$1&$2=$3&teamid=$4&hometeamid=$5&awayteamid=$6 last;
+#联赛积分榜
+rewrite ^/competition/(\d+)/standings/$ /index.php?m=sportsdata&c=football&a=competition_standing&competitionid=$1 last;
+#联赛盘路统计
+rewrite ^/competition/(\d+)/oddsway/$ /index.php?m=sportsdata&c=football&a=competition_oddsway&competitionid=$1 last;
+#联赛波胆分布
+rewrite ^/competition/(\d+)/correctscore/$ /index.php?m=sportsdata&c=football&a=competition_correct_score&competitionid=$1 last;
+#上／下半场入球较多统计
+rewrite ^/competition/(\d+)/hsscores/$ /index.php?m=sportsdata&c=football&a=competition_hsscores&id=$1 last;
+#上、下盘全场入球统计
+rewrite ^/competition/(\d+)/overunder/$ /index.php?m=sportsdata&c=football&a=competition_overunder&id=$1 last;
+#半全场统计
+rewrite ^/competition/(\d+)/hfstat/$ /index.php?m=sportsdata&c=football&a=competition_hfstat&id=$1 last;
+#入球总数及单双数统计
+rewrite ^/competition/(\d+)/oddeven/$ /index.php?m=sportsdata&c=football&a=competition_oddeven&id=$1 last;
+#球队总入球数统计
+rewrite ^/competition/(\d+)/teamscores/$ /index.php?m=sportsdata&c=football&a=competition_team_scores&id=$1 last;
+#最常见赛果统计
+rewrite ^/competition/(\d+)/frequentresults/$ /index.php?m=sportsdata&c=football&a=competition_frequent_results&id=$1 last;
+#攻守统计
+rewrite ^/competition/(\d+)/getmiss/$ /index.php?m=sportsdata&c=football&a=competition_getmiss&id=$1 last;
+#射手榜
+rewrite ^/competition/(\d+)/shooter/$ /index.php?m=sportsdata&c=football&a=competition_shooter&id=$1 last;
+#进球时间分布统计
+rewrite ^/competition/(\d+)/goaltime/$ /index.php?m=sportsdata&c=football&a=competition_goaltime&id=$1 last;
+#最先入球、失球统计
+rewrite ^/competition/(\d+)/fgetmiss/$ /index.php?m=sportsdata&c=football&a=competition_fgetmiss&id=$1 last;
+
+###################
+#比赛分析 主队VS客队#
+##################
+
+#预测赛事
+rewrite ^/game/(\d+)/forecast/$ /index.php?m=sportsdata&c=football&a=game&gameid=$1 last;
+#交往战绩
+rewrite ^/game/(\d+)/analyse/$ /index.php?m=sportsdata&c=football&a=game_analyse&gameid=$1 last;
+#赛事指数(亚指)
+rewrite ^/game/(\d+)/oddsasia/$ /index.php?m=sportsdata&c=football&a=game_odds_asia&gameid=$1 last;
+#赛事指数(欧赔)
+rewrite ^/game/(\d+)/oddseuro/$ /index.php?m=sportsdata&c=football&a=game_odds_euro&gameid=$1 last;
+#赛事指数(大小对比)
+rewrite ^/game/(\d+)/oddsou/$ /index.php?m=sportsdata&c=football&a=game_odds_ou&gameid=$1 last;
+#赛事直播(图文)
+rewrite ^/game/(\d+)/live/$ /index.php?m=sportsdata&c=football&a=game_live&gameid=$1 last;
+#赛事数据统计
+rewrite ^/game/(\d+)/stats/$ /index.php?m=sportsdata&c=football&a=game_stats&gameid=$1 last;
+#赛事数据分析
+rewrite ^/game/(\d+)/data/$ /index.php?m=sportsdata&c=football&a=game_data&gameid=$1 last;
+
+#球队
+rewrite ^/team/(\d+)/$ /index.php?m=sportsdata&c=football&a=team&teamid=$1 last;
+#球队(查询球队往绩)
+rewrite ^/team/(\d+)/(\d+)/(\d+)/$ /index.php?m=sportsdata&c=football&a=team&teamid=$1&competitionid=$2&date=$3 last;
+#球员
+rewrite ^/player/(\d+)/$ /index.php?m=sportsdata&c=football&a=player&playerid=$1 last;
+#球员(查询球员往绩)
+rewrite ^/player/(\d+)/(\d+)/(\d+)/$ /index.php?m=sportsdata&c=football&a=player&playerid=$1&competitionid=$2&timeid=$3 last;
+
+#资讯、图库、视频列表
+rewrite ^/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=$1 last;
+#资讯、图库、视频列表(包含分页)
+rewrite ^/(\d+)/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=$1&page=$2 last;
+#图库、视频列表(包含关键词)
+rewrite ^/(\d+)/([^/]+)/$ /index.php?m=content&c=index&a=lists&catid=$1&keywords=$2 last;
+#图库、视频列表(包含关键词和分页)
+rewrite ^/(\d+)/([^/]+)/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=$1&keywords=$2&page=$3 last;
+
+#资讯、图库、视频明细
+rewrite ^/(\d+)/\d+/(\d+)\.shtml$ /index.php?m=content&c=index&a=show&catid=$1&id=$2 last;
+#资讯、图库、视频明细(包含分页)
+rewrite ^/(\d+)/\d+/(\d+)-(\d+)\.shtml$ /index.php?m=content&c=index&a=show&catid=$1&id=$2&page=$3 last;
+
+#标签列表
+rewrite ^/tag/([^/]+)/$ /index.php?m=content&c=tag&a=lists&tag=$1 last;
+#标签列表(包含分页)
+rewrite ^/tag/([^/]+)/(\d+)/$ /index.php?m=content&c=tag&a=lists&tag=$1&page=$2 last;
+
+#资讯列表 包含所有资讯
+rewrite ^/news/$ /index.php?m=content&c=index&a=lists_model last;
+#资讯列表 包含所有资讯 (分页)
+rewrite ^/news/(\d+)/$ /index.php?m=content&c=index&a=lists_model&page=$1 last;
+
+#---------列表(SEO优化)------
+#足彩分析
+rewrite ^/zcfx/$ /index.php?m=content&c=index&a=lists&catid=1 last;
+rewrite ^/zcfx/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=1&page=$1 last;
+#足彩预测
+rewrite ^/zcyc/$ /index.php?m=content&c=index&a=lists&catid=2 last;
+rewrite ^/zcyc/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=2&page=$1 last;
+#足彩推荐
+rewrite ^/zctj/$ /index.php?m=content&c=index&a=lists&catid=3 last;
+rewrite ^/zctj/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=3&page=$1 last;
+#竞彩篮球预测
+rewrite ^/jclqyc/$ /index.php?m=content&c=index&a=lists&catid=4 last;
+rewrite ^/jclqyc/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=4&page=$1 last;
+#竞彩篮球分析
+rewrite ^/jclqfx/$ /index.php?m=content&c=index&a=lists&catid=5 last;
+rewrite ^/jclqfx/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=5&page=$1 last;
+#竞彩体育资讯
+rewrite ^/tyzx/$ /index.php?m=content&c=index&a=lists&catid=6 last;
+rewrite ^/tyzx/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=6&page=$1 last;
+#体坛图库
+rewrite ^/tuku/$ /index.php?m=content&c=index&a=lists&catid=7 last;
+rewrite ^/tuku/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=7&page=$1 last;
+#足球宝贝
+rewrite ^/zqbaobei/$ /index.php?m=content&c=index&a=lists&catid=9 last;
+rewrite ^/zqbaobei/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=9&page=$1 last;
+#足球宝贝图片
+rewrite ^/zqbbpic/$ /index.php?m=content&c=index&a=lists&catid=10 last;
+rewrite ^/zqbbpic/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=10&page=$1 last;
+#足球宝贝壁纸
+rewrite ^/zqbbbz/$ /index.php?m=content&c=index&a=lists&catid=11 last;
+rewrite ^/zqbbbz/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=11&page=$1 last;
+#英超宝贝
+rewrite ^/ycbaobei/$ /index.php?m=content&c=index&a=lists&catid=12 last;
+rewrite ^/ycbaobei/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=12&page=$1 last;
+#篮球宝贝
+rewrite ^/lqbaobei/$ /index.php?m=content&c=index&a=lists&catid=13 last;
+rewrite ^/lqbaobei/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=13&page=$1 last;
+#nba篮球宝贝
+rewrite ^/nbabaobei/$ /index.php?m=content&c=index&a=lists&catid=14 last;
+rewrite ^/nbabaobei/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=14&page=$1 last;
+#cba篮球宝贝
+rewrite ^/cbabaobei/$ /index.php?m=content&c=index&a=lists&catid=15 last;
+rewrite ^/cbabaobei/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=15&page=$1 last;
+#篮球宝贝壁纸
+rewrite ^/lqbbbz/$ /index.php?m=content&c=index&a=lists&catid=16 last;
+rewrite ^/lqbbbz/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=16&page=$1 last;
+#竞彩足球分析
+rewrite ^/jczqfx/$ /index.php?m=content&c=index&a=lists&catid=18 last;
+rewrite ^/jczqfx/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=18&page=$1 last;
+#亚盘分析法
+rewrite ^/ypfxf/$ /index.php?m=content&c=index&a=lists&catid=19 last;
+rewrite ^/ypfxf/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=19&page=$1 last;
+#欧赔分析技巧
+rewrite ^/opfxjq/$ /index.php?m=content&c=index&a=lists&catid=20 last;
+rewrite ^/opfxjq/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=20&page=$1 last;
+#欧赔和亚盘
+rewrite ^/ephyp/$ /index.php?m=content&c=index&a=lists&catid=21 last;
+rewrite ^/ephyp/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=21&page=$1 last;
+#竞彩足球怎么玩
+rewrite ^/jczqzmw/$ /index.php?m=content&c=index&a=lists&catid=22 last;
+rewrite ^/jczqzmw/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=22&page=$1 last;
+#竞彩足球预测
+rewrite ^/jczqyc/$ /index.php?m=content&c=index&a=lists&catid=24 last;
+rewrite ^/jczqyc/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=24&page=$1 last;
+#胜负彩14场专家预测
+rewrite ^/sfcyc/$ /index.php?m=content&c=index&a=lists&catid=25 last;
+rewrite ^/sfcyc/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=25&page=$1 last;
+#今日强胆推荐
+rewrite ^/jrqdtj/$ /index.php?m=content&c=index&a=lists&catid=27 last;
+rewrite ^/jrqdtj/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=27&page=$1 last;
+#五大联赛
+rewrite ^/wdls/$ /index.php?m=content&c=index&a=lists&catid=28 last;
+rewrite ^/wdls/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=28&page=$1 last;
+#中国足坛
+rewrite ^/cnzt/$ /index.php?m=content&c=index&a=lists&catid=29 last;
+rewrite ^/cnzt/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=29&page=$1 last;
+#世界足坛
+rewrite ^/sjzt/$ /index.php?m=content&c=index&a=lists&catid=30 last;
+rewrite ^/sjzt/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=30&page=$1 last;
+#体坛视频
+rewrite ^/video/$ /index.php?m=content&c=index&a=lists&catid=8 last;
+rewrite ^/video/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=8&page=$1 last;
+#足彩单场分析
+rewrite ^/zcdcfx/$ /index.php?m=content&c=index&a=lists&catid=31 last;
+rewrite ^/zcdcfx/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=31&page=$1 last;
+#体坛美图
+rewrite ^/ttmt/$ /index.php?m=content&c=index&a=lists&catid=32 last;
+rewrite ^/ttmt/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=32&page=$1 last;
+#养眼美女
+rewrite ^/yymv/$ /index.php?m=content&c=index&a=lists&catid=33 last;
+rewrite ^/yymv/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=33&page=$1 last;
+#精彩赛况
+rewrite ^/jcsk/$ /index.php?m=content&c=index&a=lists&catid=34 last;
+rewrite ^/jcsk/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=34&page=$1 last;
+#搞笑趣图
+rewrite ^/gxqt/$ /index.php?m=content&c=index&a=lists&catid=35 last;
+rewrite ^/gxqt/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=35&page=$1 last;
+#巨星风采
+rewrite ^/jxfc/$ /index.php?m=content&c=index&a=lists&catid=36 last;
+rewrite ^/jxfc/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=36&page=$1 last;
+#精彩赛况
+rewrite ^/jjsk/$ /index.php?m=content&c=index&a=lists&catid=37 last;
+rewrite ^/jjsk/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=37&page=$1 last;
+#花边新闻
+rewrite ^/hbqw/$ /index.php?m=content&c=index&a=lists&catid=38 last;
+rewrite ^/hbqw/(\d+)/$ /index.php?m=content&c=index&a=lists&catid=38&page=$1 last;
+
+
+#+----------
+#| 篮球
+#+----------
+
+#篮球即时比分
+rewrite ^/lqscore/$ /index.php?m=sportsdata&c=basketball&a=live_schedule last;
+#篮球完场比分
+rewrite ^/lqwanchang/ /index.php?m=sportsdata&c=basketball&a=end_schedule&$query_string last;
+#篮球下日赛程
+rewrite ^/lqsaicheng/ /index.php?m=sportsdata&c=basketball&a=future_schedule&$query_string last;
+#篮球比赛分析
+rewrite ^/schedule/(\d+)/analyse/$ /index.php?m=sportsdata&c=basketball&a=schedule_analyse&scheduleid=$1 last;
+#篮球比赛欧赔指数
+rewrite ^/schedule/(\d+)/euro/$ /index.php?m=sportsdata&c=basketball&a=schedule_euro&scheduleid=$1 last;
+#篮球比赛让分指数
+rewrite ^/schedule/(\d+)/asia/$ /index.php?m=sportsdata&c=basketball&a=schedule_asia&scheduleid=$1 last;
+#篮球比赛总分指数
+rewrite ^/schedule/(\d+)/ou/$ /index.php?m=sportsdata&c=basketball&a=schedule_ou&scheduleid=$1 last;
+
+#综合指数
+rewrite ^/lqodds/$ /index.php?m=sportsdata&c=basketball&a=odds&$query_string last;
+#欧赔指数
+rewrite ^/lqoddseuro/$ /index.php?m=sportsdata&c=basketball&a=odds_euro&$query_string last;
+#让分指数
+rewrite ^/lqoddsasia/$ /index.php?m=sportsdata&c=basketball&a=odds_asia&$query_string last;
+#总分
+rewrite ^/lqoddsou/$ /index.php?m=sportsdata&c=basketball&a=odds_ou&$query_string last;
+
+#球队
+rewrite ^/lq/team/(\d+)/$ /index.php?m=sportsdata&c=basketball&a=team&teamid=$1 last;
+#球队赛程
+rewrite ^/lq/team/(\d+)/schedule/$ /index.php?m=sportsdata&c=basketball&a=team_schedule&teamid=$1 last;
+#球队阵容
+rewrite ^/lq/team/(\d+)/lineup/$ /index.php?m=sportsdata&c=basketball&a=team_lineup&teamid=$1 last;
+#球队转会
+rewrite ^/lq/team/(\d+)/transfer/$ /index.php?m=sportsdata&c=basketball&a=team_transfer&teamid=$1 last;
+#球员
+rewrite ^/lq/player/(\d+)/$ /index.php?m=sportsdata&c=basketball&a=player&playerid=$1 last;
+
+#资料库
+rewrite ^/lqevent/$ /index.php?m=sportsdata&c=basketball&a=event last;
+#赛程赛果
+rewrite ^/sclass/(\d+)/schedule/$ /index.php?m=sportsdata&c=basketball&a=sclass_schedule&sclassid=$1&$query_string last;
+#联盟排名
+rewrite ^/sclass/(\d+)/standings/$ /index.php?m=sportsdata&c=basketball&a=sclass_standings&sclassid=$1&$query_string last;
+#让球盘路榜
+rewrite ^/sclass/(\d+)/letgoal/$ /index.php?m=sportsdata&c=basketball&a=sclass_letgoal&sclassid=$1&$query_string last;
+#大小盘路榜
+rewrite ^/sclass/(\d+)/totalscore/$ /index.php?m=sportsdata&c=basketball&a=sclass_totalscore&sclassid=$1&$query_string last;
+#单双统计
+rewrite ^/sclass/(\d+)/singleDouble/$ /index.php?m=sportsdata&c=basketball&a=sclass_single_double&sclassid=$1&$query_string last;
+#球队技术统计
+rewrite ^/sclass/(\d+)/teamTechnic/$ /index.php?m=sportsdata&c=basketball&a=sclass_technic_team&sclassid=$1&$query_string last;
+#球员技术统计
+rewrite ^/sclass/(\d+)/playerTechnic/$ /index.php?m=sportsdata&c=basketball&a=sclass_technic_player&sclassid=$1&$query_string last;
+#球队资料
+rewrite ^/sclass/(\d+)/team/$ /index.php?m=sportsdata&c=basketball&a=sclass_team&sclassid=$1&$query_string last;
+
+
+#+----------
+#| 彩票
+#+----------
+
+#开奖信息
+rewrite ^/cp/info/$ /index.php?m=sportsdata&c=lottery&a=info&$query_string last;
+#历史数据
+rewrite ^/cp/history/$ /index.php?m=sportsdata&c=lottery&a=history&$query_string last;
+#基本走势图
+rewrite ^/cp/([^/]+)/trendbase/$ /index.php?m=sportsdata&c=lottery&a=$1_base&$query_string last;
+
+
+#+----------
+#| 股票
+#+----------
+
+#股票列表
+rewrite ^/st/list/$ /index.php?m=sportsdata&c=stock&a=lists&$query_string last;
+
+
+#+-------------------
+#| 待开放、404
+#+-------------------
+
+#待开放
+rewrite ^/todo/$ /index.php?m=content&c=index&a=todo last;
+#404
+rewrite ^/page404/$ /index.php?m=content&c=index&a=page404 last;
+
+
+#+-------------------
+#| 会员
+#+-------------------
+
+#注册
+rewrite ^/u/register/$ /index.php?m=member&c=index&a=register&$query_string last;
+#登录
+rewrite ^/u/login/$ /index.php?m=member&c=index&a=login&$query_string last;
+#退出
+rewrite ^/u/logout/$ /index.php?m=member&c=index&a=logout last;
+#忘记密码
+rewrite ^/u/fpwd/$ /index.php?m=member&c=index&a=public_forget_password&$query_string last;
+
+
+
+
+

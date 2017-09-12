@@ -1,0 +1,189 @@
+{php $css = array('ft_database.css')}
+{template 'content', 'header_score'}
+
+<nav>
+    <div class="container">
+        <div class="row">
+            <div class="matchNav">
+                <ul class="clearfix">
+                    <li><a {if ! in_array($id, [92,85,34,39,152,149,1,5])}class="active"{/if} href="javascript:;">热门联赛</a></li>
+                    <li><a {if $id == 92}class="active"{/if} href="{APP_PATH}competition/92/schedule/">英超</a></li>
+                    <li><a {if $id == 85}class="active"{/if} href="{APP_PATH}competition/85/schedule/">西甲</a></li>
+                    <li><a {if $id == 34}class="active"{/if} href="{APP_PATH}competition/34/schedule/">意甲</a></li>
+                    <li><a {if $id == 39}class="active"{/if} href="{APP_PATH}competition/39/schedule/">德甲</a></li>
+                    <li><a {if $id == 152}class="active"{/if} href="{APP_PATH}competition/152/schedule/">中超</a></li>
+                    <li><a {if $id == 149}class="active"{/if} href="{APP_PATH}competition/149/schedule/">世足</a></li>
+                    <li><a {if $id == 1}class="active"{/if} href="{APP_PATH}sclass/1/schedule/">NBA</a></li>
+                    <li><a {if $id == 5}class="active"{/if} href="{APP_PATH}sclass/5/schedule/">CBA</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<section>
+    <div class="container">
+        {template 'sportsdata', 'ft_competition_crumbs'}
+        <div class="row">
+            <div class="col-sm-12 pdL0 pdR0">
+                <div class="iframe-page" id="iframe_page">
+                    <div class="iframe-head clearfix">
+                        <h1 class="m-title fl mrgR20">
+                            <img src="{$competition['logo']}" width="59" height="59" alt="" class="fl competition-photo">
+                            {$competition['name']}
+                        </h1>
+
+                        <div class="dropdown">
+                            <button class="btn btn-default" id="jw_dropA" data-toggle="dropdown" aria-expanded="true">
+                                <i class="icon-calendar"></i>
+                                {$competition['date']}
+                                <i class="icon-angle-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 pdL0 pdR0">
+                <div class="title-bar">球队总入球数统计</div>
+                <div class="data-wrap">
+                    <div class="shop">
+                        <button class="btn btn-default on" id="click_type1" onclick="change_type(1)">
+                            总场数
+                        </button>
+                        <button class="btn btn-default" id="click_type2" onclick="change_type(2)">
+                            主场
+                        </button>
+                        <button class="btn btn-default" id="click_type3" onclick="change_type(3)">
+                            客场
+                        </button>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <tr>
+                                <td width="185">球队</td>
+                                <td width="94">没有入球</td>
+                                <td width="94">1球</td>
+                                <td width="94">2球</td>
+                                <td width="94">3球</td>
+                                <td width="94">4球</td>
+                                <td width="94">5球或以上</td>
+                            </tr>
+
+                            {loop $teamScores['total'] $item}
+                            <tr class="type1">
+                                <td>{$item['name']}</td>
+                                <td>{$item['goal0']}</td>
+                                <td>{$item['goal1']}</td>
+                                <td>{$item['goal2']}</td>
+                                <td>{$item['goal3']}</td>
+                                <td>{$item['goal4']}</td>
+                                <td>{$item['goal5']}</td>
+                            </tr>
+                            {/loop}
+
+                            {loop $teamScores['home'] $item}
+                            <tr class="type2" style="display: none">
+                                <td>{$item['name']}</td>
+                                <td>{$item['goal0']}</td>
+                                <td>{$item['goal1']}</td>
+                                <td>{$item['goal2']}</td>
+                                <td>{$item['goal3']}</td>
+                                <td>{$item['goal4']}</td>
+                                <td>{$item['goal5']}</td>
+                            </tr>
+                            {/loop}
+
+                            {loop $teamScores['away'] $item}
+                            <tr class="type3" style="display: none">
+                                <td>{$item['name']}</td>
+                                <td>{$item['goal0']}</td>
+                                <td>{$item['goal1']}</td>
+                                <td>{$item['goal2']}</td>
+                                <td>{$item['goal3']}</td>
+                                <td>{$item['goal4']}</td>
+                                <td>{$item['goal5']}</td>
+                            </tr>
+                            {/loop}
+                        </table>
+                        <!--<div class="update-time">最后更新：2017-2-8 14:15:58   </div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 pdR0">
+                <div class="column-side">
+                    <div class="column-title1">联赛数据中心</div>
+                    <div class="column-content">
+                        <ul>
+                            <li><a href="{APP_PATH}competition/{$id}/schedule/">赛程结果</a></li>
+                            <li><a href="{APP_PATH}competition/{$id}/standings/">积分表</a></li>
+                            <li><a href="{APP_PATH}competition/{$id}/oddsway/">盘路统计</a></li>
+                            <li><a href="{APP_PATH}competition/{$id}/hsscores/">上 / 下半场入球较多</a></li>
+                            <li><a href="{APP_PATH}competition/{$id}/overunder/">上，下盘全场入球</a></li>
+                            <li><a href="{APP_PATH}competition/{$id}/hfstat/">半全场统计</a></li>
+                            <li><a href="{APP_PATH}competition/{$id}/oddeven/">入球总数及单双数</a></li>
+                            <li class="active"><a href="{APP_PATH}competition/{$id}/teamscores/">球队总入球数</a></li>
+                            <li><a href="{APP_PATH}competition/{$id}/frequentresults/">最常见赛果</a></li>
+                            <li><a href="{APP_PATH}competition/{$id}/getmiss/">攻守统计</a></li>
+                            <li><a href="{APP_PATH}competition/{$id}/shooter/">神射手榜</a></li>
+                            <li><a href="{APP_PATH}competition/{$id}/goaltime/">进球时间分布</a></li>
+                            <li><a href="{APP_PATH}competition/{$id}/fgetmiss/">最先入球 / 失球</a></li>
+                            <li><a href="{APP_PATH}competition/{$id}/correctscore/">波胆分布</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column-side">
+                    <div class="column-title2">{$competition['shortname']}积分榜<a href="" target="_blank" class="more">更多</a></div>
+                    <div class="column-content">
+                        <div id="scalable" class="scalable">
+                            <table width="100%">
+                                <tr>
+                                    <td>排名</td>
+                                    <td>球队</td>
+                                    <td>赛</td>
+                                    <td>胜</td>
+                                    <td>平</td>
+                                    <td>负</td>
+                                    <td>积分</td>
+                                </tr>
+                                {loop $standingsStats $key $item}
+                                <tr>
+                                    <td class="{if $key<=2}red{/if} italic"><?php echo $key+1;?></td>
+                                    <td>{$item['teamname']}</td>
+                                    <td>{$item['total']}</td>
+                                    <td>{$item['win']}</td>
+                                    <td>{$item['draw']}</td>
+                                    <td>{$item['lose']}</td>
+                                    <td>{$item['score']}</td>
+                                </tr>
+                                {/loop}
+                            </table>
+                        </div>
+                        <div id="btn-open" class="btn-open">展开全部<i class="icon-angle-down mrl5"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = array('ft_side.js','imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js')}
+{template 'content', 'footer'}
+<script>
+    function change_type(value) {
+        $('#click_type1').removeClass('on');
+        $('#click_type2').removeClass('on');
+        $('#click_type3').removeClass('on');
+        $('#click_type' + value).addClass('on');
+        $('.type1') . hide();
+        $('.type2') . hide();
+        $('.type3') . hide();
+        $('.type' + value) . show();
+    }
+</script>

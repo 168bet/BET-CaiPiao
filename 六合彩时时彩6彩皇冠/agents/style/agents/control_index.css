@@ -1,0 +1,50 @@
+body {margin: 0px;background-image:    url(/images/ind_bg.gif);	background-color: #003366;}
+tr {font-family: Arial, Helvetica, sans-serif;font-size: 12px;color: #8D430F;}
+.all {  position: absolute; left: 0px; top: 10%; clip:   rect(   ); width: 100%}
+.tab {border: 1px solid #000000;}
+.link_bg {	background-image:    url(/images/index_top2.jpg);background-repeat: repeat-x;}
+a {padding-left: 7px;padding-right: 7px;}
+a:link {	color: #FFFFFF;	text-decoration: none;}
+a:visited {color: #FFFFFF;	text-decoration: none;}
+a:hover {color: #FFFF00;text-decoration: none;}
+a:active {	color: #FF6600;text-decoration: none;}
+.no_link {color: #FFFF00;padding-right: 7px;padding-left: 7px;}
+.login_icon1 {
+	background-image:  url(/images/arrow_0.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+}
+.login_icon2 {
+	background-image:   url(/images/arrow_1.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 20px;
+	vertical-align: middle;
+}
+.foot {
+	color: #FFFFFF;
+	height: 35px;
+	background-image:  url(/images/ind_down_bg.jpg);
+	background-color: #245D82;
+	text-align: center;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+	background-repeat: repeat-x;
+	vertical-align: middle;
+	padding-top: 3px;
+}
+.log_but {
+	background-image:  url(/images/ind_ph08.jpg);
+	background-repeat: no-repeat;
+	background-position: right top;
+	padding-top: 20px;
+	text-align: right;
+	padding-bottom: 25px;
+}
+p input {
+	font-family: Arial;
+	font-size: 12px;
+	height: 20px;
+	width: 80px;
+}

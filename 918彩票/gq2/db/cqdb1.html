@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>猜球夺宝</title>
+<link href="./css/gq.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.pullDown{ position:absolute; width:1.5rem; height:1.4375rem; right:.5rem; top:.75rem; z-index:1}
+.pullText{ display:; -webkit-transition:all .2s ease;-ms-transition:all .2s ease;-o-transition:all .2s ease;-moz-transition:all .2s ease; position:absolute; right:0rem; top:1.7rem; width:5rem; background:#fff; border:1px solid #b6b6b6}
+.pullText a{ display:block; line-height:2.3rem; text-align:center; cDolor:#9e9e9e; font-size:.93rem; border-bottom:1px solid #cacaca}
+.pullText a:last-child{ border-bottom:none}
+.pullText a.cur{ color:#db150b}
+.pullIco{ display:block; width:1.34rem; height:1.31rem; background:url(img/pullDown.png) no-repeat center; background-size:1.34rem 1.31rem; -webkit-background-size:1.34rem 1.31rem; -moz-background-size:1.34rem 1.31rem}
+.pullHover .pullIco{ width:1.5rem; height:1.4375rem; background:url(img/pullDown2.png) no-repeat center; background-size:1.5rem 1.4375rem; -webkit-background-size:1.5rem 1.4375rem; -moz-background-size:1.5rem 1.4375rem}
+.popup{ position:fixed; width:90%; top:30%; left:5%; z-index:1000; background:#fff; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem}
+.popup p{ text-align: center; line-height:1.4rem; font-size:.9rem; padding: 2rem 20%;}
+.zfTrue{ line-height:2.5rem; font-size:1rem; text-align:center; border-top:1px solid #ccc; background:#fff; border-radius:0 0 .4rem .4rem; -webkit-border-radius:0 0 .4rem .4rem; -moz-border-radius:0 0 .4rem .4rem}
+.zfTrue a{ float:left; color:#106fe5; width:49.5%}
+.zfTrue a.zfqx{ border-right:1px solid #ccc }
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+.cs_btn{
+        border-radius: 50%;
+        border:1px red solid;
+        position: fixed;
+        top:80%;
+        right:5%;
+        background:rgba(255,255,255,0.5);
+        color: red;
+        padding: .2rem .5rem .2rem .5rem;
+        z-index: 1;
+}
+.cs_btn a{
+    display: block;
+    font-size: .6rem;
+}
+.pj_time{
+    width: 100%;
+    padding:.3rem .5rem;
+    font-size: .7rem;
+    background:#BBBBC1;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    color:#777;
+}
+.pj_time cite{
+    color:red;
+}
+</style>
+
+<body style="background: #d9d9de;">
+<!-- 报名参赛按钮 -->
+<div class="cs_btn">
+    <a>报名</a>
+    <a>参赛</a>
+</div>
+<!-- 提示层 -->
+	<div class="ceng" style="display:none"></div>
+	<article style="display:none" id="tz_confirm">
+		<div class="ts_bg">
+			<div class="ts_close"></div>
+			<div class="ts_main">
+				<div class="ts_div">
+					<div class="ts_p" id="tz_cont">
+						<div class="pdLeft1 cur">
+							<em class="left nocheck"></em>
+							<div class="redText">
+								<p>是用5000积分报名参赛</p>
+								<p>积分余额：<cite>5475</cite></p>
+							</div>
+						</div>
+						<div class="pdLeft1">
+							<em class="left nocheck"></em>
+							<div class="redText">
+								<p>是用70奖券报名参赛</p>
+								<p>积分余额：<cite>5475</cite></p>
+							</div>
+						</div>
+						<div class="pdLeft1 no_enough" id="lack_of_balance" style="display:none">积分余额不足，请充值！</div>
+					</div>
+					<div class="btn_bg">
+						<a href="/user/jfcz.html">积分充值</a>
+						<a href="javascript:;" id="toSignUp">报名参赛</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
+<header class="tzHeader" style="display:none">
+     <div class="cgjHeader fixed2">
+    	<a href="javascript:history.go(-1);" class="fcbackIco2"></a>
+    	<h1>边看边猜</h1>
+        <article class="pullDown pullHover" style="display:none ;">
+        	<em class="pullIco"></em>
+            <div class="pullText">
+            	<a href="myjc.html" class="cur">我的竞猜</a>
+            	<a href="phb.html">排行榜</a>
+            	<a href="wfgz.html">玩法规则</a>
+            </div>
+        </article>
+      </div> 
+</header>
+<nav class="kctab kctab2" id="qh">
+	<span  class="cur">猜球赛</span>
+	<span>排行榜</span>
+</nav>
+<!-- 猜球赛 start -->
+<article class="kcdzqd" id="cont_z">
+   <section>
+	  <div class="bclist" id="progress">
+	  <!-- 
+    	<a href="#">
+    		<p><cite><img src="../img/1.jpg"></cite><strong>皇家马德里</strong></p>
+    		<p class="mid"><span><i class="lqico"></i>30<em class="fen">′</em></span><b>3:5</b><span class="pater">8437人已参与</span></p>
+    		<p><cite><img src="img/2.jpg"></cite><strong>拜仁慕尼黑</strong></p>
+    		<div><q></q></div>
+    	</a>
+    	<a href="#" class="cur">
+    		<p><cite><img src="../img/3.jpg"></cite><strong>皇家马德里</strong></p>
+    		<p class="mid"><span><i class="hqico"></i>50<em class="fen">′</em></span><b>3:2</b><span class="pater">8437人已参与</span></p>
+    		<p><cite><img src="../img/4.jpg"></cite><strong>拜仁慕尼黑</strong></p>
+    	</a>
+    	 -->
+      </div>
+   </section> 
+</article>
+<!-- 猜球赛 end -->
+
+<!-- 排行榜 start -->   
+	<article class="list" style="display:none" id="phb_list">
+   		<ul class="first" id="ul_header" style="">
+        	<li>排名</li>
+        	<li>用户名</li>
+        	<li>剩余筹码</li>
+        	<li>奖励奖券</li>
+        </ul>
+        <div id="z_list">
+        	<!-- 
+	   		<ul class="graybg">
+	        	<li><em>1</em></li>
+	        	<li>如果</li>
+	        	<li>288</li>
+	        	<li>288</li>
+	        </ul>
+	   		<ul>
+	        	<li><em>2</em></li>
+	        	<li>如果</li>
+	        	<li>288</li>
+	        	<li>288</li>
+	        </ul>
+	   		<ul class="graybg">
+	        	<li><em>3</em></li>
+	        	<li>如果</li>
+	        	<li>288</li>
+	        	<li>288</li>
+	        </ul>
+	   		<ul>
+	        	<li>4</li>
+	        	<li>如果</li>
+	        	<li>288</li>
+	        	<li>288</li>
+	        </ul>
+	   		<ul class="graybg">
+	        	<li>5</li>
+	        	<li>如果</li>
+	        	<li>288</li>
+	        	<li>288</li>
+	        </ul>
+	         -->
+        </div>
+ 
+	</article>
+  <!-- 排行榜end --> 
+  <!-- <div class="pj_time">预计派奖时间<cite>7:25</cite></div> -->
+ </body>
+ </html>
+ <script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+ <script src="/gq2/db/js/pub.js" type="text/javascript" charset="utf-8"></script>
+<script src="/gq2/db/js/cqdb1.js" type="text/javascript" charset="utf-8"></script>

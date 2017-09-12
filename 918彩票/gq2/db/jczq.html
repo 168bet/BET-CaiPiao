@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>我的竞猜</title>
+<link href="./css/gq.css" rel="stylesheet" type="text/css">
+
+<div id="popup" class="popup" style="display:none">
+	<p>为保证投注时盘口赔率变化的即时性，请先登录~</p>
+	<div class="zfTrue"><a href="javascript:;" class="zfqx">取消</a><a href="javascript:;">确定</a></div>
+</div>
+<div id="popup2" class="popup" style="display:none">
+	<textarea name="message" title="Ctrl+Enter快捷提交" placeholder="在这里写下您支持的球队吧！" class="nr"></textarea>
+	<div class="zfTrue"><a href="javascript:;" class="zfqx">取消</a><a href="javascript:;">确定</a></div>
+</div>
+<!-- 提示 -->
+<div class="jcpop" style="display: none;">
+    <article>
+    	<h4>提示</h4>
+    	<p>比赛发生重大事件时，可能暂停投注。</p>
+		<p>1.若发生进球时，暂停120秒后恢复投注</p>
+		<p>2.若比赛中某队净胜球&gt;=3球，暂停投注</p>
+		<p>3.若比赛中出现红牌的情况，暂停投注</p>
+    </article>
+    <div class="ture" style="margin-top: 1.5rem;">确认</div>
+</div>
+<div class="zhezhao" style="display:none" id="zhezhao"></div>
+<body>
+<!-- 报名参赛按钮 -->
+<div class="cs_btn">
+    <a>报名</a>
+    <a>参赛</a>
+</div>
+<div class="ceng" style="display:none"></div>
+<article style="display:none" id="tz_confirm">
+	<div class="ts_bg">
+		<div class="ts_close"></div>
+		<div class="ts_main">
+			<div class="ts_div">
+				<div class="ts_p" id="tz_cont">
+					<div class="pdLeft1 cur">
+						<em class="left nocheck"></em>
+						<div class="redText">
+							<p>是用5000积分报名参赛</p>
+							<p>积分余额：<cite>5475</cite></p>
+						</div>
+					</div>
+					<div class="pdLeft1">
+						<em class="left nocheck"></em>
+						<div class="redText">
+							<p>是用70奖券报名参赛</p>
+							<p>积分余额：<cite>5475</cite></p>
+						</div>
+					</div>
+					<div class="pdLeft1 no_enough" id="lack_of_balance" style="display:none">积分余额不足，请充值！</div>
+				</div>
+				<div class="btn_bg">
+					<a href="/user/jfcz.html">积分充值</a>
+					<a href="javascript:;" id="toSignUp">报名参赛</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</article>
+<header class="tzHeader" style="display:none">
+	<section class="cgjHeader fixed2">
+		<h1>边看边猜</h1>
+		<a href="javascript:history.go(-1);" class="fcbackIco2"></a>
+	</section>
+</header>
+<!-- <div class="newxx fixed2" style="display:none">您有3条新消息</div> -->
+<article>
+ 	<ul class="gqvs clearfix" id="update">
+ 		<li><span>&nbsp;&nbsp;</span><cite>&nbsp;&nbsp;</cite></li>
+ 		<li class="mid"><strong>0:0</strong><cite>&nbsp;<em class="fen"><!-- ′ --></em></cite></li>
+ 		<li><span>&nbsp;&nbsp;</span><cite>&nbsp;&nbsp;</cite></li>
+ 	</ul>
+ 	<nav class="gqnav">
+ 		<span class="cur">竞猜</span>
+ 		<span>聊球</span>
+ 		<span>直播</span>
+ 		<span>数据</span>
+ 		
+ 	</nav>
+ <!-- 竞猜 start -->
+ <article class="nav_cont" style="display:;">
+ 	<article class="jctext" style="padding-top:0;">
+    		<article class="spfzpk zqspfzpk2" id="ks">
+    			<!-- 
+    			<p>猜全场总进球数<span>帮助</span></p>
+            	<ul>
+                    <li class="cur"><span>大球</span><cite>1.90</cite></li>
+                    <li class="mid">1/1.5球</li>
+                    <li><span>小球</span><cite>1.90</cite></li>
+        		</ul>
+        		<p>猜全场让球胜负</p>
+                <ul>
+                    <li><span>皇家马德里</span><cite>1.38</cite></li>
+                    <li class="mid2">受让<br>1/1.38球</li>
+                    <li><span>拜仁慕尼黑</span><cite>1.38</cite></li>
+        		</ul>
+        		 -->           		         	
+        	</article>	
+        	<article class="spfzpk long" id="jz">
+        		<!-- 
+        		<p>猜全场总进球（已截止）<b></b></p>
+            	<ul>
+                    <li><span>总进球</span><cite class="red">56</cite><i></i></li>
+        		</ul>
+        		<p>猜全场让球（已截止）</p>
+            	<ul>
+                    <li><span>皇家马德里 VS 拜仁慕尼黑</span><cite class="red">25-23</cite><i></i></li>
+        		</ul>
+            	<ul>
+                    <li><span>骑士 VS 公牛</span><cite>等待开奖</cite></li>
+        		</ul>
+        		 -->
+        	</article>
+ 	</article>
+ 	<footer>
+ 		<article class="fixed" id="betting">
+ 			<article class="tktext hdjd" id="tzCont" style="display:none; z-index: 1;">
+ 				<b id="close" style="z-index:1000"></b>
+ 				<div class="zksf" id="pkCont"><!-- <span>大球</span><cite>1.80</cite><i>（主队让1/1.5球）</i> --></div>
+ 				<div class="s2 clearfix">
+    				<span>投入筹码：</span>
+    				<ul class="clearfix" id="ulCont">
+        				<li><input type="tel" value="50" id="in_golden"></li>
+        				<li style="margin-right: 0;">全押</li>
+        				<li>+1万</li>
+        				<li>+10万</li>
+        				<li>+50万</li>
+        			</ul>
+    			</div>
+    			<div class="s3 clearfix"><span class="left">最高返还：<em class="red" id="fh">&nbsp;</em>筹码</span><!-- <cite>详情</cite> --></div>
+    			<!-- 
+    			<div class="xqxl">
+    				<p>若总进球2球 返还0筹码</p>
+    				<p>若总进球2球 返还15000筹码</p>
+    				<p>若总进球2球 返还30000筹码</p>
+    			</div>
+    			 -->
+    			<div class="qrjc">
+    				<p style="display:none" id="sjd">筹码余额不足</p>
+    				<span>确认竞猜</span>
+    			</div>
+ 			</article>
+ 			<div class="jdye clearfix">
+                <p><cite id="jdyue">筹码：&nbsp;<i>150000</i></cite></p>
+                <a href="myjj.html">投注记录</a>
+            </div>
+		</article>
+ 	<div style="height:3.8rem">&nbsp;</div>		
+ 	</footer>
+ 	<div class="mask" style="display:none ;"></div>
+ </article>
+ <!-- 竞猜 end -->  	
+ <!-- 聊球 start -->
+ <article class="nav_cont" style="display:none;" id="talk_cont">
+ 	<article class="lqend" style="display:none;">
+ 		<figure><img src="/gq2/img/lqend.png" width="100%"></figure>
+ 		<p>客官莫急,开赛了再来聊呗</p>
+ 	</article>
+ 	<article class="lqtext" id="talk">
+ 		<!-- 
+ 		<dl>
+ 			<dt>大神球评</dt>
+ 			<dd>塞尔吉奥 弗洛卡里替补出场，换下贝拉尔迪多梅尼科。</dd>
+ 			<dd><cite>23分前</cite><span><i></i>101</span></dd>
+ 		</dl>
+ 		<dl>
+ 			<dt>大神球评</dt>
+ 			<dd>塞尔吉奥 弗洛卡里替补出场，换下贝拉尔迪多梅尼科。</dd>
+ 			<dd><cite>23分前</cite><span><i></i>101</span></dd>
+ 		</dl>
+ 		<dl>
+ 			<dt>大神球评</dt>
+ 			<dd>塞尔吉奥 弗洛卡里替补出场，换下贝拉尔迪多梅尼科。</dd>
+ 			<dd><cite>23分前</cite><span><i></i>101</span></dd>
+ 		</dl>
+ 		<dl>
+ 			<dt>大神球评</dt>
+ 			<dd>塞尔吉奥 弗洛卡里替补出场，换下贝拉尔迪多梅尼科。</dd>
+ 			<dd><cite>23分前</cite><span><i></i>101</span></dd>
+ 		</dl>
+ 		 -->
+ 	</article>
+ 	<footer class="csy">
+ 		<article class="fixed" id="scroller" style="z-index: 1;">
+ 			<span>点击这里开始吐槽吧！</span>
+ 		</article>
+ 	</footer>
+ </article>
+ <!-- 聊球 end -->
+ <!-- 直播间start -->
+
+ <article class="nav_cont"  style="display:none">
+	<ul class="zbj2">
+		<!-- 
+		<li><cite>89′</cite><p>塞尔吉奥 弗洛卡里替补出场，换下贝拉尔迪多梅尼科。</p></li>
+		<li><cite>89′</cite><p>塞尔吉奥 弗洛卡里替补出场，换下贝拉尔迪多梅尼科。</p></li>
+		<li><cite>89′</cite><p>塞尔吉奥 弗洛卡里替补出场，换下贝拉尔迪多梅尼科。</p></li>
+		<li><cite>89′</cite><p>塞尔吉奥 弗洛卡里替补出场，换下贝拉尔迪多梅尼科。</p></li>
+		<li><cite>89′</cite><p>塞尔吉奥 弗洛卡里替补出场，换下贝拉尔迪多梅尼科。</p></li>
+		 -->
+ 	</ul>
+ 	
+ </article>
+
+ <!-- 直播间end -->
+ <!-- 数据 start -->
+ <article class="nav_cont" style="display:none">
+ 	<section>
+		<div class="jsbfTitle">技术统计<em class="up"></em></div>
+		<ul class="jstjList">
+			<li><span class=""><cite style="">0</cite></span><em>控球率</em><span><cite>0</cite></span></li>
+            <li><span><cite>0</cite></span><em>射门次数</em><span><cite>0</cite></span></li>
+			<li><span class=""><cite style="">0</cite></span><em>射正次数</em><span><cite>0</cite></span></li>
+            <li><span><cite>0</cite></span><em>犯规次数</em><span class=""><cite style="">0</cite></span></li>
+            <li><span><cite>0</cite></span><em>角球次数</em><span><cite>0</cite></span></li>
+            <li><span><cite>0</cite></span><em>越位次数</em><span><cite>0</cite></span></li>
+			<li><span class=""><cite style="">0</cite></span><em>黄牌数</em><span><cite>0</cite></span></li>
+            <li><span><cite>0</cite></span><em>红牌数</em><span><cite>0</cite></span></li>
+            <li><span><cite>0</cite></span><em>救球数</em><span><cite>0</cite></span></li>
+		</ul>
+	</section>
+	<section>
+		<div class="jsbfTitle">比赛事件<em class="up"></em></div>
+		<div class="timeline" id="bssj">
+			<!-- 
+			<p class="top">0&prime;</p>
+            <div class="timeright"><b>09&prime;</b><span><cite class="jqico"></cite>洛夫夫</span></div>
+            <div class="timeleft"><span><em>洛夫洛夫夫夫</em><cite class="hpico"></cite></span><b>19&prime;</b></div>
+            <div class="timeleft"><span><em>洛夫夫夫</em><cite class="redpico"></cite></span><b>32&prime;</b></div>
+            <div class="timeleft timetwo"><span><strong>阿洛伊<i>&darr;</i></strong><strong>阿洛伊<i>&uarr;</i></strong></span><b>49&prime;</b></div>
+            <div class="timeleft"><span><em>洛夫洛夫夫夫</em><cite class="jqico"></cite></span><b>49&prime;</b></div>
+            <div class="timeleft"><span><em>洛夫洛夫夫夫</em><cite class="lhbhico"></cite></span><b>49&prime;</b></div>
+            <div class="timeright timetwo timetwo2"><b>49&prime;</b><span><strong><i>&darr;</i>阿洛伊</strong><strong><i>&uarr;</i>阿洛伊</strong></span></div>
+            <p class="timeIco">已完赛</p>
+             -->
+        </div>
+		<ul class="bssj clearfix" id="shijian">
+			<li><cite class="jqico"></cite>入球</li>
+            <li><cite class="dqico"></cite>点球</li>
+            <li><cite class="wlico"></cite>乌龙</li>
+            <li><cite class="hpico"></cite>黄牌</li>
+            <li><cite class="redpico"></cite>红牌</li>
+            <li class="width"><cite class="lhbhico"></cite>两黄变红</li>
+            <li><cite class="hsico">&darr;</cite>换上</li>
+            <li><cite class="hxico">&uarr;</cite>换下</li>
+		</ul>
+	</section>
+ </article> 
+ <!-- 数据 end -->
+ <!-- 排行 start -->
+ <article class="nav_cont" style="display:none;">
+	<div class="list" style="display:" id="dc_list">
+		<strong id="yz" style="display:none"></strong>
+   		<ul class="first" style="display:none" id="ul_header">
+        	<li>排名</li>
+        	<li>用户名</li>
+        	<li>筹码盈利</li>
+        	<li>奖券奖励</li>
+        </ul>
+        <div id="dc_list_cont"></div>
+        <!-- 
+   		<ul class="graybg">
+        	<li><em>1</em></li>
+        	<li>如果</li>
+        	<li>288</li>
+        	<li>288</li>
+        </ul>
+   		<ul>
+        	<li><em>2</em></li>
+        	<li>如果</li>
+        	<li>288</li>
+        	<li>288</li>
+        </ul>
+   		<ul class="graybg">
+        	<li><em>3</em></li>
+        	<li>如果</li>
+        	<li>288</li>
+        	<li>288</li>
+        </ul>
+   		<ul>
+        	<li>4</li>
+        	<li>如果</li>
+        	<li>288</li>
+        	<li>288</li>
+        </ul>
+        <ul class="graybg">
+        	<li>5</li>
+        	<li>如果</li>
+        	<li>288</li>
+        	<li>288</li>
+        </ul>
+   		<ul>
+        	<li>6</li>
+        	<li>如果</li>
+        	<li>288</li>
+        	<li>288</li>
+        </ul>
+        <ul class="graybg">
+        	<li>7</li>
+        	<li>如果</li>
+        	<li>288</li>
+        	<li>288</li>
+        </ul>
+   		<ul>
+        	<li>8</li>
+        	<li>如果</li>
+        	<li>288</li>
+        	<li>288</li>
+        </ul>
+        <ul class="graybg">
+        	<li>9</li>
+        	<li>如果</li>
+        	<li>288</li>
+        	<li>288</li>
+        </ul>
+   		<ul>
+        	<li>10</li>
+        	<li>如果</li>
+        	<li>288</li>
+        	<li>288</li>
+        </ul>
+         -->
+	</div>
+  	<p class="lastts"  style="display:none">八分钟更新一次</p>
+    <p class="yqjd" style="display:none">您本场盈利筹码：<cite>100</cite></p>
+ </article>
+<!-- 排行 end --> 
+</article>
+</body>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://static.9188.com/zlk/js/socket.io.js" type="text/javascript"></script>
+<script src="/gq2/js/AV.realtime.js" type="text/javascript"></script>
+<script src="/gq2/js/chat.js" type="text/javascript" charset="utf-8"></script>
+<script src="/gq2/db/js/pub.js" type="text/javascript" charset="utf-8"></script>
+<script src="/gq2/db/js/jczq_new.js" type="text/javascript" charset="utf-8"></script>
+

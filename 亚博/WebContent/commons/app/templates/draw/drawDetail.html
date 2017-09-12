@@ -1,0 +1,721 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+<div class="page-bg1">
+    <div class="page-wrap">
+        <div class="bodywrap">
+            <div class="row" id="award_content" style="width:980px;margin:0 auto;">
+                <div class="drawing-base" style="margin-top:0;">
+                    <div class="cont" style="padding:12px;border-color:#f4f4f4;margin-top:8px;">
+                        <div class="drawing-head">
+                            <div class="image">
+                                <span></span>
+                            </div>
+                            <div class="info">
+                                <h2 style="margin:0">
+                                <a href="/Game/cqssc">{{curName||curKind}}</a>
+                                </h2>
+                                <h4>
+                                <span>祝君中奖!</span>
+                                </h4>
+                            </div>
+                            <div class="db-checker">
+                                <div class="UI-select" style="width:142px;" id="hist_lottery" ng-click="showList()">
+                                    <span class="UI-select-cur">{{curName||curKind}}</span> <i class="UI-select-listico"><em></em> <b></b></i>
+                                    <ul class="UI-options" style="display: {{showKind}}" ng-mouseleave="hideList()">
+                                        <li ng-repeat="(index, kind) in onlyChinese" ng-class="{active:index==0}" ng-click="selectKind(index)">
+                                            <span>{{kind}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="db-config">
+                                <ul id="ulDateSelect">
+                                    <li class="AwardDiff" ng-class="{active:today}" ng-click="secToday()">
+                                        <a>今天</a>
+                                    </li>
+                                    <li class="AwardDiff" ng-class="{active:yesterday}" ng-click="secYes()">
+                                        <a>昨天</a>
+                                    </li>
+                                    <li class="AwardDiff" ng-class="{active:beforeYes}" ng-click="secBef()">
+                                        <a>前天</a>
+                                    </li>
+                                    <li>
+                                        <input type="text" />
+                                        <label>按日期：</label>
+                                        <div class="tp-ui-item tp-ui-forminput tp-ui-text tp-ui-text-base" date-picker>
+                                            <div class="tp-ui-sub tp-ui-text-base tp-ui-iconat-after">
+                                                <input type="text" id="laydate" class="tpui-text kc-calendar"  ng-model="secDate"></div>
+                                                <div class="tp-ui-icon tp-ui-icon-after icon-kc-calendar" ng-click="laydate()"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layout-base main-body drawing-cont" style="border:none;">
+                        <div class="row" id="dc-ssc" style="min-height: 450px;" ng-show="code=='BJKL8'">
+                            <div class="cont drawing-base">
+                                <div class="drawing-table">
+                                    <div class="table ta-center" id="drawing_tableDetail">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="dl-period">
+                                                        <span>期号</span>
+                                                    </th>
+                                                    <th class="dl-number" style="width:220px;">
+                                                        <span>开奖号码</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>末位(1-6)</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>末位(7-12)</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>末位(13-18)</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>幸运28</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>本期销量</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="(index, data) in totalDatas">
+                                                    <td>
+                                                        <span title="第 {{data.formatQs}} 期">{{data.formatQs}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle"> <i style="word-break: break-all;color:green">{{data.kl8Kjjg}}</i>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span style="background: lightgreen">{{data.d1q}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span style="background: lightgreen">{{data.d2q}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span style="background: lightgreen">{{data.d3q}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span>{{data.xy28Kjjg}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#bbb" title="第 {{data.formatQs}} 期销量:883,545.00">883,545.00</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="dc-ssc" style="min-height: 450px;" ng-show="code=='FC3D'">
+                            <div class="cont drawing-base">
+                                <div class="drawing-table">
+                                    <div class="table ta-center" id="drawing_tableDetail">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="dl-period">
+                                                        <span>期号</span>
+                                                    </th>
+                                                    <th class="dl-number" style="width:220px;">
+                                                        <span>开奖号码</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>百位</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>十位</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>个位</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>和数</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>跨度</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>本期销量</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="(index, data) in totalDatas" ng-show="data.kjhmB">
+                                                    <td>
+                                                        <span title="第 {{data.formatQs}} 期">{{data.formatQs}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span>{{data.kjhmB}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhmS}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhmG}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:gray">{{data.kjhmB}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:gray">{{data.kjhmS}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:gray">{{data.kjhmG}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.hs}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.kd}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#bbb" title="第 {{data.formatQs}} 期销量:883,545.00">883,545.00</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="dc-ssc" style="min-height: 450px;" ng-show="code=='CQSSC'">
+                            <div class="cont drawing-base">
+                                <div class="drawing-table">
+                                    <div class="table ta-center" id="drawing_tableDetail">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="dl-period">
+                                                        <span>期号</span>
+                                                    </th>
+                                                    <th class="dl-number" style="width:220px;">
+                                                        <span>开奖号码</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>万位</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>千位</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>百位</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>十位</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>个位</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>总和</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>本期销量</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="(index, data) in totalDatas" ng-show="data.kjhmW">
+                                                    <td>
+                                                        <span title="第 {{data.formatQs}} 期">{{data.formatQs}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span>{{data.kjhmW}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhmQ}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhmB}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhmS}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhmG}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.kjhmW}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.kjhmQ}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.kjhmB}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.kjhmS}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.kjhmG}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.zhDs}}</span>
+                                                        <span style="color:#2EA514">{{data.zhDx}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#bbb" title="第 {{data.formatQs}} 期销量:883,545.00">883,545.00</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="dc-ssc" style="min-height: 450px;" ng-show="code=='BJPK10'">
+                            <div class="cont drawing-base">
+                                <div class="drawing-table">
+                                    <div class="table ta-center" id="drawing_tableDetail">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="dl-period">
+                                                        <span>期号</span>
+                                                    </th>
+                                                    <th class="dl-number" style="width:295px;">
+                                                        <span>开奖号码</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>冠军</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>亚军</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>冠亚军总和</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>冠亚军单双</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>本期销量</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="(index, data) in totalDatas" ng-show="data.gj">
+                                                    <td>
+                                                        <span title="第 {{data.formatQs}} 期">{{data.formatQs}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span>{{data.gj}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.yj}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.jj}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.d4m}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.d5m}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.d6m}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.d7m}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.d8m}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.d9m}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.d10m}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.gj}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#ff5500">{{data.yj}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#ff5500">{{data.gyjhZh}}</span>
+                                                    </td>
+                                                    <td> <b style="color:#80c269">{{data.gyjhDs}}</b>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#bbb" title="第 {{data.formatQs}} 期销量:883,545.00">883,545.00</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="dc-ssc" style="min-height: 450px;" ng-show="code=='HK6'">
+                            <div class="cont drawing-base">
+                                <div class="drawing-table">
+                                    <div class="table ta-center" id="drawing_tableDetail">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="dl-period">
+                                                        <span>期号</span>
+                                                    </th>
+                                                    <th class="dl-number" style="width:220px;">
+                                                        <span>开奖号码</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>特码</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>开奖生肖</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>生肖</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>总分</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>审核</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>本期销量</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="(index, data) in totalDatas" ng-show="data.tm">
+                                                    <td>
+                                                        <span title="第 {{data.formatQs}} 期">{{data.formatQs}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <i style="word-break: break-all;color:green">{{data.kjjg}}</i>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.tm}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <i style="word-break: break-all;color:green">{{data.kjjgSx}}</i>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.sx}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.zfS}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.shStatus}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#bbb" title="第 {{data.formatQs}} 期销量:883,545.00">883,545.00</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="dc-ssc" style="min-height: 450px;" ng-show="code=='CAKENO'">
+                            <div class="cont drawing-base">
+                                <div class="drawing-table">
+                                    <div class="table ta-center" id="drawing_tableDetail">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="dl-period">
+                                                        <span>期号</span>
+                                                    </th>
+                                                    <th class="dl-number" style="width:220px;">
+                                                        <span>开奖号码</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>末位(2-17)</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>末位(3-18)</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>末位(4-19)</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>加拿大28</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>本期销量</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="(index, data) in totalDatas">
+                                                    <td>
+                                                        <span title="第 {{data.formatQs}} 期">{{data.formatQs}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <i style="word-break: break-all;color:green">{{data.kl8Kjjg}}</i>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span style="background: lightgreen">{{data.d1q}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span style="background: lightgreen">{{data.d2q}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span style="background: lightgreen">{{data.d3q}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span>{{data.jndKjjg}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#bbb" title="第 {{data.formatQs}} 期销量:883,545.00">883,545.00</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="dc-ssc" style="min-height: 450px;" ng-show="code=='PL3'">
+                            <div class="cont drawing-base">
+                                <div class="drawing-table">
+                                    <div class="table ta-center" id="drawing_tableDetail">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="dl-period">
+                                                        <span>期号</span>
+                                                    </th>
+                                                    <th class="dl-number" style="width:220px;">
+                                                        <span>开奖号码</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>百位</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>十位</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>个位</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>和数</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>跨度</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>本期销量</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="(index, data) in totalDatas" ng-show="data.kjhmB">
+                                                    <td>
+                                                        <span title="第 {{data.formatQs}} 期">{{data.formatQs}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span>{{data.kjhmB}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhmS}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhmG}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:gray">{{data.kjhmB}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:gray">{{data.kjhmS}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:gray">{{data.kjhmG}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.hs}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.kd}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#bbb" title="第 {{data.formatQs}} 期销量:883,545.00">883,545.00</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="dc-ssc" style="min-height: 450px;" ng-show="code=='TJKLSF'">
+                            <div class="cont drawing-base">
+                                <div class="drawing-table">
+                                    <div class="table ta-center" id="drawing_tableDetail">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="dl-period">
+                                                        <span>期号</span>
+                                                    </th>
+                                                    <th class="dl-number" style="width:295px;">
+                                                        <span>开奖号码</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>龙虎</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>总分</span>
+                                                    </th>
+                                                    <th class="dl-type">
+                                                        <span>本期销量</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="(index, data) in totalDatas" ng-show="data.lh">
+                                                    <td>
+                                                        <span title="第 {{data.formatQs}} 期">{{data.formatQs}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="list-inline numbers number-circle">
+                                                            <ul>
+                                                                <li>
+                                                                    <span>{{data.kjhm1}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhm2}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhm3}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhm4}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhm5}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhm6}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhm7}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>{{data.kjhm8}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#2EA514">{{data.lh}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <b style="color:#80c269">{{data.zf}}</b>
+                                                    </td>
+                                                    <td>
+                                                        <span style="color:#bbb" title="第 {{data.formatQs}} 期销量:883,545.00">883,545.00</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pager">
+                            <p class="pager-info">共{{totalCount}}条记录 &nbsp;&nbsp;当前1/{{pageNums}}页</p>
+                            <a ng-click="firstPage()">首页</a>
+                            <a ng-class="{current:curPageFlag==1}" ng-click="secPage1()">{{first}}</a>
+                            <a ng-class="{current:curPageFlag==2}" ng-show="pageNums>=2" ng-click="secPage2()">{{second}}</a>
+                            <a ng-class="{current:curPageFlag==3}" ng-show="pageNums>=3" ng-click="secPage3()">{{third}}</a>
+                            <a ng-show="pageNums>3&&pageNums!=third" ng-click="nextPage()">下一页</a>
+                            <a ng-show="pageNums>3" ng-click="lastPage()">尾页</a>
+                        </div>
+                    </div></div></div></div></div>
+                    <ng-include src="templateURI('/footer.html')"></ng-include>

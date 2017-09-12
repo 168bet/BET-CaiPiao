@@ -1,0 +1,62 @@
+﻿*{
+	margin:0;
+	padding:0;
+	font-family:微软雅黑;
+	font-size:14px;
+}
+body
+{
+	text-align:center;
+	background-color:#e64a3b;
+	background-image:url('/help/images/downbg.png');
+	background-position:left top;
+	background-repeat:repeat-x
+}
+.layout
+{
+	width:100%;
+	background-image:url('/help/images/downshadow.png');
+	background-position:left top;
+	background-repeat:repeat-x
+}
+.down
+{
+	background-image:url('/help/images/downimg.png');
+	height:600px;
+	background-position:center top;
+	background-repeat:no-repeat
+}
+input
+{
+	background-image:url('/help/images/downbtn.png');
+	background-color:transparent;
+	border:0;
+	cursor:pointer;
+	width:216px;
+	height:63px;
+	margin-top:430px;
+}
+input:hover
+{
+	background-image:url('/help/images/downbtn2.png');	
+}
+.air
+{
+	background-image:url('/help/images/air.png');
+	background-color:transparent;
+	border:0;
+	cursor:pointer;
+	width:216px;
+	height:63px;
+	margin-top:430px;
+}
+.air:hover
+{
+	background-image:url('/help/images/air2.png');	
+}
+img
+{
+	display:block;
+	margin:auto;
+	margin-top:30px;
+}

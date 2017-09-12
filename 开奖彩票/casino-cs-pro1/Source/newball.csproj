@@ -1,0 +1,1579 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3C635344-388B-427B-A8B5-D6BFEC7F2F55}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>newball</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>newball</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <Name>mscorlib</Name>
+      <HintPath>mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+      <HintPath>System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+      <HintPath>System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+      <HintPath>System.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="gs\FT_index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hashtable.cs" />
+    <Compile Include="mem\basketball_d.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mem\basketball_rqgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mem\basketball_s.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mem\basketball_ys.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mem\basketjs.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mem\basketjsdeal.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mem\basketjsshow.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mem\gsadd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mem\gslist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mem\gslist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mem\gsmsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mem\gsset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyTeam.basket\basketball.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MyTeam.DbClass\DataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MyTeam.Functions\MyFunc.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MyTeam.OnlineList\OnlineList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="newball.dls\addsubuser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\adduserform.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\agencemsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\announcement.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\bets_enquiry.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\chgpwd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\edituser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\football_bd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\football_bdgg1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\football_bqc.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\football_bz.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\football_d.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\football_g.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\football_other.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\football_rqgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\football_rqsbc.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\football_sbgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\football_select.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\football_yx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\frmheader.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\frmIndex.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\history.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\mgruser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\mgruser_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\mgruser_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\myReportForm.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\mysetting.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\quit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\reportpartshownext.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\reportshow.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\reportshownext.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\reportShowNoJs.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\subagencemsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\subchgpwd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\subfrmheader.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\subfrmIndex.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\subquit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\system800.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\system800add.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.dls\tzinfo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\addsubuser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\announcement.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\chgpwd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\dlsadd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\dlslist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\dlslist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\dlslist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\dlsmsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\dlsset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\football_bd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\football_bdgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\football_bqc.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\football_bz.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\football_d.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\football_g.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\football_other.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\football_rqgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\football_rqsbc.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\football_sbgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\football_select.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\football_ys.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\frmheader.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\frmIndex.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\main.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\mysetting.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\quit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\report.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\reportpartshownext.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\reportshow.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\reportshowdls.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\reportshowend.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\reportShowNoJs.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\reportshowuser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\tzinfo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\useradd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\userlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\userlist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\userlist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\usermsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\userset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\zdladd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\zdllist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\zdllist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\zdllist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\zdlmsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gd\zdlset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\addsubuser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\announcement.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\changeleave.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\chgpwd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\dlsadd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\dlslist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\dlslist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\dlslist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\dlsmsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\dlsset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\football_bd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\football_bdgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\football_bqc.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\football_bz.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\football_d.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\football_g.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\football_other.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\football_rqgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\football_rqsbc.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\football_sbgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\football_select.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\football_ys.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\frmheader.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\frmIndex.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\gdadd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\gdlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\gdlist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\gdlist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\gdmsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\gdset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\main.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\MgrOnline.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\MgrOnlineMsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\myForm.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\mysetting.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\OrderList.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\quit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\report.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\reportpartshownext.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\reportshow.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\reportshowdls.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\reportshowend.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\reportShowNoJs.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\reportshowuser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\reportshowzdl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\SelBallList.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\tzinfo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\useradd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\userlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\userlist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\userlist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\usermsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\userset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\zdladd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\zdllist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\zdllist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\zdllist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\zdlmsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.gs\zdlset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.manager\login.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem.gj\chgCurmoney.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem.gj\delGdZDan.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem.gj\delMUser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem.gj\delZDan1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem.gj\delZDan2.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem.gj\LockUser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem.gj\MatchOrder.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem.gj\MemberResult.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem.gj\MgrOnline.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem.gj\tex.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem.gj\UserListMsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem.gj\Watch.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\addsubuser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\announcement.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\BallJs.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\BallJsFrame.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\chgpwd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\dlsadd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\dlslist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\dlslist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\dlslist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\dlsmsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\dlsset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\football_bd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\football_bdgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\football_bqc.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\football_bz.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\football_d.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\football_g.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\football_other.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\football_rqgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\football_rqsbc.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\football_sbgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\football_select.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\football_ys.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\frmheader.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\frmIndex.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\GameFen.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\gdadd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\gdlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\gdlist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\gdlist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\gdmsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\gdset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\gslist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\list.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\main.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\mgrConfig.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\mgrconfiglist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\mgrgame.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\MgrOnline.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\MgrOnlineMsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\myForm.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\OrderEdit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\OrderList.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\quit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\report.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\reportpartshownext.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\reportshow.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\reportshowdls.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\reportshowend.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\reportShowNoJs.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\reportshowuser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\reportshowzdl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\tzinfo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\useradd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\userlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\userlist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\userlist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\usermsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\userset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\zdladd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\zdllist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\zdllist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\zdllist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\zdlmsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.mem\zdlset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.BallGoTime\BallGoTime.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\addbfuser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\announcement.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\BallList.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\ballmsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\BfUser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\bfusermsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\chgpsd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\frmheader.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\frmIndex.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\GameFen.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\main.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\quit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.odds\subServer.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\announcement.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\BallJs.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\BallJsFrame.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\chgpwd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\frmheader.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\frmIndex.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\GameFen.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\main.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\MatchOrder.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\mgrConfig.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\mgrconfiglist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\myForm.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\OrderList.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\quit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds.subadmin\temp.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.odds\login.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.subuser\announcement.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.subuser\announcement_page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.subuser\index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.subuser\myReportForm.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.subuser\relogin.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.subuser\reportshow.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\announcement.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\announcement_page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\bets_enquiry.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\betting_entry.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\betting_frame.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\betting_matches.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\betting_matches_1x2parlay.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\betting_matches_ahparlay.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\betting_matches_cs.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\body_browse.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\body_var.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\FT_index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\header.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\history.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\history_goal.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\imp_rules.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\Login.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\Logine.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\Logint.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\lt_ch.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\lt_football.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\match_result.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\PassWord.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\profile.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\quickinput.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\quickinput_ev.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\quit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\randomball.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\sub.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.user\system.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\addsubuser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\announcement.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\chgpwd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\dlsadd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\dlslist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\dlslist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\dlslist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\dlsmsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\dlsset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_bd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_bdgg1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_bqc.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_bz.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_d.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_g.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_guodan.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_other.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_rqgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_rqsbc.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_sbgg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_select.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\football_ys.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\frmheader.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\frmIndex.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\main.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\mysetting.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\quit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\report.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\reportpartshownext.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\reportshow.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\reportshowend.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\reportshowguodan.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\reportShowNoJs.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\reportshowuser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\tzinfo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\tzinfo1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\useradd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\userlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\userlist_reportcontent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\userlist_reportlist.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\usermsg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball.zdl\userset.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newball\Global.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="newball\select_league.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="odds.odds\BasketBallList.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="odds.odds\basketcheckfen.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="odds.odds\basketgamefen.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="odds.odds\basketjs.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="odds.odds\basketjsdeal.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="odds.odds\basketjsshow.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\betting_entry_bk.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\timer.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vindicate\behind.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vindicate\front.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Xiaobao.DataBase\ProDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zdl\tindex.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <EmbeddedResource Include="gs.FT_index.resx" />
+    <EmbeddedResource Include="mem.basketball_d.resx" />
+    <EmbeddedResource Include="mem.basketball_rqgg.resx" />
+    <EmbeddedResource Include="mem.basketball_s.resx" />
+    <EmbeddedResource Include="mem.basketball_ys.resx" />
+    <EmbeddedResource Include="mem.basketjs.resx" />
+    <EmbeddedResource Include="mem.basketjsdeal.resx" />
+    <EmbeddedResource Include="mem.basketjsshow.resx" />
+    <EmbeddedResource Include="mem.gsadd.resx" />
+    <EmbeddedResource Include="mem.gslist.resx" />
+    <EmbeddedResource Include="mem.gslist_reportcontent.resx" />
+    <EmbeddedResource Include="mem.gsmsg.resx" />
+    <EmbeddedResource Include="mem.gsset.resx" />
+    <EmbeddedResource Include="newball.dls.addsubuser.resx" />
+    <EmbeddedResource Include="newball.dls.adduserform.resx" />
+    <EmbeddedResource Include="newball.dls.agencemsg.resx" />
+    <EmbeddedResource Include="newball.dls.announcement.resx" />
+    <EmbeddedResource Include="newball.dls.bets_enquiry.resx" />
+    <EmbeddedResource Include="newball.dls.chgpwd.resx" />
+    <EmbeddedResource Include="newball.dls.edituser.resx" />
+    <EmbeddedResource Include="newball.dls.football_bd.resx" />
+    <EmbeddedResource Include="newball.dls.football_bdgg1.resx" />
+    <EmbeddedResource Include="newball.dls.football_bqc.resx" />
+    <EmbeddedResource Include="newball.dls.football_bz.resx" />
+    <EmbeddedResource Include="newball.dls.football_d.resx" />
+    <EmbeddedResource Include="newball.dls.football_g.resx" />
+    <EmbeddedResource Include="newball.dls.football_other.resx" />
+    <EmbeddedResource Include="newball.dls.football_rqgg.resx" />
+    <EmbeddedResource Include="newball.dls.football_rqsbc.resx" />
+    <EmbeddedResource Include="newball.dls.football_sbgg.resx" />
+    <EmbeddedResource Include="newball.dls.football_select.resx" />
+    <EmbeddedResource Include="newball.dls.football_yx.resx" />
+    <EmbeddedResource Include="newball.dls.frmheader.resx" />
+    <EmbeddedResource Include="newball.dls.frmIndex.resx" />
+    <EmbeddedResource Include="newball.dls.history.resx" />
+    <EmbeddedResource Include="newball.dls.index.resx" />
+    <EmbeddedResource Include="newball.dls.mgruser.resx" />
+    <EmbeddedResource Include="newball.dls.mgruser_reportcontent.resx" />
+    <EmbeddedResource Include="newball.dls.mgruser_reportlist.resx" />
+    <EmbeddedResource Include="newball.dls.myReportForm.resx" />
+    <EmbeddedResource Include="newball.dls.mysetting.resx" />
+    <EmbeddedResource Include="newball.dls.quit.resx" />
+    <EmbeddedResource Include="newball.dls.reportpartshownext.resx" />
+    <EmbeddedResource Include="newball.dls.reportshow.resx" />
+    <EmbeddedResource Include="newball.dls.reportshownext.resx" />
+    <EmbeddedResource Include="newball.dls.reportShowNoJs.resx" />
+    <EmbeddedResource Include="newball.dls.subagencemsg.resx" />
+    <EmbeddedResource Include="newball.dls.subchgpwd.resx" />
+    <EmbeddedResource Include="newball.dls.subfrmheader.resx" />
+    <EmbeddedResource Include="newball.dls.subfrmIndex.resx" />
+    <EmbeddedResource Include="newball.dls.subquit.resx" />
+    <EmbeddedResource Include="newball.dls.system800.resx" />
+    <EmbeddedResource Include="newball.dls.system800add.resx" />
+    <EmbeddedResource Include="newball.dls.tzinfo.resx" />
+    <EmbeddedResource Include="newball.gd.addsubuser.resx" />
+    <EmbeddedResource Include="newball.gd.announcement.resx" />
+    <EmbeddedResource Include="newball.gd.chgpwd.resx" />
+    <EmbeddedResource Include="newball.gd.dlsadd.resx" />
+    <EmbeddedResource Include="newball.gd.dlslist.resx" />
+    <EmbeddedResource Include="newball.gd.dlslist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.gd.dlslist_reportlist.resx" />
+    <EmbeddedResource Include="newball.gd.dlsmsg.resx" />
+    <EmbeddedResource Include="newball.gd.dlsset.resx" />
+    <EmbeddedResource Include="newball.gd.football_bd.resx" />
+    <EmbeddedResource Include="newball.gd.football_bdgg.resx" />
+    <EmbeddedResource Include="newball.gd.football_bqc.resx" />
+    <EmbeddedResource Include="newball.gd.football_bz.resx" />
+    <EmbeddedResource Include="newball.gd.football_d.resx" />
+    <EmbeddedResource Include="newball.gd.football_g.resx" />
+    <EmbeddedResource Include="newball.gd.football_other.resx" />
+    <EmbeddedResource Include="newball.gd.football_rqgg.resx" />
+    <EmbeddedResource Include="newball.gd.football_rqsbc.resx" />
+    <EmbeddedResource Include="newball.gd.football_sbgg.resx" />
+    <EmbeddedResource Include="newball.gd.football_select.resx" />
+    <EmbeddedResource Include="newball.gd.football_ys.resx" />
+    <EmbeddedResource Include="newball.gd.frmheader.resx" />
+    <EmbeddedResource Include="newball.gd.frmIndex.resx" />
+    <EmbeddedResource Include="newball.gd.index.resx" />
+    <EmbeddedResource Include="newball.gd.main.resx" />
+    <EmbeddedResource Include="newball.gd.mysetting.resx" />
+    <EmbeddedResource Include="newball.gd.quit.resx" />
+    <EmbeddedResource Include="newball.gd.report.resx" />
+    <EmbeddedResource Include="newball.gd.reportpartshownext.resx" />
+    <EmbeddedResource Include="newball.gd.reportshow.resx" />
+    <EmbeddedResource Include="newball.gd.reportshowdls.resx" />
+    <EmbeddedResource Include="newball.gd.reportshowend.resx" />
+    <EmbeddedResource Include="newball.gd.reportShowNoJs.resx" />
+    <EmbeddedResource Include="newball.gd.reportshowuser.resx" />
+    <EmbeddedResource Include="newball.gd.tzinfo.resx" />
+    <EmbeddedResource Include="newball.gd.useradd.resx" />
+    <EmbeddedResource Include="newball.gd.userlist.resx" />
+    <EmbeddedResource Include="newball.gd.userlist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.gd.userlist_reportlist.resx" />
+    <EmbeddedResource Include="newball.gd.usermsg.resx" />
+    <EmbeddedResource Include="newball.gd.userset.resx" />
+    <EmbeddedResource Include="newball.gd.zdladd.resx" />
+    <EmbeddedResource Include="newball.gd.zdllist.resx" />
+    <EmbeddedResource Include="newball.gd.zdllist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.gd.zdllist_reportlist.resx" />
+    <EmbeddedResource Include="newball.gd.zdlmsg.resx" />
+    <EmbeddedResource Include="newball.gd.zdlset.resx" />
+    <EmbeddedResource Include="newball.Global.resx" />
+    <EmbeddedResource Include="newball.gs.addsubuser.resx" />
+    <EmbeddedResource Include="newball.gs.announcement.resx" />
+    <EmbeddedResource Include="newball.gs.changeleave.resx" />
+    <EmbeddedResource Include="newball.gs.chgpwd.resx" />
+    <EmbeddedResource Include="newball.gs.dlsadd.resx" />
+    <EmbeddedResource Include="newball.gs.dlslist.resx" />
+    <EmbeddedResource Include="newball.gs.dlslist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.gs.dlslist_reportlist.resx" />
+    <EmbeddedResource Include="newball.gs.dlsmsg.resx" />
+    <EmbeddedResource Include="newball.gs.dlsset.resx" />
+    <EmbeddedResource Include="newball.gs.football_bd.resx" />
+    <EmbeddedResource Include="newball.gs.football_bdgg.resx" />
+    <EmbeddedResource Include="newball.gs.football_bqc.resx" />
+    <EmbeddedResource Include="newball.gs.football_bz.resx" />
+    <EmbeddedResource Include="newball.gs.football_d.resx" />
+    <EmbeddedResource Include="newball.gs.football_g.resx" />
+    <EmbeddedResource Include="newball.gs.football_other.resx" />
+    <EmbeddedResource Include="newball.gs.football_rqgg.resx" />
+    <EmbeddedResource Include="newball.gs.football_rqsbc.resx" />
+    <EmbeddedResource Include="newball.gs.football_sbgg.resx" />
+    <EmbeddedResource Include="newball.gs.football_select.resx" />
+    <EmbeddedResource Include="newball.gs.football_ys.resx" />
+    <EmbeddedResource Include="newball.gs.frmheader.resx" />
+    <EmbeddedResource Include="newball.gs.frmIndex.resx" />
+    <EmbeddedResource Include="newball.gs.gdadd.resx" />
+    <EmbeddedResource Include="newball.gs.gdlist.resx" />
+    <EmbeddedResource Include="newball.gs.gdlist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.gs.gdlist_reportlist.resx" />
+    <EmbeddedResource Include="newball.gs.gdmsg.resx" />
+    <EmbeddedResource Include="newball.gs.gdset.resx" />
+    <EmbeddedResource Include="newball.gs.index.resx" />
+    <EmbeddedResource Include="newball.gs.main.resx" />
+    <EmbeddedResource Include="newball.gs.MgrOnline.resx" />
+    <EmbeddedResource Include="newball.gs.MgrOnlineMsg.resx" />
+    <EmbeddedResource Include="newball.gs.myForm.resx" />
+    <EmbeddedResource Include="newball.gs.mysetting.resx" />
+    <EmbeddedResource Include="newball.gs.OrderList.resx" />
+    <EmbeddedResource Include="newball.gs.quit.resx" />
+    <EmbeddedResource Include="newball.gs.report.resx" />
+    <EmbeddedResource Include="newball.gs.reportpartshownext.resx" />
+    <EmbeddedResource Include="newball.gs.reportshow.resx" />
+    <EmbeddedResource Include="newball.gs.reportshowdls.resx" />
+    <EmbeddedResource Include="newball.gs.reportshowend.resx" />
+    <EmbeddedResource Include="newball.gs.reportShowNoJs.resx" />
+    <EmbeddedResource Include="newball.gs.reportshowuser.resx" />
+    <EmbeddedResource Include="newball.gs.reportshowzdl.resx" />
+    <EmbeddedResource Include="newball.gs.SelBallList.resx" />
+    <EmbeddedResource Include="newball.gs.tzinfo.resx" />
+    <EmbeddedResource Include="newball.gs.useradd.resx" />
+    <EmbeddedResource Include="newball.gs.userlist.resx" />
+    <EmbeddedResource Include="newball.gs.userlist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.gs.userlist_reportlist.resx" />
+    <EmbeddedResource Include="newball.gs.usermsg.resx" />
+    <EmbeddedResource Include="newball.gs.userset.resx" />
+    <EmbeddedResource Include="newball.gs.zdladd.resx" />
+    <EmbeddedResource Include="newball.gs.zdllist.resx" />
+    <EmbeddedResource Include="newball.gs.zdllist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.gs.zdllist_reportlist.resx" />
+    <EmbeddedResource Include="newball.gs.zdlmsg.resx" />
+    <EmbeddedResource Include="newball.gs.zdlset.resx" />
+    <EmbeddedResource Include="newball.manager.login.resx" />
+    <EmbeddedResource Include="newball.mem.addsubuser.resx" />
+    <EmbeddedResource Include="newball.mem.announcement.resx" />
+    <EmbeddedResource Include="newball.mem.BallJs.resx" />
+    <EmbeddedResource Include="newball.mem.BallJsFrame.resx" />
+    <EmbeddedResource Include="newball.mem.chgpwd.resx" />
+    <EmbeddedResource Include="newball.mem.dlsadd.resx" />
+    <EmbeddedResource Include="newball.mem.dlslist.resx" />
+    <EmbeddedResource Include="newball.mem.dlslist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.mem.dlslist_reportlist.resx" />
+    <EmbeddedResource Include="newball.mem.dlsmsg.resx" />
+    <EmbeddedResource Include="newball.mem.dlsset.resx" />
+    <EmbeddedResource Include="newball.mem.football_bd.resx" />
+    <EmbeddedResource Include="newball.mem.football_bdgg.resx" />
+    <EmbeddedResource Include="newball.mem.football_bqc.resx" />
+    <EmbeddedResource Include="newball.mem.football_bz.resx" />
+    <EmbeddedResource Include="newball.mem.football_d.resx" />
+    <EmbeddedResource Include="newball.mem.football_g.resx" />
+    <EmbeddedResource Include="newball.mem.football_other.resx" />
+    <EmbeddedResource Include="newball.mem.football_rqgg.resx" />
+    <EmbeddedResource Include="newball.mem.football_rqsbc.resx" />
+    <EmbeddedResource Include="newball.mem.football_sbgg.resx" />
+    <EmbeddedResource Include="newball.mem.football_select.resx" />
+    <EmbeddedResource Include="newball.mem.football_ys.resx" />
+    <EmbeddedResource Include="newball.mem.frmheader.resx" />
+    <EmbeddedResource Include="newball.mem.frmIndex.resx" />
+    <EmbeddedResource Include="newball.mem.GameFen.resx" />
+    <EmbeddedResource Include="newball.mem.gdadd.resx" />
+    <EmbeddedResource Include="newball.mem.gdlist.resx" />
+    <EmbeddedResource Include="newball.mem.gdlist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.mem.gdlist_reportlist.resx" />
+    <EmbeddedResource Include="newball.mem.gdmsg.resx" />
+    <EmbeddedResource Include="newball.mem.gdset.resx" />
+    <EmbeddedResource Include="newball.mem.gj.chgCurmoney.resx" />
+    <EmbeddedResource Include="newball.mem.gj.delGdZDan.resx" />
+    <EmbeddedResource Include="newball.mem.gj.delMUser.resx" />
+    <EmbeddedResource Include="newball.mem.gj.delZDan1.resx" />
+    <EmbeddedResource Include="newball.mem.gj.delZDan2.resx" />
+    <EmbeddedResource Include="newball.mem.gj.LockUser.resx" />
+    <EmbeddedResource Include="newball.mem.gj.MatchOrder.resx" />
+    <EmbeddedResource Include="newball.mem.gj.MemberResult.resx" />
+    <EmbeddedResource Include="newball.mem.gj.MgrOnline.resx" />
+    <EmbeddedResource Include="newball.mem.gj.tex.resx" />
+    <EmbeddedResource Include="newball.mem.gj.UserListMsg.resx" />
+    <EmbeddedResource Include="newball.mem.gj.Watch.resx" />
+    <EmbeddedResource Include="newball.mem.gslist_reportlist.resx" />
+    <EmbeddedResource Include="newball.mem.index.resx" />
+    <EmbeddedResource Include="newball.mem.list.resx" />
+    <EmbeddedResource Include="newball.mem.main.resx" />
+    <EmbeddedResource Include="newball.mem.mgrConfig.resx" />
+    <EmbeddedResource Include="newball.mem.mgrconfiglist.resx" />
+    <EmbeddedResource Include="newball.mem.mgrgame.resx" />
+    <EmbeddedResource Include="newball.mem.MgrOnline.resx" />
+    <EmbeddedResource Include="newball.mem.MgrOnlineMsg.resx" />
+    <EmbeddedResource Include="newball.mem.myForm.resx" />
+    <EmbeddedResource Include="newball.mem.OrderEdit.resx" />
+    <EmbeddedResource Include="newball.mem.OrderList.resx" />
+    <EmbeddedResource Include="newball.mem.quit.resx" />
+    <EmbeddedResource Include="newball.mem.report.resx" />
+    <EmbeddedResource Include="newball.mem.reportpartshownext.resx" />
+    <EmbeddedResource Include="newball.mem.reportshow.resx" />
+    <EmbeddedResource Include="newball.mem.reportshowdls.resx" />
+    <EmbeddedResource Include="newball.mem.reportshowend.resx" />
+    <EmbeddedResource Include="newball.mem.reportShowNoJs.resx" />
+    <EmbeddedResource Include="newball.mem.reportshowuser.resx" />
+    <EmbeddedResource Include="newball.mem.reportshowzdl.resx" />
+    <EmbeddedResource Include="newball.mem.tzinfo.resx" />
+    <EmbeddedResource Include="newball.mem.useradd.resx" />
+    <EmbeddedResource Include="newball.mem.userlist.resx" />
+    <EmbeddedResource Include="newball.mem.userlist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.mem.userlist_reportlist.resx" />
+    <EmbeddedResource Include="newball.mem.usermsg.resx" />
+    <EmbeddedResource Include="newball.mem.userset.resx" />
+    <EmbeddedResource Include="newball.mem.zdladd.resx" />
+    <EmbeddedResource Include="newball.mem.zdllist.resx" />
+    <EmbeddedResource Include="newball.mem.zdllist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.mem.zdllist_reportlist.resx" />
+    <EmbeddedResource Include="newball.mem.zdlmsg.resx" />
+    <EmbeddedResource Include="newball.mem.zdlset.resx" />
+    <EmbeddedResource Include="newball.odds.BallGoTime.BallGoTime.resx" />
+    <EmbeddedResource Include="newball.odds.login.resx" />
+    <EmbeddedResource Include="newball.odds.odds.addbfuser.resx" />
+    <EmbeddedResource Include="newball.odds.odds.announcement.resx" />
+    <EmbeddedResource Include="newball.odds.odds.BallList.resx" />
+    <EmbeddedResource Include="newball.odds.odds.ballmsg.resx" />
+    <EmbeddedResource Include="newball.odds.odds.BfUser.resx" />
+    <EmbeddedResource Include="newball.odds.odds.bfusermsg.resx" />
+    <EmbeddedResource Include="newball.odds.odds.chgpsd.resx" />
+    <EmbeddedResource Include="newball.odds.odds.frmheader.resx" />
+    <EmbeddedResource Include="newball.odds.odds.frmIndex.resx" />
+    <EmbeddedResource Include="newball.odds.odds.GameFen.resx" />
+    <EmbeddedResource Include="newball.odds.odds.index.resx" />
+    <EmbeddedResource Include="newball.odds.odds.main.resx" />
+    <EmbeddedResource Include="newball.odds.odds.quit.resx" />
+    <EmbeddedResource Include="newball.odds.odds.subServer.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.announcement.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.BallJs.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.BallJsFrame.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.chgpwd.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.frmheader.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.frmIndex.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.GameFen.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.index.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.main.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.MatchOrder.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.mgrConfig.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.mgrconfiglist.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.myForm.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.OrderList.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.quit.resx" />
+    <EmbeddedResource Include="newball.odds.subadmin.temp.resx" />
+    <EmbeddedResource Include="newball.select_league.resx" />
+    <EmbeddedResource Include="newball.subuser.announcement.resx" />
+    <EmbeddedResource Include="newball.subuser.announcement_page.resx" />
+    <EmbeddedResource Include="newball.subuser.index.resx" />
+    <EmbeddedResource Include="newball.subuser.myReportForm.resx" />
+    <EmbeddedResource Include="newball.subuser.relogin.resx" />
+    <EmbeddedResource Include="newball.subuser.reportshow.resx" />
+    <EmbeddedResource Include="newball.user.announcement.resx" />
+    <EmbeddedResource Include="newball.user.announcement_page.resx" />
+    <EmbeddedResource Include="newball.user.bets_enquiry.resx" />
+    <EmbeddedResource Include="newball.user.betting_entry.resx" />
+    <EmbeddedResource Include="newball.user.betting_frame.resx" />
+    <EmbeddedResource Include="newball.user.betting_matches.resx" />
+    <EmbeddedResource Include="newball.user.betting_matches_1x2parlay.resx" />
+    <EmbeddedResource Include="newball.user.betting_matches_ahparlay.resx" />
+    <EmbeddedResource Include="newball.user.betting_matches_cs.resx" />
+    <EmbeddedResource Include="newball.user.body_browse.resx" />
+    <EmbeddedResource Include="newball.user.body_var.resx" />
+    <EmbeddedResource Include="newball.user.FT_index.resx" />
+    <EmbeddedResource Include="newball.user.header.resx" />
+    <EmbeddedResource Include="newball.user.history.resx" />
+    <EmbeddedResource Include="newball.user.history_goal.resx" />
+    <EmbeddedResource Include="newball.user.imp_rules.resx" />
+    <EmbeddedResource Include="newball.user.Login.resx" />
+    <EmbeddedResource Include="newball.user.Logine.resx" />
+    <EmbeddedResource Include="newball.user.Logint.resx" />
+    <EmbeddedResource Include="newball.user.lt_ch.resx" />
+    <EmbeddedResource Include="newball.user.lt_football.resx" />
+    <EmbeddedResource Include="newball.user.match_result.resx" />
+    <EmbeddedResource Include="newball.user.PassWord.resx" />
+    <EmbeddedResource Include="newball.user.profile.resx" />
+    <EmbeddedResource Include="newball.user.quickinput.resx" />
+    <EmbeddedResource Include="newball.user.quickinput_ev.resx" />
+    <EmbeddedResource Include="newball.user.quit.resx" />
+    <EmbeddedResource Include="newball.user.randomball.resx" />
+    <EmbeddedResource Include="newball.user.sub.resx" />
+    <EmbeddedResource Include="newball.user.system.resx" />
+    <EmbeddedResource Include="newball.zdl.addsubuser.resx" />
+    <EmbeddedResource Include="newball.zdl.announcement.resx" />
+    <EmbeddedResource Include="newball.zdl.chgpwd.resx" />
+    <EmbeddedResource Include="newball.zdl.dlsadd.resx" />
+    <EmbeddedResource Include="newball.zdl.dlslist.resx" />
+    <EmbeddedResource Include="newball.zdl.dlslist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.zdl.dlslist_reportlist.resx" />
+    <EmbeddedResource Include="newball.zdl.dlsmsg.resx" />
+    <EmbeddedResource Include="newball.zdl.dlsset.resx" />
+    <EmbeddedResource Include="newball.zdl.football_bd.resx" />
+    <EmbeddedResource Include="newball.zdl.football_bdgg1.resx" />
+    <EmbeddedResource Include="newball.zdl.football_bqc.resx" />
+    <EmbeddedResource Include="newball.zdl.football_bz.resx" />
+    <EmbeddedResource Include="newball.zdl.football_d.resx" />
+    <EmbeddedResource Include="newball.zdl.football_g.resx" />
+    <EmbeddedResource Include="newball.zdl.football_guodan.resx" />
+    <EmbeddedResource Include="newball.zdl.football_other.resx" />
+    <EmbeddedResource Include="newball.zdl.football_rqgg.resx" />
+    <EmbeddedResource Include="newball.zdl.football_rqsbc.resx" />
+    <EmbeddedResource Include="newball.zdl.football_sbgg.resx" />
+    <EmbeddedResource Include="newball.zdl.football_select.resx" />
+    <EmbeddedResource Include="newball.zdl.football_ys.resx" />
+    <EmbeddedResource Include="newball.zdl.frmheader.resx" />
+    <EmbeddedResource Include="newball.zdl.frmIndex.resx" />
+    <EmbeddedResource Include="newball.zdl.index.resx" />
+    <EmbeddedResource Include="newball.zdl.main.resx" />
+    <EmbeddedResource Include="newball.zdl.mysetting.resx" />
+    <EmbeddedResource Include="newball.zdl.quit.resx" />
+    <EmbeddedResource Include="newball.zdl.report.resx" />
+    <EmbeddedResource Include="newball.zdl.reportpartshownext.resx" />
+    <EmbeddedResource Include="newball.zdl.reportshow.resx" />
+    <EmbeddedResource Include="newball.zdl.reportshowend.resx" />
+    <EmbeddedResource Include="newball.zdl.reportshowguodan.resx" />
+    <EmbeddedResource Include="newball.zdl.reportShowNoJs.resx" />
+    <EmbeddedResource Include="newball.zdl.reportshowuser.resx" />
+    <EmbeddedResource Include="newball.zdl.tzinfo.resx" />
+    <EmbeddedResource Include="newball.zdl.tzinfo1.resx" />
+    <EmbeddedResource Include="newball.zdl.useradd.resx" />
+    <EmbeddedResource Include="newball.zdl.userlist.resx" />
+    <EmbeddedResource Include="newball.zdl.userlist_reportcontent.resx" />
+    <EmbeddedResource Include="newball.zdl.userlist_reportlist.resx" />
+    <EmbeddedResource Include="newball.zdl.usermsg.resx" />
+    <EmbeddedResource Include="newball.zdl.userset.resx" />
+    <EmbeddedResource Include="odds.odds.BasketBallList.resx" />
+    <EmbeddedResource Include="odds.odds.basketcheckfen.resx" />
+    <EmbeddedResource Include="odds.odds.basketgamefen.resx" />
+    <EmbeddedResource Include="odds.odds.basketjs.resx" />
+    <EmbeddedResource Include="odds.odds.basketjsdeal.resx" />
+    <EmbeddedResource Include="odds.odds.basketjsshow.resx" />
+    <EmbeddedResource Include="user.betting_entry_bk.resx" />
+    <EmbeddedResource Include="user.timer.resx" />
+    <EmbeddedResource Include="vindicate.behind.resx" />
+    <EmbeddedResource Include="vindicate.front.resx" />
+    <EmbeddedResource Include="zdl.tindex.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,32 @@
+tr {
+	font-family: "Arial", "新細明體";
+	font-size: 12px;
+	line-height: 24px;
+
+}
+.border-line {
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #103359;
+	border-bottom-color: #103359;
+	border-left-color: #103359;
+}
+.za-button {
+	font-family: "Arial", "新細明體";
+	font-size: 12px;
+	height: 22px;
+	padding-top: 1px;
+
+
+
+}
+.ok-tab {
+	padding-top: 20px;
+	padding-left: 30px;
+	padding-bottom: 20px;
+}

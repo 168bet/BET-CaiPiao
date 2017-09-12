@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>微信授权登录</title>
+<link href="/css/bass.css" rel="stylesheet" type="text/css">
+<article id='div_1' style='display:none;'>
+	<figure class="bindBanner relative"><img src="/img/wxbind/banner.jpg"><h1></h1></figure>
+	<div class="gray pdTop1 fontSize07 pdLeft06">验证9188帐号,购彩无需再手动登录。</div>
+    <div class="bindTab pdTop03">
+    	<ul class="clearfix" id='tab_u'>
+            <li class="cur" v='2'>已有9188账户</li>    	
+        	<li v='1'>新用户注册</li>
+        </ul>
+     <!-- 新用户注册  -->
+        <div class="bindText" id='nuser_1' style='display:none;'>
+        	<!-- <p class="gray">欢迎您，<em id='name_3'></em></p> -->
+            <section class="bindLogin">
+    			<div class="s2"><em class="username"></em><input type="text" id='new_user' value="" placeholder='设置您的9188账户用户名'></div>
+    			<div class="s2" style="border-bottom:none"><em class="password"></em><input type="password" id='new_pwd' placeholder='设置您的9188账户密码' value=""></div>
+			</section>
+            <a href="javascript:;" class="payment bindpayment" id='isEnroll'>立即注册</a>
+        </div>
+     <!-- 已有账户  -->
+        <div class="bindText" id='nuser_2'>
+        	<!-- <p class="gray">欢迎您，<em id='name_1'></em></p> -->
+            <section class="bindLogin">
+    			<div class="s2"><em class="username"></em><input type="text" id='old_user' placeholder='输入您的9188账户用户名' value=""></div>
+    			<div class="s2" style="border-bottom:none"><em class="password"></em><input type="password" id='old_pwd' placeholder='输入您的9188账户密码' value=""></div>
+			</section>
+            <a href="javascript:;" class="payment bindpayment" id='isBind'>提&nbsp;&nbsp;交</a>
+        </div>
+    </div>
+</article>
+
+<article id='div_2' style='display:none;'>
+	<div class="bindGreat">
+		<h2>恭喜您，<em id='win'></em>成功！</h2>
+		<p>您现在可以直接购买彩票了</p>
+	</div>
+	<div class="bindText bindText2">
+		<a href="/?from=wxfw" class="payment bindpayment">购买彩票</a>
+	</div>
+</article>
+
+<article id='div_3' style='display:none;'>
+	<div class="bindGreat">
+		<h2>微信昵称：<em id='name_2'></em></h2>
+		<p>您已绑定的9188账户：<em id='u9188'></em></p>
+	</div>
+	<div class="bindText bindText2">
+		<a href="/?from=wxfw" class="payment bindpayment">购买彩票</a>
+		<a href="javascript:;" class="right blue" id='relieve'>修改绑定</a>
+	</div>
+</article>
+
+<article id='div_4' style='display:none;'>
+	<div class="bindBanner relative"><img src="/img/wxbind/banner.jpg"><h1></h1></div>
+        <div class="bindText pdTop1">
+            <section class="bindLogin">
+    			<div class="s2"><em class="username"></em><input id='r_user' type="text" placeholder='输入您的9188账户用户名' value=""></div>
+    			<div class="s2" style="border-bottom:none"><em class="password"></em><input id='r_pwd' type="password" placeholder='输入您的9188账户密码' value=""></div>
+			</section>
+            <a href="javascript:;" id='revise' class="payment bindpayment">修改绑定</a>
+        </div>
+</article>
+<div class="logints" id="tx_c" style='display:none;'></div>
+<div id="tm_c" class="transparent_c" style="display: none;"></div>
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/public/base.js"></script>
+<script src="/js/public/login.js"></script>
+<script src="/js/wxbind/index.js"></script>
+<!-- Live800默认跟踪代码: 开始-->
+<script language="javascript" src="http://chat8.live800.com/live800/chatClient/monitor.js?jid=4543042755&companyID=152373&configID=125889&codeType=custom"></script>
+<!-- Live800默认跟踪代码: 结束-->

@@ -1,0 +1,232 @@
+﻿<!--index.wxml-->
+<view class="cpclassbox">
+  <navigator class="cpclass">
+    <view class="cpclass-title">
+      <view class="cpclass-h">双色球</view>
+      <text class="cpclass-times">第2017004期</text>
+    </view>
+    <view class="ball">
+      <text class="balls redball">05</text>
+      <text class="balls redball">13</text>
+      <text class="balls redball">17</text>
+      <text class="balls redball">26</text>
+      <text class="balls redball">27</text>
+      <text class="balls redball">30</text>
+      <text class="balls blueball">07</text>
+    </view>
+    <view class="arrow"></view>
+  </navigator>
+  <navigator class="cpclass">
+    <view class="cpclass-title">
+      <view class="cpclass-h">大乐透</view>
+      <text class="cpclass-times">第2017004期</text>
+    </view>
+    <view class="ball">
+      <text class="balls redball">05</text>
+      <text class="balls redball">13</text>
+      <text class="balls redball">17</text>
+      <text class="balls redball">26</text>
+      <text class="balls redball">27</text>
+      <text class="balls blueball">06</text>
+      <text class="balls blueball">07</text>
+    </view>
+    <view class="arrow"></view>
+  </navigator>
+  <navigator class="cpclass">
+    <view class="cpclass-title">
+      <view class="cpclass-h">福彩3D</view>
+      <text class="cpclass-times">第2017009期</text>
+    </view>
+    <view class="ball">
+      <text class="balls redball">2</text>
+      <text class="balls redball">0</text>
+      <text class="balls redball">2</text>
+      <text class="cpclass-try">试机号：7,5,4</text>
+      
+    </view>
+    <view class="arrow"></view>
+  </navigator>
+  <navigator class="cpclass">
+    <view class="cpclass-title">
+      <view class="cpclass-h">排列三</view>
+      <text class="cpclass-times">第2017009期</text>
+    </view>
+    <view class="ball">
+      <text class="balls redball">3</text>
+      <text class="balls redball">1</text>
+      <text class="balls redball">7</text>
+    </view>
+    <view class="arrow"></view>
+  </navigator>
+<navigator class="cpclass">
+    <view class="cpclass-title">
+      <view class="cpclass-h">排列五</view>
+      <text class="cpclass-times">第2017009期</text>
+    </view>
+    <view class="ball">
+      <text class="balls redball">3</text>
+      <text class="balls redball">1</text>
+      <text class="balls redball">7</text>
+      <text class="balls redball">8</text>
+      <text class="balls redball">4</text>
+    </view>
+    <view class="arrow"></view>
+  </navigator>
+  <navigator class="cpclass">
+    <view class="cpclass-title">
+      <view class="cpclass-h">七星彩</view>
+      <text class="cpclass-times">第2017009期</text>
+    </view>
+    <view class="ball">
+      <text class="balls redball">5</text>
+      <text class="balls redball">2</text>
+      <text class="balls redball">9</text>
+      <text class="balls redball">6</text>
+      <text class="balls redball">8</text>
+      <text class="balls redball">6</text>
+      <text class="balls redball">4</text>
+    </view>
+    <view class="arrow"></view>
+  </navigator>
+  <navigator class="cpclass">
+    <view class="cpclass-title">
+      <view class="cpclass-h">七乐彩</view>
+      <text class="cpclass-times">第2017009期</text>
+    </view>
+    <view class="ball">
+      <text class="balls redball">02</text>
+      <text class="balls redball">17</text>
+      <text class="balls redball">20</text>
+      <text class="balls redball">21</text>
+      <text class="balls redball">22</text>
+      <text class="balls redball">23</text>
+      <text class="balls redball">24</text>
+      <text class="balls blueball">07</text>
+    </view>
+    <view class="arrow"></view>
+  </navigator>
+</view>
+
+<view class="numbers">
+    <view class="numbers-title">  
+      <view class="numbers-times">第2017009期</view>
+      <text class="numbers-date">2017-01-05 21:15</text>
+    </view>
+    <view class="number">
+      <text class="num rednum">02</text>
+      <text class="num rednum">17</text>
+      <text class="num rednum">20</text>
+      <text class="num rednum">21</text>
+      <text class="num rednum">22</text>
+      <text class="num rednum">23</text>
+      <text class="num rednum">24</text>
+      <text class="num bluenum">07</text>
+      <text class="numbers-try">试机号：7,5,4</text>
+    </view>
+</view>
+
+
+<view class="numbers">
+    <view class="numbers-title">  
+      <view class="numbers-times">第2017009期</view>
+      <text class="numbers-date">2017-01-05 21:15</text>
+    </view>
+    <view class="number">
+      <text class="num rednum">2</text>
+      <text class="num rednum">7</text>
+      <text class="num rednum">2</text>
+      <text class="num rednum">21</text>
+      <text class="num rednum">22</text>
+      <text class="num rednum">23</text>
+      <text class="num rednum">24</text>
+      <text class="num bluenum">07</text>
+      <text class="numbers-try">试机号：7,5,4</text>
+    </view>
+    <view class="numbers-arrow"></view>
+</view>
+<view class="numbers">
+    <view class="numbers-title">  
+      <view class="numbers-times">第2017009期</view>
+      <text class="numbers-date">2017-01-05 21:15</text>
+    </view>
+    <view class="number">
+      <text class="num rednum">2</text>
+      <text class="num rednum">7</text>
+      <text class="num rednum">2</text>
+      <text class="num rednum">21</text>
+      <text class="num rednum">22</text>
+      <text class="num rednum">23</text>
+      <text class="num rednum">24</text>
+      <text class="num bluenum">07</text>
+      <text class="numbers-try">试机号：7,5,4</text>
+    </view>
+    <view class="numbers-arrow active"></view>
+    <view class="table-box">
+      <view class="table-box-thead">
+        <view class="table-flex">      
+          <view class="table-flex_item table-gray">本期销量</view>
+          <view class="table-flex_item table-gray">累积奖池</view>
+        </view>
+        <view class="table-flex">      
+          <view class="table-flex_item">328,457,210元</view>
+          <view class="table-flex_item table-red">1,018,195,332元</view>
+        </view>
+      </view>
+      <view class="table-box-tbody">
+        <view class="table-flex">      
+          <view class="table-flex_item table-gray">奖项</view>
+          <view class="table-flex_item table-gray">注数(注)</view>
+          <view class="table-flex_item table-gray">每注金额(注)</view>
+        </view>
+        <view class="table-flex">      
+          <view class="table-flex_item table-gray">一等奖</view>
+          <view class="table-flex_item">14</view>
+          <view class="table-flex_item table-red">6,083,962</view>
+        </view>
+        <view class="table-flex">      
+          <view class="table-flex_item table-gray">二等奖</view>
+          <view class="table-flex_item">204</view>
+          <view class="table-flex_item table-red">92,986</view>
+        </view>
+        <view class="table-flex">      
+          <view class="table-flex_item table-gray">三等奖</view>
+          <view class="table-flex_item">2062</view>
+          <view class="table-flex_item table-red">3,000</view>
+        </view>
+        <view class="table-flex">      
+          <view class="table-flex_item table-gray">四等奖</view>
+          <view class="table-flex_item">92362</view>
+          <view class="table-flex_item table-red">200</view>
+        </view>
+        <view class="table-flex">      
+          <view class="table-flex_item table-gray">五等奖</view>
+          <view class="table-flex_item">1524540</view>
+          <view class="table-flex_item table-red">10</view>
+        </view>
+        <view class="table-flex">      
+          <view class="table-flex_item table-gray">六等奖</view>
+          <view class="table-flex_item">9032570</view>
+          <view class="table-flex_item table-red">5</view>
+        </view>
+      </view>
+    </view>
+</view>
+<view class="numbers">
+    <view class="numbers-title">  
+      <view class="numbers-times">第2017009期</view>
+      <text class="numbers-date">2017-01-05 21:15</text>
+    </view>
+    <view class="number">
+      <text class="num rednum">2</text>
+      <text class="num rednum">7</text>
+      <text class="num rednum">2</text>
+      <text class="num rednum">21</text>
+      <text class="num rednum">22</text>
+      <text class="num rednum">23</text>
+      <text class="num rednum">24</text>
+      <text class="num bluenum">07</text>
+      <text class="numbers-try">试机号：7,5,4</text>
+    </view>
+    <view class="numbers-arrow"></view>
+</view>
+

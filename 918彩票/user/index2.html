@@ -1,0 +1,16 @@
+<script>
+String.prototype.getParam = function(n){
+	var r = new RegExp("[\?\&]"+n+"=([^&?]*)(\\s||$)", "gi");
+	var r1=new RegExp(n+"=","gi");
+	var m=this.match(r);
+	if(m==null){
+		return "";
+	}else{
+		return typeof(m[0].split(r1)[1])=='undefined'?'':decodeURIComponent(m[0].split(r1)[1]);
+	}
+};
+
+var agent = location.search.getParam('agent');
+agent && localStorage.setItem('agent',agent);
+location.href='/#type=url&p=user/index.html'
+</script>

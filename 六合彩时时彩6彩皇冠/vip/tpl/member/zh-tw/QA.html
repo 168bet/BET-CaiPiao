@@ -1,0 +1,311 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>live TV</title>
+<style type="text/css"> 
+<!--
+.divQA{
+	width: 701px;
+	border: 1px solid #FFFFFF;
+	background-image: url(../../../images/member/QA_mem_bg.jpg);
+	background-repeat: repeat-y;
+}
+ 
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #000000;
+}
+.QA {
+	height: 33px;
+	width: 120px;
+	position: relative;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	float: right;
+	top: 20px;
+	left: 1px;
+}
+h1 {
+	background-image: url(../../../images/member/QA_head.jpg);
+	background-repeat: no-repeat;
+	height: 56px;
+	width: 700px;
+	position: absolute;
+}
+h2 {
+	background-image: url(../../../images/member/QA_head_bg.gif);
+	background-repeat: repeat-x;
+	width: 699px;
+	top: 56px;
+	position: absolute;
+	height: 25px;
+	text-align: right;
+}
+#divT {
+	text-align: center;
+	padding-top: 100px;
+	padding-bottom: 10px;
+}
+#divT table {
+	width: 90%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+#divT .Q{
+	color: #FFFFFF;
+	display: block;
+	list-style-type: none;
+	margin-left: -10px;
+	background-image: url(../../../images/member/QA_Qtop.gif);
+	background-repeat: no-repeat;
+	height: 25px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 28px;
+}
+#divT .A{
+	color: #000000;
+	width: 450px;
+	padding: 8px;
+	line-height: 18px;
+	list-style-type: none;
+}
+#top {
+	display: block;
+	background-image: url(../../../images/member/QA_top.gif);
+	background-repeat: no-repeat;
+	background-position: 545px;
+	text-align: right;
+}
+ 
+#top a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-repeat: no-repeat;
+	background-position: left;
+	color: #666666;
+	list-style-type: none;
+	padding-left: 20px;
+	margin-right: 20px;
+	text-decoration: none;
+}
+.top {
+	text-decoration: none;
+	list-style-type: none;
+	background-image: url(../../../images/member/QA_icon01.gif);
+	background-repeat: no-repeat;
+	padding: 3px;
+	background-position: 5px;
+	margin-left: 15px;
+}
+.top a:link, .top a:visited {
+	color: #990000;
+	text-decoration: none;
+	list-style-type: none;
+}
+.top a:hover {
+	color: #042C60;
+}
+.foot {
+	background-color: #000000;
+	width: 700px;
+	display: block;
+	margin-top: 20px;
+	height: 25px;
+}
+-->
+</style>
+<script> 
+function chg_language(langx) {
+	var homepage = "";
+	if (langx != "zh-tw" && langx != "zh-cn") {
+		homepage = "/tpl/member/en-us/QA.html";
+	} else {
+		homepage = "/tpl/member/"+langx+"/QA.html";
+	}
+	self.location = homepage;
+}
+function OnMouseOverPIC(langx) {
+	document.getElementById("OverQA_"+langx).style.display = "block";
+	document.getElementById("OutQA_"+langx).style.display = "none";
+}
+function OnMouseOutPIC(langx) {
+	document.getElementById("OverQA_"+langx).style.display = "none";
+	document.getElementById("OutQA_"+langx).style.display = "block";
+}
+</script>
+</head>
+ 
+ 
+<div class="divQA">
+<h1></h1>
+<h2>
+  <table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+	<td><span onMouseOver="OnMouseOverPIC('tw')" onMouseOut="OnMouseOutPIC('tw')" onClick="chg_language('zh-tw');">
+			<img src="/images/member/QA_tw.gif" width="68" height="25" border="0" id="OutQA_tw" style="display:block;cursor:hand;">
+			<img src="/images/member/QA_tw2.gif" width="68" height="25" border="0" id="OverQA_tw" style="display:none;cursor:hand;">
+		</span>
+	</td>
+	<td><span onMouseOver="OnMouseOverPIC('cn')" onMouseOut="OnMouseOutPIC('cn')" onClick="chg_language('zh-cn');">
+			<img src="/images/member/QA_cn.gif" width="68" height="25" border="0" id="OutQA_cn" style="display:block;cursor:hand;">
+			<img src="/images/member/QA_cn2.gif" width="68" height="25" border="0" id="OverQA_cn" style="display:none;cursor:hand;">
+		</span>
+	</td>
+	<td><span onMouseOver="OnMouseOverPIC('us')" onMouseOut="OnMouseOutPIC('us')" onClick="chg_language('zh-us');">
+			<img src="/images/member/QA_us.gif" width="68" height="25" border="0" id="OutQA_us" style="display:block;cursor:hand;">
+			<img src="/images/member/QA_us2.gif" width="68" height="25" border="0" id="OverQA_us" style="display:none;cursor:hand;">
+		</span>
+	</td>
+  </tr></table></h2>
+  <div id="divT">
+  <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+    <a name="top"></a>
+    <li class="top"><a href="#Q01">我需要付費嗎?</a></li>
+    <li class="top"><a href="#Q02">如何知道哪場賽事有現場直播？</a></li>
+    <li class="top"><a href="#Q03">為什麼在某些國家無法觀看現場直播?</a></li>
+    <li class="top"><a href="#Q04">為何我無法觀看在我的國家舉行的賽事? </a></li>
+    <li class="top"><a href="#Q05">那些國家可以觀看現場直播？</a></li>
+    <li class="top"><a href="#Q06">現場直播是否會延遲?</a></li>
+    <li class="top"><a href="#Q07">隊伍球衣顯示設置錯誤，在此情況下公司會如何處理?</a></li>
+    <li class="top"><a href="#Q08">如何處理網頁加載速度緩慢或斷線頻繁問題?</a></li>
+    </td>
+    <td>
+    <li class="top"><a href="#Q09">什麼時候可以開始觀看現場直播視頻 ?</a></li>
+    <li class="top"><a href="#Q10">有何系統要求?</a></li>
+    <li class="top"><a href="#Q11">有何軟件要求?</a></li>
+    <li class="top"><a href="#Q12">為什麼Flash播放畫面停止不動了/ 屏幕變黑了?</a></li>
+    <li class="top"><a href="#Q13">為什麼電腦都符合系統要求但還是無法觀看到影像?</a></li>
+    <li class="top"><a href="#Q14">為什麼可以運行影像但是沒有聲音?</a></li>
+    <li class="top"><a href="#Q15">為什麼有聲效但是沒有影像?</a></li>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    </tr>
+  <tr>
+   <td colspan="2">
+    <ul>
+    <li class="Q"><a name="#Q01"></a>我需要付費嗎?</li>
+    <li class="A">目前現場直播是免費提供觀看的。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q02"></a>如何知道哪場賽事有現場直播？</li>
+    <li class="A">當日賽事如有現場直播，將會於該隊隊名右方會秀出電視圖示，點擊電視圖示後即可觀看。
+除了上述方式外，亦可在網頁上方點擊現場直播的選項，可依據節目表選擇您想觀看的直播賽事。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q03"></a>為什麼在某些國家無法觀看現場直播?</li>
+    <li class="A">因版權問題目前現場直播只能提供中國地區使用。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+ <ul>
+    <li class="Q"><a name="#Q04"></a>為何我無法觀看在我的國家舉行的賽事?</li>
+    <li class="A">我們只能根據你的IP位址為你呈現某些被許可的賽事。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+    
+    <ul>
+    <li class="Q"><a name="#Q05"></a>那些國家可以觀看現場直播？</li>
+    <li class="A">現場直播目前只能提供中國地區使用。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+     <ul>
+    <li class="Q"><a name="#Q06"></a>現場直播是否會延遲?</li>
+    <li class="A">現場直播會稍有延遲的情況出現,在此情況下本公司均無責任確保賽事的及時性。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+ <ul>
+    <li class="Q"><a name="#Q07"></a>隊伍球衣顯示設置錯誤，在此情況下公司會如何處理 ?</li>
+    <li class="A">對戰球衣顯示只提供參考用，在此項目本公司盡可能維持其正確性。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+      <ul>
+    <li class="Q"><a name="#Q08"></a>如何處理網頁加載速度緩慢或斷線頻繁問題?</li>
+    <li class="A">請嘗試連接其他網站是否連結正常，以便判斷問題出處或是否為現場直播連接的問題，如果您無法連接到其他網站，請聯繫您所申請的網路業者。
+</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+     <ul>
+    <li class="Q"><a name="#Q09"></a>什麼時候可以開始觀看現場直播視頻 ?</li>
+    <li class="A">現場直播賽事將在開賽時間之前2分鐘開始轉播。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q10"></a>有何系統要求?</li>
+    <li class="A">操作系統：Windows 2000 / XP / Vista<br>
+網頁瀏覽器 ：IE6或更高版本<br>
+寬帶速度：連接速度為512kbp/s或更高</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q11"></a>有何軟件要求?</li>
+    <li class="A">觀看現場直播需要安裝Flash player播放器，您可在<a href="http://get.adobe.com/flashplayer" target="_blank">http://get.adobe.com/flashplayer</a>下載到此軟件。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q12"></a>為什麼Flash播放畫面停止不動了/ 屏幕變黑了??</li>
+    <li class="A"> 如您出現這種情形，請您嘗試刷新網頁，此問題在Flash現場直播連線很少發生。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q13"></a>為什麼電腦都符合系統要求但還是無法觀看到影像?</li>
+    <li class="A">如您的電腦有運作防火牆(安全軟件/軟體)，或其他相關的安全軟件，這將可能影響您的連接站點。您可以諮詢生產商或直接聯繫他們有關設置火牆的事宜。
+</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q14"></a>為什麼可以運行影像但是沒有聲音?</li>
+    <li class="A">請確認您的電腦是否硬件安裝了聲卡並以打開音量，確定聲效系統正常運行中。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+    <ul>
+    <li class="Q"><a name="#Q15"></a>為什麼有聲效但是沒有影像?</li>
+    <li class="A">如您出現此問題可能是沒有足夠的帶寬同時運行聲音及影像，因聲音傳送所需要的帶寬較小，所以您雖然無法看到畫面卻能聽到聲音。</li>
+    </ul>
+    <div id="top">
+	<a href="#top"><span>回最上層</span></a></div>
+ 
+</td>
+    </tr>
+</table>
+ </div>
+ <div class="foot"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<link rel="stylesheet" href="/newuser/css/redpack.css"/>
+<style>
+/*避免出现样式未加载 而html已经加载的情况 */
+/*固定头部*/
+.iscroll_wrap{ position: fixed;top:3.2rem;left:0; height:2.2rem;width:100%; background-color: #fff; z-index: 10;}
+.iscroll_wrap ul{width:100%; height:2.2rem;}
+.iscroll_wrap li{height:2rem; line-height: 2.2rem;float:left;width:33.33%; text-align: center;color:#191919;font-size:0.95rem;}
+.iscroll_wrap li span{display: inline-block;padding:0 0.5rem;}
+</style>
+<section id='redPackDeital'>
+</section>
+<script>
+CP.newRedPackDetail = (function(){
+	var rpid = CP.Util.getPara('rpid', window.location.href, 2);
+	var DOM = {
+		redPackDeital: $('#redPackDeital')
+	}
+	var g = {
+			type : {'0':'ky','1':'yw','2':'gq'},
+			id:{200:"用户充值",201:"自购中奖",202:"跟单中奖",203:"中奖提成",204:"追号中奖",210:"自购撤单返款",211:"认购撤单返款",
+				212:"追号撤销返款",213:"提现撤销返款",214:"提款失败转款",215:"保底返款",216:"红包派送",300:"转款",100:"自购",
+				101:"认购",102:"追号",103:"保底认购",104:"提现",105:"保底冻结",99:"转账",98:"套餐追号"}
+	};
+	var o = {
+		init:function(){
+			DOM.redPackDeital.html('<div style="padding-top:50px;height:200px"><em class="rotate_load" style="margin:auto"></em></div>');
+			$.ajax({
+				url:'/user/queryRedPacketDetail.go',
+				type:'POST',
+				dataType:'xml',
+				data:{cupacketid : rpid,pn:1,ps:20,flag:31},
+				success:function(xml){
+					var rows = $(xml).find('rows');
+					var row = rows.find('row');
+					/* if(code == '0'){ */
+					if(row.length > 0){
+						o.dataAnalysis(row)
+					}else{
+						o.noData() // 不存在数据时
+					}
+					/* } */
+				},error : function (){
+					remove_alert();
+					alert('网络异常请刷新重试');
+				}
+			})
+		},
+		dataAnalysis:function(row){
+			var html = '<div class="margin_t25 jilu_list" style="display: block;">';
+			row.each(function(a,b){
+				var gid = $(this).attr('gid');  //彩种ID
+				var imoney = $(this).attr('imoney'); //红包总金额
+				var itype = $(this).attr('itype');  //类型
+				var ibiztype = $(this).attr('ibiztype'); //交易类型
+				var ioldmoney = $(this).attr('ioldmoney');  //变化前金额
+				var ibalance = $(this).attr('ibalance');  //当前余额
+				var hid = $(this).attr('hid');  //方案编号
+				var ibmoney = $(this).attr('ibmoney');  //认购金额
+				var cadddate = $(this).attr('cadddate');  //添加时间
+				
+				html += '<a href=#type=url&p=newuser/viewpath.html?hid='+hid+' class="jilu_a">';
+				html += '<div class="clearfix div5">';
+				html += '<p class="p9">'+CP.Util.lot(gid)+' | '+g.id[ibiztype]+'</p><p class="p11">-'+ibmoney+'</p></div>'
+				html += '<div class="clearfix div6"><p class="p10">'+cadddate+'</p>'
+				html += '<p class="p12">余额：'+ibalance+'</p>'
+				html += '</div></a>'
+			})
+				html += '</div>'
+				DOM.redPackDeital.html(html);
+			return
+		},
+		noData: function(){
+			var html = '<div class="empty_box">'
+	        html += '<img src="./newuser/img/empty_img.png">'
+	        html += '<p>暂无消费记录</p>'
+        	html += '</div>'
+			DOM.redPackDeital.html(html);
+			return
+		},
+		bind:function(){
+		}	
+	};
+	var init = function () {
+		TopAnch.init({
+			title:'红包使用明细',
+			prevShow:true,
+			prevFun:function(){//左侧按钮绑定事件
+				window.history.back();
+			},
+			nextShow: true,
+			nextText: '',
+			nextFun: function(){
+				/* window.location.href = '#type=url&p=user/detail.html?in=cz'; */
+			},
+			isBack:true,
+			 style:'newuser' 
+		});
+		o.init()
+		o.bind();
+	};
+	return {init:init}
+})();
+CP.newRedPackDetail.init()
+</script>

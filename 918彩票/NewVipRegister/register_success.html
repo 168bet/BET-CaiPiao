@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>注册成功</title>
+    <meta itemprop="name" content="注册成功"/>
+    <meta itemprop="image" content="http://5.9188.com/NewVipRegister/img/sharelogo.png" />
+    <meta name="description" itemprop="description" content="专业好用的体育彩票、福利彩票预约购买App~彩种我最全，体彩、福彩全部彩种我都有；购彩我最快，支付宝、微信支付购彩，一键购买安全快捷；工具我最多，历史开奖、走势图、智能追号、专家推荐、奖金优化..." />
+    <meta name="description" content="专业好用的体育彩票、福利彩票预约购买App~彩种我最全，体彩、福彩全部彩种我都有；购彩我最快，支付宝、微信支付购彩，一键购买安全快捷；工具我最多，历史开奖、走势图、智能追号、专家推荐、奖金优化...">
+    <meta itemprop="name" content="专业好用的体育彩票、福利彩票预约购买App~彩种我最全，体彩、福彩全部彩种我都有；购彩我最快，支付宝、微信支付购彩，一键购买安全快捷；工具我最多，历史开奖、走势图、智能追号、专家推荐、奖金优化...">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+        #downloadDiv{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:1000;
+            background-color:rgba(0,0,0,.8);
+            background-repeat:no-repeat;
+            background-position:top right;
+            background-size:304px;
+            display:none
+        }
+
+        .download_android{
+            background-image:url(img/download_android.png);
+        }
+
+        .download_ios{
+            background-image:url(img/download_iphone.png);
+        }
+    </style>
+</head>
+<body>
+    <div style="margin:0 auto;width:0px;height:0px;overflow:hidden;">
+        <img src="img/sharelogo.png" style="position: absolute;z-index:;width: 400px;">
+    </div>
+    <section class="wrapper">
+        <div class="bg_success"></div>
+        <div class="bg_successInfo">
+            <p>注册成功</p>
+            <p>恭喜您注册成功，立即下载开启购彩之旅</p>
+        </div>
+        <!--btn-->
+      
+        <a href="javascript:;" class="register_btn top" >立即下载9188客户端</a><!--不可点状态 disabled_a-->
+        <!--访问触屏版-->
+        <a href="http://5.9188.com" class="link_a">访问触屏版</a>
+    </section>
+    <script type="text/javascript" src='./js/jquery-1.9.1.min.js'></script>
+    <script type="text/javascript">
+         var count=0; 
+        $("a.register_btn").click(function(e){
+            e.stopPropagation();
+            if(navigator.userAgent.toLowerCase().indexOf("micromessenger") != -1){
+                showDownload();
+            }else{
+                //Index.showDownload();
+                var ua = navigator.userAgent;
+                if(ua.indexOf('Android') > -1 || ua.indexOf('Linux') > -1){ //android
+                    $('a.register_btn').removeAttr("target");
+                    setTimeout(function(){
+                        location.href = 'http://mobile.9188.com/app/latest/CaiYiLottery-9188cp.apk'
+                    } , 300)
+                } else if(ua.indexOf('iPhone') > -1 || ua.indexOf('iPad') > -1 || ua.indexOf('iPod') > -1){ // ios
+                    count++
+                    if(count==2){
+                        location.reload()
+                    }
+                    url = "https://itunes.apple.com/cn/app/9188cai-piao-cai-piao-tou/id1151245688?mt=8";
+                    window.location.href=url;
+                }else if(ua.indexOf("Windows Phone") > -1 || ua.indexOf('Trident') > -1){   //  Window Phone
+                    $('a.register_btn').removeAttr("target");
+                    url = "https://www.microsoft.com/zh-cn/store/p/9188%E5%BD%A9%E7%A5%A8/9wzdncrdm132#";
+                    window.location.href= url;
+                }else {
+                    $('a.register_btn').removeAttr("target");
+                    setTimeout(function(){
+                        location.href = 'http://mobile.9188.com/app/latest/CaiYiLottery-9188cp.apk ';
+                    } , 100)
+                }
+            }
+            // e.stopPropagation();
+            // if(navigator.userAgent.toLowerCase().indexOf("micromessenger") == -1 ){//微信
+            //     $('a.register_btn').removeAttr("target");
+            //     IshowDownload();
+            // }else if(navigator.userAgent.toLowerCase().indexOf("qqmobile") == -1 ){
+            //      $('a.register_btn').removeAttr("target");
+            //     IshowDownload();
+            
+        })
+        function showDownload(){
+            if(!$("#downloadDiv").length){
+                var ua = navigator.userAgent;
+                var _d = document;
+                var _b = _d.body;
+                var downloadDiv = _d.createElement("div");
+                downloadDiv.setAttribute("id","downloadDiv");
+                _b.appendChild(downloadDiv);
+                
+                $(downloadDiv).addClass("download_android");
+                
+               if(ua.indexOf('Android') > -1 || ua.indexOf('Linux') > -1){ //android
+                   $(downloadDiv).addClass("download_android");
+                } else if(ua.indexOf('iPhone') > -1 || ua.indexOf('iPad') > -1 || ua.indexOf('iPod') > -1){ // ios
+                    $(downloadDiv).addClass("download_iphone");
+                }     
+            }
+            $("#downloadDiv").fadeIn(function(){
+                $(this).bind("click",function(){
+                    $(this).fadeOut();
+                });
+            });
+        }
+function weixinShare() {
+    $.ajax({
+        url : '/requestService.go',
+        type : 'POST',
+        data : {
+            action : 'getShareParam',
+            shareurl : location.href
+        },
+        success : function(xml) {
+            var R = $(xml).find('Resp');
+            var r = R.find('row');
+            var appId = r.attr('appId');
+            var timestamp = r.attr('timestamp');
+            var nonceStr = r.attr('nonceStr');
+            var signature = r.attr('signature');
+            wx.config({
+                debug : false,// 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId : appId, // 必填，公众号的唯一标识
+                timestamp : timestamp, // 必填，生成签名的时间戳
+                nonceStr : nonceStr, // 必填，生成签名的随机串
+                signature : signature,// 必填，签名，见附录1
+                jsApiList : [ 'onMenuShareTimeline',
+                        'onMenuShareAppMessage',
+                        'onMenuShareQQ', 'onMenuShareWeibo' ]
+            // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+
+            });
+            wx.ready(function() {
+                var title = '免费注册9188彩票'; // 分享标题
+                var desc = '免费注册9188彩票，即刻开启购彩之旅'; // 分享描述
+                var link = 'http://5.9188.com/NewVipRegister/index.html'; // 分享链接
+                var imgUrl = 'http://5.9188.com/NewVipRegister/img/sharelogo.png'; // 分享图标
+                var dataUrl = location.href;// 如果type是music或video，则要提供数据链接，默认为空
+                // alert(imgUrl)
+                // location.host+'/activity/NewVipRegister/img/sharelogo.png'
+                wx.onMenuShareAppMessage({//分享给朋友
+                    title : title,
+                    desc : desc,
+                    link : link, // 分享链接
+                    imgUrl : imgUrl, // 分享图标
+                    type : 'link', // 分享类型,music、video或link，不填默认为link
+                    dataUrl : dataUrl, // 如果type是music或video，则要提供数据链接，默认为空
+                    success : function() {
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel : function() {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+                wx.onMenuShareTimeline({//分享到朋友圈
+                    title : title, // 分享标题
+                    link : link, // 分享链接
+                    imgUrl : imgUrl, // 分享图标
+                    success : function() {
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel : function() {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+
+                wx.onMenuShareQQ({//分享到QQ
+                    title : title, // 分享标题
+                    desc : desc, // 分享描述
+                    link : link, // 分享链接
+                    imgUrl : imgUrl, // 分享图标
+                    success : function() {
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel : function() {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+
+                wx.onMenuShareWeibo({//分享到腾讯微博
+                    title : title, // 分享标题
+                    desc : desc, // 分享描述
+                    link : link, // 分享链接
+                    imgUrl : imgUrl, // 分享图标
+                    success : function() {
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel : function() {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+                // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+                });
+            }
+            });
+        }
+        $(document).ready(function(){
+            weixinShare();
+        })
+    </script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/qzact/common/share/share.js"></script>
+    <script type="text/javascript">
+         setShareInfo({
+             title:          '免费注册9188彩票',
+             summary:        '专业好用的体育彩票、福利彩票预约购买App~彩种我最全，体彩、福彩全部彩种我都有；购彩我最快，支付宝、微信支付购彩，一键购买安全快捷；工具我最多，历史开奖、走势图、智能追号、专家推荐、奖金优化...',
+             pic:            'http://5.9188.com/NewVipRegister/img/sharelogo.png',
+             url:            'http://5.9188.com/NewVipRegister/index.html',
+             WXconfig:       {
+                 swapTitleInWX: true,
+                 appId: '',
+                 timestamp: '',
+                 nonceStr: '',
+                 signature: ''
+             }
+         });
+    </script>
+</body>
+</html>

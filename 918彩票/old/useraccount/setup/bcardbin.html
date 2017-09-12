@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>账户安全_账户中心-9188彩票网</title>
+<meta name="description" content="9188彩票网为彩民提供专业的彩票网上投注、合买、开奖结果、走势分析、比分直播等服务，覆盖福彩、体彩、足彩、竞彩、快频等彩种。9188—彩票网上投注最佳选择！">
+<meta name="keywords" content="福利彩票，福彩，体育彩票，体彩，足彩，网上买彩票，彩票合买，彩票开奖，彩票走势图，彩票预测">
+<link href="/css/bass.css" rel="stylesheet" type="text/css">
+<link href="/css/fc.css" rel="stylesheet" type="text/css">
+<link href="/css/account.css" rel="stylesheet" type="text/css">
+<body style="background:#efefef">
+<article>
+	<header class="tzHeader">
+    	<section class="buyHeader">
+    		<h1>银行卡绑定</h1>
+            <a href="javascript:history.go(-1);" class="backIco2"></a>
+    	</section>
+    </header>
+    <div class="pdLfrt09 pdBot03" id='bdCard' style='display:none;'>
+    	<p class="pdTop08 fontSize09">开户行</p>
+        <div class="s1 select" onclick='sBank()' id='ibank'>
+        	<em></em>
+        </div>
+        <div class="clearfix">
+        	<div class="s1 left select" style="width:48%; margin-right:4%" onclick='spve()' id='spve'>
+        		<em></em>
+        	</div>
+        	<div class="s1 left select" style="width:48%" id='icity' onclick='icity()'>
+        		<em></em>
+        	</div>
+        </div>
+    	<div class="s1"><input type="text" placeholder="请输入支行名称" class="mgLeft09" id='zhihang' ></div>
+    	<div class="s1 s21"><span>开户名</span><input type="text" placeholder="请输入开户姓名"></div>
+    	<div class="s1 s21"><span>卡&nbsp;&nbsp;号</span><input maxlength='30' type="text" placeholder="请输入卡号" id='kahao'></div>
+        <div class="s1 s21 relative"><span>9188密码</span><input maxlength='20' type="password" placeholder="请输入账户密码" id='mima'><em class="zhuceOpen" style='display:none'>123</em><em class="zhuceOpen2">***</em></div>
+        <p class="pdTop08"><a href="/useraccount/setup/forgotpass.html" class="aGreen">忘记密码？</a></p>
+        <a href="javascript:;" class="payment" onclick='isOk();'>确认</a>
+    </div> 
+    <div class="pdLfrt09 bankcard" id='success' style='display:none;'>
+    	<p class="pdTop06"></p>
+    	<p class="pdTop06"></p>
+    	<p class="pdTop06"></p>
+    	<p class="pdTop06"></p>
+        <p class="yellow pdTop1">如需修改银行卡号，请联系在线客服，并提供身份证和银行卡扫描件或者数码照。客服电话 400-673-9188</p>
+        <a href="/useraccount/setup/bcardbin.html?amend=y" class="payment">修改开户行信息</a>
+    </div>
+    <div class="bcard" style='display:none;position: absolute;z-index: 1000;' id='banks'>
+    	<ul>
+			
+	        <li value="2">工商银行</li>
+	        <li value="13">农业银行</li>
+	        <li value="1" class="cur">招商银行</li>
+	        <li value="3">建设银行</li>
+	        <li value="6">交通银行</li>
+	        <li value="10">光大银行</li>
+	        <li value="12">民生银行</li>
+	        <li value="9">兴业银行</li>
+	        <li value="4">中国银行</li>
+	        <li value="8">中信银行</li>
+			<li value="4000">浦发银行</li>
+			<li value="23">平安银行</li>
+	        <li value="1000">广发银行</li>
+	        <li value="25">邮政储蓄</li>
+	        <li value="11">华夏银行</li>
+         </ul>
+    </div>
+    <div class="bcard" style='display:none;position: absolute;z-index: 1000;' id='pve'>
+    	<ul>
+    		<li class="cur">上海</li>
+	    	<li>北京</li>
+			<li>天津</li>
+			<li>重庆</li>
+			<li>河北</li>
+			<li>山西</li>
+			<li>内蒙古</li>
+			<li>辽宁</li>
+			<li>吉林</li>
+			<li>黑龙江</li>
+			<li>江苏</li>
+			<li>浙江</li>
+			<li>安徽</li>
+			<li>福建</li>
+			<li>江西</li>
+			<li>山东</li>
+			<li>河南</li>
+			<li>湖北</li>
+			<li>湖南</li>
+			<li>广东</li>
+			<li>广西</li>
+			<li>海南</li>
+			<li>四川</li>
+			<li>贵州</li>
+			<li>云南</li>
+			<li>西藏</li>
+			<li>陕西</li>
+			<li>甘肃</li>
+			<li>宁夏</li>
+			<li>青海</li>
+			<li>新疆</li>
+        </ul>
+    </div>
+    <div class="bcard" style='display:none;position: absolute;z-index: 1000;' id='city'>
+    	<ul>
+			<li class="cur">上海</li>
+        </ul>
+    </div>
+    <div id='zhezhao' style='position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; display: none; background: none repeat scroll 0% 0% gray; opacity: 0.5; z-index: 999;'></div>
+</article>
+</body>
+<input type="hidden" id="khbank" value="0" />
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/public/base.js"></script>
+<script src="/js/public/login.js"></script>
+<script src='/js/useraccount/bd_card.js'></script>

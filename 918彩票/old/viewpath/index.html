@@ -1,0 +1,164 @@
+<script>
+String.prototype.getParam = function(n){
+	var r = new RegExp("[\?\&]"+n+"=([^&?]*)(\\s||$)", "gi");
+	var r1=new RegExp(n+"=","gi");
+	var m=this.match(r);
+	if(m==null){
+		return "";
+	}else{
+		return typeof(m[0].split(r1)[1])=='undefined'?'':decodeURIComponent(m[0].split(r1)[1]);
+	}
+};
+
+if(location.hash == ''){
+	
+	var lotid_in = location.search.getParam('lotid');
+	var projid_in = location.search.getParam('projid');	
+	location.replace('/?share=Android#class=url&xo=viewpath/?&lotid='+lotid_in+'&projid='+projid_in);
+
+}
+</script>
+
+
+<style>
+.show{ position:fixed; width:15.6rem; height:20.5rem; top:0; right:8%; z-index:2}
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1}
+</style>
+<article>
+	<header class="tzHeader">
+    	<section class="buyHeader">
+    		<h1 id='pType'></h1>
+    		<div id="bf" class="zbico" style="top:.75rem"></div>
+    		<a href="javascript:;" class="backIco2"></a>
+    		<a href="javascript:;" class="share"></a>
+		</section>
+    </header>
+    <section>
+    <p class="loading"><img src="/img/load.gif">正在加载</p>
+    <div id='hemai' style='display:none;'>
+      <div class="pd063">
+    	<p class="yellow" style='display:none;' id='newfa'>亲，您的合买已发起成功，祝您中大奖！</p>
+  		<div class="clearfix pdTop08"><h2 class="left fontSize1" id='gType'></h2><cite class="left gray pdLeft06" id='expect'></cite><a href="javascript:main_return_confirm();" style='display:none;' class="cance right" id='cancelD'>撤单</a></div>
+      </div>
+        <div class="hmTxt"><em class="fontSize095" id='uName'></em>   <cite class="gray pdLeft04" id='rank'></cite></div>
+        <div class="hmTxt relative clearfix" id='ww_bdi' style='padding-right:0'>
+        	<span class="left w3_6 mgTop04">
+            	<cite class="per" id='rg'></cite>
+                <em class="pro mgTop06" id='bd'></em>
+            </span>
+        	<div class="gray left w15">
+            	<p id='rgDetail'></p>
+                <p class="pdTop08" id='surplus'></p>
+            </div>
+        </div>
+        <div class="progress relative mgTop2 mgLeft05">
+        	<em></em>
+            <i></i>
+        	<em></em>
+            <i></i>
+        	<em></em>
+            <i></i>
+            <em></em>
+            <div class="clear"></div>
+            <cite class="waitKj" id='s_paint' style='display:none;'></cite>
+        	<div class="progressHover" id='f_paint'>
+            	<cite></cite>
+            	<o class="barLine"></o>
+        		<cite class="barCircle2"></cite>
+            	<o class="barLine2"></o>
+        		<cite class="barCircle3"></cite>
+            	<o class="barLine3"></o>
+            	<cite class="barCircle4"></cite>
+            </div>
+        </div>
+        <p class="progressTxt pdTop03"><span>发起</span><cite>出票成功</cite><o>开奖</o><i>派奖</i></p>
+        <div class="since mgTop06 clearfix" id='kjCodes'><i>开奖号码</i><span class="sinceTxt"></span></div>
+        <div class="since mgTop06 clearfix"  id='zjSituation'><i>中奖情况</i><span class="sinceTxt"></span></div>
+        <a href="javascript:;" class="hmTxt mgTop06 hmTxt2 clearfix" id='authority'><span class="left">投注内容</span> <cite class="right black"></cite><em class="hmArrow"></em></a>
+        <a href="javascript:partake();" class="hmTxt hmTxt2 clearfix"><span class="left">跟单用户</span> <cite class="yellow right" id='views'></cite><em class="hmArrow"></em></a>
+        <a href="javascript:record();" class="hmTxt hmTxt2">我的认购<em class="hmArrow"></em></a>
+        <div class="hmTxt gray mgTop06" id='cdesc'></div>
+        <div class="pd063 gray" id='tDetail'></div>
+    </div>
+    <div id='zigou' style='display:none;'>
+	    <p class="yellow pdLeft06 pdTop06" style='display:none;'>亲，您已购彩成功，祝你中大奖</p>
+		<p class="clearfix pd063 fontSize095"></p>
+        <div class="progress relative mgTop2 mgLeft05">
+        	<em></em>
+            <i></i>
+        	<em></em>
+            <i></i>
+        	<em></em>
+            <i></i>
+            <em></em>
+            <div class="clear"></div>
+            <cite style="left: 1rem;" id='s_paint_zg' class="waitKj"></cite>
+        	<div id='f_paint_zg' class="progressHover" style="width: 2.2rem;">
+            	<cite></cite>
+            	<o class="barLine"></o>
+        		<cite class="barCircle2"></cite>
+            	<o class="barLine2"></o>
+        		<cite class="barCircle3"></cite>
+            	<o class="barLine3"></o>
+            	<cite class="barCircle4"></cite>
+            </div>
+        </div>
+        
+        <p class="progressTxt pdTop03"><span>发起</span><cite>出票成功</cite><o>开奖</o><i>派奖</i></p>
+        <div class="since mgTop06 clearfix" id='faje'><i>方案金额</i><span class="gray sinceTxt"></span></div>
+        <div class="since clearfix yellow" id='zgzjSituation'><i>中奖情况</i><span class="sinceTxt"></span></div>
+        <div class="since mgTop06 clearfix" id='zgCode'><i>开奖号码</i><span class="sinceTxt"></span></div>
+        <div class="since clearfix" id='zgContent'>
+        	<i>投注内容</i>
+        	<div class="gray sinceTxt">
+            </div>
+        </div>
+        <div class='pd063 lcbetText' id='clasli'>
+        </div>
+        <p class="pdLeft08" id='jcts' style='display:none;'>*上述sp值仅为投注时的参考值，非计奖sp值</p>
+        <div id='zgDetail'>
+	        <p class="pdLeft08 pdTop03">编号 <em class="gray"></em></p>
+			<p class="pdLeft08">时间  <em class="gray"></em></p>
+        </div>
+        <div class="pd063" style='display:none;'><a href="recharge.html" class="payment">继续购买此方案</a></div>
+    </div>
+    </section>
+    <footer class="buyFooter" style='display:none;'>
+    <div class="fixed buyFloat">
+        <span class="left pdLeft06">认购<input type="text" value="1" class="hmbuyInput" onfocus="this.select()">元</span>
+        <a href="javascript:;" class="ture" id='iPay'>购买</a>
+    </div>
+	</footer>
+	 
+	<footer class="buyFooter1" style='display:none;'>
+	<div class="fixed kjFloat">
+        <a id="payment" href="javascript:;" class="payment" style="">去投注</a>
+   	  </div>
+	</footer>
+	
+</article>
+<section class="zfPop" style='display:none;position: absolute;z-index: 1000' id='zj_bd'>
+    <h4>我要保底：</h4>
+    <input type="text" value="1" class="tcinput" onfocus="this.select()">
+    <div class="zfTrue clearfix"><a href="javascript:;" id='qx_bd' class="zfqx">取 消</a><a href="javascript:qdbaodi();">确 定</a></div>
+</section>
+<div id='zhezhao' style='position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; display: none; background: none repeat scroll 0% 0% gray; opacity: 0.5; z-index: 999;'></div>
+<section style="position: absolute; z-index: 1000;display:none;" class="zfPop" id="ww_share">
+	<h4>分享</h4>
+		<div id="ckepop">
+		<span class="jiathis_txt">分享到：</span>
+		<div class="left w14_4">
+		<a class="jiathis_button_qzone">QQ空间</a>
+		<a class="jiathis_button_tsina">新浪微博</a>
+		<a class="jiathis_button_renren">人人网</a>
+		<a class="jiathis_button_douban">豆瓣</a>
+		<a class="jiathis_button_kaixin001">开心网</a>
+		</div>
+		</div>
+		<script charset="utf-8" src="http://v2.jiathis.com/code/jia.js" type="text/javascript"></script>
+	<a class="tureBtn" href="javascript:;" id='ww_ok'>确定</a>
+</section>
+<div class="show" id="invite_friend_xy" style='display:none;'><img width="100%" src="/word_weixin/img/show.png"></div>
+<div id="invite3" class="zhezhao" style='display:none;'></div>
+<input type="hidden" id="bd" value="0" />
+<script src='/js/trade/viewpath.js'></script>

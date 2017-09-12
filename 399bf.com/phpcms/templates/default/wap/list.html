@@ -1,0 +1,60 @@
+{php $css = ['bt_information.css'];}
+{template 'wap', 'wap_header'}
+<div class="content h100">
+    <div class="buttons-tab">
+        {if $nav_id == 3}
+        <a href="{WAP_PATH}zctj/" class="{if $catid == 3}active{/if} button" >足彩推荐</a>
+        <a href="{WAP_PATH}zcyc/" class="{if $catid == 2}active{/if} button" >足彩预测</a>
+        <a href="{WAP_PATH}zcfx/" class="{if $catid == 1}active{/if} button" >足彩分析</a>
+        {else}
+        <a href="{WAP_PATH}wdls/" class="{if $catid == 28}active{/if} button" >五大联赛</a>
+        <a href="{WAP_PATH}sjzt/" class="{if $catid == 30}active{/if} button" >世界足坛</a>
+        <a href="{WAP_PATH}cnzt/" class="{if $catid == 29}active{/if} button" >中国足坛</a>
+        {/if}
+    </div>
+
+        <div class="tabs h100">
+            <div class="tab active h100">
+                <div style="margin: -25px 0;" class="h100">
+                    <div class="list-block media-list h100">
+                        <ul class="list-container h100 scroll-wrap">
+                            {loop $list $r}
+                            <li>
+                                <a href="{$r['url']}" class="item-link item-content pd">
+                                    <div class="item-media">
+                                        <img src="{get_thumb($r['thumb'], 350)}" alt="{$r['title']}">
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">
+                                                {$r['title']}
+                                            </div>
+                                        </div>
+                                        <div class="item-text">
+                                            {$r['description']}
+                                        </div>
+                                        <div class="list_desc">
+                                            <span class="">{date('Y-m-d H:i', $r['inputtime'])}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            {/loop}
+                        </ul>
+                        <div class="scroll-alert">正在加载...</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {template 'wap', 'footer_nav'}
+</div>
+
+</div>
+</div>
+<script>
+    var catid = {$catid},
+         page = 2;
+</script>
+{php $js = ['loading.js'];}
+{template 'wap', 'wap_footer'}

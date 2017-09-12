@@ -1,0 +1,70 @@
+body{ margin:0; padding:0; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#272727; background-color: #f5f4f9; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ul,li{ list-style-type:none}
+em,cite,i{ font-style:normal}
+a{ color:#106fe5; text-decoration:none}
+p{text-align:justify; text-justify:inter-ideograph;}
+
+.fixed-top{position: fixed; top:2.7rem; left: 0; right: 0; z-index: 10; background-color:#f5f4f9; box-shadow: 0 2px 2px rgba(84,108,0,0.14); }
+.daily_main-box{  padding-top:5.25rem;}
+
+.daily_nav-box{ padding: .5rem 0;}
+.daily_nav{ width: 60%; margin: 0 auto; height:1.75rem; background-color: #f5f4f9; border:1px solid #fc5638; border-radius: 2px;}
+.daily_nav span{ display: inline-block; width:50%;height:1.75rem; line-height: 1.75rem; text-align: center; color: #fc5638; font-size: .95rem; background-color: transparent; cursor: pointer;}
+.daily_nav span.active{color:#fff;background-color: #fc5638;}
+.daily_time{display: -webkit-box;display: -moz-box; display: -ms-flexbox;display: -webkit-flex; display: flex; height: 2.5rem; background-color: #fff;}
+.daily_time-left{ -webkit-box-flex: 1; -moz-box-flex: 1;-webkit-flex: 1; -ms-flex: 1; flex: 1; line-height: 2.5rem; padding-left: .625rem;}
+.daily_time-right{ display: block;width:.875rem;  padding-right: 1rem;}
+.daily_time-ico{ display: block; width:.875rem; height: .875rem; margin-top: .812rem; cursor: pointer; background: url("../img/daily_time-ico.png") 0 0 no-repeat;
+	background-size: .875rem .875rem;}
+.daily_time-list{ position: fixed; top:7.75rem; right:.625rem; z-index: 1010;  width: 5.8rem; line-height: 1.8rem;font-size:.7rem;}
+.daily_time-list:before{ position: absolute; top:-.25rem; right: .5rem; content: ""; width: .5rem; height: .5rem; background-color: #fff; transform:rotate(45deg);}
+.daily_time-list li{padding-left: .8rem;  height: 1.8rem; line-height: 1.8rem; color: #9d9d9d; background-color: #fff; border-bottom: 1px solid #d2d2d2;}
+.daily_time-list li.active{ color: #ff542d;}
+.daily_mask{ position: fixed; z-index: 1000; display: block; width: 100%; height: 100%; background-color: rgba(0,0,0,.5);}
+.daily_main{ padding: .5rem; border-bottom: 1px dashed #d2d2d2;}
+.daily_main-top{position: relative; padding: 1rem .5rem 1rem 1rem;margin: .75rem 0; background-color: #fff; box-shadow:0 2px 2px rgba(84,108,0,0.14);}
+.daily_main-top:before,.daily_main-top:after{ position: absolute; top:3.8rem; content: ""; width: 7px; height: 14px; background-color: #efeff0;}
+.daily_main-top:before{left:0; border-radius:0 14px 14px 0;}
+.daily_main-top:after{right:0; border-radius:14px 0 0 14px;}
+.daily_main-h{ position: relative;}
+.daily_main-h:before{ position: absolute; top:50%; left: -1rem; width: .3rem; height: 1.4rem; content: ""; margin-top: -.7rem; background-color: #fc5638;}
+.daily_main-h h2{ width:80%; font-size: 1rem;}
+.daily_main-h p{width:90%;font-size: .75rem; color: #9d9d9d;}
+.daily_main-time{ position: absolute; top:0; right:0; font-size: .75rem; color: #9d9d9d; text-align: right; line-height: 1rem;}
+.daily_main-class{ padding-right: .5rem; position: relative;}
+.daily_main-wu{display: -webkit-box;display: -moz-box; display: -ms-flexbox;display: -webkit-flex;display:flex;
+	-webkit-box-flex: 1; -moz-box-flex: 1;-webkit-flex: 1; -ms-flex: 1; flex: 1;
+	-webkit-box-pack:center; -webkit-justify-content: center;-moz-justify-content: center;
+	-ms-justify-content: center;-o-justify-content: center;justify-content: center; padding: 2.5rem 0;
+}
+.daily_main-zhong{ position: absolute; bottom:-2.2rem; right: 0; width:3.8rem; height: 3.8rem; background: url("../img/zhong.png") 0 0 no-repeat;
+	-webkit-background-size: 3.8rem 3.8rem; -moz-background-size: 3.8rem 3.8rem; -o-background-size: 3.8rem 3.8rem;-ms-background-size: 3.8rem 3.8rem; background-size: 3.8rem 3.8rem;
+-webkit-transform:rotate(23deg);-moz-transform:rotate(23deg);-o-transform:rotate(23deg);-ms-transform:rotate(23deg);transform:rotate(23deg);}
+.daily_main-wu img{ width:14.16rem; height: 4.94rem;}
+.daily_main-vs{display: -webkit-box;display: -moz-box; display: -ms-flexbox;display: -webkit-flex;display: flex;justify-content: center; flex-direction:row; padding-top: 1rem; }
+.daily_main-l,.daily_main-r,.daily_main-l > img,.daily_main-r > img{ width:2.7rem; height: 2.7rem}
+.daily_main-c{ -webkit-box-flex: 1; -moz-box-flex: 1;-webkit-flex: 1; -ms-flex: 1; flex: 1;  
+-webkit-box-align: center;-webkit-align-items: center;-moz-align-items: center;-ms-align-items: center;-o-align-items: center;align-items: center;}
+.daily_main-h1{ padding-top: .3rem; color: #191919; font-size: .875rem;text-align: center; height: 1.3125rem; line-height: 1.5; overflow: hidden;}
+.daily_main-h1 > i{ margin: 0 .3rem;}
+.daily_main-h2{ color:#9d9d9d; font-size:.75rem;text-align: center; line-height: 1.2;}
+.daily_match{ width: 100%; margin-top: 1rem; border-collapse: collapse; text-align: center;}
+.daily_match tr th{ padding: .85rem 0; font-size: .875rem; color: #191919; font-weight: normal; border:1px solid #cecece;}
+.daily_match tr td{ line-height: 1.5rem; font-size: .75rem; color: #9d9d9d;}
+.daily_green{color: #97c571;}
+.daily_match tr th.daily_bgred{ background-color: #ff542d; color: #fff; /* border: 1px solid #ff542d; */}
+.daily_main-bottom{display: -webkit-box;display: -moz-box; display: -ms-flexbox;display: -webkit-flex;display:flex; margin-bottom: .5rem;}
+.daily_explain-head{ width: 3rem;}
+.daily_explain-head img{ width: 2.4rem; height:2.75rem; }
+.daily_explain{ -webkit-box-flex: 1; -moz-box-flex: 1;-webkit-flex: 1; -ms-flex: 1; flex: 1; padding-top: .3rem;}
+.daily_rule{ margin: 2rem 1rem 1rem; overflow:hidden;}
+.daily_rule-h{ position:relative;width: 4rem; margin: 0 auto 1rem; text-align:center; height: 1.5rem; line-height: 1.5rem; font-size:.94rem; color: #909090;}
+.daily_rule-h:before,.daily_rule-h:after{ position: absolute; top:50%; content: ""; width: 250%; height: 1px; background-color: #adacae;}
+.daily_rule-h:before{ right:4rem;}
+.daily_rule-h:after{ left:4rem;}
+.daily_rule-h i{ display: inline-block; font-weight: bold; margin: 0 .5rem; }
+.daily_rule-p{ font-size: .875rem; color: #909090; line-height: 1.2;}
+.daily_rule-p p { margin-bottom: .5rem;}

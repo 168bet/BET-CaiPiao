@@ -1,0 +1,298 @@
+<!-- 指定彩种开奖 -->
+<section class="pdBot1" style='background: white'id='award'>
+	<div id="scroller" class="scroller">
+		<div id="list_record">
+			<div style='padding-top: 58px; height: 1000px'>
+				<em class="rotate_load" style='margin: auto'></em>
+			</div>
+		</div>
+		<div id="pullUp" style="display: none;">
+			<span class="pullUpIcon"></span><span class="pullUpLabel">上拉查看更多...</span>
+		</div>
+	</div>
+</section>
+<!-- 指定彩种开奖 -->
+<script>
+CP.Result = (function () {
+	var in_ = CP.Util.getPara('in_', window.location.href, 2);//获取url上面的参数in_
+	var g = {
+			cPage : '1',//初始化的时候显示第一页
+			total : '1'//默认总页数为1
+	}
+	var myScroll;
+	var o = {
+			//给球填颜色
+			anyCode : function (str) {
+				var html = "";
+				if(str){
+					if(str.indexOf("|")!=-1){
+						var Q = str.split("|");
+						var Q1 = Q[0].split(',');
+						var Q2 = Q[1].split(',');
+						for(var i=0, l = Q1.length; i<l ;i++){
+							html+='<cite>'+Q1[i]+'</cite>';
+						}
+						for(var i=0, l = Q2.length; i<l ;i++){
+							html+='<cite class="blue">'+Q2[i]+'</cite>';
+						}
+					}else{
+						var Q = str.split(",");
+						for(var i=0, l = Q.length; i<l ;i++){
+							if(in_ == '58'){
+								var Q1 = Q[i],Q2,Q3;
+								Q2 = Q1.substr(0,1);
+								Q2 = {'1':'spade','2':'heart','3':'club','4':'box'}[Q2];//黑红梅方
+								Q3 = Q1.substring(1);
+								Q3 = {'01':'A','11':'J','12':'Q','13':'K'}[Q3]||parseInt(Q3);
+			            		html+='<span><cite class='+Q2+'></cite><em '+(Q2 == 'heart' || Q2 == 'box' ?'class=red':'')+'>'+Q3+'</em></span>';
+							}else{
+								html+='<cite>'+Q[i]+'</cite>';
+							}
+						}
+					}
+				}
+				return html;
+			},
+			//渲染数据        
+			render:function(data){
+				var _out=[];
+				_out.push($("#list_record").html());
+				for(var i=0,l=data.length;i<l;i++){
+					var n=data[i];
+					var cl = 'kjNum';
+					if(in_ == '80' || in_ == '81'){
+						cl = 'kjBox';
+					}else if(in_=='58'){
+						cl = 'kjdice';
+					}
+					_out.push('<article my_data='+n.pid+'>');
+					_out.push('<div class="ssqkjList">');
+					_out.push('<div class="clearfix kjTit">第'+n.pid+'期  '+n.atime.substr(0,16)+'</div>');
+					_out.push('<div class="'+cl+'">'+o.anyCode(n.acode)+(in_ == '03' ? '<em>试机号'+n.trycode+'</em>' : '')+'</div>');
+					if (in_ == '01' || in_ == '50' || in_ == '03' || in_ == '51' || in_ == '52' || in_ == '53' || in_ == '07' || in_ == '80' || in_ == '81') {
+						_out.push('<i></i>');
+					}
+					_out.push('</div>');
+					_out.push('</article>');
+				}
+				if(in_=='58'){
+					$('#list_record').addClass('pklist').css({'background':'white'});
+				}
+				$("#list_record").html(_out.join(''));
+				if(g.cPage<g.total){
+					$("#pullUp").show();	
+				}else{
+					$("#pullUp").hide();	
+				}
+				myScroll.refresh();
+			},
+			loadOneLottery : function (xo ,cPage) {//xo 彩种id 根据不同彩种显示开奖
+				g.cPage = cPage || g.cPage;
+				if (g.cPage<=g.total) {
+					var data = {
+							gid : xo,//彩种id
+							pn : g.cPage,//当前要差的页数
+							ps : '10'//每页多少行
+					};
+					$.ajax({
+						url: CP.Data.apps+'/trade/list.go?'+jQuery.param(data),
+						dataType: 'xml',
+						type: 'POST',
+						success: function (xml) {
+							(g.cPage == '1') && $("#list_record").html('');
+							var R = $(xml).find("rows");
+							g.total = R.attr("tr");//总共多少页
+							var r = R.find('row');
+							var data = [];
+							r.each(function(a){
+								var t = {};
+								t.pid = $(this).attr("pid");//期次
+								t.atime = $(this).attr('atime');//开奖时间
+								t.acode = $(this).attr("acode");//开奖号码
+								t.trycode = $(this).attr("trycode");//试机号
+								data[a] = t;
+							});
+							o.render(data);
+						}
+					});
+				}
+			},
+			pageGo : {//页面跳转
+		            kj_list: function (xo) {
+		            	var xo = xo || '01';
+		                TopAnch.init({
+		                    title: CP.Util.lot(xo),
+		                    prevFun: function () {//左侧按钮绑定事件
+		                    	window.location.replace('#type=url&p=kj/index.html');
+		                    },
+		                    prevShow: true,
+		                    isBack:true
+		                });
+		                o.loadOneLottery(xo);
+		            }
+			},
+			init : function () {
+				o.pageGo.kj_list(in_);
+				o.layOut();
+				o.bind();
+			},
+			layOut : function(){
+				var w = window.innerHeight;
+				$("#award").height(w - 55);//94是下面加载更多的高度
+				window.onresize = function(){	
+					var w = window.innerHeight;
+					$("#award").height(w - 55);
+					window.myScroll&&myScroll.refresh&&myScroll.refresh();	
+				};
+				o.loadScroll();
+			},
+			//滚动条
+			loadScroll:function(){
+					var pullUpEl = document.getElementById('pullUp');	
+					var pullUpOffset = pullUpEl.offsetHeight;
+					myScroll = new iScroll('award', {
+						onRefresh: function () {
+							if (pullUpEl.className.match('loading')) {
+								pullUpEl.className = '';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉查看更多';
+							}
+						},
+						onScrollMove: function () {
+							if (this.y < (this.maxScrollY - 20) && !pullUpEl.className.match('flip')) {
+								pullUpEl.className = 'flip';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '松开加载数据';
+							} else if (this.y > (this.maxScrollY) && pullUpEl.className.match('flip')) {
+								pullUpEl.className = '';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉查看更多';
+							}
+						},
+						onScrollEnd: function () {
+							if (pullUpEl.className.match('flip')) {
+								pullUpEl.className = 'loading';
+								pullUpEl.querySelector('.pullUpLabel').innerHTML = '正在加载';
+								o.loadOneLottery(in_, ++g.cPage);
+							}
+						}
+					});					
+			},
+			//渲染数据        
+			render_mini:function(pid_, dom_){
+				$.ajax({
+					url : CP.Data.apps+'/trade/detail.go?gid='+in_+'&pid='+pid_,
+					type: 'POST',
+					dataType: 'xml',
+					success : function (xml) {
+						var r = $(xml).find('rows');//
+						var gsale = r.attr('gsale');//销量379450576
+						var ginfo = r.attr('ginfo');//奖金11482317,222337,3000,200,10,5
+						var ninfo = r.attr('ninfo');//中奖注数5,126,1246,62571,1173274,9177581
+						var gpool = r.attr('gpool');//滚存333290635
+						var Q = ginfo.split(',');//奖金
+		                var Q1 = ninfo.split(',');//中奖注数
+							var html = '';
+							if (in_ == '80' || in_ == '81') {//胜负彩和任九单独处理
+								html += '<ul class="kjList kjList2">\
+							            	<li class="gray"><cite>本期销量</cite><span>累积奖池</span></li>\
+							            	<li><cite>'+CP.Util.addCommas(gsale)+'元</cite><span>'+CP.Util.addCommas(gpool)+'元</span></li>\
+							            </ul><ul class="kjList">\
+							            	<li class="gray"><em>奖项</em><cite>注数(注)</cite><span>每注金额(元)</span></li>\
+							                <li><em>一等奖</em><cite>'+(Q1[0]||'--')+'</cite><span>'+(CP.Util.addCommas(Q[0])||'--')+'</span></li>';
+							                if (in_ == '80') {//胜负彩有2等奖
+							                	html += '<li><em>二等奖</em><cite>'+(Q1[1]||'--')+'</cite><span>'+(CP.Util.addCommas(Q[1])||'--')+'</span></li>';
+							                }
+							            html += '</ul>';
+								var R = r.find('row');
+								html += '<ul class="kjList sfckjList">';
+								var Q2='',Q3='',Q4='',Q5='';
+								R.each(function () {
+									var hn = $(this).attr('hn').split('').join('<br>');
+									var vn = $(this).attr('vn').split('').join('<br>');
+									Q2 += '<span>'+$(this).attr('result')+'</span>';
+									Q3 += '<span>'+$(this).attr('hs')+':'+$(this).attr('vs')+'</span>';
+									Q4 += '<span>'+hn+'</span>';
+									Q5 += '<span>'+vn+'</span>';
+								});
+								html += '<li>'+Q2+'</li><li class="gray">'+Q3+'</li><li>'+Q4+'</li><li>'+Q5+'</li></ul>';
+							} else {
+								var gid = r.attr('gid');
+								var pid = r.attr('pid');//期次
+								var acode = r.attr('acode');//开奖号 04,06,13,29,31,33|13
+								var code = r.attr('code');//04,06,13,29,31,33|13
+								var atime = r.attr('atime');//开奖时间2014-11-27 21:30:00
+								html += '<ul class="kjList kjList2">\
+					            	<li class="gray"><cite>本期销量</cite><span>累积奖池</span></li>\
+					            	<li><cite>'+CP.Util.addCommas(gsale)+'元</cite><span>'+CP.Util.addCommas(gpool)+'元</span></li>\
+					            </ul>\
+					            <ul class="kjList">\
+					            	<li class="gray"><em>奖项</em><cite>注数(注)</cite><span>每注金额(元)</span></li>';
+					            if(gid == '01' || gid == '51'){
+					            	html += '<li><em>一等奖</em><cite>'+Q1[0]+'</cite><span>'+CP.Util.addCommas(Q[0])+'</span></li>\
+							            	<li><em>二等奖</em><cite>'+Q1[1]+'</cite><span>'+CP.Util.addCommas(Q[1])+'</span></li>\
+							            	<li><em>三等奖</em><cite>'+Q1[2]+'</cite><span>'+CP.Util.addCommas(Q[2])+'</span></li>\
+							            	<li><em>四等奖</em><cite>'+Q1[3]+'</cite><span>'+CP.Util.addCommas(Q[3])+'</span></li>\
+							            	<li><em>五等奖</em><cite>'+Q1[4]+'</cite><span>'+CP.Util.addCommas(Q[4])+'</span></li>\
+							           	  	<li style="border-bottom:none"><em>六等奖</em><cite>'+Q1[5]+'</cite><span>'+CP.Util.addCommas(Q[5])+'</span></li>';
+					            } else if (gid == '07') {
+					            	html += ' <li><em>一等奖</em><cite>'+Q1[0]+'</cite><span>'+CP.Util.addCommas(Q[0])+'</span></li>\
+							                <li><em>二等奖</em><cite>'+Q1[1]+'</cite><span>'+CP.Util.addCommas(Q[1])+'</span></li>\
+							                <li><em>三等奖</em><cite>'+Q1[2]+'</cite><span>'+CP.Util.addCommas(Q[2])+'</span></li>\
+							                <li><em>四等奖</em><cite>'+Q1[3]+'</cite><span>'+CP.Util.addCommas(Q[3])+'</span></li>\
+							                <li><em>五等奖</em><cite>'+Q1[4]+'</cite><span>'+CP.Util.addCommas(Q[4])+'</span></li>\
+							                <li><em>六等奖</em><cite>'+Q1[5]+'</cite><span>'+CP.Util.addCommas(Q[5])+'</span></li>\
+							                <li><em>七等奖</em><cite>'+Q1[6]+'</cite><span>'+CP.Util.addCommas(Q[6])+'</span></li>';
+					            } else if (gid == '50') {
+					            	html += '<li><em>一等奖</em><cite>'+Q1[0]+'</cite><span>'+CP.Util.addCommas(Q[0])+'</span></li>\
+							                <li><em>二等奖</em><cite>'+Q1[1]+'</cite><span>'+CP.Util.addCommas(Q[1])+'</span></li>\
+							                <li><em>三等奖</em><cite>'+Q1[2]+'</cite><span>'+CP.Util.addCommas(Q[2])+'</span></li>\
+							                <li><em>四等奖</em><cite>'+Q1[3]+'</cite><span>'+CP.Util.addCommas(Q[3])+'</span></li>\
+							                <li><em>五等奖</em><cite>'+Q1[4]+'</cite><span>'+CP.Util.addCommas(Q[4])+'</span></li>\
+							                <li><em>六等奖</em><cite>'+Q1[5]+'</cite><span>'+CP.Util.addCommas(Q[5])+'</span></li>\
+							                <li><em>追加一等奖</em><cite>'+Q1[8]+'</cite><span>'+CP.Util.addCommas(Q[8])+'</span></li>\
+							                <li><em>追加二等奖</em><cite>'+Q1[9]+'</cite><span>'+CP.Util.addCommas(Q[9])+'</span></li>\
+							                <li><em>追加三等奖</em><cite>'+Q1[10]+'</cite><span>'+CP.Util.addCommas(Q[10])+'</span></li>\
+							                <li><em>追加四等奖</em><cite>'+Q1[11]+'</cite><span>'+CP.Util.addCommas(Q[11])+'</span></li>\
+							                <li><em>追加五等奖</em><cite>'+Q1[12]+'</cite><span>'+CP.Util.addCommas(Q[12])+'</span></li>';
+					            } else if (gid == '52') {
+					            	html += '<li><em>一等奖</em><cite>'+Q1[0]+'</cite><span>'+CP.Util.addCommas(Q[0])+'</span></li>';
+					            } else if(gid == '03' || gid == '53'){
+					            	html += '<li><em>直选</em><cite>'+Q1[0]+'</cite><span>'+CP.Util.addCommas(Q[0])+'</span></li>\
+						                <li><em>组三</em><cite>'+Q1[1]+'</cite><span>'+CP.Util.addCommas(Q[1])+'</span></li>\
+						                <li><em>组六</em><cite>'+Q1[2]+'</cite><span>'+CP.Util.addCommas(Q[2])+'</span></li>';
+					            }
+					            html += '</ul>';
+							}
+							dom_.html(html);
+							myScroll.refresh();
+					}
+				});
+				
+			},
+			bind : function () {
+				$('#list_record').delegate('.ssqkjList', 'click', function () {
+					if ($(this).find('i').length) {
+						$(this).find('i').toggleClass('rightArrow');
+						if (!$(this).attr('v')) {
+							$(this).parent().append('<div class="ssqkjText"><em class="rotate_load" style="margin:auto"></em></div>');
+							var pid = $(this).parent().attr('my_data');
+							o.render_mini(pid, $(this).parent().find('.ssqkjText'));
+							$(this).attr('v','yes');
+						} else {
+							var Q = $(this).parent().find('.ssqkjText');
+							if(Q.is(':visible')){
+								Q.hide();
+							}else{
+								Q.show();
+							}
+							myScroll.refresh();
+						}
+					}
+					
+				});
+			}
+	};
+	return {init: o.init};
+})();
+$(function () {
+    CP.Result.init();
+});
+</script>

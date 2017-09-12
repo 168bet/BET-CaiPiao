@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>{$SEO['title']}</title>
+      <meta name="keywords" content="{$SEO['keyword']}">
+      <meta name="description" content="{$SEO['description']}">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <link rel="shortcut icon" href="/favicon.ico">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+      <!-- build css -->
+      <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+      <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+      <link rel="stylesheet" href="{WAP_CSS_PATH}font-awesome.min.css">
+      <link rel="stylesheet" href="{WAP_CSS_PATH}main.css">
+      <link rel="stylesheet" href="{WAP_CSS_PATH}ft_match.css">
+    <!-- build css end -->
+
+
+  </head>
+  <body>
+    <div class="page-group">
+
+        <div class="page page-current" id="ft_database">
+
+            {template 'wap', 'ft_game_info'}
+
+            <div class="content">
+                <!-- 二级导航 -->
+                <div class="buttons-tab">
+                    <a href="{WAP_PATH}game/{$gameid}/event/" class="tab-item button">事件</a>
+                    <a href="{WAP_PATH}game/{$gameid}/lineup/" class="tab-item button">阵容</a>
+                    <a href="{WAP_PATH}game/{$gameid}/analyse/" class="tab-item button">分析</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddsasia/" class="tab-item button">亚赔</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddseuro/" class="tab-item active button">欧赔</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddsou/" class="tab-item button">大小</a>
+                </div>
+                <!-- 二级导航 end-->
+
+                <div class="lump">
+                    
+                    <div class="lump-content">
+
+                        {loop $odds_stat $type $data}
+                        <div class="lump-item euro">
+                            <table class="table  table-noborder">
+                                <tr>
+                                    <td width="23%">{L($type)}</td>
+                                    <td width="20%">
+                                        <div class="line-max">初盘</div>
+                                        <div class="line-max">即盘</div>
+                                    </td>
+                                    <td width="20%">
+                                        <div class="line-max">{$data['fhomewin']}</div>
+                                        <div class="line-max">{$data['homewin']}</div>
+                                    </td>
+                                    <td width="20%">
+                                        <div class="line-max">{$data['fdraw']}</div>
+                                        <div class="line-max">{$data['draw']}</div>
+                                    </td>
+                                    <td>
+                                        <div class="line-max">{$data['fawaywin']}</div>
+                                        <div class="line-max">{$data['awaywin']}</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        {/loop}
+
+                        <!-- other -->
+                        <div class="lump-title">
+                            <table class="table-head table">
+                                <tr>
+                                    <td width="23%">公司</td>
+                                    <td width="20%">&nbsp;</td>
+                                    <td width="20%">主胜</td>
+                                    <td width="20%">平局</td>
+                                    <td>客胜</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        {loop $odds $data}
+                        <div class="lump-item euro">
+                            <table class="table  table-noborder">
+                                <tr>
+                                    <td width="23%">{$data['companyname']}</td>
+                                    <td width="20%">
+                                        <div class="line-max">初盘</div>
+                                        <div class="line-max">即盘</div>
+                                    </td>
+                                    <td width="20%">
+                                        <div class="line-max">{$data['fhomewin']}</div>
+                                        <div class="line-max"><span class="{$data['home_trend']}">{$data['homewin']}</span></div>
+                                    </td>
+                                    <td width="20%">
+                                        <div class="line-max">{$data['fdraw']}</div>
+                                        <div class="line-max"><span class="{$data['draw_trend']}">{$data['draw']}</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="line-max">{$data['fawaywin']}</div>
+                                        <div class="line-max"><span class="{$data['away_trend']}">{$data['awaywin']}</span></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        {/loop}
+
+                    </div>
+
+                </div>
+
+
+                {template 'wap', 'footer_nav'}
+
+            </div>
+        </div>
+
+
+    </div>
+
+    {template 'wap', 'wap_footer'}

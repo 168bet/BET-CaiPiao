@@ -1,0 +1,90 @@
+	<header class="moreHeader"><a href="/" class="backIco2 moreico"></a><h1>更多</h1></header>
+    	<ul class="all2 all3">
+			<li>
+            	<a href="#class=url&xo=jxssc/index.html" id='tag_20'>
+        			<span class="icoLogo jxsscLogo"></span>
+           			<h2>新时时彩</h2>
+                    <p></p>
+				</a>
+            	<a href="#class=url&xo=sfgg/index.html" id='tag_84'>
+        			<span class="icoLogo sfggLogo"></span>
+           			<h2>胜负过关</h2>
+                    <p></p>
+				</a>
+				
+        	</li>
+			<li>
+            	<a href="#class=url&xo=ahk3/index.html" id=tag_06>
+        			<span class="icoLogo ahk3Logo"></span>
+           			<h2>快3</h2>
+                    <p></p>
+				</a>
+				<a href="#class=url&xo=pk3/index.html" id='tag_58'>
+        			<span class="icoLogo pk3Logo"></span>
+           			<h2>快乐扑克3</h2>
+                    <p></p>
+				</a>				
+        	</li>
+        	<li>
+            	<a href="#class=url&xo=3d/index.html" id='tag_03'>
+        			<span class="icoLogo sdLogo"></span>
+           			<h2>福彩3D</h2>
+                    <p></p>
+				</a>
+				<a href="#class=url&xo=p3/index.html" id='tag_53'>
+        			<span class="icoLogo p3Logo"></span>
+        			<h2>排列三</h2>
+                    <p></p>
+        		</a>
+        	</li>
+        	<li>
+            	<a href="#class=url&xo=p5/index.html" id='tag_52'>
+        			<span class="icoLogo p5Logo"></span>
+           			<h2>排列五</h2>
+                    <p></p>
+				</a>
+				<a href="#class=url&xo=qxc/index.html" id='tag_51'>
+        			<span class="icoLogo qxcLogo"></span>
+        			<h2>七星彩</h2>
+                    <p></p>
+        		</a>
+        	</li>
+        	<li>
+            	<a href="#class=url&xo=qlc/index.html" id='tag_07'>
+        			<span class="icoLogo qlcLogo"></span>
+           			<h2>七乐彩</h2>
+                    <p></p>
+				</a>
+				<a href="#class=url&xo=11ydj/index.html" id='tag_56'>
+        			<span class="icoLogo syydjLogo"></span>
+        			<h2>11运夺金</h2>
+                    <p></p>
+        		</a>
+       	</li>
+       	<li>
+        	 				<a href="#class=url&xo=11x5/index.html" id='tag_54'>
+        			<span class="icoLogo syx5Logo"></span>
+        			<h2>11选5</h2>
+                    <p></p>
+        		</a>  
+        		</li>	  
+        </ul>
+<script>
+$(function(){
+	$.ajax({
+		url:"/data/app/latest-lottery-touch-brief.xml",
+		success  : function (xml){
+			var brief = $(xml).find('brief');
+			brief.each(function(){
+				var g_ = $(this).attr('gid');
+				var b_ = $(this).attr('brief');//彩种简介
+				var addtional = $(this).attr('addtional');//是否加奖 yes是 no否
+				$('#tag_'+g_).find('p').html(b_);
+				if(addtional === 'yes'){
+					$('#tag_'+g_).find('em').eq(0).addClass('jjico');
+				}
+			});
+		}
+	});
+});
+</script>

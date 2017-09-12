@@ -1,0 +1,219 @@
+{php $css = ['ft-team.new.css'];}
+{php $nav_id = 6;}
+{template 'content', 'header_score'}
+
+<!-- nav -->
+<div class="container pathNav">
+    <div class="row">
+        <ul class="clearfix">
+            <li>
+                当前位置:
+            </li>
+            <li><a href="##">足球资料库</a></li>
+            <li><a href="##">{$player_info['club']}</a></li>
+            <li>{$player_info['name']}</li>
+        </ul>
+    </div>
+</div>
+<!-- nav end -->
+
+<!-- main body -->
+<section class="pdB20" id="player">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-sm-8 pdR0 pdL0">
+                <div class="main">
+
+                    <div class="top-info clearfix">
+                        <div class="info-logo">
+                            <img src="{$player_info['photo']}" alt="{$player_info['name']}" class="player-photo">
+                            <div>
+                                <b class="info-logo-title">{$player_info['name']}</b>
+                                <p class="info-logo-title" style="font-size: 10px">{$player_info['enname']}</p>
+                            </div>
+                            
+                        </div>
+                        <div class="info">
+                            <table class="table table-info">
+                                <tr>
+                                    <td width="108" class="gray normal text-right" width="135">国籍：</td>
+                                    <td width="108">{$player_info['nationality']}</td>
+                                    <td width="108" class="gray text-right">场上位置：</td>
+                                    <td>{$player_info['position']}</td>
+                                </tr>
+                                <tr>
+                                    <td class="gray normal text-right">体重：</td>
+                                    <td>{$player_info['weight']}</td>
+                                    <td class="gray text-right">加盟日期：</td>
+                                    <td>{$player_info['joindate']}</td>
+                                </tr>
+                                <tr>
+                                    <td class="gray normal text-right">身高：</td>
+                                    <td>{$player_info['height']}</td>
+                                    <td class="gray text-right">转会费：</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="gray normal text-right">生日：</td>
+                                    <td>{$player_info['birthday']}</td>
+                                    <td class="gray text-right">前度效力球队：</td>
+                                    <td>{$player_info['formerclub']}</td>
+                                </tr>
+                                <tr>
+                                    <td class="gray normal text-right">效力球队：</td>
+                                    <td>{$player_info['club']}</td>
+                                    <td class="gray text-right" rowspan="2">曾效力球队：</td>
+                                    <td rowspan="2">
+                                        <div class="table-line">{$player_info['onceclub']}</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="gray normal text-right">俱乐部球衣：</td>
+                                    <td>{$player_info['clubshirtno']}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                    </div>
+
+                    <div class="table-item">
+                        <div class="table-title clearfix">
+                            <span class="fl">个人近两年数据统计</span>
+                            <div class="dropdown">
+                                <button class="btn btn-default" id="jw_dropB" data-toggle="dropdown" aria-expanded="false">
+                                    <span id="record-text">全部</span>
+                                    <i class="icon-angle-down"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="jw_dropB">
+                                    <ul>
+                                        <li class="record" data-record="5">5</li>
+                                        <li class="record" data-record="10">10</li>
+                                        <li class="record" data-record="30">30</li>
+                                        <li class="record" data-record="0">全部</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-border">
+                            <tr class="gray">
+                                <th width="60">赛事</th>
+                                <th>时间</th>
+                                <th>主队</th>
+                                <th>比分</th>
+                                <th>客队</th>
+                                <th>进球</th>
+                                <th>点球</th>
+                                <th>乌龙</th>
+                                <th>黄牌</th>
+                                <th>红牌</th>
+                            </tr>
+                            {loop $stats_info $r}
+                            <tr class="record-item">
+                                <td style="background-color: #{$r['competitioncolor']}">{$r['competitionshortname']}</td>
+                                <td>{date('Y-m-d H:i', $r['date'])}</td>
+                                <td>{$r['homeshortname']}</td>
+                                <td>
+                                    <span class="red">{$r['homescore']}-{$r['awayscore']}</span>
+                                </td>
+                                <td>{$r['awayshortname']}</td>
+                                <td>
+                                    <span class="green">{$r['goal']}</span>
+                                </td>
+                                <td>{$r['goalpenalty']}</td>
+                                <td>{$r['goalown']}</td>
+                                <td>{$r['yellowcard']}</td>
+                                <td>
+                                    <span class="green">{$r['redcard']}</span>
+                                </td>
+                            </tr>
+                            {/loop}
+                        </table>
+                    </div>
+
+                    <div class="table-item">
+                        <div class="table-title clearfix">
+                            <span class="fl">球员荣誉</span>
+                        </div>
+                        <div class="introduce">
+                            <div class="text-content">
+                                <p>{$player_info['honours']}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="table-item">
+                        <div class="table-title clearfix">
+                            <span class="fl">球员介绍</span>
+                        </div>
+                        <div class="introduce">
+                            <div class="text-content">
+                                <b>个人简介:</b>
+                                <p>{$player_info['profile']}</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-4 pdR0">
+                <div class="side">
+                    <div class="side-item">
+                        <div class="side-title" style="margin-top: -10px">
+                            {$player_info['name']}的球队
+                        </div>
+                        <div class="side-team">
+                            <ul class="clearfix">
+                                {loop $teams_info $r}
+                                    <li>
+                                        <a href="{APP_PATH}team/{$r['teamid']}/">
+                                            <img src="{$r['photo']}" alt="{$r['name']}" class="team-photo">
+                                            <p>{$r['name']}</p>
+                                        </a>
+                                    </li>
+                                {/loop}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="side-item">
+                        <div class="side-title">
+                            {$player_info['club']}球员
+                        </div>
+
+                        {loop $players_info $pos $players}
+                        <div class="player-title">
+                            <span>{$pos}</span>
+                        </div>
+                        <div class="side-player">
+                            <ul class="clearfix">
+                                {loop $players $r}
+                                <li>
+                                    <a href="{APP_PATH}player/{$r['playerid']}/">
+                                        <img src="{$r['photo']}" alt="{$r['name']}" class="player-photo">
+                                        <p>{str_cut($r['name'], 20, '...')}</p>
+                                    </a>
+                                </li>
+                                {/loop}
+                            </ul>
+                        </div>
+                        {/loop}
+
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+
+        </div>
+    </div>
+</section>
+<!-- main body -->
+<script>
+    var IMG_PATH = "{IMG_PATH}";
+</script>
+{php $js = ['imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js','ft_player.js'];}
+{template 'content', 'footer'}

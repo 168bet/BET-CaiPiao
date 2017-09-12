@@ -1,0 +1,83 @@
+<div class="content-security">
+	<div class="body-row">
+		<div class="safe-nums clearfix info">
+			<div class="star star3">低</div>
+			<div class="text">
+				<p class="highbig">您的账号安全级别为低，可以通过完善安全信息提高级别。</p>
+				<p>
+					上次登录： {{global.user.userLastLoginTime | date: "yyyy-MM-dd hh:mm:ss"}}<br> 登录IP: {{global.user.userLastLoginIp}} | 不是我登录？&nbsp; <a
+						ui-sref="user.security/passwd">修改密码</a>
+				</p>
+			</div>
+		</div>
+		
+		<ul class="ui-form">
+			<li class="ui-item"><i class="ico-pwd"></i>
+				<div class="item-info">
+					<p class="type">登录密码</p>
+					<p class="tip">建议您使用字母和数字的组合、混合大小写、在组合中加入下划线等符号。</p>
+				</div>
+				<div class="item-control">
+					<a ui-sref="user.security/passwd({pwdtype: 'passwd'})" class="btn">修改密码<b
+						class="btn-inner"></b>
+					</a>
+				</div></li>
+
+			<li class="ui-item"><i class="ico-safecode"></i>
+				<div class="item-info">
+					<p class="type">安全密码</p>
+					<p class="tip">在进行银行卡绑定，转账等资金操作时需要进行安全密码确认，以提高您的资金安全性。</p>
+				</div>
+				<div class="item-control">
+					<a ui-sref="user.security/passwd({pwdtype: 'withdrawpwd'})" class="btn">修改安全密码<b
+						class="btn-inner"></b>
+					</a>
+				</div></li>
+			<li class="ui-item  item-none" ng-if="!global.user.isSetQA"><i class="ico-safequestion"></i>
+				<div class="item-info">
+					<p class="type">未设置安全问题</p>
+					<p class="tip">绑定安全问题后可以通过安全问题找回账号资料。</p>
+				</div>
+				<div class="item-control">
+					<a ui-sref="user.security/question" class="btn">设置安全问题<b
+						class="btn-inner"></b>
+					</a>
+				</div></li>
+				
+			<li class="ui-item" ng-if="global.user.isSetQA"><i class="ico-safequestion" style="background-position: 0px -120px;"></i>
+                <div class="item-info">
+                    <p class="type">安全问题</p>
+                    <p class="tip">绑定安全问题后可以通过安全问题找回账号资料。</p>
+                </div>
+                <div class="item-control">
+                    <a ui-sref="user.security/question" class="btn">设置安全问题<b
+                        class="btn-inner"></b>
+                    </a>
+                </div></li>
+
+			<li class="ui-item item-none" ng-if="global.user.userMail == '' "><i class="ico-mail"></i>
+				<div class="item-info">
+					<p class="type">未绑定邮箱</p>
+					<p class="tip">绑定邮箱可增加账号安全级别，也可以确保在邮箱正常的情况下取回登录密码。</p>
+				</div>
+				<div class="item-control">
+					<a ui-sref="user.securtiy/bindmail" class="btn ">绑定邮箱<b
+						class="btn-inner"></b>
+					</a>
+				</div></li>
+			
+			<li class="ui-item item-none" ng-if="global.user.userMail != '' "><i style="background-position: 0px -180px;" class="ico-mail"></i>
+                <div class="item-info">
+                    <p class="type">已绑定邮箱 : {{global.user.userMail}}</p>
+                    <p class="tip">绑定邮箱可增加账号安全级别，也可以确保在邮箱正常的情况下取回登录密码。</p>
+                </div>
+                <div class="item-control">
+                    <a ui-sref="user.securtiy/bindmail" class="btn ">绑定邮箱<b
+                        class="btn-inner"></b>
+                    </a>
+                </div></li>
+
+		</ul>
+
+	</div>
+</div>

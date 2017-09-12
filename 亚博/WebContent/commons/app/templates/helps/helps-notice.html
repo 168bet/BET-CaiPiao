@@ -1,0 +1,12 @@
+
+<div id="page_rightcontent">
+  <div class="tabwrap">
+    <div class="tabtype" data-ng-init="noticeFlag=true">
+      <a  href="javascript:void(0);" class="tabbtn" ng-class="{current:noticeFlag}" ng-click="noticeFlag=true">AG 公告</a>
+     <!--  <a  href="javascript:void(0);" class="tabbtn" ng-class="{current:!noticeFlag}" ng-click="noticeFlag=false">AG 活动</a> -->
+    </div>
+  </div>
+  <ng-include src="templateURI('/helps/notice1.html')" ng-show="noticeFlag"></ng-include>
+  <ng-include src="templateURI('/helps/notice2.html')" ng-show="!noticeFlag"></ng-include>
+ </div>
+</div>

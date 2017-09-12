@@ -1,0 +1,35 @@
+<div class="w1000 m0auto text_center fz14 white" style="padding:20px 0 0 0;" ng-init="yzggConfig = {
+    props: {
+        qsw: {
+            line: 'yzzh_qsw_lines',
+            key: 'yzzh_qsw'
+        },
+        zsw: {
+            line: 'yzzh_zsw_lines',
+            key: 'yzzh_zsw'
+        },
+        hsw: {
+            line: 'yzzh_hsw_lines',
+            key: 'yzzh_hsw',
+        }
+    }
+}">
+    <div ng-show="swTabs.swTab==swTabKey" style="padding-bottom: 20px;" ng-repeat="(swTabKey, swTabItem) in yzggConfig['props']">
+        <div>
+            <div class="hgt40 line_hgt40 border_btm1" style="background-color: #CCCCCC">
+                <div class="inline-block w33per" ng-repeat="(keyCol, valueCol) in ['百OXX','拾XOX','个XXO']" ng-class="{border_r1:keyCol==0||keyCol==1}">{{valueCol}}</div>
+            </div>
+        </div>
+        <div>
+            <div class="hgt40 line_hgt40 border_btm1" style="background: #F1F1F1" ng-repeat="(keyRow, valueRow) in range(0, this[swTabItem.line])">
+                <div ng-init="colConfig = ['bwNum', 'swNum', 'gwNum']" ng-repeat="(keyCol, valueCol) in range(0,3)" class="inline-block w33per" ng-class="{border_r1:keyCol==0||keyCol==1}">
+                    <div class="inline-block black"  >{{this[swTabItem.key][valueRow+6*valueCol].number}}</div>
+                    <div class="inline-block w172 ">
+                        <input type="radio" name="{{colConfig[valueCol]}}" value="1" ng-model="data.betMoney[this[swTabItem.key][valueRow + 6 * valueCol].id]" ng-change="fun.yzggPeiyuSelected(colConfig[valueCol], this[swTabItem.key][valueRow+6*valueCol])">
+                        <span class="red">{{this[swTabItem.key][valueRow+6*valueCol].pl}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

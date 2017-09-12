@@ -1,0 +1,20 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+
+<div class="game-section">
+	<div class="page-bg-game">
+	    <div class="body-wrap">
+	        <div class="game-wrap">
+	            <div class="game-nav">
+	                <ul class="clearfix">
+	                    <li><a ui-sref-active="active" ui-sref="fclhc.name({name:'HK6'})">香港六合彩</a></li>
+	                    <li><a ui-sref-active="active" ui-sref="fclhc.name({name:'FC3D'})">福彩3D</a></li>
+	                    <li><a ui-sref-active="active" ui-sref="fclhc.name({name:'PL3'})">排列三</a></li>
+	                </ul>
+	            </div>
+	            <div ui-view="fclhc"></div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<ng-include src="templateURI('/footer.html')"></ng-include>

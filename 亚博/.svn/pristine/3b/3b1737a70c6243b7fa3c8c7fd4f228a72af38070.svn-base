@@ -1,0 +1,15 @@
+
+<ng-if ng-if="data.type=='colon'">
+     <span>{{hour}}</span>
+     <b>:</b>
+     <span>{{minute}}</span>
+     <b>:</b>
+     <span>{{second}}</span>
+</ng-if>
+
+<ng-if ng-if="data.type=='normal'" >
+	<div ng-if="day > 0" class="cd-element inline-block"><span class="yellow cd-day">{{day}}</span> 天</div>
+	<div ng-if="hour > 0" class="cd-element inline-block"><span class="yellow cd-hour">{{hour}}</span> 小时</div>
+	<div class="cd-element inline-block"><span class="yellow cd-min">{{minute}}</span> 分</div>
+	<div class="cd-element inline-block"><span class="yellow cd-second">{{second}}</span> 秒</div>
+</ng-if>

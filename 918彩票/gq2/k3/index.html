@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="author" content="m.9188.com  ">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta http-equiv="cleartype" content="on">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="./css/global.css" rel="stylesheet" type="text/css">
+	<link href="/gq2/gq.css" rel="stylesheet" type="text/css">
+</head>
+<script type="text/javascript">
+	/***
+	window.onload = function(){
+
+		var oset=document.getElementById("odiv");//获取投注按钮
+		var odiv=oset.getElementsByTagName("div");
+		var otz=document.getElementById("tz");//获取投掷层
+		var ogb=document.getElementById("close");//获取关闭按钮
+		var ols=document.getElementById("ls");//获取历史开奖层
+		var olsbtn=document.getElementById("pulldown");//获取历史开奖按钮
+		var osq_btn=document.getElementById("ls_sq");//获取收起按钮
+		var oza=document.getElementById("za");//获取遮罩蒙层
+
+
+		for(var i=0; i<odiv.length;i++){
+
+			odiv[i].onclick=function(){
+
+				this.className="cur";
+				otz.style.display="block";
+				// otz.className="tz_up";
+				oza.style.display="block";
+
+			};
+			odiv[i].onmouseout=function(){
+
+				this.className="";
+
+			};
+
+		};
+		ogb.onclick=function(){
+			
+				oza.style.display="none";
+				otz.style.display="none";
+				// otz.className="tz_down";
+
+			};
+		olsbtn.onclick=function(){
+			
+			ols.style.display="block";
+		 	ols.className="ani_down";
+		 	oza.style.display="block";
+
+		 	};
+		 osq_btn.onclick=function(){
+
+		 	ols.className="ani_up";
+		 	oza.style.display="none";
+		 }
+
+
+
+	}
+	***/
+</script>
+<body>
+	<div class="main">
+	<!-- 头部 -->
+		<header>
+			<!-- 掷色子 -->
+			<div class="kj" id="kj_ing" style="display:none;">
+				<div id="kj_cont">期开奖:</div>
+				<div id="prev_num">
+					<span class="ani_sz1"></span>
+					<span class="ani_sz2"></span>
+					<span class="ani_sz3"></span>
+				</div>
+			</div>
+			<!-- 开奖时间 -->
+			<!-- <div class="date">14期  02:45秒后开奖</div> -->
+			<!-- 历史开奖按钮 -->
+			<div class="pulldown" id="pulldown"></div>
+			<!-- 等待开奖图 -->
+			<article id="wait" style="display:none;">
+				<div class="wait">
+					<div class="ren"></div>
+				</div>
+				<div id="wj" style="width:10rem; text-align:center; position:absolute; color:#81cc94; top:7rem; left:50%; margin-left:-5rem;">期开奖中....</div>
+			</article>
+			<!-- 每日开售前提示 -->
+			<div class="ts_kjq">
+				<p>每天8:40~22:00</p>
+				<p>每10分钟一期,即时派奖</p>
+			</div>
+		</header>
+	<!-- 主体内容 -->
+		<article>
+			<div id="jz_">距离期竞猜截止还剩: <i>08:56</i></div>
+			<section id="odiv">
+				<div>
+					<h1>大</h1>
+					<span>1赔<cite>1.8</cite></span>
+				</div>
+				<div>
+					<h1>小</h1>
+					<span>1赔<cite>1.8</cite></span>
+				</div>
+				<div>
+					<h1>顺子</h1>
+					<span>1赔<cite>8</cite></span>
+				</div>
+				<div>
+					<h1>豹子</h1>
+					<span>1赔<cite>32</cite></span>
+				</div>
+			</section>
+		</article>
+	<!-- 投掷弹层 -->
+		<div class="ceng" id="za"></div>
+		<section style="display:none;" id="tz">
+			<div class="tc_bg">
+				<div class="tc_h">
+					<span id="pl_cont">大 <span>1赔1.80</span></span>
+					<div class="close" id="close"></div>
+				</div>
+				<div class="tz_bg">
+					<p>投入金豆：</p>
+					<div>
+						<span>
+							<input type="tel" id="in_golden" value="50">
+							<button class="all_y">全押</button>
+						</span>
+						<span id="switcher">
+							<button class="add_btn">+1000</button>
+							<button class="add_btn">+10000</button>
+							<button class="add_btn">+50000</button>
+						</span>
+					</div>
+					<div class="result">猜对可赢：<i id="fh">0</i></div>
+					<div class="sure">确定</div>
+				</div>
+			</div>
+		</section>
+	<!-- 历史开奖下拉层 -->
+		<section style="display:none;" id="ls" >
+			<div class="ls_bg">
+				<div class="ls_main">
+					<div class="ls_top">
+						<ul>
+							<li>期数</li>
+							<li>开奖号码</li>
+							<li>和值</li>
+							<li>形态</li>
+						</ul>
+					</div>
+					<div class="ls_kj">
+						<!-- 
+						<ul>
+							<li>24</li>
+							<li>
+								等待开奖..
+							</li>
+							<li></li>
+							<li></li>
+						</ul>
+						<ul>
+							<li>23</li>
+							<li>
+								<span></span>
+								<span></span>
+								<span></span>
+							</li>
+							<li>10(大)</li>
+							<li>豹子</li>
+						</ul>
+						<ul>
+							<li>22</li>
+							<li>
+								<span></span>
+								<span></span>
+								<span></span>
+							</li>
+							<li>10(大)</li>
+							<li>顺子</li>
+						</ul>
+						<ul>
+							<li>21</li>
+							<li>
+								<span></span>
+								<span></span>
+								<span></span>
+							</li>
+							<li>10(大)</li>
+							<li>- -</li>
+						</ul>
+						<ul>
+							<li>20</li>
+							<li>
+								<span></span>
+								<span></span>
+								<span></span>
+							</li>
+							<li>10(大)</li>
+							<li>顺子</li>
+						</ul>
+						<ul>
+							<li>19</li>
+							<li>
+								<span></span>
+								<span></span>
+								<span></span>
+							</li>
+							<li>10(大)</li>
+							<li>- -</li>
+						</ul>
+						<ul>
+							<li>18</li>
+							<li>
+								<span></span>
+								<span></span>
+								<span></span>
+							</li>
+							<li>10(大)</li>
+							<li>顺子</li>
+						</ul>
+						<ul>
+							<li>17</li>
+							<li>
+								<span></span>
+								<span></span>
+								<span></span>
+							</li>
+							<li>10(大)</li>
+							<li>- -</li>
+						</ul>
+						<ul>
+							<li>16</li>
+							<li>
+								<span></span>
+								<span></span>
+								<span></span>
+							</li>
+							<li>10(大)</li>
+							<li>- -</li>
+						</ul>
+						<ul>
+							<li>15</li>
+							<li>
+								<span></span>
+								<span></span>
+								<span></span>
+							</li>
+							<li>10(大)</li>
+							<li>- -</li>
+						</ul>
+						 -->
+					</div>
+					<!-- 收起按钮 -->
+					<div class="ls_sq" id="ls_sq"></div>
+				</div>
+			</div>
+			
+		</section>
+	<!-- 底部 -->
+		<footer>
+			<div>
+				<span class="left">
+					<i>金豆余额 :</i>
+					<i id="jdyue">25256222</i>
+				</span>
+				<span class="btn" id="obtain">获得金豆</span>
+				<span class="right">
+					<a href="record.html" style="color:#ffe742;">竞猜记录</a>
+				</span>
+			</div>
+		</footer>
+	</div>
+	<!--客服  -->
+	<a href="http://chat8.live800.com/live800/chatClient/chatbox.jsp?companyID=152373&configID=127313&jid=4543042755&enterurl=http%3A%2F%2F5.9188.com %2F&pagetitle=%E3%80%909188%E5%BD%A9%E7%A5%A8%E8%A7%A6%E5%B1%8F%E7%89%88%E3%80%91&pagereferrer=&firstEnterUrl=http%3A%2F%2F5%2E9188%2Ecom%2F&lan=zh" class='kf'></a>
+</body>
+
+</html>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/gq2/k3/js/index.js" type="text/javascript" charset="utf-8"></script>

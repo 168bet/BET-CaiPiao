@@ -1,0 +1,5 @@
+ <div id="scrollTop" style="opacity: 1; margin-bottom: 0px; display: block;bottom:{{bottom}}px" ng-click="goTop()" ng-show="showRocket">
+   <div class="level-2" style="display: block;background-position: {{position}}px 0px;" ></div>
+   <div class="level-3"></div>
+ </div>
+ </div>

@@ -1,0 +1,254 @@
+{php $css = ['lottery.css','jquery.classycountdown.css'];}
+{php $nav_id = 4;}
+{template 'content', 'header_score'}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 pdL0">
+                <div class="side" id="treeMenu">
+                    <ul>
+                        {loop $classMenu $key $item}
+                        <li class="ticket">
+                            <div class="ticket-one-title" tree-title name="one">
+                                <span class="ticket-name">{$item['name']}</span>
+                                <i class="icon-open fr"></i>
+                            </div>
+                            <div class="ticket-menu" tree-menu>
+                                {if $key!=2}
+                                <!--二级-->
+                                {loop $item['data'] $key2 $item2}
+                                <ul>
+                                    <li><a class="{if $item2['id']==$id}active{/if}" href="{APP_PATH}cp/info/?id={$item2['id']}">{$item2['name']}</a></li>
+                                </ul>
+                                {/loop}
+                                {else}
+                                <!--三级-->
+                                {loop $item['data'] $key2 $item2} <??>
+                                <div class="tree-item">
+                                    <div class="ticket-two-title" tree-title name="two">
+                                        <span class="ticket-name">{$key2}</span>
+                                    </div>
+
+                                    <div class="ticket-menu" tree-menu>
+                                        <ul>
+                                            {loop $item2 $key3 $item3}
+                                            <li>
+                                                <a class="{if $item3['id']==$id}active{/if}" href="{APP_PATH}cp/info/?id={$item3['id']}">{$item3['name']}</a>
+                                            </li>
+                                            {/loop}
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                {/loop}
+
+
+                                {/if}
+                            </div>
+                        </li>
+                        {/loop}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-9 pdR0 pdL0">
+                <div class="main" id="ticket">
+
+                    <div class="ticket-title">
+                        {$lotteryNameCn}开奖信息（{$lotteryTime}）
+
+                        <div class="dropdown fr">
+                            <button class="btn btn-default" id="jw_dropA" data-toggle="dropdown" aria-expanded="true">
+                                {$lottery['id']}
+                                <i class="icon-angle-down"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="jw_dropA">
+                                <ul>
+                                    {loop $lotteryIds $value}
+                                    <li><a href="{APP_PATH}cp/info/?id={$id}&number={$value}">{$value}</a></li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="ticket-head">
+                        <div class="ticket-logo">
+                            <h2>{$lotteryNameCn}</h2>
+                            <img src="{IMG_PATH}lottery/{$lotteryPinyin}.jpg" alt="">
+                        </div>
+                        <div class="ticket-info">
+                            <!-- 倒计时 -->
+                            <div class="ticket-countdown clearfix">
+                                <span class="fl" style="font-size: 14px;">最新开奖倒计时</span>
+                                <div id="countdown" class="ClassyCountdownDemo fl"></div>
+
+                            </div>
+                            <!-- 倒计时 end-->
+                            <h2 class="ticket-info-title">
+                                <span class="ticket-num">
+                                    第<span class="red">{$lottery['id']}</span>期
+                                </span>
+                                <span class="tick-date">
+                                    开奖日期：{$lottery['update']}  兑奖截止日期：{$lottery['over_time']}
+                                </span>
+
+                            </h2>
+
+                            <div class="ticket-luck">
+                                <span class="red">开奖号码</span>
+                                {loop $lottery['numbers_arr'] $key $item}
+                                <span class="{if $id==2}
+                                                {if in_array($item, $hkNumberColor['red'])}circle3d red{elseif in_array($item, $hkNumberColor['green'])}circle3d green{elseif in_array($item, $hkNumberColor['blue'])}circle3d blue{/if}
+                                            {elseif $id==1}
+                                                {if $key <=3}circle3d red{else}circle3d blue{/if}
+                                            {/if}">{$item}</span>
+                                {/loop}
+                            </div>
+                            <div class="ticket-info-fd">
+                                <span>本期销量：12,533,194元</span>
+
+                                <a href="{APP_PATH}cp/history/?pinyin={$lotteryPinyin}" class="icon-lishi fr">历史数据</a>
+                                <a href="{APP_PATH}cp/{$lotteryPinyin}/trendbase/" class="icon-zoushi fr">走势图</a>
+
+                            </div>
+                        </div>
+                        
+                        
+
+                    </div>
+
+                    <!--update-->
+                    <div class="ticket-table table-border mrgT20">
+                        {if $id==1}
+                        <table class="table">
+                            {loop $lottery['qxc'] $key $item}
+                            <tr>
+                                <td rowspan="2">第{$item['key']}位</td>
+                                <td class="hasbg">大小</td>
+                                <td width="400">{$item['big_small']}</td>
+                            </tr>
+                            <tr>
+                                <td class="hasbg">单双</td>
+                                <td>{$item['odd_even']}</td>
+                            </tr>
+                            {/loop}
+
+                        </table>
+                        {elseif $id==2}
+                        <table class="table">
+                            <tr>
+                                <td rowspan="6">特码</td>
+                                <td class="hasbg">特码</td>
+                                <td width="400">{$lottery['special_num']['special_num']}</td>
+                            </tr>
+                            <tr>
+                                <td class="hasbg">生肖</td>
+                                <td>{$lottery['special_num']['animals']}</td>
+                            </tr>
+                            <tr>
+                                <td class="hasbg">家野</td>
+                                <td>{$lottery['special_num']['fowl_wild']}</td>
+                            </tr>
+                            <tr>
+                                <td class="hasbg">单双</td>
+                                <td>{$lottery['special_num']['odd_even']}</td>
+                            </tr>
+                            <tr>
+                                <td class="hasbg">大小</td>
+                                <td>{$lottery['special_num']['big_small']}</td>
+                            </tr>
+                            <tr>
+                                <td class="hasbg">波色</td>
+                                <td>{$lottery['special_num']['color']}</td>
+                            </tr>
+
+                            <tr>
+                                <td rowspan="3">总分</td>
+                                <td class="hasbg">分值</td>
+                                <td>{$lottery['total']['total_num']}</td>
+                            </tr>
+                            <tr>
+                                <td class="hasbg">大小</td>
+                                <td>{$lottery['total']['big_small']}</td>
+                            </tr>
+                            <tr>
+                                <td class="hasbg">单双</td>
+                                <td>{$lottery['total']['odd_even']}</td>
+                            </tr>
+                        </table>
+                        {/if}
+
+                    </div>
+
+                    <div class="ticket-title">
+                        <i class="rule-icon"></i>
+                        规则
+                    </div>
+
+                    <!--<div class="rule-content">
+                        <p>一、玩法类型及承销</p>
+                        <p>七星彩是一种中盘玩法游戏，属数字型彩票范畴，由体育彩票管理中心统一发行，在全国范围内销售。</p>
+                        <p>二、玩法说明</p>
+                        <p>七星彩投注区分为七位(第一、二、三、四、五、六、七位)，各位号码范围为0～9。每期从各位上开出1个号码作为中奖号码，即开奖号码为7位数。七星彩玩法即是竟猜7位开奖号码，且顺序一致。 </p>
+                    </div>-->
+                    <!--update end-->
+
+                    <div class="ticket-title">
+                        
+                        开奖详情
+                    </div>
+
+                    <div class="ticket-table">
+                            <table class="table">
+                                <tr>
+                                    <th>奖项</th>
+                                    <th>中奖条件</th>
+                                    <th>中奖注数</th>
+                                    <th>单注奖金(元)</th>
+                                </tr>
+                                <tr>
+                                    <td>一等奖</td>
+                                    <td>定位中7码</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>一等奖</td>
+                                    <td>定位中7码</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>一等奖</td>
+                                    <td>定位中7码</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>一等奖</td>
+                                    <td>定位中7码</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>一等奖</td>
+                                    <td>定位中7码</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                            </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    var uptime = {$lottery['lottery_time']};
+    var time = {SYS_TIME};
+</script>
+{php $js = array('tree.js','jquery.knob.js','jquery.throttle.js','jquery.classycountdown.js', 'lottery.js','lottery_count_down.js')}
+{template 'content', 'footer'}

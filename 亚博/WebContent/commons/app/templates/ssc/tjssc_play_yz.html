@@ -1,0 +1,520 @@
+<div class="w1105 m0auto text_center fz14 white" style="padding:20px 0 0 0;">
+    <div class="hgt30 line_hgt30 p10_0" style="background: #EAEAEA">
+        <span class="inlilne-block border_red1 red p5_25" ng-class="{yzActive:yzLists.yzList=='yzzh'}" ng-click=" yzLists.yzList ='yzzh' ">一字组合</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-class="{yzActive:yzLists.yzList=='wdw'}" ng-click=" yzLists.yzList ='wdw' ">万定位</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-class="{yzActive:yzLists.yzList=='qdw'}" ng-click=" yzLists.yzList ='qdw' ">千定位</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-class="{yzActive:yzLists.yzList=='bdw'}" ng-click=" yzLists.yzList ='bdw' ">百定位</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-class="{yzActive:yzLists.yzList=='sdw'}" ng-click=" yzLists.yzList ='sdw' ">拾定位</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-class="{yzActive:yzLists.yzList=='gdw'}" ng-click=" yzLists.yzList ='gdw' ">个定位</span>
+    </div>
+    <div ng-show=" yzLists.yzList=='yzzh' ">
+        <div ng-repeat="(key,items) in yzzh_pls track by $index">
+            <div class="hgt36 line_hgt36 black">
+                <span class="p9 bg_red">{{key}}</span>
+            </div>
+            <div class="text_center middle">
+                <div>
+                    <div class="inline-block tbGj" ng-repeat="value in range(0,5) track by $index">
+                        <span>号码</span>
+                        <span class="m0_25">赔率</span>
+                        <span>金额</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="inline-block tbGj" ng-repeat="item in items|limitTo:5 track by $index">
+                        <span class="w50 inline-block"> <i class="num_circle" style="background: #FAE707">{{item.number}}</i>
+                        </span>
+                        <span class="w50 inline-block">{{item.pl}}</span>
+                        <input type="number" class="w50 border_black green" ng-model="item.money"/>
+                    </div>
+                </div>
+                <div>
+                    <div class="inline-block tbGj" ng-repeat="item in items|limitTo:-5 track by $index">
+                        <span class="w50 inline-block"> <i class="num_circle" style="background: #3B12C8">{{item.number}}</i>
+                        </span>
+                        <span class="w50 inline-block">{{item.pl}}</span>
+                        <input type="number" class="w50 border_black green" ng-model="item.money"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show=" yzLists.yzList=='wdw' ">
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">万定位</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block tbGj" ng-repeat="value in range(0,5) track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div ng-repeat="(key, value) in range(0,wdwNumPls.length/cols)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,cols) track by $index">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #FAE707">{{wdwNumPls[key*cols+index].number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{wdwNumPls[key*cols+index].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="wdwNumPls[key*cols+index].money"/>
+                </div>
+            </div>
+        </div>
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">万</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block tbGj" style="width:161px" ng-repeat="value in range(0,6) track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" style="width:161px" ng-repeat="item in wdwPls|limitTo:-6 track by $index">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #FAE707">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show=" yzLists.yzList=='qdw' ">
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">千定位</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block tbGj" ng-repeat="value in range(0,5) track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" ng-repeat="item in qdwNumPls|limitTo:5 track by item.number">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #FAE707">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" ng-repeat="item in qdwNumPls|limitTo:-5 track by $index">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #41C802">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+        </div>
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">千</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block tbGj" style="width:161px" ng-repeat="value in range(0,6) track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" style="width:161px" ng-repeat="item in qdwPls|limitTo:-6 track by $index">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #FAE707">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show=" yzLists.yzList=='sdw' ">
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">拾定位</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block tbGj" ng-repeat="value in range(0,5) track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" ng-repeat="item in sdwNumPls|limitTo:5 track by item.number">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #FAE707">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" ng-repeat="item in sdwNumPls|limitTo:-5 track by $index">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #41C802">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+        </div>
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">拾</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block tbGj" style="width:161px" ng-repeat="value in [1,1,1,1,1,1] track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" style="width:161px" ng-repeat="item in sdwPls|limitTo:-6 track by $index">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #FAE707">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show=" yzLists.yzList=='bdw' ">
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">百定位</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block tbGj" ng-repeat="value in range(0,5) track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" ng-repeat="item in bdwNumPls|limitTo:5 track by item.number">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #FAE707">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" ng-repeat="item in bdwNumPls|limitTo:-5 track by $index">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #41C802">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+        </div>
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">百</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block tbGj" style="width:161px" ng-repeat="value in range(0,6) track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" style="width:161px" ng-repeat="item in bdwPls|limitTo:-6 track by $index">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #FAE707">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show=" yzLists.yzList=='gdw' ">
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">个定位</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block tbGj" ng-repeat="value in range(0,5) track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" ng-repeat="item in gdwNumPls|limitTo:5 track by item.number">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #FAE707">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" ng-repeat="item in gdwNumPls|limitTo:-5 track by $index">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #41C802">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+        </div>
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">个</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block tbGj" style="width:161px" ng-repeat="value in range(0,6) track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block tbGj" style="width:161px" ng-repeat="item in gdwPls|limitTo:-6 track by $index">
+                    <span class="w50 inline-block">
+                        <i class="num_circle" style="background: #FAE707">{{item.number}}</i>
+                    </span>
+                    <span class="w50 inline-block">{{item.pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="item.money" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="yzzh_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in yzzh_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{yzzh_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="wdw_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in wdw_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{wdw_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="qdw_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in qdw_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{qdw_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="bdw_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in bdw_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{bdw_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="sdw_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in sdw_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{sdw_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="gdw_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in gdw_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{gdw_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>

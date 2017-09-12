@@ -1,0 +1,101 @@
+<div class="sidewrap merge-footer bank-charge-wap">
+  <div class="content" id="user-fund">
+    <div class="body-row">
+      <div class="ui-tab-title tab-title-bg clearfix">
+        <ul id="recharge-type">
+          <li ui-sref="user.funds/onlinePay" ui-sref-active="current" ng-hide="showOnline">在线支付</li>
+          <li ui-sref="user.funds/weixinPay" ui-sref-active="current" ng-hide="showWxOnline">微信支付</li>
+          <li ui-sref="user.funds/culturePay" ui-sref-active="current" ng-hide="showCompany">公司入款</li>
+          <li ui-sref="user.funds/tradition_wx" ui-sref-active="current" ng-hide="showTradition_wx">微信传统</li>
+          <li ui-sref="user.funds/tradition_ali" ui-sref-active="current" ng-hide="showTradition_ali">支付宝传统</li>
+        </ul>
+      </div>
+      <div class="content bank-select" ng-if="data.step == 1">
+        <div class="step">
+          <table class="step-table">
+            <tbody>
+              <tr>
+                <td class="current"><div class="con">1.查看公司账户并填表</div></td>
+                <td><div class="tri">
+                  <div class="con">2.正在操作，稍候查询</div>
+                </div></td>
+                <td><div class="tri">
+                  <div class="con">3.结束</div>
+                </div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <form name="weixinPayForm">
+          <ul class="ui-form">
+            <li class="ui-item">
+              <label>会员账号：</label>
+              <span class="ui-text-info">{{global.user.userName}}</span>
+            </li>
+            <li class="ui-item">
+              <label>总账户余额：</label>
+              <span class="ui-text-info">{{global.user.userMoney}}</span>
+              <span class="ui-text-info">元</span>
+            </li>
+            <li class="ui-item">
+              <label>充值金额：</label>
+              <input type="text" style="width: 140px;" class="ip-text w200" required min="100" max="50000" name="weixinPaymoney" ng-model="formdata.money">
+              <span class="ui-text-info">元</span>
+              &nbsp;&nbsp;<span class="ui-check">单笔支付（{{onlineWxData.minEdu}} ~ {{onlineWxData.maxEdu}}）元！ </span>
+            </li>
+            <li class="ui-item"><label>&nbsp;</label><a href="javascript:void(0);" ng-click="goPayCenter()" class="btn btn-important">充值</a></li>
+          </ul>
+        </form>
+      </div>
+      
+      <div class="content bank-select" ng-if="data.step == 2">
+        <div class="step">
+          <table class="step-table">
+            <tbody>
+              <tr>
+                <td ng-class="{current:data.step==1}">
+                  <div class="con">1.查看公司账户并填表</div>
+                </td>
+                <td ng-class="{current:data.step==2}">
+                  <div class="tri">
+                    <div class="con">2.正在操作，稍候查询</div>
+                  </div>
+                </td>
+                <td ng-class="{current:data.step==3}">
+                  <div class="tri">
+                    <div class="con">3.结束</div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        正在进行相应操作请稍后查询！
+      </div>
+      <div class="content bank-select" ng-if="data.step == 3">
+         <div class="step">
+          <table class="step-table">
+            <tbody>
+              <tr>
+                <td ng-class="{current:data.step==1}">
+                  <div class="con">1.查看公司账户并填表</div>
+                </td>
+                <td ng-class="{current:data.step==2}">
+                  <div class="tri">
+                    <div class="con">2.正在操作，稍候查询</div>
+                  </div>
+                </td>
+                <td ng-class="{current:data.step==3}">
+                  <div class="tri">
+                    <div class="con">3.结束</div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        支付成功！
+      </div>
+    </div>
+  </div>
+</div>

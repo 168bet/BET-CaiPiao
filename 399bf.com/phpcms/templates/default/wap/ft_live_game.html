@@ -1,0 +1,260 @@
+{php $nav_id = 1}
+{php $css = array('ft_live_game.css')}
+{template 'wap', 'wap_header'}
+    <div class="content">
+        <!-- 二级导航 -->
+        <div class="buttons-tab">
+            <a href="{WAP_PATH}zqscore/" class="active button">即时</a>
+            <a href="{WAP_PATH}zqwanchang/" class="button close-popup">完场</a>
+            <a href="{WAP_PATH}zqsaicheng/" class="button close-popup">下日</a>
+            <a href="{WAP_PATH}zqevent/" class="button close-popup">资料</a>
+            <a href="{WAP_PATH}zqodds/" class="button close-popup">指数</a>
+        </div>
+
+        <!-- 卡片 -->
+        <div class="card-box">
+            <div id="start-list">
+                <div class="text-center">
+                    {if count($data_list['start'])}
+                    <span class="list-title" id="start">正在进行的比赛</span>
+                    {/if}
+                </div>
+                <div class="list-container">
+                    {loop $data_list['start'] $data}
+                    <div class="card begin" data-status="{$data['status']}" data-game-id="{$data['gameid']}" data-start-time="{if $data['tstarttime']}{$data['tstarttime']}{else}{$data['date']}{/if}" ajax-status-tag="true"
+                    data-action="link" data-url="{WAP_PATH}game/{$data['gameid']}/analyse/">
+
+                        <a href="{WAP_PATH}game/{$data['gameid']}/analyse/" class="gray btn-link fixed-right">
+                            <i class="icon icon-right"></i>
+                        </a>
+
+                        <table class="table">
+                            <tr>
+                                <th width="40%" class="text-left">
+                                    <span class="card-title pull-left">{$data['competitionshortname']}</span>
+                                    <time class="gray time">{date('H:i', $data['date'])}</time>
+                                </th>
+                                <th>
+                                    <span class="red state" data-key="text">{$data['status_text']}</span>
+                                </th>
+                                <th width="40%">&nbsp;</th>
+                            </tr>
+                            <tr>
+                                <td class="text-right">
+                                    <span class="home-animate"></span>
+                                    <span class="gray">
+                                        {if isset($data['homerank'])}
+                                        [{$data['homerank']}]
+                                        {/if}
+                                    </span>
+                                    <span {if $data['homeyellowcard']}class="yellow-card"{/if} data-key="homeyellowcard" data-style="yellow-card">{if $data['homeyellowcard']}{$data['homeyellowcard']}{/if}</span>
+                                    <span {if $data['homeredcard']}class="red-card"{/if} data-key="homeredcard" data-style="red-card">{if $data['homeredcard']}{$data['homeredcard']}{/if}</span>
+                                    <span class="team-name home-name">{$data['homeshortname']}</span>
+                                </td>
+                                <td>
+                                    <span class="live-score">
+                                        <span data-key="homescore" data-target="home-name" data-animate=".home-animate">{$data['homescore']}</span>
+                                        -
+                                        <span data-key="awayscore" data-target="away-name" data-animate=".away-animate">{$data['awayscore']}</span>
+                                    </span>
+                                </td>
+                                <td class="text-left">
+                                    <span class="team-name away-name">{$data['awayshortname']}</span>
+                                    <span {if $data['awayredcard']}class="red-card"{/if} data-key="awayredcard" data-style="red-card">{if $data['awayredcard']}{$data['awayredcard']}{/if}</span>
+                                    <span {if $data['awayyellowcard']}class="yellow-card"{/if} data-key="awayyellowcard" data-style="yellow-card">{if $data['awayyellowcard']}{$data['awayyellowcard']}{/if}</span>
+                                    <span class="gray">
+                                        {if isset($data['awayrank'])}
+                                        [{$data['awayrank']}]
+                                        {/if}
+                                    </span>
+                                    <span class="away-animate">
+                                    </span>
+
+                                </td>
+                            </tr>
+                            {if isset($data['homecorner']) && isset($data['awaycorner'])}
+
+                            <tr class="fd gray">
+                                <td>&nbsp;</td>
+                                <td>
+                                    角：<span data-key="homecorner">{$data['homecorner']}</span> - <span data-key="awaycorner">{$data['awaycorner']}</span>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+
+                            {/if}
+                            
+
+                        </table>
+
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+
+            <div id="ready-list">
+                <div class="text-center">
+                    {if count($data_list['ready'])}
+                    <span class="list-title" id="ready">未开始的比赛</span>
+                    {/if}
+                </div>
+                <div class="list-container">
+                    {loop $data_list['ready'] $data}
+                    <div class="card" data-status-id="0" data-start-time="{if $data['tstarttime']}{$data['tstarttime']}{else}{$data['date']}{/if}" data-game-id="{$data['gameid']}"
+                         data-action="link" data-url="{WAP_PATH}game/{$data['gameid']}/analyse/">
+
+                        <a href="{WAP_PATH}game/{$data['gameid']}/analyse/" class="gray btn-link fixed-right">
+                            <i class="icon icon-right"></i>
+                        </a>
+                        <table class="table">
+                            <tr>
+                                <th width="40%" class="text-left">
+                                    <span class="card-title pull-left">{$data['competitionshortname']}</span>
+                                    <time class="gray time">{date('H:i', $data['date'])}</time>
+                                </th>
+                                <th>
+                                    <span class="red state" data-key="text">{$data['status_text']}</span>
+                                </th>
+                                <th width="40%">&nbsp;</th>
+                            </tr>
+                            <tr>
+                                <td class="text-right">
+                                    <span class="home-animate"></span>
+                                    <span class="gray">
+                                        {if isset($data['homerank'])}
+                                        [{$data['homerank']}]
+                                        {/if}
+                                    </span>
+                                    <span {if $data['homeyellowcard']}class="yellow-card"{/if} data-key="homeyellowcard" data-style="yellow-card">{if $data['homeyellowcard']}{$data['homeyellowcard']}{/if}</span>
+                                    <span {if $data['homeredcard']}class="red-card"{/if} data-key="homeredcard" data-style="red-card">{if $data['homeredcard']}{$data['homeredcard']}{/if}</span>
+                                    <span class="team-name home-name">{$data['homeshortname']}</span>
+                                </td>
+                                <td>
+                                    <span class="live-score">
+                                        <span data-key="homescore" data-target="home-name" data-animate=".home-animate">{$data['homescore']}</span>
+                                        -
+                                        <span data-key="awayscore" data-target="away-name" data-animate=".away-animate">{$data['awayscore']}</span>
+                                    </span>
+                                </td>
+                                <td class="text-left">
+                                    <span class="team-name away-name">{$data['awayshortname']}</span>
+                                    <span {if $data['awayredcard']}class="red-card"{/if} data-key="awayredcard" data-style="red-card">{if $data['awayredcard']}{$data['awayredcard']}{/if}</span>
+                                    <span {if $data['awayyellowcard']}class="yellow-card"{/if} data-key="awayyellowcard" data-style="yellow-card">{if $data['awayyellowcard']}{$data['awayyellowcard']}{/if}</span>
+                                    <span class="gray">
+                                        {if isset($data['awayrank'])}
+                                        [{$data['awayrank']}]
+                                        {/if}
+                                    </span>
+                                    <span class="away-animate">
+                                    </span>
+                                </td>
+                            </tr>
+                            {if isset($data['homecorner']) && isset($data['awaycorner'])}
+
+                            <tr class="fd gray">
+                                <td>&nbsp;</td>
+                                <td>
+                                    角：<span data-key="homecorner">{$data['homecorner']}</span> - <span data-key="awaycorner">{$data['awaycorner']}</span>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+
+                            {/if}
+
+                            
+
+                        </table>
+
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+
+            <div id="end-list">
+                <div class="text-center">
+                    {if count($data_list['end'])}
+                    <span class="list-title" id="end">结束的比赛</span>
+                    {/if}
+                </div>
+                <div class="list-container">
+                    {loop $data_list['end'] $data}
+                    <div class="card" data-action="link" data-url="{WAP_PATH}game/{$data['gameid']}/analyse/">
+                        <a href="{WAP_PATH}game/{$data['gameid']}/analyse/" class="gray btn-link fixed-right">
+                            <i class="icon icon-right"></i>
+                        </a>
+
+                        <table class="table">
+                            <tr>
+                                <th width="40%" class="text-left">
+                                    <span class="card-title pull-left">{$data['competitionshortname']}</span>
+                                    <time class="gray time">{date('H:i', $data['date'])}</time>
+                                </th>
+                                <th>
+                                    <span class="red state" data-key="text">{$data['status_text']}</span>
+                                </th>
+                                <th width="40%">&nbsp;</th>
+                            </tr>
+                            <tr>
+                                <td class="text-right">
+                                    <span class="home-animate"></span>
+                                    <span class="gray">
+                                        {if isset($data['homerank'])}
+                                        [{$data['homerank']}]
+                                        {/if}
+                                    </span>
+                                    <span {if $data['homeyellowcard']}class="yellow-card"{/if} data-key="homeyellowcard" data-style="yellow-card">{if $data['homeyellowcard']}{$data['homeyellowcard']}{/if}</span>
+                                    <span {if $data['homeredcard']}class="red-card"{/if} data-key="homeredcard" data-style="red-card">{if $data['homeredcard']}{$data['homeredcard']}{/if}</span>
+                                    <span class="team-name home-name">{$data['homeshortname']}</span>
+                                </td>
+                                <td>
+                                    <span class="live-score">
+                                        <span data-key="homescore" data-target="home-name" data-animate=".home-animate">{$data['homescore']}</span>
+                                        -
+                                        <span data-key="awayscore" data-target="away-name" data-animate=".away-animate">{$data['awayscore']}</span>
+                                    </span>
+                                </td>
+                                <td class="text-left">
+                                    <span class="team-name away-name">{$data['awayshortname']}</span>
+                                    <span {if $data['awayredcard']}class="red-card"{/if} data-key="awayredcard" data-style="red-card">{if $data['awayredcard']}{$data['awayredcard']}{/if}</span>
+                                    <span {if $data['awayyellowcard']}class="yellow-card"{/if} data-key="awayyellowcard" data-style="yellow-card">{if $data['awayyellowcard']}{$data['awayyellowcard']}{/if}</span>
+                                    <span class="gray">
+                                        {if isset($data['awayrank'])}
+                                        [{$data['awayrank']}]
+                                        {/if}
+                                    </span>
+                                    <span class="away-animate"></span>
+                                </td>
+                            </tr>
+                            {if isset($data['homecorner']) && isset($data['awaycorner'])}
+
+                            <tr class="fd gray">
+                                <td>&nbsp;</td>
+                                <td>
+                                    角：<span data-key="homecorner">{$data['homecorner']}</span> - <span data-key="awaycorner">{$data['awaycorner']}</span>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+
+                            {/if}
+                            
+
+                        </table>
+
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+        </div>
+        <!-- 卡片 end -->
+
+
+        {template 'wap', 'footer_nav'}
+
+
+    </div>
+
+</div>
+</div>
+
+{php $js = array('ft_live_game.js')}
+{template 'wap', 'wap_footer'}

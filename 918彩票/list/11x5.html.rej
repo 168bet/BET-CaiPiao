@@ -1,0 +1,32 @@
+diff a/list/11x5.html b/list/11x5.html	(rejected hunks)
+@@ -4,18 +4,18 @@
+ 		<nav>
+ 			<div id='secNav' class="kpTab syx5Tab clearfix" style="float: none; width: 100%;">
+ 				<ul id="play_tabs" class="clearfix" style="list-style: none; display: block; width: 60rem; height: 100%; padding: 0; marging: 0">
+-					<li class="cur">选第1位</li>
+-					<li>选2全中</li>
+-					<li>选3全中</li>
+-					<li>选4全中</li>
+-					<li>选5全中</li>
+-					<li>选6中5</li>
+-					<li>选7中5</li>
+-					<li>选8中5</li>
+-					<li>前2直选</li>
+-					<li>前3直选</li>
+-					<li>前2组选</li>
+-					<li>前3组选</li>
++					<li class="cur">前一</li>
++					<li>任选二</li>
++					<li>任选三</li>
++					<li>任选四</li>
++					<li>任选五</li>
++					<li>任选六</li>
++					<li>任选七</li>
++					<li>任选八</li>
++					<li>前二直选</li>
++					<li>前三直选</li>
++					<li>前二组选</li>
++					<li>前三组选</li>
+ 				</ul>
+ 			</div>
+ 		</nav>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>天天推球</title>
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<link rel="stylesheet" href="css/daily.css" type="text/css">
+<style>
+	header{ position:relative; padding-bottom:2.7rem; z-index:2;}
+	.header{ position:fixed; top:0; left:0; z-index:1; width:100%; height:2rem; padding-top:.7rem; background-color:#f9f9f9;}
+	.header h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#212121;}
+	.header a{ position:absolute; display:block; top:.9rem; left:.9rem; width:.7rem; height:.7rem;border-bottom:0.2rem solid #fc5638;border-left:0.2rem solid #fc5638; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+	.header span,.header cite{ position:absolute; display:block; right:.9rem; top:.45rem; width:1.1875rem; height:1.875rem; background-size:1.1875rem 1.875rem; -webkit-background-size:1.1875rem 1.875rem; -moz-background-size:1.1875rem 1.875rem}
+	.header cite{ width:1.469rem; height:1.875rem; right:2.8rem; background-size:1.469rem 1.875rem; -webkit-background-size:1.469rem 1.875rem; -moz-background-size:1.469rem 1.875rem}
+	body>a {display:none;}
+</style>
+<script src="https://s11.cnzz.com/z_stat.php?id=1261284071&web_id=1261284071 " language="JavaScript"></script>
+<body>
+<div class="daily_mask" style="display:none"></div>
+<header>
+	<div class="header">
+		<a id='returnIndex'></a>
+    	<h1>天天推球</h1>
+    	<!-- <cite id="share"></cite> -->
+    	<!-- <span id="command" style='right: 0;top: 0;width: 3.1875rem;height: 2.7rem;'> -->
+    	<!-- <input style="opcity:0" class="transparent_class ui-input-text ui-body-c" type="text" data-role="datebox" id="txtBirthday" name="txtBirthday" readonly="">
+    	</span>
+    	<ul id="listDate" style="display:none"></ul> -->
+	</div>
+</header>
+<article class="fixed-top">
+	<section class="daily_nav-box">
+		<nav class="daily_nav" id='nav'>
+			<span  class="active">竞彩足球</span><span>竞彩篮球</span>
+		</nav>
+	</section>
+	<section class="daily_time" id='Zqtm'>
+		<div class="daily_time-left" id='ZqtxtBirthday'></div>
+		<div class="daily_time-right" id="Zqcommand">
+			<i class="daily_time-ico"></i>
+		</div>
+	</section>
+	<section class="daily_time"  id='Lqtm' style='display:none'>
+		<div class="daily_time-left" id='LqtxtBirthday'></div>
+		<div class="daily_time-right" id="Lqcommand">
+			<i class="daily_time-ico"></i>
+		</div>
+	</section>
+</article>
+<ul class="daily_time-list" id="ZqlistDate" style='display:none'>
+</ul>
+<ul class="daily_time-list" id="LqlistDate" style='display:none'>
+</ul>
+<article class="daily_main-box jctouch" id='jczq'>
+	<section class="daily_main" id='zqlctj'>
+		<div class="daily_main-top">
+			<div class="daily_main-h title">
+				<h2>临时推荐</h2>
+				<p></p>
+				<span class="daily_main-time">推荐时间<br/>今日18:00</span>
+			</div>
+			<div class="daily_main-class" id="ZqlctjCont">
+			</div>
+		</div>
+		<div class="daily_main-bottom" id='Zqlc' style='display:none'>
+			<div class="daily_explain-head"><img src="img/head.png" /></div>
+			<div class="daily_explain" ><p></p></div>
+		</div>
+	</section>
+	<section class="daily_main" id='zqttwd'>
+		<div class="daily_main-top">
+			<div class="daily_main-h title">
+				<h2>天天稳胆</h2>
+				<p></p>
+				<span class="daily_main-time">推荐时间<br/>今日10:30</span>
+			</div>
+			<div class="daily_main-class" id="ZqttwdCont"></div>
+		<div class="daily_main-bottom" id='Zqtt' style='display:none'>
+			<div class="daily_explain-head"><img src="img/head.png" /></div>
+			<div class="daily_explain"></div>
+	</section>
+</article>
+
+<article class="daily_main-box jctouch" id='jclq' style='display:none'>
+	<section class="daily_main" id='lqlctj'>
+		<div class="daily_main-top">
+			<div class="daily_main-h title">
+				<h2>临时推荐</h2>
+				<p></p>
+				<span class="daily_main-time">推荐时间<br/>今日18:00</span>
+			</div>
+			<div class="daily_main-class" id='LqlctjCont'>
+				<!-- <div class="daily_main-wu">
+					<img src="img/wu.png"/>
+				</div> -->
+			</div>
+			<div class="daily_main-bottom" id='Lqlc' style='display:none'>
+				<div class="daily_explain-head"><img src="img/head.png" /></div>
+				<div class="daily_explain" ><p></p></div>
+			</div>
+		</div>
+	</section>
+	<section class="daily_main" id='lqttwd'>
+		<div class="daily_main-top">
+			<div class="daily_main-h title">
+				<h2>天天稳胆</h2>
+				<p></p>
+				<span class="daily_main-time">推荐时间<br/>今日18:00</span>
+			</div>
+			<div class="daily_main-class" id='LqttwdCont'>
+			</div>
+		</div>
+		<div class="daily_main-bottom" id='Lqtt'  style='display:none'>
+			<div class="daily_explain-head"><img src="img/head.png" /></div>
+			<div class="daily_explain"></div>
+		</div>
+	</section>
+</article>
+<article class="daily_rule">
+	<div class="daily_rule-h">说明</div>
+	<div class="daily_rule-p">
+		<p>1.竞彩足球每天10:30前发布天天稳胆,18:00前发布临场推荐;竞彩篮球每天18:00前发布临场推荐和天天稳胆。</p>
+		<p>2.胜率和回报率统计以推荐时的盘口和赔率为准,请您在参考时注意即时赔率和盘口变化。</p>
+	</div>
+</article>
+
+</body>
+<script src="/activity/ttjxnew/js/jquery-1.9.1.min.js"></script>
+<script language="javascript" src="/activity/ttjxnew/js/lazyloadv3.js"></script>
+<script src="/activity/ttjxnew/js/index.js"></script>
+<script>
+//统计点击次数
+
+</script>
+<html>

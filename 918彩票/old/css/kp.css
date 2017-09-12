@@ -1,0 +1,208 @@
+/*** 快3 ***/
+.k3title{ background:#f8f8f8; font-size:.9rem; border-bottom:1px solid #e2e2e2}
+.k3title span,.jxsscTab li{ float:left; width:17%; height:2.4rem; line-height:2.5rem; color:#a9a9a9; text-align:center; margin:0 1.5%}
+.k3title span.cur,.jxsscTab li.cur{ height:2.3rem; color:#db150b; border-bottom:2px solid #db150b }
+.k3kj{ height:4rem; border-bottom:1px solid #d9d9d9; font-size:.81rem; color:#a4a4a4}
+.k3kjtext{ float:left; height:3.5rem; width:43%; padding:.5rem 0 0 7%; border-right:1px solid #e2e2e2}
+.k3kjtext p cite{ padding-left:.7rem}
+.kjdice b{ float:left; width:1.6rem; height:1.6rem; margin-right:.46rem; background-position:center; background-repeat:no-repeat; background-size:1.6rem; -webkit-background-size:1.6rem; -moz-background-size:1.6rem}
+.onedice{ background-image:url(/img/kp/onedice.png)}
+.twodice{ background-image:url(/img/kp/twodice.png)}
+.threedice{ background-image:url(/img/kp/threedice.png)}
+.fourdice{ background-image:url(/img/kp/fourdice.png)}
+.fivedice{ background-image:url(/img/kp/fivedice.png)}
+.sixdice{ background-image:url(/img/kp/sixdice.png)}
+.kjup,.kjdown,.p5kjup,.p5kjdown{ float:left; margin-top:-.1rem; border-width:.6rem; border-style:solid; border-color:transparent transparent #d0cece transparent; -webkit-border-color:transparent transparent #d0cece transparent; -moz-border-color:transparent transparent #d0cece transparent} 
+.kjdown,.p5kjdown{ margin-top:.5rem; border-color:#d0cece transparent transparent transparent; -webkit-border-color:#d0cece transparent transparent transparent; -moz-border-color:#d0cece transparent transparent transparent}
+.p5kjup,.p5kjdown{ border-width:.42rem; margin:.5rem 0 0 .3rem}
+.p5kjdown{ margin-top:.9rem}
+.k3kjnum{ float:left; width:49.6%; text-align:center; padding-top:.5rem}
+.k3kjnum strong{ font-size:1.8rem; color:#8e8e8e}
+.k3kjlist ul,.k3listtt{ line-height:1.6rem; overflow:hidden; zoom:1; color:#b8b8b8; font-size:.75rem; text-align:center}
+.k3kjlist ul li,.k3listtt li{ float:left}
+.k3listtt li.wb18{ text-align:left; width:18%; padding-left:3.5%}
+.k3listtt li.wb20{ width:12%; padding-left:3.5%; text-align:left}
+.k3kjlist{ border-bottom:1px solid #e2e2e2}
+.k3kjlist ul li.wb20{ position:relative; width:12%; padding-left:3.5%; text-align:left; border-right:.15rem solid #e0e0e0}
+.k3kjlist ul li.wb20:before{ content:""; position:absolute; width:.62rem; height:.62rem; background:#f9f9f9; right:-.4rem; top:.3rem; border-radius:.62rem; -webkit-border-radius:.62rem; -moz-border-radius:.62rem}
+.k3kjlist ul li.wb20:after{ content:""; position:absolute; width:.375rem; height:.375rem; background:#e0e0e0; right:-.27rem; top:.4rem; border-radius:.375rem; -webkit-border-radius:.375rem; -moz-border-radius:.375rem}
+.k3listtt{ line-height:1.9rem; border-bottom:1px solid #e2e2e2}
+.listdice{ width:18%; padding-left:3.5%}
+.listdice b{ width:1rem; height:1rem; margin:.2rem .2rem 0 0; background-size:1rem; -webkit-background-size:1rem; -moz-background-size:1rem}
+.k3xh .shakeOmit{ width:3rem; top:-1.4rem}
+.k3xh p,.k3xh div{ padding:1.1rem 0 0 .8rem}
+.k3xhlist{ padding:.6rem .7rem; color:#bababa; font-size:.75rem}
+.k3xhlist li{ float:left; width:23%; height:3.3rem; padding-top:.45rem; margin:0 2% .3rem 0; text-align:center;}
+.k3xhlist li b{ display:block; font-size:1.5rem; color:#222; font-weight:normal}
+.k3xhlist li.cur{ background:#f03d3d; color:#fff}
+.k3xhlist li.cur b{ color:#fff}
+.k3double{ color:#a4a4a4; font-size:.85rem}
+.k3deleted{ bottom:.9rem} 
+.k3waitkj span{ font-size:1.06rem; margin-right:.6rem}
+.k3time{ float:left; width:.72rem; height:.8rem; margin:.2rem .4rem 0 0; background:url(/img/kp/time.png) no-repeat center; background-size:.72rem .8rem; -webkit-background-size:.72rem .8rem; -moz-background-size:.72rem .8rem}
+.k3xhlist2 li,.k3xhlist3 li{ line-height:3.3rem; width:30%; margin-right:3.3%; font-size:1.5rem; color:#222}
+.k3xhlist3 li{ height:2rem; line-height:1.7rem; width:14.6%; margin-right:2%}
+.k3tx,.k3tx2{ padding:.4rem .7rem}
+.k3tx p,.k3tx2,.k3xh p,.k3xh div{ color:#a4a4a4; font-size:.75rem}
+.k3tx ul{ line-height:3.4rem; color:#222; font-size:1.3rem; margin-top:.5rem; border:1px solid #ddd; border-radius:.5rem}
+.k3tx ul li{ float:left; width:16.5%; text-align:center}
+.k3tx ul.cur{ background:#f03d3d; color:#fff}
+.k3tx3 ul li{ width:25%}
+
+
+.jxsscTab{width:50rem;height:100%;float:left; font-size:.9rem; background:#f8f8f8; border-bottom:1px solid #d9d9d9}
+.jxsscTab li{ width:4.1rem; margin:0 .4rem}
+.jxssckjText{ padding-left:4%}
+.jxsscball b{ float:left; width:1.2rem; line-height:1.2rem; text-align:center; color:#fff; font-size:.75rem; font-weight:normal; background:#c6c6c6; margin:.05rem .2rem 0 0; border-radius:1.2rem; -webkit-border-radius:1.2rem; -moz-border-radius:1.2rem}
+.jxsscball b.red{ background:#f03d3d}
+.jxsscdice b{ font-weight:normal; display:inline-block; width:17%}
+.jxsscwb18{ width:18%; padding-left:3%}
+
+.jxsscxhlist{ width:94%; margin:0 auto; padding-top:.5rem}
+.jxsscxhlist li{ float:left; position:relative; width:16.1%; height:2.9rem; padding-top:.5rem; margin:.5rem 4% 0 0; background:#f5f5f5; color:#d4d4d4; text-align:center; border:1px solid #e0e0e0; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.jxsscxhlist li:last-child{ margin-right:0}
+.jxsscxhlist li:after,.jxsscxhlist li:before{ position:absolute; content:""; width:.2rem; height:.4rem; top:-.18rem; left:18%; background:url(/img/kp/gg.png) no-repeat center; background-size:.2rem .4rem; -webkit-background-size:.2rem .4rem}
+.jxsscxhlist li:after{ left:77%}
+.jxsscxhlist li span{ display:block; line-height:2.9rem; font-size:.9rem; border-top:1px solid #e0e0e0}
+.jxsscxhlist li.cur{ color:#f03d3d; background:#fff}
+.jxsscxhlist li.cur2{ color:#fff; background:#f03d3d; border:1px solid #f03d3d}
+.jxsscxhlist li.cur2 span{ border-top:1px solid #fe7b7b}
+.jxsscxhlist li em{ display:inline-block; width:24%}
+.jxsscxhlist li.jxssclist2 span{ line-height:1.1rem; padding:.35rem 0 0 10%; text-align:left}
+.jxsscxhlist li.jxssclist3 span{ line-height:.8rem; padding:.25rem 0 0 10%; text-align:left; font-size:.75rem}
+
+.jxsscxhBall span{ float:left; width:10%; text-align:right; margin-right:4%; color:#777; font-size:.88rem; padding-top:1.1rem}
+.jxsscxhBall p{ float:left; width:85%; overflow:hidden; zoom:1}
+.jxsscxhBall b{ float:left; font-size:1.06rem; width:2.1rem; text-align:center; line-height:2.1rem; margin:.55rem 6% 0 0; font-weight:normal; box-shadow:0 0 0 1px #d6d6d6 inset; -webkit-box-shadow:0 0 0 1px #d6d6d6 inset; -moz-box-shadow:0 0 0 1px #d6d6d6 inset; border-radius:2.1rem; -webkit-border-radius:2.1rem; -moz-border-radius:2.1rem }
+.jxsscxhBall b.red{ background:#f03d3d; color:#fff; box-shadow:0 0 0 1px #f03d3d inset; -webkit-box-shadow:0 0 0 1px #f03d3d inset; -moz-box-shadow:0 0 0 1px #f03d3d inset}
+.jxsscline{ border-bottom:1px solid #f0f0f0; padding-bottom:.8rem}
+.k3xh div.jxssctitle{ padding-top:0}
+.k3xh div.jxssctitle p{ padding:0}
+.k3xh div.jxssctitle p:first-child{ padding-top:.5rem}
+.jxsscdxds{ width:68%; margin:0 auto; padding-left:0}
+.jxsscdxds li{ width:23%; margin-left:8%}
+.jxsscdxds li:first-child{ margin-right:23%}
+.jxsscdxds .jxsscxhBall div{ width:45%; float:left}
+.jxsscdxds .jxsscxhBall div:first-child{ margin-right:10%}
+.jxsscdxds .jxsscxhBall div p b{ margin-right:18%}
+.jxsscdxds .jxsscxhBall div p b:last-child{ margin-right:0}
+.jxsscxhBall2{ padding:.5rem 0 0 1.5rem} 
+.jxsscxhBall2 b{ margin-right:4.5%}
+.jxsscxhBall3 b{ margin-right:.5rem}
+.jxsscxhBall3{ padding:.5rem 0 0 1rem}
+
+.sdxh div{ padding:.6rem 0 0 .5rem}
+.sdxh .shakeOmit,.sdxh .shakeomit{ width:4.4rem; top:-.7rem}
+.sdxh .shakeOmit cite{padding:.75rem 0 0 .05rem;display:inline-block}
+
+/*** 扑克快3 ***/
+.pkTab ul{ font-size:.9rem; background:#248449; border-bottom:1px solid #277356; height:2.4rem; line-height:2.4rem; color:#c2e1cd}
+.pkTab li{ position:relative; float:left; width:4.1rem; margin:0 .45rem; text-align:center}
+.pkTab li.cur{ color:#fec502}
+.pkTab li.cur:after{ content:""; position:absolute; width:100%; height:.15rem; background:#fec502; bottom:-1px; left:0}
+.pkkj{ background:#2c855a; color:#c0dbce; border-bottom:1px solid #277356}
+.pkkj .kjup{ margin:.2rem 0 0 .2rem; border-color:transparent transparent #c0dbce transparent; -webkit-border-color:transparent transparent #c0dbce transparent; -moz-border-color:transparent transparent #c0dbce transparent}
+.pkkj .kjdown{ margin:.9rem 0 0 .2rem; border-color:#c0dbce transparent transparent transparent; -webkit-border-color:#c0dbce transparent transparent transparent; -moz-border-color:#c0dbce transparent transparent transparent}
+.pkkj .k3kjtext{ width:50%; padding:.3rem 0 0 0; height:3.8rem; border-right:1px solid #277356}
+.pkkj .k3kjtext p{ text-align:center}
+.pkkj .k3kjnum{ padding-top:.3rem}
+.pkkj .k3kjnum strong{ display:inline-block; color:#c0dbce; padding-top:.2rem}
+.pkkj .k3time{ margin:.6rem 0 0 .3rem}
+.pkkj .k3waitkj,.pkkj .pkkjCard{padding-left:15%}
+.pkkj .k3waitkj span{ margin:.5rem .3rem 0 .6rem}
+.pkkjCard span,.pklist .kjdice span{ float:left; width:16%; height:2.16rem; padding:0 .2rem 0 .1rem; font-size:1rem; color:#282828; background:#fff; margin:.1rem 4% 0 0; border-radius:.15rem; -webkit-border-radius:.15rem; -moz-border-radius:.15rem}
+.pkkjCard em{ display:block; letter-spacing:-.16rem}
+.pkkjCard cite{ float:right}
+.spade{ width:.58rem; height:.75rem; margin-top:.1rem; background:url(/img/kp/spade.png) no-repeat center; background-size:.55rem .75rem; -webkit-background-size:.55rem .75rem; -moz-background-size:.55rem .75rem}
+.heart{ width:.65rem; height:.7rem; margin-top:.2rem; background:url(/img/kp/heart.png) no-repeat center; background-size:.594rem .656rem; -webkit-background-size:.594rem .656rem; -moz-background-size:.594rem .656rem}
+.club{ width:.7rem; height:.688rem; margin-top:.2rem; background:url(/img/kp/club.png) no-repeat center; background-size:.656rem .688rem; -webkit-background-size:.656rem .688rem; -moz-background-size:.656rem .688rem}
+.box{ width:.625rem; height:.75rem; margin-top:.1rem; background:url(/img/kp/box.png) no-repeat center; background-size:.625rem .75rem; -webkit-background-size:.625rem .75rem; -moz-background-size:.625rem .75rem}
+.pklist .kjdice{ width:35%; padding:.05rem 0 0 5%}
+.pklist .kjdice span{ width:23%; padding:.3rem 0 .2rem 3%; height:.75rem; line-height:.75rem; letter-spacing:-.06rem; margin-right:3%; font-size:.81rem}
+.pklist .kjdice span cite{ float:left; margin:-.05rem .1rem 0 0}
+.pklist .kjdice span cite.heart{ margin-top:.05rem}
+.pklist .kjdice span em{ float:left; letter-spacing:-.1rem}
+.pklist{ background:#2c855a}
+.pklist .k3listtt{ border-bottom:1px solid #277356; color:#c0dbce}
+.pklist .k3kjlist{ padding:.5rem 0; border-bottom:1px solid #277356}
+.pklist .k3kjlist ul{ color:#c0dbce}
+.pklist .k3kjlist ul li.wb20{ width:14%; border-right:1px solid #277356}
+.pklist .k3kjlist ul li.wb20:before{ background:none}
+.pklist .k3kjlist ul li.wb20:after{ background:#1d6549; right:-.24rem}
+.pkText .k3xh p,.pkText .k3xh div{ color:#c0dbce}
+.pkico{ background-image:url(/img/kp/shake.png)}
+.pkxhlist{ padding:.5rem 2% 0 4%}
+.pkxhlist ul,.pkxhlist div{ overflow:hidden; zoom:1}
+.pkxhlist div{ font-size:.75rem}
+.pkxhlist li{ position:relative; float:left; height:3.8rem; padding:.6rem 0 0 0; width:18%; margin-right:2%;}
+.pkxhlist p{ display:block; width:86%; margin:0 auto; height:3.8rem; box-shadow:0 0 .35rem rgba(4,0,0,0.5); -webkit-box-shadow:0 0 .35rem rgba(4,0,0,0.5); -moz-box-shadow:0 0 .35rem rgba(4,0,0,0.5)}
+.pkxhlist span{ display:block; height:3.8rem; background:#f0f4ef; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem; box-shadow:inset 0 0 3.5rem #c4dcd9; -webkit-box-shadow:inset 0 0 3.5rem #c4dcd9; -moz-box-shadow:inset 0 0 3.5rem #c4dcd9}
+.pkxhlist span b{ float:left; font-size:1.44rem; margin:.2rem 0 0 .25rem; color:#000; font-weight:normal}
+.pkxhlist span em{ float:right; width:.4375rem; height:2.4375rem; margin:1.3rem .15rem 0 0; background:url(/img/kp/tubiao.png) no-repeat center; background-size:.4375rem 2.4375rem; -webkit-background-size:.4375rem 2.4375rem; -moz-background-size:.4375rem 2.4375rem}
+.pkxhlist li.cur:before{ content:""; position:absolute; width:86%; padding:0; height:3.8rem; top:.1rem; left:3%; border:.19rem solid #08442e; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem; box-shadow:0 0 0 .1rem #fec502; -webkit-box-shadow:0 0 0 .1rem #fec502; -moz-box-shadow:0 0 0 .1rem #fec502}
+.pkxhlist li.cur:after{ content:""; position:absolute; width:1.25rem; height:1.25rem; bottom:-.1rem; left:35%; background:url(/img/kp/coin.png) no-repeat center; background-size:1.25rem 1.25rem; -webkit-background-size:1.25rem 1.25rem; -moz-background-size:1.25rem 1.25rem}
+.pkxhlist li.cur p{ margin-top:-.3rem}
+.pkyl em{ float:left; font-family:"黑体"; width:18%; text-align:center; color:#80b099; margin:.02rem 2% .1rem 0}
+.pkxhlist2 li{ height:2.8rem}
+.pkxhlist2 p{ height:2.8rem; width:60%; margin:0 0 0 10%}
+.pkxhlist2 span{ height:2.8rem}
+.pkxhlist2 p.pkdouble{ position:absolute; left:25%; top:.6rem}
+.pkxhlist2 span b{ font-size:1.0625rem; margin:0 0 0 .2rem; letter-spacing:-.1rem}
+.pkxhlist2 span em{ width:.375rem; height:1.8125rem; margin-top:.9rem; background-size:.375rem 1.8125rem; -webkit-background-size:.375rem 1.8125rem; -moz-background-size:.375rem 1.8125rem}
+.pkxhlist2 li.cur:before{ width:80%; padding:0; height:2.8rem; left:9%; box-shadow:0 0 0 .1rem #fec502; -webkit-box-shadow:0 0 0 .1rem #fec502; -moz-box-shadow:0 0 0 .1rem #fec502}
+.pkxhlist2 li.cur:after{ left:37%}
+.pkxhlist2 li.cur p{ margin-top:-.35rem}
+.pkxhlist3 li{ height:2.8rem; width:23%}
+.pkxhlist3 p{ height:2.8rem; width:45%; margin:0 0 0 9%}
+.pkxhlist3 span{ height:2.8rem}
+.pkxhlist3 p.pkdouble,.pkxhlist3 p.pkdouble2{ position:absolute; left:21%; top:.6rem}
+.pkxhlist3 p.pkdouble2{ left:41%}
+.pkxhlist3 li.cur:before{ width:83%}
+.pkxhlist3 li.cur:after{ left:41%}
+.pkxhlist3 .pkyl em,.pkxhlist4 .pkyl em{ width:23%}
+.pkxhlist2 .pkyl2 em{ width:45%} 
+.pkxhlist3 .pkyl2 em{ width:41%}
+
+.pkxhlist4{ margin:.5rem 2% 0 2%}
+.pkxhlist4 li{ height:4.4rem; width:24%; margin-right:1%}
+.pkxhlist4 p{ height:4.4rem; width:80%; margin:0 0 0 9%}
+.pkxhlist4 p span{ height:3.3rem; padding-top:1.1rem}
+.pkxhlist4 p cite{ display:block; margin:0 auto}
+.pkxhlist4 li p .spade{ width:1.56rem; height:1.97rem; background-size:1.56rem 1.97rem; -webkit-background-size:1.56rem 1.97rem; -moz-background-size:1.56rem 1.97rem}
+.pkxhlist4 li p .heart{ width:1.56rem; height:1.875rem; margin-top:.2rem; background-size:1.56rem 1.875rem; -webkit-background-size:1.56rem 1.875rem; -moz-background-size:1.56rem 1.875rem}
+.pkxhlist4 li p .club{ width:1.7rem; height:1.875rem; margin-top:.2rem; background-size:1.65rem 1.875rem; -webkit-background-size:1.65rem 1.875rem; -moz-background-size:1.65rem 1.875rem}
+.pkxhlist4 li p .box{ width:1.75rem; height:2.31rem; background-size:1.78rem 2.31rem; -webkit-background-size:1.78rem 2.31rem; -moz-background-size:1.78rem 2.31rem}
+.pkxhlist4 li.cur:before{ width:76%; height:4.4rem}
+.pkxhlist5 p span{ height:4.2rem; padding-top:.2rem}
+.pkxhlist5 p cite{ float:left; margin-left:.2rem}
+.pkxhlist5 p b{ float:right; width:1.3rem; margin-top:1.9rem}
+.pkxhlist5 p b.red{ color:#d13c3c}
+
+.pkbzbx li{ width:38%; height:2.3rem}
+.pkbzbx li p,.pkbzbx li p span{ height:2.2rem; width:100%; margin-top:.1rem}
+.pkbzbx li b{ width:84%; text-align:center; margin-top:.6rem}
+.pkbzbx li em{ margin:.3rem .3rem 0 0}
+.pkbzbx li.cur:before{ width:100%; height:2.3rem; top:.1rem; left:7%}
+.pkbzbx li.cur:after{ left:50%}
+.pkbzbx li.cur p{ margin-top:-.35rem}
+.pkxhlist4 .pkbzbx span{ padding-top:0}
+
+.pkFloat{ background:#031a17; color:#fff; border-top:1px solid #135033}
+.pkFloat .double{ background:#135033; color:#c0dbce; line-height:1.78rem; padding-left:.7rem; text-align:left; font-size:.8rem}
+.pkFloat .ssqdeleted{ background:#043421; color:#fff; box-shadow:0 0 0 1px #032014 inset; -webkit-box-shadow:0 0 0 1px #032014 inset; -moz-box-shadow:0 0 0 1px #032014 inset}
+/**.pkFloat .ssqdeleted:hover{ background:#012e1c}**/
+.pkFloat .ture{ background:#d67d00; color:#772900}
+/**.pkFloat .ture:hover{ background:#bd6e00}**/
+
+.syx5Tab{ padding-top:.5rem; border-bottom:1px solid #e9e9e9; background:#fff}
+.syx5Tab li{ width:4rem; margin:0 .5rem; height:1.6rem; color:#5c5c5c}
+.syx5Tab li.cur{ height:1.5rem; color:#db150b; border-bottom:2px solid #db150b}
+.syx5kj{ background:#f9f9f9; border-bottom:1px solid #e9e9e9}
+.syx5kj .k3kjtext{ width:46%; padding-left:4%; border-right:1px solid #e9e9e9}
+.syx5kj .k3kjtext p{ text-align:center}
+.syx5kj .k3waitkj{ width:90%; padding:.6rem 0 0 10%}
+.syx5kj .kjdice b{ float:left; width:1.3rem; text-align:center; height:1.3rem; line-height:1.3rem; background:#db150b; color:#fff; font-size:.75rem; font-weight:normal; margin:.2rem .15rem 0 0; border-radius:1.3rem; -webkit-border-radius:1.3rem; -moz-border-radius:1.3rem} 
+.syx5kj .kjup{ margin:-.2rem 0 0 .2rem}
+.syx5kj .kjdown{ margin:.3rem 0 0 .2rem}
+.syx5Title p{ line-height:1rem}
+

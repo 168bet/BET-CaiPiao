@@ -1,0 +1,1 @@
+<%@ Page language="c#" Codebehind="football_sbgg.aspx.cs" AutoEventWireup="false" Inherits="newball.dls.football_sbgg" %>

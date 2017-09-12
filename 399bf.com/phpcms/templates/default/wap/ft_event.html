@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$SEO['title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- build css -->
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+    <link rel="stylesheet" href="{WAP_CSS_PATH}font-awesome.min.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}main.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}ft_database.css">
+    <!-- build css end -->
+</head>
+<body>
+<div class="page-group">
+
+    <!-- 资料库 -->
+    <div class="page page-current" id="ft_database">
+
+        <!-- header -->
+        <header class="bar bar-nav">
+            <a class="button pull-left btn-back external" href="{WAP_PATH}zqscore/">
+                <i class="icon icon-left orange"></i>
+            </a>
+            <h1 class="title orange">足球资料库</h1>
+        </header>
+        <!-- header end -->
+
+        <!-- search bar -->
+        <!--<div class="bar bar-header-secondary">-->
+            <!--<div class="searchbar">-->
+                <!--<a class="searchbar-cancel">取消</a>-->
+                <!--<div class="search-input">-->
+                    <!--<label class="icon icon-search" for="search"></label>-->
+                    <!--<input type="search" id='search' placeholder='输入关键字...'/>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!-- search end -->
+
+        <div class="content">
+
+
+            <!-- 二级导航 -->
+            <div class="buttons-tab">
+                <a href="#zone-13" class="tab-link active button">欧洲赛事</a>
+                <a href="#zone-25" class="tab-link button">亚洲赛事</a>
+                <a href="#zone-26" class="tab-link button">美洲赛事</a>
+                <a href="#zone-27" class="tab-link button">大洋洲赛事</a>
+                <a href="#zone-29" class="tab-link button">国际赛事</a>
+            </div>
+            <!-- 二级导航 end-->
+
+            <div class="">
+                <div class="tabs">
+                    {loop $eventData $id $list}
+                    <div class="tab {if $id == 13}active{/if}" id="zone-{$id}">
+                        <!-- 内联导航 -->
+                        <div class="buttons-row inner-nav">
+                            <a href="#country-{$id}" class="button button-round active tab-link">国家</a>
+                            <a href="#state-{$id}" class="button button-round tab-link">洲际</a>
+                        </div>
+                        <!-- 内联导航 end -->
+
+                        <div class="">
+                            <div class="tabs">
+                                <div class="tab active" id="country-{$id}">
+                                    <!-- 国家盒子 -->
+                                    <div class="country-box content-padded">
+                                        <div class="row">
+                                            {loop $list[2] $data}
+                                            <div class="col-33">
+                                                <a href="#country-list-{$id}-{$data['id']}" class="country-item">
+                                                    <div class="cell">
+                                                        <img src="{$data['countrylogo']}" alt="" class="competition-photo">
+                                                    </div>
+                                                    <div class="cell">
+                                                    {$data['countryname']}
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            {/loop}
+                                        </div>
+                                    </div>
+                                    <!-- 国家盒子 end -->
+                                </div>
+                                <div class="tab" id="state-{$id}">
+                                    <!-- 洲际 -->
+                                    <div class="country-box content-padded">
+                                        <div class="row">
+                                            {loop $list[1] $data}
+                                            <div class="col-33">
+                                                <a href="{WAP_PATH}competition/{$data['id']}/schedule/" class="country-item external" >
+                                                    <div class="cell">
+                                                        <img src="{$data['countrylogo']}" alt="" class="competition-photo">
+                                                    </div>
+                                                    <div class="cell">
+                                                        {$data['name']}
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            {/loop}
+                                        </div>
+                                    </div>
+                                    <!-- 洲际 end -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+
+
+
+            {template 'wap', 'footer_nav'}
+        </div>
+
+
+
+    </div>
+
+    <!-- 内联赛事页 -->
+    {loop $eventData $id $list}
+        {loop $list[2] $data}
+            <div class="page" id="country-list-{$id}-{$data['id']}">
+                <!-- header -->
+                <header class="bar bar-nav">
+                    <a class="button pull-left btn-back" href="#ft_database">
+                        <i class="icon icon-left orange"></i>
+                    </a>
+                    <nav class="header-nav">
+                        <div class="buttons-row">
+                            <span class="button">{$data['countryname']}</span>
+                        </div>
+                    </nav>
+                </header>
+                <!-- header end -->
+                <div class="content">
+
+                    <!-- match -->
+                    <div class="match-box">
+                        <div class="row">
+                            {loop $data['event'] $value}
+                            <div class="col-50">
+                                <a href="{WAP_PATH}competition/{$value['eventid']}/schedule/" class="match-item external">
+                                    <img src="{PHOTO_PATH}competition/{$value['eventid']}.jpg" alt="" class="pull-left competition-photo">
+                                    {$value['eventname']}
+                                </a>
+                            </div>
+                            {/loop}
+                        </div>
+
+                    </div>
+
+                    <!-- match end -->
+                </div>
+            </div>
+        {/loop}
+    {/loop}
+
+</div>
+
+<script>
+    var router = true;
+</script>
+{template 'wap', 'wap_footer'}

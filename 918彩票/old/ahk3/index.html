@@ -1,0 +1,193 @@
+<style>
+@-webkit-keyframes ss_ {
+    0% {-webkit-transform: scale(0,0);}
+    100%,30% {-webkit-transform: scale(1,1);}
+}
+.ss{
+	-webkit-animation-name: ss_;
+    -webkit-animation-duration: .5s;
+    -webkit-transform: translate3d(0,0,0);
+}
+</style>
+	<header class="tzHeader" style='z-index: 2'>
+      <section class="fcHeader">
+    	<h1>快3</h1>
+    	<a href="#class=home" class="fcbackHome"></a>
+        <div class="pullDown">
+        	<em class="fcpullIco" id="pullIco"></em>
+            <div class="pullText ss" id="pullText" style="display:none;">
+            	<a href="javascript:;" class="cur">选号</a>
+            	<a href="#class=url&xo=kj/r.html&gid=06">开奖结果</a>
+            	<a href="#class=url&xo=ahk3/wf/index.html" style="border-bottom:none">玩法帮助</a>
+            </div>
+        </div>
+      </section>
+    </header>
+    <section>
+    	<nav class="k3title clearfix" id="play_tabs">
+    		<span class="cur" val='hz'>和值</span>
+       		<span val='sth'>三同号</span>
+       		<span val='eth'>二同号</span>
+       		<span val='sbth'>三不同号</span>
+       		<span val='ebth'>二不同号</span>
+        </nav>
+        <article>
+   	    <div class="k3kj clearfix" id='c_c'>
+            <div class="k3kjtext" id='kj_'>
+            	<p></p>
+                <div class="pdTop03 k3waitkj clearfix kjdice"><!-- <cite class="k3time"></cite><span class="left">等待开奖</span><em id='kjup' class="kjup kjdown"></em> --></div>
+            </div>
+            <div class="k3kjnum" id='ahk3'>
+            	<p>距<em id='c_expect'>加载中...</em>期截止</p>
+                <strong><p class="loading" style="display:;"><img src="/img/load.gif">正在加载</p></strong>
+            </div>
+        </div> 
+		<div style="display:none;" id='kj_code'>
+        	<ul class="k3listtt">
+            	<li class="wb20">期号</li>
+                <li class="wb18">开奖结果</li>
+                <li class="wb10">和值</li>
+                <li class="wb10">二同</li>
+                <li class="wb16">三连</li>
+                <li class="wb10">三同</li>
+                <li class="wb16">三不同</li>
+            </ul>
+          <div class="k3kjlist"></div>
+		</div>
+         </article>
+         <article>
+        	<div class="relative k3xh" id='bonus_'>
+            	<p class="gray">猜中开奖号码之和即中奖</p>
+            	<p style='display:none;'>[单选]猜中开奖号码即中奖，奖金<em class="yellow">240</em>元</p>
+                <p style='display:none;'>[单选]选择同号与不同号的组合，奖金<em class="yellow">80</em>元</p>
+                <p style='display:none;'>[单选]至少选3个号，猜中开奖号即中奖<em class="yellow">40</em>元</p>
+                <p style='display:none;'>至少选择2个号码，猜中开奖号码即中奖<em class="yellow">8</em>元</p>
+            	<div class="shakeomit"><span id="shake" class="right red"><em class="shakeico"></em><cite>摇一注&nbsp;&nbsp;&nbsp;</cite></span></div>
+            </div> 
+    	<!-- 和值start -->
+		<div id='hz'>  
+            <ul class="k3xhlist clearfix">
+            	<li v='240'><b>3</b>奖金240元</li>
+                <li v='80'><b>4</b>奖金80元</li>
+                <li v='40'><b>5</b>奖金40元</li>
+                <li v='25'><b>6</b>奖金25元</li>
+                <li v='16'><b>7</b>奖金16元</li>
+                <li v='12'><b>8</b>奖金12元</li>
+                <li v='10'><b>9</b>奖金10元</li>
+                <li v='9'><b>10</b>奖金9元</li>
+                <li v='9'><b>11</b>奖金9元</li>
+                <li v='10'><b>12</b>奖金10元</li>
+                <li v='12'><b>13</b>奖金12元</li>
+                <li v='16'><b>14</b>奖金16元</li>
+                <li v='25'><b>15</b>奖金25元</li>
+                <li v='40'><b>16</b>奖金40元</li>
+                <li v='80'><b>17</b>奖金80元</li>
+                <li v='240'><b>18</b>奖金240元</li>
+            </ul>
+			</div>
+       	<!-- 和值end -->
+        <!-- 三同号start -->
+			<div style='display:none;' id='sth'>
+           		<ul class="k3xhlist k3xhlist2 clearfix">
+            		<li>111</li>
+                	<li>222</li>
+                	<li>333</li>
+                	<li>444</li>
+                	<li>555</li>
+                	<li>666</li>
+           		</ul>
+                <div class="k3tx">
+           			<p>[通选]开出任意一个豹子号，奖金<cite class="yellow">40</cite>元</p>
+                    <ul class="clearfix">
+                    	<li>111</li>
+                        <li>222</li>
+                        <li>333</li>
+                        <li>444</li>
+                        <li>555</li>
+                        <li>666</li>
+                    </ul>
+                </div>
+			</div>
+       	<!-- 三同号end -->
+        <!-- 二同号start -->
+			<div style='display:none;' id='eth'>
+            	<p class="gray center pdTop06">—— &nbsp;同号&nbsp; ——</p>
+           		<ul class="k3xhlist k3xhlist3 clearfix">
+            		<li>11</li>
+                	<li>22</li>
+                	<li>33</li>
+                	<li>44</li>
+                	<li>55</li>
+                	<li>66</li>
+           		</ul>
+                <p class="gray center pdTop06">—— &nbsp;不同号&nbsp; ——</p>
+           		<ul class="k3xhlist k3xhlist3 clearfix">
+            		<li>1</li>
+                	<li>2</li>
+                	<li>3</li>
+                	<li>4</li>
+                	<li>5</li>
+                	<li>6</li>
+           		</ul>
+                <div>
+           			<p class="k3tx2">[复选]至少选1个对子，开奖号码包含此对子，奖金<cite class="yellow">15</cite>元</p>
+                    <ul class="k3xhlist k3xhlist3 clearfix">
+                    	<li>11*</li>
+                        <li>22*</li>
+                        <li>33*</li>
+                        <li>44*</li>
+                        <li>55*</li>
+                        <li>66*</li>
+                    </ul>
+                </div>
+		</div>
+       	<!-- 二同号end -->
+        <!-- 三不同号start -->
+		<div style='display:none;' id='sbth'>
+           		<ul class="k3xhlist k3xhlist3 clearfix">
+            		<li>1</li>
+                	<li>2</li>
+                	<li>3</li>
+                	<li>4</li>
+                	<li>5</li>
+                	<li>6</li>
+           		</ul>
+                <div class="k3tx k3tx3">
+           			<p>[通选]开出任意一个三连号，奖金<cite class="yellow">10</cite>元</p>
+                    <ul class="clearfix">
+                    	<li>123</li>
+                        <li>234</li>
+                        <li>345</li>
+                        <li>456</li>
+                    </ul>
+                </div>
+		</div>
+       	<!-- 三不同号end -->
+        <!-- 二不同号start -->
+		<div style='display:none;' id='ebth'>
+           		<ul class="k3xhlist k3xhlist3 clearfix">
+            		<li>1</li>
+                	<li>2</li>
+                	<li>3</li>
+                	<li>4</li>
+                	<li>5</li>
+                	<li>6</li>
+           		</ul>
+		</div>
+       	<!-- 二不同号end -->
+         </article>
+    </section>
+
+<footer class="buyFooter">
+	<div class="fixed">
+       <div class="double k3double" id='zj_detail' style='display:none;'></div>
+		<div class="buyFloat">
+        	<em class="deleted k3deleted"'></em>
+        	<span id='zs_'>共<cite class="yellow">0</cite>注  <cite class="yellow">0</cite>元</span>
+        	<a href="javascript:;" class="ture" id='pay_'>确 认</a>
+    	</div>
+	</div>
+</footer>
+<input type="hidden" value='' id='expect' />
+<input type="hidden" value='06' id='lotid' />
+<script src="/js/ahk3/index.js"></script>

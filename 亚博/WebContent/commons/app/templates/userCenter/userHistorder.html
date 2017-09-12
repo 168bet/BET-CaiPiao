@@ -1,0 +1,77 @@
+<!--投注记录-->
+<div class="sidewrap historder-sidewrap">
+	<ul class="ui-search clearfix">
+       <li class="ui-item">
+           <label>游戏：</label>
+           <select id="J-game-type" class="ui-select" name="lt_game" ng-model="formdata.filter.gameCode">
+                <option value="">全部游戏</option>
+                <option ng-repeat="item in formdata.options.gameTypeCode" value="{{item.gameCode}}">
+                  {{item.gameName}}
+                </option>
+           </select>
+       </li>
+       <li class="ui-item time" id="J-date-btn">
+         <label>日期：</label>
+         <span id="time_today" class="ico-tab" ng-class="{'ico-tab-current': formdata.day == 0}"  ng-click="fun.setDay(0)">今天</span>
+         <span id="time_three" class="ico-tab"  ng-class="{'ico-tab-current': formdata.day == 3}" ng-click="fun.setDay(3)">三天</span>
+         <span id="time_seven" class="ico-tab" ng-class="{'ico-tab-current': formdata.day == 7}" ng-click="fun.setDay(7)">七天</span>
+       </li>
+       <li class="ui-item state" id="J-status-btn">
+         <label>状态：</label>
+         <span class="ico-tab" ng-class="{'ico-tab-current': formdata.filter.status == -1}"  ng-click="formdata.filter.status = -1;" >全部</span>
+         <span class="ico-tab" ng-class="{'ico-tab-current': formdata.filter.status == 2}"  ng-click="formdata.filter.status = 2;">已中奖</span>
+         <span class="ico-tab" ng-class="{'ico-tab-current': formdata.filter.status == 1}"  ng-click="formdata.filter.status = 1;">未中奖</span>
+         <span class="ico-tab" ng-class="{'ico-tab-current': formdata.filter.status == 0}"  ng-click="formdata.filter.status = 0;">等待开奖</span>
+       </li>
+	 </ul>
+	 <ul class="ui-search ui-search-more clearfix">
+        <li class="ui-item number">
+          <label>方案编号：</label>
+          <input type="text" class="ip-text" id="orderCode" ng-model="formdata.filter.xzdh" placeholder="如：ABC7779">
+          <input type="hidden" id="proxyuname" value="">
+        </li>
+        <li class="ui-item date">
+          <label for="dateStar">时间：</label>
+          <input type="text" class="ip-time" laydate format="YYYY-MM-DD hh:mm:ss" id="J-date-start" ng-model="beginTime" name="dateStar">
+          <input type="text" class="ip-time" laydate format="YYYY-MM-DD hh:mm:ss" id="J-date-end" ng-model="endTime" name="dateEnd">
+        </li>
+        <li class="ui-item button">
+          <a href="javascript:void(0);" class="btn btn-important" id="J-button-submit" ng-click="fun.filterSubmit()"> 提 交 </a>
+        </li>
+    </ul>
+    <div class="content" style="padding:0;">
+    	<div class="body-row hist_list_body">
+    		<table class="table table-info">
+                <thead>
+                     <tr>
+                        <th>彩种/玩法</th>
+                        <th>期号</th>
+                        <th>投注金额</th>
+                        <th style="width: 80px;">开奖号码</th>
+                        <th>状态</th>
+                        <th>投单时间</th>
+                        <th>操作项</th>
+                    </tr>
+                </thead>
+                <tbody id="bet-history" ng-if="data.orders.length > 0">
+                    <tr ng-repeat="order in data.orders">
+                        <td><dd><font color="#c0392b">{{order.gameName}}</font></dd></td>
+                        <td><font color="#FF3300">{{order.qs}}</font></td>
+                        <td>{{order.kyje}}</td>
+                        <td style="word-break:break-all; word-wrap:break-word;">{{order.openNumber}}</td>
+                        <td><font color="#639300">{{order.orderStatus}}</font></td>
+                        <td>{{order.betTime | date: "yyyy-MM-dd hh:mm:ss"}}</td>
+                        <td><a class="txt_link" ui-sref="user.orderdetail({id: order.orderNo})" >查看</a></td>
+                    </tr>
+                </tbody>
+                <tbody id="bet-history" class="table-no-data" ng-if="data.orders.length <= 0">
+                    <tr>
+                        <td colspan="8">抱歉  暂无数据</td>
+                    </tr>
+                </tbody>
+             </table>
+    </div>
+    <!--选择第几页  -->
+    <full-pager page-conf="pageConf" />
+ </div>
+</div>

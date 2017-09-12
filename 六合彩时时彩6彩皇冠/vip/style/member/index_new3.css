@@ -1,0 +1,130 @@
+body {
+	background-image: url(../../images/member/index_bg.png);
+	background-repeat: repeat-x;
+	margin: 0px;
+	padding: 0px;
+}
+.sub {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 10px;
+	color: #FFFF00;
+}
+.sub2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+}
+.txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #036;
+}
+.mem {
+	display: block;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	background-image: url(../../images/member/index_rigbg.png);
+	width: 985px;
+	background-position: right top;
+	background-repeat: no-repeat;
+	margin: 0px;
+}
+.bord {
+	border: 2px double #CC9900;
+	margin-top: 0px;
+}
+
+.log {
+	position: absolute;
+	left: 810px;
+	top: 60px;
+}
+
+.foot {
+	display: block;
+	height: 25px;
+	width: 1024px;
+	color: #000;
+	text-align: center;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	padding-top: 20px;
+	padding-bottom: 2px;
+}
+.foot2 {
+	position: absolute;
+	left: 300px;
+}
+li {
+	list-style-type: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 25px;
+	color: #900;
+	margin-right: 10px;
+}
+.title {
+	width: 1024px;
+	margin-top: 0px;
+}
+
+.za_text {  font-family: "Arial"; font-size: 12px; height: 20px}
+.za_button {
+	font-family: "Arial";
+	font-size: 12px;
+	height: 28px;
+	width: 65px;
+	margin-left: 10px;
+}
+a:link, a:visited {
+	color: #900;
+}
+a:hover, a:active {
+	color: #06F;
+}
+.table {
+	position: absolute;
+	left:810px;
+	top: 20px;
+	width: 260px;
+}
+.virus {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000066;
+	text-decoration: none;
+	position: absolute;
+	top: 18px;
+	margin-top: 0px;
+}
+.virus a:link , .virus a:visited {
+	color: #000066;
+	text-decoration: none;
+}
+.virus a:hover {
+	color: #FF3300;
+	text-decoration: none;
+}
+.lang2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #36C;
+	top: 10px;
+	font-weight: bold;
+}
+.lang {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #900;
+	top: 10px;
+	font-weight: bolder;
+}
+.lang a:link , .lang a:visited {
+	color: #900;
+	text-decoration: underline;
+}
+.lang a:hover {
+	color: #06F;
+	text-decoration: none;
+}

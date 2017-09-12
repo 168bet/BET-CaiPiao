@@ -1,0 +1,540 @@
+<div id=mylottery>
+	<div id="wrapper">
+		<div id="scroller">
+			<div>
+				<div class="grayBg">
+					<a href="#type=url&p=user/set.html" id=setup
+						class="myAccount relative clearfix"><span class="left wb50"
+						id='uName'><i class="centerAdmi"></i></span><span
+						class="right gray" id='mSale'>安全等级<em
+							class="green pdLeft04"></em></span><i class="hmArrow"></i></a>
+					<div class="myAccount" style="padding: 0">
+						<div class="clearfix myLink" style='display:none;'>
+							<i class="balance"></i><a href="javascript:;"><em
+								class="left">宝币余额</em><span class="right gray"><em
+									class="red fontSize1_06" id="baobi">0</em> 元</span></a><i
+								class="hmArrow"></i>
+						</div>
+						<div class="clearfix myLink">
+							<i class="balance"></i><a href="javascript:;"><em
+								class="left" id='caijin'>彩金余额</em><span class="right gray"><em
+									class="red fontSize1_06" id="remaining"></em> 元</span></a><i
+								class="hmArrow"></i>
+						</div>
+						<div class="clearfix myLink">
+							<i class="recharge3"></i><a href="javascript:;" id="cz"><em
+								class="left">充值</em><span class="right gray">方式多 到账快</span></a><i
+								class="hmArrow"></i>
+						</div>
+						<div class="clearfix myLink">
+							<i class="withdrawal"></i><a href="javascript:;"
+								id="withdrawal"><em class="left">提款</em><span
+								class="right gray">提款0手续费</span></a><i class="hmArrow"></i>
+						</div>
+						<div class="clearfix myLink" id="rebate" style='display: none;'>
+							<i class="balance"></i><a href="javascript:;"><em
+								class="left">我的返利</em><span class="right gray"><em
+									class="red fontSize1_06" id="rebateMoney">115</em> 元</span></a><i
+								class="hmArrow"></i>
+						</div>
+					</div>
+					<a href="#type=url&p=user/packet.html"
+						class="myAccount relative clearfix" id='dbhide1'><span class="left"><i
+							class="redbalance"></i>红包余额</span><span class="right gray"><em
+							class="red fontSize1_06" id="redPacket"></em> 元</span><i class="hmArrow"></i></a>
+					<a href="#type=url&p=user/jfmx.html"
+						class="myAccount relative clearfix" style="margin-top:0; border-top:none" id='dbhide2'><span class="left"><i
+							class="jfico"></i>积分余额</span><span class="right gray"><em
+							class="red fontSize1_06" id="point"></em></span><i class="hmArrow"></i></a>
+					<ul class="myAccount" id=tzjl>
+						<li class="cur">购彩记录</li>
+						<li>追号记录</li>
+						<li style="border-right: none">套餐记录</li>
+						<div class="clear"></div>
+					</ul>
+				</div>
+				<!-- 购彩记录start -->
+				<div style="background: #fff;">
+					<div class="myRecord" id="myRecord"></div>
+				</div>
+				<!-- 套餐记录end -->
+			</div>
+		</div>
+	</div>
+</div>
+<div id=myrebate style='display: none;'>
+	<div class="pdLfrt09">
+		<p class="pdTop08 pdBot03">
+			用户余额：<cite class="yellow" id="rebateyue">0元</cite>
+		</p>
+		<a href="javascript:;" class="payment">转账</a>
+	</div>
+</div>
+<script>
+CP.myLottery = (function () {
+	var uid=""
+	var arrTy = ['自购','发起合买','合买跟单','神单','跟买'];
+	var istate = ['该方案自动跟单中，请等待','认购中','已满员','系统已撤单','发起人已撤单','系统已撤单','未支付'];
+	var sta = ['未完成','已完成','中奖后停止','用户手动停止'];
+	var myScroll;
+	var tag = true;
+	var bindCard=false;
+	var o = {
+			record : function (xo) {// 0购彩记录 1追号 2套餐.
+				$('#myRecord').html('<div style="padding-top:50px;height:200px"><em class="rotate_load" style="margin:auto"></em></div>');
+				var url = '';
+				xo = xo || 0;
+				url = {'0':'40','1':'43','2':'43&limit=1'}[xo] || '40';
+				$.ajax({
+					url : CP.Data.apps+'/user/mlottery.go?flag='+url+'&source='+CP.Data.source,
+					type : "POST",
+					dataType : "xml",
+					success : function(xml) {
+						var R = $(xml).find('Resp');
+						var code = R.attr('code');
+						var desc = R.attr('desc') || '';
+						
+						if (true) {//获取用的基本信息
+							var nickid = R.attr('nickid')||'';//用户名
+							uid = nickid;
+							var usermoeny = R.attr('usermoeny');//账户余额
+							var ipacketmoney = R.attr('ipacketmoney');//红包
+							var vmoney = R.attr('vmoney');//返利金额
+							var safe = R.attr('safe');
+							var isdl = R.attr('isdl');//返利标识
+							(isdl == '0') && $('#rebate').hide() || $('#rebate').show(); 
+							var vmoney = R.attr('vmoney');//返利金钱
+				        	var dj = {'0':'差','1':'低','2':'中低','3':'中','4':'中高','5':'高'}[safe] || '一般';
+							var point = R.attr('point');//剩余积分
+				        	$("#rebateMoney").text(vmoney);
+				        	$('#uName').html('<i class="centerAdmi"></i>'+nickid);
+				        	$('#mSale em').html(dj);
+				        	$('#remaining').html(usermoeny);
+				        	$('#redPacket').html(ipacketmoney);
+				        	$('#rebateyue').html(vmoney+'元');
+				        	$('#rebateMoney').html(vmoney);
+				        	$("#point").html(point);
+				        	
+				        	localStorage.setItem("username",nickid)
+						}
+						if (code == '0') {
+							/* alert(code) */
+							var r = R.find('row') || [];
+							var item = {};
+							if ( r.length ) {//r.length
+								r.each(function (i) {
+									var Q2 = '', Q = {};//日期
+									if(xo == '0'){//购彩记录
+										Q.gid = $(this).attr('gid');
+										Q.pid = $(this).attr('pid');
+										Q.projid = $(this).attr('projid');
+										Q.money = $(this).attr('money');
+										Q.buyid = $(this).attr('buyid');
+										Q.cancel = $(this).attr('cancel');
+										Q.award = $(this).attr('award');
+										Q.return_ = $(this).attr('return');
+										Q.rmoney = $(this).attr('rmoney');
+										Q.ty = $(this).attr('ty');
+										Q.istate = $(this).attr('istate');
+										Q.icast = $(this).attr('icast');
+										Q.status = $(this).attr('status');
+										Q.state = $(this).attr('state');
+										Q2 = $(this).attr('buydate').substr(0, 10);
+									}else if(xo == '1'){//追号
+										Q.gid = $(this).attr('gid');
+										Q.zhid = $(this).attr('zhid');
+										Q.pnums = $(this).attr('pnums');
+										Q.finish = $(this).attr('finish');
+										Q.tmoney = $(this).attr('tmoney');
+										Q.success = $(this).attr('success');
+										Q.bonus = $(this).attr('bonus');
+										Q.casts = $(this).attr('casts');
+										Q.reason = $(this).attr('reason');
+										Q.failure = $(this).attr('failure');
+										Q.zhflag = $(this).attr('zhflag');
+										Q.zhtype = $(this).attr('zhtype');
+										Q.adddate = $(this).attr('adddate');
+										Q2 = $(this).attr('adddate').substr(0, 10);
+									}else{//套餐
+									}
+									!item[Q2] && (item[Q2]=[]);
+									item[Q2].push(Q);
+								});
+								if (xo == '1') {//追号
+									$('#myRecord').addClass('myRecord2');
+								}else{
+									$('#myRecord').removeClass('myRecord2');
+								}
+								o.render(item, xo);
+							} else {
+								$('#myRecord').html('<div style="padding-top:50px;height:200px;text-align:center;">暂无记录</div>');
+							}
+							myScroll.refresh();
+						} else {
+							if(desc.indexOf('未登录') != -1){
+								var agent = localStorage.getItem('agent')||"";
+		                        if(agent == '3012'){//一元得宝
+		                            window.location.href="http://lifepage.api.niuwan.cc/lotteryjump?addfrom=login&rnd="+Math.random();//牛玩测试地址
+		                        }else{
+				        			alert('请先登录');
+				        			location.href = '#type=fun&fun=CP.Home.openLogin&in=user/index.html';
+		                        }
+							}else{
+								$('#myRecord').html('<div style="padding-top:50px;height:200px;text-align:center;">暂无记录</div>');
+								!!desc && alert(desc);//不为空的时候弹 别瞎几吧弹
+								if(tag){
+									o.loaded();
+									tag = false;
+								}
+			        		}
+						}
+					}
+				});
+			},
+			//渲染
+			render : function (obj, xo) {//xo购彩记录 0购彩记录 1追号 2套餐
+				var obj_ = obj || {};
+				var html = '';
+				if (xo == '0') {//购彩记录
+					for (var Q in obj_) {
+						var Q1 = obj_[Q];
+						if (Q1.length > 1) {
+							html += '<div class="clearfix myToday">'
+							html += '<span><em>'+Q.substr(5,2)+'月</em><cite>'+Q.substr(8,2)+'</cite></span>'
+								html += '<div class="left w86">';
+									for (var i=0;i<Q1.length;i++) {
+										var Q3 = Q1[i];
+										html += '<a href="#type=url&p=user/viewpath.html?hid='+Q3.projid+'">';
+										html += '<div class="myCz">';
+										html += '<p><em class="fontSize092">'+CP.Util.lot(Q3.gid)+'</em><em class="accountLine"></em><em class="fontSize07">'+arrTy[Q3.ty]+'</em></p>';
+										html += '<cite>'+Q3.money+'元</cite>';
+										html += '</div>';
+										html += '<div class="myQs">';
+										html += '<p>第'+Q3.pid+'期</p><cite>'+prize(Q3.rmoney, Q3.state)+'</cite>';
+										html += '</div>';
+										html += '<i class="hmArrow"></i>';
+										html += '</a>';
+									}
+							html += '</div>'
+							html += '</div>';
+						} else {
+							var Q2 = Q1[0];
+							html += '<a href="#type=url&p=user/viewpath.html?hid='+Q2.projid+'">\
+										<span><em>'+Q.substr(5,2)+'月</em><cite>'+Q.substr(8,2)+'</cite></span>\
+										<div class="myCz">\
+											<p><em class="fontSize092">'+CP.Util.lot(Q2.gid)+'</em><em class="accountLine"></em><em class="fontSize07">'+arrTy[Q2.ty]+'</em></p>\
+											<cite>'+Q2.money+'元</cite>\
+										</div>\
+										<div class="myQs"><p>第'+Q2.pid+'期</p>'+prize(Q2.rmoney, Q2.state)+'</div>\
+										<i class="hmArrow"></i>\
+									</a>';
+						}
+					}
+					html+='<a href="#type=url&p=user/record.html?in=gc" class="myMore">查看更多</a>';
+				} else if (xo == '1') {//追号记录
+					for (var Q in obj_) {
+						var Q1 = obj_[Q];
+						if (Q1.length > 1) {
+							html += '<div class="clearfix myToday myToday2">\
+										<span><em>'+Q.substr(5,2)+'月</em><cite>'+Q.substr(8,2)+'</cite></span>\
+										<div class="left w86">';
+											for (var Q2 in Q1) {
+												var Q3 = Q1[Q2];
+												html += '<a href="#type=url&p=user/chase.html?hid='+Q3.zhid+'">\
+															<p class="gray">\
+															<em class="fontSize092">'+CP.Util.lot(Q3.gid)+'</em><em class="accountLine"></em><em class="fontSize07">'+Q3.adddate+' 起</em>\
+															</p>\
+															<div class="myCz"><cite>'+Q3.tmoney+'元</cite><p>总额</p></div>\
+															<div class="myQs"><cite>'+Q3.pnums+'期/'+Q3.success+'期</cite><p>总/已追</p></div>\
+															<div class="myZt"><cite>'+sta[Q3.reason]+'</cite><p>状态</p></div>\
+															<i class="hmArrow"></i>\
+														</a>';
+											}
+							html += 	'</div>\
+									</div>';
+						} else {
+							var Q2 = Q1[0];
+							html += '<a href="#type=url&p=user/chase.html?hid='+Q2.zhid+'">\
+										<span><em>'+Q.substr(5,2)+'月</em><cite>'+Q.substr(8,2)+'</cite></span>\
+										<p class="gray"><em class="fontSize092">'+CP.Util.lot(Q2.gid)+'</em><em class="accountLine"></em><em class="fontSize07">'+Q2.adddate+'起</em></p>\
+										<div class="myCz"><cite>'+Q2.tmoney+'元</cite><p>总额</p></div>\
+										<div class="myQs"><cite>'+Q2.pnums+'期/'+Q2.success+'期</cite><p>总/已追</p></div>\
+										<div class="myZt"><cite>'+sta[Q2.reason]+'</cite><p>状态</p></div>\
+										<i class="hmArrow"></i>\
+									</a>';
+						}
+					}
+					html+='<a href="#type=url&p=user/record.html?in=zh" class="myMore">查看更多</a>';
+				} else {//套餐记录
+					
+				}
+				$("#myRecord").html(html);
+				$( "#myRecord a:last-child" ).css("border-bottom","none");
+				if(tag){
+					o.loaded();
+					tag = false;
+				}
+			},
+			//设置密码
+			setPassword:function(u,obj){
+				var data = "uid="+encodeURIComponent($.trim(uid))
+				$.ajax({
+					url:'/user/query_zcsh_pwd_flag.go',
+					type:"POST",
+					dataType:"XML",
+					data:data,
+			        success:function (data){
+			        	var R = $(data).find("Resp");
+			        	var c = R.attr('code');
+			        	var desc = R.attr('desc')||"";
+			        	if(c == '0'){//去设置密码(没有设置密码)
+			        		var r = R.find("row");
+			        		var pwdflag=r.attr("pwdflag");
+			        		
+			        		if(pwdflag=="0"){
+			        			D.confirm_new("为保证您的账户安全，请先设置购彩密码",function(){
+				        			window.location.href="/alone/spwd.html";
+				        		},"确定")
+			        		}else{//如不需要设置密码则在判断是否实名认证
+				        		o.checkId(u,obj);//window.location.href="#type=url&p=user/index.html";
+				        	}
+			        	}else{
+			        		alert(desc)
+			        	}
+			        }
+				})
+			},
+			
+			//判断是否实名验证
+			checkId:function(u,obj){
+				$.ajax({
+					url : '/user/query.go?flag=2',
+					type : "POST",
+					dataType : "xml",
+					success : function(xml) {
+						var R = $(xml).find("Resp");
+						var code = R.attr("code");
+						var desc = R.attr("desc");
+						if (code == "0") {
+							var r= R.find("row");
+							var rname = r.attr("rname");
+							var idcard = r.attr("idcard");
+							var bank = r.attr("bank");
+							
+							if(obj=="cz"){
+								if(rname == ""){//未实名
+									D.confirm_new("为保证您的账户安全，请先绑定身份信息",function(){
+					        			window.location.href="/alone/idcard.html";
+					        		},"确定")
+								}else {
+									window.location.href=u;//"/#type=url&p=user/charge.html"
+								}
+							}else{
+								if(rname == ""){//未实名
+									D.confirm_new("为保证您的账户安全，请先绑定身份信息",function(){
+					        			window.location.href="/alone/idcard.html";
+					        		},"确定")
+								}else if(!bank){
+									/***
+									D.confirm_new("为保证您的账户安全，请先绑定银行卡",function(){
+										console.log("aaa")
+					        			window.location.href="/alone/bankcard.html";
+					        		},"确定")
+					        		***/
+					        		$("#iosDialog1").show();
+									$("#descript").html("为保证您的账户安全，请先绑定银行卡")
+									
+									$('#qx').click(function(){//取消
+										$('#iosDialog1').hide();
+									});
+									$('#qr').click(function(){//确定
+										$('#iosDialog1').hide();
+										window.location.href="/alone/bankcard.html";
+									});
+								}else {
+									window.location.href=u;//"/#type=url&p=user/charge.html"
+								}
+							}
+							
+						}else{
+							alert(desc);
+							if(desc.indexOf('未登录')>=0){
+								setTimeout(function () {
+									window.location.href = '/alone/login.html';
+								}, 1500);
+							}
+						}
+					}
+				});
+			},
+			//判断是否绑定银行卡
+			checkBankCard:function(u){
+				$.ajax({
+					url : '/user/query.go?flag=4',
+					type : "POST",
+					dataType : "xml",
+					success : function(xml) {
+						var R = $(xml).find("Resp");
+						var code = R.attr("code");
+						var desc = R.attr("desc");
+						if (code == "0") {
+							var r= R.find("row");
+							var rname = r.attr("rname");
+							var idcard = r.attr("idcard");
+							var card = r.attr("card");//卡号
+							if(card == ""){//未绑定银行卡
+								o.setPassword(u)
+							}else {
+								window.location.href=u;//"/#type=url&p=user/charge.html"
+							}
+						}else{
+							alert(desc);
+							if(desc.indexOf('未登录')>=0){
+								setTimeout(function () {
+									window.location.href = '/alone/login.html';
+								}, 1500);
+							}
+						}
+					}
+				});
+			},
+			
+			loaded : function() {
+				var w = window.innerHeight;
+				$("#wrapper").height(w-50);//94是下面加载更多的高度
+				myScroll = new iScroll('wrapper', {useTransition: true});
+			},
+			rebate : function(){
+				TopAnch.init({
+					title:'我的返利',
+					prevShow:true,
+					isBack:true
+				});
+				$('#mylottery').hide();
+				$('#myrebate').show();
+				$('.payment').off().bind(start_ev, function(){
+					if(parseFloat($('#rebateMoney').text())>0){
+						$.ajax({
+					        url: CP.Data.apps+"/user/transfer.go",
+					        success:function (data){
+					        	var R = $(data).find("Resp");
+					        	var c = R.attr('code');
+					        	var desc = R.attr('desc');
+					        	alert(desc)
+					        	if(c == '0'){
+					        		window.location.href="#type=url&p=user/index.html";
+					        	}
+					        }
+						})
+					}else{
+						D.alert('余额不足，无法转账');
+					}
+				});
+			}
+	};
+	var prize = function (prize, state) {
+		var Q = '';
+		if(parseFloat(prize) > 0){
+			Q = '<cite class="yellow">已中奖'+prize+'元</cite>';
+        }else{
+        	Q = '<cite>'+state+'</cite>';
+        }
+		return Q;
+	};
+	var bind = function () {
+		$('#tzjl li').click(function(){
+			if ($(this).is('.cur')) {
+				return
+			}
+			$(this).addClass('cur').siblings().removeClass('cur');
+			o.record($(this).index());
+		});
+		//#type=url&p=user/charge.html
+		$('#cz').click(function(){//充值
+			var id = $(this).attr("id")
+			if(CP.Data.source == '3021'){//咸鱼彩票
+				o.checkId("#type=url&p=user/charge.html",id)
+			}else{
+				o.setPassword("#type=url&p=user/charge.html",id);
+			}
+			
+		});
+		
+		///alone/drawing.html
+		$('#withdrawal').click(function(){//提款
+			var id = $(this).attr("id")
+			if(CP.Data.source == '3021'){
+				o.checkId("/alone/drawing.html",id)
+			}else{
+				o.checkBankCard("/alone/drawing.html",id);
+			}
+			
+		});
+		
+		$('#rebate').Touch({fun:function(){
+			window.location.href = '#type=fun&fun=CP.myLottery.rebate';
+		}});
+		$('#remaining').parent().parent().on('touchend', function(){
+			if(CP.Data.source == '3021' && false){//关闭彩金换宝币
+				location.href = '/user/bd/?type=2'
+			}else{
+				location.hash = 'type=url&p=user/detail.html'
+			}
+		})
+		if(CP.Data.source == '3021'){
+			$('#caijin').html('彩金余额')
+			$('#baobi').parent().parent().parent().show();
+			$('#baobi').parent().parent().on('touchend', function(){
+				location.href = '/user/bd/?type=1'
+			})
+			$.ajax({//查询宝币余额
+				url:'/user/yydbbalance.go',
+				type:'get',
+				success:function(xml){
+					var R = $(xml).find('Resp');
+					if(R.attr('code') == '0'){
+						$("#baobi").html(+R.find('row').attr('credit')/100);
+					}
+				}
+			})
+		}
+	};
+	var init = function () {
+		CP.Data.grade(function(){
+			$("#tzjl li:eq(0)").html("预约记录");
+		},function(){
+			$("#tzjl li:eq(0)").html("购彩记录");
+		})
+		if(CP.Data.source == '3021'){
+			$('#dbhide1, #dbhide2').hide()
+		}
+		TopAnch.init({
+			title:'我的彩票',
+			prevShow:true,
+			prevFun:function(){//左侧按钮绑定事件
+				window.location.href = '#type=index';
+			},
+			style:false
+		});
+		bind();
+		o.record();//初始化购彩记录
+		
+	};
+	return {init : init, record : o.record, rebate : o.rebate};
+})();
+function resetPage(){
+	$('#content_home').show();//登录完之后显示投注层
+	TopAnch.init({
+		title:'我的彩票',
+		prevShow:true,
+		prevFun:function(){//左侧按钮绑定事件
+			window.location.href = '#type=index';
+		},
+		style:false
+	});
+	$('#mylottery').show();
+	$('#myrebate').hide();
+	CP.myLottery.record();
+}
+CP.myLottery.init();
+</script>

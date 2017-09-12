@@ -1,0 +1,192 @@
+/*h1 {
+	background-image: url(/images/member/live_head.gif);
+	height: 109px;
+	width: 743px;
+}
+.divM {
+	width: 743px;
+}*/
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #1C0D00;
+	SCROLLBAR-HIGHLIGHT-COLOR: #f3a83f;
+	SCROLLBAR-SHADOW-COLOR: #bf3527;
+	SCROLLBAR-ARROW-COLOR: #e0cc05;
+	SCROLLBAR-TRACK-COLOR: #861f0a;
+	SCROLLBAR-BASE-COLOR: #FF6600;
+	overflow-x:hidden; 
+}
+.game {
+	background-image: url(../../images/member/live_Rbg.gif);
+	background-repeat: repeat-y;
+	text-align: center;
+}
+.QA {
+	height: 33px;
+	width: 120px;
+	position: relative;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	float: right;
+	top: 23px;
+	left: 1px;
+}
+input{
+	color: #FFFFFF;
+	background-color: #FF6200;
+	height: 20px;
+	position: relative;
+	border: 2px groove #831808;
+}
+.head {
+	background-image: url(/images/member/live_head.gif);
+	background-repeat: no-repeat;
+	height:67px;
+	width: 770px;
+	text-align: right;
+}
+#top_div .head span {
+	position: relative;
+	right: 20px;
+	bottom: 20px;
+}
+.reload {
+	text-align: right;
+	padding-right: 10px;
+}
+.game_list {
+	margin-left: 1px;
+	margin-top: 0px;
+}
+.time ,.time_2 {
+	padding-left: 10px;
+}
+.team , .team_2, {
+	display: block;
+	padding-left: 10px;
+}
+.time {
+	font-weight: bold;
+	color: #ffc000;
+}
+.time_2 {
+	font-weight: bold;
+	color: #ffc000;
+}
+.date {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.team {
+	color: #c00000;
+}
+.team_2 {
+	color: #a6a6a6;
+}
+.gtype {color: #3399FF;}
+.gtype_2 {color: #999999;}
+.hot {
+	display: block;
+	position: relative;
+	float: right;
+	top: -13px;
+}
+td {font-family: Arial, Helvetica, sans-serif;font-size:12px;}
+.w183 {
+	width: 200px;
+	float: left;
+	display: inline;
+}
+
+.demoIMG {
+	background-image: url(../../images/member/demo.jpg);
+	background-repeat: no-repeat;
+	height: 495px;
+	width: 490px;
+	background-position: right;
+	border: 1px solid #331801;
+}
+.demo {
+	background-image: url(../../images/member/live_icon01.gif);
+	color: #FF0000;
+	padding-right: 10px;
+	background-repeat: no-repeat;
+	padding-left: 15px;
+	background-position: 1px;
+	font-weight: bold;
+}
+a:link{color: #FF0000; text-decoration: none;}
+a:hover {
+	color: #FFFF00;
+	text-decoration: none;
+}
+.FQ {
+	background-image: url(/images/member/live_icon01.gif);
+	color: #FF0000;
+	padding-right: 10px;
+	background-repeat: no-repeat;
+	padding-left: 15px;
+	background-position: 1px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.timer {
+	background-image: url(/images/member/live_icon02.gif);
+	color: #FFFFFF;
+	padding-right: 10px;
+	background-repeat: no-repeat;
+	padding-left: 15px;
+	background-position: 1px;
+}
+
+.dome_L {
+	width: 490px;
+	padding-top: 0px;
+	padding-left: 8px;
+}
+.mag_league {
+	font-size: 16px;
+	color: #FFFFFF;
+}
+.mag_team {
+	font-size: 12px;
+	color: #FFCC33;
+	height: 25px;
+	padding-right: 5px;
+	padding-left: 5px;	
+}
+.mag_info {
+	font-size: 20px;
+	color: #FFFFFF;
+	font-weight: bold;
+	display: block;
+	margin-top: -18px;
+}
+.mag_league, .mag_team,.mag_info{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.Obut {
+	display: table;
+	position: relative;
+	left: 218px;
+	top: 10px;
+}
+#team_img {
+	top: 8px;
+	position: relative;
+}
+.select{
+	width: 80px;
+}
+.TVbut {
+	position: absolute;
+	top: 48px;
+	left: 584px;
+}
+.Live_order {
+	position: relative;
+	top: 5px;
+}

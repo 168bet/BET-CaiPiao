@@ -1,0 +1,35 @@
+<div ng-controller="footCtrl">
+  <!--首页底部-->
+  <div class="footer-index" style="height:80px;overflow: hidden;">
+    <div class="row12 clearfix">
+      <div class="footer-l">
+        <div class="fnav1">
+          <a ui-sref="helps.about">网站简介</a>
+          <a ui-sref="helps.help" >新手指引</a>
+          <a ui-sref="helps.notice" >网站公告</a>
+          <a ng-click="withdraw()" style="cursor: pointer;">提现兑奖</a>
+          <a ui-sref="register.step/one" >试玩体验</a>
+          <a ng-click="APPshow()" style="cursor: pointer;">手机APP客户端</a>
+        </div>
+        <div class="copyright">Copyright © 2015-2016 AG蛋蛋 版权所有</div>
+      </div>
+      <div class="footer-r">
+        <div class="align-c">
+          <img ng-src=" {{staticURI}}/images/360_safe.png " border="0" >
+          <img ng-src=" {{staticURI}}/images/cert.png " width="131" height="47" border="0"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="server-wrap">
+    <div class="server-wrap">
+      <a href="http://chat16.live800.com/live800/chatClient/chatbox.jsp?companyID=374605&amp;configID=62445&amp;jid=6882213488&amp;enterurl=&amp;pagetitle=&amp;pagereferrer=&amp;firstEnterUrl=&amp;lan=zh&amp;name=" target="_blank" class="chat">在线客服</a>
+      <a href="javascript:;" class="weixin" ng-mouseenter="showCode=true" ng-mouseleave="showCode=false"></a>
+      <div class="weixin" style="width: 136px;position: absolute;right: 77px" ng-show="showCode">
+        <img ng-src="{{staticURI}}/images/base/code.jpg">
+        <span>扫一扫</span>
+      </div>
+    </div>
+  </div>
+
+  <scroll-to-top></scroll-to-top>

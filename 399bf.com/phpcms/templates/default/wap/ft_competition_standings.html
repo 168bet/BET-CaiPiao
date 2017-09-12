@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$SEO['title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- build css -->
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+    <link rel="stylesheet" href="{WAP_CSS_PATH}font-awesome.min.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}main.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}ft_database.css">
+    <!-- build css end -->
+</head>
+<body>
+<div class="page-group">
+
+    <!-- 资料 详细页 -->
+    <div class="page page-current" id="ft_database">
+
+        <!-- header -->
+        <header class="bar bar-nav">
+            <a class="button pull-left btn-back" href="{WAP_PATH}zqevent/">
+                <i class="icon icon-left orange"></i>
+            </a>
+            <h1 class="title orange">{$competition_info['range']} {$competition_info['shortname']}</h1>
+            <a href="#" class="button pull-right btn-orange open-about-race">分类</a>
+        </header>
+        <!-- header end -->
+
+
+        <div class="content">
+
+
+            <!-- 二级导航 -->
+            <div class="buttons-tab">
+                <a href="{WAP_PATH}competition/{$competitionid}/standings/"
+                   class="tab-item active button">积分</a>
+                <a href="{WAP_PATH}competition/{$competitionid}/schedule/"
+                   class="tab-item button">赛程</a>
+                <a href="{WAP_PATH}competition/{$competitionid}/oddsway/"
+                   class="tab-item button">盘路</a>
+                <a href="{WAP_PATH}competition/{$competitionid}/hfstat/"
+                   class="tab-item button">半全场</a>
+                <a href="{WAP_PATH}competition/{$competitionid}/shooter/"
+                   class="tab-item button">射手榜</a>
+            </div>
+            <!-- 二级导航 end-->
+
+            <!-- match table -->
+            <div class="match-table">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>排名</td>
+                        <td>球队</td>
+                        <td>赛</td>
+                        <td>胜</td>
+                        <td>平</td>
+                        <td>负</td>
+                        <td>进/失</td>
+                        <td>净胜</td>
+                        <td>积分</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {loop $standings_info $rank $list}
+                        {loop $list $data}
+                        {php $net = $data['goal'] - $data['nongoal']}
+                        <tr>
+                            <td>{$rank}</td>
+                            <td>
+                                <a href="" class="orange">{$data['teamname']}</a>
+                            </td>
+                            <td>{$data['total']}</td>
+                            <td>{$data['win']}</td>
+                            <td>{$data['draw']}</td>
+                            <td>{$data['lose']}</td>
+                            <td>{$data['goal']}/{$data['nongoal']}</td>
+                            <td>{$net}</td>
+                            <td>
+                                <span class="orange">{$data['score']}</span>
+                            </td>
+                        </tr>
+                        {/loop}
+                    {/loop}
+                    </tbody>
+                </table>
+            </div>
+            <!-- match table end -->
+
+
+            {template 'wap', 'footer_nav'}
+
+
+        </div>
+
+        <!-- 赛季弹窗 -->
+        <div class="popup popup-about-race">
+            <header class="bar bar-nav">
+                <h1 class="title">统计类型</h1>
+                <a class="close pull-right popup-close-race">
+                    &times
+                </a>
+            </header>
+            <ul class="content-block season-select">
+                <li class="text-center" data-action="link" data-url="{WAP_PATH}index.php?m=wap&c=football&a=competition_standings&competitionid={$competitionid}&type=total">总</li>
+                <li class="text-center" data-action="link" data-url="{WAP_PATH}index.php?m=wap&c=football&a=competition_standings&competitionid={$competitionid}&type=home">主</li>
+                <li class="text-center" data-action="link" data-url="{WAP_PATH}index.php?m=wap&c=football&a=competition_standings&competitionid={$competitionid}&type=away">客</li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+{template 'wap', 'wap_footer'}

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>滚球</title>
+<meta name="description" content="滚球。">
+<meta name="keywords" content="滚球">
+<link href="gq.css" rel="stylesheet" type="text/css">
+<style>
+.wscroll {
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+@-webkit-keyframes fadeInRight{0%{opacity:0;-webkit-transform:translateX(30px)}
+100%{opacity:1;-webkit-transform:translateX(0)}
+}
+.fadeInRight{-webkit-animation-name:fadeInRight;-webkit-animation-duration:.5s;-webkit-animation-timing-function:ease;-webkit-animation-delay:0;-webkit-animation-fill-mode:both;-webkit-animation-iteration-count:1;}
+@-webkit-keyframes suona {
+	0%{-webkit-transform: translateY(0)}
+	80%{-webkit-transform: translateY(-1.5rem)}
+	90%{-webkit-transform: translateY(-1.2rem)}
+	100%{-webkit-transform: translateY(-1.3rem)}
+}
+.suona{
+-webkit-animation: suona 1s 0s ease both 1;
+}
+@-webkit-keyframes suona1 {
+	0%{width:90%}
+	100%{width:100%}
+}
+.suona1{
+-webkit-animation: suona1 .2s 0s ease both infinite;
+}
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -100px;background:#000;color:#fff;width:200px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+
+@-webkit-keyframes slideIn {
+    0% {-webkit-transform: translateX(100%);opacity: 0}
+    100% {-webkit-transform: translateX(0);opacity: 1}
+}
+.zbj li:nth-child(6) {
+-webkit-animation: slideIn .4s 0s ease both 1;
+}
+.zbj li:nth-child(5) {
+-webkit-animation: slideIn .4s .2s ease both 1;
+}
+.zbj li:nth-child(4) {
+-webkit-animation: slideIn .4s .4s ease both 1;
+}
+.zbj li:nth-child(3) {
+-webkit-animation: slideIn .4s .6s ease both 1;
+}
+.zbj li:nth-child(2) {
+-webkit-animation: slideIn .4s .8s ease both 1;
+}
+.zbj li:nth-child(1) {
+-webkit-animation: slideIn .4s 1s ease both 1;
+}
+.spinner3 {
+left:50%;
+top:50%;
+margin-left:-20px;
+margin-top:20px;
+  width: 40px;
+  height: 40px;
+  position: relative;  
+  -webkit-animation: rotate 2.0s infinite linear;
+  animation: rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: red;
+  border-radius: 100%;
+  
+  -webkit-animation: bounce 2.0s infinite ease-in-out;
+  animation: bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+  top: auto;
+  bottom: 0px;
+  background-color: green;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+@-webkit-keyframes bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:2}
+
+.popup{ width:100%; height:11.33rem; position:fixed; top:30%; left:0; z-index:3; background:url(img/tk.png) no-repeat center; background-size:80% 11.33rem; -webkit-background-size:80% 11.33rem; -moz-background-size:80% 11.33rem}
+.popup p{ color:#238c05; font-size:1.2rem; margin:2.7rem 0 0 19%; transform:rotate(-8deg); -webkit-transform:rotate(-8deg); -moz-transform:rotate(-8deg)}
+.zfTrue{ overflow:hidden; zoom:1; height:2rem; margin:3.7rem 0 0 17.5%}
+.zfTrue a{ float:left; width:35%; line-height:1.9rem; text-align:center; background:#ffd800; color:#fff; font-size:1.1rem; letter-spacing:.2rem; margin-right:7%; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem; box-shadow:0 .15rem 0 #fd8d2c; -webkit-box-shadow:0 .15rem 0 #fd8d2c; -moz-box-shadow:0 .15rem 0 #fd8d2c; text-shadow:0 .1rem 0 #0e3d00; -webkit-text-shadow:0 .1rem 0 #0e3d00; -moz-text-shadow:0 .1rem 0 #0e3d00; font-weight:bold}
+
+</style>
+<div class="hmPull" hidden id="listcont">
+	<p><span>28日 10:30 凯尔特人 <em class="red">78:91</em> 黄蜂</span><cite class="red">直播中</cite></p>
+	<p><span>28日 10:30 凯尔特人 <em class="red">78:91</em> 黄蜂</span><cite class="red">直播中</cite></p>
+	<p><span>28日 10:30 凯尔特人 <em>vs</em> 黄蜂</span><cite>未开始</cite></p>
+	<p><span>28日 10:30 凯尔特人 <em>vs</em> 黄蜂</span><cite>未开始</cite></p>
+</div>
+<!-- 投注弹窗后start -->
+<div class="pop" style="display: none;" id="pop">
+	<article class="tktitle">
+    	<cite>投注单</cite>
+    	<span>金豆余额<strong id="jdyue">25.6</strong></span>
+        <i id="close"></i>
+    </article>
+    <article class="tktext" id="tzCont">
+    	<div class="zksf" id="pkCont"><span>灰熊胜</span><cite>1.80</cite><em id="js" style="display:none"></em></div>
+    	<div class="s2 clearfix">
+    		<span>投入金豆：</span>
+    		<ul class="clearfix" id="ulCont">
+        		<li><input type="text" value="50" id="in_golden"></li>
+        		<li style="margin-right: 0;">全押</li>
+        		<li>+1000</li>
+        		<li>+5000</li>
+        		<li>+20000</li>
+        	</ul>
+    	</div>
+    	<div class="s3">预计返回：<em class="red" id="fh">18</em>金豆</div>     
+        <div class="red" id="bh" style="display:none">赔率已发生变化，是否进行投注。</div>
+        <div style="display:none" id="sjd" class="jdbtn clearfix"><span>金豆金额不足！</span><a href="hdjd.html">获得金豆</a></div>
+    </article>
+    <div class="ture" id="qrjc">确认竞猜</div>
+</div>
+<!-- 投注弹窗start -->
+<!-- 
+<div class="pop" style="display:" id="pop">
+	<article class="tktitle">
+    	<cite>投注单</cite>
+    	<span>金豆余额<strong id="jdyue">0</strong></span>
+        <i id="close"></i>
+    </article>
+    <article class="tktext" id="tzCont">
+    	<div class="clearfix">
+        	<article class="left" style="width:38%">
+            	<div class="spfzpk cur" id="pkCont"></div>
+                <p id="bh" style="display:none;color:#db150b">盘口或赔率已发生变化</p>
+                <p id="js" style="display:none;">第四节投注含加时</p>
+            </article>
+            <article class="right" style="width:58%;">
+            	<div class="spfzpk"><input id="in_golden" type="tel" class="tk_input" value="10"><i>金豆</i></div>            	
+                <p></p>
+            </article>
+            
+        </div>
+        <ul class="clearfix">
+        	<li>+1000</li>
+        	<li>+5000</li>
+        	<li>+20000</li>
+        	<li>全押</li>
+        </ul>
+        <div style="display:none" id="sjd" class="jdbtn clearfix"><span>金豆金额不足！</span><a href="hdjd.html">获得金豆</a></div>
+    </article>
+    <div class="ture" id="qrjc">确认竞猜</div>
+</div>
+ -->
+<div class="zhezhao" style="display:none" id="zhezhao"></div>
+<div class="mask" id="mask" hidden></div>
+<article>
+<a href="javascript:;" class="bcjj" style="display:none">本场<br>加奖</a>
+	<header class="zcHeader">
+     <div class="fixed2">
+    	<a href="javascript:history.go(-1)" class="fcbackIco2"></a>
+     	<section class="hmHeader">
+    		<h1>加载中...</h1>
+        </section>
+        <article class="pullDown">
+        	<em class="pullIco"></em>
+            <div class="pullText fadeInRight" style="display:none">
+            	<a href="bkbc.html" class="cur">边看边猜</a>
+            	<a href="myjc.html">我的竞猜</a>
+            	<a href="phb.html">排行榜</a>
+            	<a href="wfgz.html">玩法规则</a>
+            	<a href="new.html">公告</a>
+            	
+            	
+            </div>
+        </article>
+      </div> 
+    </header>
+    <article class="dzqd">
+    	<ul>
+    		<li> <p><img src="nbalogo/9188.png"></p><span><strong>&nbsp;</strong>&nbsp;</span></li>
+    		<li class="mid"> <span></span><b></b> </li>
+    		<li> <p><img src="nbalogo/9188.png"><i></i></p><span><strong>&nbsp;</strong>&nbsp;</span></li>
+    	</ul>
+    </article>
+    <nav class="tab">
+    	<ul>
+       		<li>直播间</li>
+       		<li class="cur">金豆竞猜<em></em></li>
+       		<li>数据统计</li>
+        </ul>
+        <em class="downline" style="width:23%; left:14%"></em>
+    </nav>
+    <section id='content'>
+    <!-- 直播间start -->
+   		<article id="studio"  style='display:none;'>
+				<div class="spinner3">
+					 <div class="dot1"></div>
+					<div class="dot2"></div>
+				</div>
+		<ul class="zbj">
+        	<!-- <li><cite>12:00</cite><em>客</em><span>巴斯拿到后场篮板</span></li>
+        	<li><cite>12:00</cite><em>客</em><span>巴斯拿到后场篮板</span></li>
+        	<li><cite>12:00</cite><em>客</em><span>巴斯拿到后场篮板</span></li>
+        	<li><cite>12:00</cite><em>客</em><span>巴斯拿到后场篮板</span></li>
+        	<li><cite>12:00</cite><em>客</em><span>巴斯拿到后场篮板</span></li>
+        	<li><cite>12:00</cite><em>客</em><span>巴斯拿到后场篮板</span></li>
+        	<li><cite>12:00</cite><em>客</em><span>巴斯拿到后场篮板</span></li> -->
+        </ul>        
+        </article>
+     <!-- 直播间end -->
+     <!-- 金豆竞猜start -->
+    	<article id="quiz">
+        	<ul class="sjtj" id="jcbf1">
+            	<li>
+                	<span>&nbsp;</span>
+                    <cite>1节</cite>
+                    <cite>2节</cite>
+                    <cite>3节</cite>
+                    <cite>4节</cite>
+                    <cite style="display:none">加时</cite>
+                    <cite>总分</cite>
+                </li>
+            	<li>
+                	<span>&nbsp</span>
+                    <cite>&nbsp</cite>
+                    <cite>&nbsp</cite>
+                    <cite>&nbsp</cite>
+                    <cite>&nbsp</cite>
+                    <cite style="display:none">23</cite>
+                    <cite>&nbsp</cite>
+                </li>
+            	<li>
+                	<span>&nbsp</span>
+                    <cite>&nbsp</cite>
+                    <cite>&nbsp</cite>
+                    <cite>&nbsp</cite>
+                    <cite>&nbsp</cite>
+                    <cite  style="display:none">23</cite>
+                    <cite>&nbsp</cite>
+                </li>
+            </ul>
+			<article class="public clearfix" style="display:none;">
+            <div style='width:20px'><i class=""></i></div>
+            	<div id="gonggao">
+                <ul class="" id='suona'>
+					<!--#include virtual="/news/gunqiu_applq_list.html"-->
+                	<!-- <li>12:00  主队 巴斯拿到后场篮板，长传球直接快攻~</li>
+                    <li>12:00  主队 巴斯拿到后场篮板，长传球直接快攻~</li> -->
+                </ul>
+                </div>
+            </article>
+            <div class="bkbctitle"><span>边看边猜<a href="myjc.html">我的竞猜</a></span><a href="phb.html" class="right">冲榜赢1888元</a></div>
+            <div class="bkbctext" id='odds'>
+            		<!-- 
+            		<article>
+		              <article class="mgbd">
+		            	<ul>
+		            		<li>第<em>1</em>节<cite>让分胜负</cite></li>
+		                    <li class="spfzpk"><span>凯尔特人</span><cite>胜 1.38</cite></li>
+		                    <li class="spfzpk"><span>湖人<em class="red">(+12.5)</em></span><cite>胜 1.38</cite></li>
+		        		</ul>
+		                <ul>
+		            		<li>第<em>2</em>节<cite>大小分</cite></li>
+		                    <li class="spfzpk"><span>总分&gt;50.3</span><cite>1.38</cite></li>
+		                    <li class="spfzpk"><span>总分&lt;50.3</span><cite>1.38</cite></li>
+		        		</ul>
+		                <ul>
+		            		<li>第<em>2</em>节<cite>总分奇偶</cite></li>
+		                    <li class="spfzpk"><span>奇数</span><cite>1.38</cite></li>
+		                    <li class="spfzpk"><span>偶数</span><cite>1.38</cite></li>
+		        		</ul>
+		              </article>
+		            	<ul>
+		            		<li>猜全场<cite>让分胜负</cite></li>
+		                    <li class="spfzpk"><span>凯尔特人</span><cite>胜 1.38</cite></li>
+		                    <li class="spfzpk"><span>湖人<em class="green">(-12.5)</em></span><cite>胜 1.38</cite></li>
+		        		</ul>
+		                <ul>
+		            		<li>猜全场<cite>大小分</cite></li>
+		                    <li class="spfzpk"><span>总分&gt;50.3</span><cite>1.38</cite></li>
+		                    <li class="spfzpk"><span>总分&lt;50.3</span><cite>1.38</cite></li>
+		        		</ul>
+		                <ul>
+		            		<li>猜全场<cite>总分奇偶</cite></li>
+		                    <li class="spfzpk"><span>奇数</span><cite>1.38</cite></li>
+		                    <li class="spfzpk"><span>偶数</span><cite>1.38</cite></li>
+		        		</ul>
+		        		</article>
+                <p class="mgbd pdbt095">已截止的竞猜</p>
+		                <article>
+		            	<ul class="long">
+		            		<li>第<em>1</em>节<cite>让分胜负</cite></li>
+		                    <li><div class="spfzpk"><span>湖人vs尼克斯 </span><cite class="red">23.45</cite></div><i></i></li>
+		        		</ul>
+		            	<ul class="long">
+		            		<li>第<em>1</em>节<cite>大小分</cite></li>
+		                    <li><div class="spfzpk"><span>两队总分之和</span><cite class="red">56</cite></div><i></i></li>
+		        		</ul>
+		            	<ul class="long">
+		            		<li>第<em>1</em>节<cite>总分奇偶</cite></li>
+		                    <li><div class="spfzpk"><span>两队总分奇偶</span><cite class="red">奇数</cite></div><i></i></li>
+		        		</ul>
+		            	<ul class="long">
+		            		<li>第<em>1</em>节<cite>总分奇偶</cite></li>
+		                    <li><div class="spfzpk"><span>两队总分奇偶</span><cite>等待开奖</cite></div></li>
+		        		</ul>
+		        		</article> -->
+            </div>
+            
+    	</article> 
+    <!-- 金豆竞猜end -->   
+    <!-- 数据统计start -->
+    	<article id="statistics" style='display:none;'>
+        	<ul class="sjtj" id="jcbf2">
+            	<li>
+                	<span>&nbsp;</span>
+                    <cite>1节</cite>
+                    <cite>2节</cite>
+                    <cite>3节</cite>
+                    <cite>4节</cite>
+                    <cite style="display:none">加时</cite>
+                    <cite>总分</cite>
+                </li>
+            	<li>
+                	<span>凯尔特人</span>
+                    <cite>23</cite>
+                    <cite>23</cite>
+                    <cite>23</cite>
+                    <cite>23</cite>
+                    <cite style="display:none">23</cite>
+                    <cite>123</cite>
+                </li>
+            	<li>
+                	<span>湖人</span>
+                    <cite>22</cite>
+                    <cite>22</cite>
+                    <cite>22</cite>
+                    <cite>22</cite>
+                    <cite style="display:none">22</cite>
+                    <cite>25</cite>
+                </li>
+            </ul>
+            <article id='teamMember'>
+          	<!-- <article class="touch clearfix">
+            	<cite class="left">凯尔特人</cite>
+                <div class="right">
+                	<span></span>
+                    <p><em>1</em>/<em>3</em></p>
+                    <span class="last"></span>
+                </div>
+            </article>
+            <div class="clearfix">
+            	<ul class="sjtjqy">
+                	<li>球员</li>
+                    <li>贝弗贝弗利利</li>
+                    <li>贝弗利</li>
+                    <li>贝弗利</li>
+                    <li class="gray">替补</li>
+                    <li class="gray">替补</li>
+                </ul>
+                <article class="qytext">
+                	<ul>
+                    	<li><cite>得分</cite><cite>篮板</cite><cite>前场板</cite><cite>抢断</cite><cite>盖帽</cite><cite>时间</cite><cite>失误</cite><cite>犯规</cite><cite>投篮</cite><cite>3分</cite><cite>罚球</cite><cite>前场板</cite><cite>后场板</cite></li>
+                    	<li><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2/8</cite><cite>2/8</cite><cite>2</cite><cite>2</cite><cite>2</cite></li>
+                    	<li><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite></li>
+                    	<li><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2/8</cite><cite>2/8</cite><cite>2</cite><cite>2</cite><cite>2</cite></li>
+                    	<li class="gray"><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2/8</cite><cite>2/8</cite><cite>2</cite><cite>2</cite><cite>2</cite></li>
+                    	<li class="gray"><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2/8</cite><cite>2/8</cite><cite>2</cite><cite>2</cite><cite>2</cite></li>
+                    </ul>
+                </article>
+            </div>
+            <article class="touch clearfix">
+            	<cite class="left">湖人</cite>
+                <div class="right">
+                	<span></span>
+                    <p><em>1</em>/<em>3</em></p>
+                    <span class="last"></span>
+                </div>
+            </article>
+            <div class="clearfix">
+            	<ul class="sjtjqy">
+                	<li>球员</li>
+                    <li>贝弗贝弗利利</li>
+                    <li>贝弗利</li>
+                    <li>贝弗利</li>
+                    <li class="gray">替补</li>
+                    <li class="gray">替补</li>
+                </ul>
+                <article class="qytext">
+                	<ul id='wrapper'>
+                    	<li><cite>得分</cite><cite>篮板</cite><cite>前场板</cite><cite>抢断</cite><cite>盖帽</cite><cite>时间</cite><cite>失误</cite><cite>犯规</cite><cite>投篮</cite><cite>3分</cite><cite>罚球</cite><cite>前场板</cite><cite>后场板</cite></li>
+                    	<li><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2/8</cite><cite>2/8</cite><cite>2</cite><cite>2</cite><cite>2</cite></li>
+                    	<li><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite><cite>&nbsp;</cite></li>
+                    	<li><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2/8</cite><cite>2/8</cite><cite>2</cite><cite>2</cite><cite>2</cite></li>
+                    	<li class="gray"><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2/8</cite><cite>2/8</cite><cite>2</cite><cite>2</cite><cite>2</cite></li>
+                    	<li class="gray"><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2</cite><cite>2/8</cite><cite>2/8</cite><cite>2</cite><cite>2</cite><cite>2</cite></li>
+                    </ul>
+                </article>
+            </div> -->
+            </article>
+        </article>
+    <!-- 数据统计end -->
+       
+    </section>
+</article>
+
+<!-- <script src="js/zepto.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://static.9188.com/zlk/js/socket.io.js" type="text/javascript"></script>
+
+
+<script src="index.js" type="text/javascript" charset="utf-8"></script>
+
+<!--
+
+//-->
+</script>
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1e1a0d86a7a03a31cc8c75a4e20490f5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+
+</script>
+<!-- 百度统计 -->

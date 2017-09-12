@@ -1,0 +1,606 @@
+BODY
+{
+    SCROLLBAR-FACE-COLOR: #559999;
+    FONT-SIZE: 8pt;
+    SCROLLBAR-ARROW-COLOR: #cccccc;
+    SCROLLBAR-TRACK-COLOR: #336666;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none;
+    font-color: #FFB518
+}
+TD
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10px;
+    FONT-FAMILY: Verdana, Arial;
+    TEXT-DECORATION: none;
+    font-color: #ffffff
+}
+.line
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline;
+    font-color: #F9EF00
+}
+.mainselect
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-SIZE: 10px;
+    BORDER-LEFT: medium none;
+    WIDTH: 120px;
+    COLOR: #000000;
+    BORDER-BOTTOM: medium none;
+    FONT-FAMILY: Arial
+}
+.main
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-SIZE: 10px;
+    BORDER-LEFT: medium none;
+    WIDTH: 90px;
+    COLOR: #000000;
+    BORDER-BOTTOM: medium none;
+    FONT-FAMILY: Arial
+}
+.menuitem
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none
+}
+.menuitemCenter
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none;
+    TEXT-ALIGN: center
+}
+.menuitemRight
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none;
+    TEXT-ALIGN: right
+}
+.menuitem:hover
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #ff0000;
+    TEXT-DECORATION: none
+}
+.menuheading
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 11px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana
+}
+.username
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: medium none;
+    COLOR: #000000;
+    BORDER-BOTTOM: medium none;
+    FONT-FAMILY: Verdana
+}
+.betslip
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9px;
+    WIDTH: 156px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana;
+    TEXT-ALIGN: left
+}
+.tdcontent
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+.smalltdcontent
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000066;
+    FONT-FAMILY: verdana;
+    TEXT-DECORATION: none
+}
+.contentlink
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial;
+    TEXT-DECORATION: none
+}
+.contentlink:visited
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana,Arial;
+    TEXT-DECORATION: none
+}
+.contentlink:hover
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial;
+    TEXT-DECORATION: underline
+}
+.navlink
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial;
+    TEXT-DECORATION: none
+}
+.navlink:visited
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana,Arial;
+    TEXT-DECORATION: none
+}
+.navlink:hover
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 20pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial;
+    TEXT-DECORATION: none
+}
+DIV.divred
+{
+    BACKGROUND-COLOR: #ff0000
+}
+.betslipodds
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana;
+    TEXT-ALIGN: right
+}
+.betsliphandicap
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana;
+    TEXT-ALIGN: right
+}
+INPUT
+{
+    FONT-SIZE: 10px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+SELECT
+{
+    FONT-SIZE: 10px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.Odds1
+{
+    FONT-SIZE: 10px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial
+}
+.Odds2
+{
+    FONT-SIZE: 10px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial
+}
+.Odds3
+{
+    FONT-SIZE: 10px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial
+}
+.div
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none
+}
+.divodds
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none
+}
+A.topmenulink
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 10pt;
+    COLOR: white;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+.text
+{
+    FONT-SIZE: 10px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.menu:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10px;
+    COLOR: #eeeeee;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.menuregular:active
+{
+    FONT-SIZE: 10px;
+    COLOR: #eeeeee;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.menu:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10px;
+    COLOR: #eeeeee;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.menuregular:hover
+{
+    FONT-SIZE: 10px;
+    COLOR: #eeeeee;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.menu:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10px;
+    COLOR: #ffffff;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.menuregular:link
+{
+    FONT-SIZE: 10px;
+    COLOR: #ffffff;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.menu:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10px;
+    COLOR: #ffffff;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.menuregular:visited
+{
+    FONT-SIZE: 10px;
+    COLOR: #ffffff;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.titles
+{
+    FONT-SIZE: 10px;
+    COLOR: #ff6600;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.menuoff
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10px;
+    COLOR: #eeeeee;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.menuregularoff
+{
+    FONT-SIZE: 10px;
+    COLOR: #eeeeee;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+A:active
+{
+    COLOR: #003333
+}
+.menu2
+{
+    FONT-SIZE: 10px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.sitestatic
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-SIZE: 10px;
+    BORDER-LEFT: medium none;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: medium none;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.cardinput
+{
+    FONT-SIZE: 10px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.buttonsmall
+{
+    FONT-SIZE: 7pt;
+    WIDTH: 72px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    HEIGHT: 22px
+}
+.header
+{
+    FONT-SIZE: 10px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.poptitles
+{
+    COLOR: #ffffff;
+    FONT-FAMILY: verdana,arial,helvetica,sans-serif
+}
+A:hover
+{
+    COLOR: #cccccc
+}
+.Stext
+{
+    FONT-SIZE: 10px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.StextBlack
+{
+    FONT-SIZE: 10px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.myaccountbgcolor
+{
+    BACKGROUND-COLOR: #006666
+}
+.myaccounttitle
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 16px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.myaccountlink
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial;
+    TEXT-DECORATION: underline
+}
+.myaccountlink:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana,Arial;
+    TEXT-DECORATION: underline
+}
+.myaccountlink:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10px;
+    COLOR: #eeeeee;
+    FONT-FAMILY: Verdana, Arial;
+    TEXT-DECORATION: underline
+}
+.myaccountlinkregular
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10px;
+    COLOR: #ffffff;
+    FONT-FAMILY: "Verdana", "Arial";
+    TEXT-DECORATION: underline
+}
+.myaccountlinkregular:visited
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana,Arial;
+    TEXT-DECORATION: underline
+}
+.myaccountlinkregular:hover
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10px;
+    COLOR: #eeeeee;
+    FONT-FAMILY: Verdana, Arial;
+    TEXT-DECORATION: underline
+}
+.InputText
+{
+    BORDER-RIGHT: black 0px;
+    BORDER-TOP: black 0px;
+    FONT-WEIGHT: 400;
+    FONT-SIZE: 10px;
+    BORDER-LEFT: black 0px;
+    WIDTH: 70px;
+    BORDER-BOTTOM: black 0px;
+    FONT-FAMILY: Arial;
+    HEIGHT: 15px;
+    TEXT-ALIGN: left
+}
+.InputText1
+{
+    BORDER-RIGHT: black 0px;
+    BORDER-TOP: black 0px;
+    FONT-WEIGHT: 500;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: black 0px;
+    WIDTH: 70px;
+    COLOR: #000000;
+    BORDER-BOTTOM: black 0px;
+    FONT-FAMILY: Verdana;
+    HEIGHT: 15px;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: left
+}
+.InputText2
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-WEIGHT: 500;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: medium none;
+    WIDTH: 70px;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: medium none;
+    FONT-FAMILY: Verdana;
+    HEIGHT: 15px;
+    BACKGROUND-COLOR: #999999;
+    TEXT-ALIGN: left
+}
+.drop
+{
+    BORDER-RIGHT: black 0px;
+    BORDER-TOP: black 0px;
+    FONT-WEIGHT: 400;
+    FONT-SIZE: 10px;
+    BORDER-LEFT: black 0px;
+    WIDTH: 82px;
+    BORDER-BOTTOM: black 0px;
+    FONT-FAMILY: Arial;
+    HEIGHT: 15px;
+    TEXT-ALIGN: left
+}
+.CellLeftTop
+{
+    Vertical-align: top
+}
+.CellCenter
+{
+    TEXT-ALIGN: center
+}
+.CellRight
+{
+    TEXT-ALIGN: right
+}
+.CellHRGrey
+{
+    HEIGHT: 1px;
+    WIDTH: 100%;
+    BACKGROUND-COLOR: #666666;
+}
+.CellHRBlack
+{
+    HEIGHT: 1px;
+    WIDTH: 100%;
+    BACKGROUND-COLOR: #000000;
+}
+.csht
+{
+    FONT-WEIGHT: none;
+    FONT-SIZE: 10px;
+    COLOR: #336699;
+    FONT-FAMILY: Verdana,Arial;
+    TEXT-DECORATION: none
+}
+.outrightlink
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #336699;
+    FONT-FAMILY: Verdana, Arial;
+    TEXT-DECORATION: none;
+    FONT-STYLE: italic
+}
+.outrightlink:visited
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #336699;
+    FONT-FAMILY: Verdana,Arial;
+    TEXT-DECORATION: none;
+    FONT-STYLE: italic
+}
+.outrightlink:hover
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #336699;
+    FONT-FAMILY: Verdana, Arial;
+    TEXT-DECORATION: underline;
+    FONT-STYLE: italic
+}
+.CSCellBorder
+{
+    TEXT-ALIGN: center;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #666666;
+}
+.CSmenuitem
+{
+    width: 33%;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none;
+    TEXT-ALIGN: center;
+}
+.teamnametrans
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    FONT-FAMILY: Verdana, Arial;
+    TEXT-DECORATION: none;
+    font-color: #ffffff;
+}

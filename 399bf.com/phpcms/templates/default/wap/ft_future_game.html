@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$SEO['title']}</title>
+      <meta name="keywords" content="{$SEO['keyword']}">
+      <meta name="description" content="{$SEO['description']}">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- build css -->
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+    <link rel="stylesheet" href="{WAP_CSS_PATH}font-awesome.min.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}main.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}ft_live_end.css">
+    <!-- build css end -->
+
+
+  </head>
+  <body>
+    <div class="page-group">
+
+        <div class="page page-current" id="ft_futrue">
+            
+            <header class="bar bar-nav">
+                <a class="button pull-left btn-back" href="{WAP_PATH}zqscore/">
+                    <i class="icon icon-left orange"></i>
+                </a>
+                <nav class="header-nav">
+                    <div class="buttons-row">
+                        <a href="{WAP_PATH}zqwanchang/" class="button close-popup">完场</a>
+                        <a href="{WAP_PATH}zqsaicheng/" class="button active">下日</a>
+                    </div>
+                </nav>
+            </header>
+            <div class="content">
+
+                <!-- 二级导航 -->
+                <div class="buttons-tab">
+                    {loop $arr_date $data}
+                    <a class="button {if $data['date'] == $date}active{/if}" href="{WAP_PATH}zqsaicheng/?date={$data['date']}">
+                        <time>{$data['date_text']}</time>
+                        <div class="tab-week">{$data['day']}</div>
+                    </a>
+                    {/loop}
+                    <div class="button">
+                        <i class="fa fa-calendar orange calendar-icon"></i>
+                        <input type="text" id="calendar" class="button" readonly placeholder="" value="">
+                    </div>
+                    
+                </div>
+
+                <!-- 卡片 -->
+                <div class="card-box">
+                    {loop $future_game $data}
+                    <div class="card" data-action="link" data-url="{WAP_PATH}game/{$data['gameid']}/analyse/">
+                        <a href="{WAP_PATH}game/{$data['gameid']}/analyse/" class="gray btn-link fixed-right">
+                            <i class="icon icon-right"></i>
+                        </a>
+                        <table class="table">
+                            <tr>
+                                <th width="40%" class="text-left">
+                                    <span class="card-title pull-left">{$data['competitionshortname']}</span>
+                                    <time class="gray time">{date('H:i', $data['date'])}</time>
+                                </th>
+                                <th>
+                                    <span class="red state">{$data['status_text']}</span>
+                                </th>
+                                <th width="40%">&nbsp;</th>
+                            </tr>
+                            <tr>
+                                <td class="text-right">
+                                    <span class="gray">
+                                        {if isset($data['homerank'])}
+                                        [{$data['homerank']}]
+                                        {/if}
+                                    </span>
+                                    <span {if $data['homeyellowcard']}class="yellow-card"{/if}>{if $data['homeyellowcard']}{$data['homeyellowcard']}{/if}</span>
+                                    <span {if $data['homeredcard']}class="red-card"{/if}>{if $data['homeredcard']}{$data['homeredcard']}{/if}</span>
+                                    <span class="team-name">{$data['homeshortname']}</span>
+                                </td>
+                                <td>
+                                    <span class="live-score red">{$data['homescore']}-{$data['awayscore']}</span>
+                                </td>
+                                <td class="text-left">
+                                    <span class="team-name">{$data['awayshortname']}</span>
+                                    <span {if $data['awayredcard']}class="red-card"{/if}>{if $data['awayredcard']}{$data['awayredcard']}{/if}</span>
+                                    <span {if $data['awayyellowcard']}class="yellow-card"{/if}>{if $data['awayyellowcard']}{$data['awayyellowcard']}{/if}</span>
+                                    <span class="gray">
+                                        {if isset($data['awayrank'])}
+                                        [{$data['awayrank']}]
+                                        {/if}
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    {/loop}
+                </div>
+                <!-- 卡片 end -->
+
+
+                {template 'wap', 'footer_nav'}
+
+
+            </div>
+        </div>
+
+    </div>
+
+{php $js = ['ft_future_game.js'];}
+{template 'wap', 'wap_footer'}

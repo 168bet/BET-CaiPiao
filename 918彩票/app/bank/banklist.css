@@ -1,0 +1,103 @@
+@charset "utf-8";
+/*样式初始化*/
+body{ 
+	min-width:320px;
+	font-size:14px; 
+	font-family:arial,Microsoft YaHei, Helvetica, sans-serif; 
+	color:#222; tap-highlight-color:rgba(0,0,0,0); 
+	-webkit-tap-highlight-color:rgba(0,0,0,0); 
+	-moz-tap-highlight-color:rgba(0,0,0,0);
+	background: #f4f4f4;
+}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,u,strong{ 
+	margin:0; 
+	padding:0;
+}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li{
+	list-style:none;
+}
+cite,em,i{ 
+	font-style:normal;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+/*仅支持银行卡*/
+.prompt{
+	line-height: 1.87rem;
+	background-color: #fff391; 
+	color: #f74400;
+	text-indent: 1.4rem;
+	font-size: .8rem;
+	letter-spacing: .1rem;
+}
+/*银行列表*/
+.content{
+	margin-top: .8rem;
+	overflow: hidden;
+}
+.content ul{
+	height: 3rem;
+	background-color: #ffffff; 
+	border-bottom: 1px #f4f4f4 solid;
+}
+.content ul:active{
+	background-color: #f4f4f4 !important; 
+
+}
+.content ul li{
+	width: 90%;
+	margin: 0 auto;
+	line-height: 3.1rem;
+	overflow: hidden;
+	letter-spacing: .1rem; 
+}
+.content ul li div span{
+	display: inline-block;
+	float: left;
+	font-size: 1.05rem;
+}
+.content ul li div .ico{
+	width:1.9rem;
+	height: 3rem;
+	-webkit-background-size: 1.65rem 1.69rem;
+	-moz-background-size: 1.65rem 1.69rem;
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin-right: 1rem
+}
+.ico1{
+	background-image: url(img/js.png);
+}
+.ico2{
+	background-image:url(img/gd.png);
+}
+.ico3{
+	background-image:url(img/xy.png);
+}
+.ico4{
+	background-image:url(img/ms.png);
+}
+.ico5{
+	background-image:url(img/gf.png);
+}
+.ico6{
+	background-image:url(img/zx.png);
+}
+.ico7{
+	background-image:url(img/zs.png);
+}
+.ico8{
+	background-image:url(img/yz.png);
+}
+.ico9{
+	background-image:url(img/ny.png);
+}
+.ico10{
+	background-image:url(img/zg.png);
+}

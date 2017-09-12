@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title></title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="banner" id="slideBox" style='height:7.5rem;width:100%;'>
+        <div class="bd"><ul></ul></div>
+        <div class="hd"><ul></ul></div>
+    </div>
+    <div class="nav">
+        <ul>
+        <li><span class="bd_red">方案内容</span></li>
+        <li><span>跟买用户</span><em>(33人)</em></li>
+        </ul>
+    </div>
+    <div class="fa_div">
+    	<div class='pd063 lcbetText lcbetText3' id='clasli'></div>
+    </div>
+    <div class="gm_div" style="display:none;">
+    </div>
+    <footer class="footer">
+        <input type="button" value="+" class="add">
+        <input type="text" value="1" style="width:2rem;text-align:center;" class="innum">
+        <input type="button" value="-" class="re">
+    </footer>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/touchSlide.js"></script>
+<script type="text/javascript">
+    var $_hid = location.href.split("?")[1].split("=")[1];
+    var $_gid = $_hid.substr(0, 2);//彩种id
+    var co=0;
+    var againstData = {};//pinfo接口里面的参数
+    var html ="<li class=li1></li><li class=li2></li><li class=li3></li>"
+    
+    //轮播图
+    $("#slideBox .bd ul").html(html);
+    var tag = $('#slideBox .bd ul').find('li').length;
+    if(!!tag){
+        $('#slideBox').show();
+        tag = (tag == 1 ?false:true);//控制是否滑动
+        //滑动插件
+        TouchSlide({ slideCell:"#slideBox",titCell:".hd ul",mainCell:".bd ul",effect:"leftLoop",autoPage:true,autoPlay:tag,interTime:5000});
+    }
+        
+      //公用弹出层和加载层
+      var win_alert = alert;
+      window['alert'] = function (msg, loading) {
+        if (!loading) {
+        	clearTimeout(window.alert.time);
+        	var obj = $('<div class="alertBox">' + msg + '</div>');
+        	$('body').append(obj);
+        	window.alert.time = setTimeout(function () {
+        		$(".alertBox").remove();
+        	}, 2000);
+        } else {
+        	$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+        	$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+        	$('#mask').show();
+        }
+     };
+     var remove_alert = function () {
+        $('.alertBox').remove();
+        $('#mask').hide();
+     };
+     
+   	/* 点击方案内容、跟单人数 */
+    $(".nav ul li").bind("click" , function(){
+        $(this).find("span").addClass('bd_red');
+        $(this).siblings("li").find("span").removeClass('bd_red');
+        var ind = $(this).index();
+        if(ind == 0 ){
+            $(".fa_div").show();
+            $(".gm_div").hide();
+        }else if(ind == 1){
+            if(co == 0){
+                co++;
+                gm();
+            }
+            $(".fa_div").hide();
+            $(".gm_div").show();
+        }
+    })
+    
+    $('.innum').bind('input propertychange', function() {
+    	alert(1)
+    	if($(this).val() > 99){
+   			$(this).val(99);
+   			alert("小于99")
+   		}
+    });
+	
+    var gm = function(){
+        $.ajax({
+            url:"js/gm.json",
+            dataTypa:"Json",
+            success:function(data){
+                var html= '';
+                data.forEach(function(item){
+                    html+="<p>"+item.aa+"</p>"
+                })
+                $(".gm_div").html(html)
+            }
+        })
+    }
+    
+    
+    var o ={
+    		//调用pinfo.go 接口 获取方案的基本信息
+    		basic : function () {
+				var data = {
+						gid : $_gid,
+						hid : $_hid,
+						state : 1
+				};
+				$.ajax({
+					url :'/trade/pinfo.go?'+jQuery.param(data),
+					dataType:'xml',
+					type:'POST',
+					success: function (xml) {
+						$('#initLoad').hide();//接口调用成功的时候把菊花收起来
+						var R = $(xml).find("Resp");
+						var code = R.attr("code");
+						var desc = R.attr("desc");
+						if (code == '0') {//返回成功
+							var r = R.find("row");
+							var cnickid = r.attr("cnickid");// 发起人 屏蔽手机号
+							var rnickid = r.attr("rnickid");
+							/* g.cnickid = cnickid;
+							g.rnickid = rnickid; */
+							var t = {};
+							t.gid = r.attr("gid");// 游戏编号
+							t.hid = r.attr("hid") ;// 方案编号
+							t.itype = r.attr("type");// 方案类型（0 自购 1 合买）
+							t.icast = r.attr("cast");// 出票标志（0 未出票 1 可以出票 2 已拆票 3 已出票）
+							t.award = r.attr("award");// 计奖标志（0 未计奖 1 正在计奖 2 已计奖)
+							t.pid = r.attr("pid");// 期次
+							t.ireturn = r.attr("return");//是否派奖（0 未派奖 1 正在派 2 已派奖）
+							t.wininfo = r.attr("wininfo");// 中奖信息（中奖注数用逗号隔开）
+							t.visible = r.attr("visible");// 是否显示方案
+							t.shareGod = r.attr("shareGod");//
+							t.owins = r.attr("owins");// 发起人提成奖金
+							t.rmoney = r.attr("rmoney");// 认购派奖金额（税前）
+							t.mulity = r.attr("mulity");// 倍数
+							t.lnum = parseInt(r.attr("lnum"));// 剩余份数
+							t.pnum = parseInt(r.attr("pnum"));// 发起人保底份数
+							t.aunum = r.attr("aunum");// 等级（战绩）
+							t.jindu = r.attr("jindu");// 发单人认购的进度
+							t.views = r.attr("views");// 跟单人数
+							t.cdesc = r.attr("cdesc");// 方案宣言
+							t.ccodes = r.attr("ccodes");// 投注号码
+							t.etime = r.attr("etime");// 截止时间
+							t.ifile = r.attr("ifile");// 是否文件投注（0不是 1 是）
+							t.iplay = r.attr('iplay');
+							t.tmoney = r.attr("tmoney");// 总金额
+							t.iopen = r.attr("iopen");// 是否保密 （0 对所有人公开 1 截止后公开 2 对参与人员公开 3 截止后对参与人公开）
+							t.wrate = r.attr("wrate");// 发起人盈利提成
+							t.istate = r.attr("istate");//状态  0该方案自动跟单中，请等待 1认购中 2已满员  3系统已撤单 4发起人已撤单 5系统已撤单 -1未支付
+							t.rpmoney = r.attr("rpmoney");//红包认购金额
+							t.avg = r.attr("avg");//每元派奖金额
+							t.tax = r.attr("tax");//税后奖金
+							t.btime = r.attr("btime");//发单时间
+							t.source = r.attr("source");//奖金优化6  单关配7  混投合买2串1 8
+							t.addmoney = r.attr("addmoney");
+							var q = R.find("qcode");
+							t.acode = q.attr("acode");// 开奖号码
+							t.myjoins = R.find("myjoins");//发起人的的认购记录
+							t.jindu_ = R.find("jindu");
+							t.chedan = (t.istate==3||t.istate==4||t.istate==5)? 3:1;
+							againstData = t;
+							console.log(t)
+							/* o.pageGo.goBack(); */
+							o.render(t.gid, t.pid, t.hid, t.ccodes, t.source);
+						} else {
+							/* alert(desc);
+							setTimeout(function () {
+								window.location.replace('#type=index');
+							}, 2000); */
+						}
+					},
+					error : function () {
+						alert('获取信息失败 请刷新重试');
+					}
+				});
+			
+    		},
+    	/*lotid 彩种id
+    	expect 当前期次
+    	projid 方案编号
+    	type 
+    	codes 投注号码*/
+    	render : function (lotid, expect, projid, codes, source, isHm) {
+    		
+    		$.ajax({
+				url : "/data/guoguan/" + lotid + "/" + expect + "/proj/" + projid.toLowerCase() + ".xml",
+				type : "GET",
+				dataType : "xml",
+				cache : false,
+				success : function(xml) {
+					var R = $(xml).find("items");
+					var pid= R.attr("pid");
+					var wk=["日","一","二","三","四","五","六"];
+					var r = R.find("item");
+					var chuan = '';
+					chuan = codes.split('|')[2];
+					if(chuan.indexOf('_')>=0){//固定单关 1*1_1
+						chuan = '单关';
+					}else{
+						chuan = chuan.replace(/\*/g, "串").replace(/1串1/g, "单关");
+					}
+					var html='';
+					html = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="lcbetTitle mgTop06"><tr>';
+					if(lotid == "94"||lotid == "95"||lotid == "96"||lotid == "97"||lotid == "71"){//
+						html += '<td width="15%">场次</td><td width="70%">客队VS主队/投注选项</td><td width="15%" style="border-right:none">比分</td>';
+					}else{
+						html += '<td width="15%">场次</td><td width="70%">主队VS客队/投注选项</td><td width="15%" style="border-right:none">比分</td>';
+					}
+					html += '</tr></table>';
+					html += '<table id="tcont" width="100%" border="0" cellpadding="0" cellspacing="0" class="lcbetTable">';
+					if(lotid == 70){//竞彩足球  混合投注
+						var cbfstr=["1:0","2:0","2:1","3:0","3:1","3:2","4:0","4:1","4:2","5:0","5:1","5:2","9:0","0:0","1:1","2:2","3:3","9:9","0:1","0:2","1:2","0:3","1:3","2:3","0:4","1:4","2:4","0:5","1:5","2:5","0:9"];
+						var spfstr=["3", "1", "0"];
+						var jqsstr=["0", "1", "2","3","4","5","6","7"];
+						var bqcstr=["3-3","3-1","3-0","1-3","1-1","1-0","0-3","0-1","0-0"];
+						r.each(function(a){
+							var hn=$(this).attr("hn");//主队
+							var vn=$(this).attr("vn");//客队
+							var lose = $(this).attr("lose");//让分
+							var c = parseInt($(this).attr("cancel"));
+							var hs = $(this).attr("hs");// 全场主队进球
+							var vs = $(this).attr("vs");// 全场客队进球
+							var hhs = $(this).attr("hhs");// 半场主队进球
+							var hvs = $(this).attr("hvs");// 半场客队进球
+							var spvalue = $(this).attr("spvalue");// 出票参考SP
+							var spvalues = spvalue.split("|");
+							var quan = '--',ban = '';
+							if(hs != '' && vs != ''){
+								quan = '全'+hs+':'+vs;
+							}
+							if(hs != '' && vs != ''){
+								ban = '半'+hhs+':'+hvs;
+							}
+							var rq = '';
+							if(lose!=0 && lose !=""){
+								if(lose.indexOf('-')!=-1){
+									rq="(<font color='green'>"+lose+"</font>)";
+								}else{
+									rq="(<font color='red'>"+lose+"</font>)";
+								}
+							}
+							var hsstr =  $(this).attr("hs").trim();
+							var result = "";
+							var lose1 = parseFloat(lose);
+							var id = $(this).attr("id");
+							var tDATE="20"+id.substr(0,2)+"-"+id.substr(2,2)+"-"+id.substr(4,2);
+							tDATE = new Date(tDATE); 
+							var wk2 = '周'+wk[tDATE.getDay()];
+							var id2 = id.substr(6,3);
+							var dcode = [];
+							var cctz = [];
+							if(codes.indexOf(';')>0){
+								cctz = $.map(codes.split(';'),function(val, index){
+									if(index == '0'){
+										return val.split('|')[1];
+									}else{
+										return val.split('|')[1].split('>')[1];
+									}
+								});
+								cctz = cctz.join('+').split(',');
+							}else{
+								cctz = codes.split('|')[1].split(',');
+							}
+							for(var i=0;i<cctz.length;i++){
+								var cctzLength = cctz[i].split('>')[1].split('+').length;
+								if(id == cctz[i].split('>')[0]){
+									var dan = '';
+									if(dcode != ''){
+										if(dcode[0].indexOf(id) != '-1'){
+											dan = '<font color="red">(胆)</font>';
+										}
+									}
+									var cctzLength2 = cctz[i].split('>')[1].split('+').length;
+									html += '<tr id="'+id+'"><td '+(a==0?"width='15%'":"")+' rowspan="'+(cctzLength2+1)+'">'+wk2+'<br>'+id2+'</td>';
+							  		html += '<td '+(a==0?"width='70%'":"")+'>'+hn+rq+'<em class="fontSize07">VS</em>'+vn+dan+'</td>';
+						  			html += '<td '+(a==0?"width='15%'":"")+' calss="r9last" rowspan="'+(cctzLength2+1)+'">'+ban+'<br/>'+quan+'</td></tr>';
+						  			
+									for(var j=0;j<cctzLength;j++){
+										var wwc  =  cctz[i].split('>')[1].split('+')[j].split('=')[1].split('/');
+										if(cctz[i].split('>')[1].split('+')[j].split('=')[0] == "RQSPF"){
+											var spvalue = spvalues[0].split(",");
+											if(c==0){
+												if(hsstr.length>0){
+													var rt=(hs-vs)*1+(lose1)*1;
+													if(rt*1>0){result="3";}else if(rt*1==0){result="1";}else{result="0";}
+												}else{
+													result = "";
+												}
+											}else{
+												result = "";
+											}
+											html += '<tr><td><div class="tdleft gray">&nbsp;';
+											if(result!=""){
+												for(var n = 0;n<wwc.length;n++){
+													if(result == wwc[n]){
+														html += '<span><em class="yellow">'+wwc[n].replace("3","让胜").replace("1","让平").replace("0","让负")+'</em>('+spvalue[spfstr.indexOf(wwc[n])]+')</span>';
+													}else{
+														html += '<span>'+wwc[n].replace("3","让胜").replace("1","让平").replace("0","让负")+'('+spvalue[spfstr.indexOf(wwc[n])]+')</span>';
+													}
+												}
+												html += '</div></td></tr>';
+											}else{
+												for(var n = 0;n<wwc.length;n++){
+													html += '<span>'+wwc[n].replace("3","让胜").replace("1","让平").replace("0","让负")+'('+spvalue[spfstr.indexOf(wwc[n])]+')</span>';
+												}
+												html += '</div></td></tr>';
+											}
+										}else if(cctz[i].split('>')[1].split('+')[j].split('=')[0] == "SPF"){
+											var spvalue = spvalues[4].split(",");
+											if(c==0){
+												if(hsstr.length>0){
+													var rt=(hs-vs)*1;
+													if(rt*1>0){result="3";}else if(rt*1==0){result="1";}else{result="0";}
+												}else{
+													result = "";
+												}
+											}else{
+												result = "";
+											}
+											html += '<tr><td><div class="tdleft gray">&nbsp;';
+											if(result!=""){
+												for(var n = 0;n<wwc.length;n++){
+													if(result == wwc[n]){
+														html += '<span><em class="yellow">'+wwc[n].replace("3","胜").replace("1","平").replace("0","负")+'</em>('+spvalue[spfstr.indexOf(wwc[n])]+')</span>';
+													}else{
+														html += '<span>'+wwc[n].replace("3","胜").replace("1","平").replace("0","负")+'('+spvalue[spfstr.indexOf(wwc[n])]+')</span>';
+													}
+												}
+												html += '</div></td></tr>';
+											}else{
+												for(var n = 0;n<wwc.length;n++){
+													html += '<span>'+wwc[n].replace("3","胜").replace("1","平").replace("0","负")+'('+spvalue[spfstr.indexOf(wwc[n])]+')</span>';
+												}
+												html += '</div></td></tr>';
+											}
+										}else if(cctz[i].split('>')[1].split('+')[j].split('=')[0] == "CBF"){
+											var spvalue = spvalues[1].split(",");
+											if(c==0){
+												if(hsstr.length>0){
+													result = hs+":"+vs;
+												}else{
+													result = "";
+												}
+											}
+											html += '<tr><td><div class="tdleft gray">&nbsp;';
+											if(result!=""){
+												for(var n = 0;n<wwc.length;n++){
+													if(result == wwc[n]){
+														html += '<span><em class="yellow">'+wwc[n].replace("9:0","胜其它").replace("9:9","平其它").replace("0:9","负其它")+'</em>('+spvalue[cbfstr.indexOf(wwc[n])]+')</span>';
+													}else{
+														html += '<span>'+wwc[n].replace("9:0","胜其它").replace("9:9","平其它").replace("0:9","负其它")+'('+spvalue[cbfstr.indexOf(wwc[n])]+')</span>';
+													}
+												}
+												html += '</div></td></tr>';
+											}else{
+												for(var n = 0;n<wwc.length;n++){
+													html += '<span>'+wwc[n].replace("9:0","胜其它").replace("9:9","平其它").replace("0:9","负其它")+'('+spvalue[cbfstr.indexOf(wwc[n])]+')</span>';
+												}
+												html += '</div></td></tr>';
+											}
+										}else if(cctz[i].split('>')[1].split('+')[j].split('=')[0] == "JQS"){
+											var spvalue = spvalues[3].split(",");
+											if(c==0){
+												if(hsstr.length>0){
+													var rt=(parseInt(hs)+parseInt(vs))*1;
+													if(rt>=7){result=7;}else{result=rt;}
+												}else{
+													result = "";
+												}
+											}
+											html += '<tr><td><div class="tdleft gray">&nbsp;';
+											if(result!=""){
+												for(var n = 0;n<wwc.length;n++){
+													if(result == wwc[n]){
+														html += '<span><em class="yellow">'+wwc[n]+'球</em>('+spvalue[jqsstr.indexOf(wwc[n])]+')</span>';
+													}else{
+														html += '<span>'+wwc[n]+'球('+spvalue[jqsstr.indexOf(wwc[n])]+')</span>';
+													}
+												}
+												html += '</div></td></tr>';
+											}else{
+												for(var n = 0;n<wwc.length;n++){
+													html += '<span>'+wwc[n]+'球('+spvalue[jqsstr.indexOf(wwc[n])]+')</span>';
+												}
+												html += '</div></td></tr>';
+											}
+										}else if(cctz[i].split('>')[1].split('+')[j].split('=')[0] == "BQC"){
+											var spvalue = spvalues[2].split(",");
+											if(c==0){
+												if(hsstr.length>0){
+													var hrt=(hhs-hvs)*1;
+													var rt=(hs-vs)*1;
+													if(hrt*1>0){result="3";}else if(hrt*1==0){result="1";}else{result="0";}
+													if(rt*1>0){result=result+"-3";}else if(rt*1==0){result=result+"-1";}else{result=result+"-0";}
+												}else{
+													result = "";
+												}
+											}
+											html += '<tr><td><div class="tdleft gray">&nbsp;';
+											if(result!=""){
+												for(var n = 0;n<wwc.length;n++){
+													if(result == wwc[n]){
+														html += '<span><em class="yellow">'+wwc[n].replace("3-3","胜-胜").replace("3-1","胜-平").replace("3-0","胜-负").replace("1-3","平-胜").replace("1-1","平-平").replace("1-0","平-负").replace("0-3","负-胜").replace("0-1","负-平").replace("0-0","负-负")+'</em>('+spvalue[bqcstr.indexOf(wwc[n])]+')</span>';
+													}else{
+														html += '<span>'+wwc[n].replace("3-3","胜-胜").replace("3-1","胜-平").replace("3-0","胜-负").replace("1-3","平-胜").replace("1-1","平-平").replace("1-0","平-负").replace("0-3","负-胜").replace("0-1","负-平").replace("0-0","负-负")+'('+spvalue[bqcstr.indexOf(wwc[n])]+')</span>';
+													}
+												}
+												html += '</div></td></tr>';
+											}else{
+												for(var n = 0;n<wwc.length;n++){
+													html += '<span>'+wwc[n].replace("3-3","胜-胜").replace("3-1","胜-平").replace("3-0","胜-负").replace("1-3","平-胜").replace("1-1","平-平").replace("1-0","平-负").replace("0-3","负-胜").replace("0-1","负-平").replace("0-0","负-负")+'('+spvalue[bqcstr.indexOf(wwc[n])]+')</span>';
+												}
+												html += '</div></td></tr>';
+											}
+										}
+									}
+								}
+							}
+						});
+						html += '</table>';
+						html += '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="lcbetFooter"><tr><td>过关方式:   '+chuan+'</td></tr></table>';
+						if(isHm){
+							/* $('#hmContent').html(html).show(); */
+						}else{
+							/*  $("#zgContent").hide();*/
+							$('#clasli').html(html);
+						}
+					}
+				}
+			});	
+		}
+	}
+    
+    $(function(){
+    	o.basic();
+    })
+</script>
+</html>

@@ -1,0 +1,19 @@
+<div class="m0auto text_center fz14 white" style="padding:20px 0 0 0;">
+   
+    <div class="text_center middle">
+        <div>
+            <div class="inline-block bg-gray" ng-repeat="(key,value) in range(0,cols)">
+                <span>号码</span>
+                <span class="m0_25">赔率</span>
+                <span>金额</span>
+            </div>
+        </div>
+        <div ng-repeat="(key,value) in range(0,kd_lines)">
+            <div class="inline-block bg-lightgray" ng-repeat="(index,item) in range(0,cols)">
+                <span class="w50 inline-block"> {{kd[key*cols+index].number}}</span>
+                <span class="w50 inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(kd[key*cols+index])" ng-class="{'peiyu-selected': data.betPeiyuSelected[kd[key*cols+index].id]}" >{{kd[key*cols+index].pl}}</span>
+                <input type="number" class="w50 border_black" ng-class="{'has-error': data.inputErrors[kd[key*cols+index].id]}" ng-model="data.betMoney[kd[key*cols+index].id]" ng-change="fun.codeSelected(kd[key*cols+index])" />
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+{php $css = array('ft_game_analyse.css')}
+{template 'content', 'header_score'}
+
+<!-- nav -->
+{template 'sportsdata', 'ft_game_info'}
+<!-- nav end -->
+
+<!-- main body -->
+<section class="main pdB20" id="table-content">
+    <div class="container">
+        <div class="row">
+
+            <div class="score-item">
+                <div class="score-item-bd pdB20 pdT20">
+                    <table class="table">
+                        <tr>
+                            <td class="border" rowspan="2" width="170">公司</td>
+                            <td class="border" colspan="3">即时盘</td>
+                            <td class="border" colspan="3">初始盘</td>
+                            <td rowspan="2" width="330">变化时间</td>
+                        </tr>
+                        <tr class="noColor">
+                            <td>主赔</td>
+                            <td>盘口</td>
+                            <td class="border">客赔</td>
+                            <td>主赔</td>
+                            <td>盘口</td>
+                            <td>客赔</td>
+                        </tr>
+                        {loop $odds $r}
+                        <tr>
+                            <td class="border">{$r[companyname]}</td>
+                            <td>{$r[up]}</td>
+                            <td>{get_handicap($r[give])}</td>
+                            <td class="border">{$r[down]}</td>
+                            <td>{$r[fup]}</td>
+                            <td>{get_handicap($r[fgive])}</td>
+                            <td class="border">{$r[fdown]}</td>
+                            <td>{date('Y-m-d H:i:s', $r[oddsdate])}</td>
+                        </tr>
+                        {/loop}
+                    </table>
+                </div>
+            </div>
+
+            <div class="score-item">
+                <div class="score-item-bd pdB20">
+                    <div class="hint pdT10 pdB10">
+                        <i class="index-up"></i>:指数上升
+                        <i class="index-down"></i>:指数下降
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <th class="border">Victor Chandler</th>
+                            <th class="border">Bet365</th>
+                            <th class="border">10Bet</th>
+                            <th class="border">SBOBET</th>
+                            <th class="border">Mansion88</th>
+                            <th class="border">YSB 88</th>
+                            <th class="border">12BET</th>
+                            <th width="175">变化时间</th>
+                        </tr>
+                        {loop $odds_all $oddsdate $r}
+                        <tr>
+                            <td class="border">{if isset($r[3000048])}{get_handicap($r[3000048][give])}  <span class="red">{$r[3000048][up]}</span>  <span class="green">{$r[3000048][down]}</span>{/if}</td>
+                            <td class="border">{if isset($r[3000181])}{get_handicap($r[3000181][give])}  <span class="red">{$r[3000181][up]}</span>  <span class="green">{$r[3000181][down]}</span>{/if}</td>
+                            <td class="border">{if isset($r[3000271])}{get_handicap($r[3000271][give])}  <span class="red">{$r[3000271][up]}</span>  <span class="green">{$r[3000271][down]}</span>{/if}</td>
+                            <td class="border">{if isset($r[3000368])}{get_handicap($r[3000368][give])}  <span class="red">{$r[3000368][up]}</span>  <span class="green">{$r[3000368][down]}</span>{/if}</td>
+                            <td class="border">{if isset($r[3000379])}{get_handicap($r[3000379][give])}  <span class="red">{$r[3000379][up]}</span>  <span class="green">{$r[3000379][down]}</span>{/if}</td>
+                            <td class="border">{if isset($r[3000390])}{get_handicap($r[3000390][give])}  <span class="red">{$r[3000390][up]}</span>  <span class="green">{$r[3000390][down]}</span>{/if}</td>
+                            <td class="border">{if isset($r[3000471])}{get_handicap($r[3000471][give])}  <span class="red">{$r[3000471][up]}</span>  <span class="green">{$r[3000471][down]}</span>{/if}</td>
+                            <td class="border">{date('Y-m-d H:i:s', $oddsdate)}</td>
+                        </tr>
+                        {/loop}
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- main body -->
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = ['imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js'];}
+{template 'content', 'footer'}

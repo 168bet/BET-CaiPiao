@@ -1,0 +1,69 @@
+<form name="userForm" class="form form-user-info">
+        <div class="pure-g form-row">
+            <label for="" class="pure-u-1-5 tright">用户名:</label>
+            <div class="pure-u-4-5 tleft text-info">{{formdata.user.userName}}</div>
+        </div>
+        <div class="pure-g form-row">
+            <label for="" class="pure-u-1-5 tright">金额:</label>
+            <div class="pure-u-4-5 tleft text-info"><span class="color-red">{{formdata.user.userMoney}} 元</span></div>
+        </div>
+        <div class="pure-g form-row" ng-hide="true">
+            <label for="" class="pure-u-1-5 tright">性别:</label>
+            <div class="pure-u-4-5 tleft ie-left">
+              <laber class="line">
+              	<input type="radio" value="1" name="gender" ng-model="formdata.user.gender" />男
+              </laber>
+              <laber class="line">
+               	<input type="radio" value="0" name="gender" ng-model="formdata.user.gender" />女
+              </laber>
+            </div>
+        </div>
+        <div class="pure-g form-row">
+            <label for="" class="pure-u-1-5 tright">真实姓名:</label>
+            <div class="pure-u-4-5 tleft">
+                <input ng-disabled="formdata.user.userRealName" type="text" name="userRealName" class="input input-normal" ng-model="formdata.user.userRealName"/>
+                <span ng-if="userForm.userRealName.$dirty && userForm.$error.userRealName" class="form-error">请输入您的真实姓名</span>
+            </div>
+        </div>
+        <div class="pure-g form-row">
+            <label for="" class="pure-u-1-5 tright">邮箱:</label>
+            <div class="pure-u-4-5 tleft">
+                <input type="email" name="email" class="input input-normal" ng-model="formdata.user.userMail"/>
+                <span ng-if="userForm.$error.email" class="form-error">请输入正确的邮箱</span>
+            </div>
+        </div>
+        <div class="pure-g form-row">
+            <label for="" class="pure-u-1-5 tright">手机号码:</label>
+            <div class="pure-u-4-5 tleft">
+                <input type="text" phone name="phone" class="input input-normal" ng-model="formdata.user.userMobile"/>
+                <span ng-if="userForm.$error.phone" class="form-error">请输入正确的手机号码</span>
+            </div>
+        </div>
+        <div class="pure-g form-row">
+            <label for="" class="pure-u-1-5 tright">QQ:</label>
+            <div class="pure-u-4-5 tleft">
+                <input type="text" class="input input-normal" ng-model="formdata.user.userQq"/>
+            </div>
+        </div>
+        <div class="pure-g form-row">
+            <label for="" class="pure-u-1-5 tright">出生日期:</label>
+            <div class="pure-u-4-5 tleft">
+                <select ng-model="formdata.user.birthday.year" ng-options="year as year for year in range(1940, 2000)">
+                    <option value="">请选择</option>
+                </select>
+                <span class="select-label">年</span>
+                <select ng-model="formdata.user.birthday.month" ng-options="month as month for month in range(1, 13)">
+                    <option value="">请选择</option>
+                </select><span class="select-label">月</span>
+                <select ng-model="formdata.user.birthday.day" ng-options="day as day for day in range(0, 32)">
+                    <option value="">请选择</option>
+                </select><span class="select-label">日</span>
+            </div>
+        </div>
+        <div class="pure-g form-row">
+            <div class="pure-u-1-5"></div>
+            <div class="pure-u-4-5 tleft">
+                <input type="button" ng-click="fun.saveUserInfo()" class="btn btn-red" value="保存" />
+            </div>
+        </div>
+    </form>

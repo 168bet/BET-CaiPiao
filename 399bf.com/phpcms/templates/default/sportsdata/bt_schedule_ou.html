@@ -1,0 +1,114 @@
+{php $css = array('bt_schedule_analyse.css')}
+{template 'content', 'header_score'}
+
+{template 'sportsdata', 'bt_schedule_info'}
+
+<!-- main body -->
+<section class="main pdB20" id="table-content">
+    <div class="container">
+        <div class="row">
+
+            <div class="score-item bt_euro_scoreitem" id="scoreRank">
+
+                <div class="score-item-bd pdB10">
+
+                    <table id="table" class="table bigTable special">
+                        <thead>
+                            <tr class="bg_orange">
+                                <th class="border" width="140" rowspan="2">
+                                    博彩公司
+                                </th>
+                                <th class="border" colspan="3">初盘</th>
+                                <th class="border" colspan="3">即时</th>
+                                <th rowspan="2" width="245">变化时间</th>
+                            </tr>
+                            <tr class="bg_orange">
+                                <th class="border">大分</th>
+                                <th class="border">盘口</th>
+                                <th class="border">小分</th>
+                                <th class="border">大分</th>
+                                <th class="border">盘口</th>
+                                <th>小分</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {loop $totalscore $r}
+                            <tr>
+                                <td class="border">{$company[$r[companyid]][name]}</td>
+                                <td class="border">{rtrim0($r[highodds_f])}</td>
+                                <td class="border">{rtrim0($r[totalscore_f])}</td>
+                                <td class="border">{rtrim0($r[lowodds_f])}</td>
+                                <td class="border"><span class="orange">{rtrim0($r[highodds])}</span></td>
+                                <td class="border">{rtrim0($r[totalscore])}</td>
+                                <td class="border"><span class="orange">{rtrim0($r[lowodds])}</span></td>
+
+                                <td>
+                                    {date('Y-m-d H:i', $r[modifytime])}
+                                    <i class="icon-img"></i>
+                                </td>
+                            </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="score-item-bd">
+
+                    <table id="table" class="table bigTable special">
+                        <thead>
+                            <tr class="bg_orange">
+                                {loop $company $c}
+                                <th class="border" width="143">{$c[name]}</th>
+                                {/loop}
+                                <th>变化时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {loop $totalscore_detail $r}
+                            <tr>
+                                {loop $company $c}
+                                {if $r[companyid] == $c[companyid]}
+                                <td class="border {if $r[type] == 6}bg_greenA{else}bg_green{/if}">
+                                    <div class="table-line">
+                                        <b>{rtrim0($r[totalscore])}</b>
+                                    </div>
+                                    <div class="table-line">
+                                        <span class="col">{rtrim0($r[highodds])}</span>
+                                        <span class="col">{rtrim0($r[lowodds])}</span>
+                                    </div>
+                                </td>
+                                {else}
+                                <td class="border"></td>
+                                {/if}
+                                {/loop}
+                                <td>{date('Y-m-d H:i', $r[modifytime])}</td>
+                            </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="score-item-fd">
+                    <div class="hint">
+                        说明：
+                        <i class="rect-greenA"></i>表示即时盘，
+                        <i class="rect-green"></i>表示走地盘
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- main body -->
+
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+    //二级导航高亮
+    document.getElementById('ou').setAttribute('class', 'active');
+</script>
+
+{php $js = array('imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js')}
+{template 'content', 'footer'}

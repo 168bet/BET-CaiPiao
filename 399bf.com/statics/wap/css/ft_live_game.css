@@ -1,0 +1,30 @@
+.list-title {
+    display: inline-block;
+    padding-left: 1.7578125rem;
+    color: #bbbbbb;
+    font-family: serif;
+    font-size: .703125rem;
+    background-position: .390625rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.list-title#start {
+    background-image: url('../images/icon/match-tip-going-icon.png');
+}
+
+.list-title#end {
+    background-image: url('../images/icon/match-tip-end-icon.png');
+}
+
+.list-title#ready {
+    background-image: url('../images/icon/match-tip-future-icon.png');
+}
+
+#start-list {
+    margin-top: .390625rem;
+}
+
+.has-goal,.score-goal {
+    color: #fa1604;
+}

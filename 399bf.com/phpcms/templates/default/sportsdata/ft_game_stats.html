@@ -1,0 +1,381 @@
+{php $css = ['ft_game_analyse.css'];}
+{template 'content', 'header_score'}
+
+<!-- nav -->
+{template 'sportsdata', 'ft_game_info'}
+<!-- nav end -->
+
+<!-- main body -->
+<section class="main pdB20" id="table-content">
+    <div class="container">
+        <div class="row">
+
+            <div class="score-item">
+
+                <div class="score-item-hd">
+                    <a href="javascript:;" class="active btn btn-default">数据统计</a>
+                    {if $gameinfo['islive']}<a href="{APP_PATH}game/{$gameid}/live/" class="btn btn-default" target="_blank">实况直播</a>{/if}
+                </div>
+
+                <div class="row" id="statstable">
+
+                    <!--主队阵容-->
+                    <div class="col-sm-3" style="padding-right: 5px;">
+                        {if isset($lineup['home']['starter'])}
+                        <table class="table" role="streak" id="home-player">
+                            <tr>
+                                <td colspan="2">
+                                    主队{if isset($lineup['home']['formation'])}阵型:{$lineup['home']['formation']}{/if}
+                                </td>
+                            </tr>
+                            <!--首发阵容-->
+                            {loop $lineup['home']['starter'] $starter}
+                            <tr>
+                                <td class="noBorder text-left">
+                                    {$starter['ShitNo']}
+                                    <a data-id="{$starter['Id']}" href="{APP_PATH}player/{$starter['Id']}/" target="_blank">{$starter['Name']}</a>
+                                    <!--事件-->
+                                    {if isset($starter['Event'])}
+                                    <span class="blockBG {$starter['Event']}"></span>
+                                    {/if}
+                                    <!--替换-->
+                                    {if isset($starter['Substitution'])}
+                                    <span class="blockBG {$starter['Substitution']}"></span>
+                                    {/if}
+                                </td>
+                                <td width="52">{$starter['Pos']}</td>
+                            </tr>
+                            {/loop}
+                            <!--替补阵容-->
+                            {loop $lineup['home']['reserve'] $reserve}
+                            <tr>
+                                <td class="noBorder text-left">
+                                    {$reserve['ShitNo']}
+                                    <a data-id="{$reserve['Id']}" href="{APP_PATH}player/{$reserve['Id']}/" target="_blank">{$reserve['Name']}</a>
+                                    <!--事件-->
+                                    {if isset($reserve['Event'])}
+                                    <span class="blockBG {$reserve['Event']}"></span>
+                                    {/if}
+                                    <!--替换-->
+                                    {if isset($reserve['Substitution'])}
+                                    <span class="blockBG {$reserve['Substitution']}"></span>
+                                    {/if}
+                                </td>
+                                <td width="52">{$reserve['Pos']}</td>
+                            </tr>
+                            {/loop}
+
+                        </table>
+                        {else}
+                        <img src="{IMG_PATH}lineup.jpg" class="center-block">
+                        {/if}
+                    </div>
+
+                    <!--事件-->
+                    <div class="col-sm-6 pdL0 pdR0 pdB20">
+                        <table class="table middle-table">
+                            <thead>
+                                <tr>
+                                    <td width="215" class="noBorder">{$gameinfo['homename']}</td>
+                                    <td class="noBorder">VS</td>
+                                    <td width="215">{$gameinfo['awayname']}</td>
+                                </tr>
+                            </thead>
+                            <tbody id="event-table">
+                                <tr class="event-row" data-minute="0">
+                                    <td></td>
+                                    <td>比赛开始 0:0</td>
+                                    <td></td>
+                                </tr>
+                                {loop $goal_info $event}
+                                <tr class="event-row" data-minute="{$event['Minute']}">
+                                    <td>
+                                        {if $event['Type'] == 1}
+                                        {if isset($event['Score'])}{$event['Score']}{/if}
+                                        {$event['Pname']}
+                                        <span class="blockBG {$event['Class']}"></span>
+                                        {/if}
+                                    </td>
+                                    <td>
+                                        {$event['Minute']}
+                                        <span class="blockBG second"></span>
+                                        {if isset($event['Overtime'])}{$event['Overtime']}{/if}
+                                    </td>
+                                    <td>
+                                        {if $event['Type'] == 2}
+                                        <span class="blockBG {$event['Class']}"></span>
+                                        {$event['Pname']}
+                                        {if isset($event['Score'])}{$event['Score']}{/if}
+                                        {/if}
+                                    </td>
+                                </tr>
+                                {/loop}
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" id="game-end">{if in_array($gameinfo['status'], array(4, 17))}全场结束 {$gameinfo['homescore']}:{$gameinfo['awayscore']}{/if}</td>
+                                </tr>
+                            </tfoot>
+
+                        </table>
+
+                        <div class="explain">
+                            <div class="explain-label">图例说明</div>
+                            <span class="explain-item goal">入球</span>
+                            <span class="explain-item point">点球</span>
+                            <span class="explain-item own-goal">乌龙球</span>
+                            <span class="explain-item yellow-card">黄牌</span>
+                            <span class="explain-item red-card">红牌</span>
+                            <span class="explain-item substitute">换人</span><span class="explain-item yr-merge">两黄变红</span>
+
+                        </div>
+                    </div>
+
+                    <!--客队阵容-->
+                    <div class="col-sm-3" style="padding-left: 5px;">
+                        {if isset($lineup['away']['starter'])}
+                        <table class="table" role="streak" id="away-player">
+                            <tr>
+                                <td colspan="2">
+                                    客队{if isset($lineup['away']['formation'])}阵型:{$lineup['away']['formation']}{/if}
+                                </td>
+                            </tr>
+                            <!--首发阵容-->
+                            {loop $lineup['away']['starter'] $starter}
+                            <tr>
+                                <td class="noBorder text-left">
+                                    {$starter['ShitNo']}
+                                    <a data-id="{$starter['Id']}" href="{APP_PATH}player/{$starter['Id']}/" target="_blank">{$starter['Name']}</a>
+                                    <!--事件-->
+                                    {if isset($starter['Event'])}
+                                    <span class="blockBG {$starter['Event']}"></span>
+                                    {/if}
+                                    <!--替换-->
+                                    {if isset($starter['Substitution'])}
+                                    <span class="blockBG {$starter['Substitution']}"></span>
+                                    {/if}
+                                </td>
+                                <td width="52">{$starter['Pos']}</td>
+                            </tr>
+                            {/loop}
+                            <!--替补阵容-->
+                            {loop $lineup['away']['reserve'] $reserve}
+                            <tr>
+                                <td class="noBorder text-left">
+                                    {$reserve['ShitNo']}
+                                    <a data-id="{$reserve['Id']}" href="{APP_PATH}player/{$reserve['Id']}/" target="_blank">{$reserve['Name']}</a>
+                                    <!--事件-->
+                                    {if isset($reserve['Event'])}
+                                    <span class="blockBG {$reserve['Event']}"></span>
+                                    {/if}
+                                    <!--替换-->
+                                    {if isset($reserve['Substitution'])}
+                                    <span class="blockBG {$reserve['Substitution']}"></span>
+                                    {/if}
+                                </td>
+                                <td width="52">{$reserve['Pos']}</td>
+                            </tr>
+                            {/loop}
+
+                        </table>
+                        {else}
+                        <img src="{IMG_PATH}lineup.jpg" class="center-block">
+                        {/if}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pair-table clearfix">
+
+                <!--技术统计-->
+                <div class="col-md-6 pdL0 pdR0">
+                    <div class="score-item">
+
+                        <div class="score-item-hd">
+                            <b class="team-label">技术统计</b>
+                        </div>
+                         
+                        <div class="score-item-bd pdB20">
+                            <table class="table" role="streak_">
+                                <thead>
+                                <tr>
+                                    <th width="183">{$gameinfo['homename']}</th>
+                                    <th>VS</th>
+                                    <th width="183">{$gameinfo['awayname']}</th>
+                                </tr>
+                                </thead>
+                                <tbody id="stat-table">
+                                {loop $stat_info $stat}
+                                <tr class="stat-row">
+                                    <td class="text-right border">
+                                        <span>{$stat['Home']}</span>
+                                        <span class="table-progress orange" data-size="{$stat['Home']}"></span>
+                                    </td>
+                                    <td class="border">{$stat['Name']}</td>
+                                    <td class="text-left">
+                                        <span class="table-progress red" data-size="{$stat['Away']}"></span>
+                                        <span>{$stat['Away']}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                {/loop}
+                                </tbody>
+
+                        </table>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+                <!--球员替换-->
+                <div class="col-md-6 pdL0 pdR0">
+                    <div class="score-item right">
+
+                        <div class="score-item-hd">
+                            <b class="team-label">球员替换</b>
+                        </div>
+
+                        <div class="score-item-bd">    
+                            <table class="table" role="streak_">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3" width="220">{$gameinfo['homename']}</th>
+                                        <th>VS</th>
+                                        <th colspan="3" width="220">{$gameinfo['awayname']}</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="substitution-table">
+                                {loop $substitution_info $substitute}
+                                {if $substitute['Type']==1}
+                                <tr class="substitution-row" data-minute="{$substitute['Minute']}">
+                                    <td>
+                                        <a href="{APP_PATH}player/{$substitute['Upid']}/" target="_blank"><span class="red"> {$substitute['Upname']}<i class="submen red"></i></span></a>
+                                    </td>
+                                    <td>
+                                        <span class="icon-substitute"></span>
+                                    </td>
+                                    <td>
+                                        <a href="{APP_PATH}player/{$substitute['Downid']}/" target="_blank"><span class="green"> {$substitute['Downname']}<i class="submen green"></i></span></a>
+                                    </td>
+                                    <td>{$substitute['Minute']}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                {else}
+                                <tr class="substitution-row" data-minute="{$substitute['Minute']}">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{$substitute['Minute']}</td>
+                                    <td>
+                                        <a href="{APP_PATH}player/{$substitute['Upid']}/" target="_blank"><span class="green"> {$substitute['Upname']} <i class="submen green"></i></span></a>
+                                    </td>
+                                    <td>
+                                        <span class="icon-substitute"></span>
+                                    </td>
+                                    <td>
+                                        <a href="{APP_PATH}player/{$substitute['Downid']}/" target="_blank"><span class="red"> {$substitute['Downname']}<i class="submen red"></i></span></a>
+                                    </td>
+                                </tr>
+                                {/if}
+                                {/loop}
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                        <div class="score-item-fd">
+                            <p class="hint">
+                                <i class="submen green"></i>
+                                <span>替换球员</span>
+                                <i class="submen red"></i>
+                                <span>被替换球员</span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!--入球时间统计(本赛季)-->
+            <div class="pair-table clearfix">
+
+                {php $count = 1;}
+                {loop $goal_time_stats_info $name $stats}
+                <div class="col-md-6 pdL0 pdR0">
+
+                    <div class="score-item {if $count == 1}slitR{else}slitL{/if}">
+                        {if $count == 1}
+                        <div class="score-item-hd">
+                            <b class="team-label indent">入球时间统计(本赛季)</b>
+                        </div>
+                        {else}
+                        <div style="height: 46px; visibility: hidden;">
+                        </div>
+                        {/if}
+                         
+                        <div class="score-item-bd">
+                            <table class="table">
+                                <tr>
+                                    <td colspan="5" class="text-left indent">{$name}</td>
+                                </tr>
+                                <tr>
+                                    <td class="border">入球时间</td>
+                                    <td class="">1-20</td>
+                                    <td class="">21-45</td>
+                                    <td class="">46-65</td>
+                                    <td class="">69-90</td>
+                                </tr>
+                                {loop $stats $type $info}
+                                <tr>
+                                    <td class="border">{L($type)}</td>
+                                    {loop $info $value}
+                                    <td class="border">{$value}</td>
+                                    {/loop}
+                                </tr>
+                                {/loop}
+
+                            </table>
+                            <div class="hint pdT10 pdB10">
+                                {if $anti_kill}
+                                    {if $count == 1}
+                                        {$gameinfo['homename']}：近<span class="red">{$anti_kill[$gameinfo['hometeamid']]['count']}</span>场比赛中，半场落后<span class="red">{$anti_kill[$gameinfo['hometeamid']]['backward']}</span>场，追回<span class="red">{$anti_kill[$gameinfo['hometeamid']]['anti_kill']}</span>场（<span class="red">{$anti_kill[$gameinfo['hometeamid']]['rate']}</span>）
+                                    {else}
+                                {$gameinfo['awayname']}:近<span class="red">{$anti_kill[$gameinfo['awayteamid']]['count']}</span>场比赛中，半场落后<span class="red">{$anti_kill[$gameinfo['awayteamid']]['backward']}</span>场，追回<span class="red">{$anti_kill[$gameinfo['awayteamid']]['anti_kill']}</span>场（<span class="red">{$anti_kill[$gameinfo['awayteamid']]['rate']}</span>）
+                                    {/if}
+                                {/if}
+                            </div>
+
+                        </div>
+                    </div>
+                   
+                </div>
+                {php ++$count;}
+                {/loop}
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- main body -->
+
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+    var APP_PATH = '{APP_PATH}';
+    var GAME_ID = {$gameid};
+    //三个异步请求的标签，因为各个请求完成后会更新对应的标签，所以不能只声明一个标签
+    var EVENT_TAG = STAT_TAG = SUBSTITUTION_TAG = {if in_array($gameinfo['status'], array(1,2,3))}true{else}false{/if};
+</script>
+
+{php $js = ['ft_game_stats.js','imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js'];}
+
+{template 'content', 'footer'}

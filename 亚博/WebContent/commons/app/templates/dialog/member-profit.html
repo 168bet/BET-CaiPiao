@@ -1,0 +1,37 @@
+<div class="alert-dialog-con">
+	<h3>修改用户 [{{ngDialogData['member']['userName']}}] 返点</h3>
+	<div class="alert-con">
+
+		<table>
+			<thead>
+				<tr>
+					<th>返点类型</th>
+					<th>当前返点</th>
+					<th>新返点</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>28返点</td>
+					<td>{{ngDialogData['member']['pc28Point']}}</td>
+					<td><span class="ip-wrap" pro-user="qizi001"><input
+							type="text" ng-model="ngDialogData.updated.pc28Point" id="Mbox-newpoint">
+					</span>
+					</td>
+				</tr>
+				<tr>
+					<td>彩票返点</td>
+					<td>{{ngDialogData['member']['cpPoint']}}</td>
+					<td><span class="ip-wrap"><input type="text" ng-model="ngDialogData.updated.cpPoint" id="Mbox-newltpoint">
+					</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+	<div class="alert-bottom clearfix">
+        <button name="confirm" class="alert-close btn" ng-click="ngDialogData.confirm(ngDialogData.updated) && closeThisDialog()">确认</button>
+        <button name="cancel" class=" btn" ng-click="ngDialogData.cancel() && closeThisDialog()">取消</button>
+	</div>
+</div>

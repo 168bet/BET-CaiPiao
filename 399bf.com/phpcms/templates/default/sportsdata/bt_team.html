@@ -1,0 +1,305 @@
+{php $css = ['bt_team_player.css'];}
+{template 'content', 'header_score'}
+<div class="crumbs">
+    <i class="crumbs-icon"></i>当前位置：<span class="orange">篮球资料库</span>&gt;<span class="orange">{$sclass_info['name_s']}</span>&gt;{$teamData['name_cn']}
+</div>
+<div class="team">
+    <div class="team-logo">
+        <img src="{$teamData['logo']}" alt="" class="bt-team-photo">
+    </div>
+    <div class="team-name">
+        <div class="c-name">{$teamData['name_cn']}</div>
+        <div class="e-name">{$teamData['name_en']}</div>
+    </div>
+    <div class="team-info">
+        <ul>
+            <li class="clearfix">
+                <span class="col-1">国家：</span>
+                <span class="col-2">美国</span>
+                <span class="col-3">加入NBA时间：</span>
+                <span class="col-4">1970年</span>
+                <span class="col-5">平均年龄：</span>
+                <span class="col-6">{$teamData['avg_age']}</span>
+            </li>
+            <li class="clearfix">
+                <span class="col-1">城市：</span>
+                <span class="col-2">{$teamData['city']}</span>
+                <span class="col-3">主教练：</span>
+                <span class="col-4">{$teamData['drillmaster']}</span>
+                <span class="col-5">联系地址：</span>
+                <!--<span class="col-6">Rowsley Street M11 3FF Manchester</span>-->
+            </li>
+            <li class="clearfix">
+                <span class="col-1">球场：</span>
+                <span class="col-2">{$teamData['gymnasium']}</span>
+                <span class="col-3">官方网址：</span>
+                <span class="col-4"><a href="{$teamData['url']}" target="_blank">进入网站</a></span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="content clearfix">
+    <div class="left">
+        <div class="content-nav">
+            <a class="nav-item active" href="{APP_PATH}lq/team/{$teamId}/">球队数据</a>
+            <a class="nav-item" href="{APP_PATH}lq/team/{$teamId}/schedule/">球队赛程</a>
+            <a class="nav-item" href="{APP_PATH}lq/team/{$teamId}/lineup/">球队阵容</a>
+            <a class="nav-item" href="{APP_PATH}lq/team/{$teamId}/transfer/">球队转会</a>
+        </div>
+        <div class="data-list">
+            <div class="data-list-con">
+                <table>
+                    <tr>
+                        <td colspan="12" style="color: #5b5b5b;">2016-2017 全场让球盘路</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>赛</td>
+                        <td>上盘</td>
+                        <td>下盘</td>
+                        <td>赢</td>
+                        <td>走</td>
+                        <td>输</td>
+                        <td>净</td>
+                        <td>胜%</td>
+                        <td>走%</td>
+                        <td>负%</td>
+                        <td>盘路</td>
+                    </tr>
+                    <tr>
+                        <td>总成绩</td>
+                        <td>{$letData[0][0]}</td>
+                        <td>{$letData[0][1]}</td>
+                        <td>{$letData[0][2]}</td>
+                        <td>{$letData[0][3]}</td>
+                        <td>{$letData[0][4]}</td>
+                        <td>{$letData[0][5]}</td>
+                        <td>{$letData[0][6]}</td>
+                        <td>{$letData[0][7]}</td>
+                        <td>{$letData[0][8]}</td>
+                        <td>{$letData[0][9]}</td>
+                        <td><a class="green">详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>主场</td>
+                        <td>{$letData[1][0]}</td>
+                        <td>{$letData[1][1]}</td>
+                        <td>{$letData[1][2]}</td>
+                        <td>{$letData[1][3]}</td>
+                        <td>{$letData[1][4]}</td>
+                        <td>{$letData[1][5]}</td>
+                        <td>{$letData[1][6]}</td>
+                        <td>{$letData[1][7]}</td>
+                        <td>{$letData[1][8]}</td>
+                        <td>{$letData[1][9]}</td>
+                        <td><a class="green">详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>客场</td>
+                        <td>{$letData[2][0]}</td>
+                        <td>{$letData[2][1]}</td>
+                        <td>{$letData[2][2]}</td>
+                        <td>{$letData[2][3]}</td>
+                        <td>{$letData[2][4]}</td>
+                        <td>{$letData[2][5]}</td>
+                        <td>{$letData[2][6]}</td>
+                        <td>{$letData[2][7]}</td>
+                        <td>{$letData[2][8]}</td>
+                        <td>{$letData[2][9]}</td>
+                        <td><a class="green">详情</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="data-list-con">
+                <table>
+                    <tr>
+                        <td colspan="9" style="color: #5b5b5b;">2016-2017 全场大小盘路</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>赛</td>
+                        <td>大球</td>
+                        <td>走</td>
+                        <td>小球</td>
+                        <td>胜%</td>
+                        <td>走%</td>
+                        <td>负%</td>
+                        <td>盘路</td>
+                    </tr>
+                    <tr>
+                        <td>总成绩</td>
+                        <td>{$totalData[0][0]}</td>
+                        <td>{$totalData[0][1]}</td>
+                        <td>{$totalData[0][2]}</td>
+                        <td>{$totalData[0][3]}</td>
+                        <td>{$totalData[0][4]}</td>
+                        <td>{$totalData[0][5]}</td>
+                        <td>{$totalData[0][6]}</td>
+                        <td><a class="green">详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>主场</td>
+                        <td>{$totalData[1][0]}</td>
+                        <td>{$totalData[1][1]}</td>
+                        <td>{$totalData[1][2]}</td>
+                        <td>{$totalData[1][3]}</td>
+                        <td>{$totalData[1][4]}</td>
+                        <td>{$totalData[1][5]}</td>
+                        <td>{$totalData[1][6]}</td>
+                        <td><a class="green">详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>客场</td>
+                        <td>{$totalData[2][0]}</td>
+                        <td>{$totalData[2][1]}</td>
+                        <td>{$totalData[2][2]}</td>
+                        <td>{$totalData[2][3]}</td>
+                        <td>{$totalData[2][4]}</td>
+                        <td>{$totalData[2][5]}</td>
+                        <td>{$totalData[2][6]}</td>
+                        <td><a class="green">详情</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="data-list-con">
+                <table>
+                    <tr>
+                        <td colspan="22" style="color: #5b5b5b;line-height: 30px;padding-left: 200px;">
+                            技术统计
+                            <div class="btn-wrap">
+                                <span><i class="checkbox checkbox-on" onclick="technic(2)" id="technic2"></i>常规赛<input style="visibility: hidden;" type="checkbox" checked></span>
+                                <span><i class="checkbox checkbox-on" onclick="technic(3)" id="technic3"></i>季后赛<input style="visibility: hidden;" type="checkbox" checked></span>
+                                <span><i class="checkbox checkbox-off" onclick="technic(1)" id="technic1"></i>季前赛<input style="visibility: hidden;" type="checkbox"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" width="46px">赛季</td>
+                        <td colspan="2">常规</td>
+                        <td colspan="2">加时</td>
+                        <td colspan="3">投篮</td>
+                        <td colspan="3">三分</td>
+                        <td colspan="3">罚球</td>
+                        <td colspan="3">篮板</td>
+                        <td rowspan="2">助攻</td>
+                        <td rowspan="2">抢断</td>
+                        <td rowspan="2">盖帽</td>
+                        <td rowspan="2">犯规</td>
+                        <td rowspan="2">失误</td>
+                    </tr>
+                    <tr style="background-color: #FFFFFF;">
+                        <td>胜</td>
+                        <td>负</td>
+                        <td>胜</td>
+                        <td>负</td>
+                        <td>总（场均）</td>
+                        <td>进（场均）</td>
+                        <td>命中率</td>
+                        <td>总（场均）</td>
+                        <td>进（场均）</td>
+                        <td>命中率</td>
+                        <td>总（场均）</td>
+                        <td>进（场均）</td>
+                        <td>命中率</td>
+                        <td>进攻</td>
+                        <td>防守</td>
+                        <td>总计</td>
+                    </tr>
+                    {loop $technicCountData $key $item}
+                    <tr id="season{$item[22]}">
+                        <td>{$key}</td>
+                        <td>{$item[0]}</td>
+                        <td>{$item[1]}</td>
+                        <td>{$item[2]}</td>
+                        <td>{$item[3]}</td>
+                        <td>{$item[4]}</td>
+                        <td>{$item[5]}</td>
+                        <td>{$item[6]}</td>
+                        <td>{$item[7]}</td>
+                        <td>{$item[8]}</td>
+                        <td>{$item[9]}</td>
+                        <td>{$item[10]}</td>
+                        <td>{$item[11]}</td>
+                        <td>{$item[12]}</td>
+                        <td>{$item[13]}</td>
+                        <td>{$item[14]}</td>
+                        <td>{$item[15]}</td>
+                        <td>{$item[16]}</td>
+                        <td>{$item[17]}</td>
+                        <td>{$item[18]}</td>
+                        <td>{$item[19]}</td>
+                        <td>{$item[20]}</td>
+                    </tr>
+                    {/loop}
+                </table>
+            </div>
+            <div class="data-list-con">
+                <table>
+                    <tr>
+                        <td colspan="9" style="color: #5b5b5b;">球队荣誉</td>
+                    </tr>
+                    <tr>
+                        <td>夺冠赛事</td>
+                        <td>夺冠次数</td>
+                        <td>夺冠赛季</td>
+                    </tr>
+                    <tr>
+                        <td>总冠军</td>
+                        <td>{$teamData['firsttime']}次</td>
+                        <td><!--<span class="win-time">1975-75</span><span class="win-time">1975-75</span>--></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="data-list-con">
+                <div class="intro">
+                    球队介绍
+                </div>
+                <div class="intro-content">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="side">
+            <div class="side-title">{$teamData['name_cn']}主教练</div>
+            <div class="peo-info clearfix">
+                <div class="coach"><img src="{$coachData['photo']}" alt="" class="bt-player-photo"></div>
+                <div class="fr">
+                    <div class="list-info">中文名： {$coachData['name_cn']}</div>
+                    <div class="list-info">英文名： {$coachData['name_en']}</div>
+                    <div class="list-info">粤语名： {$coachData['name_tw']}</div>
+                    <div class="list-info">&nbsp;&nbsp;&nbsp;&nbsp;国籍：美国</div>
+                </div>
+                <div class="list-info" style="width: 100%"><span class="w130">生日： {date('Y-m-d', $coachData['birthday'])}</span>性别：男</div>
+                <div class="list-info" style="width: 100%"><span class="w130">身高：{$coachData['tallness']}{$coachData['tall_foot']}</span>体重：{$coachData['weight']}{$coachData['weight_pound']}<br>
+                    所属俱乐部：{$teamData['name_cn']}</div>
+            </div>
+        </div>
+        <div class="side">
+            <div class="side-title">{$teamData['name_cn']}球员</div>
+            {loop $playerData $key $item}
+            <div class="forward">
+                <div class="pos-title">{$key}</div>
+            </div>
+            <div class="member-info clearfix">
+                <ul>
+                    {loop $item $key $item2}
+                    <li>
+                        <a href="{APP_PATH}lq/player/{$item2[2]}/">
+                            <img src="{$item2[1]}" alt="" class="bt-player-photo">
+                            <div class="member-name">{$item2[0]}</div>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/loop}
+        </div>
+    </div>
+</div>
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = ['bt_team_player.js','imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js'];}
+{template 'content', 'footer'}

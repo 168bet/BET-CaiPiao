@@ -1,0 +1,42 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+<div class="page-bg1" style="padding:10px 0 38px 0;background:#E8E8E8;">
+
+    <div class="login_wrapbox clearfix">
+        <div id="loginbox" style="float:left;">
+
+            <div id="WinnerBox1">
+                <div class="title">恭喜</div>
+                <app-marquee class="list" speed="200" direction="v" items="marqueeItems"></app-marquee>
+            </div>
+            <div class="loginwrap">
+                <div class="box_title"> <i class="ico_titile"></i>
+                    <span class="txt_titile">请登陆</span>
+                </div>
+                <form  name="loginForm">
+                    <div class="box_row box_ip"> <i class="user"></i>
+                        <input type="text" class="ip_hold" name="uname" required ng-minlength="6" placeholder="请输入账户" ng-model="formdata.user.uname" style="display: inline-block;">
+                    </div>
+                    <div class="box_row box_ip">
+                        <i class="pass"></i>
+                        <input type="password" class="ip_hold" placeholder="请输入密码" required ng-minlength="6" ng-model="formdata.user.upwd">
+                   </div>
+                    <div class="box_row clearfix" style="padding:12px 0 16px 0">
+                        <a href="javascript:void();" ng-click="fun.alert('请联系在线客服找回密码')" class="getpass">忘记密码?</a>
+                        <a ui-sref="register.step/one" class="reset">没有账号?</a>
+                    </div>
+                    <div class="box_btn" id="submitbtn-box" ng-click="fun.login(loginForm)" >
+                        <a href="javascript:;" class="btn" id="submitbtn">
+                            <span>
+                                <i></i>
+                                <input type="submit" value="立即登陆" style="background: none; font-size: 16px;color: white;"/>
+                            </span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="picbox" style="float:left;width:400px;padding:16px 0;">
+            <img src="{{staticURI}}/images/reg/login-pic.jpg" width="520" height="420"></div>
+    </div>
+</div>
+<ng-include src="templateURI('/footer.html')"></ng-include>

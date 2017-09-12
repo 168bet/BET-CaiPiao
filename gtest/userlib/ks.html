@@ -1,0 +1,587 @@
+<div class="sGame_jstb">
+<div class="mains_corll">
+  <div id="rightLoader" dom="right">
+    <div id="bothSides_ks" class="bothSides ks">
+      <div class="betAreaBox">
+        <table id="winbox" cellpadding="0" cellspacing="0" width="100%">
+          <tbody>
+            <tr height="23">
+              <td><strong class="c_blue">江苏骰宝（快3） </strong><b class="blue_h">大小骰宝</b></td>
+              <td><strong class="red">今日输赢：<span class="red" id="sy">0</span></strong></td>
+              <td colspan="3" id="resultnum" class="ks" align="right"><strong class="c_blue"><b id="number"></b>期开奖</strong><span class="number" id="a"></span><span class="number" id="b"></span><span class="number" id="c"></span></td>
+            </tr>
+            <tr height="29">
+              <td height="29" width="25%"><strong class="green" id="o">加載中...</strong><span style="display: inline;" id="timesnow_string" class="hide">期</span></td>
+              <td width="28%"> 距离封盘：<span nc="303" style="color:#511E02" id="endTime">00:00</span></td>
+              <td class="ks_nav_td"> 距离开奖：<span nc="403" class="red" id="endTimes">00:00</span></td>
+              <td style="color:#511E02" align="right"><span id="endTimea" class="autoRefreshspan">0</span>秒 <span id="resultwheel" class="hide"></span></td>
+            </tr>
+          </tbody>
+        </table>
+        <table cellpadding="0" cellspacing="0" width="100%">
+          <tbody>
+            <tr>
+              <td width="18%"><div class="elem_type" id="elem_type_div"><strong class="t">投注类型：</strong><a href="javascript:void(0)" class="elem_btn btnnav" nav="odds">快捷</a><a href="javascript:void(0)" class="elem_btn btnnav on" nav="general">一般</a></div></td>
+              <td class="align-c" width="30%"><div class="elem_amount"><strong style="display: none;" class="t kuaijie">金额</strong><span style="display: none;" id="bulk-amount-input" class="kuaijie">
+                  <input class="elem_amount_input elem_amount_input_quick" name="" maxlength="9" id="kuaisuamount_top" type="text">
+                  </span><a href="javascript:void(0)" class="btn_m elem_btn" id="submit_top">确 定</a><a href="javascript:void(0)" class="btn_m elem_btn" id="reset_top">重 置</a></div></td>
+              <td class="align-r" width="30%"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="display: block;" class="common" id="common_div">
+          <div id="bothBall" class="pktouzhuArea">
+            <table class="w100 t1 touzhuArea" frame="box" cellpadding="1">
+              <colgroup>
+              <col class="col_single w5">
+              <col class="w8">
+              <col class="w9">
+              <col class="col_single w5">
+              <col class="w8">
+              <col class="w9">
+              <col class="col_single w5">
+              <col class="w8">
+              <col class="w9">
+              <col class="col_single w5">
+              <col class="w8">
+              <col class="w9">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th colspan="12">三軍【赔率说明：一同骰=（赔率-1)X 1、二同骰=（赔率-1)X 2、三同骰=（赔率-1)X 3】、大小</th>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td class="fontBlue"><span class="number num1"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0); cursor: text; text-decoration: none;" scope="ah1">-</td>
+                  <td class="amount" scope="Ball_1Nah1"></td>
+                  <td class="fontBlue"><span class="number num2"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="ah2">-</td>
+                  <td class="amount" scope="Ball_1Nah2"></td>
+                  <td class="fontBlue"><span class="number num3"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="ah3">-</td>
+                  <td class="amount" scope="Ball_1Nah3"></td>
+                  <td class="fontBlue" >大</td>
+                  <td class="o" style="color: rgb(255, 0, 0); cursor: text; text-decoration: none;" scope="ah7">-</td>
+                  <td class="amount" scope="Ball_1Nah7"></td>
+                </tr>
+                <tr>
+                  <td class="fontBlue"><span class="number num4"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0); cursor: text; text-decoration: none;" scope="ah4">-</td>
+                  <td class="amount" scope="Ball_1Nah4"></td>
+                  <td style="cursor: pointer; text-decoration: underline;" class="fontBlue"><span class="number num5"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="ah5">-</td>
+                  <td class="amount" scope="Ball_1Nah5"></td>
+                  <td class="fontBlue"><span class="number num6"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="ah6">-</td>
+                  <td class="amount" scope="Ball_1Nah6"></td>
+                  <td class="fontBlue">小</td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="ah8">-</td>
+                  <td class="amount" scope="Ball_1Nah8"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="bothBall" class="pktouzhuArea">
+            <table class="w100 t1 touzhuArea" frame="box" cellpadding="1">
+              <colgroup>
+              <col class="col_single w13">
+              <col class="w8">
+              <col class="w125">
+              <col class="col_single w13">
+              <col class="w8">
+              <col class="w125">
+              <col class="col_single w13">
+              <col class="w8">
+              <col class="w125">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th colspan="12">圍骰、全骰</th>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td class="fontBlue"><span class="number num1"></span><span class="number num1"></span><span class="number num1"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh1">-</td>
+                  <td class="amount" scope="Ball_2Nbh1"></td>
+                  <td style="cursor: text; text-decoration: none;" class="fontBlue"><span class="number num2"></span><span class="number num2"></span><span class="number num2"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh2">-</td>
+                  <td class="amount" scope="Ball_2Nbh2"></td>
+                  <td style="cursor: text; text-decoration: none;" class="fontBlue"><span class="number num3"></span><span class="number num3"></span><span class="number num3"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh3">-</td>
+                  <td class="amount" scope="Ball_2Nbh3"></td>
+                </tr>
+                <tr>
+                  <td class="fontBlue"><span class="number num4"></span><span class="number num4"></span><span class="number num4"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh4">-</td>
+                  <td class="amount" scope="Ball_2Nbh4"></td>
+                  <td class="fontBlue"><span class="number num5"></span><span class="number num5"></span><span class="number num5"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh5">-</td>
+                  <td class="amount" scope="Ball_2Nbh5"></td>
+                  <td class="fontBlue"><span class="number num6"></span><span class="number num6"></span><span class="number num6"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh6">-</td>
+                  <td class="amount" scope="Ball_2Nbh6"></td>
+                </tr>
+                <tr>
+                  <td class="fontBlue">全骰</td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh7">-</td>
+                  <td class="amount" scope="Ball_2Nbh7"></td>
+                  <td class="fontBlue"></td>
+                  <td></td>
+                  <td class="amount"></td>
+                  <td class="fontBlue"></td>
+                  <td class=""></td>
+                  <td class="amount"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="bothBall" class="pktouzhuArea">
+            <table class="w100 t1 touzhuArea" frame="box" cellpadding="1">
+              <colgroup>
+              <col class="col_single w8">
+              <col class="w8">
+              <col class="w8">
+              <col class="col_single w8">
+              <col class="w8">
+              <col class="w8">
+              <col class="col_single w8">
+              <col class="w8">
+              <col class="w8">
+              <col class="col_single w8">
+              <col class="w8">
+              <col class="w8">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th colspan="12">點數</th>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+									<td class="fontBlue">4點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch1">-</td>
+					<td class="amount" scope="Ball_3Nch1"></td>
+										<td class="fontBlue">5點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch2">-</td>
+					<td class="amount" scope="Ball_3Nch2"></td>
+										<td class="fontBlue">6點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch3">-</td>
+					<td class="amount" scope="Ball_3Nch3"></td>
+										<td class="fontBlue">7點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch4">-</td>
+					<td class="amount" scope="Ball_3Nch4"></td>
+					<tr>					<td class="fontBlue">8點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch5">-</td>
+					<td class="amount" scope="Ball_3Nch5"></td>
+										<td class="fontBlue">9點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch6">-</td>
+					<td class="amount" scope="Ball_3Nch6"></td>
+										<td class="fontBlue">10點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch7">-</td>
+					<td class="amount" scope="Ball_3Nch7"></td>
+										<td class="fontBlue">11點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch8">-</td>
+					<td class="amount" scope="Ball_3Nch8"></td>
+					<tr>					<td class="fontBlue">12點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch9">-</td>
+					<td class="amount" scope="Ball_3Nch9"></td>
+										<td class="fontBlue">13點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch10">-</td>
+					<td class="amount" scope="Ball_3Nch10"></td>
+										<td class="fontBlue">14點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch11">-</td>
+					<td class="amount" scope="Ball_3Nch11"></td>
+										<td class="fontBlue">15點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch12">-</td>
+					<td class="amount" scope="Ball_3Nch12"></td>
+					<tr>					<td class="fontBlue">16點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch13">-</td>
+					<td class="amount" scope="Ball_3Nch13"></td>
+										<td class="fontBlue">17點</td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="ch14">-</td>
+					<td class="amount" scope="Ball_3Nch14"></td>
+					 
+                  <td class="fontBlue"></td>
+                  <td></td>
+                  <td class="amount"></td>
+                  <td class="fontBlue"></td>
+                  <td></td>
+                  <td class="amount"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="bothBall" class="pktouzhuArea">
+            <table class="w100 t1 touzhuArea" frame="box" cellpadding="1">
+              <colgroup>
+              <col class="col_single w13">
+              <col class="w8">
+              <col class="w125">
+              <col class="col_single w13">
+              <col class="w8">
+              <col class="w125">
+              <col class="col_single w13">
+              <col class="w8">
+              <col class="w125">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th colspan="12">長牌</th>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+									<td class="fontBlue"><span class="number num1"></span><span class="number num2"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh1">-</td>
+					<td class="amount" scope="Ball_4Ndh1">-</td>
+										<td class="fontBlue"><span class="number num1"></span><span class="number num3"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh2">-</td>
+					<td class="amount" scope="Ball_4Ndh2">-</td>
+										<td class="fontBlue"><span class="number num1"></span><span class="number num4"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh3">-</td>
+					<td class="amount" scope="Ball_4Ndh3">-</td>
+					<tr>					<td class="fontBlue"><span class="number num1"></span><span class="number num5"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh4">-</td>
+					<td class="amount" scope="Ball_4Ndh4">-</td>
+										<td class="fontBlue"><span class="number num1"></span><span class="number num6"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh5">-</td>
+					<td class="amount" scope="Ball_4Ndh5">-</td>
+										<td class="fontBlue"><span class="number num2"></span><span class="number num3"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh6">-</td>
+					<td class="amount" scope="Ball_4Ndh6">-</td>
+					<tr>					<td class="fontBlue"><span class="number num2"></span><span class="number num4"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh7">-</td>
+					<td class="amount" scope="Ball_4Ndh7">-</td>
+										<td class="fontBlue"><span class="number num2"></span><span class="number num5"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh8">-</td>
+					<td class="amount" scope="Ball_4Ndh8">-</td>
+										<td class="fontBlue"><span class="number num2"></span><span class="number num6"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh9">-</td>
+					<td class="amount" scope="Ball_4Ndh9">-</td>
+					<tr>					<td class="fontBlue"><span class="number num3"></span><span class="number num4"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh10">-</td>
+					<td class="amount" scope="Ball_4Ndh10">-</td>
+										<td class="fontBlue"><span class="number num3"></span><span class="number num5"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh11">-</td>
+					<td class="amount" scope="Ball_4Ndh11">-</td>
+										<td class="fontBlue"><span class="number num3"></span><span class="number num6"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh12">-</td>
+					<td class="amount" scope="Ball_4Ndh12">-</td>
+					<tr>					<td class="fontBlue"><span class="number num4"></span><span class="number num5"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh13">-</td>
+					<td class="amount" scope="Ball_4Ndh13">-</td>
+										<td class="fontBlue"><span class="number num4"></span><span class="number num6"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh14">-</td>
+					<td class="amount" scope="Ball_4Ndh14">-</td>
+										<td class="fontBlue"><span class="number num5"></span><span class="number num6"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="dh15">-</td>
+					<td class="amount" scope="Ball_4Ndh15">-</td>
+					  
+              </tbody>
+            </table>
+          </div>
+          <div id="bothBall" class="pktouzhuArea">
+            <table class="w100 t1 touzhuArea" frame="box" cellpadding="1">
+              <colgroup>
+              <col class="col_single w13">
+              <col class="w8">
+              <col class="w125">
+              <col class="col_single w13">
+              <col class="w8">
+              <col class="w125">
+              <col class="col_single w13">
+              <col class="w8">
+              <col class="w125">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th colspan="12">短牌</th>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+									<td class="fontBlue"><span class="number num1"></span><span class="number num1"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="eh1">-</td>
+					<td class="amount" scope="Ball_5Neh1"></td>
+										<td class="fontBlue"><span class="number num2"></span><span class="number num2"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="eh2">-</td>
+					<td class="amount" scope="Ball_5Neh2"></td>
+										<td class="fontBlue"><span class="number num3"></span><span class="number num3"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="eh3">-</td>
+					<td class="amount" scope="Ball_5Neh3"></td>
+					<tr>					<td class="fontBlue"><span class="number num4"></span><span class="number num4"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="eh4">-</td>
+					<td class="amount" scope="Ball_5Neh4"></td>
+										<td class="fontBlue"><span class="number num5"></span><span class="number num5"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="eh5">-</td>
+					<td class="amount" scope="Ball_5Neh5"></td>
+										<td class="fontBlue"><span class="number num6"></span><span class="number num6"></span></td>
+					<td class="o" style="color: rgb(255, 0, 0);" scope="eh6">-</td>
+					<td class="amount" scope="Ball_5Neh6"></td>
+					  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div style="display: none;" class="kuaijie betArea hide" id="kuaijie_div">
+          <div id="bothBall" class="pktouzhuArea">
+            <table class="w100 t1 touzhuArea" frame="box" cellpadding="1">
+              <colgroup>
+              <col class="col_single w10">
+              <col class="w17">
+              <col class="col_single w10">
+              <col class="w17">
+              <col class="col_single w10">
+              <col class="w17">
+              <col class="col_single w10">
+              <col class="w17">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th colspan="12">三軍【赔率说明：一同骰=（赔率-1)X 1、二同骰=（赔率-1)X 2、三同骰=（赔率-1)X 3】、大小</th>
+                </tr>
+              </tbody>
+              <tbody>
+			  	 <tr>
+                  <td class="fontBlue"><span class="number num1"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0); cursor: text; text-decoration: none;" scope="ah1" abbr="Ball_1Nah1">-</td>
+                 
+                  <td class="fontBlue"><span class="number num2"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="ah2" abbr="Ball_1Nah2">-</td>
+                  
+                  <td class="fontBlue"><span class="number num3"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="ah3" abbr="Ball_1Nah3">-</td>
+                  
+                  <td class="fontBlue" >大</td>
+                  <td class="o" style="color: rgb(255, 0, 0); cursor: text; text-decoration: none;" scope="ah7" abbr="Ball_1Nah7">-</td>
+                   
+                </tr>
+                <tr>
+                  <td class="fontBlue"><span class="number num4"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0); cursor: text; text-decoration: none;" scope="ah4" abbr="Ball_1Nah4">-</td>
+                   
+                  <td style="cursor: pointer; text-decoration: underline;" class="fontBlue"><span class="number num5"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="ah5" abbr="Ball_1Nah5">-</td>
+                   
+                  <td class="fontBlue"><span class="number num6"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="ah6" abbr="Ball_1Nah6">-</td>
+                  
+                  <td class="fontBlue">小</td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="ah8" abbr="Ball_1Nah8">-</td>
+                   
+                </tr>
+				
+                 
+              </tbody>
+            </table>
+          </div>
+          <div id="bothBall" class="pktouzhuArea">
+            <table class="w100 t1 touzhuArea" frame="box" cellpadding="1">
+              <colgroup>
+              <col class="col_single w14">
+              <col class="w20">
+              <col class="col_single w14">
+              <col class="w20">
+              <col class="col_single w14">
+              <col class="w20">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th colspan="12">圍骰、全骰</th>
+                </tr>
+              </tbody>
+              <tbody>
+			  	 <tr>
+                  <td class="fontBlue"><span class="number num1"></span><span class="number num1"></span><span class="number num1"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh1" abbr="Ball_2Nbh1">-</td> 
+                  <td style="cursor: text; text-decoration: none;" class="fontBlue"><span class="number num2"></span><span class="number num2"></span><span class="number num2"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh2" abbr="Ball_2Nbh2">-</td> 
+                  <td style="cursor: text; text-decoration: none;" class="fontBlue"><span class="number num3"></span><span class="number num3"></span><span class="number num3"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh3" abbr="Ball_2Nbh3">-</td> 
+                </tr>
+                <tr>
+                  <td class="fontBlue"><span class="number num4"></span><span class="number num4"></span><span class="number num4"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh4" abbr="Ball_2Nbh4">-</td> 
+                  <td class="fontBlue"><span class="number num5"></span><span class="number num5"></span><span class="number num5"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh5" abbr="Ball_2Nbh5">-</td> 
+                  <td class="fontBlue"><span class="number num6"></span><span class="number num6"></span><span class="number num6"></span></td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh6" abbr="Ball_2Nbh6">-</td> 
+                </tr>
+                <tr>
+                  <td class="fontBlue">全骰</td>
+                  <td class="o" style="color: rgb(255, 0, 0);" scope="bh7" abbr="Ball_2Nbh7">-</td> 
+                  <td class="fontBlue"></td>
+                  <td></td> 
+                  <td class="fontBlue"></td>
+                  <td class=""></td> 
+                </tr> 
+              </tbody>
+            </table>
+          </div>
+          <div id="bothBall" class="pktouzhuArea">
+            <table class="w100 t1 touzhuArea" frame="box" cellpadding="1">
+              <colgroup>
+              <col class="col_single w10">
+              <col class="w17">
+              <col class="col_single w10">
+              <col class="w17">
+              <col class="col_single w10">
+              <col class="w17">
+              <col class="col_single w10">
+              <col class="w17">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th colspan="12">點數</th>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  						<td class="fontBlue">4點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch1" abbr="Ball_3Nch1">-</td>
+												<td class="fontBlue">5點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch2" abbr="Ball_3Nch2">-</td>
+												<td class="fontBlue">6點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch3" abbr="Ball_3Nch3">-</td>
+												<td class="fontBlue">7點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch4" abbr="Ball_3Nch4">-</td>
+						<tr>						<td class="fontBlue">8點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch5" abbr="Ball_3Nch5">-</td>
+												<td class="fontBlue">9點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch6" abbr="Ball_3Nch6">-</td>
+												<td class="fontBlue">10點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch7" abbr="Ball_3Nch7">-</td>
+												<td class="fontBlue">11點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch8" abbr="Ball_3Nch8">-</td>
+						<tr>						<td class="fontBlue">12點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch9" abbr="Ball_3Nch9">-</td>
+												<td class="fontBlue">13點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch10" abbr="Ball_3Nch10">-</td>
+												<td class="fontBlue">14點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch11" abbr="Ball_3Nch11">-</td>
+												<td class="fontBlue">15點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch12" abbr="Ball_3Nch12">-</td>
+						<tr>						<td class="fontBlue">16點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch13" abbr="Ball_3Nch13">-</td>
+												<td class="fontBlue">17點</td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="ch14" abbr="Ball_3Nch14">-</td>
+						 
+                  <td class="fontBlue"></td>
+                  <td></td>
+                  <td class="fontBlue"></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="bothBall" class="pktouzhuArea">
+            <table class="w100 t1 touzhuArea" frame="box" cellpadding="1">
+              <colgroup>
+              <col class="col_single w14">
+              <col class="w20">
+              <col class="col_single w14">
+              <col class="w20">
+              <col class="col_single w14">
+              <col class="w20">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th colspan="12">長牌</th>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                   						<td class="fontBlue"><span class="number num1"></span><span class="number num2"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh1" abbr="Ball_4Ndh1">-</td> 
+												<td class="fontBlue"><span class="number num1"></span><span class="number num3"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh2" abbr="Ball_4Ndh2">-</td> 
+												<td class="fontBlue"><span class="number num1"></span><span class="number num4"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh3" abbr="Ball_4Ndh3">-</td> 
+						<tr>						<td class="fontBlue"><span class="number num1"></span><span class="number num5"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh4" abbr="Ball_4Ndh4">-</td> 
+												<td class="fontBlue"><span class="number num1"></span><span class="number num6"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh5" abbr="Ball_4Ndh5">-</td> 
+												<td class="fontBlue"><span class="number num2"></span><span class="number num3"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh6" abbr="Ball_4Ndh6">-</td> 
+						<tr>						<td class="fontBlue"><span class="number num2"></span><span class="number num4"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh7" abbr="Ball_4Ndh7">-</td> 
+												<td class="fontBlue"><span class="number num2"></span><span class="number num5"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh8" abbr="Ball_4Ndh8">-</td> 
+												<td class="fontBlue"><span class="number num2"></span><span class="number num6"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh9" abbr="Ball_4Ndh9">-</td> 
+						<tr>						<td class="fontBlue"><span class="number num3"></span><span class="number num4"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh10" abbr="Ball_4Ndh10">-</td> 
+												<td class="fontBlue"><span class="number num3"></span><span class="number num5"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh11" abbr="Ball_4Ndh11">-</td> 
+												<td class="fontBlue"><span class="number num3"></span><span class="number num6"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh12" abbr="Ball_4Ndh12">-</td> 
+						<tr>						<td class="fontBlue"><span class="number num4"></span><span class="number num5"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh13" abbr="Ball_4Ndh13">-</td> 
+												<td class="fontBlue"><span class="number num4"></span><span class="number num6"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh14" abbr="Ball_4Ndh14">-</td> 
+												<td class="fontBlue"><span class="number num5"></span><span class="number num6"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="dh15" abbr="Ball_4Ndh15">-</td> 
+						  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="bothBall" class="pktouzhuArea">
+            <table class="w100 t1 touzhuArea" frame="box" cellpadding="1">
+              <colgroup>
+              <col class="col_single w14">
+              <col class="w20">
+              <col class="col_single w14">
+              <col class="w20">
+              <col class="col_single w14">
+              <col class="w20">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th colspan="12">短牌</th>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  						<td class="fontBlue"><span class="number num1"></span><span class="number num1"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="eh1"  abbr="Ball_5Neh1">-</td> 
+												<td class="fontBlue"><span class="number num2"></span><span class="number num2"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="eh2"  abbr="Ball_5Neh2">-</td> 
+												<td class="fontBlue"><span class="number num3"></span><span class="number num3"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="eh3"  abbr="Ball_5Neh3">-</td> 
+						<tr>						<td class="fontBlue"><span class="number num4"></span><span class="number num4"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="eh4"  abbr="Ball_5Neh4">-</td> 
+												<td class="fontBlue"><span class="number num5"></span><span class="number num5"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="eh5"  abbr="Ball_5Neh5">-</td> 
+												<td class="fontBlue"><span class="number num6"></span><span class="number num6"></span></td>
+						<td class="o" style="color: rgb(255, 0, 0);" scope="eh6"  abbr="Ball_5Neh6">-</td> 
+						  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <table class="elem_type_box" cellpadding="0" cellspacing="0" width="100%">
+          <tbody>
+            <tr>
+              <td width="15%"><div style="display: none;" class="elem_selected bulk-amount-times hide">已经选中<span id="selectedAmount" class="amount">5</span>注</div></td>
+              <td class="align-c" width="45%"><div class="elem_amount"><strong style="display: none;" class="t kuaijie">金额</strong><span style="display: none;" id="bulk-amount-input" class="kuaijie">
+                  <input class="elem_amount_input elem_amount_input_quick" name="" maxlength="9" id="kuaisuamount" type="text">
+                  </span><a href="javascript:void(0)" class="btn_m elem_btn" id="submit">确 定</a><a href="javascript:void(0)" class="btn_m elem_btn" id="reset">重 置</a></div></td>
+              <td class="align-r" width="30%"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="changlongbox recentBox">
+        <table style="" class="bet-table  dataArea  t1" id="cl"> 
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>   

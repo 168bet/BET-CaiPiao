@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <!-- css start -->
+    <link href="{CSS_PATH}bootstrap.css" rel="stylesheet">
+    <link href="{CSS_PATH}font-awesome-3.0.css" rel="stylesheet">
+    <link href="{CSS_PATH}tips.css" rel="stylesheet">
+    <link href="{CSS_PATH}sweet-alert.css" rel="stylesheet">
+
+    <link href="{CSS_PATH}base.css" rel="stylesheet">
+    <link rel="stylesheet" href="{CSS_PATH}login.css">
+
+    <!-- css end -->
+    <!--[if lt IE 9]>
+    <script src="{JS_PATH}selectivizr.js"></script>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="row">
+            <!-- logo -->
+            <a href="{APP_PATH}" class="logo">
+                <img src="{IMG_PATH}bt_logo.png" alt="">
+            </a>
+            <span class="title-text">注册</span>
+            <a href="{APP_PATH}" class="back-btn">
+                返回首页
+            </a>
+
+        </div>
+    </div>
+</header>
+
+<section class="register-body">
+    <div class="container">
+        <div class="row">
+
+            <div class="clearfix">
+                <ul class="nav-tab fl">
+                    <li class="active">
+                        用户注册
+                    </li>
+                </ul>
+                <div class="fr tologin">
+                    已有帐号？
+                    <a href="{APP_PATH}u/login/" class="green">直接登录</a>
+                </div>
+
+            </div>
+
+            <div class="tab-content">
+                <div class="reg-content">
+                    <form action="" method="post" class="form-horizontal" id="reg_form">
+
+                        <h1 class="reg-title">注册信息(必填项)</h1>
+                        <div class="form-group">
+                            <label for="username" class="col-sm-2 label-control">
+                                <span class="red">*</span>
+                                用户名:
+                            </label>
+                            <div class="col-sm-5">
+                                <div class="input-control">
+                                    <i class="icon-user"></i>
+                                    <input type="text" placeholder="输入用户名" name="username" id="username">
+                                </div>
+
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="hint">
+                                    4-20位字符，可由中文、英文、数字及"_"、"-"组成
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 label-control">
+                                <span class="red">*</span>
+                                设置密码:
+                            </label>
+                            <div class="col-sm-5">
+                                <div class="input-control">
+                                    <i class="icon-lock"></i>
+                                    <input type="password" id="password" placeholder="输入密码" name="password">
+                                </div>
+
+                            </div>
+                            <div class="col-sm-5">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_password" class="col-sm-2 label-control">
+                                <span class="red">*</span>
+                                确认密码:
+                            </label>
+                            <div class="col-sm-5">
+                                <div class="input-control">
+                                    <i class="icon-lock"></i>
+                                    <input type="password" placeholder="输入密码" name="confirm_password" id="confirm_password">
+                                </div>
+
+                            </div>
+                            <div class="col-sm-5">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="mobile" class="col-sm-2 label-control">
+                                    <span class="red">*</span>
+                                    手机:
+                                </label>
+                                <div class="col-sm-5">
+                                    <div class="input-control">
+                                        <input type="text" placeholder="输入手机号" name="mobile" id="mobile">
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-5">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="captcha" class="col-sm-2 label-control">
+                                    <!--<span class="red">*</span>-->
+                                    验证码:
+                                </label>
+                                <div class="col-sm-5">
+                                    <div class="input-control checking fl">
+                                        <input type="text" name="captcha" id="captcha">
+                                    </div>
+                                    <button type="button" class="ident-code" id="btnSendCode">发送验证码</button>
+
+                                </div>
+                                <div class="col-sm-5">
+                                </div>
+                        </div>
+
+                        <h1 class="reg-title">个人信息(选填项)</h1>
+                        <div class="form-group">
+                                <label for="realname" class="col-sm-2 label-control">
+                                    真实姓名:
+                                </label>
+                                <div class="col-sm-5">
+                                    <div class="input-control">
+                                        <input type="text" placeholder="输入你的真实姓名" name="realname" id="realname">
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-5">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="email" class="col-sm-2 label-control">
+                                    邮箱:
+                                </label>
+                                <div class="col-sm-5">
+                                    <div class="input-control">
+                                        <input type="email" placeholder="输入邮箱" name="email" id="email">
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-5">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="tel" class="col-sm-2 label-control">
+                                    固定电话:
+                                </label>
+                                <div class="col-sm-5">
+                                    <div class="input-control">
+                                        <input type="text" placeholder="输入你的固定电话" name="tel" id="tel">
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-5">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="province" class="col-sm-2 label-control">
+                                    所在地区:
+                                </label>
+                                <div class="col-sm-10">
+                                    <!-- 三级联动 -->
+                                    <select name="province" id="province" class="select"></select>
+                                    <select name="city" id="city" class="select"></select>
+                                    <select name="area" id="area" class="select"></select>
+
+                                </div>
+                                <div class="col-sm-5">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="street" class="col-sm-2 label-control">
+                                    详细地址:
+                                </label>
+                                <div class="col-sm-5">
+                                    <div class="input-control">
+                                        <input type="text" placeholder="输入你的详细地址" name="street" id="street">
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-5">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="agree" class="col-sm-2 label-control">
+                                &nbsp;
+                                </label>
+                                <div class="col-sm-5">
+                                    <label for="agree" class="checkbox-control">
+
+                                        <input type="checkbox" id="agree" name="agree" value="1">
+                                        我同意
+                                        <span class="orange">
+                                            《火冶网用户服务协议》
+                                        </span>
+                                    </label>
+
+                                </div>
+                                <div class="col-sm-5">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="col-sm-2 label-control">
+                                    &nbsp;
+                                </label>
+                                <div class="col-sm-5">
+                                    <input class="submit-btn" type="hidden" name="dosubmit" value="立即注册">
+                                    <button type="button" class="submit-btn" data-action="ajax-submit" data-target="#reg_form" data-url="{APP_PATH}index.php?m=member&c=index&a=register">立即注册</button>
+                                </div>
+                                <div class="col-sm-5">
+                                </div>
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <a href="index.html" class="f-logo">
+                <img src="{IMG_PATH}bt_logo.png" alt="">
+            </a>
+            <p class="copyright">© 2016 HuoYe. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    var APP_PATH = '{APP_PATH}';
+</script>
+
+<script src="{JS_PATH}jquery-1.11.3.min.js"></script>
+<script src="{JS_PATH}jquery.validate.min.js"></script>
+<script src="{JS_PATH}validate_messages_zh.js"></script>
+<script src="{JS_PATH}bf_validate.js"></script>
+
+<script src="{JS_PATH}cityselect.js"></script>
+<script src="{JS_PATH}sendCheckcode.js"></script>
+<script src="{JS_PATH}login.js"></script>
+<script src="{JS_PATH}tips.js"></script>
+<script src="{JS_PATH}sweet-alert.js"></script>
+<script defer>
+    // 省级联动
+    new PCAS("province","city","area");
+
+    //验证码到计时
+    $('#btnSendCode').sendCheckcode();
+
+    //表彰验证
+
+    $('#reg_form').validate({
+
+        degbug: true,
+
+        onkeyup:false,
+
+        rules: rules,
+
+        messages: messages,
+
+        errorClass:'invalid'
+    });
+
+    //异步提交
+    $('[data-action="ajax-submit"]').on('click', function () {
+        var target = $(this).data('target'),
+                form = $(target),
+                url = $(this).data('url');
+        $.ajax({
+            url: url,
+            data: form.serialize(),
+            dataType: 'json',
+            type: 'post',
+            success: function (result) {
+                if (result.status == true) {
+                    if (result.data.hasOwnProperty('url')) {
+                        swal({
+                            title: result.data.title,
+                            type: result.data.type,
+                            text: result.data.text
+                        }, function () {
+                            window.location.assign(result.data.url);
+                        });
+                    } else {
+                        swal({
+                            title: result.data.title,
+                            type: result.data.type,
+                            text: result.data.text
+                        });
+                    }
+                } else {
+                    $('label.invalid').remove();
+                    ErrorTips.init(result.tip, {
+                        placement: 'top'
+                    });
+                }
+            }
+        });
+    });
+
+</script>
+
+</body>

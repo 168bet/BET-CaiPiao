@@ -1,0 +1,460 @@
+/**
+color
+*/
+nav {
+  position: relative;
+  height: 135px;
+  background-image: url("../images/ft-nav-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+nav .btn {
+  background-color: #ffffff;
+}
+
+.bt-nav {
+  font-family: "SimSun";
+  position: relative;
+  margin: 45px 0;
+}
+.bt-nav.ft-end {
+  margin: 15px 0;
+}
+.bt-nav .dropdown {
+  display: inline-block;
+}
+.bt-nav [class*="inline"] {
+  display: inline-block;
+}
+.bt-nav .inline-alink, .bt-nav .inline-btn {
+  margin-right: 10px;
+}
+.bt-nav .btn {
+  position: relative;
+  padding: 7px;
+  color: #666666;
+  margin-right: 8px;
+}
+.bt-nav .btn.active, .bt-nav .btn:hover {
+  color: #ffffff;
+  background-color: #ffa21d;
+}
+.bt-nav label.btn:hover {
+  color: #666666;
+  background-color: #ffffff;
+}
+.bt-nav .btn-group .btn {
+  position: relative;
+  margin-right: 0;
+  height: 36px;
+}
+.bt-nav .btn-group .btn .table-checkbox {
+  position: relative;
+  top: 3px;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-image: url("../images/icon/check-icon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.bt-nav .btn-group .btn [type="checkbox"] {
+  position: absolute;
+  top: 10px;
+  left: 6px;
+  opacity: 0;
+}
+.bt-nav .btn-group .btn [type="checkbox"]:checked + .table-checkbox {
+  background-image: url("../images/icon/checked-icon.png");
+}
+.bt-nav .btn-setting {
+  float: right;
+}
+.bt-nav .btn-setting .icon-setting {
+  position: relative;
+  top: 3px;
+}
+
+.date-nav {
+  font-family: "SimSun";
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  overflow: hidden;
+}
+.date-nav li {
+  float: left;
+  font-size: 1.4em;
+  line-height: 50px;
+  text-align: center;
+  padding: 0 45px;
+  background-color: #dfdfd9;
+}
+.date-nav li.active, .date-nav li:hover {
+  color: #ffa21d;
+  background-color: #eeefeb;
+  cursor: pointer;
+}
+.date-nav li.date-control {
+  padding: 0 30px;
+}
+.date-nav li .date-line {
+  line-height: 25px;
+}
+
+.main {
+  background-color: #f7f7f7;
+}
+
+.table {
+  margin-bottom: 0;
+  font-size: 1.2em;
+  font-family: "SimSun";
+  color: #666666;
+}
+
+.table-header {
+  margin-top: 12px;
+  border: transparent solid 1px;
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+.table-header .table > tbody > tr > td {
+  text-align: center;
+  padding: 0;
+  line-height: 54px;
+  border-color: transparent;
+}
+.table-header .table > tbody > tr > td.text-left {
+  text-align: left;
+}
+.table-header .table > tbody > tr > td.text-right {
+  text-align: right;
+}
+.table-header .checkbox-all {
+  padding: 0px 12px;
+  background-color: transparent;
+  border: none;
+}
+.table-header .checkbox-all.active {
+  background-color: #ffa21d;
+  color: #ffffff;
+}
+
+.table-item .table > tbody > tr > td, .table-item thead > tr > td {
+  vertical-align: middle;
+  text-align: center;
+  padding: 0;
+  line-height: 40px;
+}
+.table-item .table > tbody > tr > td.text-left, .table-item thead > tr > td.text-left {
+  text-align: left;
+}
+.table-item .table > tbody > tr > td.text-right, .table-item thead > tr > td.text-right {
+  text-align: right;
+}
+.table-item thead .match-tip {
+  display: inline-block;
+  padding-left: 45px;
+  color: #bbbbbb;
+  font-size: 16px;
+  background-position: 10px;
+  background-repeat: no-repeat;
+}
+.table-item thead .match-tip.going {
+  background-image: url("../images/icon/match-tip-going-icon.png");
+}
+.table-item thead .match-tip.end {
+  background-image: url("../images/icon/match-tip-end-icon.png");
+}
+.table-item thead .match-tip.future {
+  background-image: url("../images/icon/match-tip-future-icon.png");
+}
+.table-item thead .match-tip.week {
+  background-image: url("../images/icon/match-tip-week-icon.png");
+}
+.table-item .table tbody {
+  border: #dddddd solid 1px;
+  border-top: none;
+}
+.table-item .table tbody tr:nth-of-type(odd) {
+  background-color: #f2f2f3;
+}
+.table-item .table tbody tr:nth-of-type(even) {
+  background-color: #ffffff;
+}
+.table-item .table tbody img {
+  vertical-align: middle;
+}
+.table-item .table tbody tr.on .teamname {
+  color: #000000;
+  font-weight: bold;
+}
+.table-item .table tbody .table-checkbox {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("../images/icon/check-icon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.table-item .table tbody .table-checkbox.checked {
+  background-image: url("../images/icon/checked-icon.png");
+}
+.table-item .table tbody .match-name {
+  display: block;
+  padding-left: 35px;
+  padding-right: 20px;
+  text-align: right;
+  background-image: url("../images/team/86.jpg");
+  background-size: 30px 30px;
+  background-position: 20px;
+  background-repeat: no-repeat;
+}
+.table-item .table tbody .table-cpi {
+  position: relative;
+}
+.table-item .table tbody .table-cpi .table-line {
+  line-height: 13px;
+}
+.table-item .table tbody .corner .table-line {
+  line-height: 20px;
+  padding-left: 10px;
+}
+.table-item .table tbody .corner .table-line:first-child {
+  background-image: url("../images/icon/cornerball.png");
+  background-repeat: no-repeat;
+  background-position: 6px;
+}
+.table-item .table tbody .table-status {
+  position: relative;
+  display: inline-block;
+  color: #ffa21d;
+}
+.table-item .table tbody .table-status.add:before, .table-item .table tbody .table-status.add:after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 3px;
+  background-repeat: no-repeat;
+}
+.table-item .table tbody .table-status.add:before {
+  left: -20px;
+  background-repeat: no-repeat;
+  background-image: url("../images/icon/timeicon.png");
+  background-position: left center;
+}
+.table-item .table tbody .table-status.add:after {
+  right: -10px;
+  background-image: url("../images/icon/point.gif");
+  background-position: right center;
+}
+.table-item .table tbody .score {
+  font-weight: bold;
+  position: relative;
+}
+.table-item .table tbody .yellowcard {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 3px 5px;
+  background-color: #ffa21d;
+  color: #ffffff;
+}
+.table-item .table tbody .redcard {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 3px 5px;
+  background-color: #fa1604;
+  color: #ffffff;
+}
+.table-item .table tbody a:hover {
+  color: #ffa21d;
+  text-decoration: none;
+}
+.table-item .table tbody .table-link {
+  color: #666666;
+}
+.table-item .table tbody .table-player {
+  display: inline-block;
+  margin: 0 3px;
+  position: relative;
+  top: 7px;
+  width: 23px;
+  height: 23px;
+  background-image: url("../images/icon/media-icon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.table-item .table tbody .table-star {
+  margin: 0 3px;
+  color: #666666;
+}
+.table-item .table tbody .table-star.light {
+  color: #ffa21d;
+}
+
+.table-explain {
+  position: relative;
+  color: #787878;
+  padding-left: 130px;
+  background-color: #ffffff;
+  border: #f0f0f2 solid 2px;
+  line-height: 53px;
+}
+.table-explain .explain-label {
+  position: absolute;
+  width: 130px;
+  height: 53px;
+  top: 0;
+  left: 0;
+  background-color: #f7f7f7;
+  text-align: center;
+  font-size: 16px;
+}
+.table-explain .explain-item {
+  margin: 0 18px;
+  font-size: 14px;
+  padding-left: 25px;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+.table-explain .explain-item.goal {
+  background-image: url("../images/icon/ball.png");
+}
+.table-explain .explain-item.point {
+  background-image: url("../images/icon/pointball.png");
+}
+.table-explain .explain-item.own-goal {
+  background-image: url("../images/icon/own-goal.png");
+}
+.table-explain .explain-item.yellow-card {
+  background-image: url("../images/icon/yellow-card-icon.png");
+}
+.table-explain .explain-item.red-card {
+  background-image: url("../images/icon/red-card-icon.png");
+}
+.table-explain .explain-item.yr-merge {
+  background-image: url("../images/icon/yr-merge-icon.png");
+}
+.table-explain .explain-item.substitute {
+  background-image: url("../images/icon/substitute-icon.png");
+}
+
+#scoreDialog {
+  position: absolute;
+  bottom: 40px;
+  left: -148px;
+  width: 350px;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  box-shadow: 0 0 5px #cccccc;
+  -webkit-box-shadow: 0 0 5px #cccccc;
+  -moz-box-shadow: 0 0 5px #cccccc;
+  overflow: hidden;
+}
+
+#cpiPop {
+  position: absolute;
+  bottom: 50px;
+  left: -214px;
+  width: 550px;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  box-shadow: 0 0 5px #cccccc;
+  -webkit-box-shadow: 0 0 5px #cccccc;
+  -moz-box-shadow: 0 0 5px #cccccc;
+  overflow: hidden;
+}
+#cpiPop .cpi-title {
+  background-color: #ffa21d;
+  color: #ffffff;
+}
+
+.alertTable td, .alertTable th {
+  text-align: center;
+  font-size: 14px;
+  line-height: 38px;
+}
+.alertTable th {
+  background-color: #ffa21d;
+  color: #ffffff;
+}
+
+.dropdown-menu {
+  min-width: 100px;
+}
+.dropdown-menu li {
+  text-align: center;
+}
+.dropdown-menu li a {
+  color: #666666;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.modal-body {
+  font-size: 14px;
+}
+.modal-body label {
+  cursor: pointer;
+}
+.modal-body [type="checkbox"] {
+  margin-right: 5px;
+}
+
+#calendar {
+  display: none;
+  position: absolute;
+  right: -300px;
+  top: -70px;
+  box-shadow: 0 0 10px #666;
+  -webkit-box-shadow: 0 0 10px #666;
+  -moz-box-shadow: 0 0 10px #666;
+}
+#calendar .calendar-display {
+  position: relative;
+  left: 80px;
+}
+#calendar .out {
+  cursor: pointer;
+  color: #ffffff;
+  font: 500 26px sans-serif;
+  position: absolute;
+  top: 13px;
+}
+#calendar .out:hover {
+  color: #888;
+}
+#calendar .out.prev {
+  left: 15px;
+}
+#calendar .out.next {
+  right: 15px;
+}
+
+#date-plugn {
+  display: none;
+  position: absolute;
+  top: -70px;
+  right: -300px;
+  z-index: 10;
+  box-shadow: 0 0 5px #cccccc;
+  -webkit-box-shadow: 0 0 5px #cccccc;
+  -moz-box-shadow: 0 0 5px #cccccc;
+}
+
+.competition-photo {
+  width: 30px;
+  height: 30px;
+}
+
+/*# sourceMappingURL=bt-ft-end-game.css.map */

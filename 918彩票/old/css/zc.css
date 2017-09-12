@@ -1,0 +1,334 @@
+.zcTab{ background:#fff}
+
+.sfcTitle{ position:relative; line-height:2.1rem; font-size:.85rem; color:#5c5c5c; background:#f2f2f2; padding:0 .68rem; border-bottom:1px solid #e4e4e4}
+.up,.down{ position:absolute; right:.68rem; top:.9rem; width:.6rem; height:.6rem; border-right:.15rem solid #b0b0b0; border-top:.15rem solid #b0b0b0; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.down{ transform:rotate(-225deg); top:.5rem; -webkit-transform:rotate(-225deg); -moz-transform:rotate(-225deg)}
+.r9tj{ position:absolute; top:0; left:0; width:2.06rem; height:2rem; background:url(/img/zc/tjico.png) no-repeat; background-size:2.06rem 2rem; -webkit-background-size:2.06rem 2rem; -moz-background-size:2.06rem 2rem}
+.sfcxs{ border-bottom:1px solid #e4e4e4; padding:.9rem 0 .5rem 0; overflow:hidden; zoom:1}
+.sfcxs li{ float:left; font-size:.8rem; color:#343434; width:78.5%}
+.spfzpk span{ float:left; width:30%; text-align:center; margin:0 1.2%; height:2rem; line-height:2rem; overflow:hidden; font-size:.9rem; color:#78c600; margin-top:.6rem; border:1px solid #78c600; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.spfzpk span.cur{  background-color:#78c600; color:#fff}
+.bfpk span{ width:96%}
+.sfcxs li:first-child{ width:4.2rem; text-align:center; line-height:1rem; color:#5c5c5c}
+.sfcxs li:first-child p{ font-size:.9rem}
+.sfcxs li:first-child cite{ display:block; font-size:.75rem; color:#aaa}
+.sfcxs li:last-child{ margin-right:0}
+.spfzpkNum span{ float:left; text-align:center; width:40%}
+.spfzpkNum span.spfvs{ width:18%}
+.spfzpk,.spfzpkNum{ overflow:hidden; zoom:1}
+.xzup,.xzdown{ display:inline-block; margin-top:.5rem; width:.5rem; height:.5rem; border-right:.1rem solid #cacaca; border-top:.1rem solid #cacaca; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.xzdown{ transform:rotate(-225deg); margin:.1rem 0 .4rem 0; -webkit-transform:rotate(-225deg); -moz-transform:rotate(-225deg)}
+.sfcpl{ background:#f2f2ed; padding:0 2%; border-bottom:1px solid #e4e4e4}
+.sfcpl dl{ border-bottom:1px solid #e4e4e4; line-height:1.6rem; text-align:center; overflow:hidden; zoom:1}
+.sfcpl dl:last-child{ border-bottom:none}
+.sfcpl dt{ float:left; color:#5c5c5c; width:20%}
+.sfcpl dd{ float:left; width:26.5%}
+.spfNum .errorBg{ top:1.3rem}
+.spfNum .spfzpk span{ width:26%}
+.bfpk .spfzpk span{ width:85%}
+.bfpk .spfzpk span cite,.bjdcpk .spfzpk span cite,.bfpk span cite{ display:inline-block; width:13%; font-size:.95rem}
+.bfpk span cite.sqt{ font-size:.82rem; width:20%}
+/*** .bfpk .spfzpk span:last-child{ width:12%}***/
+.spfNum .spfzpkNum span{ width:35%}
+.spfNum .spfzpkNum span.spfvs{ width:20%}
+.bfpk .spfzpkNum span{ width:30%}
+.bfpk .spfzpkNum span.spfvs{ width:12%}
+.bjdcpk .spfzpk span{ width:83%}
+.hhzpk li{ position:relative}
+.hhmore{ position:absolute; top:1.7rem; left:88.5%; width:1rem; text-align:center; height:3.5rem; padding:.95rem 2%; font-size:.8rem; color:#78c600; border:1px solid #78c600; border-radius:.15rem; -webkit-border-radius:.15rem; -moz-border-radius:.15rem}
+.hhmore.cur{ background:#78c600; color:#fff}
+.hhscroll{height:22.5rem; overflow:auto}
+.hhscroll .competitions{ margin:0 2%; width:96%}
+.hhscroll .hhcom span{ color:#5c5c5c; font-size:.85rem}
+.hhscroll .hhcom em{ color:#8e8e8e; font-size:.75rem; padding-left:.2rem}
+.hhscroll .hhcom span.cur,.hhscroll .hhcom span.cur em{ color:#f6851f}
+.jclqhhScroll .hhcom span{ width:49.62%}
+.hhzpk li:first-child,.jqzpk li:first-child{ margin-top:2rem}
+.sxzpk li:first-child{ margin-top:0}
+.sxzpk span cite,.sxNum span cite{ display:block; padding-top:.25rem}
+.hhzpk .spfzpk span{ width:23%; height:2.4rem; line-height:2.4rem; margin-top:.5rem}
+.hhzpk .spfzpk em,.hhNum .spfzpk em{ float:left; width:6%; padding:.15rem 1%; height:2.2rem; margin:.5rem 1% 0 0; text-align:center; line-height:.8rem; background:#ff9898; color:#fff; font-size:.75rem; border-radius:.2rem}
+.hhzpk .spfzpk em.rq,.hhNum .spfzpk em.rq{ padding:.5rem 1%; height:1.5rem; background:#98c5ff}
+.hhzpk .spfzpkNum span.spfvs{ width:10%}
+.hhzpk .spfzpkNum span:last-child{ width:30%}
+.hhNum .spfzpk span{ width:23.5%; height:2.4rem; line-height:2.4rem}
+.hhNum .spfzpk em{ width:4.5%}
+.hhNum .errorBg,.jqNum .errorBg{ top:3rem}
+.sxNum .errorBg{ top:1.6rem}
+.jqzpk .spfzpk span,.jqNum .spfzpk span{ width:21.5%; height:1.6rem; padding:.4rem 0; line-height:.85rem}
+.jqzpk .spfzpk span b,.jqNum .spfzpk span b{ font-weight:normal; display:block; font-size:.9rem}
+.jqzpk .spfzpk span cite,.jqNum .spfzpk span cite{ font-size:.75rem; color:#aaa}
+.jqzpk .spfzpk span.cur cite,.jqNum .spfzpk span.cur cite{ color:#fff}
+.jqNum .spfzpk span{ width:19%}
+.bfPop p{ font-size:.8rem; padding:.3rem 0 0 .8rem}
+.bfTitle p{ position:relative; float:left; padding:0; color:#fff; width:8.85rem; text-align:center; background:#f03d3d; line-height:2.2rem; font-size:1rem; border-radius:.4rem 0 0 0; -webkit-border-radius:.4rem 0 0 0; -moz-border-radius:.4rem 0 0 0}
+.bfTitle p span{ font-style:italic; font-size:1rem}
+.bfTitle p:last-child{ background:#6ea5fd; width:9.65rem; border-radius:0 .4rem 0 0; -webkit-border-radius:0 .4rem 0 0; -moz-border-radius:0 .4rem 0 0}  
+.bfTitle p:last-child span{ border-color:#f03d3d transparent transparent transparent; border-style:solid; border-width:2.2rem .8rem 0 0; height:0; line-height:0; width:0}
+.bfTitle p em{ position:absolute; font-style:italic; top:0; right:-.2rem; z-index:1}
+.bfTitle p:last-child em{ top:1.15rem; right:8.6rem}
+.bfPop .zfTrue{ margin-top:1rem}
+.spfzpk2 span{ width:35%; font-size:.75rem; height:2.1rem; padding:.4rem 0; line-height:1.2rem; margin-top:0}
+.spfzpk2 span.spfvs,.spfNum .spfzpk2 span.spfvs{ width:20%}
+.spfzpk2 span cite{ display:block; font-size:.95rem}
+.spfzpk2 span.cur i{ color:#fff}
+.spfpl span{ display:inline-block; width:39%; color:#aaa; font-size:.75rem; text-align:center; margin-top:.2rem}
+.spfpl span.spfvs,.spfNum .spfpl span.spfvs{ width:22%}
+.spfNum .spfzpk2 span{ width:30%}
+.spfNum .spfpl span{ width:34%}
+/**胜负彩**/
+.sfcopt .sfcxs li{ width:75%; font-size:.75rem}
+.sfcopt .sfcxs li:first-child{ width:5rem}
+.sfcTab{ font-size:.95rem; color:#a9a9a9; background:#fff; line-height:2.2rem}
+.sfcTab li.cur{ border-bottom:.18rem solid #f6851f; color:#f6851f}
+
+/**篮彩**/
+.jclqVs .spfzpk2 span{ width:42.8%}
+.jclqVs .spfzpk2 b{ float:left; width:8%; text-align:center; font-weight:normal; color:#343434; font-size:.75rem; padding-top:1rem}
+.jclqVs .spfpl span{ width:43.8%; margin:0 9.2% 0 1.2%}
+.jclqDxf .spfpl span{ width:41%; margin:0 17% 0 0}
+.jclqVs .spfpl span:last-child,.jclqDxf .spfpl span:last-child,.jclqDxf .spfzpk span:last-child,.jclqhh .spfzpk span:last-child{ margin-right:0}
+.jclqDxf .spfzpk span{ width:40%; margin:.4rem 17% 0 0}
+.jclqDxf .spfzpkNum{ font-size:.95rem}
+.jclqDxf .spfzpkNum span.spfvs{ font-size:.75rem}
+.jclqhh .sfcxs{ padding-top:0}
+.jclqhh .spfzpk span{ width:36.5%; font-size:.75rem}
+.jclqhh .spfzpk span b,.jclqhh .spfzpk span cite{ display:block; font-weight:normal; line-height:.5rem; margin-top:.5rem}
+.jclqhh .spfzpk em{ background:#98c5ff}
+.jclqhh .spfzpk em.rq{ background:#ff9898}
+.jclqhh .hhmore{ top:.5rem}
+.jclqhhtz .spfzpk span{ width:37.5%}
+.jclqsftz .spfzpk2 span{ width:38%}
+.jclqsftz .spfpl span{ width:39%}
+.jclqDxftz .spfzpk span{ width:35%}
+.jclqDxftz .spfpl span{ width:40%}
+.jclqVs .sfcxs li:first-child{ margin-top:.4rem}
+.jclqDxf .sfcxs li:first-child{ margin-top:.7rem}
+
+
+.spfjj{ padding:0 1rem; color:#8e8e8e; font-size:.7rem; line-height:1.7rem; border-top:1px solid #dfdfdf; background:#efefef}
+.spfjj mark{ font-size:.85rem; color:#f6851f;background:none}
+.double input.spfinput{width:5rem}
+.filter{ position:absolute; font-size:.95rem; right:2.5rem; top:.6rem; width:1.4rem; text-align:center; line-height:1.4rem; border:.1rem solid #f6851f; color:#f6851f; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.competitions{ border-left:1px solid #d5d5d5; border-top:1px solid #d5d5d5; margin:.3rem 4%; width:92%; background:#fff}
+.competitions span{ width:32.96%; font-size:.95rem; line-height:2.6rem}
+.competitions span.cur:before{ height:2.6rem}
+.clearBtn{ width:31%; text-align:left; padding-left:15%}
+.clearBtn:before{ position:absolute; content:""; top:.6rem; left:18%; display:block; width:.91rem; height:.95rem; background:url(/img/zc/clear.png) no-repeat center; background-size:.91rem .95rem; -webkit-background-size:.91rem .95rem}
+
+.bfcom span{ width:19.63%; height:2rem; padding:.3rem 0; line-height:1rem}
+.bfcom  span.cur:before{ height:2.6rem}
+.bfcom span.bflast strong{ letter-spacing:normal; font-weight:normal; color:#333}
+.bfcom strong,.bfcom em{ display:block; color:#5c5c5c; font-size:.81rem}
+.bfcom strong{ letter-spacing:.2rem}
+.bfcom em{ font-size:.75rem; color:#8e8e8e}
+.bfcom span.cur strong,.bfcom span.cur em{ color:#f6851f}
+.htcom strong,.htzjq strong{ font-weight:normal} 
+.htzjq span{ width:24.6%}
+
+.jczqkj li{ padding-bottom:.35rem}
+.jczqkj li:first-child{ margin-top:1rem}
+.jczqkj .spfvs{ color:#f6851f}
+.jczqkj div{ width:95%; border:1px solid #c7c7c7; margin-top:.3rem; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.jczqkj div p{ overflow:hidden; zoom:1}
+.jczqkj div p:first-child{ background:#f2f2f2; color:#aaa; border-radius:.2rem .2rem 0 0; -webkit-border-radius:.2rem .2rem 0 0; -moz-border-radius:.2rem .2rem 0 0}
+.jczqkj div p span{ float:left; line-height:1.8rem; width:25%; text-align:center}
+.date{ position:absolute; right:2.5rem; top:.5rem; width:1.1rem; height:1.8rem; background:url(/img/zc/date.png) no-repeat center; background-size:1.1rem 1.8rem; -webkit-background-size:1.1rem 1.8rem; -moz-background-size:1.1rem 1.8rem}
+.jclqkj li{ font-size:.75rem}
+.jclqkj li:first-child{ width:4.7rem}
+.jclqkj li:last-child{ width:76%}
+.jclqkj div p span{ width:22%}
+.jclqkj div p span.jclqsf{ width:28%}
+.jclqkj .spfzpkNum span{ width:42%}
+.jclqkj .spfzpkNum span.spfvs{ width:16%}
+.bqccom{ color:#5c5c5c}
+.bqccom em{ color:#8e8e8e; font-size:.75rem}
+.bqccom span.cur em{ color:#f6851f}
+.bqccom strong{ font-weight:normal; padding-right:.4rem}
+
+.jsbfTab ul{ font-size:.9rem; background:#fff; border-bottom:1px solid #e2e2e2; line-height:2.4rem; color:#a9a9a9}
+.jsbfTab li{ float:left; width:33.3%; text-align:center}
+.jsbfTab li.cur{ color:#f6851f}
+.jsbfTab .downline{ background:#f6851f}
+.jsbjList a{ position:relative; display:block; padding:.8rem 0; border-bottom:1px solid #e4e4e4; overflow:hidden; zoom:1}
+.jsbjList p{ float:left; width:30%; font-size:.8rem; text-align:center; line-height:2.3rem}
+.jsbjList p:first-child{ width:24%; line-height:1.2rem}
+.jsbjList p.jsbfli{ line-height:1.2rem; width:11%}
+.jsbjList p span{ position:relative; display:block; color:#a9a9a9; font-size:.75rem}
+.jsbjList p cite.red{ color:#f03e31; font-size:.75rem}
+.jsbjList p span.green{ color:#1eb400}
+.jsbjList p img{ position:absolute; top:.25rem; left:58%}
+.jsbjList .hmArrow{ top:1.78rem; width:.35rem; height:.35rem}
+.jsbfTk{ width:80%; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem; position:absolute; top:50%; left:50%; margin:-9.25rem 0 0 -9.25rem; z-index:1000}
+.jsbfTktt{ position:relative; line-height:2.5rem; background:#399e5c; color:#fff; text-align:center; font-size:1.2rem; border-radius:.4rem .4rem 0 0; -webkit-border-radius:.4rem .4rem 0 0; -moz-border-radius:.4rem .4rem 0 0;}
+.jsbfTktt em{ position:absolute; width:1.1rem; height:1.1rem; top:.6rem; right:.5rem; background:url(/img/zc/clock.jpg) no-repeat center; background-size:1rem 1rem; -webkit-background-size:1rem 1rem; -moz-background-size:1rem 1rem}
+.jsbfTktext{ background:#fff; color:#8d8d8d; line-height:1.8rem; font-size:.8rem; border-top:1px solid #c7c7c7; border-bottom:1px solid #c7c7c7}
+.jsbfTktext li{ float:left; width:23%; text-align:center}
+.jsbfTktext li:first-child{ width:31%}
+.jsbfTklist li{ line-height:1.8rem; font-size:.8rem; color:#5c5c5c; border-bottom:1px solid #c7c7c7; overflow:hidden; zoom:1}
+.jsbfTklist li span{ float:left; width:22.8%; text-align:center; border-right:1px solid #c7c7c7}
+.jsbfTklist li span:first-child{ width:30.5%}
+.jsbfTklist li span:last-child{ border-right:none}
+
+
+.dzxqTba ul{ background:#fff; color:#5c5c5c}
+.dzxqTba li.cur{ color:#db150b}
+.dzxqTba .downline{ background:#db150b}
+.dzxqBf{ padding:1.5rem 0 1rem 0; background:#404040}
+.dzxqBf ul{ width:19rem; margin:0 auto}
+.dzxqBf li{ float:left; width:4.5rem; line-height:1.4rem; text-align:center; font-size:1.44rem; color:#fff}
+.dzxqBf li:first-child{ width:7.25rem; font-size:1.06rem; color:#e74646}
+.dzxqBf li:last-child{ width:7.25rem; font-size:1.06rem; color:#4696e7}
+.dzxqBf p{ text-align:center; color:#fff; font-size:.8rem; padding-top:.5rem}
+.dzxqText .sfcTitle{ border-bottom:none; font-size:.94rem}
+.dzxqList ul{ float:left; width:49.5%; border-right:1px solid #e6e6e6}
+.dzxqList ul:last-child{ border-right:none; text-align:right}
+.dzxqList li,.jstjList li,.zjList li{ position:relative; line-height:2rem; padding:0 4%; border-bottom:1px solid #e6e6e6; font-size:.81rem; overflow:hidden; zoom:1}
+.dzxqList li b,.dzxqList li em{ position:absolute; font-family:"黑体"; width:1.43rem; line-height:1.13rem; font-weight:normal; font-size:.75rem; letter-spacing:-.05rem; text-align:center; right:3%; color:#fff; top:.5rem; background:url(/img/zc/redvest.png) no-repeat center; background-size:1.43rem 1.13rem; -webkit-background-size:1.43rem 1.13rem; -moz-background-size:1.43rem 1.13rem}
+.dzxqList li em{ left:3%; background-image:url(/img/zc/bluevest.png)}
+.jstjList li,.zjList li{ padding:0; text-align:center}
+.jstjList li em{ float:left; width:19%; font-size:.94rem; color:#c5c5c5; border-right:1px solid #e6e6e6; border-left:1px solid #e6e6e6}
+.jstjList li span{ float:left; width:40%; font-size:.81rem; color:#e37070}
+.jstjList li span:last-child{ color:#70aee3}
+.bssj{ width:17.6rem; margin:.6rem auto}
+.bssj li{ float:left; color:#383838; font-size:.7rem; width:1.6rem; text-align:center; padding-right:1.3rem}
+.bssj li:last-child{ width:3rem; padding-right:0}
+.jqico,.dqico,.wlico{ display:block; width:1.266rem; height:1.233rem; margin:0 auto .1rem auto; background:url(/img/zc/jq.png) no-repeat center; background-size:1.1875rem 1.156rem; -webkit-background-size:1.266rem 1.233rem; -moz-background-size:1.1875rem 1.156rem}
+.dqico{ background-image:url(/img/zc/dq.png)}
+.wlico{ background-image:url(/img/zc/wl.png)}
+.hpico,.redpico{ display:block; width:.82rem; height:1rem; background:#ffdf05; margin:.1rem auto .233rem auto}
+.redpico{ background:#fe412d}
+.lhbhico{ display:block; width:.73rem; height:1rem; background:#fe412d; border-left:.19rem solid #ffdf05; margin:.1rem auto .233rem auto}
+.plspf li{ float:left; line-height:2.1rem; font-size:.94rem; width:20%; text-align:center; border-bottom:1px solid #d8d7db}
+.plspf li:first-child{ width:40%}
+.plxq{ border-bottom:1px solid #d8d7db}
+.plxq li{ float:left; width:74%}
+.plxq li:first-child{ width:26%; height:3.05rem; padding-top:1rem}
+.plxq li span{ display:inline-block; width:100%; text-align:center; margin:0 0 .2rem 0; font-size:.94rem}
+.plxq li em{ display:inline-block; width:100%; text-align:center; font-size:.75rem; color:#4696e7}
+.plxq li ul{ line-height:2rem; text-align:center; font-size:.75rem; border-bottom:1px solid #d8d7db; overflow:hidden; zoom:1}
+.plxq li ul:last-child{ border-bottom:none}
+.plxq li ul li{ width:27%}
+.plxq li ul li:first-child{ width:18%; height:2rem; color:#8d8d8d; padding:0; border-left:1px solid #d8d7db; border-right:1px solid #d8d7db; border-bottom:none}
+.zjList li b{ float:left; color:#9c9c9c; width:25%; font-size:.75rem; font-weight:normal}
+.zjList li span{ float:left; width:29.5%; border-left:1px solid #e6e6e6}
+.zjList li em{ float:left; width:14.5%; border-left:1px solid #e6e6e6}
+.jqzjList p{ line-height:2rem; font-size:.75rem; padding-left:.8rem; border-bottom:1px solid #e6e6e6}
+.jqzjList p span{ font-size:.94rem; margin-right:.7rem}
+.jqzjList .zjList li{height:2.5rem; line-height:2.5rem}
+.jqzjList .zjList li span{ width:25.5%; font-size:.75rem}
+.jqzjList .zjList li em{ width:12.5%}
+.jqzjList .zjList li b{ width:22.5%; line-height:.8rem; color:#9c9c9c; font-family:"黑体"}
+.jqzjList .zjList li b cite{ display:block; margin-top:.3rem; color:#6d6d6d}
+.jqzjList .zjList li:first-child b{ line-height:2.2rem; color:#535353; font-family:"微软雅黑"}
+.timeline{ width:19rem; margin:.78rem auto 1.2rem auto; font-size:.94rem}
+.timeline div{ padding-top:1.2rem; overflow:hidden; zoom:1; line-height:1.3rem}
+.timeIco{ display:block; width:1.5rem; height:1.5rem; margin:0 auto; background:url(/img/zc/time.png) no-repeat center; background-size:1.5rem 1.5rem; -webkit-background-size:1.5rem 1.5rem; -moz-background-size:1.5rem 1.5rem}
+.timeright{ padding-left:8.9rem}
+.timeline b{ position:relative; float:left; width:1.3rem; text-align:center; line-height:1.3rem; font-weight:normal; font-size:.75rem; background:#399e5c; color:#fff; border-radius:1.3rem; -webkit-border-radius:1.3rem; -moz-border-radius:1.3rem}
+.timeline b:after{ content:""; position:absolute; width:.12rem; height:1.2rem; background:#399e5c; top:-1.2rem; left:.6rem}
+.timeline cite{ float:left; margin:0 .3rem 0 .8rem}
+.timeleft em{ float:left; text-align:right; width:6.95rem}
+.timeleft cite{ margin:0 .8rem 0 .3rem}
+.timeleft cite.lhbhico{ margin-right:.71rem}
+.timeleft cite.jqico,.timeleft cite.dqico,.timeleft cite.wlico{ margin-right:.38rem}
+.timeright2 b{ float:none; display:block}
+.timeright2 p{ color:#bbb; font-size:.75rem; margin-left:-.1rem}
+
+.gddgTab{ background:#fff}
+.gddgTab li{ width:20%}
+.gddgTab li.cur a{ color:#399e5c}
+.gddgTab .downline{ background:#399e5c; bottom:1px}
+.gddgxh{ font-size:.75rem; color:#fff; width:100%; height:22.22rem; background:url(/img/zc/gddgpic.jpg) no-repeat center; background-size:100% 22.22rem; -webkit-background-size:100% 22.22rem; -moz-background-size:100% 22.22rem}
+.gddgxh a{ display:block; text-align:right; margin:.8rem 6% .8rem 0; color:#fff17c}
+.gddgScroll{ padding:1.3rem 4% 0 4%}
+.next,.prev{ margin-top:.75rem; width:.75rem; height:.75rem; border-right:.15rem solid #9b9fa8; border-bottom:.15rem solid #9b9fa8}
+.prev,.prevStop{ float:left; transform:rotate(135deg); -webkit-transform:rotate(135deg); -moz-transform:rotate(135deg)}
+.next,.nextStop{ float:right; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.prevStop{ border-right:.15rem solid #16181b; border-bottom:.15rem solid #2f333a}
+.nextStop{ border-right:.15rem solid #16181b; border-bottom:.15rem solid #2f333a}
+.gddgbd{ float:left; width:89%}
+.gddgScroll ul{ height:2.88rem; text-align:center; overflow:hidden; zoom:1}
+.gddgScroll ul li{ float:left; height:2.88rem; width:100%}
+.gddgScroll ul li div{ font-size:1.06rem; margin-bottom:.3rem}
+.gddgScroll ul li div cite{ display:inline-block; width:43%; text-align:right}
+.gddgScroll ul li div i{ display:inline-block; width:14%}
+.gddgScroll ul li div em{ display:inline-block; width:43%; text-align:left}
+.gddgxhList{ padding:0 6%}
+.gddgxhList p{ line-height:1.5rem; font-size:.94rem; text-align:center}
+.gddgxhList ul li{ overflow:hidden; zoom:1}
+.gddgxhList ul li span,.gddgmore span{ float:left; width:28.8%; line-height:1.88rem; text-align:center; font-size:.92rem; margin:.95rem 5% 0 0; border:.1rem solid #fff; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.gddgxhList ul li span:last-child,.gddgxhList ul li em:last-child{ margin-right:0}
+.gddgxhList ul li em{ float:left; width:30%; text-align:center; margin:.45rem 5% 0 0}
+.gddgxhList ul li span.cur,.gddgmore span.cur2{ position:relative; background:#ffeb46; border:.1rem solid #ffeb46; color:#399e5c}
+.gddgxhList ul li span.cur:before,.gddgmore span.cur2:before{ position:absolute; content:""; bottom:-.1rem; right:-.1rem; width:1.125rem; height:1rem; background:url(/img/zc/gddgcur.png) no-repeat center; background-size:1.125rem 1rem; -webkit-background-size:1.125rem 1rem; -moz-background-size:1.125rem 1rem}
+.gddgdouble{ text-align:center; width:15rem; font-size:.8rem; padding:1.3rem 0 0 0; margin:0 auto}
+.gddgdouble div cite{ line-height:2.2rem; font-size:1rem;}
+.gddgdouble div span{ border:1px solid #399e5c; width:66%; height:2.1rem; background:#399e5c}
+.gddgdouble div span em{ color:#fff}
+.gddgdouble input{ color:#222; height:2.1rem; border-left:1px solid #399e5c; border-right:1px solid #399e5c}
+.gddgFloat{ background:#f9f9f9; height:3.7rem; border-top:1px solid #b2b2b2; overflow:hidden; zoom:1}
+.gddgFloat a{ line-height:2.6rem; padding:0; text-align:center}
+.gddgFloat a.ssqdeleted{ width:25%}
+.gddgFloat a.ture{ width:65%}
+.gddgxhList ul.gddgtitle li{ font-size:.8rem}
+.gddgxh2{ height:25rem; background-size:100% 33rem; -webkit-background-size:100% 33rem; -moz-background-size:100% 33rem}
+.gddgxh2 .gddgxhList ul li:first-child span{ margin-top:.5rem}
+.gddgmore span{ float:none; display:block; width:60%; margin:1.35rem auto 0 auto}
+.gddgxh3{ height:16.2rem; background-size:100% 33rem; -webkit-background-size:100% 16.2rem; -moz-background-size:100% 33rem}
+.gddgxh3 .gddgxhList ul li span{ width:20.1%}
+.gddgxh3 .gddgxhList ul li em{ width:21.2%}
+.gddgxh4{ height:19.5rem; background-size:100% 19.5rem; -webkit-background-size:100% 19.5rem; -moz-background-size:100% 19.5rem}
+.gddgxh4 .gddgxhList ul li{ height:4.4rem}
+.gddgxh4 .gddgxhList ul li span{ height:3rem; font-size:.75rem; line-height:normal; color:#399e5c; background:#fff; box-shadow:0 .3rem 0 #c8c8c8; -webkit-box-shadow:0 .3rem 0 #c8c8c8; -moz-box-shadow:0 .3rem 0 #c8c8c8}
+.gddgxh4 .gddgxhList ul li span cite{ display:block; font-size:.875rem; padding:.5rem 0 .3rem 0}
+.gddgxh4 .gddgxhList ul li span.cur{ background:#ffeb46}
+.gddghot p{ position:relative; float:left; width:29.6%; font-size:.75rem; color:#c3ffb5; height:5.7rem; margin:.5rem 5% 0 0; text-align:center}
+.gddghot p:last-child{ margin-right:0}
+.gddghot span{ display:block; width:60%; position:absolute; bottom:0; left:21%;}
+.gddghot i{ display:block; background:#d2ffc8;}
+.gddgxh4 .gddgxhList ul li:first-child span{ margin-top:.7rem}
+.jjyhdouble{ width:65%; margin:0 auto; padding:.8rem 0; line-height:1.8rem}
+.jjyhdouble span{ width:55%; margin:0 .5rem}
+.jjyhTitle{ padding:.53rem 0; background:#fff; line-height:1.3rem; border-top:1px solid #c8c8c8; border-bottom:1px solid #c8c8c8;}
+.jjyhTitle li{ position:relative; float:left; width:33%; border-right:1px solid #eaeaea; text-align:center; color:#5c5c5c; font-size:.94rem}
+.jjyhTitle li:last-child{ border-right:none}
+.jjyhTitle li.cur{ color:#db150b}
+.jjyhTitle li.cur:before{ position:absolute; left:45%; bottom:-.9rem; content:""; width:.7rem; height:.7rem; border-top:1px solid #ccc; border-right:1px solid #ccc; background:#f7f7f7; -webkit-transform:rotate(-45deg);transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.jjyhText{ padding:0 5%}
+.jjyhts{ color:#a4a4a4; font-size:.75rem; text-align:center; line-height:1.88rem}
+.jjyhText article{ border:1px solid #dcdcdc; background:#fff; margin-bottom:.93rem}
+.jjyhText article p{ padding:.8rem 3% .15rem 3%; color:#5c5c5c; font-size:.81rem; overflow:hidden; zoom:1}
+.jjyhText article p span{ float:left}
+.jjyhText article p cite{ float:right; color:#8e8e8e; font-size:.75rem}
+.jjyhbuy{ padding:.63rem 3%; overflow:hidden; zoom:1}
+.jjyhbuy strong{ float:left; background:#399e5c; color:#fff; font-weight:normal; line-height:normal; width:29%; text-align:center; height:2.34rem; padding-top:.44rem; font-size:.75rem; border:.1rem solid #399e5c; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.jjyhbuy strong cite{ display:block; font-size:.81rem; padding-top:.2rem}
+.grayBg2 strong{ color:#399e5c; background:none}
+.jjyhbuy i{ float:right; text-align:right; width:16%; font-size:.75rem; line-height:2.8rem; color:#db150b}
+.grayBg2 i{ color:#8e8e8e}
+.jjyhbuy .jjyhdouble{ width:50.5%; float:left; padding:.55rem 0 0 3%}
+.jjyhbuy .jjyhdouble span{ width:65.5%}
+.jjyhbuy .jjyhdouble span em{ width:31%}
+.jjyhbuy .jjyhdouble span input{ width:34%}
+.jjyhbuy i{ float:right; text-align:right; width:16%; font-size:.75rem; line-height:2.8rem}
+.jjyhText .ssqzh{ border:1px solid #dcdcdc; background:#fff; margin:0 3% .7rem 3%}
+.jjyhText .ssqzh li{ width:19.7%; border-right:1px solid #e4e4e4}
+.jjyhText .ssqzh li:last-child{ border-right:none}
+.jjyhinput{ padding:.7rem 5%}
+.jjyhinput input{ width:47%; line-height:2.2rem; color:#333; font-size:.88rem; border:none; background:#fff; border:1px solid #dcdcdc; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.jjyhinput input.red{ color:#db150b}
+.jjyhFloat{ position:relative; line-height:2.35rem; background:#ebebeb; font-size:.75rem; text-align:center}
+.plsz,.jjyh,.jjyhdouble3 span{ width:18%; text-align:center; line-height:1.6rem; border:1px solid #c5c5c5; color:#222; font-size:.75rem; background:#fff; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.plsz{ position:absolute; top:.35rem; left:.65rem}
+.jjyh{ position:absolute; top:.35rem; right:.65rem}
+.jjyhdouble2,.jjyhdouble3{ background:#f7f7f7; border-top:1px solid #dcdcdc}
+.jjyhdouble2 .jjyhdouble{ width:73%; padding:.4rem 0}
+.jjyhdouble2 .jjyhdouble span{ width:50%}
+.jjyhdouble3{ padding:.6rem 0 0 0; height:2rem}
+.jjyhdouble3 .left{ padding-left:.65rem; font-size:.82rem; width:35%}
+.jjyhdouble3 input{ line-height:1.5rem; width:45%}
+.jjyhdouble3 .right{ width:55%}
+.jjyhdouble3 span{ float:left; width:30%; margin-right:2%}
+.jjyhdouble3 span.cur{ background:#db150b; color:#fff; border:1px solid #db150b}
+

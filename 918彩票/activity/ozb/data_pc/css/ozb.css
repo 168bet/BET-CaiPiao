@@ -1,0 +1,194 @@
+body{ background-color:#fff; margin:0; padding:0; min-width:320px;font-size:14px; font-weight:normal; font-family:arial,Microsoft YaHei, Helvetica, sans-serif;color:#272727; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+em,cite{ font-style:normal}
+ul,li{ list-style-type:none}
+a{ text-decoration:none;}
+.pr{position:relative;}
+.padding-l{ padding-left:6px;}
+.ozb_box{ width:1000px; margin:0 auto;}
+.padding-b{ padding-bottom:16px;}
+.ozb_top{ height:440px;background:#02113d url(../img/topbanner.png) center -50px no-repeat;}
+.ozb_topm{ height:440px;}
+a.ozb_race{ position:absolute; top:24px; right:40px;  font-size:14px; font-size:.75rem; color:#d1e0ee;}
+.zu_fix{ position:absolute; left:50%; top:272px; width:100%; height:168px; margin-left:-50%; z-index:10;}
+.zu_fixed{position:fixed;top:0; background-color:#02113d;}
+.zu_fixbox{ position:relative; width:1000px; height:168px; margin:0 auto;background:url(../img/zu_fixedbg.png) 0 0 no-repeat;}
+.ozb_zu{ position:absolute; left:50%; bottom:32px; bottom:32px; width:50%; height:118px; margin-left:-25%;}
+.ozb_zu span{ 
+	display:inline-block; float:left; height:40px; padding-top:78px; text-align:center;
+	width:15%;color:#407ebe;background-size:56px 40px;
+}
+.ozb_zu span:nth-child(1){background:url(../img/a.png) center 26px no-repeat;}
+.ozb_zu span:nth-child(2){background:url(../img/b.png) center 26px no-repeat;}
+.ozb_zu span:nth-child(3){background:url(../img/c.png) center 26px no-repeat;}
+.ozb_zu span:nth-child(4){background:url(../img/d.png) center 26px no-repeat;}
+.ozb_zu span:nth-child(5){background:url(../img/e.png) center 26px no-repeat;}
+.ozb_zu span:nth-child(6){background:url(../img/f.png) center 26px no-repeat;}
+.ozb_zu span.on{
+	position:relative;
+	width:25%; color:#fff; background-size:78px 78px;
+}
+.ozb_zu span:nth-child(1).on{  background:url(../img/aon.png) center 0 no-repeat;}
+.ozb_zu span:nth-child(2).on{ background:url(../img/bon.png) center 0  no-repeat;}
+.ozb_zu span:nth-child(3).on{ background:url(../img/cons.png) center 0  no-repeat;}
+.ozb_zu span:nth-child(4).on{ background:url(../img/don.png) center 0  no-repeat;}
+.ozb_zu span:nth-child(5).on{ background:url(../img/eon.png) center 0  no-repeat;}
+.ozb_zu span:nth-child(6).on{ background:url(../img/fon.png) center 0  no-repeat;}
+.ozb_zu span.on:after{
+	position: absolute;
+	content:'';
+    left: 50%;    
+		bottom:-32px;
+    display: block;
+		width:36px;
+		height:32px;
+		margin-left:-19px;   
+		 background:url(../img/jt.png) center 0 no-repeat;
+		 background-size:36px 32px;
+}
+a.prev{position: absolute;width:116px;height:116px;left:4%;bottom:32px;z-index: 2; background:url(../img/prev.png) 0 0 no-repeat;background-size:116px 116px;}
+a.prev:hover,a.prev:active,a.prev:focus{background:url(../img/prev2.png) 0 0 no-repeat;background-size:116px 116px;}
+a.next{position: absolute;width:116px;height:116px;right:4%;bottom:32px;z-index: 2; background:url(../img/next.png) 0 0 no-repeat;background-size:116px 116px;}
+a.next:hover,a.next:active,a.next:focus{background:url(../img/next2.png) 0 0 no-repeat;background-size:116px 116px;}
+.ozb_mbox{ color:#fff; background:url(../img/bg1.png) center 0 no-repeat;}
+.ozb_mboxodd{ background-color:#013a77;}
+.ozb_mboxeven{ background-color:#014891;}
+.ozb_country{ width:204px; margin:0 auto; padding:32px 16px;}
+/*A组国旗*/
+.flag-faguo{ background:url(../img/flag/faguo.png) 0 0 no-repeat;}
+.flag-luomaniya{ background:url(../img/flag/luomaniya.png) 0 0 no-repeat;}
+.flag-aerbaniya{ background:url(../img/flag/aerbaniya.png) 0 0 no-repeat;}
+.flag-ruishi{ background:url(../img/flag/ruishi.png) 0 0 no-repeat;}
+/*B组国旗*/
+.flag-yinggelan{ background:url(../img/flag/yinggelan.png) 0 0 no-repeat;}
+.flag-eluosi{ background:url(../img/flag/eluosi.png) 0 0 no-repeat;}
+.flag-weiershi{ background:url(../img/flag/weiershi.png) 0 0 no-repeat;}
+.flag-siluofake{ background:url(../img/flag/siluofake.png) 0 0 no-repeat;}
+/*C组国旗*/
+.flag-deguo{ background:url(../img/flag/deguo.png) 0 0 no-repeat;}
+.flag-wukelan{ background:url(../img/flag/wukelan.png) 0 0 no-repeat;}
+.flag-bolan{ background:url(../img/flag/bolan.png) 0 0 no-repeat;}
+.flag-beiaierlan{ background:url(../img/flag/beiaierlan.png) 0 0 no-repeat;}
+/*D组国旗*/
+.flag-xibanya{ background:url(../img/flag/xibanya.png) 0 0 no-repeat;}
+.flag-jieke{ background:url(../img/flag/jieke.png) 0 0 no-repeat;}
+.flag-tuerqi{ background:url(../img/flag/tuerqi.png) 0 0 no-repeat;}
+.flag-keluodiya{ background:url(../img/flag/keluodiya.png) 0 0 no-repeat;}
+/*E组国旗*/
+.flag-bilishi{ background:url(../img/flag/bilishi.png) 0 0 no-repeat;}
+.flag-yidali{ background:url(../img/flag/yidali.png) 0 0 no-repeat;}
+.flag-aierlan{ background:url(../img/flag/aierlan.png) 0 0 no-repeat;}
+.flag-ruidian{ background:url(../img/flag/ruidian.png) 0 0 no-repeat;}
+/*F组国旗*/
+.flag-putaoya{ background:url(../img/flag/putaoya.png) 0 0 no-repeat;}
+.flag-bingdao{ background:url(../img/flag/bingdao.png) 0 0 no-repeat;}
+.flag-aodili{ background:url(../img/flag/aodili.png) 0 0 no-repeat;}
+.flag-xiongyali{ background:url(../img/flag/xiongyali.png) 0 0 no-repeat;}
+.country_flag{ display:block; width:112px; height:112px; margin:0 auto;background-size:112px 112px;}
+.country_name{ width:204px; height:64px; font-size:18px; color:#fff; line-height:64px;font-weight:bold;}
+.country_bg1{ text-align:center;background:url(../img/hbg2.png) center 0 no-repeat;background-size:148px 64px;}
+.country_bg2{ text-align:center;background:url(../img/hbg4.png) center 0 no-repeat;background-size:184px 64px;}
+.country_bg3{ text-align:center;background:url(../img/hbg5.png) center 0 no-repeat;background-size:202px 64px;}
+.ozb_article{ font-size:14px; line-height:30px;}
+.ozb_article p{ padding:5px 0;}
+.ozb_player p{ height:36px; font-size:14px; line-height:36px; padding-bottom:16px;} 
+.player_ul{ height:128px; margin:0 auto;}
+.player_ul li{width:128px; height:128px; text-align:center; float:left;}
+.player_ul li span{ display:block; width:128px; height:48px; line-height:48px;}
+.w1{ width:128px;}
+.w2{width:256px;}
+.w3{width:384px;}
+/*A组球员*/
+.player-faguo{ background:url(../img/player/faguo.png) 0 0 no-repeat;}
+.player-faguo2{ background:url(../img/player/faguo2.png) 0 0 no-repeat;}
+.player-luomaniya{ background:url(../img/player/luomaniya.png) 0 0 no-repeat;}
+.player-aerbaniya{ background:url(../img/player/aerbaniya.png) 0 0 no-repeat;}
+.player-ruishi{ background:url(../img/player/ruishi.png) 0 0 no-repeat;}
+/*B组球员*/
+.player-yinggelan{ background:url(../img/player/yinggelan.png) 0 0 no-repeat;}
+.player-yinggelan2{ background:url(../img/player/yinggelan2.png) 0 0 no-repeat;}
+.player-eluosi{ background:url(../img/player/eluosi.png) 0 0 no-repeat;}
+.player-weiershi{ background:url(../img/player/weiershi.png) 0 0 no-repeat;}
+.player-siluofake{ background:url(../img/player/siluofake.png) 0 0 no-repeat;}
+/*C组球员*/
+.player-deguo2{ background:url(../img/player/deguo.png) 0 0 no-repeat;}
+.player-deguo{ background:url(../img/player/deguo2.png) 0 0 no-repeat;}
+.player-deguo3{ background:url(../img/player/deguo3.png) 0 0 no-repeat;}
+.player-wukelan{ background:url(../img/player/wukelan.png) 0 0 no-repeat;}
+.player-bolan{ background:url(../img/player/bolan.png) 0 0 no-repeat;}
+.player-beiaierlan{ background:url(../img/player/beiaierlan.png) 0 0 no-repeat;}
+/*D组球员*/
+.player-xibanya{ background:url(../img/player/xibanya.png) 0 0 no-repeat;}
+.player-xibanya2{ background:url(../img/player/xibanya2.png) 0 0 no-repeat;}
+.player-jieke{ background:url(../img/player/jieke.png) 0 0 no-repeat;}
+.player-tuerqi{ background:url(../img/player/tuerqi.png) 0 0 no-repeat;}
+.player-keluodiya{ background:url(../img/player/keluodiya.png) 0 0 no-repeat;}
+/*E组球员*/
+.player-bilishi{ background:url(../img/player/bilishi.png) 0 0 no-repeat;}
+.player-bilishi2{ background:url(../img/player/bilishi2.png) 0 0 no-repeat;}
+.player-yidali{ background:url(../img/player/yidali.png) 0 0 no-repeat;}
+.player-yidali2{ background:url(../img/player/yidali2.png) 0 0 no-repeat;}
+.player-aierlan{ background:url(../img/player/aierlan.png) 0 0 no-repeat;}
+.player-ruidian{ background:url(../img/player/ruidian.png) 0 0 no-repeat;}
+/*F组球员*/
+.player-putaoya{ background:url(../img/player/putaoya.png) 0 0 no-repeat;}
+.player-bingdao{ background:url(../img/player/bingdao.png) 0 0 no-repeat;}
+.player-aodili{ background:url(../img/player/aodili.png) 0 0 no-repeat;}
+.player-xiongyali{ background:url(../img/player/xiongyali.png) 0 0 no-repeat;}
+
+
+.ozb_playerbg{display:inline-block; width:74px; height:68px; margin:0 auto;background-size:68px 68px;}
+.ozb_odds{ position:relative; height:64px; line-height:64px;}
+.ozb_trophy{ position:absolute; top:0; left:0; display:inline-block; width:42px; height:30px; margin-top:19px;background:url(../img/jb.png) 0 0 no-repeat;background-size:30px 19px;}
+.ozb_odds span{ float:left; font-size:14px;}
+.ozb_odds strong{ float:left; font-size:30px;}
+
+.footer{ height:192px; padding-top:64px; background:#014891 url(../img/foot_bg.png) 0 0 repeat-x;background-size:34px 48px;}
+a.foot_a{ display:block; width:296px; height:56px; margin:0 auto; font-size:32px; color:#fff; line-height:56px; text-align:center;border-radius:4px;
+ box-shadow:0 4px 0 #006ab4;-moz-box-shadow:0 4px 0 #006ab4;-webkit-box-shadow:0 4px 0 #006ab4;}
+a.foot_a:link,a.foot_a:visited{background-color:#0081f9; text-decoration:none;}
+a.foot_a:hover,a.foot_a:active{background-color:#0077e5; text-decoration:none;}
+.footer_img{ width:144px; height:74px; margin:32px auto 0; background:url(../img/logo.png) 0 0 no-repeat;background-size:144px 74px;}
+
+/*欧洲杯赛页面*/
+.ozb_saibg{ width:100%; height:100%; font-size:14px; color:#d1e0ee; background:#02113d url(../img/sai_bg.jpg) center center no-repeat;}
+.ozb_saih{ width:340px; height:152px; margin:0 auto;padding:88px 0 76px 96px; font-size:36px; line-height:76px; text-align:center;
+ background:url(../img/ozb_sai.png) 0 88px no-repeat;background-size:84px 138px;}
+.sai_table{ width:1000px; margin:0 auto; padding-bottom:32px;}
+.sai_table table{ width:100%; border-collapse:collapse;}
+.sai_table table th{ font-size:24px; line-height:48px; text-align:center; background-color:#01418b;}
+.sai_table table td{ line-height:32px; text-align:center; vertical-align:top;}
+
+/*#wrapper {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+#scroller {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}*/

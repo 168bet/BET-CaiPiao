@@ -1,0 +1,145 @@
+.fc3dKind {
+	display: inline-block;
+	width: 88px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 15px 15px;
+	font-size: 14px;
+	background: #FBCA03;
+	cursor: pointer;
+	color: #010100;
+}
+
+.fc3dKind_active,
+.fc3dKind:hover {
+	background: #C12727;
+	color: white;
+}
+
+.tbGj_fc {
+	width: 116.8px;
+	background: gray;
+	height: 42px;
+	border-left: 4px solid white;
+	line-height: 42px;
+	color: white;
+	border-bottom: 6px solid white;
+	font-size: 14px;
+}
+
+.w62 {
+	width: 62px;
+}
+
+.w40 {
+	width: 40px;
+}
+
+.red {
+	color: #A72321
+}
+
+.mt20 {
+	margin-top: 20px;
+}
+
+.hgt222 {
+	height: 222px
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.fcTopCircle {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 50%;
+	color: white;
+	background: #007131;
+}
+.fcTopCircle_red {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 50%;
+	color: white;
+	background: red;
+}
+.fcTopCircle_blue {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 50%;
+	color: white;
+	background: blue;
+}
+.m0_42 {
+	margin: 0 42px;
+}
+
+.middle {
+	vertical-align: middle !important;
+}
+
+.bg-lightgray {
+    font-size: 14px;
+    line-height: 42px;
+    width: 179px;
+    height: 42px;
+    color: #000;
+    border-bottom: 6px solid white;
+    border-left: 4px solid white;
+    background: #f1f1f1;
+}
+
+.bg-gray{
+    font-size: 14px;
+    line-height: 42px;
+    width: 179px;
+    height: 42px;
+    color: #494949;
+    border-bottom: 6px solid white;
+    border-left: 4px solid white;
+    background: #ccc;
+}
+
+.bg-gray-fc {
+    width: 116.8px;
+    background: #cccccc;
+    height: 42px;
+    border-left: 4px solid white;
+    line-height: 42px;
+    color: #000;
+    border-bottom: 6px solid white;
+    font-size: 14px;
+}
+
+.fc3d-wrap-center {
+    width: 919px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fc3d-count-down {
+    display: inline-block;
+    width: 260px;
+}
+.fc3d-count-down .yellow {
+    color: #c12727;
+    display: inline-block;
+    min-width: 25px;
+}
+.count-down-wrap  {
+	color: #010100;
+}

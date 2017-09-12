@@ -1,0 +1,115 @@
+body{ margin:0; padding:0; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#272727; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+em,cite{ font-style:normal}
+ul,li{ list-style-type:none}
+figure img{ width:100%}
+a{ color:#9b411a; font-size:1.125rem; text-decoration:none}
+.box{ width:93.9%; padding:0 3%}
+.box section{ display:block; padding-bottom:1rem;}
+/*------------鐚滅墝-棣栭〉----------------*/
+.cpindex{ margin-top:0.25rem;background-color:#ffe29c;border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem;}
+.cpindex span{ display:block; width:4.75rem; height:1.875rem; margin:0 auto; background:url(img/tishi.png) center no-repeat;background-size:4.75rem 1.875rem; -webkit-background-size:4.75rem 1.875rem; -moz-background-size:4.75rem 1.875rem}
+.cpindex p{ color:#502713; font-size:1rem; line-height:1.875rem; margin:5%; padding-bottom:1rem; border-bottom:1px dashed #cb9d51;}
+.cpindex p em{ color:#ff3838;}
+.cpin_a{margin-right:5%; text-align:right;}
+.cpin_a a.cpin_hdgz{ color:#ff3838; font-size:1.125rem; text-decoration:none;}
+.cpin_start{ display:block; color:#fff; font-size:1.75rem; text-align:center;width:100%; line-height:3.125rem; background:#ff8c38; margin:.8rem auto 1rem; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem;
+box-shadow:0 .3rem .005rem #e9732e; -webkit-box-shadow:0 .3rem .005rem #e9732e; -moz-box-shadow:0 .3rem .005rem #e9732e;}
+.cpin_cjzx{ display:block; margin:0 auto; text-align:center; color:#502713; text-decoration:none;}
+.cpin_p{ text-align:center; color:#502713; margin-bottom:2rem; font-size:1rem;}
+.cpin_p_time{ text-align:center; color:#502713; padding-top:1rem;font-size:1rem;}
+.cpin_p span{ color:#ff3838; margin:0 0.25rem; font-weight:bold;}
+/*------------鐚滅墝-绗竴鍏�---------------*/
+.cppo{ margin-top:0.25rem;}
+.cppo span{display:block; width:4.375rem; height:1.75rem; background-repeat:no-repeat; background-position:center;background-size:4.375rem 1.75rem; -webkit-background-size:4.375rem 1.75rem; -moz-background-size:4.375rem 1.75rem}
+.cppo span.pass1{background-image:url(img/passone.png)}
+.cppo span.pass2{background-image:url(img/passtwo.png)}
+.cppo span.pass3{background-image:url(img/passthree.png)}
+.cppo span.pass4{background-image:url(img/pass4.png)}
+.cppo span.pass5{background-image:url(img/pass5.png)}
+.cppo span.pass6{background-image:url(img/pass6.png)}
+.cppo span.pass7{background-image:url(img/pass7.png)}
+.cppo span.pass8{background-image:url(img/pass8.png)}
+.cppo span.pass9{background-image:url(img/pass9.png)}
+.cppo span.pass10{background-image:url(img/pass10.png)}
+.cppo_pai,.cppt_pai{margin:2.5rem auto 1.2rem auto; height:7rem; width:12.5rem; text-align:center; overflow:hidden; zoom:1}
+.cppo_pai em,.cppt_pai em{ float:left; width:3.15rem; height:4.27rem; margin-right:1rem; background:url(img/paibg.png) center no-repeat; 
+background-size:2.56rem 3.47rem; -webkit-background-size:3.15rem 4.27rem; -moz-background-size:2.56rem 3.47rem;}
+.cppo_pai em:last-child{ margin:0;}
+.cppo p{ text-align:center; color:#49290a; font-size:1.25rem;}
+.cppo p.twoh{ text-align:left; line-height:2rem;}
+/*------------鐚滅墝-绗簩鍏�---------------*/
+.cppt_pai em.cppt_ssq{background-image:url(img/cppt_ssq.png)}
+.cppt_pai em.cppt_zj{background-image:url(img/cppt_zq.png)}
+.cppt_pai em.cppt_lq{background-image:url(img/cppt_lq.png)}
+.cppt_pai em:last-child{ margin:0;}
+.cppt_a{margin:2.75rem auto;}
+.cppt_a a{ display:inline-block; width:44%; height:2.75rem; line-height:2.75rem; text-align:center; color:#fff; font-size:1.2rem;border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem;}
+.cppt_a a.cppt_cf{ float:left; background:#1ba9d9;box-shadow:0 .2rem .005rem #2b87a1; -webkit-box-shadow:0 .2rem .005rem #2b87a1; -moz-box-shadow:0 .2rem .005rem #2b87a1}
+.cppt_a a.cppt_fx{ float:right;background:#ff8c38;box-shadow:0 .2rem .005rem #e9732e; -webkit-box-shadow:0 .2rem .005rem #e9732e; -moz-box-shadow:0 .2rem .005rem #e9732e}
+/*------------鐚滅墝-绗笁鍏�---------------*/
+a.cppthr_a{margin:2.6rem auto 0;display:block; width:70%; height:3rem; line-height:3rem; text-align:center; color:#fff; font-size:1.5rem;border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem;
+background:#ff8c38;box-shadow:0 .3rem .005rem #e9732e; -webkit-box-shadow:0 .3rem .005rem #e9732e; -moz-box-shadow:0 .3rem .005rem #e9732e;}
+/*------------鐚滅墝-鎶藉----------------*/
+.cpcj_dlzc{ padding:0 4%; overflow:hidden; zoom:1}
+.cpcj_dlzc span{ display:inline-block; float:left; color:#9b411a; font-size:1.125rem; text-align:center; width:40%; line-height:2.5rem; background:#ffe1a2; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.cpcj_dlzc span:last-child{ float:right;}
+.cpcj_cjcs{font-size:1rem; color:#502713; line-height:1.25rem; text-align:left; padding:0.25rem 0 0.25rem 9%;}
+.cpcj_cjcs span{ display:inline-block; width:2.4rem; height:1.125rem;line-height:1.125rem; background-color:#f04b4b; margin:0 0.25rem; color:#fff; font-size:1rem; text-align:center;}
+a.cpcj_hqhb{ display:block; width:100%; text-decoration:underline;text-align:center; font-size:1.12rem; color:#9b411a; margin:.75rem auto}
+.cpcj_pd03{ padding:0 0.3rem 1.5rem 0.3rem;}
+.cpcj_cjlist li{ overflow:hidden; zoom:1; margin-top:.25rem; height:3.76rem}
+.cpcj_cjlist li span{ float:left; width:24.2%; line-height:3.6rem; background:#ff9446; font-size:1.21rem; margin-right:1%; text-align:center; color:#fff; box-shadow:0 .3rem .005rem #c86b27; -webkit-box-shadow:0 .3rem .005rem #c86b27; -moz-box-shadow:0 .3rem .005rem #c86b27}
+.cpcj_cjlist li span:last-child{ margin-right:0}
+.cpcj_cjlist li span.cpcj_red{ background:#f04b4b; box-shadow:0 .3rem .005rem #af3510; -webkit-box-shadow:0 .3rem .005rem #af3510; -moz-box-shadow:0 .3rem .005rem #af3510}
+.cpcj_cjlist li span.cpcj_wyhb{ overflow:hidden; zoom:1; width:49.5%; line-height:3.5rem; font-size:1.25rem; background:#f04b4b; box-shadow:0 .3rem .005rem #af3510; -webkit-box-shadow:0 .3rem .005rem #af3510; -moz-box-shadow:0 .3rem .005rem #af3510}
+.cpcj_cjlist li span cite{ float:left; padding-left:10%}
+.cpcj_cjlist li span em{ position:relative; float:left; width:1.875rem; height:1.875rem; background:#fff; margin:.8rem 0 0 4%; border-radius:1.875rem; -webkit-border-radius:1.875rem; -moz-border-radius:1.875rem}
+.cpcj_cjlist li span em:before{ content:""; position:absolute; top:.45rem; left:.8rem; border-style:solid; border-width:.5rem; border-color:transparent transparent transparent #ee5e32}
+.cpcj_zhu{ text-align:center; color:#9b411a; font-size:0.875rem;}
+.cpcj_jfdh{ display:block; color:#9b411a; font-size:1.125rem; text-align:center;width:55%; line-height:2.5rem; background:#ffe1a2; margin:.75rem auto; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem;}
+/*------------鐚滅墝-寮规----------------*/
+.shade{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1}
+.thebox{ position:fixed; top:35%; left:3.5%; background:#ffeec9; width:74%; padding:0 9% 1rem 9%; z-index:2}
+.tb_scale{animation-name: tb_scale;-ms-animation-name: alert_play;-moz-animation-name: alert_play;-webkit-animation-name: alert_play;-o-animation-name: alert_play;animation-duration: 1s;-ms-animation-duration: 1s;-moz-animation-duration: 1s;-webkit-animation-duration: 1s;-o-animation-duration: 1s;transform: translate3d(0px, 0px, 0px);-ms-transform: translate3d(0,0,0);-moz-transform: translate3d(0,0,0);-webkit-transform: translate3d(0,0,0);-o-transform: translate3d(0,0,0)}
+@keyframes alert_play {0% {transform: scale(0,0)}
+30% {transform: scale(1.06,1.06)}
+50% {transform: scale(1,1)}
+65% {transform: scale(1.02,1.02)}
+100% {transform: scale(1,1)}
+}
+@-moz-keyframes alert_play {0% {-moz-transform: scale(0,0)}
+30% {-moz-transform: scale(1.06,1.06)}
+50% {-moz-transform: scale(1,1)}
+65% {-moz-transform: scale(1.02,1.02);}
+100% {-moz-transform: scale(1,1)}
+}
+@-webkit-keyframes alert_play {0% {-webkit-transform: scale(0,0)}
+30% {-webkit-transform: scale(1.06,1.06);}
+50% {-webkit-transform: scale(1,1);}
+65% {-webkit-transform: scale(1.02,1.02);}
+100% {-webkit-transform: scale(1,1);}
+}
+@-o-keyframes alert_play {0% {-o-transform: scale(0,0)}
+30% {-o-transform: scale(1.06,1.06)}
+50% {-o-transform: scale(1,1)}
+65% {-o-transform: scale(1.02,1.02)}
+100% {-o-transform: scale(1,1)}
+}
+.clock{ position:absolute; right:.4rem; top:.4rem; display:block; width:1.45rem; height:1.45rem; background:url(img/close.png) no-repeat center; background-size:1.4rem 1.4rem; -webkit-background-size:1.4rem 1.4rem; -moz-background-size:1.4rem 1.4rem}
+.thebox p{margin:2.25rem auto 0.8rem;font-size:1rem; color:#502713;line-height:1.5rem;}
+.cg_share{height:3rem; line-height:1.5rem; margin:2.25rem auto 0.5rem; padding-left:3rem; font-size:1rem; color:#502713; background:url(img/logo.png) no-repeat left 0.25rem;background-size:2.5rem 2.5rem; -webkit-background-size:2.5rem 2.5rem; -moz-background-size:2.5rem 2.5rem}
+.cg_share span{ color:#ff0b0b;}
+.cg_cs{ text-align:center;}
+.cga_cs{display:block; width:40%; height:2rem; line-height:2rem; margin:0 auto; text-align:center; background:#ff9130; border-radius:.2rem; color:#fff;}
+.cgdiv_a a:first-child{ float:left;}
+.cgdiv_a a:last-child{ float:right;}
+/*------------鐚滅墝-娲诲姩瑙勫垯----------------*/
+.cp_rulebabox{ display:block;width:3.5rem; height:1.375rem;position:absolute; left:3%; top:1.3rem;}
+a.cp_ruleback{display:block; width:2.75rem;height:1.375rem; line-height:1.375rem;color:#fff; font-size:1rem; background-color:#f5b248; text-align:center; float:left;}
+.cp_rulebabox i{height:0;border-bottom:.7rem solid transparent; border-top:.72rem solid transparent;border-left:0.72rem solid #f5b248; float:left;}
+.cp_rule h3{font-weight:normal; width:6rem; height:0; text-align:center; border-bottom:2rem solid #f04b4b; border-left:.82rem solid transparent; border-right:.82rem solid transparent; margin:1rem auto;}
+.cp_rule h3 span{ position:relative; display:block; margin-top:.1rem; line-height:2rem; color:#fff; font-size:1.25rem;}
+.cp_rule p{ margin-bottom:0.5rem; font-size:1rem;}

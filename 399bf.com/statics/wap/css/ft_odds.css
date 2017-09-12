@@ -1,0 +1,200 @@
+@charset "UTF-8";
+
+.content{
+  overflow-x: hidden;
+}
+.zs-type {
+  display: block;
+  height: 2.34375rem;
+  line-height: 2.34375rem;
+  padding: 0.39063rem;
+  background-color: white;
+  width: 100%;
+}
+
+.zs-type a {
+  display: inline-block;
+  float: right;
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  padding: 0 0.39063rem;
+  border: 0.03906rem solid #fea838;
+  color: #fea838;
+  border-radius: 0.70313rem;
+  margin-left: 0.39063rem;
+  background: #fff;
+  font-size: 0.78125rem;
+}
+
+.border-1px {
+  border-bottom: 0.03906rem solid rgba(0, 0, 0, 0.1);
+}
+
+.zq-list {
+  width: 100%;
+}
+
+.zq-list-title {
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  height: 2.34375rem;
+  line-height: 2.34375rem;
+  font-size: 0.78125rem;
+}
+
+.zq-list-title span {
+  display: inline-block;
+  margin-left: 0.4rem;
+  color: #fea838;
+}
+
+.zq-list-title .icon {
+  margin-right: 0.4rem;
+}
+
+.zq-list-content {
+  background-color: white;
+}
+.zq-list-content .table thead {
+  background-color: transparent;
+  font-size: 0.78125rem;
+}
+.zq-list-content .table thead tr {
+  line-height: 1.95313rem;
+}
+.zq-list-content .table tbody td {
+  padding: 0.19531rem 0;
+  color: #666666;
+  font-size: 0.78125rem;
+}
+.zq-list-content .table tbody tr td:first-child {
+  border-right: 1px solid #dddddd;
+  color: #333;
+}
+
+/* 寮圭獥 */
+.popup .bar-nav {
+  height: 2.2rem;
+}
+.popup .bar-nav .title {
+  top: 0;
+}
+.popup .bar-nav:after {
+  content: none;
+}
+.popup .content-block {
+  padding: 2.2rem 0.78125rem;
+  background-color: #f4f4f8;
+}
+
+.close {
+  position: relative;
+  z-index: 20;
+  height: 1.5rem;
+  width: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-align: center;
+  margin: 0.39063rem auto;
+  font-family: iconfont-sm !important;
+  font-style: normal;
+  display: inline-block;
+  color: #999;
+  /* vertical-align: middle; */
+  background-size: 100% auto;
+  background-position: center;
+  border: 0.03906rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+}
+
+body .modal-overlay,
+body .popup-overlay,
+body .preloader-indicator-overlay {
+  background: rgba(0, 0, 0, 0.01);
+  /* visibility: hidden; */
+}
+
+.ss_ok {
+  display: block;
+  clear: both;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.ss_ok_button {
+  display: inline-block;
+  height: 1.36719rem;
+  line-height: 1.36719rem;
+  width: 4rem;
+  border: 0.03906rem solid #fea838;
+  background-color: transparent;
+  border-radius: 12px;
+  color: #fea838;
+  font-size: 0.70313rem;
+}
+
+.ss-list {
+  /*-webkit-column-count: 3;*/
+  /*!* Safari and Chrome *!*/
+  /*column-count: 3;*/
+  /*-webkit-column-gap: 30px;*/
+  /*!* Safari and Chrome *!*/
+  /*column-gap: 30px;*/
+  /*margin-top: 0.78125rem;*/
+
+  margin: 0 -.3rem;
+}
+.ss-list:after{
+  content: "";
+  display: table;
+  line-height: 1;
+  font-size: 0;
+  clear: both;
+}
+.ss-list .cell{
+  position: relative;
+  display: block;
+  width: 33.3%;
+  float: left;
+  padding: 0 .5rem;
+
+}
+.ss-item {
+  display: block;
+  line-height: 1.36719rem;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.19531rem;
+  color: #666;
+  font-size: 0.70313rem;
+  margin-bottom: 0.78125rem;
+}
+.ss-item.active {
+  background: #ffa21d;
+  color: white;
+}
+.ss-list .cell .transparent-checkbox{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 1.36719rem;
+  width: 100%;
+  opacity: 0;
+}
+.ss-list .cell .transparent-checkbox:checked+.ss-item {
+  background: #ffa21d;
+  color: white;
+}
+.type_title {
+  margin: 0.75rem 0 0;
+}
+
+/* 鏃堕棿寮圭獥 */
+.time_opption {
+  font-size: 1rem;
+  line-height: 2.2rem;
+  height: 2.2rem;
+}

@@ -1,0 +1,189 @@
+{php $css = ['stock.css','page.css'];}
+{php $nav_id = 10;}
+{template 'content', 'header_score'}
+<nav>
+    <div class="container">
+        <div class="row">
+            <div class="matchNav clearfix">
+                <ul class="clearfix fl">
+                    <li><a class="active" href="##">行情中心</a></li>
+                    <li><a href="##">B股频道</a></li>
+                    <li><a href="##">沪市AB股比价表</a></li>
+                    <li><a href="##">沪B资金流今日排行</a></li>
+                    <li><a href="##">沪B资金流5日排行</a></li>
+                    <li><a href="##">沪B资金流10日排行</a></li>
+                    <li><a href="##">沪B主力排名</a></li>
+                </ul>
+
+                <div class="nav-search">
+                    <form action="" method="post">
+                        <input type="text" placeholder="输入代码、名称或简拼" class="fl input-search" name="code" value="{$code}">
+                        <button class="btn-search" type="submit">
+                            <i class="icon-search"></i>
+                        </button>
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </div>
+</nav>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2 pdL0">
+
+                <!-- 树形菜单 start -->
+                <div class="navMenu treeMenu" id="treeMenu">
+                    <ul>
+                        {loop $menu $key $item}
+                        <!-- 一级 -->
+                        <li class="tree-menu">
+
+                            <div class="tree-one-title" tree-title name="one">
+                                {$item['name']}
+                                <i class="icon-angle-right fr"></i>
+                            </div>
+                            
+                            <div class="tree" tree-menu >
+                                <ul>
+                                    {loop $item['child'] $item2}
+                                    <li><a href="/index.php?m=sportsdata&c=stock&a=lists&menu_id={$item2['menu_id']}" {if $menuId==$item2['menu_id']}class="active"{/if}>{$item2['name']}</a></li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </li>
+                        {/loop}
+                        <!-- 一级 -->
+                        <!--<li class="tree-menu">
+                            <div class="tree-one-title" tree-title name="one">
+                                上证A股
+                                <i class="icon-angle-right fr"></i>
+                            </div>
+                            <div class="tree" tree-menu >
+                                &lt;!&ndash; 二级 &ndash;&gt;
+                                <div class="tree-item">
+                                    <div class="tree-two-title" tree-title name="two">
+                                        <i class="icon-open"></i>
+                                        香港
+                                    </div>
+                                    <div class="tree" tree-menu>
+                                        <ul>
+                                            <li><a href="">上证A股</a></li>
+                                            <li><a href="">上证A股</a></li>
+                                            <li><a href="">上证A股</a></li>
+                                            <li><a href="">上证A股</a></li>
+                                            <li><a href="">上证A股</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>-->
+                    </ul>
+                </div> 
+                <!-- 树形菜单 end -->
+
+            </div>
+            <div class="col-sm-10 pdL0 pdR0">
+                
+                <div class="main mb10" id="stock">
+
+                    <div class="today_guzhi">
+                        <ul class="clearfix">
+                            {loop $dapan_data $r}
+                            <li class="today_guzhi-item">
+                                <h1>{$r['name']}</h1>
+                                <p>
+								<span class="{if $r['increase'] < 0}guzhi-down{else}guzhi-up{/if}">{$r['nowpri']}
+									<span class="{if $r['increase'] < 0}index-down{else}index-up{/if}"></span>
+								</span>
+                                <span>{if $r['increase'] > 0}+{/if}{$r['increase']}&nbsp;{if $r['increase'] > 0}+{/if}{$r['increPer']}%</span>
+                                </p>
+                            </li>
+                            {/loop}
+                        </ul>
+                    </div>
+
+                    <div class="stock-title clearfix">
+                        <span class="stock-name">
+                            {$menuName}
+                        </span> 
+                        <button class="btn-refresh fr" onclick="refresh()">
+                            查看最新
+                            <i class="icon-refresh"></i>
+                        </button>        
+                    </div>
+
+                    <div class="stock-item">
+                        <table class="table">
+                               <tr>
+                                    <td>系号</td>
+                                    <td>代码</td>
+                                    <td>名称</td>
+                                    <td>最新价</td>
+                                    <td>涨跌额</td>
+                                    <td>
+                                        涨跌幅
+                                        <i class="icon-down"></i>
+                                    </td>
+                                    <td>成交量</td>
+                                    {if $menuId!=6}<td>成交额</td>{/if}
+                                    <td>昨收</td>
+                                    <td>今开</td>
+                                    <td>最高</td>
+                                    <td>最低</td>
+                                    <!--<td>
+                                        <span class="orange">5分钟涨跌</span>
+                                    </td>
+                                    <td>加自选</td>-->
+                                </tr>
+                                {loop $list['data'] $key $item}
+                                <tr>
+                                    <td><?php echo $key+1?></td>
+                                    <td>
+                                        <span class="orange">{$item['symbol']}</span>
+                                    </td>
+                                    <td>
+                                        <span class="orange">{$item['name']}</span>
+                                    </td>
+                                    <td>
+                                        <span class="red">{$item['trade']}</span>
+                                    </td>
+                                    <td>
+                                        <span class="red">{$item['pricechange']}</span>
+                                    </td>
+                                    <td>
+                                        <span class="red">{$item['changepercent']}%</span>
+                                    </td>
+                                    <td>{$item['volume']}</td>
+                                    {if $menuId!=6}<td>{$item['amount']}</td>{/if}
+                                    <td>{$item['settlement']}</td>
+                                    <td>
+                                        <span class="red">{$item['open']}</span>
+                                    </td>
+                                    <td>
+                                        <span class="red">{$item['high']}</span>
+                                    </td>
+                                    <td>
+                                        <span class="red">{$item['low']}</span>
+                                    </td>
+                                    <!--<td></td>
+                                    <td>
+                                        <span href="">
+                                            <i class="icon-open"></i>
+                                        </span>
+                                    </td>-->
+                                </tr>
+                                {/loop}
+                        </table>
+                    </div>
+
+                    <div class="page">
+                    {$pages}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{php $js = array('tree.js', 'stock.js')}
+{template 'content', 'footer'}

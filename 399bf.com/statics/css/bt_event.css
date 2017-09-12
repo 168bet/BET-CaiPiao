@@ -1,0 +1,312 @@
+/*导航start*/
+nav {
+    position: relative;
+    height: 135px;
+    background-image: url("../images/ft-nav-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: "Microsoft YaHei";
+    margin-bottom: 20px;
+}
+nav .btn {
+    background-color: #ffffff;
+}
+
+.main-nav {
+    margin: 15px 0 14px;
+}
+.main-nav li {
+    float: left;
+    margin-right: 20px;
+    position: relative;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: 0px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+.main-nav li a {
+    color: #333333;
+    display: block;
+    font-size: 2.4em;
+    font-weight: bold;
+    padding: 16px 25px 16px 78px;
+    background-position: 22px;
+    background-repeat: no-repeat;
+}
+.main-nav li a.football {
+    background-image: url("../images/football.png");
+}
+.main-nav li a.basketball {
+    background-image: url("../images/basketball.png");
+}
+.main-nav li.active, .main-nav li:hover {
+    background-image: url("../images/slip.png");
+    background-color: #ffa21d;
+}
+.main-nav li.active a, .main-nav li:hover a {
+    color: #ffffff;
+}
+
+.matchNavBar li {
+    float: left;
+    margin-right: 18px;
+    padding: 13px 33px;
+    background-color: #e8e8e8;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.matchNavBar li a {
+    display: block;
+    font-size: 1.4em;
+    line-height: 1;
+    color: #5b5b5b;
+}
+.matchNavBar li a.active, .matchNavBar li a:hover {
+    color: #ffa21d;
+    text-decoration: none;
+}
+/*导航end*/
+.main, .side {
+    background-color: #ffffff;
+    border-top: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    margin-bottom: 20px;
+}
+
+.title {
+    padding-bottom: 15px;
+    margin-bottom: 0;
+}
+
+.m-box {
+    border-bottom: 1px solid #dddddd;
+}
+.m-box .m-item {
+    position: relative;
+    float: left;
+    width: 74px;
+    height: 102px;
+    margin-left: 12px;
+    margin-bottom: 12px;
+}
+.m-box .m-item .m-item-img {
+    text-align: center;
+    height: 82px;
+    line-height: 82px;
+    overflow: hidden;
+    border: 1px solid #dddddd;
+}
+
+.m-box .m-item .m-item-img img{
+    max-width: 70px;
+}
+.m-box .m-item .m-item-title {
+    text-align: center;
+    background-color: #f8881b;
+    color: #ffffff;
+    font-size: 1.2em;
+    line-height: 14px;
+    padding: 2px 5px;
+    height: 20px;
+    border: #e37a14 solid 1px;
+}
+.m-box .m-item:hover .m-dropdown {
+    display: block;
+}
+.m-box .m-item .m-dropdown {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 22px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    box-shadow: 0 0 8px #5C5C5C;
+    -webkit-box-shadow: 0 0 8px #5C5C5C;
+    -moz-box-shadow: 0 0 8px #5C5C5C;
+    z-index: 10;
+}
+.m-box .m-item .m-dropdown li {
+    border-top: 1px solid #f3f3f3;
+}
+.m-box .m-item .m-dropdown li:first-child {
+    border-top: none;
+}
+.m-box .m-item .m-dropdown li:hover {
+    background-color: #f3f3f3;
+}
+.m-box .m-item .m-dropdown:before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 15px;
+    width: 0;
+    height: 0;
+    border-width: 0 5px 5px 5px;
+    border-color: transparent transparent #ffffff;
+    border-style: solid;
+}
+
+.side .title {
+    border-bottom: 1px solid #dddddd;
+}
+
+.m-list {
+    position: relative;
+}
+.m-list .list-item{
+    padding: 15px 0;
+    border-bottom: 1px solid #dddddd;
+}
+.m-list .list-item.active {
+    background-color: #ffffff;
+}
+.m-list .list-item-title {
+    padding: 10px 13px;
+    border-bottom: 1px solid #dddddd;
+    cursor: pointer;
+}
+.m-list .inner-list {
+    display: none;
+    border-bottom: 1px solid #dddddd;
+}
+.m-list .inner-list li {
+    text-align: center;
+    padding: 5px 13px;
+    line-height: 30px;
+}
+.m-list .inner-list .team-img {
+    border: #f3f3f3 solid 1px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 5px;
+    text-align: center;
+}
+.m-list .inner-list a {
+    color: #515151;
+}
+.m-list .inner-list .text-line {
+    display: inline-block;
+    width: 12px;
+    height: 1px;
+    background-color: #969696;
+}
+
+/*update*/
+.m-list .inner-col{
+    float: left;
+    width: 33.33%;
+    height: 70px;
+    text-align: center;
+}
+.m-list .inner-col p{
+    font-size: 1.4em;
+    line-height:20px;
+}
+.m-list .col-over p{
+   white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.m-list .inner-col .team-img,
+.m-list .inner-col-pic .team-img{
+    margin: 5px 0;
+}
+.m-list .inner-col .team-img img{
+    max-height: 50px;
+}
+.m-list .inner-col .live-score{
+    margin: 10px 0;
+    font-size: 1.6em;
+    font-weight: 800;
+    color: #f8881b;
+}
+.m-list .inner-col-pic{
+    float: left;
+    width: 50%;
+    height: 80px;
+    text-align: center;
+}
+.m-list .inner-col-pic .team-img img{
+    max-height: 60px;
+}
+.bg-pic{
+    background: url("../images/bg_pic.png")  no-repeat;
+}
+.list-pic{
+    width: 115px;
+    height: 124px;
+    float: left;
+    /*margin:12px;*/
+}
+.list-pic:nth-child(odd){
+    margin:13px 5px 0px 18px;
+}
+.list-pic:nth-child(even){
+    margin:13px 18px 0px 5px;
+}
+.list-img-wrap{
+    width: 100%;
+    height: 90px;
+    overflow: hidden;
+}
+.list-img-wrap img{
+    width: 100%;
+}
+.pic-des{
+    font-size: 12px;
+    text-align: center;
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tab-btn{
+    padding-right: 5px;
+    margin-bottom: 10px;
+}
+.tab-btn .active{
+    background-color: #ffa21d;
+}
+.list-btn{
+    width: 15px;
+    height: 15px;
+    border: 1px solid #bbbbbb;
+    border-radius: 50%;
+    margin: 0 2px;
+    float: left;
+}
+.height422{
+    height: 422px;
+    overflow: hidden;
+}
+.col-right .side_bt{
+    border-bottom: 1px solid #dddddd;
+}
+.side .more {
+    border-radius: 5px;
+    background-color: #e9e9e9;
+    float: right;
+    margin-right: 0;
+    margin-top: 7px;
+    height: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 0 5px;
+    color: #ccc;
+    padding-left: 17px;
+    background: url("../images/icon/more-icon.png") no-repeat left;
+}

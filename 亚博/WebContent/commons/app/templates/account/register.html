@@ -1,0 +1,21 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+<div class="page-bg1">
+  <div class="page-wrap">
+    <div class="bodywrap login_wrapbox clearfix">
+      <div class="reg_new_wrap" style="background: none">
+        <div class="reg_new">
+          <div class="reg_new_header">
+            <p style="padding-right:30px ">已有账号？<a ui-sref="login" class="btnt_red">登录</a>
+            </p>
+            <h2> <strong>免费注册</strong>
+            </h2>
+          </div>
+          <div ui-view>
+				
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-include src="templateURI('/footer.html')"></ng-include>

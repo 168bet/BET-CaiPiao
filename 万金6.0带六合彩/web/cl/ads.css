@@ -1,0 +1,198 @@
+
+#direction p, #direction li {
+    line-height: 22px;
+}
+#direction address, #direction blockquote, #direction dd, #direction dl, #direction dt, #direction fieldset, #direction form, #direction h1, #direction h2, #direction h3, #direction h4, #direction h5, #direction h6, #direction noframes, #direction ol, #direction p, #direction ul, #direction center, #direction dir, #direction hr, #direction menu, #direction pre {
+    display: block;
+}
+#direction li {
+    display: list-item;
+}
+#direction table {
+    display: table;
+}
+#direction tr {
+    display: table-row;
+}
+#direction thead {
+    display: table-header-group;
+}
+#direction tbody {
+    display: table-row-group;
+}
+#direction tfoot {
+    display: table-footer-group;
+}
+#direction col {
+    display: table-column;
+}
+#direction colgroup {
+    display: table-column-group;
+}
+#direction td, #direction th {
+    display: table-cell;
+}
+#direction caption {
+    display: table-caption;
+}
+#direction th {
+    font-weight: bolder;
+    text-align: center;
+}
+#direction caption {
+    text-align: center;
+}
+#direction h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+#direction h2 {
+    font-size: 1.5em;
+    margin: 0.75em 0;
+}
+#direction h3 {
+    font-size: 1.17em;
+    margin: 0.83em 0;
+}
+#direction h4, #direction p, #direction blockquote, #direction ul, #direction fieldset, #direction form, #direction ol, #direction dl, #direction dir, #direction menu {
+    margin: 1.5em 0;
+}
+#direction table h4, #direction table p, #direction table blockquote, #direction table ul, #direction table fieldset, #direction table form, #direction table ol, #direction table dl, #direction table dir, #direction table menu {
+    margin: 0;
+}
+#direction h5 {
+    font-size: 0.83em;
+    margin: 1.5em 0;
+}
+#direction h6 {
+    font-size: 0.75em;
+    margin: 1.67em 0;
+}
+#direction h1, #direction h2, #direction h3, #direction h4, #direction h5, #direction h6, #direction b, #direction strong {
+    font-weight: bolder;
+}
+#direction blockquote {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+#direction i, #direction cite, #direction em, #direction var, #direction address {
+    font-style: italic;
+}
+#direction pre, #direction tt, #direction code, #direction kbd, #direction samp {
+    font-family: monospace;
+}
+#direction pre {
+    white-space: pre;
+}
+#direction button, #direction textarea, #direction input, #direction object, #direction select {
+    display: inline-block;
+}
+#direction big {
+    font-size: 1.17em;
+}
+#direction small, #direction ub, #direction sup {
+    font-size: 0.83em;
+}
+#direction sub {
+    vertical-align: sub;
+}
+#direction sup {
+    vertical-align: super;
+}
+#direction table {
+    border-spacing: 2px;
+}
+#direction thead, #direction tbody, #direction tfoot {
+    vertical-align: middle;
+}
+#direction td, #direction th {
+    vertical-align: inherit;
+}
+#direction s, #direction strike, #direction del {
+    text-decoration: line-through;
+}
+#direction hr {
+    border: 1px inset;
+}
+#direction ol, #direction ul, #direction dir, #direction menu, #direction dd {
+    margin-left: 40px;
+}
+#direction ul {
+    list-style-type: disc;
+    padding-left: 12px;
+}
+#direction ol {
+    list-style-type: decimal;
+    padding-left: 15px;
+}
+#direction ol #direction ul, #direction ul ol, #direction ul ul, #direction ol ol {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+#direction u, #direction ins {
+    text-decoration: underline;
+}
+#direction br:before {
+    content: "\A ";
+}
+#direction *:before, #direction *:after {
+    white-space: pre-line;
+}
+#direction center {
+    text-align: center;
+}
+#direction abbr, #direction acronym {
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+}
+#direction *:link, #direction *:visited {
+    text-decoration: underline;
+}
+#direction BDO[DIR="ltr"] {
+    direction: ltr;
+    unicode-bidi: bidi-override;
+}
+#direction BDO[DIR="rtl"] {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+#direction [DIR="ltr"] {
+    direction: ltr;
+    unicode-bidi: embed;
+}
+#direction [DIR="rtl"] {
+    direction: rtl;
+    unicode-bidi: embed;
+}
+#direction .marker {
+    background-color: Yellow;
+}
+#direction ul.mtab-menual {
+    margin-left: 0;
+}
+table {
+    border-width: 1px;
+}
+#MemberExclusive_area {
+    margin: 15px auto;
+}
+#MemberExclusive_area .eventtext {
+    display: none;
+    width: 100%;
+}
+#MemberExclusive_area .eventtext img {
+    display: block;
+}
+#MemberExclusive_area .MemberExclusive {
+    clear: both;
+    margin-bottom: 5px;
+    width: 100%;
+}
+#MemberExclusive_area .memExclusive, #MemberExclusive_area .memExclusive a {
+    background-position: 50% 0;
+    cursor: pointer;
+    width: 100%;
+}
+#MemberExclusive_area .memExclusive a {
+    display: block;
+}

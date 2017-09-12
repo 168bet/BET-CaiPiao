@@ -1,0 +1,48 @@
+	<header class="tzHeader">
+    	<section class="buyHeader">
+    		<h1>发起合买</h1>
+    		<a href="javascript:history.go(-1)" class="backIco2"></a>
+    	</section>
+    </header>
+    <div class="pdLeft04">
+    	<p class="pdTop03 pdLeft06" id='detail'>本方案共<cite class="yellow"></cite>注<cite class="yellow"></cite>倍，总金额<cite class="yellow"></cite>元</p>
+        <div class="s2"><i>认购</i><span><input type="tel" onkeyup="this.value=this.value.replace(/\D/g,'')" id="rg" class="hmInput" value="">元（<cite class="yellow" id="rg_bl"></cite>）</span></div>
+        <div class="s2"><i>保底</i><span><input type="tel" onkeyup="this.value=this.value.replace(/\D/g,'')" id="bd" class="hmInput" value="0">元（<cite class="yellow" id="bd_bl">0%</cite>）<em class="check nocheck" id="chk"></em><em class="gray">全额保底</em>
+        </span></div>
+        <div class="s2">
+        	<i class="tcheight">提成比例</i>
+            <ul class="left scale" id="ratio">
+            	<li v='0'>0%</li>
+                <li v='1'>1%</li>
+                <li v='2'>2%</li>
+                <li v='3'>3%</li>
+                <li v='4'>4%</li>
+                <li v='5' class="cur">5%</li>
+                <li v='6'>6%</li>
+                <li v='7'>7%</li>
+                <li v='8'>8%</li>
+                <li v='9'>9%</li>
+                <li v='10'>10%</li>
+            </ul>
+        </div>
+        <div class="s2">
+        	<i class="gkheight">是否公开</i>
+            <ul class="left scale" id="isPublic">
+            	<li v="0" class="cur">公开</li>
+                <li v="2" class="along">对跟单用户公开</li>
+                <li v="1">截止后公开</li>
+                <li v="3" class="along">截止后对跟单用户公开</li>
+            </ul>
+        </div>
+        <div class="s2">
+        	<i class="faheight">方案宣言</i>
+            <textarea id='desc' class="xyText" placeholder='一句好的口号将帮助方案尽快满员'></textarea>
+      </div>
+  </div>
+  <footer class="buyFooter">
+   	  	<div class="buyFloat fixed">
+        	<span id='my_'>认购<cite></cite>元 保底<cite></cite>元 共<cite class="yellow"></cite>元</span>
+        	<a href="javascript:;" class="ture">提 交</a>
+    	</div>
+	</footer> 
+<script src="/js/trade/fqhm.js"></script>

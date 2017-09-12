@@ -1,0 +1,58 @@
+<?php
+
+return array (
+	'default' => array (
+		'hostname' => 'localhost',
+		'port' => 3306,
+		'database' => 'phpcmsv9',
+		'username' => 'root',
+		'password' => 'root',
+		'tablepre' => 'v9_',
+		'charset' => 'utf8',
+		'type' => 'mysqli',
+		'debug' => true,
+		'pconnect' => 0,
+		'autoconnect' => 0
+		),
+    'sportsdt' => array (
+        'hostname' => 'localhost',
+        'port' => 3306,
+        'database' => 'sportsdt.com',
+        'username' => 'root',
+        'password' => 'root',
+        'tablepre' => 'ft_',
+        'charset' => 'utf8',
+        'type' => 'mysql',
+        'debug' => true,
+        'pconnect' => 0,
+        'autoconnect' => 0
+    ),
+    'win007.com' => array (
+        'hostname' => 'localhost',
+        'port' => 3306,
+        'database' => 'win007.com',
+        'username' => 'root',
+        'password' => 'root',
+        'tablepre' => 'bt_',
+        'charset' => 'utf8',
+        'type' => 'mysql',
+        'debug' => true,
+        'pconnect' => 0,
+        'autoconnect' => 0
+    ),
+    'caipiaokong.com' => array (
+        'hostname' => 'localhost',
+        'port' => 3306,
+        'database' => 'caipiaokong.com',
+        'username' => 'root',
+        'password' => 'root',
+        'tablepre' => 'cp_',
+        'charset' => 'utf8',
+        'type' => 'mysql',
+        'debug' => true,
+        'pconnect' => 0,
+        'autoconnect' => 0
+    ),
+);
+
+?>

@@ -1,0 +1,843 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>《用户服务协议》</title>
+<link rel="stylesheet" href="/style/weui.css"/>
+<link rel="stylesheet" href="/style/example.css"/>
+<style type="text/css">
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:9999;left:0;top:0; display: none;}
+
+body{min-height:480px;}
+.weui-footer_fixed-bottom{position: absolute;}
+.weui-vcode-img{width:90px; height:40px;}
+</style>
+<body>
+<!-- 手机号注册 -->
+	<article id='telzhuc'>
+	<div class="content">
+	<section class="page__hd">
+
+    <div class="weui-flex">
+      <a class="weui-cell__back" href="javascript:history.go(-1);"></a>
+      <p class="weui-flex__item txt_center">手机号注册</p>
+    </div>    
+  </section>
+  <section class="page__bd">
+  	<div class='telxia'>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell weui-cell_vcode">
+          <div class="weui-cell__hd"><label class="weui-label">图形码</label></div>
+          <div class="weui-cell__bd">
+              <input class="weui-input" id='yzmpic' type="text"  placeholder="请输入图形码" maxlength=10/>
+          </div>
+          <div class="weui-cell__ft yzmpic" >
+              <img class="weui-vcode-img" src="/img.jo" />
+          </div>
+      </div>
+      <div class="weui-cell">
+          <div class="weui-cell__hd">
+              <label class="weui-label">手机号</label>
+          </div>
+          <div class="weui-cell__bd">
+              <input class="weui-input" id='tel' type="tel" placeholder="请输入手机号"  maxlength =13>
+          </div>          
+      </div>
+      <div class="weui-cell weui-cell_vcode">
+          <div class="weui-cell__hd">
+              <label class="weui-label">验证码</label>
+          </div>
+          <div class="weui-cell__bd">
+              <input class="weui-input" id='yzm' type="text" placeholder="请输入验证码" maxlength=8>
+          </div>
+          <div class="weui-cell__ft">
+              <button class="weui-vcode-btn" id='hyzm'>获取验证码</button>
+          </div>
+      </div>
+      
+    </div>
+    <div class="weui-btn-area">
+      <button class="weui-btn weui-btn_disabled weui-btn_primary" id="showTooltips" disabled='true'>下一步</button>
+    </div>
+    <div class="weui-footer">
+      <p class="weui-footer__links">
+        <a href="http://5.9188.com /app/lotery/yhxy.html" class="weui-footer__link gray">注册即代表同意《用户服务协议》</a>
+      </p>
+    </div>    
+    </div>
+    
+    <div class='telzhuc' style='display:none'>
+    <div class="weui-cells weui-cells_form" >      
+      <div class="weui-cell">
+          <div class="weui-cell__hd">
+              <label class="weui-label">用户名</label>
+          </div>
+          <div class="weui-cell__bd">
+              <input class="weui-input" type="text" id='username' placeholder="请设置一个用户名"  maxlength =16>
+          </div>          
+      </div>
+      <div class="weui-cell">
+          <div class="weui-cell__hd">
+              <label class="weui-label">密码</label>
+          </div>
+          <div class="weui-cell__bd my_icon_box">
+              <input class="weui-input" type="password" id='pwd' placeholder="请设置一个登录密码" maxlength =20>
+              <i class="my-icon-eyes eye"></i>
+          </div>          
+      </div>
+      
+    </div>
+    <div class="weui-btn-area">
+      <button class="weui-btn weui-btn_primary weui-btn_disabled" id="register" disabled='true'>完成</button>
+    </div>
+    </div>
+  </section>
+  </div>
+  <section class="weui-footer contact">
+   <p class="weui-footer__links">
+       <a class="weui-footer__link userqueh">用户名注册</a>
+   </p>      
+ </section>
+</article>
+
+
+<!-- 用户名注册 -->
+<article id='userzhuc'  style='display:none'>
+<div class="content">
+	<section class="page__hd">
+
+    <div class="weui-flex">
+      <a class="weui-cell__back" href="javascript:history.go(-1);"></a>
+      <p class="weui-flex__item txt_center">用户名注册</p>
+    </div>    
+  </section>
+  <section class="page__bd">
+  <div class='userxia'>    
+    <div class="weui-cells weui-cells_form">      
+      <div class="weui-cell">
+          <div class="weui-cell__hd">
+              <label class="weui-label">用户名</label>
+          </div>
+          <div class="weui-cell__bd">
+              <input class="weui-input" id='username1' type="text" placeholder="请设置一个用户名" maxlength =16>
+          </div>          
+      </div>
+      <div class="weui-cell">
+          <div class="weui-cell__hd">
+              <label class="weui-label">密码</label>
+          </div>
+          <div class="weui-cell__bd my_icon_box">
+              <input class="weui-input" type="password" id='pwd1' placeholder="请设置一个登录密码" maxlength =20>
+             <i class="my-icon-eyes eye"></i>
+             <!-- my-icon-eyes_on -->
+          </div>         
+      </div>
+      
+    </div>
+    <div class="weui-btn-area">
+      <button class="weui-btn weui-btn_primary weui-btn_disabled" id="showTooltips1" disabled='true'>下一步</button>
+    </div>
+    <div class="weui-footer">
+      <p class="weui-footer__links">
+        <a href="http://5.9188.com /app/lotery/yhxy.html" class="weui-footer__link gray">注册即代表同意《用户服务协议》</a>
+      </p>
+    </div>    
+  	</div> 
+    <div class='userzhuc' style='display:none'>
+      <div class="weui-cells weui-cells_form">
+      <div class="weui-cell weui-cell_vcode">
+          <div class="weui-cell__hd"><label class="weui-label">图形码</label></div>
+          <div class="weui-cell__bd">
+              <input class="weui-input" id='yzmpic1' type="text" placeholder="请输入图形码" maxlength =10/>
+          </div>
+          <div class="weui-cell__ft yzmpic1">
+              <img class="weui-vcode-img" src="/img.jo" />
+          </div>
+      </div>
+      <div class="weui-cell">
+          <div class="weui-cell__hd">
+              <label class="weui-label">手机号</label>
+          </div>
+          <div class="weui-cell__bd">
+              <input class="weui-input" type="tel" id='phone' placeholder="请输入手机号" maxlength =13>
+          </div>          
+      </div>
+      <div class="weui-cell weui-cell_vcode">
+          <div class="weui-cell__hd">
+              <label class="weui-label">验证码</label>
+          </div>
+          <div class="weui-cell__bd">
+              <input class="weui-input" id='yzm1' type="text" placeholder="请输入验证码" maxlength=8>
+          </div>
+          <div class="weui-cell__ft">
+              <button class="weui-vcode-btn" id='hyzm1'>获取验证码</button>
+          </div>
+      </div>
+      
+    </div>
+    <div class="weui-btn-area">
+      <button class="weui-btn weui-btn_primary weui-btn_disabled" id="enroll" disabled='true'>完成</button>
+    </div>
+    <div class="weui-footer">
+      <p>
+        手机号将用于中奖通知，请填写本人手机号
+      </p>
+    </div>
+    </div>
+  </section>
+  </div>
+  	<section class="weui-footer contact2">
+	    <p class="weui-footer__links">
+	        <a class="weui-footer__link telqueh">手机号注册</a>
+	    </p>      
+	</section>
+</article>
+
+
+  <div id="toast" style="display: none;">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content">已完成</p>
+    </div>
+  </div>
+
+<script src='/js/public/jquery-1.9.1.min.js'></script>
+<script src='/js/public/JQ.md5.js'></script>
+<script>
+//公用弹出层和加载层
+var win_alert = alert;
+window['alert'] = function (msg, loading) {
+	if (!loading) {
+		clearTimeout(window.alert.time);
+		var obj = $('<div class="alertBox">' + msg + '</div>');
+		$('body').append(obj);
+		window.alert.time = setTimeout(function () {
+			$(".alertBox").remove();
+		}, 2000);
+	} else {
+		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+		$('#mask').show();
+	}
+};
+
+var remove_alert = function () {
+	$('.alertBox').remove();
+	$('#mask').hide();
+};
+
+String.prototype.getParam = function(n){
+	var r = new RegExp("[\?\&]"+n+"=([^&?]*)(\\s||$)", "gi");
+	var r1=new RegExp(n+"=","gi");
+	var m=this.match(r);
+	if(m==null){
+		return "";
+	}else{
+		return typeof(m[0].split(r1)[1])=='undefined'?'':decodeURIComponent(m[0].split(r1)[1]);
+	}
+};
+
+var source = localStorage.getItem('agent')||'3002';//代理商
+var agentFrom = location.search.getParam("agentFrom")||"";
+
+var Register = function () {
+	var hasTouch = 'ontouchstart' in window;
+	var start_ev = hasTouch ? 'touchstart' : 'mousedown';
+	var tempnickid  = '',mobileno = '';
+	var $dom = {
+			$tel : $('#tel'),//手机号码框
+			$yzm : $('#yzm'),//验证码框
+			$yzmpic : $('#yzmpic'),//验证码框
+			$phone : $('#phone'),//手机号码框
+			$yzm1 : $('#yzm1'),//验证码框
+	};
+	
+	
+	var o = {
+			init : function(){
+				//东方网的source值
+				if(document.domain == 'm.cp.eastday.com'){
+					source = '3020'
+				}
+				
+				if(document.domain == 'hz.5.9188.com '){
+					source = '3022'
+				}
+				
+				$dom.$tel.val('');
+				o.bind();
+			},bind : function(){
+				var mobile = ''
+				$dom.$tel.next().on(start_ev,function(){$(this).hide().prev().val('');$('#hyzm').removeClass('hqyzmcur');});
+				
+				$('.s3').bind('click', function(){
+					$(this).find('input').focus();
+					$(this).addClass('s3cur').siblings().removeClass('s3cur');
+				})
+				$('#uName_p,#pWord_p,#uName,#pWord').bind('keyup', function(){$(this).val() != '' && $(this).next().show() || $(this).next().hide();});
+		        $('#uName_p,#pWord_p,#uName,#pWord').next().bind('click', function(){$(this).hide().prev().val('');});
+				//手机号注册[[
+				$dom.$tel.on('keyup',function(){
+					var val_ = $(this).val();
+					/* val_ != '' && $dom.$tel.next().show() || $dom.$tel.next().hide();
+					if(val_.length == '11' && val_.substr(0,1) == '1'){
+					}else{
+					} */
+				});
+				$('#hyzm').on('click',function(){
+					//手机号注册所需参数
+					var imNo = $('#tel').val().replace(/['\t]/g,'').replace(/\s*/g, '');
+					var stime = new Date().getTime();
+					var phoneData = {
+						mobileNo:imNo,
+						yzm: $("#yzmpic").val(),
+						newValue: 1,
+						flag: 2,
+						func: 'mobRegister',
+						imNo: imNo,
+						stime: stime,
+						signmsg: $.md5("imNo="+imNo+'&timestamp='+stime+'&key='+'1.0^adhfjkas565a4sdf36a4s6df46^'),
+						source: source
+					};
+					if(!$("#yzmpic").val()){
+						alert("请输入图形验证码");
+						return false;
+					}else if(!(/^1[34578]\d{9}$/.test(imNo))){
+						alert("请输入有效手机号码");
+						return false;
+					}else{
+							$.ajax({
+								url:'/user/sendSms.go',
+								type:'POST',
+								data:phoneData,
+								success : function(xml){
+									var R = $(xml).find('Resp');
+									var c = R.attr('code');
+									var d = R.attr('desc');
+									if(c == '0'){
+										var r = R.find('row');
+										var m = r.attr('mobileNo');
+										var t = '60';
+										o.count(t,true);
+										/* if($(this).html() == '重新发送'){
+											$('.yzmpic').find("img").attr("src","/img.jo?"+Math.random())
+										} */
+									}else{
+										//$('.yzmpic').find("img").attr("src","/img.jo?"+Math.random())
+										alert(d);
+										$dom.$tel.focus();
+									}
+								}
+							});
+					}
+				});
+				
+				//手机提交验证码
+				$('#showTooltips').click(function(){
+					var mobile = $("#tel").val().replace(/['\t]/g,'').replace(/\s*/g, '');
+					var data ="mobileNo=" + mobile+"&yzm=" + $("#yzm").val()+"&tid=2";
+					$.ajax({
+						url : "/user/verifySms.go",
+						type : "POST",
+						dataType : "xml",
+						data : data,
+						success : function(xml) {
+							var R = $(xml).find("Resp");
+							var code = R.attr("code");
+							var desc = R.attr("desc");
+							if (code == "0") {
+								 remove_alert();
+								$('.telxia').hide();
+								$('.telzhuc').show();
+							}else{
+							/* 	$('.yzmpic').find("img").attr("src","/img.jo?"+Math.random()) */
+								alert(desc)
+							}
+						}
+					});
+				})
+				
+				//手机注册完成
+				$('#register').on('click',function(){
+					var iName = $.trim($("#username").val());
+					var iCode = $.trim($("#pwd").val());
+					var mobile = $("#tel").val().replace(/['\t]/g,'').replace(/\s*/g, '');
+					mobileno= mobile;
+					var len = iCode.length;
+					var re = /^[\da-zA-Z\u4E00-\u9FA5]{4,16}$/;
+					var cs = /^[\d]{4,16}$/;
+					var cat = /^[\x20-\x7f]+$/;
+					var pw = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/g;
+					if(iName == "" && len == 0){
+						alert('请输入用户名和密码');
+						return false;
+					}else if(iName == ""){
+						alert('请输入用户名');
+						return false;
+					}else if (len == 0) {
+						alert("请输入密码");
+						return false;
+					} else if(!(re.test(iName))){
+						alert('用户名为4-16位汉字、数字、字母组合');
+						return false;
+					} else if(cs.test(iName)){
+						alert('用户名不可以全为数字');
+						return false;
+					}else if (len < 6) {
+						alert('您输入的密码不能低于6位');
+						return false;
+					} else if (len > 20) {
+						alert('您输入的密码不能超过20位');
+						return false;
+					} else if (iCode == iName) {
+						alert('密码不能够与用户名一致！请重新输入');
+						return false;
+					}else if (!(pw.test(iCode))) {
+						alert('密码为6-20的字母、数字组合');
+						return false;
+					}else{
+						remove_alert();
+						var url = '/user/mobregister.go';
+						var data = 'uid='
+						+ encodeURIComponent($.trim(iName))
+						+ "&pwd="
+						+ encodeURIComponent($.trim(iCode))
+						+ '&source='+source+'&mobileNo='+mobileno+'&comeFrom='+agentFrom;
+						alert('提交中','load');
+						$.ajax({
+					     	type: 'POST',
+					         data: data,
+					         url: url,
+					         success:function (data){                 
+					        	var R = $(data).find("Resp");
+					   			var code = R.attr("code");
+					   			var desc = R.attr("desc");
+					   			   if (code == "0"){
+					   				   	$('#toast').show();
+					   					localStorage.setItem("username", iName);
+						   				$('#toast').hide();
+						   				/* o.login($.trim(iName),$.trim(iCode)) */
+						   				setTimeout(function(){
+						   					//window.location.replace('/');
+						   					history.back();
+						   				},1e3);
+								   }else{
+									   alert(desc);
+								   }
+					          },
+					          error:function(){
+					        	  alert('网络异常');
+					          }
+					     });
+					}
+				});
+				//]]手机号注册
+				
+				//手机号图像验证码
+				$(".yzmpic").on("click",function(){
+					$(this).find("img").attr("src","/img.jo?"+Math.random())
+				})
+				//手机号图像验证码
+				
+				//用户名图像验证码
+				$(".yzmpic1").on("click",function(){
+					$(this).find("img").attr("src","/img.jo?"+Math.random())
+				})
+				//用户名图像验证码
+				
+				//普通注册[[
+				$('#showTooltips1').click(function(){
+					var iName = $.trim($("#username1").val());
+					var iCode = $.trim($("#pwd1").val());
+					var len = iCode.length;
+					var pw = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/;
+					var re = /^[\da-zA-Z\u4E00-\u9FA5]{4,16}$/;
+					var cs = /^[\d]{4,16}$/;
+					if(iName == "" && len == 0){
+						alert('请输入用户名和密码');
+						return false;
+					}else if(iName == ""){
+						alert('请输入用户名');
+						return false;
+					}else if (len == 0) {
+						alert("请输入密码");
+						return false;
+					} else if(!(re.test(iName))){
+						alert('用户名为4-16位汉字、数字、字母组合');
+						return false;
+					} else if(cs.test(iName)){
+						alert('用户名不可以全为数字');
+						return false;
+					}else if (len < 6) {
+						alert('您输入的密码不能低于6位');
+						return false;
+					} else if (len > 20) {
+						alert('您输入的密码不能超过20位');
+						return false;
+					} else if (iCode == iName) {
+						alert('密码不能够与用户名一致！请重新输入');
+						return false;
+					}else if (!(pw.test(iCode))) {
+						alert('密码6-20位字母、数字的组合');
+						return false;
+					}else{
+						var data ="uid=" + encodeURIComponent($("#username1").val());
+						$.ajax({
+							url : "/user/checkUserNick.go",
+							type : "POST",
+							dataType : "xml",
+							data : data,
+							success : function(xml) {
+								var R = $(xml).find("Resp");
+								var code = R.attr("code");
+								var desc = R.attr("desc");
+								if (code == 0) {//用户名存在
+									$('.userxia').hide();
+									$('.userzhuc').show();
+								}else{
+									alert(desc);
+									return false;
+								}
+							}
+						});
+					}
+				})
+				$('#hyzm1').on('click',function(){
+					var imNo = $('#phone').val().replace(/['\t]/g,'').replace(/\s*/g, '');
+					var stime = new Date().getTime();
+					//手机号注册所需参数
+					var phoneData = {
+						mobileNo:imNo,
+						yzm: $("#yzmpic1").val(),
+						newValue: 1,
+						flag: 2,
+						imNo: imNo,
+						stime: stime,
+						signmsg: $.md5("imNo="+imNo+'&timestamp='+stime+'&key='+'1.0^adhfjkas565a4sdf36a4s6df46^'),
+						source: source
+					};
+					if(!$("#yzmpic1").val()){
+						alert("请输入图形验证码");
+						return false;
+					}else if(!(/^1[34578]\d{9}$/.test(imNo))){
+						alert("请输入有效手机号码");
+						return false;
+					}else{
+							$.ajax({
+								url:'/user/sendSms.go',
+								type:'POST',
+								//data:{'mobileNo':$dom.$tel.val()},
+								data:phoneData,
+								success : function(xml){
+									var R = $(xml).find('Resp');
+									var c = R.attr('code');
+									var d = R.attr('desc');
+									if(c == '0'){
+										var r = R.find('row');
+										tempnickid = r.attr('tempnickid');
+										var t = '60';
+										o.count(t,false);
+										/* if($(this).html() == '获取验证码' || $(this).html() == '重新发送'){
+											
+										} */
+									}else{
+										/* $('.yzmpic1').find("img").attr("src","/img.jo?"+Math.random()) */
+										alert(d);
+										$dom.$phone.focus();
+									}
+								}
+							});
+					}
+				});
+				//用户名注册完成
+				$('#enroll').on('click',function(){
+					var iName = $.trim($("#username1").val());
+					var iCode = $.trim($("#pwd1").val());
+					var phone =$("#phone").val().replace(/['\t]/g,'').replace(/\s*/g, '');
+					var yzm = $.trim($("#yzm1").val());
+					
+					var len = iCode.length;
+					var cat = /^[\x20-\x7f]+$/;
+					var pw = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/g;
+					var re = /^[\da-zA-Z\u4E00-\u9FA5]{4,16}$/;
+					var cs = /^[\d]{4,16}$/;
+					if(iName == "" && len == 0){
+						alert('请输入用户名和密码');
+						return false;
+					}else if(iName == ""){
+						alert('请输入用户名');
+						return false;
+					}else if (!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9]|17[0-9])\d{8}$/i.test(phone)) {
+						alert("请输入正确手机号码");
+						return false;
+					}else if (len == 0) {
+						alert("请输入密码");
+						return false;
+					} else if(!(re.test(iName))){
+						alert('用户名为4-16位汉字、数字、字母组合');
+						return false;
+					} else if(cs.test(iName)){
+						alert('用户名不可以全为数字');
+						return false;
+					} else if (len < 6) {
+						alert('您输入的密码不能低于6位');
+						return false;
+					} else if (len > 20) {
+						alert('您输入的密码不能超过20位');
+						return false;
+					} else if (iCode == iName) {
+						alert('密码不能够与用户名一致！请重新输入');
+						return false;
+					}else if (!(pw.test(iCode))) {
+						alert('密码为6-20的字母、数字组合');
+						return false;
+					}else{
+						var url = '';
+						var data = 'uid='
+						+ encodeURIComponent($.trim(iName))
+						+ "&pwd="
+						+ encodeURIComponent($.trim(iCode))
+						+ "&mobileNo="
+						+ encodeURIComponent($.trim(phone));
+						if(source == '3001'){//微信
+							url='/wechat/wxRegister.go';
+						}else{
+							url = '/user/userRegister.go';
+							data += '&source='+source+'&func=phone_register'+'&yzm='+yzm+'&tid=2'+'&comeFrom='+agentFrom;;
+						}
+						alert('提交中','load');
+						$.ajax({
+					     	type: 'POST',
+					         data: data,
+					         url: url,
+					         success:function (data){
+					        	 remove_alert();
+					        	 var R = $(data).find("Resp");
+					   			 var code = R.attr("code");
+					   			 var desc = R.attr("desc");
+					   			   	if (code == "0"){
+					   			   		$('#toast').show();
+					   			   		localStorage.setItem("username", iName);
+						   			   	$('#toast').hide();
+						   			   	/*  o.login($.trim(iName),$.trim(iCode))*/
+						   			 	setTimeout(function(){
+						   					//window.location.replace('/');
+						   					history.back();
+						   				},1e3);
+					   			   	}else{
+					   			   		//$('.yzmpic1').find("img").attr("src","/img.jo?"+Math.random())
+					   			   		alert(desc);
+					   			   	}
+					          },
+					          error:function(){
+					        	  alert('网络异常');
+					          }
+					     });
+					}
+				});
+				//]]普通注册
+				
+				//密码显示
+				$('.eye').click(function(){
+					var eyes = $(this).hasClass('my-icon-eyes');
+					if(eyes){
+						$(this).removeClass('my-icon-eyes').addClass('my-icon-eyes_on');
+						$(this).prev('input').attr('type','text');
+					}else{
+						$(this).removeClass('my-icon-eyes_on').addClass('my-icon-eyes');
+						$(this).prev('input').attr('type','password');
+					}
+				})
+				
+				/***
+				$("#tel,#phone").bind("input propertychange",function(){
+					this.value = this.value.replace(/\D/g, " ")
+					this.value = this.value.replace(/(\d{3})(\d{4})(\d{4})/,'$1 $2 $3');
+				});
+				***/
+				
+				//用户名切换
+				$('.userqueh').click(function(){
+					$('.yzmpic1').find("img").attr("src","/img.jo?"+Math.random())
+					$('#telzhuc').hide();
+					$('#userzhuc').show();
+				})
+				//手机切换
+				$('.telqueh').click(function(){
+					$('.yzmpic').find("img").attr("src","/img.jo?"+Math.random())
+					$('#userzhuc').hide();
+					$('#telzhuc').show();
+				})
+				$("#yzm").keyup(function(){
+					btnLight(1)
+				});
+				$("#yzmpic").keyup(function(){
+					btnLight(1)
+				});
+				$("#tel").keyup(function(){
+					btnLight(1)
+				});
+				$("#username").keyup(function(){
+					btnLight(2)
+				});
+				$("#pwd").keyup(function(){
+					btnLight(2)
+				});
+				$("#username1").keyup(function(){
+					btnLight(3)
+				});
+				$("#pwd1").keyup(function(){
+					btnLight(3)
+				});
+				$("#yzm1").keyup(function(){
+					btnLight(4)
+				});
+				$("#yzmpic1").keyup(function(){
+					btnLight(4)
+				});
+				$("#phone").keyup(function(){
+					btnLight(4)
+				});
+				//按钮点亮
+				var btnLight = function(a){
+					if(a == 1){
+						if($('#yzmpic').val() && $('#tel').val() && $("#yzm").val()){
+					    	$('#showTooltips').removeClass('weui-btn_disabled');
+					    	$('#showTooltips').removeAttr('disabled');
+					    }else{
+					    	if(!($('#showTooltips').hasClass('weui-btn_disabled'))){
+					    		$('#showTooltips').addClass('weui-btn_disabled')
+					    		$('#showTooltips').attr('disabled','true');
+					    	}
+					    }
+					}else if(a == 2){
+						if($('#username').val() && $('#pwd').val()){
+					    	$('#register').removeClass('weui-btn_disabled');
+					    	$('#register').removeAttr('disabled');
+					    }else{
+					    	if(!($('#register').hasClass('weui-btn_disabled'))){
+					    		$('#register').addClass('weui-btn_disabled')
+					    		$('#register').attr('disabled','true');
+					    	}
+					    }
+					}else if(a == 3){
+						if($('#username1').val() && $('#pwd1').val()){
+					    	$('#showTooltips1').removeClass('weui-btn_disabled');
+					    	$('#showTooltips1').removeAttr('disabled');
+					    }else{
+					    	if(!($('#showTooltips1').hasClass('weui-btn_disabled'))){
+					    		$('#showTooltips1').addClass('weui-btn_disabled')
+					    		$('#showTooltips1').attr('disabled','true');
+					    	}
+					    }
+					}else if(a == 4){
+						if($('#yzmpic1').val() && $('#phone').val() && $("#yzm1").val()){
+					    	$('#enroll').removeClass('weui-btn_disabled');
+					    	$('#enroll').removeAttr('disabled');
+					    }else{
+					    	if(!($('#enroll').hasClass('weui-btn_disabled'))){
+					    		$('#enroll').addClass('weui-btn_disabled')
+					    		$('#enroll').attr('disabled','true');
+					    	}
+					    }
+					}
+				}
+			},count : function(t,d){ //参数d判断为手机号注册  用户名注册
+				if (t == 0) {
+					if(d){
+						$('#hyzm').html('重新发送');
+						$("#hyzm").removeAttr("disabled");
+						$('.yzmpic').find("img").attr("src","/img.jo?"+Math.random())
+					}else{
+						$('#hyzm1').html('重新发送');
+						$("#hyzm1").removeAttr("disabled");
+						$('.yzmpic1').find("img").attr("src","/img.jo?"+Math.random())
+					}
+		        } else {
+		        	if(d){
+		        		$("#hyzm").attr("disabled", true);
+			        	$('#hyzm').html('重新发送(' + (t--) + ')');
+		        	}else{
+		        		$("#hyzm1").attr("disabled", true);
+			        	$('#hyzm1').html('重新发送(' + (t--) + ')');
+		        	}
+		            setTimeout(function () {
+		                o.count(t,d);
+		            }, 1000);
+		        }
+			},
+			redelete :function(arr){
+				var res = [];
+				 var json = {};
+				 for(var i = 0; i < arr.length; i++){
+				  if(!json[arr[i]]){
+					res.push(arr[i]);
+					json[arr[i]] = 1;
+				  }
+				 }
+				 return res;
+			},
+			login:function(uname,pwd){
+				var data = "uid=" +encodeURIComponent(uname)+"&pwd="+encodeURIComponent(pwd)+"&source=3000";
+			    $.ajax({
+			    	/* url: '/user/mlogin.go', */
+			    	url: '/user/login.go',
+			        type: "POST",
+			        dataType : "xml",
+			        data: data,
+			        cache: false,
+			        success : function (xml) {
+			        	remove_alert();
+			        	var R = $(xml).find("Resp");
+						var code = R.attr("code");
+						var desc = R.attr("desc");
+						if (code == "0") {
+							localStorage.setItem("username", uname);
+							if(localStorage.getItem('unlist')){
+								var unlist = JSON.parse(localStorage.getItem('unlist'));
+								unlist.unshift(uname);
+								var list = o.redelete(unlist)
+								localStorage.setItem('unlist',JSON.stringify(list));
+							}else{
+								var unlist = [uname]
+								localStorage.setItem('unlist',JSON.stringify(unlist));
+							}
+							setTimeout(function(){
+								location.href='/#type=url&p=user/index.html';
+							},1e3);
+						}
+			        },error : function (){
+			        	remove_alert();alert('网络异常请刷新重试');
+			        	return
+			        }		        
+			    });
+			}
+	};
+	o.init();
+	return 
+}();
+
+$(function(){
+	
+})
+$(function(){
+    var wContact=$('body').height()-$('.content').outerHeight();
+    var w=wContact-80;
+    var w2=wContact-36;
+    $('.contact').css('margin-top',w);
+    $('.contact2').css('margin-top',w2);
+});
+</script>
+</body>
+</html>

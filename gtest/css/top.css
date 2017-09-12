@@ -1,0 +1,94 @@
+﻿a {
+	color:#fed7ad;
+	text-decoration:none;
+}
+a:hover{
+    color:#f1ad45;
+    font-weight:bold;
+    text-decoration:none;
+}
+.alte{
+    color:#000;
+	text-decoration:none;
+}
+.bg_h {
+	background:url(/images/bg1.jpg) no-repeat 42px -12px;
+}
+.bg_r {
+	background:url(/images/bg1.jpg) no-repeat 66px -12px;
+}
+.bg_e {
+	background:url(/images/bg1.jpg) no-repeat 84px -12px;
+}
+.bg_d {
+	background:url(/images/bg1.jpg) no-repeat 102px -12px;
+}
+.t_bg {
+	height:108px;
+	background:url(/images/TopMenu_Top.jpg);
+}
+.t_img {
+	width:231px;
+	height:79px;
+	background:url(/images/logo.jpg) no-repeat;
+}
+.sel_a {
+    top:33px;
+    width:100%;
+    height:24px;
+    padding-top:10px;
+    position:absolute;
+	background:url(../images/t2.jpg) no-repeat;
+}
+.sel {
+    position:absolute;
+    top:3px;
+    left:15px;
+	padding:1px;
+	font-weight:bold;
+	color:red;
+}
+.left_a_bg {
+	width:13px;
+	height:32px;
+	background:url(/images/t3.jpg) no-repeat 0 2px;
+}
+.bST_1 {
+	BACKGROUND-IMAGE: url(/images/But1.jpg); BORDER-BOTTOM: #ff9224 0px solid; BORDER-LEFT: #ff9224 0px solid; BACKGROUND-COLOR: #b3c5ef; WIDTH: 132px; HEIGHT: 36px; BORDER-TOP: #ff9224 0px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #ff9224 0px solid
+}
+.bST_1_s {
+	BACKGROUND-IMAGE: url(/images/But1.jpg); BORDER-BOTTOM: #ff9224 0px solid; BORDER-LEFT: #ff9224 0px solid; BACKGROUND-COLOR: #b3c5ef; WIDTH: 132px; HEIGHT: 36px; BORDER-TOP: #ff9224 0px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #ff9224 0px solid
+}
+.bST_1 {
+	BACKGROUND-POSITION: 0px 50%; COLOR: #fff5d7
+}
+.bST_1_s {
+	BACKGROUND-POSITION: -132px 50%; COLOR: #4f260d
+}
+.bSB_1 {
+	BACKGROUND-IMAGE: url(/images/But2.jpg); BORDER-BOTTOM: #ff9224 0px solid; BORDER-LEFT: #ff9224 0px solid; BACKGROUND-COLOR: #b3c5ef; HEIGHT: 36px; BORDER-TOP: #ff9224 0px solid; CURSOR: hand; FONT-WEIGHT: bold; BORDER-RIGHT: #ff9224 0px solid
+}
+.bSB_1_m {
+	BACKGROUND-IMAGE: url(/images/But2.jpg); BORDER-BOTTOM: #ff9224 0px solid; BORDER-LEFT: #ff9224 0px solid; BACKGROUND-COLOR: #b3c5ef; HEIGHT: 36px; BORDER-TOP: #ff9224 0px solid; CURSOR: hand; FONT-WEIGHT: bold; BORDER-RIGHT: #ff9224 0px solid
+}
+.bSB_2 {
+	BACKGROUND-IMAGE: url(/images/But2.jpg); BORDER-BOTTOM: #ff9224 0px solid; BORDER-LEFT: #ff9224 0px solid; BACKGROUND-COLOR: #b3c5ef; HEIGHT: 36px; BORDER-TOP: #ff9224 0px solid; CURSOR: hand; FONT-WEIGHT: bold; BORDER-RIGHT: #ff9224 0px solid
+}
+.bSB_2_m {
+	BACKGROUND-IMAGE: url(/images/But2.jpg); BORDER-BOTTOM: #ff9224 0px solid; BORDER-LEFT: #ff9224 0px solid; BACKGROUND-COLOR: #b3c5ef; HEIGHT: 36px; BORDER-TOP: #ff9224 0px solid; CURSOR: hand; FONT-WEIGHT: bold; BORDER-RIGHT: #ff9224 0px solid
+}
+.bSB_1 {
+	WIDTH: 77px; BACKGROUND-POSITION: 0px 50%
+}
+.bSB_1_m {
+	WIDTH: 77px; BACKGROUND-POSITION: -171px 50%
+}
+.bSB_2 {
+	WIDTH: 94px; BACKGROUND-POSITION: -77px 50%
+}
+.bSB_2_m {
+	WIDTH: 94px; BACKGROUND-POSITION: -248px 50%
+}
+.Font_R {
+	color: #ff0000
+}

@@ -1,0 +1,55 @@
+@charset "UTF-8";
+a,input,button{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* 取消链接高亮 */ }
+section{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* 取消链接高亮 */ }
+
+@media screen and (min-width:410px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+
+.clearfix:after{zoom:1}
+.clearfix:after{content:"";display:block;width:0;height:0;visibility:hidden;clear:both;}
+.fl{float:left;}
+.fr{float:right;}
+ul,li{list-style: none;}
+
+*{padding:0;margin:0;}
+p{padding:0;margin:0;-webkit-margin-before: 0;-webkit-margin-after: 0;}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+    background: #fff;
+    font-size: 14px;
+}
+.wrap{width:100%; background: url('../Share_img/bg.png') 0 bottom no-repeat; background-size: 100% auto;}
+.banner_img{display: block;width:100%;height:19.5rem;}
+a.btn_a{ display: block; margin:1rem auto 0;width:70%;height:2.5rem; line-height: 2.5rem; letter-spacing: 2px;
+    background:-webkit-linear-gradient(to bottom,#ffeb4a, #ffb913);
+    background:linear-gradient(to bottom,#ffeb4a,#ffb913);
+    color:#fd275a;font-size:1.3rem; text-decoration: none; text-align: center;border-radius: 2.5rem;
+    box-shadow:0 5px 0 0 #fb7e00;font-weight:bold;
+}
+a.btn_a:hover,a.btn_a:active{background:#ffb913;}
+p.p1{color:#b18414;font-size:0.8rem; text-align: center;font-weight: bold; height:4rem; line-height:3rem;}
+
+.icon_box{width:76%;margin:0 auto;}
+.icon_info{ height:4.3rem;margin-bottom:1.7rem;}
+.icon_info img{ float: left; display: block;width:4.3rem;height:4.3rem;margin-right:0.8rem;}
+.icon_info div{ float: left;}
+.icon_info p.p2{color:#535353;font-size:1rem;font-weight: bold;padding-bottom:0.2rem;padding-top:0.2rem;}
+.icon_info p.p2.p4{padding-top:0.6rem;}
+.icon_info p.p3{color:#535353;font-size:0.75rem; line-height: 1.2rem;}
+img.logo_img{ display: block;width:3.5rem;height:auto;margin:2.5rem auto 0;}
+p.p5{color:#caaf82;font-size:0.7rem; font-weight: bold; text-align: center;margin-bottom:2rem;margin-top:0.3rem;}
+
+
+
+
+
+
+
+
+
+
+
+

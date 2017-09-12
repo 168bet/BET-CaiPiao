@@ -1,0 +1,154 @@
+<div id=operation>
+	<div class="setup" id='bangding'>
+		<a href="/alone/phone.html" class="relative">手机号绑定<em></em><i
+			class="hmArrow"></i></a> <a href="/alone/idcard.html" class="relative">身份证绑定<em></em><i
+			class="hmArrow"></i></a> <a href="/alone/bankcard.html" class="relative"
+			style="border-bottom: none">银行卡绑定<em></em><i class="hmArrow"></i></a>
+	</div>
+	<div class="setup" id='dbpwd'>
+		<a href="/alone/cpwd.html" class="relative">密码修改<i class="hmArrow"></i></a>
+		<a href="/alone/forgotpwd.html" class="relative" style="border-bottom: none">忘记密码<i
+			class="hmArrow"></i></a>
+	</div>
+	
+	<div class="setup" id='spwd'>
+		<a href="/alone/spwd.html" class="relative">设置密码<i class="hmArrow"></i></a>
+	</div>
+	
+	<div class="setup">
+		<a href="#type=url&p=user/notice.html" class="relative">公告<i class="hmArrow"></i></a>
+		<a href="tel:4006739188" class="relative" id='phonenum'>客服电话 400-673-9188<i
+			class="hmArrow"></i></a>
+	</div>
+	<div class="pd063">
+		<a href="javascript:;" id=getOut class="payment">退出登录</a>
+	</div>
+</div>
+<script>
+String.prototype.getParam = function(n){
+	var r = new RegExp("[\?\&]"+n+"=([^&?]*)(\\s||$)", "gi");
+	var r1=new RegExp(n+"=","gi");
+	var m=this.match(r);
+	if(m==null){
+		return "";
+	}else{
+		return typeof(m[0].split(r1)[1])=='undefined'?'':decodeURIComponent(m[0].split(r1)[1]);
+	}
+};
+
+//var username = localStorage.getItem("username")||location.search.getParam("uid");
+var username = localStorage.getItem("username")||"";
+console.log(username)
+CP.SetUp = (function(){
+	var o = {
+			//获取用户当前的绑定状态
+			safe : function () {
+				$.ajax({
+					url : CP.Data.apps+'/user/query.go?flag=2',
+					type : "POST",
+					dataType : "xml",
+					success : function(xml) {
+						var R = $(xml).find("Resp");
+						var code = R.attr("code");
+						var desc = R.attr("desc");
+						if (code == "0") {
+							var r = R.find('row');
+							var bank = r.attr('bank');
+							var rname =r.attr("rname");
+							var idcard =r.attr("idcard");
+							var mobbind = r.attr('mobbind');
+							if(mobbind != 0){
+								$('#bangding a:eq(0) em').attr('class','bind');
+							}else{
+								$('#bangding a:eq(0) em').attr('class','nobind');
+							}
+							if(rname.length>2 && idcard.length>10){
+								$('#bangding a:eq(1) em').attr('class','bind');
+							}else{
+								$('#bangding a:eq(1) em').attr('class','nobind');
+							}
+							if(bank.length>10){
+								$('#bangding a:eq(2) em').attr('class','bind');
+							}else{
+								$('#bangding a:eq(2) em').attr('class','nobind');
+							}
+						}else{
+							alert(desc);
+						}
+					}
+				});
+			},
+			operation : function () {
+				TopAnch.init({
+					title:'设置',
+					prevShow:true,
+					prevFun:function(){//左侧按钮绑定事件
+						window.location.href='#type=url&p=user/index.html';
+					},
+					isBack:true
+				});
+				o.safe();
+			},
+			sspwd:function(){
+				console.log(username)
+				$.ajax({
+					url:'/user/query_zcsh_pwd_flag.go?uid='+username,
+					type:'POST',
+					success:function(xml){
+						var R = $(xml).find("Resp")
+						var code = R.attr("code");
+						var desc = R.attr("desc");
+						
+						if(code=="0"){
+							var row = R.find("row");
+							var nickid = row.attr("nickid");
+							var pwdflag =flag= row.attr("pwdflag")
+							
+							if(pwdflag==0){
+								$("#spwd").show();//设置密码
+								$("#dbpwd").hide();
+							}else{
+								$("#spwd").hide();
+								$("#dbpwd").show();
+							}
+						}
+					}
+				})
+			},
+			bind : function(){
+				$('#getOut').Touch(function () {//退出登录
+					$.ajax({
+						url : CP.Data.apps+'/user/loginout.go',
+						type : "POST",
+						dataType : "xml",
+						success : function(xml) {
+							var R = $(xml).find("Resp");
+							var code = R.attr("code");
+							var desc = R.attr("desc");
+							if (code == "0") {
+								alert('退出成功');
+								setTimeout(function () {
+									location.href = '#type=fun&fun=CP.Home.openLogin&in=user/index.html';
+								}, 1500);
+							}else{
+								alert(desc);
+							}
+						}
+					});
+				});
+			}
+	};
+	var init = function(){
+		if(CP.Data.source == '3021'){
+			$('#getOut').parent().hide();
+			$('#dbpwd,#phonenum').hide();
+		}
+		
+		
+		o.sspwd();
+		o.operation();
+		o.bind();
+	}
+	init();
+})();
+</script>

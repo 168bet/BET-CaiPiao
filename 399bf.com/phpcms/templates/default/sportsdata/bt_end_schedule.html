@@ -1,0 +1,185 @@
+{php $css = array('bt_live_schedule.css', 'date-plugin.css');}
+{template 'content', 'header_score'}
+
+<div class="select-wrap">
+    <div class="select-item" style="padding-top: 25px;">
+        <ul class="clearfix">
+            <li class="item"><a href="{APP_PATH}lqscore/">即时</a></li>
+            <li class="item active">完场</li>
+            <li class="item"><a href="{APP_PATH}lqsaicheng/">下日</a></li>
+            <li>
+                <button class="btn item" data-toggle="modal" data-target="#saishi">
+                    选择赛事<i class="icon-angle-down" style="margin-left: 5px;"></i>
+                </button>
+            </li>
+            <li class="item active hot-item" data-id="0">完整</li>
+            <li class="item hot-item" data-id="1">NBA</li>
+            <li class="item hot-item" data-id="5">CBA</li>
+            <li class="item hot-item" data-id="2">WNBA</li>
+            <li class="item hot-item" data-id="7">EURO</li>
+            <li class="item spe">共{$total}场 隐藏<span id="hidden" class="orange">0</span>场</li>
+        </ul>
+    </div>
+    <div class="date-wrap clearfix">
+        <ul>
+            {loop $arr_date $r}
+            {if $r[active] == 1}
+            <li class="active">{$r[date_text]}<br>{$r[week_text]}</li>
+            {else}
+            <a href="{APP_PATH}lqwanchang/?date={$r[date]}">
+                <li class="date-item">{$r[date_text]}<br>{$r[week_text]}</li>
+            </a>
+            {/if}
+            {/loop}
+            <li id="calenBtn" class="date-item" style="padding-top: 15px;">
+                <i class="icon-calendar"></i>
+                <span style="margin: 0 5px;">日历</span>
+                <i class="icon-angle-down"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 日历插件 -->
+<div class="container">
+    <div class="row">
+        <div id="date-plugn" class="date-plugn" data-date="" style="display: none">
+            <input type="hidden" value="" class="dateText">
+            <div class="date-title">
+                <button class="date-control prev">
+                    <i class="icon-arrow-left"></i>
+                </button>
+                <div class="date-info">
+                    <div class="num">10</div>
+                    <div class="text">
+                        <div class="week">星期四</div>
+                        <div class="date">2016 12月</div>
+                    </div>
+                </div>
+                <button class="date-control next">
+                    <i class="icon-arrow-right"></i>
+                </button>
+            </div>
+
+            <div class="date-content">
+
+                <ul class="date-week clearfix">
+                    <li>日</li>
+                    <li>一</li>
+                    <li>二</li>
+                    <li>三</li>
+                    <li>四</li>
+                    <li>五</li>
+                    <li>六</li>
+                </ul>
+
+                <ul class="date-num" id="dateNum">
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- 日历插件end -->
+<div class="data-wrap clearfix">
+    <div class="event">
+        <div class="title"><i class="rili"></i>{$date_text}</div>
+        {loop $end_schedule $r}
+        <div class="data-item clearfix" data-competition="{$r[sclassid]}" data-id="{$r[sclassid]}">
+            <div class="time-wrap">
+                <span class="time">{$r[date]}</span>
+            </div>
+            <div class="table-wrap" style="border: 1px solid #f2f2f2;">
+                <table width="100%">
+                    <tr>
+                        <td width="196" align="left" class="pdl-10"><span style="color: {$r[sclasscolor]}">{$r[sclassname_cn]}</span> <span
+                                class="red fr pdr">{$r[status]}</span></td>
+                        {if $r['sclasspart'] == 4}
+                        <td width="40" class="grey2">1</td>
+                        <td width="40" class="grey2">2</td>
+                        <td width="40" class="grey2">3</td>
+                        <td width="40" class="grey2">4</td>
+                        {else}
+                        <td width="80" class="grey2">上半场</td>
+                        <td width="80" class="grey2">下半场</td>
+                        {/if}
+                        <td width="50" class="grey2">上下</td>
+                        <td width="40" class="grey2">全场</td>
+                        <td width="50" class="grey2">分差</td>
+                        <td width="50" class="grey2">总分</td>
+                        <td width="50" class="grey2">欧赔</td>
+                        <td width="100" class="grey2">让分盘</td>
+                        <td width="120" class="grey2">大小分</td>
+                        <td width="120"><i class="ft18 start-pos grey icon-star-empty"></i></td>
+                    </tr>
+                    <tr>
+                        <td align="left" class="pdl-10">
+                            <div class="imgCon"><img src="{$r[homelogo]}" height="25" width="25" alt="" class="team-photo"></div>
+                            <div class="teamname">{str_cut($r[homename_cn], 30, '...')}</div>
+                        </td>
+                        <td>{$r[homeone]}</td>{if $r['sclasspart'] == 4}<td>{$r[hometwo]}</td>{/if}<td>{$r[homethree]}</td>{if $r['sclasspart'] == 4}<td>{$r[homefour]}</td>{/if}<td class="grey2">{$r[homeFirstHalf]}/{$r[homeSecondHalf]}</td><td><span class="red">{$r[homescore]}</span></td><td class="grey2">半:{$r[halfDiff]}</td><td class="grey2">半:{$r[halfSum]}</td><td><span>{$r[homewin]}</span></td><td><span class="orange">{$r[letgoal]}</span> <span class="pos">{$r[homeodds]}</span></td><td><span class="orange">小{$r[totalscore]}</span> {$r[lowodds]}</td>
+                        <td rowspan="2">
+                            <div class="height35"><a href="{APP_PATH}schedule/{$r[scheduleid]}/analyse/" target="_blank">分析</a></div>
+                            <span class="m5"><a href="{APP_PATH}schedule/{$r[scheduleid]}/asia/" target="_blank">亚</a></span>
+                            <span class="m5"><a href="{APP_PATH}schedule/{$r[scheduleid]}/euro/" target="_blank">欧</a></span>
+                            <span class="m5"><a href="{APP_PATH}schedule/{$r[scheduleid]}/ou/" target="_blank">大</a></span></td>
+                    </tr>
+                    <tr>
+                        <td align="left" class="pdl-10">
+                            <div class="imgCon"><img src="{$r[guestlogo]}" height="25" width="25" alt="" class="team-photo"></div>
+                            <div class="teamname">{str_cut($r[guestname_cn], 30, '...')}</div>
+                        </td>
+                        <td>{$r[guestone]}</td>
+                        {if $r['sclasspart'] == 4}<td>{$r[guesttwo]}</td>{/if}
+                        <td>{$r[guestthree]}</td>
+                        {if $r['sclasspart'] == 4}<td>{$r[guestfour]}</td>{/if}
+                        <td class="grey2">{$r[guestFirstHalf]}/{$r[guestSecondHalf]}</td>
+                        <td><span class="red">{$r[guestscore]}</span></td>
+                        <td class="grey2">总:{$r[wholeDiff]}</td>
+                        <td class="grey2">总:{$r[wholeSum]}</td>
+                        <td><span>{$r[guestwin]}</span></td>
+                        <td><span class="orange"><span style="color: #FFF;">{$r[letgoal]}</span></span> <span class="pos">{$r[guestodds]}</span></td>
+                        <td><span class="orange">大{$r[totalscore]}</span>&nbsp;{$r[highodds]}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {/loop}
+    </div>
+</div>
+
+
+<!--modal-->
+<!-- 赛事 弹出层 -->
+<div class="modal fade" id="saishi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">赛事选择</h4>
+            </div>
+            <div class="modal-body row">
+                {loop $sclass_data $r}
+                <div class="col-md-3"><label><input type="checkbox" name="competitionid[]" data-name="competition" value="{$r[sclassid]}">&nbsp;{$r[sclassname]}</label></div>
+                {/loop}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info checkAll" data-action="check-all" data-target="competition">全选</button>
+                <button type="button" class="btn btn-info clearCheck" data-action="check-clear" data-target="competition">全不选</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-target="competition" data-action="submit" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<script>
+    var url = '{$url}';
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+
+{php $js = array('date-plugin.js', 'date-plugin-init.js', 'bt_end_future.js', 'imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js');}
+{template 'content', 'footer'}

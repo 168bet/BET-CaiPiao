@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>免费注册9188彩票</title>
+    <meta content="注册" name="description">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="author" content="m.9188.com  ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="cleartype" content="on">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="wrapper">
+        <img src="img/sharelogo.png" style="position: absolute;z-index:-200;">
+        <div class="bg_img"><img src="img/logo.png" class="logo_img"></div>
+        <div class="register_box">
+            <div class="icon_1">
+                <input id="uName" type="text" maxlength="16" placeholder="用户名（至少4位）"/>
+            </div>
+            <div class="icon_2">
+                <input type="password" id="pWord"  maxlength="20" placeholder="密码(字母数字组合至少6位)" />
+                <a class="eye_a close"></a>
+            </div><!-- close open 切换-->
+            <div class="icon_3">
+                <input type="text" onchange="value=value.replace(/[^\d]/g,'')"  id="cellphone" placeholder="手机号码"/>
+                <a href="javascript:;" class="code_a">获取验证码</a>
+            </div>
+            <div class="icon_4" style="display: none;">
+                <input type="text" maxlength="8" id="Usermsg" placeholder="验证码" />
+            </div>
+        </div>
+        <!--btn-->
+        <a href="javascript:;" class="register_btn disabled_a">免费注册</a><!--不可点状态 disabled_a-->
+        <!--文字-->
+        <div class="info_box">
+            <p><span>1对1服务</span>专属客户经理,大奖专人通知</p>
+            <p><span>充值独享</span>大额充值通道,免手续费</p>
+            <p><span>极速提款</span>中奖提款优先批复,快人一步</p>
+        </div>
+    </section>
+    <script type="text/javascript" src='./js/jquery-1.9.1.min.js'></script>
+    <script type="text/javascript" src='./js/md5.min.js'></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src='./js/index.js'></script>
+</body>
+</html>

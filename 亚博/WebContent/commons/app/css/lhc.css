@@ -1,0 +1,435 @@
+.fz18
+{
+    font-size: 18px;
+}
+.topWhite
+{
+    top: 66px;
+    left: 80px;
+
+    width: 800px;
+    height: 136px;
+
+    border-radius: 28px;
+    background: white;
+}
+.w6per
+{
+    width: 6%;
+}
+.w20per
+{
+    width: 20%;
+}
+.w30per
+{
+    width: 30%;
+}
+.topRed
+{
+    line-height: 45px;
+
+    width: 100%;
+    height: 45px;
+
+    background: #bd2929;
+}
+.w122
+{
+    width: 122px;
+}
+.fz14
+{
+    font-size: 14px;
+}
+.tdLhcBet
+{
+    line-height: 30px;
+
+    display: inline-block;
+
+    width: 60px;
+    height: 30px;
+
+    color: white;
+    border-radius: 15px;
+    background: #a21d1e;
+}
+.hgt328
+{
+    height: 328px;
+}
+.yellow
+{
+    color: #ff0;
+}
+.lhcOpenBg
+{
+    line-height: 60px;
+
+    height: 60px;
+    padding: 0 30px;
+
+    border-radius: 30px;
+    background: #e9e9e9;
+}
+.border_red
+{
+    padding: 8px 16px;
+
+    color: #c44443;
+    border: 1px solid #c44443;
+    border-radius: 15px;
+}
+.border_red_active
+{
+    padding: 8px 16px;
+
+    color: white;
+    border: 1px solid #c44443;
+    border-radius: 15px;
+    background: #c44443;
+}
+.border_btm5
+{
+    border-bottom: 5px solid white;
+}
+.border_btm3
+{
+    border-bottom: 3px solid white;
+}
+.border_btm2
+{
+    border-bottom: 2px solid white;
+}
+.black
+{
+    color: black;
+}
+.bgRed
+{
+    background-color: #d13924!important;
+}
+.bgGreen
+{
+    background-color: #6ac335!important;
+}
+.bgBlue
+{
+    background-color: #0075c5!important;
+}
+.text_left
+{
+    text-align: left;
+}
+.blue{
+  color: blue;
+}
+.w85{
+  width: 85px;
+}
+.w78{
+  width: 78px;
+}
+.w70{
+  width: 70px;
+}
+.w60{
+  width: 60px;
+}
+.w50{
+  width: 50px;
+}
+.w40{
+  width: 40px;
+}
+.w100per{
+  width: 100%;
+}
+.redCircle
+{
+    line-height: 30px;
+
+    width: 30px;
+    height: 30px;
+
+    text-align: center;
+
+    border-radius: 15px;
+    background: #d13b00;
+}
+.greenCircle
+{
+    line-height: 30px;
+
+    width: 30px;
+    height: 30px;
+
+    text-align: center;
+
+    border-radius: 15px;
+    background: #6ac335;
+}
+.blueCircle
+{
+    line-height: 30px;
+
+    width: 30px;
+    height: 30px;
+
+    text-align: center;
+
+    border-radius: 15px;
+    background: #0075c5;
+}
+.hgt25
+{
+    height: 25px;
+}
+.green
+{
+    color: green;
+}
+.hgt36
+{
+    height: 36px;
+}
+.line_hgt36
+{
+    line-height: 36px;
+}
+.hgt30
+{
+    height: 30px;
+}
+.hgt40
+{
+    height: 40px;
+}
+.line_hgt40
+{
+    line-height: 40px;
+}
+.line_hgt30
+{
+    line-height: 30px;
+}
+
+.hgt50
+{
+    height: 50px;
+}
+.line_hgt50
+{
+    line-height: 50px;
+}
+
+.border_r8
+{
+    border-right: 8px solid white;
+}
+.border_r10
+{
+    border-right: 10px solid white;
+}
+.border_red1
+{
+    border: 1px solid #A72321;
+}
+.text-center {
+	text-align: center;
+}
+.text-left {
+	text-align: left;
+}
+.border_btm10
+{
+    border-bottom: 10px solid white;
+}
+.border_btm8
+{
+    border-bottom: 8px solid white;
+}
+.bold
+{
+    font-weight: bold;
+}
+.fz16
+{
+    font-size: 16px;
+}
+.p5_25
+{
+    padding: 5px 25px;
+}
+.p10_0
+{
+    padding: 10px 0;
+}
+.border_r16
+{
+    border-right: 16px solid white;
+}
+.tm_active
+{
+    color: white;
+    background: #bd2929;
+}
+.redBlock
+{
+    line-height: 30px;
+    width: 36px;
+    height: 30px;
+    color: white;
+    background: #d31728;
+}
+.greenBlock
+{
+    line-height: 30px;
+    width: 36px;
+    height: 30px;
+    color: white;
+    background: green;
+}
+.blueBlock
+{
+    line-height: 30px;
+    width: 36px;
+    height: 30px;
+    color: white;
+    background: blue;
+}
+
+.quick-order {
+	
+}
+
+.quick-order label {
+    height: 30px;
+    line-height: 30px;
+    float: left;
+}
+
+.quick-order input {
+    width: 100px;
+    height: 30px;
+    border: 1px solid #aeaeae;
+    text-indent: 0.5em;
+    box-sizing: border-box;
+    float: left;
+    margin: 0px 10px;
+}
+
+.quick-order button {
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    color: #fff;
+    background-color: #bd2829;
+    border: none;
+    float: left;
+}
+
+.peiyu-selected,
+.peiyu-selected-hover:hover {
+    background-color: #bd2929 !important;
+    color: #fff;
+    cursor: pointer;
+}
+
+.ngdialog.ngdialog-theme-default.bet-order-confirm-ngDialog .ngdialog-content {
+    padding: 0em;
+}
+
+.bet-confirm-dialog-content .title {
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    background-color: #bd2829;
+    padding-left: 2em;
+}
+
+.bet-confirm-dialog-content table {
+    background: #fff;
+    color: #000;
+    padding-top: 13px;
+}
+
+.bet-confirm-dialog-content table,
+.bet-confirm-dialog-content tr,
+.bet-confirm-dialog-content td {
+	border: 1px solid #eee;
+    padding: 0.4em 5px;
+}
+
+.bet-confirm-dialog-content td {
+	
+}
+
+.bet-confirm-dialog-content {
+    background: #fff;
+    position: relative;
+}
+
+.bet-confirm-dialog-content .confirm-content {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1.5em;
+    padding-bottom: 1em;
+}
+
+.bet-confirm-dialog-content .confirm-content h4 {
+    height: 25px;
+    line-height: 25px;
+    color: #fff;
+    background-color: #bd2829;
+    text-indent: 1em;
+}
+
+.bet-confirm-dialog-content .btn-red {
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+}
+
+.bet-confirm-dialog-content .btn-red[name=cancel] {
+	margin-left: 1em;
+}
+
+.bet-confirm-dialog-content .actions {
+    background: #eee;
+    padding: 1em 0px;
+}
+
+.bet-confirm-dialog-content .close{
+    display: block;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 20px;
+    height: 20px;
+    background: url(../images/news-close.png);
+    background-repeat: no-repeat;
+}
+
+.w60p {
+	width: 60%;
+}
+
+.mrg-center{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hk6-game-play > div > .border_red {
+    cursor: pointer;
+}
+
+.smaller-circle .ball {
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 15px;
+}

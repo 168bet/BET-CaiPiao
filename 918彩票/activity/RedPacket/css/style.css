@@ -1,0 +1,137 @@
+@charset "UTF-8";
+a,input,button{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* 取消链接高亮 */ }
+section{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* 取消链接高亮 */ }
+
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+
+.clearfix:after{zoom:1}
+.clearfix:after{content:"";display:block;width:0;height:0;visibility:hidden;clear:both;}
+.fl{float:left;}
+.fr{float:right;}
+ul,li{list-style: none;}
+
+*{padding:0;margin:0;}
+p{padding:0;margin:0;-webkit-margin-before: 0;-webkit-margin-after: 0;}
+html{
+    height: 100%;
+    width: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+    background: #f1074d;
+    position: relative;
+}
+.wrap1{ position: relative;width:100%; background: url('../img/wrap1_bg.png') 94% 94% no-repeat; background-size:1rem 1rem ;}
+.rules_box{ position:fixed;top:11%;right:0;color:#fd275a;font-size:0.75rem; background: #fff; height: 2rem;padding:0.3rem 0.8rem 0.3rem 1.1rem;
+     border-top-left-radius: 2.4rem;border-bottom-left-radius: 2.4rem;line-height:1rem;
+    font-weight:bold;
+}
+.banner_img{ display: block;width:100%; height:auto;}
+.state_box{margin-top:1.2rem;}
+
+#iscroll{ background: #faaec4; width:78%;height: 1.4rem;color:#f1074d;font-size:0.7rem;
+    margin:0 auto; text-align: center;border-radius: 1.3rem;overflow:hidden;}
+#iscroll p{height: 1.4rem; line-height:2;}
+a.btn_a{ display: block; margin:1.5rem auto 0;width:68%;height:2.5rem; line-height: 2.5rem;
+    background:-webkit-linear-gradient(to bottom,#ffeb4a, #ffb913);
+    background:linear-gradient(to bottom,#ffeb4a,#ffb913);
+    color:#fd275a;font-size:1.3rem; text-decoration: none; text-align: center;border-radius: 2.5rem;
+    box-shadow:0 5px 0 0 #fb7e00;font-weight:bold;
+}
+a.btn_a:hover{background:#ffb913;}
+a.btn_a1{ display: block; margin:1.5rem auto 0;width:68%;height:2.5rem; line-height: 2.5rem;
+    background:#dfd8d8;
+    color:#ffffff;font-size:1.3rem; text-decoration: none; text-align: center;border-radius: 2.5rem;
+    box-shadow:0 5px 0 0 #a8a8a8;font-weight:bold;
+}
+/*列表*/
+.wrap2{width:100%;}
+.mingxi_title{ display: block;width:92%; height:auto;margin:2.4rem auto 0.7rem;}
+.mingxi_1{ display: block;width:97%; height:auto;margin:0 auto;}
+.info_ul{width:92%;margin:0 auto; background:url('../img/li_bg.png') 0 bottom no-repeat #f9477c; background-size:100% 2.7rem;
+    box-shadow:0 10px 10px -10px #f1074d inset;
+}
+.info_ul li{float: left; height: 2.5rem; line-height: 2.5rem; text-align: center;color:#fef1f6;font-size:0.75rem;
+    border-top:1px dashed #fef1f6;box-sizing: border-box;}
+.info_ul li:nth-child(3n+1){width:16%;}
+.info_ul li:nth-child(3n+2){width:62%; border-left:1px dashed #fef1f6;border-right:1px dashed #fef1f6;box-sizing: border-box;}
+.info_ul li:nth-child(3n+3){width:22%;}
+.info_ul li.w_100{width:100%; font-size: 1.2rem;border-top:1px solid #fd82a0;}
+
+.blockquote_div{margin:0 auto;width:90%; text-align: center;}
+.blockquote_div span{ display:inline-block;font-size:0.75rem;color:#ffe746;padding:0.5rem 1rem 0;
+    background:url('../img/blockquote_icon1.png') left top no-repeat, url('../img/blockquote_icon2.png') right top no-repeat;
+    background-size:0.7rem auto ;
+}
+/*活动规则 弹框*/
+.pop_box{ position: fixed;
+    top:0;left:0;
+    width:100%; 
+    height: 100%; 
+    z-index: 1000; 
+    background: rgba(0,0,0,.7)
+}
+.pop_info{ position: absolute;top:50%;width:80%; margin-left:10%;}
+.active_pop{ position:relative;top:0;height:auto;}
+.pop_body{position: relative; width:100%;box-sizing: border-box;padding:0 0.5rem 0.2rem;
+    background:url('../img/pop_bg2.png') 103% 45% no-repeat #ffe6e6; background-size: 1rem auto;
+}
+.pop_body p{font-size:0.75rem;color:#343434; line-height: 1.2rem;margin-bottom:0.6rem;}
+.pop_body p.p1{font-size:0.85rem;color:#f1074d; text-align: center;}
+.pop_body p.p2{margin-bottom:0;}
+.close_box{ position: relative;width:1.8rem; height: 1.8rem; background: url('../img/close_icon.png') center center no-repeat; background-size: 1.7rem 1.7rem;
+margin:1rem auto 0;
+}
+.pop_bg{ display: block;width:100%; height:auto;}
+
+
+/* 弹框 */
+.mask{position: fixed;z-index:100;top:0;left:0;width:100%;height: 100%; background: rgba(0,0,0,0.7);}
+.pop{position:fixed; z-index:101;top:50%;left:50%;margin-top:-5rem; margin-left:-43%;width:86%;height:10rem;
+    background: #fff;border-radius: 10px;
+}
+.Alert_pop_body{ display: flex; align-items: center; flex-direction: column;justify-content: center;height: 7rem;width:100%;}
+.Alert_pop_body h1{ text-align: center; font-weight: normal;width:100%; color: #1a1a1a;font-size:1.1rem;}
+.Alert_pop_body p{ width:80%;margin:0 auto; line-height: 1.3rem;color:#555;font-size:0.9rem; text-align: center;padding-top:0.7rem;}
+.pop_btn{ position: absolute;bottom:0;left:0;width:100%;}
+.pop_btn a{display: block;height: 3rem; line-height: 3rem; text-align: center;color:#fc5638; text-decoration: none;font-size:1.1rem;}
+.pop_btn::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-image: -webkit-linear-gradient(0deg, #e0e0e0 50%, transparent 50%);
+    background-image: -moz-linear-gradient(0deg, #e0e0e0 50%, transparent 50%);
+    background-image: -ms-linear-gradient(0deg, #e0e0e0 50%, transparent 50%);
+    background-image: -o-linear-gradient(0deg, #e0e0e0 50%, transparent 50%);
+    background-image: linear-gradient(0deg, #e0e0e0 50%, transparent 50%);
+}
+.pop_btn a.a_btn1{width:50%; float: left;color:#666666;}
+.pop_btn a.a_btn2{position: relative;width:50%; float: left;}
+.pop_btn a.a_btn2::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 200%;
+    background-image: -webkit-linear-gradient(180deg, #e0e0e0 50%, transparent 50%);
+    background-image: -moz-linear-gradient(180deg, #e0e0e0 50%, transparent 50%);
+    background-image: -ms-linear-gradient(180deg, #e0e0e0 50%, transparent 50%);
+    background-image: -o-linear-gradient(180deg, #e0e0e0 50%, transparent 50%);
+    background-image: linear-gradient(180deg, #e0e0e0 50%, transparent 50%);
+}
+.pop_btn a:link,.pop_btn a:visited{ background: #fff;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;}
+.pop_btn a:hover,.pop_btn a:active{ background: #f0f0f0;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;}
+
+.info_ul li,a,img{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}

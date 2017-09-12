@@ -1,0 +1,830 @@
+<div class="w1105 m0auto hgt222 relative" style="background: url({{staticURI}}/images/klsf/betTop.png) no-repeat center;">
+    <div class="absolute fz16" style="left: 167.5px; top: 74px;color:#010103">
+        {{lotKind}}第 <span>{{lastNumber}}</span> 期开奖结果
+    </div>
+    <div class="inline-block absolute fz16" style="left: 154px; top: 114px;">
+        <span ng-class="{'num_code':result==1||result==4||result==7||result==10||result==13||result==16||result==19,'num_code_green':result==2||result==5||result==8||result==11||result==14||result==17||result==20,'num_code_red':result==3||result==6||result==9||result==12||result==15||result==18}" style="margin-right: 5px" data-ng-repeat="(key, result) in lastResults track by $index">{{result}}</span>
+    </div>
+    <div class="absolute" style="left: 648px; top: 74px;">
+        <div class="inline-block fz12">
+            当前期为 <span class="red">{{currentNumber}}</span> 期
+        </div>
+    </div>
+    
+     <count-down class="red" ng-show="false" tick="fun.closeTimeTickCb" time="data.closeTimeLeft" type="colon"></count-down>
+     <count-down class="red" ng-show="false" tick="fun.openTimeTickCb" time="data.openTimeLeft" type="colon"></count-down>
+
+    
+    <div class="absolute" style="left: 648px; top: 109px;">
+        <div class="inline-block fz12">
+            {{data.closeTimeLeftLeft
+            <=0? '当前已经停止投注!': '距下单截止时间还有' + data.closeTimeLeftLeft + '秒'}}
+        </div>
+    </div>
+    <div class="absolute" style="left: 648px; top: 145px;">
+        <div class="inline-block fz12">
+            {{data.closeTimeLeftLeft <=1? '当前期正在开奖...': '距开奖时间还有' + data.openTimeLeftLeft + '秒'}}
+        </div>
+    </div>
+</div>
+<div class="w1105 m0auto text_center" style="margin-top: 12px">
+    <div>
+        <span class="fc3dKind" ng-click="curPlay='D1Q'" ng-class="{fc3dKind_active:curPlay=='D1Q'}">第一球</span>
+        <span class="fc3dKind" ng-click="curPlay='D2Q'" ng-class="{fc3dKind_active:curPlay=='D2Q'}">第二球</span>
+        <span class="fc3dKind" ng-click="curPlay='D3Q'" ng-class="{fc3dKind_active:curPlay=='D3Q'}">第三球</span>
+        <span class="fc3dKind" ng-click="curPlay='D4Q'" ng-class="{fc3dKind_active:curPlay=='D4Q'}">第四球</span>
+        <span class="fc3dKind" ng-click="curPlay='D5Q'" ng-class="{fc3dKind_active:curPlay=='D5Q'}">第五球</span>
+        <span class="fc3dKind" ng-click="curPlay='D6Q'" ng-class="{fc3dKind_active:curPlay=='D6Q'}">第六球</span>
+        <span class="fc3dKind" ng-click="curPlay='D7Q'" ng-class="{fc3dKind_active:curPlay=='D7Q'}">第七球</span>
+        <span class="fc3dKind" ng-click="curPlay='D8Q'" ng-class="{fc3dKind_active:curPlay=='D8Q'}">第八球</span>
+        <span class="fc3dKind" ng-click="curPlay='ZHLH'" ng-class="{fc3dKind_active:curPlay=='ZHLH'}">总和龙虎</span>
+        <span class="fc3dKind" ng-click="curPlay='LM'" ng-class="{fc3dKind_active:curPlay=='LM'}">连码</span>
+    </div>
+    <div ng-show="curPlay=='D1Q'">
+        <div class="sepTitle">号码</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d1q_hm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d1q_hm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d1q_hm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d1q_hm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+        <div class="sepTitle">双面</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d1q_sm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d1q_sm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d1q_sm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d1q_sm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="curPlay=='D2Q'">
+        <div class="sepTitle">号码</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d2q_hm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d2q_hm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d2q_hm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d2q_hm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+        <div class="sepTitle">双面</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d2q_sm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d2q_sm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d2q_sm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d2q_sm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="curPlay=='D3Q'">
+        <div class="sepTitle">号码</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d3q_hm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d3q_hm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d3q_hm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d3q_hm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+        <div class="sepTitle">双面</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d3q_sm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d3q_sm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d3q_sm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d3q_sm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="curPlay=='D4Q'">
+        <div class="sepTitle">号码</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d4q_hm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d4q_hm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d4q_hm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d4q_hm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+        <div class="sepTitle">双面</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d4q_sm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d4q_sm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d4q_sm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d4q_sm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="curPlay=='D5Q'">
+        <div class="sepTitle">号码</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d5q_hm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d5q_hm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d5q_hm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d5q_hm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+        <div class="sepTitle">双面</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d5q_sm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d5q_sm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d5q_sm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d5q_sm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="curPlay=='D6Q'">
+        <div class="sepTitle">号码</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d6q_hm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d6q_hm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d6q_hm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d6q_hm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+        <div class="sepTitle">双面</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d6q_sm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d6q_sm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d6q_sm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d6q_sm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="curPlay=='D7Q'">
+        <div class="sepTitle">号码</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d7q_hm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d7q_hm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d7q_hm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d7q_hm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+        <div class="sepTitle">双面</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d7q_sm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d7q_sm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d7q_sm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d7q_sm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="curPlay=='D8Q'">
+        <div class="sepTitle">号码</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d8q_hm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d8q_hm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d8q_hm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d8q_hm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+        <div class="sepTitle">双面</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,d8q_sm_pls_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{d8q_sm_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{d8q_sm_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="d8q_sm_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="curPlay=='ZHLH'">
+        <div class="sepTitle">总和龙虎</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,zhlh_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)" ng-show="index+key*colNum<=zhlh_pls.length-1">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{zhlh_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{zhlh_pls[index+key*colNum].pl}}</span>
+                    <input type="number" class="w50 border_black green" ng-model="zhlh_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="curPlay=='LM'">
+        <style type="text/css">
+        input[type="checkbox"]{
+        vertical-align: middle;
+        }
+        </style>
+        <div class="sepTitle">任选2</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>勾选</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,rx2_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{rx2_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{rx2_pls[index+key*colNum].pl}}</span>
+                    <input type="checkbox" class="w50 border_black green" ng-model="rx2_pls[index+key*colNum].money" ng-true-value="perMoney" ng-false-value=""/>
+                </div>
+            </div>
+        </div>
+        <div class="sepTitle">任选3</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>勾选</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,rx3_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{rx3_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{rx3_pls[index+key*colNum].pl}}</span>
+                    <input type="checkbox" class="w50 border_black green" ng-model="rx3_pls[index+key*colNum].money" ng-true-value="perMoney" ng-false-value=""/>
+                </div>
+            </div>
+        </div>
+        <div class="sepTitle">任选4</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>勾选</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,rx4_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{rx4_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{rx4_pls[index+key*colNum].pl}}</span>
+                    <input type="checkbox" class="w50 border_black green" ng-model="rx4_pls[index+key*colNum].money" ng-true-value="perMoney" ng-false-value=""/>
+                </div>
+            </div>
+        </div>
+        <div class="sepTitle">任选5</div>
+        <div class="text_center middle" style="padding:0 86px">
+            <div>
+                <div class="inline-block tbGj" data-ng-repeat="(key, value) in range(0,colNum)">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>勾选</span>
+                </div>
+            </div>
+            <div data-ng-repeat="(key, value) in range(0,rx5_rows)">
+                <div class="inline-block tbGj" ng-repeat="(index,item) in range(0,colNum)">
+                    <span class="w50 inline-block">
+                    <i class="num_circle" style="background: #C12727">{{rx5_pls[index+key*colNum].number}}</i></span>
+                    <span class="w50 inline-block">{{rx5_pls[index+key*colNum].pl}}</span>
+                    <input type="checkbox" class="w50 border_black green" ng-model="rx5_pls[index+key*colNum].money"/>
+                </div>
+            </div>
+        </div>
+        <div class="fz20 mt10 mb_20">
+            投注金额(￥)：<input type="number" class="green boder_green" ng-model="perMoney"/>
+        </div>
+    </div>
+</div>
+<div class="mt35 pb50 text_center">
+    <div class="inline-block mr50">
+        <img src="{{staticURI}}/images/bjpk10/reset.png" ng-click="reset()"/>
+    </div>
+    <div class="inline-block ml50" ng-show="data.closeTimeLeftLeft > 0">
+        <img src="{{staticURI}}/images/bjpk10/bet.png" ng-click="showOrderList()"/>
+    </div>
+    <div class="inline-block ml50" ng-show="data.closeTimeLeftLeft <= 0">
+        <img src="{{staticURI}}/images/bjpk10/disBet.png"/>
+    </div>
+</div>
+<script type="text/ng-template" id="d1q_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in d1q_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{d1q_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="d2q_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in d2q_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{d2q_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="d3q_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in d3q_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{d3q_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="d4q_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in d4q_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{d4q_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="d5q_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in d5q_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{d5q_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="d6q_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in d6q_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{d6q_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="d7q_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in d7q_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{d7q_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="d8q_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in d8q_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{d8q_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="zhlh_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in zhlh_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{zhlh_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="lm_betDialog">
+    <div>
+        <div class="layui-layer-title">投注确认</div>
+        <div style="background: white">
+            <div id="J-bet-form">
+                <div class="bet_issue">
+                    <label>游戏名称:</label>
+                    <span class="label_issue">{{lotKind}}(第{{currentNumber}}期)</span>
+                </div>
+                <div class="bet_confirm">
+                    <label>投注内容:</label>
+                    <div class="bet_content">
+                        <div ng-repeat="(index, betData) in lm_betDatas track by $index">
+                            <span>
+                            <span class="balltips_ball">玩法</span> :
+                            <span class="balltips_price">{{betData.label2}}</span>;
+                            <span class="balltips_ball">金额</span> :
+                            <span class="balltips_price">{{betData.money}}</span>;
+                            <span class="balltips_ball">赔率</span> :
+                            <span class="balltips_price">{{betData.pl}}</span>;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bet_issue">
+                    <label>投注小计:</label>
+                    ￥
+                    <span class="label_issue">{{lm_totalMoney}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-stable" ng-click="closeThisDialog()" style="height:30px;font-size: 12px;margin-top: 0.8em">取消</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(userName)" style="height:30px;font-size: 12px;margin-top: 0.8em">确认投注</button>
+        </div>
+    </div>
+</script>

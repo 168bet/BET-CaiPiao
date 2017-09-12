@@ -1,0 +1,63 @@
+.tab-b {
+	BACKGROUND-IMAGE: url(../images/inda_ph012b.jpg); BACKGROUND-REPEAT: repeat-x
+}
+.tab-select {
+	BACKGROUND-REPEAT: repeat-x
+}
+.tab-b1 {
+	BACKGROUND-IMAGE: url(../images/index_ph45b.jpg); BACKGROUND-REPEAT: repeat-x
+}
+.dot {
+	BACKGROUND-POSITION: 2px 50%; PADDING-LEFT: 20px; BACKGROUND-IMAGE: url(../images/index_dot.jpg); COLOR: #ffffff; PADDING-TOP: 2px; BACKGROUND-REPEAT: no-repeat
+}
+TR {
+	FONT-SIZE: 12px; FONT-FAMILY: "Arial"
+}
+.login {
+	PADDING-LEFT: 10px; PADDING-BOTTOM: 2px
+}
+.za_text {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial; HEIGHT: 20px
+}
+A:link {
+	FONT-SIZE: 12px; COLOR: #1e4c97; FONT-FAMILY: "Arial"; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #51a229; FONT-FAMILY: "Arial"
+}
+A:visited {
+	COLOR: #1e4c97; TEXT-DECORATION: none
+}
+.za_button {
+	FONT-SIZE: 12px; PADDING-BOTTOM: 2px; PADDING-TOP: 1px; FONT-FAMILY: "Arial"; HEIGHT: 22px
+}
+.copy-right {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.text-black {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.text-bold {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ff3333; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.tab-about {
+	MARGIN-LEFT: 15px
+}
+.about-dot {
+	BACKGROUND-POSITION: 2px 50%; PADDING-LEFT: 20px; BACKGROUND-IMAGE: url(../images/inda_dot.jpg); COLOR: #ffffff; PADDING-TOP: 2px; BACKGROUND-REPEAT: no-repeat
+}
+.tab-line {
+	BORDER-RIGHT: #c3dafa 1px solid; BORDER-LEFT: #c3dafa 1px solid
+}
+.tis {
+	PADDING-LEFT: 45px
+}
+.text-01 {
+	FONT-SIZE: 15px; COLOR: #f6a92f
+}
+.text-02 {
+	BACKGROUND-POSITION: 30px 50%; PADDING-LEFT: 45px; FONT-SIZE: 13px; BACKGROUND-IMAGE: url(../images/inda_ph_point.gif); COLOR: #51a229; PADDING-TOP: 3px; BACKGROUND-REPEAT: no-repeat
+}
+.text-03 {
+	PADDING-LEFT: 30px; PADDING-TOP: 3px
+}

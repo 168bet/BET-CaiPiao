@@ -1,0 +1,138 @@
+﻿* {
+    margin:0; 
+    padding:0; 
+    font-family:Verdana, Arial,Sans;
+	font-size:12px;
+	color:#555;
+}
+body {overflow:auto!important;}
+.red {color:red!important;}
+.red2 {color:#663399!important;font-family:Arial}
+.blue{color:#2836F4!important;}
+.green{color:#339166!important;}
+.green2{ color:#299A26!important;}
+.yellow {color:yellow!important;}
+.black {color:Black!important;}
+.rosybrown {color:olivedrab!important;}
+.bold{font-weight:bold}
+.st{ font-family:"宋体"}
+a {text-decoration:none;}
+ul {list-style-type:none;}
+select {
+	border:1px #E0E0E0 solid;
+	border-top:1px #999999 solid;
+	padding:1px;
+}
+textarea {
+	width:300px;
+	height:100px;
+	padding:2px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.inp1, .inp1m{border:1px solid #ABB2C5;height:20px;height:18px;padding-top:1px;padding-left:1px!important;color:#000}
+.inp1{
+	background:url(/Css/ss.png);
+	color:#000;
+	height:18px;
+}
+.inp1m{
+	height:18px;
+	border:1px solid #A7BBD3;
+	color:#000;
+	border-color:#FF8800;
+	background:#FFFFCC;
+}
+.inp2, .inp2m{border:1px solid #ABB2C5;height:20px;height:18px;padding-left:1px!important;color:#000}
+.inp2{
+	background:url(/Css/ss.png);
+	color:#000;
+	height:16px
+}
+.inp2m{
+	height:16px;
+	border:1px solid #A7BBD3;
+	color:#000;
+	border-color: #FF8800;
+	background:#FFFFCC;
+}
+
+.input1 {
+	width:44px;
+	height:17px;
+	border:none;
+	background:url(/Css/frame1.gif);
+	background-position: -1122px 0;
+	cursor:pointer;
+}
+.input1_1 {
+	width:44px;
+	height:17px;
+	border:none;
+	background:url(/Css/frame1.gif);
+	background-position: -1077px 0;
+	cursor:pointer;
+}
+.input2 {
+	width:66px;
+	height:17px;
+	padding-top:2px;
+	color:#0C3E09;
+	cursor:pointer;
+	letter-spacing:1px;
+	background:url(/Css/frame1.gif);
+	background-position:-943px 0;
+	border:none;
+	position:relative;
+}
+.input2_2 {
+	width:66px;
+	height:17px;
+	padding-top:2px;
+	color:#0C3E09;
+	cursor:pointer;
+	letter-spacing:1px;
+	background:url(/Css/frame1.gif);
+	background-position:-1010px 0;
+	border:none;
+	position:relative;
+}
+.pages .cpb {
+	font-weight:bold;
+	color:#0000FF;
+}
+.pages a{
+	 color:#000;
+}
+.user0 {
+	height:20px;
+	background:url(/Css/USER_0.gif) no-repeat center;
+}
+.user1 {
+	height:20px;
+	background:url(/Css/USER_1.gif) no-repeat center;
+}
+.pushr { position:relative;top:2px;}
+#kOddsPop {
+	position:absolute;
+	top:25%;
+	left:25%;
+	width:580px;
+	background:#fff;
+	height:auto;
+	display:none;
+	z-index:999;
+}
+
+.liter {
+    width:19px;
+    height:20px;
+    cursor:pointer;
+    background:url(/Css/m_Add.gif) no-repeat center;
+}
+.drop {
+    width:19px;
+    height:20px;
+    cursor:pointer;
+    background:url(/Css/m_Minus.gif) no-repeat center;
+}

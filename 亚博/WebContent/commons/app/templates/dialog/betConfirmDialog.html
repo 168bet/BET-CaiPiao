@@ -1,0 +1,32 @@
+<div class="bet-confirm-dialog-content">
+    <div class="title">
+        <h3>下注明细&nbsp;请确认清单</h3>
+    </div>
+    
+    <div class="confirm-content">
+	    <h4>适应赔率 注单{{ngDialogData.total}}条&nbsp;下注金额: {{ngDialogData.totalMoney}}</h4>
+	    <table border-collapse="">
+	        <thead>
+	            <td>号码</td>
+	            <td>赔率</td>
+	            <td>金额</td>
+	        </thead>
+	        <tbody>
+	            <tr ng-repeat="order in ngDialogData.orders">
+	                <td><span ng-bind-html="order.number | trustHTML"></span></td>
+	                <td><span ng-bind-html="order.pl | trustHTML"></span></td>
+	                <td><span ng-bind-html="order.xzje | trustHTML"></span></td>
+	            </tr>
+	        </tbody>
+	    </table>
+    </div>
+    
+    <div class="actions">
+        <div class="mrg-center w60p">
+	        <button name="confirm" class="btn-red" ng-click="ngDialogData.confirm() && closeThisDialog()">确认</button>
+	        <button name="cancel" class="btn-red" ng-click="ngDialogData.cancel() && closeThisDialog()">取消</button>
+        </div>
+    </div>
+    
+    <b class="close" ng-click="ngDialogData.cancel() && closeThisDialog()"></b>
+</div>

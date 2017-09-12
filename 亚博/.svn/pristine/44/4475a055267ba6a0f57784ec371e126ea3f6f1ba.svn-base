@@ -1,0 +1,24 @@
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img ng-src=" 
+
+{{staticURI}}/images/index_banner2.jpg "></div>
+    <div class="swiper-slide"><img ng-src=" 
+
+{{staticURI}}/images/index_banner3.jpg "></div>
+    <div class="swiper-slide"><img ng-src=" 
+
+{{staticURI}}/images/index_banner4.jpg "></div>
+    <div class="swiper-slide"><img ng-src=" 
+
+{{staticURI}}/images/index_banner5.jpg "></div>
+    <div class="swiper-slide"><img ng-src=" 
+
+{{staticURI}}/images/index_banner6.jpg "></div>
+  </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- Add Arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>

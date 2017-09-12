@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>预测</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        window.onload=function() {
+            document.body.addEventListener('touchstart', function () {
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <a class="back_a"></a>
+        <h1>排列3</h1>
+    </header>
+    <section class="wrap" id="c_yc">
+        <!--1-->
+        <!-- 
+        <a href="#" class="yuce_a clearfix">
+            <div class="yuce_img"><img src="img/1.jpg"></div>
+            <div class="yuce_box">
+                <p class="p1">2017035期双色球预测:六位红球走势</p>
+                <p class="p2">双色球17034期开奖结果：04 07 07 07 07 07</p>
+                <time>03-27</time>
+            </div>
+        </a>
+		 -->
+    </section>
+    <div class="more_div" id="pullUp">加载更多</div>
+</body>
+<script type="text/javascript" src="/js/public/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src='/js/public/iscroll.js'></script>
+<script>
+
+
+String.prototype.getParam = function(n){
+	var r = new RegExp("[\?\&]"+n+"=([^&?]*)(\\s||$)", "gi");
+	var r1=new RegExp(n+"=","gi");
+	var m=this.match(r);
+	if(m==null){
+		return "";
+	}else{
+		return typeof(m[0].split(r1)[1])=='undefined'?'':decodeURIComponent(m[0].split(r1)[1]);
+	}
+};
+
+var CP={};
+CP.Util={};
+
+CP.Util.lot=function (n, m){
+	m = m || '0';
+	n = parseInt(n);
+	var lot = {
+			'1': ['双色球', 'ssq', '6'],
+			'3': ['福彩3D', '3d', '7'],
+			'4': ['时时彩', 'ssc', ''],
+			'5': ['新快3', 'k3', ''],
+			'6': ['快3', 'ahk3', ''],
+			'7': ['七乐彩', 'qlc', '8'],
+			'8': ['福彩快3', 'nmk3', ''],
+			'9': ['江苏快3', 'k3', ''],
+			'10':['新快3', 'xk3', ''],
+			'20':['新时时彩', 'jxssc', ''],
+			'50':['大乐透', 'dlt', '9'],
+			'51':['七星彩', 'qxc', '10'],
+			'52':['排列五', 'p5', '12'],
+			'53':['排列三', 'p3', '11'],
+			'54':['11选5', '11x5', ''],
+			'55':['粤11选5', 'gd11x5', ''],
+			'56':['11运夺金', '11ydj', ''],
+			'57':['上海11选5', 'sh11x5', ''],
+			'58':['快乐扑克3', 'pk3', ''],
+			'59':['新11选5', 'hb11x5', ''],
+			'80':['胜负彩', 'sfc', '3'],
+			'81':['任选九', 'r9', '4'],
+			'82':['进球彩', 'jq', ''],
+			'83':['半全场', 'bq', ''],
+			'84':['单场-胜负过关', 'sfgg', '5'],
+			'85':['单场-胜平负', 'bjdc', '5'],
+			'86':['单场-比分', 'bjdc', '5'],
+			'87':['单场-半全场', 'bjdc', '5'],
+			'88':['单场-上下单双', 'bjdc', '5'],
+			'89':['单场-总进球', 'bjdc', '5'],
+			'90':['竞彩-让球', 'jczq', '1'],
+			'91':['竞彩-比分', 'jczq', '1'],
+			'92':['竞彩-半全场', 'jczq', '1'],
+			'93':['竞彩-总进球', 'jczq', '1'],
+			'70':['竞彩-混投', 'jczq', '1'],
+			'72':['竞彩-胜平负', 'jczq', '1'],
+			'94':['篮彩-胜负', 'jclq', '2'],
+			'95':['篮彩-让分', 'jclq', '2'],
+			'96':['篮彩-胜分差', 'jclq', '2'],
+			'97':['篮彩-大小分', 'jclq', '2'],
+			'98':['欧洲杯-猜冠军', 'cgj', '2'],
+			'99':['欧洲杯-猜冠亚军', 'gyj', '2'],
+			
+			'71':['篮彩-混投', 'jclq', '2']
+	};
+	return lot[n][m];
+},
+CP.Forecast = (function () {
+	var gid = location.search.getParam("gid");;
+	console.log(gid)
+	var g = {
+			total:'1',//总页数
+			cPage:'1',//当前页数
+			name:{'01':'双色球','50':'大乐透','70':'竞彩足球','71':'竞彩篮球','80':'足彩','85':'北京单场','03':'福彩3D','53':'排列三'}
+	};
+	var myScroll;
+	var o = {
+			hot: function () {
+				var html=$('#c_yc').html();
+				if(g.cPage<=g.total){
+					var data = {
+							pn : g.cPage,
+							gid : "53"
+					};
+					$.ajax({
+						url:'/trade/forecast.go?'+jQuery.param(data),
+						type:'POST',
+						DataType:'XML',
+						success: function(xml){
+							if(g.cPage == '1'){
+								$('#c_yc').html('');
+							}
+							var R = $(xml).find('Resp');
+							var c = R.attr('code');
+							var d = R.attr('desc');
+							if (c == '0') {
+								var pagelist = R.find('pagelist');
+								g.total = pagelist.attr('totalpage');
+								var r = R.find('row');
+							
+								r.each(function () {
+									var arcurl = $(this).attr("arcurl")
+									var litpic = $(this).attr("litpic")
+									var ntitle = $(this).attr("ntitle")
+									var description = $(this).attr("description")
+									if(description.length>25){
+										description = description.substring(0,20)+"...";
+									}
+									
+									var local=window.location.href.split("/");
+									 html+='<a href="http://mobile.9188.com'+arcurl+'?phone=4g&url='+local[0]+"//"+local[1]+local[2]+'/#type=url&p=list/'+CP.Util.lot('53','1')+'.html" class="yuce_a clearfix">'
+									 html+='<div class="yuce_img"><img src="'+litpic+'"></div>'
+									 html+='<div class="yuce_box">'
+									 html+='<p class="p1">'+ntitle+'</p>'
+									 html+='<p class="p2">'+description+'</p>'
+									 html+='<time>03-27</time>'
+									 html+='</div>'
+									 html+='</a>'
+
+								});
+								$('#c_yc').html(html);
+								if(g.cPage<g.total){
+									$("#pullUp").show();	
+								}else{
+									$("#pullUp").hide();	
+								}
+								//myScroll.refresh();
+							} else {
+								alert(d);
+							}
+						}
+					})
+				}
+			},
+			init : function () {
+				o.hot();
+				
+				//o.layOut();
+			},
+			bindEvent:function(){
+				$("#pullUp").bind("click",function(){
+					o.hot(++g.cPage);
+				})
+			}
+				
+	};
+	var init = function () {
+		//o.pageGo.goBack();
+		o.init();
+		o.bindEvent();
+	};
+	return{init : init};
+})();
+CP.Forecast.init();
+</script>
+</html>

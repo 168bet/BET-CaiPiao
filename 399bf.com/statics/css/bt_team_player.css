@@ -1,0 +1,358 @@
+body,html{
+    font-size: 14px;
+}
+body{
+    background-color: #f7f7f7;
+}
+img:hover{
+    opacity: 1;
+}
+.green{
+    color: #75ab28;
+}
+.red{
+    color: #ff0000;
+}
+.w130{
+    width: 130px;
+    display: inline-block;
+}
+.checkbox {
+    position: relative;
+    top: 3px;
+    left: -3px;
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    display: inline-block;
+}
+.checkbox-off{
+    background: url("../images/icon-checkbox-off.png") 0 0 no-repeat;
+}
+.checkbox-on{
+    background: url("../images/icon-checkbox-on.png") 0 0 no-repeat;
+}
+.crumbs{
+    width: 1000px;
+    margin: 0 auto;
+    height: 46px;
+    line-height: 46px;
+}
+.crumbs-icon{
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("../images/icon_crumbs.png") 50% 50% no-repeat;
+    margin-right: 5px;
+}
+.orange{
+    color: #ffa21d;
+}
+.team{
+    width: 1000px;
+    height: 114px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ffa21d;
+    background-color: #FFFFFF;
+}
+.team-logo{
+    width: 112px;
+    height: 114px;
+    overflow: hidden;
+    text-align: center;
+    line-height: 114px;
+    float: left;
+}
+.team-logo img{
+    width: 80%;
+}
+.team-name{
+    float: left;
+}
+.c-name{
+    font-size: 20px;
+    color: #2e393b;
+    padding-top: 34px;
+}
+.e-name{
+    font-size: 14px;
+    color: #969696;
+}
+.team-info{
+    float: left;
+    width: 700px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.team-info li{
+    margin-bottom: 5px;
+}
+.col-1{
+    display: block;
+    width: 45px;
+    text-align: right;
+    float: left;
+}
+.col-2{
+    display: block;
+    width: 145px;
+    float: left;
+}
+.col-3{
+    display: block;
+    width: 100px;
+    float: left;
+    text-align: right;
+}
+.col-4{
+    display: block;
+    width: 160px;
+    float: left;
+}
+.col-5{
+    display: block;
+    width: 70px;
+    float: left;
+    text-align: right;
+}
+.col-6{
+    display: block;
+    width: 160px;
+    float: left;
+}
+.content{
+    width: 1000px;
+    margin: 0 auto 20px;
+}
+.left{
+    width: 726px;
+    float: left;
+    background-color: #FFFFFF;
+}
+.content-nav{
+    height: 40px;
+    background-color: #ff821d;
+}
+.nav-item{
+    width: 92px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    color: #FFFFFF;
+    border-right: 1px solid #dddddd;
+    vertical-align: top;
+}
+a.nav-item:hover{
+    background-color: #fa1604;
+    color: #ffff00;
+}
+.content-nav .active{
+    background-color: #fa1604;
+    color: #ffff00;
+}
+.data-list{
+    padding: 10px 7px;
+    border: 1px solid #dddddd;
+    border-top: none;
+}
+.data-list-con{
+    margin-bottom: 10px;
+}
+.data-list-con table{
+    width: 100%;
+}
+.data-list-con table tr{
+    height: 30px;
+}
+.data-list-con table tr:nth-child(odd){
+    background-color: #f5f5f5;
+}
+.data-list-con table td{
+    text-align: center;
+    border: 1px solid #dddddd;
+    font-size: 12px;
+}
+.btn-wrap{
+    float: right;
+    height: 30px;
+    line-height: 30px;
+}
+.win-time{
+    display: inline-block;
+    height: 20px;
+    width: 50px;
+    line-height: 20px;
+    border: 1px solid #dddddd;
+    background-color: #FFFFFF;
+    margin-right: 10px;
+}
+.intro{
+    height: 30px;
+    line-height: 30px;
+    background-color: #f2f2f3;
+    text-align: center;
+    border: 1px solid #dddddd;
+    font-size: 12px;
+}
+.intro-content{
+    border: 1px solid #dddddd;
+    font-size: 12px;
+    line-height: 20px;
+    color: #515151;
+    padding: 10px;
+}
+.right{
+    width: 256px;
+    float: right;
+    background-color: #FFFFFF;
+}
+.side{
+    border: 1px solid #dddddd;
+}
+.side-title{
+    padding-left: 10px;
+    background-color: #f3f3f3;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.peo-info{
+    background-color: #FFFFFF;
+    padding: 10px 0 0 5px;
+}
+.coach{
+    width: 96px;
+    height: 104px;
+    overflow: hidden;
+    text-align: center;
+    line-height: 104px;
+    margin-right: 10px;
+    float: left;
+}
+.coach img{
+    width: 100%;
+}
+.list-info{
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #dddddd;
+    border-bottom: none;
+    padding: 0 3px;
+    width: 143px;
+    font-size: 12px;
+    overflow: hidden;
+}
+.forward{
+    height: 30px;
+    border-bottom: 1px solid #ffa21d;
+}
+.pos-title{
+    font-size: 12px;
+    width: 54px;
+    border-bottom: 2px solid #ffa21d;
+    margin-left: 10px;
+    position: relative;
+    top: 10px;
+    text-align: center;
+}
+.member-info li{
+    float: left;
+    margin: 7px;
+}
+.member-info a{
+    position: relative;
+    width: 70px;
+    height: 80px;
+    display: block;
+    overflow: hidden;
+}
+.member-info a img{
+    width: 100%;
+}
+.member-name{
+    font-size: 12px;
+    color: #FFFFFF;
+    background-color: rgba(0,0,0,0.8);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/*球员*/
+.player-info{
+    border-top: 1px solid #ffa21d;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+}
+.player-head{
+    width: 172px;
+    height: 188px;
+    text-align: center;
+    line-height: 188px;
+    overflow: hidden;
+    float: left;
+}
+.player-intro{
+    float: left;
+    width: 545px;
+}
+.player-intro table{
+    width: 100%;
+}
+.player-intro table tr{
+    height: 30px;
+}
+.player-intro table td{
+    border: 1px solid #dddddd;
+}
+.bg1{
+    background-color: #e8e8e8;
+}
+.bg2{
+    background-color: #f2f2f3;
+    padding-left: 10px;
+}
+.data-title{
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #ff821d;
+    height: 30px;
+    line-height: 30px;
+}
+.data-list table{
+    width: 100%;
+}
+/*分页1start*/
+.page{
+    float: right;
+}
+.page .index{
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    color: #969696;
+}
+.page input{
+    width: 30px;
+    height: 26px;
+}
+.page button{
+    width: 34px;
+    height: 26px;
+    text-align: center;
+    background-color: #ffa21d;
+    color: #fff;
+    border: none;
+    outline: none;
+    margin-left: 15px;
+}
+.hy-pagination li {
+    float: left;
+    padding: 0 10px;
+}
+/*分页1end*/

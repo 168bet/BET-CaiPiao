@@ -1,0 +1,236 @@
+{php $css = array('bt_info.css')}
+{php $nav_id = 6;}
+{template 'content', 'header_score'}
+<nav>
+    <div class="container">
+        <div class="row">
+            <div class="matchNav">
+                <ul class="clearfix">
+                    <li><a {if ! in_array($id, [92,85,34,39,152,149,1,5])}class="active"{/if} href="javascript:;">热门联赛</a></li>
+                    <li><a {if $id == 92}class="active"{/if} href="{APP_PATH}competition/92/schedule/">英超</a></li>
+                    <li><a {if $id == 85}class="active"{/if} href="{APP_PATH}competition/85/schedule/">西甲</a></li>
+                    <li><a {if $id == 34}class="active"{/if} href="{APP_PATH}competition/34/schedule/">意甲</a></li>
+                    <li><a {if $id == 39}class="active"{/if} href="{APP_PATH}competition/39/schedule/">德甲</a></li>
+                    <li><a {if $id == 152}class="active"{/if} href="{APP_PATH}competition/152/schedule/">中超</a></li>
+                    <li><a {if $id == 149}class="active"{/if} href="{APP_PATH}competition/149/schedule/">世足</a></li>
+                    <li><a {if $id == 1}class="active"{/if} href="{APP_PATH}sclass/1/schedule/">NBA</a></li>
+                    <li><a {if $id == 5}class="active"{/if} href="{APP_PATH}sclass/5/schedule/">CBA</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<section>
+    <div class="container">
+        {template 'sportsdata', 'bt_sclass_crumbs'}
+        <div class="row">
+            <div class="col-sm-2 pdL0">
+
+                <!-- 树形菜单 start -->
+                <div class="navMenu treeMenu" id="treeMenu">
+                    <ul>
+
+                        {loop $tree $zone_name $item}
+                        <li class="tree-menu">
+
+                            <div class="tree-one-title" tree-title name="one">
+                                {$zone_name}
+                                <i class="icon-angle-right fr"></i>
+                            </div>
+
+
+                            <div class="tree" tree-menu >
+
+                                <!-- 二级 -->
+                                {loop $item $country_name $item2}
+                                <div class="tree-item">
+
+                                    <div class="tree-two-title" tree-title name="two">
+                                        <i class="icon-plus"></i>
+                                        {$country_name}
+                                    </div>
+                                    <div class="tree" tree-menu>
+
+                                        <ul>
+                                            {loop $item2 $r}
+                                            <li><a target="_blank" href="{APP_PATH}sclass/{$r['sclassid']}/standings/">{$r['name']}</a></li>
+                                            {/loop}
+                                        </ul>
+
+                                    </div>
+
+
+                                </div>
+                                {/loop}
+
+                            </div>
+                        </li>
+                        {/loop}
+
+                    </ul>
+                </div>
+                <!-- 树形菜单 end -->
+
+                <!--<div class="side-search">-->
+                    <!--<div class="search-title">资料库搜索</div>-->
+                    <!--<div class="search-control">-->
+                        <!--<input class="input-search" type="text" placeholder="搜索">-->
+                        <!--<button type="submit" class="btn-search">-->
+                            <!--<i class="icon-search"></i>-->
+                        <!--</button>-->
+                    <!--</div>-->
+                    <!--<div class="radio-group">-->
+                        <!--<label for="player" class="checkbox-inline">-->
+                            <!--<input type="checkbox" id="player">-->
+                            <!--<i class="table-checkbox"></i>-->
+                            <!--球员-->
+                        <!--</label>-->
+                        <!--<label for="team" class="checkbox-inline">-->
+                            <!--<input type="checkbox" id="team">-->
+                            <!--<i class="table-checkbox"></i>-->
+                            <!--球队-->
+                        <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+            <div class="col-sm-10 pdL0 pdR0">
+
+
+                <!-- iframe -->
+                <div class="iframe-page" id="iframe_page">
+
+                    <div class="iframe-head clearfix">
+                        <h1 class="m-title fl">
+                            <img src="{BT_SCLASS_PATH}{$sclass_id}.jpg" width="59" height="59" alt="" class="fl bt-competition-photo">
+                            {$sclass_info['currseason']}{$sclass_info['name_cn']}
+                        </h1>
+
+                        <div class="dropdown fr">
+                            <button class="btn btn-default" id="jw_dropA" data-toggle="dropdown" aria-expanded="true">
+                                <i class="icon-calendar"></i>
+                                {$sclass_info['currseason']}
+                                <i class="icon-angle-down"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="jw_dropA">
+                                <ul>
+                                    {loop $season_arr $data}
+                                    <li data-action="link" data-url="{APP_PATH}sclass/{$sclass_id}/standings/?season={$data}">{$data}</li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="iframe-table">
+
+                        <div class="iframe-nav">
+                            <ul class="clearfix">
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/schedule/" >赛程赛果</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/standings/" class="active">联盟排名</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/letgoal/" >让球盘路榜</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/totalscore/" >大小盘路榜</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/singleDouble/" >单双统计</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/teamTechnic/" >球队技术统计</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/playerTechnic/">球员技术统计</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/team/" >球队资料</a></li>
+                            </ul>
+                        </div>
+                        <div class="table-item table-min">
+                            {loop $standings_info $type $standings}
+                            <div class="table-tab clearfix">
+                                <ul>
+                                    <li class="active">{$type}</li>
+                                </ul>
+                            </div>
+                            <table class="table">
+                                <tr>
+                                    <td>排名</td>
+                                    <td>球队</td>
+                                    <td>赛</td>
+                                    <td>胜</td>
+                                    <td>负</td>
+                                    <td>胜%</td>
+                                    <td>负%</td>
+                                    <td>胜差</td>
+                                    <td>均得</td>
+                                    <td>均失</td>
+                                    <td>主场战绩</td>
+                                    <td>客场战绩</td>
+                                    <td>近10场</td>
+                                    <td>状态</td>
+                                </tr>
+                                {loop $standings $data}
+                                <tr>
+                                    <td>{$data['totalrank']}</td>
+                                    <td>
+                                        <a href="{APP_PATH}lq/team/{$data['teamid']}/" target="_blank">
+                                            {$data['teamname']}
+                                        </a>
+                                    </td>
+                                    <td>{$data['total']}</td>
+                                    <td>{$data['win']}</td>
+                                    <td>{$data['loss']}</td>
+                                    <td class="orange2">{$data['winscale']}</td>
+                                    <td>{$data['lossscale']}</td>
+                                    <td>{$data['disparity']}</td>
+                                    <td>{$data['avg']['score']}</td>
+                                    <td>{$data['avg']['loss']}</td>
+                                    <td>{$data['result']['home']}</td>
+                                    <td>{$data['result']['guest']}</td>
+                                    <td>{$data['near']}</td>
+                                    <td {if $data['state'] > 0}class="red"{else}class="green"{/if}>{$data['status']}</td>
+                                </tr>
+                                {/loop}
+                            </table>
+                            {/loop}
+                            <div class="evaluate">
+                                <div class="title">
+                                    赛制
+                                </div>
+                                <div class="pd10">
+                                    中国篮球甲级联赛积分排名规则说明：<br>
+                                    比赛分常规赛和季后赛两个阶段进行，采用主客场赛制，两周五赛和一周三赛相结合。<br>
+                                    1、常规赛：所有参赛球队进行双循环比赛，胜一场得2分，负一场得1分，弃权得0分。
+                                    常规赛排名办法：常规赛按比赛胜场数/负场数比率确定常规赛总排名，胜场率高者名次列前。
+                                    如两队胜场率相同，则以两队之间胜负场次决定名次，胜场多者名次列前；按他们之间比赛的净胜分，高者列前；若再相同，按他们之间比赛的总得
+                                    分数，高者列前；若再相同，按他们在常规赛中所有比赛的净胜分，高者列前；若再相同，按他们在常规赛中所有比赛的总得分数，高者列前。如果
+                                    在名次排列中运用这些标准仍不能决定名次，则用抽签来决定。
+                                    如三队或三队以上胜场率相同，则以相互间胜负场数排定名次，胜场多者名次列前；如相互间胜负场数相同，则以相互间得失分率排定名次，得失分
+                                    率高者名次列前；若再相同，则以常规赛所有比赛总得失分率排定名次，得失分率高者名次列前。<br>
+                                    2、季后赛：常规赛的前八名进入季后赛。季后赛采用交叉淘汰赛。四分之一决赛和半决赛均采用五战三胜制（1—2—1—1），总冠军决赛采用
+                                    七战四胜制（2-3-2），常规赛名次列前的队多一个主场。<br>
+                                    排名方法<br>
+                                    1、参加季后赛阶段总决赛的胜队为本次联赛的第一名，负队为第二名；参加半决赛的负队（即本次联赛的第三、第四名）和四分之一决赛的负
+                                    队（即本次联赛的第五、第六、第七、第八名），则按照常规赛成绩来决定排名。<br>
+                                    2、没有进入季后赛的球队，则按照常规赛成绩决定排名。<br>
+                                    竞赛规则<br>
+                                    1、采用4×12分钟的比赛方式，其中第1、2节和第3、4节中间休息2分钟；第2、3节之间休息10分钟。<br>
+                                    2、一名队员已发生了6次侵人犯规和/或技术犯规，必须立即离开比赛。<br>
+                                    3、一节中某队已发生了5次全队犯规时，该队处于全队犯规处罚状态。<br>
+                                    4、每队在第4节和每一决胜期最后2分钟各增加一次30秒钟短暂停。<br>
+                                    5、投中篮后和第4节及决胜期最后2分钟内拥有掷球入界球权的球队请求暂停后，均在“掷球入界线”执行掷球入界恢复比赛（但本应位于前场端线掷
+                                    球入界除外）。<br>
+                                    6、比赛用球：采用中国篮协审定并提供的7号联赛用球。</div>
+                            </div>
+                        </div>
+
+                        <div class="hint">
+                            页面最后更新时间：{$update_time}
+                        </div>
+
+                    </div>
+                </div>
+                <!-- iframe end -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = array('tree.js', 'imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js', 'bt_sclass_standings.js')}
+{template 'content', 'footer'}

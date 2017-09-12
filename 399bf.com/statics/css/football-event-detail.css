@@ -1,0 +1,162 @@
+*{
+    font-family: "Microsoft YaHei", sans-serif;
+}
+th,td{
+    border: 1px solid #F2F2F2;
+}
+li{
+    list-style-type: none;
+}
+.top10{
+    margin-top: 10px;
+}
+.top20{
+    margin-top: 20px;
+}
+.banner{
+    height:450px;
+}
+.right{
+    float: right;
+}
+.clearboth{
+    clear: both;
+    overflow: hidden;
+}
+.bg{
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+    color: #FFFFFF;
+    background: url("../images/football-event-detail/tit.png") center center no-repeat;
+}
+.gray{
+    color:#666666;
+}
+.nopadding{
+    padding: 0;
+}
+.padding5{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.nobottom{
+    margin: 0;
+}
+.inner-ul li{
+    margin-top: 10px;
+    width: 50%;
+    float: left;
+}
+.padding10-r{
+    padding-right: 10px;
+}
+.padding10-l{
+    padding-left: 10px;
+}
+.font20{
+    font-size: 20px;
+}
+.tit-left{
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1;
+    color:red;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin-top: -13px;
+    margin-right: -4px;
+    border-radius: 10px;
+}
+.tit-right{
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1;
+    color:red;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin-top: -13px;
+    margin-left: -4px;
+    border-radius: 10px;
+}
+.red{
+    color: red;
+}
+.bg-red{
+    background-color: red;
+    color: #FFFFFF;
+}
+.bg-green{
+    background-color:#309925;
+    color: #FFFFFF;
+}
+.lv{
+    background-color: #eaffe6;
+}
+.lv-s{
+    background-color: #c2fcb9;
+}
+.panel>.panel-heading {
+    color: #fff;
+    background-color: #4eaa2b;
+    border-color: #4eaa2b;
+}
+.btc{
+    background-color:#f2f2f2 ;
+}
+.btc-s{
+    background-color: #e6e6e6;
+}
+.table-zd{
+    width: 50%;
+    float: left;
+}
+.table-zd tr{
+    height: 40px;
+}
+.table-zd tr td{
+    border: 1px solid #e6e6e6;
+}
+.table-zd tr th{
+    text-align: center;
+}
+.width100{
+    width: 100%;
+}
+@media (max-width: 992px){
+    .table-zd {
+        width:100%;
+    }
+}
+.team-left{
+    width: 50%;
+    float: left;
+}
+.tab{
+    background: url("../images/football-event-detail/tab_03.png") left bottom  no-repeat;
+    background-size: 50%;
+    border-bottom: 2px solid #4eaa2b;
+    min-width: 1140px;
+    margin-bottom: 15px;
+}
+.tab li{
+    display: inline-block;
+    width: 132px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+}
+.tab li a{
+    display: block;
+    height: 40px;
+    color: #FFFFFF;
+}

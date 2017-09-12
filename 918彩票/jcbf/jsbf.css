@@ -1,0 +1,159 @@
+body{ min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,u{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li{ list-style:none}
+cite,em,i{ font-style:normal}
+.clearfix{ overflow:hidden; zoom:1}
+.left{ float:left}
+.right{ float:right}
+a{ color:#333; text-decoration:none}
+p{ line-height:1.2rem}
+.red{ color:#db150b}
+.blue{ color:#177ffc}
+.green{ color:#84c73b}
+.fixed{ position:fixed; bottom:0; left:0; z-index:99; width:100%}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.relative{ position:relative}
+.pdLeft1{ padding-left:1rem}
+.pdTop1{ padding-top:1rem}
+.downline{ display:block; position:absolute; bottom:0; height:.15rem; background:#db150b}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+
+.mask{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:10}
+.popup{ position:fixed; top:35%; left:6%; background:#feffee; width:89%; z-index:12; border-radius:.3rem; -webkit-border-radius:.3rem; 
+-moz-border-radius:.3rem}
+.wxts{ line-height:3.4rem; color:#107e0c; font-size:1.1rem; text-align:center}
+.popup p{ font-size:.8rem; padding:0 6%; line-height:1.15rem; padding-top:.5rem}
+.btn{ border-top:1px solid #ddd; line-height:2.5rem; margin-top:1.3rem; font-size:.95rem; text-align:center}
+
+.zcHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.hmHeader{ width:100%; height:2rem; padding-top:.7rem; background:#0b7e07} 
+.hmHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.hmHeader h1:after{ content:""; position:absolute; top:1.8rem; border-width:.4rem; margin-left:.2rem; border-style:solid; border-color:transparent transparent transparent #fff; transform:rotate(45deg); -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg)}
+.hmPull{ -webkit-transition:all .2s ease;-ms-transition:all .2s ease;-o-transition:all .2s ease;-moz-transition:all .2s ease; position:absolute; z-index:1; border-left:1px solid #d5d5d5; margin-left:1px; top:2.68rem; width:100%; background:#fff}
+.hmPull a{ float:left; position:relative; font-size:1rem; line-height:3rem; width:49.65%; margin-right:0; text-align:center; border-right:1px solid #d5d5d5; border-bottom:1px solid #d5d5d5}
+.hmPull a.cur{ color:#f6851f}
+.hmPull a.cur:before{ content:""; position:absolute; left:-1px; top:-1px; width:100%; height:3rem; border:1px solid #f6851f}
+.hmPull a.cur:after{ content:""; position:absolute; bottom:-1px; right:-1px; width:1.4rem; height:1.4rem; background:url(/img/hmCur.png) no-repeat center; background-size:1.4rem 1.4rem; -webkit-background-size:1.4rem 1.4rem; -moz-background-size:1.4rem 1.4rem}
+
+.jsbfHeader{ padding-bottom:3rem}
+.dzxqBf{ height:2.5rem; padding-top:.5rem; background:#167d16}
+.dzxqBf ul{ width:92%; padding-left:8%}
+.dzxqBf li{ float:left; width:40%; line-height:1.1rem; text-align:center; font-size:.9rem; color:#fff}
+.dzxqBf li.num{ width:20%}
+.dzxqBf li cite{ display:block; font-size:.75rem}
+.dzxqBf .fcbackIco2{ top:1.1rem; left:1rem}
+
+.jsbfTab ul{ font-size:.9rem; background:#fff; color:#a9a9a9}
+.jsbfTab li{ float:left; width:25%; height:1.8rem; text-align:center; font-size:.92rem; color:#b0b0b0; line-height:normal; padding-top:.5rem}
+.jsbfTab li.cur{ color:#e64a19}
+.jsbfTab .downline{ background:#e64a19}
+.jsbfTab2 li{ float:left; width:50%; text-align:center}
+
+.jsbjList a{ display:block; border-bottom:1px solid #e6e6e6; overflow:hidden; zoom:1}
+.jsbjList a p{ float:left; width:61%; font-size:1rem; padding:.6rem 0 .4rem 0; text-align:left}
+.jsbjList a p:first-child{ width:21%; font-size:.94rem; text-align:center; line-height:2.7rem}
+.jsbjList a p:last-child{ width:18%; font-size:1.5rem; color:#f93131; letter-spacing:.3rem}
+.jsbjList p em{ position:relative; display:block; margin-bottom:.3rem; font-size:.75rem; color:#222; letter-spacing:0}
+.jsbjList p em:after{ position:absolute; content:""; width:.5rem; height:.5rem; background:#f93131; border-radius:.5rem; -webkit-border-radius:.5rem; -moz-border-radius:.5rem; left:-.7rem; top:.3rem}
+.jsbjList p span{ display:block; color:#9e9e9e; font-size:.75rem}
+.jsbjList p cite{ display:block; margin:.2rem 0}
+.jsbjList a p.wks{ font-size:.8rem; color:#222; line-height:2.7rem; letter-spacing:0; text-align:center}
+.jsbjList a.height p:first-child,.jsbjList a.height p.wks{ line-height:4rem}
+.jsbjList2 p:last-child{ line-height:4rem; text-align:center}
+.lsico{ float:left; width:.75rem; height:.75rem; margin:.2rem .4rem 0 0; background:url(/img/zc/lsico.gif) no-repeat center; -webkit-background-size:.75rem .75rem}
+
+.up,.down{ display:inline-block; margin:1rem .3rem 0 0; width:.6rem; height:.6rem; border-right:.12rem solid #b0b0b0; border-top:.12rem solid #b0b0b0; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.down{ margin-top:.55rem; transform:rotate(-225deg); -webkit-transform:rotate(-225deg); -moz-transform:rotate(-225deg)}
+.jsbfTitle{ position:relative; line-height:2.1rem; padding:0 .68rem; background:#ecf0ef; color:#b0b0b0; border-bottom:1px solid #e5e5e5; font-size:.95rem}
+.jsbfTitle2{ background:-webkit-linear-gradient(top,#d7dad9 0.1%,#dee2e1 0.3%,#ecf0ef 18%)}
+.jsbfTitle em{ float:right}
+.jsbfAll p{ font-size:.75rem; text-align:center; line-height:3rem; border-bottom:1px solid #e5e5e5}
+.jsbfAll a{ display:block; position:relative; height:2.1rem; line-height:2.1rem; padding:.8rem .7rem; border-bottom:1px solid #ebebeb}
+.jsbfAll a dl{ overflow:hidden; zoom:1; font-size:.95rem}
+.jsbfAll a dl dt{ float:left; width:2rem; height:2rem; margin-right:1.5rem; background:url(/img/zc/sp.png) no-repeat center; background-size:2rem 2rem; -webkit-background-size:2rem 2rem; -moz-background-size:2rem 2rem}
+.jsbfAll .rightArrow{ top:1.8rem}
+.jsbfAll a dl dt.wen{ background-image:url(/img/zc/wen.png)}
+
+.timeline{ width:19rem; margin:.78rem auto 1.2rem auto; font-size:.9rem}
+.timeline div{ padding-top:1.6rem; height:1.6rem; overflow:hidden; zoom:1}
+.timeIco{ position:relative; display:block; width:2.83rem; text-align:center; line-height:1.4rem; font-size:.75rem; margin:1.5rem auto 0 auto; background:#fff; border:.1rem solid #399e5c; color:#399e5c; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.timeright{ padding-left:8.7rem}
+.timeline b,.top{ position:relative; float:left; width:1.6rem; text-align:center; height:1.25rem; padding-top:.35rem; font-weight:normal; font-size:.75rem; background:#fff; color:#399e5c; border-radius:1.6rem; -webkit-border-radius:1.6rem; -moz-border-radius:1.6rem; box-shadow:0 0 0 .1rem #399e5c inset; -webkit-box-shadow:0 0 0 .1rem #399e5c inset; -moz-box-shadow:0 0 0 .1rem #399e5c inset}
+.timeline b:after,.timeIco:after{ content:""; position:absolute; width:.12rem; height:1.6rem; background:#399e5c; top:-1.6rem; left:.75rem}
+.top{ float:none; margin:0 auto}
+.timeIco:after{ left:1.4rem}
+.timeline cite{ float:left; margin:.25rem .3rem 0 .7rem}
+.timeleft em{ float:left; text-align:right; width:6.7rem}
+.timeleft cite{ float:right; margin:.25rem .7rem 0 0}
+.timeleft span,.timeright span{ float:left; width:8.7rem; overflow:hidden; zoom:1; line-height:1.6rem}
+.timeleft cite.jqico,.timeleft cite.dqico,.timeleft cite.wlico{ margin-right:.35rem}
+.timeline div.timetwo{ padding:1.7rem 0 .6rem 0; height:2.1rem}
+.timeline div.timetwo b{ margin-top:.5rem;}
+.timeline div.timetwo b:before{ content:""; position:absolute; width:.12rem; height:.6rem; background:#399e5c; bottom:-.6rem; left:.75rem}
+.timeline div.timetwo b:after{ content:""; position:absolute; width:.12rem; height:2.2rem; background:#399e5c; top:-2.2rem; left:.75rem}
+.timetwo strong{ line-height:1.3rem; display:block; font-weight:normal; width:8rem; padding-right:.7rem; text-align:right}
+.timetwo i{ padding-left:.2rem; color:#399e5c; width:.82rem; font-size:1.1rem}
+.timeline div.timetwo2{ padding:1.7rem 0 .6rem 8.7rem}
+.timetwo2 strong{ padding-left:.7rem; text-align:left}
+.timetwo2 i{ padding:0 .2rem 0 0}
+
+.bssj{ width:19.1rem; margin:.6rem auto}
+.bssj li{ float:left; color:#383838; font-size:.7rem; width:1.6rem; text-align:center; padding-right:.7rem}
+.bssj li.long{ width:3rem}
+.bssj li:last-child{ padding-right:0}
+.hsico,.hxico{ display:block; color:#399e5c; font-size:1.1rem; font-weight:bold}
+.jqico,.dqico,.wlico{ display:block; width:1.266rem; height:1.233rem; margin:0 auto .1rem auto; background:url(/img/zc/jq.png) no-repeat center; background-size:1.1875rem 1.156rem; -webkit-background-size:1.266rem 1.233rem; -moz-background-size:1.1875rem 1.156rem}
+.dqico{ background-image:url(/img/zc/dq.png)}
+.wlico{ background-image:url(/img/zc/wl.png)}
+.hpico,.redpico{ display:block; width:.82rem; height:1rem; background:#ffdf05; margin:.1rem auto .233rem auto}
+.redpico{ background:#fe412d}
+.lhbhico{ display:block; width:.73rem; height:1rem; background:#fe412d; border-left:.19rem solid #ffdf05; margin:.1rem auto .233rem auto}
+
+.jstjList li,.zjList li{ position:relative; line-height:2rem; border-bottom:1px solid #e6e6e6; font-size:.81rem; overflow:hidden; zoom:1; text-align:center}
+.jstjList li em{ float:left; width:19%; font-size:.94rem; border-right:1px solid #e6e6e6; border-left:1px solid #e6e6e6}
+.jstjList li span{ float:left; width:35%; text-align:right; padding:0 5% 0 0; font-size:.81rem; color:#e37070}
+.jstjList li span:last-child{ color:#70aee3; text-align:left; padding:0 0 0 5%}
+.jstjList li span.cur{ width:40%; padding:0}
+.jstjList li span.cur cite{ float:right; background:#e7466a; padding:0 13% 0 0; color:#fff}
+.jstjList li span.cur:last-child cite{ float:left; background:#5cb4ee; padding:0 0 0 13%; color:#fff}
+
+.jsbfList ul{ float:left; width:49.5%; border-right:1px solid #e5e5e5}
+.jsbfList ul:last-child{ width:50%; border-right:none}
+.jsbfList ul li{ border-bottom:1px solid #e6e6e6; line-height:2.1rem; text-align:center; overflow:hidden; zoom:1}
+.jsbfList ul li em{ display:inline-block; width:40%}
+.jsbfList ul li cite{ display:inline-block; width:60%}
+.jsbfTitle2 ul{ width:80%; margin:0 auto; padding:1rem 0; font-size:.875rem; line-height:2.1rem; color:#333; overflow:hidden; zoom:1}
+.jsbfTitle2 ul li{ position:relative; float:left; width:32.7%; text-align:center; background:#fff; border:1px solid #d4d4d4; border-right:none}
+.jsbfTitle2 ul li.last{ border-right:1px solid #d4d4d4}
+.jsbfTitle2 ul li.cur{ color:#0b7e07}
+.jsbfTitle2 ul li.cur:before{ content:""; position:absolute; left:-1px; top:-1px; width:100%; height:2.08rem; border:1px solid #0b7e07; z-index:1}
+.jsbfTitle2 ul li.cur:after{ content:""; position:absolute; bottom:-1px; right:-1px; width:1.06rem; height:.94rem; background:url(/img/zc/jsbfCur.png) no-repeat center; background-size:1.06rem 1.4rem; -webkit-background-size:1.06rem .94rem; -moz-background-size:1.4rem 1.4rem}
+.jsbfpl{ border-bottom:1px solid #e6e6e6; font-size:.75rem}
+.jsbfpl2{ color:#bdbdbd; height:2.25rem; overflow:hidden; font-size:.875rem}
+.jsbfpl ul{ border-bottom:1px solid #e6e6e6; overflow:hidden; zoom:1}
+.jsbfpl li{ float:left; width:32%; border-right:1px solid #e6e6e6; line-height:2.25rem; text-align:center}
+.jsbfpl li:first-child{ width:20%; color:#bdbdbd}
+.jsbfpl li:last-child{ width:15%; border-right:none}
+.jsbfpl li span{ display:inline-block; margin:0 .1rem}
+.jsbfpl li span cite.redcur{ padding:.1rem; background:#e51c23; color:#fff}
+.jsbfpl li span cite.greencur{ padding:.1rem; background:#259b24; color:#fff}
+.doubt{ display:inline-block; width:1.1625rem; height:1.1625rem; margin:0 0 0 .2rem; background:url(/img/zc/doubt2.png) no-repeat center; background-size:1.0625rem 1.0625rem; -webkit-background-size:1.0625rem 1.0625rem; -moz-background-size:1.0625rem 1.0625rem}
+
+.jsbffx p{ position:relative; font-size:.9rem; line-height:2.2rem; padding-left:1.5rem; border-bottom:1px solid #e6e6e6}
+.jsbffx p:after{ position:absolute; content:""; width:.5rem; height:.5rem; background:#444; top:.8rem; left:.6rem; border-radius:.5rem; -webkit-border-radius:.5rem; -moz-border-radius:.5rem}
+.jsbffx li{ overflow:hidden; zoom:1; border-bottom:1px solid #e6e6e6; font-size:.8rem; text-align:center; line-height:2.2rem}
+.jsbffx li span{ float:left; width:8.5%; font-size:.75rem}
+.jsbffx li span.jsbflong{ width:13.5%}
+.jsbffx .zjList li span{ width:25.5%}
+.jsbffx .zjList li em{ float:left; width:12.5%}
+.jsbffx .zjList li b{ float:left; width:22.5%; line-height:.9rem; margin-top:.3rem; font-weight:normal; color:#bdbdbd; font-family:"黑体"}
+.jsbffx .zjList li b cite{ display:block; line-height:.9rem; color:#6d6d6d}
+.jsbffx .zjList li:first-child{ color:#bdbdbd}
+.jsbffx .zjList li:first-child b{ line-height:2.2rem; margin-top:0}
+.jsbffx .jsbfWlsc li span{ width:30%}
+.jsbffx .jsbfWlsc li span.cur{ font-weight:bold}
+.jsbffx .jsbfWlsc li b{ width:25%}
+.jsbffx .jsbfWlsc li:first-child{ color:#222}
+.jsbffx .jsbfWlsc li:first-child b{ line-height:.9rem; margin-top:.3rem}

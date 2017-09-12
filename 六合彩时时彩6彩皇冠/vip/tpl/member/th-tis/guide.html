@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Setting Guide </title>
+ 
+<script> 
+function chg_language(langx) {
+	var homepage = "";
+	if (langx != "zh-tw" && langx != "zh-cn") {
+		homepage = "/tpl/member/en-us/QA.html";
+	} else {
+		homepage = "/tpl/member/"+langx+"/QA.html";
+	}
+	self.location = homepage;
+}
+function OnMouseOverPIC(langx) {
+	document.getElementById("OverQA_"+langx).style.display = "block";
+	document.getElementById("OutQA_"+langx).style.display = "none";
+}
+function OnMouseOutPIC(langx) {
+	document.getElementById("OverQA_"+langx).style.display = "none";
+	document.getElementById("OutQA_"+langx).style.display = "block";
+}
+</script>
+<link href="/style/member/mem_body_tis.css" rel="stylesheet" type="text/css">
+</head>
+ 
+ 
+  <div id="divG">
+  <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+   <td>
+    <ul>
+    <li class="sub">Setting Guide </li> 
+    </ul>
+    <table cellpadding="2" cellspacing="2">
+    <tr>
+        <td valign="top">
+        <span class="T">1) Use <font color="#FF0000">Member ID</font> for login.</span><br><br><br>
+        <img src="/images/member/th-tis/Guide_01.jpg" width="234" height="253">        </td>
+    
+         <td valign="top"> 
+          <span class="T">2) Please Enter the &ldquo;Login ID&rdquo; and &ldquo;Re-confirm Login ID&rdquo; in the input field.<br>
+ Users have to re-login after completing.</span><br><br>
+ 
+        <img src="/images/member/th-tis/Guide_02.jpg" width="459" height="236"></td>
+    
+        <td>
+         <span class="T">3) Use new <font color="#FF0000">"Login ID"</font> to login the Member URL. </span><br><br>
+        <img src="/images/member/th-tis/Guide_03.jpg" width="234" height="253">       </td>
+   </tr></table>    </td>
+    </tr>
+</table>
+ </div>
+</body>
+</html>

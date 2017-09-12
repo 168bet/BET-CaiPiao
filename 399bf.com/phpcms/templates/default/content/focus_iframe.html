@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css start -->
+    <link href="{CSS_PATH}bootstrap.css" rel="stylesheet">
+    <link href="{CSS_PATH}base.css" rel="stylesheet">
+    <link href="{CSS_PATH}font-awesome.css" rel="stylesheet">
+    <link href="{CSS_PATH}list_picture.css" rel="stylesheet">
+    <!-- css end -->
+
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body onload="iframe_height()">
+    <div id="bodyheight" class="container">
+        <div class="row">
+            <div class="col-md-12" style="background-color: #fff;margin-bottom: 40px;">
+                <div class="main">
+                    <div class="main-title">
+                        <h1 class="focus">焦点咨询<a href="#" class="more">更多&gt;&gt;</a></h1>
+                    </div>
+                    {pc:content action="lists_model" modelid="1" num="6" thumb="1" order="id DESC" page="$page"}
+                    {loop $data $r}
+                    <div class="info-item">
+                        <h1 class="info-item-title">
+                            <em class="title-icon">热</em>
+                            <a href="{$r['url']}">{str_cut($r['title'],60,'...')}</a>
+                        </h1>
+                        <div class="info-item-content clearfix">
+                            <a href="{$r['url']}" class="fl info-item-img">
+                                <img src="{$r['thumb']}" title="{$r['title']}">
+                            </a>
+                            <p class="info-des-text">
+                                <a href="{$r['url']}">
+                                    {str_cut($r['description'],300,'...')}
+                                </a>
+                                <a href="{$r['url']}">详细</a>
+                            </p>
+                        </div>
+                        <div class="info-item-footer clearfix">
+                                <span class="info-item-time fl">
+                                    {date('m月d日 H:i', $r['inputtime'])}
+                                </span>
+                            <div class="info-item-comp fl">
+                                {php $keywords = explode(" ",$r['keywords'])}
+                                {loop $keywords $keyword}
+                                <a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}">{$keyword}</a>
+                                {/loop}
+                            </div>
+                            <a href="#" class="info-item-share fr">
+                                分享
+                            </a>
+                        </div>
+                    </div>
+                    {/loop}
+                    <!--分页-->
+                    <div class="pageBar">
+                        <ul class="hy-pagination">
+                            {$pages}
+                        </ul>
+                    </div>
+                    <!--分页end-->
+                    {/pc}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <iframe width='0' id='top_src' height='0' src='' frameborder="0"></iframe>
+
+    <script src="{JS_PATH}jquery-1.11.3.min.js"></script>
+
+    <script>
+        function iframe_height(height) {
+            if (!height) {
+                var height = document.getElementById('bodyheight').scrollHeight;
+            }
+            $('#top_src').attr('src', "{$domain}js.html?"+height+'|'+{if $comment['total']}{$comment['total']}{else}0{/if});
+        }
+    </script>
+
+</body>
+</html>

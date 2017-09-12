@@ -1,0 +1,507 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>绑定银行卡</title>
+<style type="text/css">
+body{ background:#f7f7f7; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+p{ line-height:1.2rem}
+a{ color:#333; text-decoration:none}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}
+.clearfix{ overflow:hidden; zoom:1}
+.left{ float:left}
+.fontSize09{ font-size:.9rem}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.pdLfrt09{ padding:.1rem .9rem 0 .9rem}
+.pdTop06{ padding-top:.6rem}
+.pdTop08{ padding-top:.8rem}
+.pdTop1{ padding-top:1rem}
+.pdBot03{ padding-bottom:.3rem}
+.mgLeft09{ margin-left:.9rem}
+.yellow{ color:#f6851f}
+.aGreen{ color:#7ac0e5}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.s1{ line-height:2.5rem; background:#fff; margin-top:.7rem; overflow:hidden; zoom:1}
+.s1 span{ float:left; width:26%; margin-right:1%; text-align:center; color:#222; font-size:.93rem}
+.s1 input{ width:73%; border:none;height:1.3rem; line-height:1.3rem; margin-top:.7rem; font-size:.92rem}
+.s21 span{ color:#777}
+.select{ position:relative}
+.select:after{ content:""; position:absolute; right:.7rem; top:1.1rem; border-width:.45rem; border-style:solid; border-color:transparent #aaa transparent transparent; transform:rotate(-90deg); -webkit-transform:rotate(-90deg); -moz-transform:rotate(-90deg)}
+.select em{ color:#d0d0d0; font-size:.92rem; padding-left:.9rem}
+.zhuceOpen,.zhuceOpen2{ position:absolute; right:.5rem; top:.3rem; font-size:.8rem; width:3rem; line-height:1.7rem; padding:0 .25rem; border:2.5px solid #e5e5e5; color:#ccc; border-radius:2rem; -webkit-border-radius:2rem; -moz-border-radius:2rem}
+.zhuceOpen:after,.zhuceOpen2:after{ content:""; position:absolute; right:0; top:-1px; width:1.6rem; height:1.6rem; border-radius:1.6rem; -webkit-border-radius:1.6rem; -moz-border-radius:1.6rem; box-shadow:-3px 4px 2px rgba(0,0,1,0.06); -webkit-box-shadow:-3px 4px 2px rgba(0,0,1,0.06); -moz-box-shadow:-3px 4px 2px rgba(0,0,1,0.06)}
+.zhuceOpen2{ text-align:right; padding:0 .5rem 0 0}
+.zhuceOpen2:after{ left:0; box-shadow:3px 4px 2px rgba(0,0,1,0.06); -webkit-box-shadow:3px 4px 2px rgba(0,0,1,0.06); -moz-box-shadow:3px 4px 2px rgba(0,0,1,0.06)}
+.payment{ display:block; line-height:2.5rem; text-align:center; letter-spacing:.1rem; margin-top:.8rem; color:#fff; font-size:1.1rem; background:#f26c60; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.payment:active{ color:#fff}
+.bankcard p span{ display:inline-block; width:23%}
+.bcard{ width:80%; left:10%; margin:2rem 0 0 2rem; background:#fff; box-shadow:0 0 .6rem #7b7b7b; -webkit-box-shadow:0 0 .6rem #7b7b7b; -moz-box-shadow:0 0 .6rem #7b7b7b}
+.bcard ul{height:21rem; overflow:hidden; overflow-y:scroll}
+.bcard li{ line-height:2.3rem; padding-left:8%; border-bottom:1px solid #ececec}
+.bcard li.cur{ background:#f6851f; color:#fff}
+.fixed{ position:fixed; bottom:0; left:0; z-index:99; width:100%}
+.buyFooter{ padding-top:5rem} 
+.buyFloat{ text-align:center; background:#fff; line-height:2.5rem}
+.tellNum a{ display:block; color:#777; font-size:1rem; width:13.2rem; margin:0 auto}
+.tell{ float:left; margin:.6rem 0 0 0; width:1.4rem; height:1.4rem; background:url(/img/fc/tell.png) no-repeat center; background-size:1.36rem 1.36rem; -webkit-background-size:1.36rem 1.36rem; -moz-background-size:1.36rem 1.36rem}
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:9999;left:0;top:0; display: none;}
+</style>
+<body>
+	<article>
+		<header class="tzHeader">
+		<div class="fixed2">
+			<section class="fcHeader">
+				<h1>银行卡绑定</h1>
+				<a href="javascript:history.go(-1);" class="fcbackIco2"></a>
+			</section>
+		</div>
+		</header>
+		<div class="pdLfrt09 pdBot03" id='bdCard' style='display: none;'>
+			<p class="pdTop08 fontSize09">开户行</p>
+			<div class="s1 select" onclick='sBank()' id='ibank'>
+				<em></em>
+			</div>
+			<div class="clearfix">
+				<div class="s1 left select" style="width: 48%; margin-right: 4%"
+					onclick='spve()' id='spve'>
+					<em></em>
+				</div>
+				<div class="s1 left select" style="width: 48%" id='icity'
+					onclick='icity()'>
+					<em></em>
+				</div>
+			</div>
+			<div class="s1">
+				<input type="text" placeholder="请输入支行名称" class="mgLeft09"
+					id='zhihang'>
+			</div>
+			<div class="s1 s21">
+				<span>开户名</span><input type="text" placeholder="请输入开户姓名">
+			</div>
+			<div class="s1 s21">
+				<span>卡&nbsp;&nbsp;号</span><input maxlength='30' type="tel"
+					placeholder="请输入卡号" id='kahao'>
+			</div>
+			<!-- 
+			<div class="s1 s21 relative">
+				<span>密&nbsp;&nbsp;码</span><input maxlength='20' type="password"
+					placeholder="请输入账户密码" id='mima'><em class="zhuceOpen"
+					style='display: none'>123</em><em class="zhuceOpen2">***</em>
+			</div>
+			 -->
+			 <!-- 
+			<p class="pdTop08">
+				<a href="/alone/forgotpwd.html" class="aGreen">忘记密码？</a>
+			</p>
+			 -->
+			<a href="javascript:;" class="payment" onclick='isOk();'>确认</a>
+		</div>
+		<div class="pdLfrt09 bankcard" id='success' style='display: none;'>
+			<p class="pdTop06"></p>
+			<p class="pdTop06"></p>
+			<p class="pdTop06"></p>
+			<p class="pdTop06"></p>
+			<p class="yellow pdTop1">如需修改银行卡号，请联系在线客服，并提供身份证和银行卡扫描件或者数码照。客服电话
+				400-673-9188</p>
+			<a href="/alone/bankcard.html?amend=y" class="payment">修改开户行信息</a>
+		</div>
+		<div class="bcard"
+			style='display: none; position: fixed; z-index: 10000; margin:0 0; top:50%;' id='banks'>
+			<ul>
+
+				<li value="2">工商银行</li>
+				<li value="13">农业银行</li>
+				<li value="1" class="cur">招商银行</li>
+				<li value="3">建设银行</li>
+				<li value="6">交通银行</li>
+				<li value="10">光大银行</li>
+				<li value="12">民生银行</li>
+				<li value="9">兴业银行</li>
+				<li value="4">中国银行</li>
+				<li value="8">中信银行</li>
+				<li value="4000">浦发银行</li>
+				<li value="23">平安银行</li>
+				<li value="1000">广发银行</li>
+				<li value="25">邮政储蓄</li>
+				<li value="11">华夏银行</li>
+			</ul>
+		</div>
+		<div class="bcard"
+			style='display: none; position: fixed; z-index: 10000; margin:0 0; top:50%;' id='pve'>
+			<ul>
+				<li class="cur">上海</li>
+				<li>北京</li>
+				<li>天津</li>
+				<li>重庆</li>
+				<li>河北</li>
+				<li>山西</li>
+				<li>内蒙古</li>
+				<li>辽宁</li>
+				<li>吉林</li>
+				<li>黑龙江</li>
+				<li>江苏</li>
+				<li>浙江</li>
+				<li>安徽</li>
+				<li>福建</li>
+				<li>江西</li>
+				<li>山东</li>
+				<li>河南</li>
+				<li>湖北</li>
+				<li>湖南</li>
+				<li>广东</li>
+				<li>广西</li>
+				<li>海南</li>
+				<li>四川</li>
+				<li>贵州</li>
+				<li>云南</li>
+				<li>西藏</li>
+				<li>陕西</li>
+				<li>甘肃</li>
+				<li>宁夏</li>
+				<li>青海</li>
+				<li>新疆</li>
+			</ul>
+		</div>
+		<div class="bcard"
+			style='display: none; position: fixed; z-index: 10000; margin:0 0; top:50%;' id='city'>
+			<ul>
+				<li class="cur">上海</li>
+			</ul>
+		</div>
+<footer class="buyFooter">
+	<div class="buyFloat fixed tellNum"><a href="tel:400-673-9188"><em class="tell"></em>客服电话：400-673-9188</a></div>
+</footer>  
+	</article>
+	<input type="hidden" id="khbank" value="0" />
+	<div class="mask" style='display: none;' id='mask'></div>
+	<script type="text/javascript" src="/js/public/zepto.js"></script>
+<script>
+//公用弹出层和加载层
+var win_alert = alert;
+window['alert'] = function (msg, loading) {
+	if (!loading) {
+		clearTimeout(window.alert.time);
+		var obj = $('<div class="alertBox">' + msg + '</div>');
+		$('body').append(obj);
+		window.alert.time = setTimeout(function () {
+			$(".alertBox").remove();
+		}, 2000);
+	} else {
+		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+		$('#mask').show();
+	}
+};
+var remove_alert = function () {
+	$('.alertBox').remove();
+	$('#mask').hide();
+};
+var cities ={
+		'北京' : ['北京'],
+		'上海' : ['上海'],
+		'重庆' : ['重庆'],
+		'天津' : ['天津'],
+		'广东' : ['广州','深圳','韶关','珠海','汕头','佛山','江门','湛江','茂名','肇庆','惠州','梅州','汕尾','河源','阳江','清远','东莞','中山','潮州','揭阳','云浮'],
+		'河北' : ['石家庄','唐山','秦皇岛','邯郸','邢台','保定','张家口','承德','沧州','廊坊','衡水'],
+		'山西': ['太原','大同','阳泉','长治','晋城','朔州','晋中','运城','忻州','临汾','吕梁', '永济'],
+		'内蒙古': ['呼和浩特','包头','乌海','赤峰','通辽','鄂尔多斯','呼伦贝尔','巴彦淖尔','乌兰察布','兴安','锡林郭勒','阿拉善','临河','东胜','集宁','锡林浩特','海拉尔','乌兰浩特'],
+		'辽宁' : ['沈阳','大连','鞍山','抚顺','本溪','丹东','锦州','营口','阜新','辽阳','盘锦','铁岭','朝阳','葫芦岛'],
+		'吉林' : ['长春','吉林','四平','辽源','通化','白山','松原','白城','延边'],
+		'黑龙江' : ['哈尔滨','齐齐哈尔','鸡西','鹤岗','双鸭山','大庆','伊春','佳木斯','七台河','牡丹江','黑河','绥化','大兴安岭'],
+		'江苏' : ['南京','无锡','徐州','常州','苏州','南通','连云港','淮安','盐城','扬州','镇江','泰州','宿迁','淮阴','张家港'],
+		'浙江' : ['杭州','宁波','温州','嘉兴','湖州','绍兴','金华','衢州','舟山','台州','丽水','温岭'],
+		'安徽' : ['合肥','芜湖','蚌埠','淮南','马鞍山','淮北','铜陵','安庆','黄山','滁州','阜阳','宿州','巢湖','六安','亳州','池州','宣城'],
+		'福建' : ['福州','厦门','莆田','三明','泉州','漳州','南平','龙岩','宁德'],
+		'江西' : ['南昌','景德镇','萍乡','九江','新余','鹰潭','赣州','吉安','宜春','抚州','上饶'],
+		'山东' : ['济南','青岛','淄博','枣庄','东营','烟台','潍坊','济宁','泰安','威海','日照','莱芜','临沂','德州','聊城','滨州','菏泽'],
+		'河南' : ['郑州','开封','洛阳','平顶山','安阳','鹤壁','新乡','焦作','濮阳','许昌','漯河','三门峡','南阳','商丘','信阳','周口','驻马店','济源'],
+		'湖北' : ['武汉','黄石','十堰','宜昌','襄樊','鄂州','荆门','孝感','荆州','黄冈','咸宁','随州','恩施','仙桃','潜江','天门','神农架'],
+		'湖南' : ['长沙','株洲','湘潭','衡阳','邵阳','岳阳','常德','张家界','益阳','郴州','永州','怀化','娄底','湘西'],
+		'广西' : ['南宁','柳州','桂林','梧州','北海','防城港','钦州','贵港','玉林','百色','贺州','河池','来宾','崇左','桂平'],
+		'海南' : ['海口','三亚','五指山','琼海','儋州','文昌','万宁','东方','琼山','临高','陵水','澄迈','定安','屯昌','昌江','白沙','琼中','乐东','保亭','陵水'],
+		'四川' : ['成都','自贡','攀枝花','泸州','德阳','绵阳','广元','遂宁','内江','乐山','南充','眉山','宜宾','广安','达州','雅安','巴中','资阳','阿坝','甘孜','凉山','达川','阆中'],
+		'贵州' : ['贵阳','六盘水','遵义','安顺','铜仁','黔西南','毕节','黔东南','黔南'],
+		'云南' : ['昆明','曲靖','玉溪','保山','昭通','丽江','思茅','临沧','楚雄','红河州','文山','西双版纳','大理','德宏','怒江傈','迪庆','东川','怒江'],
+		'西藏' : ['拉萨','昌都','山南','日喀则','那曲','阿里','林芝'],
+		'陕西' : ['西安','铜川','宝鸡','咸阳','渭南','延安','汉中','榆林','安康','商洛'],
+		'甘肃' : ['兰州','嘉峪关','金昌','白银','天水','武威','张掖','平凉','酒泉','庆阳','定西','陇南','临夏','甘南'],
+		'青海' : ['西宁','海东','海北','黄南','海南','果洛','玉树','海西'],
+		'宁夏' : ['银川','石嘴山','吴忠','固原','中卫','银南'],
+		'新疆' : ['乌鲁木齐','克拉玛依','吐鲁番','哈密','昌吉','博尔塔拉','巴音郭楞','阿克苏','克孜勒苏','喀什','和田','伊犁','塔城','阿勒泰','石河子','阿拉尔','图木舒克','五家渠']
+		};
+
+
+var amend = location.search.getParam('amend');
+$(function(){
+	$('#khbank').val('0');
+	if(amend == 'y'){
+		$('#kahao').parent().hide();
+		$('#kahao').parent().prev().hide();
+		$("#bdCard").show();
+		$("#success").hide();
+		WW.revise();
+	}else{
+		WW.initial();
+	}
+	$(".zhuceOpen2").bind("click",function(){
+		$(this).hide();
+		$(".zhuceOpen").show();
+		//$("#mima").attr("type","text");
+	});
+	
+	$(".zhuceOpen").bind("click",function(){
+		$(this).hide();
+		$(".zhuceOpen2").show();
+		//$("#mima").attr("type","password");
+	});
+	
+	$("#kahao").bind("keyup",function(){
+		this.value=this.value.replace(/\D/g,''); //只能输数字
+	    this.value =this.value.replace(/\s/g,'').replace(/(\d{4})(?=\d)/g,"$1 ");//四位数字一空格
+	});
+});
+var WW = {
+	initial :function(){
+		$('#ibank em').html('请选择银行');
+		$('#spve em').html('上海');
+		$('#icity em').html('上海');
+			$.ajax({
+				url : "/user/query.go?flag=4",
+				dataType : "xml",
+				success : function(xml) {
+					var R = $(xml).find("Resp");
+					var code = R.attr("code");
+					var desc = R.attr("desc");
+					if (code == "0") {	
+						var r= R.find("row");
+						var code = r.attr("code");//开户行
+						var name = r.attr("name");//支行名称
+						var prov = r.attr("prov");//省
+						var city = r.attr("city");//市
+						var card = r.attr("card");//卡号
+						if(card ==""){
+							$("#bdCard").show();
+							$("#success").hide();
+						}else{
+							var t = '';
+							$('#banks li').each(function(){
+								if(code == $(this).attr('value')){
+									t = $(this).html();
+								}
+							});
+							$('#success p').eq(0).html('<span class="gray">银行卡号</span>'+card);
+							$('#success p').eq(1).html('<span class="gray">开 户 行</span>'+t);
+							$('#success p').eq(2).html('<span class="gray">开 户 地</span>'+prov+city);
+							$('#success p').eq(3).html('<span class="gray">开户支行</span>'+name);
+							$("#bdCard").hide();
+							$("#success").show();
+						}
+					}else{
+						alert(desc);
+						if (desc.indexOf('未登录')>=0) {
+							setTimeout(function () {
+								window.location.href = '/alone/login.html';
+							}, 1500)
+						}
+					}
+				},
+				error : function() {
+					alert('您所请求的页面有异常！');
+					return false;
+				}
+			});
+ 	},
+ 	revise:function(){
+			$.ajax({
+				url : "/user/query.go?flag=4",
+				dataType : "xml",
+				success : function(xml) {
+					var R = $(xml).find("Resp");
+					var code = R.attr("code");
+					var desc = R.attr("desc");
+					if (code == "0") {	
+						var r= R.find("row");
+						var code = r.attr("code");//开户行
+						var name = r.attr("name");//支行名称
+						var prov = r.attr("prov");//省
+						var city = r.attr("city");//市
+						$('#khbank').val(code);
+						$('#zhihang').val(name);
+						var g = {'2':'0','13':'1','1':'2','3':'3','4':'4','10':'5','12':'6','9':'7','4':'8','8':'9','4000':'10','23':'11','1000':'12','25':'13','11':'14'};
+						$('#ibank em').html($('#banks li').eq(g[code]).html());
+						$('#spve em').html(prov);
+						WW.changecitybyprovince(prov);
+					}else{
+						alert(desc);
+						if (desc.indexOf('未登录')>=0) {
+							setTimeout(function () {
+								window.location.href = '/alone/login.html';
+							}, 1500)
+						}
+					}
+				},
+				error : function() {
+					alert('您所请求的页面有异常！');
+					return false;
+				}
+			});
+ 	},
+ 	changecitybyprovince:function(province){
+ 		var len = 0,city=[];
+ 		if(province.length>0){
+    		city = cities[province];
+    		len = city.length;
+ 		}
+ 		var ret = '';
+ 		for(var i=0;i<len;i++){
+ 			
+ 			ret += '<li class="'+(i==0? "cur" :"")+'" >'+city[i]+'</li>';
+ 		}
+ 		$('#icity em').html(city[0]);
+ 		$("#city ul").html(ret);
+ 		
+ 	}
+};
+function sBank(){//银行
+	$('#banks').show();
+	$('#mask').show();
+	$('#banks').css({marginTop: '-'+$("#banks").height()/2+'px'});
+
+	$('#banks li').click(function(){
+		$('#banks li').attr('class','');
+		$(this).attr('class','cur');
+		$('#ibank em').html($(this).html());
+		$('#banks').hide();
+		$('#mask').hide();
+		$('#khbank').val($(this).attr('value'));
+	});
+}
+function spve(){//生
+	$('#pve').show();
+	$('#mask').show();
+	$('#pve').css({marginTop: '-'+$("#pve").height()/2+'px'});
+
+	$('#pve li').click(function(){
+		$('#pve li').attr('class','');
+		$(this).attr('class','cur');
+		$('#spve em').html($(this).html());
+		$('#pve').hide();
+		$('#mask').hide();
+		WW.changecitybyprovince($(this).html());
+	});
+}
+function icity(){//市
+	$('#city').show();
+	$('#mask').show();
+	$('#city').css({marginTop: '-'+$("#city").height()/2+'px'});
+
+	$('#city li').click(function(){
+		$('#city li').attr('class','');
+		$(this).attr('class','cur');
+		$('#icity em').html($(this).html());
+		$('#city').hide();
+		$('#mask').hide();
+	});
+}
+function isOk(){
+	var zhihang = $("#zhihang").val();
+	var kahao = $.trim($('#kahao').val().replace(/\s+/g,""));
+	//var upwd = $("#mima").val();
+	if($("#khbank").val()=='0'){
+		alert('请选择开户银行');
+		return false;
+	}
+	if(zhihang == ""){
+		alert('请填写开户支行');
+		return false;
+	}
+	if(zhihang.indexOf('支行') == '-1'){
+		alert('支行不符合规范');
+		$("#zhihang").focus();
+		return false;
+	}
+	if(kahao == "" && amend != 'y'){
+		alert('请填写银行卡号');
+		return false;
+	}
+	if(kahao.length<14 && amend != 'y'){
+		alert('银行卡号不能少于14位');
+		return false;
+	}
+	
+	var bankCode = $("#khbank").val();
+	var bankName = $("#zhihang").val();
+	var cityid = $.trim($("#icity em").html());
+	var provid = $.trim($("#spve em").html());
+	var data = {};	
+	if(amend != 'y'){//绑定
+		data = {
+				flag:"1",
+				bankCode:bankCode,
+				bankCard:kahao,
+				provid:provid,
+				cityid:cityid.replace(),
+				bankName:bankName,
+				mobileNo:"",
+				realBankCode:"NOCHECK"
+		}
+	}else{//修改
+		data = {
+				flag:"2",
+				bankCode:bankCode,
+				//bankCard:kahao,
+				provid:provid,
+				cityid:cityid.replace(),
+				bankName:bankName,
+				mobileNo:"",
+				realBankCode:"NOCHECK"
+		}
+		
+	}
+	
+	$.ajax({
+		url : "/user/new_id_bank_bind.go",
+		type : "POST",
+		dataType : "xml",
+		data : data,
+		success : function(xml) {
+			var R = $(xml).find("Resp");
+			var code = R.attr("code");
+			var desc = R.attr("desc");
+			if (code == "0") {
+				alert('银行卡绑定成功');
+				setTimeout(function () {
+					location.replace('/alone/bankcard.html')
+				}, 1e3);
+			} else {
+				alert(desc);
+			}
+		},
+		error : function() {
+			alert('您所请求的页面有异常！');
+			return false;
+		}
+	});	
+}
+</script>
+</body>
+</html>

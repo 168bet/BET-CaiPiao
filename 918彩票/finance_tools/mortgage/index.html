@@ -1,0 +1,382 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>房贷计算器</title>
+<link href="./css/fd.css" rel="stylesheet" type="text/css">
+<style>
+#daikuan, #gjj, #zh, #add_project, #contrast, #contrast_amend, #userDefined_rate, #select_rate, #select_deadline, #select_mode, .mask, .txt-money{display:none;}
+/**************************** 提示弹窗 start*******************************/
+@-webkit-keyframes boxfade{0%{opacity:0;-webkit-transform:translateY(40px)}30%{opacity:0.8;-webkit-transform:translateY(0px)}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;-o-transform:translateY(40px)}30%{opacity:0.8;-o-transform:translateY(0px)}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;-ms-transform:translateY(40px)}30%{opacity:0.8;-ms-transform:translateY(0px)}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;padding: 9px 0px;line-height:22px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/**************************** 提示弹窗 end*******************************/
+
+
+</style>
+<body>
+<!-- 头部导航条 -->
+	<section class="nav flexbox" id='navMenu'>
+		<a href="javascript:;" class="cur">商业贷</a>
+		<a href="javascript:;">公积金贷</a>
+		<a href="javascript:;">组合贷</a>
+		<a href="javascript:;">方案对比</a>
+	</section>
+
+<!-- 商业贷款 start -->
+<article id='daikuan'>
+	<section style="display: block;">
+		<div class="top"></div>
+		<div class="calculator">
+			<dl class="calculator">
+				<dt>贷款金额：</dt>
+				<dd>
+				<div class="flexbox">
+					<input type="text" onkeyup="value=value.replace(/[^\d|^/.]/g,'')" class="ipt-text" placeholder="请输入商贷金额" id='dy_money'>
+					<i>万元</i>
+				</div>
+				</dd>
+			</dl>
+			<dl class="calculator">
+				<dt>贷款年限：</dt>
+				<dd class="arr-rt">
+				<div class="flexbox" id='dy_term'></div>
+				</dd>
+			</dl>
+			<dl class="calculator bb">
+				<dt>商贷利率：</dt>
+				<dd class="arr-rt">
+					<div class="flexbox" id='dy_rate'></div>
+				</dd>
+			</dl>
+			<dl class="calculator">
+				<dt>还款方式：</dt>
+				<dd class="arr-rt">
+					<div class="flexbox" id='dy_type'></div>
+				</dd>
+			</dl>
+		</div>
+		<div class="methodbox nob">
+			<a href="javascript:void(0)" class="btn-cal" id="dy_btn">开始计算</a>
+		</div>
+	</section>
+
+	<section class="txt-money">
+		<div><i></i>月供：<cite>450256</cite>元</div>
+		<!-- 等额本金的情况时显示该层 -->
+		<div><i></i>每月递减：<cite>136</cite>元</div>
+		<div><i class="red"></i>支付利息：<cite>445257.54</cite>元</div>
+		<span id='dy_contrast'>加入对比</span>
+	</section>
+
+</article>
+<!-- 商业贷款 end -->
+
+<!-- 公积金贷款 start -->
+<article id='gjj'>
+	<section style="display: block;">
+		<div class="top"></div>
+		<div class="calculator">
+			<dl class="calculator">
+				<dt>贷款金额：</dt>
+				<dd>
+				<div class="flexbox">
+					<input type="text" onkeyup="value=value.replace(/[^\d|^/.]/g,'')" class="ipt-text" placeholder="请输入公积金贷金额" pattern="[0-9]*" id='gjj_money'>
+					<i>万元</i>
+				</div>
+				</dd>
+			</dl>
+			<dl class="calculator">
+				<dt>贷款年限：</dt>
+				<dd class="arr-rt">
+				<div class="flexbox" data-value="0_3" id='gjj_term'></div>
+				</dd>
+			</dl>
+			<dl class="calculator bb">
+				<dt>公积金利率：</dt>
+				<dd class="arr-rt no-arrow">
+					<div class="flexbox" id='gjj_rate'></div>
+				</dd>
+			</dl>
+			<dl class="calculator">
+				<dt>还款方式：</dt>
+				<dd class="arr-rt">
+					<div class="flexbox" id='gjj_type'></div>
+				</dd>
+			</dl>
+		</div>
+		<div class="methodbox nob">
+			<a href="javascript:void(0)" class="btn-cal" id="gjj_btn">开始计算</a>
+		</div>
+	</section>
+
+	<section class="txt-money">
+		<div><i></i>月供：<cite>450256</cite>元</div>
+		<!-- 等额本金的情况时显示该层 -->
+		<div><i></i>每月递减：<cite>136</cite>元</div>
+		<div><i class="red"></i>支付利息：<cite>445257.54</cite>元</div>
+		<span id='gjj_contrast'>加入对比</span>
+	</section>
+
+</article>
+<!-- 公积金贷款 end -->
+
+
+<!-- 组合贷款 start -->
+<article id='zh'>
+	<section style="display: block;">
+		<div class="top"></div>
+		<div class="calculator">
+			<dl class="calculator">
+				<dt>商贷金额：</dt>
+				<dd>
+				<div class="flexbox">
+					<input type="text" onkeyup="value=value.replace(/[^\d|^/.]/g,'')" class="ipt-text" placeholder="请输入商贷金额" pattern="[0-9]*" id='zh_dy_money'>
+					<i>万元</i>
+				</div>
+				</dd>
+			</dl>
+			<dl class="calculator">
+				<dt>商贷年限：</dt>
+				<dd class="arr-rt">
+				<div class="flexbox" id='zh_dy_term'></div>
+				</dd>
+			</dl>
+			<dl class="calculator bb">
+				<dt>商贷利率：</dt>
+				<dd class="arr-rt">
+					<div class="flexbox" id='zh_dy_rate'></div>
+				</dd>
+			</dl>
+			<dl class="calculator">
+				<dt>公积金贷金额：</dt>
+				<dd>
+				<div class="flexbox">
+					<input type="text" onkeyup="value=value.replace(/[^\d|^/.]/g,'')" class="ipt-text" placeholder="请输入公积金贷金额" pattern="[0-9]*" id='zh_gjj_money'>
+					<i>万元</i>
+				</div>
+				</dd>
+			</dl>
+			<dl class="calculator">
+				<dt>公积金贷年限：</dt>
+				<dd class="arr-rt">
+				<div class="flexbox" id='zh_gjj_term'></div>
+				</dd>
+			</dl>
+			<dl class="calculator bb">
+				<dt>公积金贷利率：</dt>
+				<dd class="arr-rt no-arrow">
+					<div class="flexbox" id='zh_gjj_rate'></div>
+				</dd>
+			</dl>
+			<dl class="calculator">
+				<dt>还款方式：</dt>
+				<dd class="arr-rt">
+					<div class="flexbox" id='zh_type'></div>
+				</dd>
+			</dl>
+		</div>
+		<div class="methodbox nob">
+			<a href="javascript:void(0)" class="btn-cal" id="zh_btn">开始计算</a>
+		</div>
+	</section>
+
+	<section class="txt-money">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<span id='zh_contrast'>加入对比</span>
+	</section>
+
+</article>
+<!-- 组合贷款 end -->
+
+<!-- 方案对比 start -->
+<article id='contrast'>
+	<div class="top"></div>
+	<nav class="nav-fa">
+		<span>类型</span>
+		<span>方案1</span>
+		<span>方案2</span>
+		<span>方案3</span>
+	</nav>
+	<aside class="list-fa" style='display:none;'>
+		<ul>
+			<li>贷款总额</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li>商贷全额</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li>商贷利率</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li>商贷年限</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li>公积金贷全额</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li>公积金贷利率</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li>公积金贷年限</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li>还款方式</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li>首月还款</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li>利息总额</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li>平均还款</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</aside>
+	<!-- 暂无数据 -->
+	<section class="no" style='display:none;'>
+		<p>暂无对比的方案，请先添加~</p>
+		<div class="btn-add">
+			<a>添加贷款方案</a>
+		</div>
+	</section>
+	<div class="edit" style='display:none;'>编辑</div>
+</article>
+<!-- 方案对比 end -->
+
+<!-- 遮罩层 -->
+<div class="mask"></div>
+<!-- 贷款年限弹窗 -->
+<section class="dk-wrap" id='select_deadline'>
+	<ul>
+		<li>30年</li>
+		<li>25年</li>
+		<li>20年</li>
+		<li>15年</li>
+		<li>10年</li>
+		<li>5年</li>
+	</ul>
+</section>
+<!-- 还款方式弹窗 -->
+<section class="dk-wrap" id='select_mode'>
+	<ul>
+		<li>等额本息(每月还款额固定)</li>
+		<li>等额本金(每月还款额递减)</li>
+	</ul>
+</section>
+
+<!-- 商贷利率弹窗 -->
+<section class="dk-wrap" id='select_rate'>
+	<ul>
+		<li class="prompt">2015年10月五年以上最新商贷基准率 : 4.9%</li>
+		<li t='1'>无折扣（）</li>
+		<li t='0.7'>7折（）</li>
+		<li t='0.8'>8折（）</li>
+		<li t='0.83'>8.3折（）</li>
+		<li t='0.85'>8.5折（）</li>
+		<li t='0.88'>8.8折（）</li>
+		<li t='0.9'>9折（）</li>
+		<li t='0.95'>9.5折（）</li>
+		<li t='1.1'>1.1倍（）</li>
+		<li t='1.2'>1.2倍（）</li>
+		<li>其他</li>
+	</ul>
+</section>
+<!-- 其他弹窗 -->
+<section class="other_wrap" id='userDefined_rate'>
+	<div>
+		<p>自定义利率：</p>
+		<input onkeyup="value=value.replace(/[^\d|^/.]/g,'')" type="text"/><cite>%</cite>
+		<button>确定</button>
+		<i>×</i>
+	</div>
+</section>
+<!-- 加入对比 -->
+<section class="other_wrap" style="height:auto; top:40%;" id='add_project'> 
+	<div>
+		<p>最多只能保存三个方案，请勾选想要替换的方案:</p>
+		<ul class="list-charge">
+			<li>
+				<span>方案1（30万/30年/商贷）</span>
+				<span class="check cur" t='0'></span>
+			</li>
+			<li>
+				<span>方案2（）</span>
+				<span class="check" t='1'></span>
+			</li>
+			<li>
+				<span>方案3（）</span>
+				<span class="check" t='2'></span>
+			</li>
+		</ul>
+		<button>确定</button>
+		<i class="close">×</i>
+	</div>
+</section>
+<!-- 方案修改弹窗 -->
+<section class="modify" id='contrast_amend'>
+	<ul>
+		<li>方案1</li>
+		<li class='del' t='0'>删除</li>
+		<li class='mod' t='0'>修改</li>
+	</ul>
+	<ul>
+		<li>方案2</li>
+		<li class='del' t='1'>删除</li>
+		<li class='mod' t='1'>修改</li>
+	</ul>
+	<ul>
+		<li>方案3</li>
+		<li class='del' t='2'>删除</li>
+		<li class='mod' t='2'>修改</li>
+	</ul>
+	<i style="top: -.3rem; right: .5rem;">×</i>
+</section>
+
+
+
+<script src='../js/zepto.min.js' type='text/javascript'></script>
+<script src='../js/mortgage.js' type='text/javascript'></script>
+
+
+
+</body>

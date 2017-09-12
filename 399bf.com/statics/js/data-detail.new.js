@@ -1,0 +1,10 @@
+(function($) {
+
+	$('#treeMenu').treeCreate();
+
+
+})(jQuery)
+
+
+
+

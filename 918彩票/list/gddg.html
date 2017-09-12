@@ -1,0 +1,305 @@
+<style>
+.bf_ {
+	position: fixed;
+	left: 5%;
+	top: 5%;
+	z-index: 10001;
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: #FFFFFF;
+	background-image: none;
+	background-origin: padding-box;
+	background-position: 0 0;
+	background-repeat: repeat;
+	background-size: auto auto;
+	border-bottom-left-radius: 0.4rem;
+	border-bottom-right-radius: 0.4rem;
+	border-top-left-radius: 0.4rem;
+	border-top-right-radius: 0.4rem;
+	width: 90%;
+}
+</style>
+<div id=zhezhao class="mask" style='display: none;'></div>
+<div style="display: none;" class="bfPop bf_">
+	<div class="bfTitle clearfix">
+		<p>
+			<label>-</label><span class="right"><em>V</em></span>
+		</p>
+		<p>
+			<span class="left"><em>S</em></span><label>-</label>
+		</p>
+	</div>
+	<div style="padding-bottom: .5rem; overflow: auto" id='gddg_bf_'>
+		<p class="red pdTop06 pdLeft08 pdBot03"></p>
+		<div class="competitions bfcom">
+			<span v='1:0' s=10><strong>1:0</strong><em></em></span><span v='2:0'
+				s=20><strong>2:0</strong><em></em></span><span v='2:1' s=21><strong>2:1</strong><em></em></span>
+			<span v='3:0' s=30><strong>3:0</strong><em></em></span><span v='3:1'
+				s=31><strong>3:1</strong><em></em></span><span v='3:2' s=32><strong>3:2</strong><em></em></span>
+			<span v='4:0' s=40><strong>4:0</strong><em></em></span><span v='4:1'
+				s=41><strong>4:1</strong><em></em></span><span v='4:2' s=42><strong>4:2</strong><em></em></span>
+			<span v='5:0' s=50><strong>5:0</strong><em></em></span><span v='5:1'
+				s=51><strong>5:1</strong><em></em></span><span v='5:2' s=52><strong>5:2</strong><em></em></span>
+			<span class="bflast" v='9:0' s=90><strong>胜其它</strong><em></em></span>
+			<div class="clear"></div>
+		</div>
+		<p class="blue pdTop06 pdLeft08 pdBot03">打平</p>
+		<div class="competitions bfcom">
+			<span v='0:0' s=00><strong>0:0</strong><em></em></span><span v='1:1'
+				s=11><strong>1:1</strong><em></em></span><span v='2:2' s=22><strong>2:2</strong><em></em></span>
+			<span v='3:3' s=33><strong>3:3</strong><em></em></span><span
+				class="bflast" v='9:9' s=99><strong>平其它</strong><em></em></span>
+			<div class="clear"></div>
+		</div>
+		<p class="green pdTop06 pdLeft08 pdBot03"></p>
+		<div class="competitions bfcom">
+			<span v='0:1' s=01><strong>0:1</strong><em></em></span><span v='0:2'
+				s=02><strong>0:2</strong><em></em></span><span v='1:2' s=12><strong>1:2</strong><em></em></span>
+			<span v='0:3' s=03><strong>0:3</strong><em></em></span><span v='1:3'
+				s=13><strong>1:3</strong><em></em></span><span v='2:3' s=23><strong>2:3</strong><em></em></span>
+			<span v='0:4' s=04><strong>0:4</strong><em></em></span><span v='1:4'
+				s=14><strong>1:4</strong><em></em></span><span v='2:4' s=24><strong>2:4</strong><em></em></span>
+			<span v='0:5' s=05><strong>0:5</strong><em></em></span><span v='1:5'
+				s=15><strong>1:5</strong><em></em></span><span v='2:5' s=25><strong>2:5</strong><em></em></span>
+			<span class="bflast" v='0:9' s=09><strong>负其它</strong><em></em></span>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="zfTrue clearfix">
+		<a class="zfqx" href="javascript:;">取 消</a><a href="javascript:;">确
+			定</a>
+	</div>
+</div>
+<article>
+	<div id='dgdg'>
+		<nav class="sdTab gddgTab relative">
+			<ul class="clearfix" id=top_menu>
+				<li class="cur" v=sf><a href="javascript:;">猜胜负</a></li>
+				<li v=rq><a href="javascript:;">猜让球</a></li>
+				<li v=bf><a href="javascript:;">猜比分</a></li>
+				<li v=jq><a href="javascript:;">猜进球</a></li>
+				<li v=bqc><a href="javascript:;">半全场</a></li>
+			</ul>
+			<em class="downline" style="width: 17%; left: 2%"></em>
+		</nav>
+		<article id=top_con style='overflow: hidden; position: relative'>
+			<section id=dg_sf style='position: absolute; width: 100%'>
+				<article class="gddgxh gddgxh4">
+
+					<div class="gddgScroll clearfix" id=sfScroll>
+						<span class=prev style=''></span>
+						<div class='gddgbd'>
+							<ul id=sf_scroll></ul>
+						</div>
+						<span class=next style=''></span>
+					</div>
+					<div style='height: 1rem'></div>
+					<div class="gddgxhList">
+						<div class="gddghot clearfix">
+							<p>
+								<span><em></em><i></i></span>
+							</p>
+							<p>
+								<span><em></em><i></i></span>
+							</p>
+							<p>
+								<span><em></em><i></i></span>
+							</p>
+						</div>
+						<ul class=tzxx>
+							<li><span v='3'><cite></cite>胜</span><span v='1'><cite>VS</cite>平</span><span
+								v='0'><cite></cite>胜</span></li>
+							<li><em></em><em></em><em></em></li>
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section id='dg_rq' style='position: absolute; width: 100%'>
+				<article class="gddgxh gddgxh4">
+					<div class="gddgScroll clearfix" id=rqScroll>
+						<span class=prev></span>
+						<div class='gddgbd'>
+							<ul id=rq_scroll></ul>
+						</div>
+						<span class=next></span>
+					</div>
+					<div style='height: 1rem'></div>
+					<div class="gddgxhList">
+						<div class="gddghot clearfix">
+							<p>
+								<span><em></em><i></i></span>
+							</p>
+							<p>
+								<span><em></em><i></i></span>
+							</p>
+							<p>
+								<span><em></em><i></i></span>
+							</p>
+						</div>
+						<ul class=tzxx>
+							<li><span v='3'><cite></cite>胜</span><span v='1'><cite>VS</cite>平</span><span
+								v='0'><cite></cite>胜</span></li>
+							<li><em></em><em></em><em></em></li>
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section id=dg_bf style='position: absolute; width: 100%'>
+				<article class="gddgxh gddgxh2">
+					<div class="gddgScroll clearfix" id=bfScroll>
+						<span class=prev></span>
+						<div class='gddgbd'>
+							<ul id=bf_scroll></ul>
+						</div>
+						<span class=next></span>
+					</div>
+					<div style='height: 1rem'></div>
+					<div class="gddgxhList">
+						<ul class="gddgtitle">
+							<li><em>胜</em><em>平</em><em>胜</em></li>
+						</ul>
+						<ul class=tzxx>
+							<li><span v='1:0' s=10>1<strong> : </strong>0
+							</span><span v='0:0' s=00>0<strong> : </strong>0
+							</span><span v='0:1' s=01>0<strong> : </strong>1
+							</span></li>
+							<li><em>奖金8</em><em>奖金8</em><em>奖金8</em></li>
+							<li><span v='2:0' s=20>2<strong> : </strong>0
+							</span><span v='1:1' s=11>1<strong> : </strong>1
+							</span><span v='0:2' s=02>0<strong> : </strong>2
+							</span></li>
+							<li><em>奖金8</em><em>奖金8</em><em>奖金8</em></li>
+							<li><span v='2:1' s=21>2<strong> : </strong>1
+							</span><span v='2:2' s=22>2<strong> : </strong>2
+							</span><span v='1:2' s=12>1<strong> : </strong>2
+							</span></li>
+							<li><em>奖金8</em><em>奖金8</em><em>奖金8</em></li>
+						</ul>
+						<div class="gddgmore clearfix">
+							<span>更多</span>
+						</div>
+					</div>
+				</article>
+			</section>
+			<section id=dg_jq style='position: absolute; width: 100%'>
+				<article class="gddgxh gddgxh3">
+					<div class="gddgScroll clearfix" id=jqScroll>
+						<span class=prev></span>
+						<div class='gddgbd'>
+							<ul id=jq_scroll></ul>
+						</div>
+						<span class=next></span>
+					</div>
+					<div style='height: 1rem'></div>
+					<div class="gddgxhList">
+						<ul class=tzxx>
+							<li><span v='0'>0球</span><span v='1'>1球</span><span v='2'>2球</span><span
+								v='3'>3球</span></li>
+							<li><em>奖金8</em><em>奖金8</em><em>奖金8</em><em>奖金8</em></li>
+							<li><span v='4'>4球</span><span v=5>5球</span><span v=6>6球</span><span
+								v=7>7+球</span></li>
+							<li><em>奖金8</em><em>奖金8</em><em>奖金8</em><em>奖金8</em></li>
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section id=dg_bqc style='position: absolute; width: 100%'>
+				<article class="gddgxh">
+					<div class="gddgScroll clearfix" id=bqcScroll>
+						<span class=prev></span>
+						<div class='gddgbd'>
+							<ul id=bqc_scroll></ul>
+						</div>
+						<span class=next></span>
+					</div>
+					<div style='height: 1rem'></div>
+					<div class="gddgxhList">
+						<p>猜 上半场-全场 胜平负</p>
+						<ul class=tzxx>
+							<li><span v='3-3'>胜-胜</span><span v='1-3'>平-胜</span><span
+								v='0-3'>负-胜</span></li>
+							<li><em>奖金8</em><em>奖金8</em><em>奖金8</em></li>
+							<li><span v='3-1'>胜-平</span><span v='1-1'>平-平</span><span
+								v='0-1'>负-平</span></li>
+							<li><em>奖金8</em><em>奖金8</em><em>奖金8</em></li>
+							<li><span v='3-0'>胜-负</span><span v='1-0'>平-负</span><span
+								v='0-0'>负-负</span></li>
+							<li><em>奖金8</em><em>奖金8</em><em>奖金8</em></li>
+						</ul>
+					</div>
+				</article>
+			</section>
+		</article>
+		<div class="gddgdouble clearfix" id=money>
+			<div class="clearfix">
+				<cite>每项买</cite><span><em>-</em><input type="tel" value="10"
+					maxlength=6><em>+</em></span><cite>元</cite>
+			</div>
+			<p class="pdTop03">
+				总金额
+				<bb class="red" id="zje">0</bb>
+				元&nbsp;&nbsp;预测奖金<em class="red">0</em>元
+			</p>
+		</div>
+		<footer class="buyFooter" style='z-index: 1'>
+			<div class="fixed gddgFloat">
+				<!-- <a href="javascript:;" class="ssqdeleted">发合买</a> --> <a
+					href="javascript:;" class="ture">猜中比赛结果即获奖</a>
+			</div>
+		</footer>
+	</div>
+	
+	
+	<!-- 发起合买[[ -->
+	<article class="pdLeft04" id="dghm" style=display:none;>
+    	<p class="pdTop03 pdLeft06" id='hmDet'>本方案总金额<cite class="yellow"></cite>元</p>
+        <div class="s2"><i>认购</i><span>
+	        <input type="tel" onkeyup="this.value=this.value.replace(/\D/g,'')" id="rg" class="hmInput" value="">
+	       	 元（<cite class="yellow" id="rg_bl"></cite>）</span>
+        </div>
+        <div class="s2"><i>保底</i><span>
+	        <input type="tel" onkeyup="this.value=this.value.replace(/\D/g,'')" id="bd" class="hmInput" value="0">
+	       	 元（<cite class="yellow" id="bd_bl">0%</cite>）<em class="check nocheck" id="chk"></em><em class="gray">全额保底</em></span>
+        </div>
+        <div class="s2">
+        	<i class="tcheight">提成比例</i>
+            <ul class="left scale" id="ratio">
+            	<li v='0'>0%</li>
+                <li v='1'>1%</li>
+                <li v='2'>2%</li>
+                <li v='3'>3%</li>
+                <li v='4'>4%</li>
+                <li v='5' class="cur">5%</li>
+                <li v='6'>6%</li>
+                <li v='7'>7%</li>
+                <li v='8'>8%</li>
+                <li v='9'>9%</li>
+                <li v='10'>10%</li>
+            </ul>
+        </div>
+        <div class="s2">
+        	<i class="gkheight">是否公开</i>
+            <ul class="left scale" id="isPublic">
+            	<li v="0" class="cur">公开</li>
+                <li v="2" class="along">对跟单用户公开</li>
+                <li v="1">截止后公开</li>
+                <li v="3" class="along">截止后对跟单用户公开</li>
+            </ul>
+        </div>
+        <div class="s2">
+        	<i class="faheight">方案宣言</i>
+            <textarea id='hmDesc' class="xyText" placeholder='一句好的口号将帮助方案尽快满员'></textarea>
+      	</div>
+      	
+      	<!-- 发起合买[[ -->
+      	<footer class="buyFooter zcFooter" id=jc_hm_footer>
+	    	<div class="buyFloat hmFloat fixed">
+	        	<span id="hm_m">认购<cite>0</cite>元 保底<cite>0</cite>元 共<cite class="yellow">0</cite>元</span>
+	        	<a class="ture" href="javascript:;" id='hmSubmit'>提 交</a>
+	   		</div>
+   		</footer>
+   		<!-- ]]发起合买-->
+  	</article>
+	<!-- ]]发起合买-->
+</article>
+<script src='/js/list/gddg.js'></script>

@@ -1,0 +1,49 @@
+<style>
+.ww_{ border-left:1px solid #d5d5d5; margin:0 4%; width:92%; background:#fff}
+.ww_ span{ float:left; position:relative; font-size: 0.95rem; line-height: 2.6rem; width: 32.96%; text-align:center; border-right:1px solid #d5d5d5; border-bottom:1px solid #d5d5d5}
+.ww_ span.cur{ color:#f6851f}
+.ww_ span.cur:before{ content:""; position:absolute; left:-1px; top:-1px; width:100%; height:2.6rem; border:1px solid #f6851f}
+.ww_ span.cur:after{ content:""; position:absolute; bottom:-1px; right:-1px; width:1.4rem; height:1.4rem; background:url(/img/hmCur.png) no-repeat center; background-size:1.4rem 1.4rem; -webkit-background-size:1.4rem 1.4rem; -moz-background-size:1.4rem 1.4rem}
+</style>
+<section id="chuan_" style="display:none;position: fixed; z-index: 1000; left:50%; top:50%;margin-left:-9.25rem;"  class="zfPop chuan_">
+	<h4>自由过关</h4>
+	<div class="ww_">
+		<span v="2" style='border-top:1px solid #d5d5d5;'>2串1</span>
+		<span v="3" style='border-top:1px solid #d5d5d5;'>3串1</span>
+		<span v="4" style='border-top:1px solid #d5d5d5;'>4串1</span>
+		<span v="5">5串1</span>
+		<span v="6">6串1</span>
+		<div class="clear"></div>
+	</div>
+	<a class="tureBtn" href="javascript:;">确定</a>
+</section>
+
+<div id="Mask_chuan" style="display:none;position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; background: none repeat scroll 0% 0% gray; opacity: 0.5; z-index: 999;"></div>
+
+<article>
+	<header class="tzHeader">
+    	<section class="buyHeader">
+    		<h1>竞彩进球数-投注</h1>
+    		<a href="#class=url&xo=jczq/jq/index.html" class="backIco2"></a>
+    	</section>
+    </header>
+    <div class="pdLfrt09">
+    	<div class="clearfix"><input id="tjss" type="submit" value="+ 添加赛事" class="handBtn left"><span id="clearTab" class="handBtn relative clearBtn right">清除列表</span></div>
+        <ul class="spfNum jqNum" id='content'></ul>
+        <p class="pact clearfix"><em class="left check"></em>我已阅读并同意《委托投注规则》</p>
+    </div>
+	<footer class="buyFooter">
+    	<div class="fixed">
+        	<p class="spfjj" style='display:none;'>若中奖，理论奖金 <em class="yellow"></em>元</p>
+    		<div class="double clearfix"><input id="selectPlay" type="text" value="" readonly class="left spfinput"><span class="right">投<input id='bs_' type="tel" value="1">倍</span> </div>
+            <div class="buyFloat">
+        		<input id="fqhm" type="button" class="fqhm" value="发起合买">
+        		<p id='count_'>共<cite class="yellow">0</cite>注 <cite class="yellow">0</cite>元</p>
+        		<a href="javascript:;" class="ture" id="payment">投 注</a>
+    		</div>
+    	</div>
+	</footer>  
+</article>
+<input type="hidden" value='' id='expect' />
+<input type="hidden" value='89' id='lotid' />
+<script src="/js/jczq/jq/ture.js"></script>

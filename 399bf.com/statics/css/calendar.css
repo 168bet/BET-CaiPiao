@@ -1,0 +1,73 @@
+.calendar{
+    width: 280px;
+    border: 1px solid #bbbbbb;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 100;
+    left: 78%;
+    top: 20%;
+}
+.top{
+    height: 80px;
+    background-color: #ffa21d;
+    color: #fff;
+}
+.top-l,.top-r{
+    width: 50px;
+    text-align: center;
+    float: left;
+    line-height: 70px;
+    font-size: 20px;
+    height: 70px;
+    margin-top: 5px;
+}
+.top-l{
+    border-right: 1px solid #f2f2f2;
+    margin-right: 4px;
+}
+.top-r{
+    border-left: 1px solid #f2f2f2;
+    margin-left: 4px;
+}
+.top-m{
+    width: 170px;
+    float: left;
+}
+.day{
+    width: 60px;
+    float: left;
+    text-align: center;
+    line-height: 80px;
+    font-size: 50px;
+}
+.week,.year-month{
+    float: left;
+    width: 103px;
+    height: 40px;
+    font-size: 20px;
+    padding-left: 10px;
+}
+.week{
+    height: 30px;
+    line-height: 40px;
+    margin-top: 5px;
+}
+.calendar-main table{
+    margin: 10px auto;
+    text-align: center;
+}
+.calendar-main td{
+    width: 37px;
+    height: 35px;
+}
+.calendar-main .today{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #ff6a22;
+    color: #ffffff;
+    margin: 0 auto;
+}

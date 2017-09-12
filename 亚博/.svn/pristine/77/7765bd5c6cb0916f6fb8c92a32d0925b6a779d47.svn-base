@@ -1,0 +1,68 @@
+<div class="w1000 m0auto text_center fz14 white" style="padding:20px 0;" ng-init="lxConfig = {
+    props: {
+        elx: ['shu_elx_pls', 'niu_elx_pls', 'hu_elx_pls', 'tu_elx_pls', 'long_elx_pls', 'she_elx_pls', 'ma_elx_pls', 'yang_elx_pls', 'hou_elx_pls', 'ji_elx_pls', 'gou_elx_pls', 'zhu_elx_pls'],
+        salx: ['shu_salx_pls', 'niu_salx_pls', 'hu_salx_pls', 'tu_salx_pls', 'long_salx_pls', 'she_salx_pls', 'ma_salx_pls', 'yang_salx_pls', 'hou_salx_pls', 'ji_salx_pls', 'gou_salx_pls', 'zhu_salx_pls'],
+        silx: ['shu_silx_pls', 'niu_silx_pls', 'hu_silx_pls', 'tu_silx_pls', 'long_silx_pls', 'she_silx_pls', 'ma_silx_pls', 'yang_silx_pls', 'hou_silx_pls', 'ji_silx_pls', 'gou_silx_pls', 'zhu_silx_pls'],
+        wlx: ['shu_wlx_pls', 'niu_wlx_pls', 'hu_wlx_pls', 'tu_wlx_pls', 'long_wlx_pls', 'she_wlx_pls', 'ma_wlx_pls', 'yang_wlx_pls', 'hou_wlx_pls', 'ji_wlx_pls', 'gou_wlx_pls', 'zhu_wlx_pls'],
+    },
+    nums: [
+        [9, 21, 33, 45],
+        [8, 20, 32, 44],
+        [7, 19, 31, 43],
+        [6, 18, 30, 42],
+        [5, 17, 29, 41],
+        [4, 16, 28, 40],
+        [3, 15, 27, 39],
+        [2, 14, 26, 38],
+        [1, 13, 25, 37, 49],
+        [12, 24, 36, 48],
+        [11, 23, 35, 47],
+        [10, 22, 34, 46],
+    ],
+    lxProps: ['elx', 'salx', 'silx', 'wlx'],
+    sxProps: ['shu', 'niu', 'hu', 'tu', 'long', 'she', 'ma', 'yang', 'hou', 'ji', 'gou', 'zhu']
+}">
+    <div class="hgt30 line_hgt30 text_left p10_0" style="background: #EAEAEA">
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.lxTab='elx';fun.cancelOrder(); " ng-class="{tm_active:data.lxTab=='elx'}">二连肖</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.lxTab='salx';fun.cancelOrder(); " ng-class="{tm_active:data.lxTab=='salx'}">三连肖</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.lxTab='silx';fun.cancelOrder(); " ng-class="{tm_active:data.lxTab=='silx'}">四连肖</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.lxTab='wlx';fun.cancelOrder(); " ng-class="{tm_active:data.lxTab=='wlx'}">五连肖</span>
+    </div>
+    
+    <div ng-show="data.lxTab == lxItem" ng-repeat="lxItem in lxConfig['lxProps']" data-lxitem="{{data.lxTab}} - {{lxItem}}">
+        <table>
+            <thead>
+                <tr class="hgt40 line_hgt42 border_btm5" style="background: #82817F">
+                    <td>生肖</td>
+                    <td>赔率</td>
+                    <td>勾选</td>
+                    <td class="border_r8">号码</td>
+                    <td>生肖</td>
+                    <td>赔率</td>
+                    <td>勾选</td>
+                    <td>号码</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="hgt40 line_hgt42 border_btm5" style="background: #DDDDDD" ng-repeat="index in range(0, lxConfig['sxProps'].length, 2)">
+                    <td style="background: #EB3D00">{{this[lxConfig['props'][lxItem][index]].number}}</td>
+                    <td class="red">{{this[lxConfig['props'][lxItem][index]].pl}}</td>
+                    <td class="w78">
+                        <input type="checkbox" style="vertical-align: middle;" value="1" class="w40 green" ng-class="{'has-error': data.inputErrors[this[lxConfig['props'][lxItem][index]].id] }" ng-model="data.betMoney[this[lxConfig['props'][lxItem][index]].id]" ng-change="fun.zybzCodeSelected(this[lxConfig['props'][lxItem][index]])"/>
+                    </td>
+                    <td  class="border_r8">
+                        <ball number="num" class="smaller-circle" ng-repeat="num in lxConfig['nums'][index]"/>
+                    </td>
+                    <td style="background: #EB3D00">{{this[lxConfig['props'][lxItem][index+1]].number}}</td>
+                    <td class="red">{{this[lxConfig['props'][lxItem][index+1]].pl}}</td>
+                    <td class="w78">
+                        <input type="checkbox" style="vertical-align: middle;" value="1" class="w40 green" ng-class="{'has-error': data.inputErrors[this[lxConfig['props'][lxItem][index+1]].id] }" ng-model="data.betMoney[this[lxConfig['props'][lxItem][index+1]].id]" ng-change="fun.zybzCodeSelected(this[lxConfig['props'][lxItem][index+1]])"/>
+                    </td>
+                    <td  class="border_r8">
+                        <ball number="num" class="smaller-circle" ng-repeat="num in lxConfig['nums'][index+1]"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

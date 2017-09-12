@@ -1,0 +1,108 @@
+{php $css = array('ft_game_analyse.css')}
+{template 'content', 'header_score'}
+
+<!-- nav -->
+{template 'sportsdata', 'ft_game_info'}
+<!-- nav end -->
+
+<!-- main body -->
+<section class="main pdB20" id="table-content">
+    <div class="container">
+        <div class="row">
+
+            <div class="score-item">
+                <div class="score-item-bd pdB20 pdT20">
+                    <table class="table">
+                        <tr>
+                            <td class="border" rowspan="2" width="170">公司</td>
+                            <td class="border" colspan="3">即时盘</td>
+                            <td class="border" colspan="3">初始盘</td>
+                            <td rowspan="2" width="330">变化时间</td>
+                        </tr>
+                        <tr class="noColor">
+                            <td>大球</td>
+                            <td>盘口</td>
+                            <td class="border">小球</td>
+                            <td>大球</td>
+                            <td>盘口</td>
+                            <td>小球</td>
+                        </tr>
+                        {loop $odds $r}
+                        <tr>
+                            <td class="border">{$r[companyname]}</td>
+                            <td>{rtrim0($r[big])}</td>
+                            <td>{handicap_ou($r[total])}</td>
+                            <td class="border">{rtrim0($r[small])}</td>
+                            <td>{rtrim0($r[fbig])}</td>
+                            <td>{handicap_ou($r[ftotal])}</td>
+                            <td class="border">{rtrim0($r[fsmall])}</td>
+                            <td>{date('Y-m-d H:i:s', $r[oddsdate])}</td>
+                        </tr>
+                        {/loop}
+                    </table>
+                </div>
+            </div>
+
+            <div class="score-item">
+                <div class="score-item-bd pdB20">
+                    <div class="hint pdT10 pdB10">
+                        <i class="index-up"></i>:指数上升
+                        <i class="index-down"></i>:指数下降
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <th class="border">Victor Chandler</th>
+                            <th class="border">Bet365</th>
+                            <th class="border">10Bet</th>
+                            <th class="border">SBOBET</th>
+                            <th class="border">Mansion88</th>
+                            <th class="border">YSB 88</th>
+                            <th class="border">12BET</th>
+                            <th width="175">变化时间</th>
+                        </tr>
+                        {loop $odds_all $oddsdate $r}
+                        <tr>
+                            <td class="border">{if isset($r[3000048])}{handicap_ou($r[3000048][total])}  <span class="red">{rtrim0($r[3000048][big])}</span>  <span class="green">{rtrim0($r[3000048][small])}</span>{/if}</td>
+                            <td class="border">{if isset($r[3000181])}{handicap_ou($r[3000181][total])}  <span class="red">{rtrim0($r[3000181][big])}</span>  <span class="green">{rtrim0($r[3000181][small])}</span>{/if}</td>
+                            <td class="border">{if isset($r[3000271])}{handicap_ou($r[3000271][total])}  <span class="red">{rtrim0($r[3000271][big])}</span>  <span class="green">{rtrim0($r[3000271][small])}</span>{/if}</td>
+                            <td class="border">{if isset($r[3000368])}{handicap_ou($r[3000368][total])}  <span class="red">{rtrim0($r[3000368][big])}</span>  <span class="green">{rtrim0($r[3000368][small])}</span>{/if}</td>
+                            <td class="border">{if isset($r[3000379])}{handicap_ou($r[3000379][total])}  <span class="red">{rtrim0($r[3000379][big])}</span>  <span class="green">{rtrim0($r[3000379][small])}</span>{/if}</td>
+                            <td class="border">{if isset($r[3000390])}{handicap_ou($r[3000390][total])}  <span class="red">{rtrim0($r[3000390][big])}</span>  <span class="green">{rtrim0($r[3000390][small])}</span>{/if}</td>
+                            <td class="border">{if isset($r[3000471])}{handicap_ou($r[3000471][total])}  <span class="red">{rtrim0($r[3000471][big])}</span>  <span class="green">{rtrim0($r[3000471][small])}</span>{/if}</td>
+                            <td class="border"><time>{date('Y-m-d H:i:s', $oddsdate)}</time></td>
+                        </tr>
+                        {/loop}
+                        <!--<tr>-->
+                            <!--<td class="border">&nbsp;</td>-->
+                            <!--<td class="border">&nbsp;</td>-->
+                            <!--<td class="border">&nbsp;</td>-->
+                            <!--<td class="border">&nbsp;</td>-->
+                            <!--<td class="border">&nbsp;</td>-->
+                            <!--<td class="border">&nbsp;</td>-->
+                            <!--<td class="border">2.5 <span class="red">1.43</span> <span class="green">0.20</span></td>-->
+                            <!--<td>2016-12-21 <time>16:30</time></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td class="border">&nbsp;</td>-->
+                            <!--<td class="border">&nbsp;</td>-->
+                            <!--<td class="border">&nbsp;</td>-->
+                            <!--<td class="border">&nbsp;</td>-->
+                            <!--<td class="border">2.5 <span class="red">1.43</span> <span class="green">0.20</span></td>-->
+                            <!--<td class="border">&nbsp;</td>-->
+                            <!--<td class="border">&nbsp;</td>-->
+                            <!--<td>2016-12-21 <time>16:30</time></td>-->
+                        <!--</tr>-->
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- main body -->
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = ['imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js'];}
+{template 'content', 'footer'}

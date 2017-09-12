@@ -1,0 +1,225 @@
+.pd0{
+    padding: 0;
+}
+.mt15{
+    margin-top: 15px;
+}
+.mb15{
+    margin-bottom: 15px;
+}
+.mt10{
+    margin-top: 10px;
+}
+.mb10{
+    margin-bottom: 10px;
+}
+
+
+.nav-wrap{
+    height: 40px;
+    border: 1px solid #cfd4d7;
+    background-color: #eef9ff;
+    line-height: 40px;
+    font-size: 16px;
+}
+.nav-item{
+    text-align: center;
+}
+.nav-item a{
+    display: block;
+    border-left: #dbe3e7 solid 1px;
+    margin:0 -15px;
+    color: #00a0e9;
+}
+.nav-item .active,.nav-item a:hover{
+    background-color: #1e88d2;
+    color: #ffffff;
+}
+.border{
+    border-bottom: 2px solid #1e88d2;
+}
+.record-tip{
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+table tr{
+    height: 40px;
+}
+table tr:nth-of-type(odd){
+    background-color: #eef9ff;
+}
+table tr:first-child{
+    background-color: #6cb1ea;
+    color: #ffffff;
+}
+table td{
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #eeeeef;
+}
+
+.competition-link {
+    color: white;
+}
+
+.competition-link a {
+    color: white;
+}
+
+.red{
+    color: #dd2526;
+}
+.blue{
+    color: #1e88d2;
+}
+.green{
+    color: #00a199;
+}
+.td-violet,.td-red,.td-green{
+    color: #ffffff;
+}
+.td-violet{
+    background-color: #747fb7;
+
+}
+.td-red{
+    background-color: #f75000;
+}
+.td-green{
+    background-color: #00a199;
+}
+.amount{
+    border-top: 1px solid #eeeeef;
+}
+.amount-nav{
+    width: 160px;
+    float: left;
+}
+.amount-item{
+    width: 80px;
+    height:35px;
+    line-height: 35px;
+    text-align: center;
+    float: left;
+    border-right: 1px solid #eeeeef;
+}
+.amount-item .active{
+    background-color: #1e88d2;
+    color: #ffffff;
+}
+.amount-item a{
+    display: block;
+}
+.amount-item a:hover{
+    background-color: #1e88d2;
+    color: #ffffff;
+}
+.select{
+    font-size: 14px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+/*赛事指数（亚指）*/
+.index-nav{
+    border-bottom: 2px solid #1e88d2;
+}
+.index-item{
+    float: left;
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-right: 1px solid #f2f2f2;
+    border-top: 1px solid #f2f2f2;
+}
+.index-item a{
+    display: block;
+    font-size: 1.4em;
+}
+.index-item a:hover{
+    color: #ffffff;
+    background-color: #1e88d2;
+}
+.index-item .current{
+    color: #ffffff;
+    background-color: #1e88d2;
+}
+.arrow-wrap{
+    width: 175px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    background-color: #f7f7f7;
+    margin-top: 15px;
+}
+.auto-title{
+    display: table-cell;
+    background-color: #1e88d2;
+    padding:0 20px;
+}
+
+/*指数下tab*/
+.table-item-tab {
+    margin: 10px 0;
+    border: 1px solid #dadada;
+    border-bottom: 2px solid #1e88d2;
+}
+.table-item-tab li {
+    float: left;
+}
+.table-item-tab a {
+    display: block;
+    font-size: 1.4em;
+    line-height: 36px;
+    height: 36px;
+    min-width: 126px;
+    text-align: center;
+    border-right: 1px solid #dadada;
+}
+.table-item-tab li.current a, .table-item-tab a:hover {
+    background-color: #1e88d2;
+    color: #ffffff;
+    border-right-color: transparent;
+}
+/*2016-11-1*/
+.height30{
+    height: 30px;
+    line-height: 30px;
+}
+.remarks{
+    background-color: #FFE;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    padding-left: 15px;
+}
+.grey{
+    color: #838989;
+}
+.tdleft{
+    text-align: left;
+    padding-left: 10px;
+}
+.nav-tabs > li > a:hover {
+    border-color: #eee #eee #ddd;
+    color: #ffffff;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color:#1e88d2;
+}
+
+/*心水推荐*/
+.recommend-tip {
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: red;
+    font-size: 14px;
+    border: 1px solid #eeeeef;
+    border-top: none;
+}

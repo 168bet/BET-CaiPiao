@@ -1,0 +1,52 @@
+<article class="public" id='notice'>
+	<div class="myRecord"></div>
+</article>
+<script>
+CP.Notice = (function () {
+	var o = {
+		init : function () {
+			TopAnch.init({
+				title:'公告',
+				prevShow:true,
+				prevFun:function(){//左侧按钮绑定事件
+					window.location.href = '#type=url&p=user/set.html';
+				},
+				nextShow:false,
+				isBack:true,
+			});
+			o.gain();
+			//var t = new iScroll('notice');
+		},
+		gain:function () {
+			$.ajax({
+		        url: CP.Data.data+"/news/appgonggao/appgonggaolist.xml",
+		        success:function (data){
+		        	var R = $(data).find("Resp");
+		        	var c = R.attr('code');
+		        	var d = R.attr('desc');
+		        	if ( c == '0' ) {
+		        		var out_ = [];
+		        		var r = $(R).find("row")
+		        		r.each(function(){
+			    				var ntitle=$(this).attr("ntitle");
+			    				var arcurl=$(this).attr("arcurl");
+			    				var ndate=parseInt($(this).attr("ndate")); 
+			    				var date_ = new Date(ndate*1000);
+			   					out_.push('<a href="'+arcurl+'">');
+			   					out_.push('<p class="fontSize09">'+ntitle+'</p>');
+			   					out_.push('<p class="gray fontSize07">'+(date_.getMonth()+1)+'-'+date_.getDate()+'</p>');
+			   					out_.push('<i class="hmArrow"></i>');
+			   					out_.push('</a>');
+			    			});
+			    			$("#notice .myRecord").html(out_.join(''));
+		        	} else {
+		        		alert(d);
+		        	}
+		        }
+			})
+		}
+	};
+	return {init:o.init}
+})();
+CP.Notice.init();
+</script>

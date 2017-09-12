@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$SEO['title']}</title>
+      <meta name="keywords" content="{$SEO['keyword']}">
+      <meta name="description" content="{$SEO['description']}">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- build css -->
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+      <link rel="stylesheet" href="{WAP_CSS_PATH}font-awesome.min.css">
+      <link rel="stylesheet" href="{WAP_CSS_PATH}main.css">
+      <link rel="stylesheet" href="{WAP_CSS_PATH}ft_match.css">
+    <!-- build css end -->
+
+
+  </head>
+  <body>
+    <div class="page-group">
+
+        <div class="page page-current" id="ft_database">
+
+            {template 'wap', 'ft_game_info'}
+
+            <div class="content">
+                <!-- 二级导航 -->
+                <div class="buttons-tab">
+                    <a href="{WAP_PATH}game/{$gameid}/event/" class="tab-item button">事件</a>
+                    <a href="{WAP_PATH}game/{$gameid}/lineup/" class="tab-item button">阵容</a>
+                    <a href="{WAP_PATH}game/{$gameid}/analyse/" class="tab-item active button">分析</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddsasia/" class="tab-item button">亚赔</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddseuro/" class="tab-item button">欧赔</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddsou/" class="tab-item button">大小</a>
+                </div>
+                <!-- 二级导航 end-->
+
+                <!-- 积分排名 -->
+                <div class="analyse-item">
+                    <div class="analyse-title">积分排名</div>
+                    <div class="analyse-inner-title">
+                        <img src="{PHOTO_PATH}team/{$game_info['hometeamid']}.jpg" alt="{$game_info['homename']}" class="team-photo">
+                        {$game_info['homename']}
+                    </div>
+                    <table class="table table-max table-noborder">
+                        <tr>
+                            <th>全区</th>
+                            <th>赛</th>
+                            <th>胜</th>
+                            <th>平</th>
+                            <th>负</th>
+                            <th>进/失</th>
+                            <th>净胜</th>
+                            <th>积分</th>
+                            <th class="orange">排名</th>
+                        </tr>
+                        {loop $standings_info[$game_info['hometeamid']] $type $data}
+                        <tr>
+                            <td>{L($type)}</td>
+                            <td>{$data['total']}</td>
+                            <td>{$data['win']}</td>
+                            <td>{$data['draw']}</td>
+                            <td>{$data['lose']}</td>
+                            <td>{$data['goal']}/{$data['nongoal']}</td>
+                            <td>{$data['net']}</td>
+                            <td>{$data['score']}</td>
+                            <td class="orange">{$data['rank']}</td>
+                        </tr>
+                        {/loop}
+                    </table>
+
+                    <div class="analyse-inner-title">
+                        <img src="{PHOTO_PATH}team/{$game_info['awayteamid']}.jpg" alt="{$game_info['awayname']}" class="team-photo">
+                        {$game_info['awayname']}
+                    </div>
+                    <table class="table table-max table-noborder">
+                        <tr>
+                            <th>全区</th>
+                            <th>赛</th>
+                            <th>胜</th>
+                            <th>平</th>
+                            <th>负</th>
+                            <th>进/失</th>
+                            <th>净胜</th>
+                            <th>积分</th>
+                            <th class="orange">排名</th>
+                        </tr>
+                        {loop $standings_info[$game_info['awayteamid']] $type $data}
+                        <tr>
+                            <td>{L($type)}</td>
+                            <td>{$data['total']}</td>
+                            <td>{$data['win']}</td>
+                            <td>{$data['draw']}</td>
+                            <td>{$data['lose']}</td>
+                            <td>{$data['goal']}/{$data['nongoal']}</td>
+                            <td>{$data['net']}</td>
+                            <td>{$data['score']}</td>
+                            <td class="orange">{$data['rank']}</td>
+                        </tr>
+                        {/loop}
+                    </table>
+                </div>
+                
+                <!-- 交往战绩 -->
+                <div class="analyse-item">
+                    <div class="analyse-title">交往战绩</div>
+                    <table class="table jw">
+                        <tr>
+                            <th width="16.5%">日期赛事</th>
+                            <th width="29.3%">&nbsp;</th>
+                            <th width="10%">对阵</th>
+                            <th width="29.3%">&nbsp;</th>
+                            <th width="">盘路</th>
+                        </tr>
+                        {loop $meeting $data}
+                        <tr>
+                            <td>
+                                <div class="line-lg gray">{$data['date']}</div>
+                                <div class="line-lg gray">{$data['competition_name']}</div>
+                            </td>
+                            <td class="text-right">
+                                <div class="line-lg"><span class="gray">{$data['homename']}</span></div>
+                                <div class="line-lg">&nbsp;</div>
+
+                            </td>
+                            <td>
+                                <div class="line-lg">
+                                    <span class="red">{$data['homescore']}-{$data['awayscore']}</span>
+                                </div>
+                                <div class="line-lg">
+                                    <span class="gray">
+                                        {if $data['half']}
+                                        ( {$data['half']} )
+                                        {/if}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="text-left">
+                                <div class="line-lg"><span class="gray">{$data['awayname']}</span></div>
+                                <div class="line-lg">&nbsp;</div>
+                            </td>
+                            <td>
+                                <div class="line-lg">
+                                    <span class="{$data['plate'][0]}">{$data['handicap']}</span>
+                                </div>
+                                <div class="line-lg">
+                                    <span class="{$data['plate'][0]}">{L($data['plate'][0])}{L($data['plate'][1])}</span>
+                                </div>
+                            </td>
+                        </tr>
+                        {/loop}
+                    </table>
+                    <div class="analyse-hint">
+                        近{count($meeting)}场战绩，{$game_info['homename']}{$meeting_stats['win']}胜{$meeting_stats['equal']}平{$meeting_stats['lose']}负，进{$meeting_stats['goal']}球，失{$meeting_stats['nongoal']}球，胜率：{$meeting_stats['win_rate']}
+                    </div>
+                </div>
+
+                <!-- 近期战绩 -->
+                <div class="analyse-item">
+                    <div class="analyse-title">近期战绩</div>
+
+                    <div class="analyse-inner-title">
+                        <img src="{PHOTO_PATH}team/{$game_info['hometeamid']}.jpg" alt="{$game_info['homename']}" class="team-photo">
+                        {$game_info['homename']}
+                    </div>
+                    <table class="table jw">
+                        <tr>
+                            <th width="16.5%">日期赛事</th>
+                            <th width="29.3%">&nbsp;</th>
+                            <th width="10%">对阵</th>
+                            <th width="29.3%">&nbsp;</th>
+                            <th width="">盘路</th>
+                        </tr>
+                        {loop $team_history['home'] $data}
+                        <tr>
+                            <td>
+                                <div class="line-lg gray">{$data['date']}</div>
+                                <div class="line-lg gray">{$data['competition_name']}</div>
+                            </td>
+                            <td class="text-right">
+                                <div class="line-lg"><span class="gray">{$data['homename']}</span></div>
+                                <div class="line-lg">&nbsp;</div>
+
+                            </td>
+                            <td>
+                                <div class="line-lg">
+                                    <span class="red">{$data['homescore']}-{$data['awayscore']}</span>
+                                </div>
+                                <div class="line-lg">
+                                    <span class="gray">
+                                        {if $data['half']}
+                                        ( {$data['half']} )
+                                        {/if}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="text-left">
+                                <div class="line-lg"><span class="gray">{$data['awayname']}</span></div>
+                                <div class="line-lg">&nbsp;</div>
+                            </td>
+                            <td>
+                                <div class="line-lg">
+                                    <span class="{$data['plate'][0]}">{$data['handicap']}</span>
+                                </div>
+                                <div class="line-lg">
+                                    <span class="{$data['plate'][0]}">{L($data['plate'][0])}{L($data['plate'][1])}</span>
+                                </div>
+                            </td>
+                        </tr>
+                        {/loop}
+                    </table>
+                    <div class="analyse-hint">
+                        {$game_info['homename']},
+                        主场：{$history_stats['home']['home_win']}胜{$history_stats['home']['home_equal']}平{$history_stats['home']['home_lose']}负,
+                        客场：{$history_stats['home']['away_win']}胜{$history_stats['home']['away_equal']}平{$history_stats['home']['away_lose']}负。
+                    </div>
+
+                    <div class="analyse-inner-title">
+                        <img src="{PHOTO_PATH}team/{$game_info['awayteamid']}.jpg" alt="{$game_info['awayname']}" class="team-photo">
+                        {$game_info['awayname']}
+                    </div>
+                    <table class="table jw">
+                        <tr>
+                            <th width="16.5%">日期赛事</th>
+                            <th width="29.3%">&nbsp;</th>
+                            <th width="10%">对阵</th>
+                            <th width="29.3%">&nbsp;</th>
+                            <th width="">盘路</th>
+                        </tr>
+                        {loop $team_history['away'] $data}
+                        <tr>
+                            <td>
+                                <div class="line-lg gray">{$data['date']}</div>
+                                <div class="line-lg gray">{$data['competition_name']}</div>
+                            </td>
+                            <td class="text-right">
+                                <div class="line-lg"><span class="gray">{$data['homename']}</span></div>
+                                <div class="line-lg">&nbsp;</div>
+
+                            </td>
+                            <td>
+                                <div class="line-lg">
+                                    <span class="red">{$data['homescore']}-{$data['awayscore']}</span>
+                                </div>
+                                <div class="line-lg">
+                                    <span class="gray">
+                                        {if $data['half']}
+                                        ( {$data['half']} )
+                                        {/if}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="text-left">
+                                <div class="line-lg"><span class="gray">{$data['awayname']}</span></div>
+                                <div class="line-lg">&nbsp;</div>
+                            </td>
+                            <td>
+                                <div class="line-lg">
+                                    <span class="{$data['plate'][0]}">{$data['handicap']}</span>
+                                </div>
+                                <div class="line-lg">
+                                    <span class="{$data['plate'][0]}">{L($data['plate'][0])}{L($data['plate'][1])}</span>
+                                </div>
+                            </td>
+                        </tr>
+                        {/loop}
+                    </table>
+                    <div class="analyse-hint">
+                        {$game_info['awayname']},
+                        主场：{$history_stats['away']['home_win']}胜{$history_stats['away']['home_equal']}平{$history_stats['away']['home_lose']}负,
+                        客场：{$history_stats['away']['away_win']}胜{$history_stats['away']['away_equal']}平{$history_stats['away']['away_lose']}负。
+                    </div>
+                </div>
+
+                <!-- 盘路走势 -->
+                <div class="analyse-item">
+                    <div class="analyse-title">盘路走势</div>
+                    <div class="analyse-inner-title">
+                        <img src="{PHOTO_PATH}team/{$game_info['hometeamid']}.jpg" alt="{$game_info['homename']}" class="team-photo">
+                        {$game_info['homename']}
+                    </div>
+                    <table class="table table-max table-noborder">
+                        <tr>
+                            <th></th>
+                            <th>总场数</th>
+                            <th>开盘</th>
+                            <th>上盘</th>
+                            <th class="border">赢盘</th>
+                            <th>赢盘率</th>
+                            <th>走水</th>
+                            <th>输盘</th>
+                            <th>净胜</th>
+                        </tr>
+                        {loop $oddsway_info[$game_info['hometeamid']] $type $data}
+                        <tr>
+                            <td>{L($type)}</td>
+                            <td>{$data['total']}</td>
+                            <td>{$data['open']}</td>
+                            <td>{$data['up']}</td>
+                            <td class="border">{$data['win']}</td>
+                            <td>{$data['winrate']}%</td>
+                            <td>{$data['draw']}</td>
+                            <td>{$data['lose']}</td>
+                            <td>{$data['winlose']}</td>
+                        </tr>
+                        {/loop}
+                        <tr>
+                            <td colspan="9">
+                                近8场：
+                                {loop $recent_info[$game_info['hometeamid']] $data}
+                                <span class="{$data[0]}">{L($data[0])}{L($data[1])}</span>
+                                {/loop}
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="analyse-inner-title">
+                        <img src="{PHOTO_PATH}team/{$game_info['awayteamid']}.jpg" alt="{$game_info['awayname']}" class="team-photo">
+                        {$game_info['awayname']}
+                    </div>
+                    <table class="table table-max table-noborder">
+                        <tr>
+                            <th></th>
+                            <th>总场数</th>
+                            <th>开盘</th>
+                            <th>上盘</th>
+                            <th class="border">赢盘</th>
+                            <th>赢盘率</th>
+                            <th>走水</th>
+                            <th>输盘</th>
+                            <th>净胜</th>
+                        </tr>
+                        {loop $oddsway_info[$game_info['awayteamid']] $type $data}
+                        <tr>
+                            <td>{L($type)}</td>
+                            <td>{$data['total']}</td>
+                            <td>{$data['open']}</td>
+                            <td>{$data['up']}</td>
+                            <td class="border">{$data['win']}</td>
+                            <td>{$data['winrate']}%</td>
+                            <td>{$data['draw']}</td>
+                            <td>{$data['lose']}</td>
+                            <td>{$data['winlose']}</td>
+                        </tr>
+                        {/loop}
+                        <tr>
+                            <td colspan="9">
+                                近8场：
+                                {loop $recent_info[$game_info['awayteamid']] $data}
+                                <span class="{$data[0]}">{L($data[0])}{L($data[1])}</span>
+                                {/loop}
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+
+                {template 'wap', 'footer_nav'}
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+    {template 'wap', 'wap_footer'}

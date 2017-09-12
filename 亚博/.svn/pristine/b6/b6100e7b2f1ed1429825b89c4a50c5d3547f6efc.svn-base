@@ -1,0 +1,119 @@
+<div class="w1000 m0auto text_center fz14 white" style="padding:20px 0;">
+    <div class="hgt30 line_hgt30 text_left p10_0" style="background: #EAEAEA">
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.zybzTab='wbz' " ng-class="{tm_active:data.zybzTab=='wbz'}">五不中</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.zybzTab='qbz' " ng-class="{tm_active:data.zybzTab=='qbz'}">七不中</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.zybzTab='jbz' " ng-class="{tm_active:data.zybzTab=='jbz'}">九不中</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.zybzTab='szy' " ng-class="{tm_active:data.zybzTab=='szy'}">四中一</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.zybzTab='lzy' " ng-class="{tm_active:data.zybzTab=='lzy'}">六中一</span>
+    </div>
+    <div ng-show="data.zybzTab=='wbz'">
+        <div>
+            <div class="hgt40 line_hgt40" style="background: #BD2929">
+                <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per">
+                <div class="inline-block w30per">号码</div>
+                <div class="inline-block w30per">赔率</div>
+                <div class="inline-block w30per">投注金额</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="hgt36 line_hgt36" style="background: #EAEAEA" data-ng-repeat="(index, item) in range(0,wbz_pls.length/cols)">
+              <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per" ng-show="wbz_pls[index*cols+key]">
+                <div class="inline-block w30per"><span class="inline-block" ng-class="{redCircle:ifBgCircle(wbz_pls[index*cols+key].number),redBlock:!ifBgCircle(wbz_pls[index*cols+key].number),greenBlock:wbz_pls[index*cols+key].number=='绿波',blueBlock:wbz_pls[index*cols+key].number=='蓝波'}">{{wbz_pls[index*cols+key].number}}</span></div>
+                <div class="black inline-block w30per">{{wbz_pls[index*cols+key].pl}}</div>
+                <div class="inline-block w30per">
+                    <input type="checkbox" style="vertical-align: middle;" value="1" class="w40 green" ng-class="{'has-error': data.inputErrors[wbz_pls[index*cols+key].id] }" ng-model="data.betMoney[wbz_pls[index*cols+key].id]" ng-change="fun.zybzCodeSelected(wbz_pls[index*cols+key])"/>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="data.zybzTab=='qbz'">
+        <div>
+            <div class="hgt40 line_hgt40" style="background: #BD2929">
+                <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per">
+                <div class="inline-block w30per">号码</div>
+                <div class="inline-block w30per">赔率</div>
+                <div class="inline-block w30per">投注金额</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="hgt36 line_hgt36" style="background: #EAEAEA" data-ng-repeat="(index, item) in range(0,qbz_pls.length/cols)">
+              <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per" ng-show="qbz_pls[index*cols+key]">
+                <div class="inline-block w30per"><span class="inline-block" ng-class="{redCircle:ifBgCircle(qbz_pls[index*cols+key].number),redBlock:!ifBgCircle(qbz_pls[index*cols+key].number),greenBlock:qbz_pls[index*cols+key].number=='绿波',blueBlock:qbz_pls[index*cols+key].number=='蓝波'}">{{qbz_pls[index*cols+key].number}}</span></div>
+                <div class="black inline-block w30per">{{qbz_pls[index*cols+key].pl}}</div>
+                <div class="inline-block w30per">
+                    <input type="checkbox" style="vertical-align: middle;" value="1" class="w40 green" ng-class="{'has-error': data.inputErrors[qbz_pls[index*cols+key].id] }" ng-model="data.betMoney[qbz_pls[index*cols+key].id]" ng-change="fun.zybzCodeSelected(qbz_pls[index*cols+key])"/>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="data.zybzTab=='jbz'">
+        <div>
+            <div class="hgt40 line_hgt40" style="background: #BD2929">
+                <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per">
+                <div class="inline-block w30per">号码</div>
+                <div class="inline-block w30per">赔率</div>
+                <div class="inline-block w30per">投注金额</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="hgt36 line_hgt36" style="background: #EAEAEA" data-ng-repeat="(index, item) in range(0,jbz_pls.length/cols)">
+              <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per" ng-show="jbz_pls[index*cols+key]">
+                <div class="inline-block w30per"><span class="inline-block" ng-class="{redCircle:ifBgCircle(jbz_pls[index*cols+key].number),redBlock:!ifBgCircle(jbz_pls[index*cols+key].number),greenBlock:jbz_pls[index*cols+key].number=='绿波',blueBlock:jbz_pls[index*cols+key].number=='蓝波'}">{{jbz_pls[index*cols+key].number}}</span></div>
+                <div class="black inline-block w30per">{{jbz_pls[index*cols+key].pl}}</div>
+                <div class="inline-block w30per">
+                    <input type="checkbox" style="vertical-align: middle;" value="1" class="w40 green" ng-class="{'has-error': data.inputErrors[jbz_pls[index*cols+key].id] }" ng-model="data.betMoney[jbz_pls[index*cols+key].id]" ng-change="fun.zybzCodeSelected(jbz_pls[index*cols+key])"/>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="data.zybzTab=='szy'">
+        <div>
+            <div class="hgt40 line_hgt40" style="background: #BD2929">
+                <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per">
+                <div class="inline-block w30per">号码</div>
+                <div class="inline-block w30per">赔率</div>
+                <div class="inline-block w30per">投注金额</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="hgt36 line_hgt36" style="background: #EAEAEA" data-ng-repeat="(index, item) in range(0,szy_pls.length/cols)">
+              <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per" ng-show="szy_pls[index*cols+key]">
+                <div class="inline-block w30per"><span class="inline-block" ng-class="{redCircle:ifBgCircle(szy_pls[index*cols+key].number),redBlock:!ifBgCircle(szy_pls[index*cols+key].number),greenBlock:szy_pls[index*cols+key].number=='绿波',blueBlock:szy_pls[index*cols+key].number=='蓝波'}">{{szy_pls[index*cols+key].number}}</span></div>
+                <div class="black inline-block w30per">{{szy_pls[index*cols+key].pl}}</div>
+                <div class="inline-block w30per">
+                    <input type="checkbox" style="vertical-align: middle;" value="1" class="w40 green" ng-class="{'has-error': data.inputErrors[szy_pls[index*cols+key].id] }" ng-model="data.betMoney[szy_pls[index*cols+key].id]" ng-change="fun.zybzCodeSelected(szy_pls[index*cols+key])"/>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="data.zybzTab=='lzy'">
+        <div>
+            <div class="hgt40 line_hgt40" style="background: #BD2929">
+                <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per">
+                <div class="inline-block w30per">号码</div>
+                <div class="inline-block w30per">赔率</div>
+                <div class="inline-block w30per">投注金额</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="hgt36 line_hgt36" style="background: #EAEAEA" data-ng-repeat="(index, item) in range(0,lzy_pls.length/cols)">
+              <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per" ng-show="lzy_pls[index*cols+key]">
+                <div class="inline-block w30per"><span class="inline-block" ng-class="{redCircle:ifBgCircle(lzy_pls[index*cols+key].number),redBlock:!ifBgCircle(lzy_pls[index*cols+key].number),greenBlock:lzy_pls[index*cols+key].number=='绿波',blueBlock:lzy_pls[index*cols+key].number=='蓝波'}">{{lzy_pls[index*cols+key].number}}</span></div>
+                <div class="black inline-block w30per">{{lzy_pls[index*cols+key].pl}}</div>
+                <div class="inline-block w30per">
+                    <input type="checkbox" style="vertical-align: middle;" value="1" class="w40 green" ng-class="{'has-error': data.inputErrors[lzy_pls[index*cols+key].id] }" ng-model="data.betMoney[lzy_pls[index*cols+key].id]" ng-change="fun.zybzCodeSelected(lzy_pls[index*cols+key])"/>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

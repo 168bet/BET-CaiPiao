@@ -1,0 +1,239 @@
+body,html{
+    font-size: 14px;
+}
+body{
+    background-color: #f7f7f7;
+}
+.banner-wrap{
+    height: 130px;
+    background: url('../images/odds_banner.png') 0 0 no-repeat;
+}
+.shop{
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 15px;
+    overflow: hidden;
+}
+.odds-title{
+    display: inline-block;
+    margin-right: 18px;
+    font-size: 24px;
+    width: 200px;
+    height: 66px;
+    border-radius: 10px;
+    line-height: 66px;
+    background: #ffffff url("../images/football.png") 25px 12px no-repeat;
+}
+.odds-title.active{
+    background: #ffa21d url("../images/icon_odds_bt.png")0 0 no-repeat;
+}
+.odds-title.active>a{
+    color: white;
+}
+.odds-title>a{
+    padding-left: 80px;
+    display: block;
+    color: #333;
+}
+.nav{
+    margin-top: 9px;
+}
+.odds-nav li:first-child{
+    margin-left: 0;
+}
+.odds-nav li{
+    float: left;
+    margin: 0 10px;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #e8e8e8;
+    border-radius: 5px 5px 0 0;
+}
+.odds-nav li.active,.odds-nav li.active>a{
+    background-color: #fff;
+    color: #ffa21d;
+}
+.choose{
+    width: 1000px;
+    margin: 0 auto;
+}
+.choose-time{
+    margin: 15px 0;
+}
+.choose-time li:first-child{
+    margin-left: 0;
+}
+.choose-time li{
+    margin: 0 10px;
+    float: left;
+}
+.choose-time li a{
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    background-color: #ffffff;
+    padding: 0 15px;
+    border-radius: 5px;
+}
+.choose-time li.active a{
+    color: #ffffff;
+    background-color: #ffa21d;
+}
+.choose-company{
+    margin: 15px 0;
+}
+.choose-company li:first-child{
+    margin-left: 0;
+}
+.choose-company li{
+    position: relative;
+    margin: 0 3px;
+    float: left;
+    border-radius: 5px;
+    height: 36px;
+    line-height: 36px;
+    border: 1px solid #dddddd;
+    background-color: #fff;
+}
+.choose-company li a{
+    display: block;
+    padding: 0 7px;
+}
+.choose-company li.active{
+    border: 1px solid #ffa21d;
+}
+.choose-company li.active a{
+    color: #ffa21d;
+}
+.choose-company li.active:after{
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    background: url("../images/icon-checkbox-on.png") 0 0 no-repeat;
+}
+.sure{
+    display: block;
+    float: right;
+    padding: 0 7px;
+    border: 1px solid #dddddd;
+    background-color: #fff;
+    border-radius: 5px;
+    height: 36px;
+    line-height: 36px;
+}
+/*内容区域*/
+.content{
+    width: 1000px;
+    margin: 0 auto;
+}
+.content table{
+    width: 100%;
+}
+.content table td{
+    text-align: center;
+}
+.bg-grey{
+    background-color: #e8e8e8;
+}
+.table-header-wrap{
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+.table-header{
+    color: #666666;
+}
+.table-header tr{
+    height: 32px;
+}
+.time{
+    text-align: center;
+    height: 54px;
+    line-height: 54px;
+    color: #bbbbbb;
+}
+.rili {
+    background: url("../images/icon-calendar.png") 0 0 no-repeat;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    position: relative;
+    top: 7px;
+    left: -5px;
+}
+.data-container{
+    margin-bottom: 15px;
+}
+.competition-info{
+    height: 40px;
+    line-height: 40px;
+    color: #ffffff;
+    background-color: #ffa21d;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+}
+.data-open{
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    background: url("../images/icon_data_open.png") 0 0 no-repeat;
+    position: relative;
+    left: 10px;
+    top: 6px;
+}
+.data-close{
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    background: url("../images/icon_data_close.png") 0 0 no-repeat;
+    position: relative;
+    left: 10px;
+    top: 6px;
+}
+.ml30{
+    margin-left: 30px;
+}
+.mr20{
+    margin: 0 20px;
+}
+.mr40{
+    margin: 0 40px;
+}
+.mrl40{
+    margin-left: 40px;
+}
+.mrr{
+    margin-right: 40px;
+}
+.mr5{
+    margin-right: 5px;
+}
+.ml5{
+    margin-left: 5px;
+}
+.analysis{
+    color: #ffffff;
+    float: right;
+    margin-right: 40px;
+}
+.competition-data{
+    box-shadow: 0 0 3px #eeeeee;
+}
+.competition-data tr{
+    height: 40px;
+    border-bottom: 1px solid #f5f5f5;
+    background-color: #ffffff;
+}
+.competition-data tr td{
+    border: 1px solid #f5f5f5;
+}
+/*日历*/
+.search-date{
+    float: right;
+}

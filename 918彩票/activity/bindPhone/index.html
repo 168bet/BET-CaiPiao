@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>9188彩票</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<link rel="stylesheet" type="text/css" href="css/vip.css" />
+</head>
+<body>
+<article>
+  <div class="id_top">
+    <i class="box-shadow1"><img src="img/icon_1.png" /></i>
+    <h2 class="h2">申请修改身份证信息</h2>
+    <ul class="id_form">
+      <li>
+        <span>用户名</span>
+        <input type="text" placeholder="请输入用户名" id="username"/>
+      </li>
+      <li>
+        <span>密码</span>
+        <input type="password" placeholder="请输入密码" id="pwd"/>
+      </li>   
+  </ul>
+  </div>  
+  <button type="button" class="button" disabled="disabled">立即申请</button>
+</article>
+</body>
+<script src="/activity/bindPhone/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/activity/bindPhone/js/my.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		
+		function dry(){
+			var iName = $("#username").val();
+			var pwd = $("#pwd").val();
+			if(iName && pwd){
+				$(".button").attr("disabled",false);
+			}else{
+				$(".button").attr("disabled",true);
+			}
+		}
+		
+		$("#username").bind("input propertychange",function(){
+			dry();
+		});
+		
+		$("#pwd").bind("input propertychange",function(){
+			dry();
+		});
+		
+		$(".button").bind("click",function(){
+			var iName = $("#username").val();
+			var pwd = $("#pwd").val();
+			
+		    if (iName == "") {
+		        alert('请输入合法的用户名');
+		        return false;
+		    }
+			
+		  
+		    
+		    if (pwd == "") {
+		    	alert('密码不能为空');
+		        return false;
+		    }
+		    
+		    var data = "uid=" + encodeURIComponent(iName)+ "&pwd=" + encodeURIComponent(pwd)+ "&source=3000";
+			
+		    /***
+			var data={	
+					"uid":encodeURIComponent($.trim(iName)),
+					"pwd":encodeURIComponent($.trim(pwd)),
+					"source":"3000"
+			};
+		    ***/
+		    $.ajax({
+				url:"/user/checkBeforeIDCardApply.go?uid="+encodeURIComponent(iName),
+				dataType:"XML",
+				//data:data,
+				success:function(d){
+					var c = $(d).find("Resp").attr("code");
+					var scp = $(d).find("Resp").attr("desc");
+					if(c<0){
+						alert(scp)
+						return;
+					}else{
+						$.ajax({
+							url:"/user/login.go",
+							dataType:"XML",
+							type:"POST",
+							data:data,
+							success:function(xml){
+								var R = $(xml).find("Resp");
+								var code = R.attr("code");
+								var desc = R.attr("desc");
+								if (code == "0") {
+									
+									 window.location.href="newid.html";
+								}else{
+									alert(desc)
+								}
+							}
+						})
+					}
+				}
+		    })
+		})
+	})
+</script>
+</html>

@@ -1,0 +1,11 @@
+<div class="page-wrapper clearfix" id="page-wrapper">
+    <span class="page-text"><span class="lower">共{{pageConf['totalCount']}}条记录</span></span>
+    
+    <div class="page page-right" ng-if="pageNums.length > 1">
+        <a href="javascript:void(0);" ng-click="fun.prev()">上页</a> &nbsp;
+        <a href="javascript:void(0);" ng-class="{active: page == crtPage}" ng-click="fun.goPage(page)" ng-repeat="page in pageNums track by $index">{{page}}</a>
+        <a href="javascript:void(0);" ng-click="fun.next()">下页</a> &nbsp;
+        <span class="page-few">到第 <input type="text" ng-model="pageNo" class="input">页 </span>
+        <input type="button" value="确 认" class="page-btn" ng-click="fun.goPage(pageNo)">
+    </div>
+</div>

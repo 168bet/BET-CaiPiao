@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>玩法规则</title>
+</head>
+<style type="text/css">
+	body{ min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+	html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+	@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+	@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+	ol, ul, li,input{ list-style:none}
+	i,o,cite,em{ font-style:normal}
+	p{ line-height:1.2rem}
+	a{ color:#363636; text-decoration:none}
+	input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+	input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}.clearfix{ overflow:hidden; zoom:1}
+	.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+	.tzHeader{ position:relative; padding-bottom:2.2rem; z-index:10}
+	.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+	.zcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#0b7e07}
+	.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+	.rules-main{
+		padding:1.5rem 1rem .5rem 1rem;
+	}
+	.rules-main div{
+		margin-bottom: 1rem;
+	}
+	.rules-main div p{
+		line-height: 1.5rem;
+		text-align:justify; 
+		letter-spacing: .02rem;
+	}
+	.bold{
+		font-weight: bold;
+		font-size: .9rem;
+
+	}
+</style>
+<body>
+	<header class="tzHeader">
+		<section class="zcHeader fixed2">
+			<h1>玩法规则</h1>
+			<a href="javascript:history.go(-1);" class="fcbackIco2"></a>
+		</section>
+	</header>
+	<article class="rules-main">
+		<div>
+			<p class="bold">1、开售</p>
+			<p>1）每期夺宝赛可设置1-3场比赛，可同时开售多期；</p>
+		</div>
+		<div>
+			<p class="bold">2、报名</p>
+			<p>1）用户可使用5000积分或70奖券报名参与每期夺宝赛，每期仅限报名一次；</p>
+			<p>2）每期夺宝赛人数最低20人，满100人后不能再报名。</p>
+			<p>3）最后一场比赛异常，没有有效投注记录的用户返还报名费。</p>
+		</div>
+		<div>
+			<p class="bold">3、投注</p>
+			<p>1) 用户报名成功后自动获得10万筹码,该筹码可用于投注当期内的所有比赛；</p>
+			<p>2) 任何一场比赛异常，则该场比赛所有竞猜方案无效，退还投注筹码。</p>
+		</div>
+		<div>
+			<p class="bold">4、设置排行榜</p>
+			<p>1）每次审核赛果或比分时触发排行榜刷新，按照当前剩余筹码排序，若两人剩余筹码相同，则按照报名时间先后确定排名先后；</p>
+			<p>2）每期夺宝赛所有球赛全部结束后，根据所剩筹码数进行奖励（需人工审核）。</p>
+			<p>3）多宝赛至少一个有效投注记录的用户才能上榜单</p>
+		</div>
+		<div>
+			<p class="bold">5、奖券奖励</p>
+			<p>1）若某期夺宝赛报名截止前报名人数小于20人，则该期赛事流产，退还用户相应报名费；</p>
+			<p>2）每期夺宝赛人数达到20人正常结束后，根据排行榜分配奖励，第1名奖励=人数*50奖券，第2-10奖励=人数*1奖券；（根据报名费用确定排行榜奖励，第一名奖励：报名积分数/100*参与人数）</p>
+			<p>3）派奖时间：最后一场比赛结束后半小时之内完成派奖。’
+</p>
+		</div>
+	</article>
+</body>
+</html>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		var arg = localStorage.getItem("from");
+		var remove_header=function(){
+			
+			if(arg){
+				$(".tzHeader").hide();
+			}else{
+				$(".tzHeader").show();
+			}
+		}
+		
+		var bindEvent = function(){
+			$(".kctab span").bind("click",function(){
+				$(this).addClass("cur").siblings().removeClass("cur");
+				var index = $(this).index();
+				
+				$("article.text:eq('"+index+"')").show()
+				$("article.text:eq('"+index+"')").siblings("article").hide();
+				
+			})
+		}
+		
+		var init = function(){
+			bindEvent();
+			remove_header()
+		}
+		init();
+	})
+</script>
+

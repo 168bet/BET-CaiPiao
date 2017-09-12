@@ -1,0 +1,194 @@
+{php $css = ['index.css'];}
+{template 'wap','wap_header'}
+
+            <div class="content">
+
+                <!-- banner       -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {pc:content action="position" posid="58" num="5" order="listorder DESC"}
+                        {loop $data $r}
+                        <div class="swiper-slide">
+                            <a href="{url_replace($r['url'], WAP_PATH)}" class="banner-img">
+                                <img src="{$r['thumb']}" alt="">
+                            </a>
+                            <div class="banner-info">
+                                <div class="banner-title">{$r['title']}</div>
+                                <p>{str_cut($r['description'], '120', '...')}</p>
+                            </div>
+                        </div>
+                        {/loop}
+                        {/pc}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!-- banner end -->
+
+                <!-- 即时赛事 -->
+                <div class="live-game">
+                    <div class="inner-title live-game">
+                        <span class="orange">即时赛事</span>
+
+                        <a href="{WAP_PATH}zqscore/" class="more pull-right">更多</a>
+                    </div>
+                    <!-- 卡片 -->
+                    <div class="card-box">
+                        <div id="start-list">
+                            {loop  array_slice($live_game_data,0,3) $data}
+                            <div class="card begin" data-status="{$data['status']}" data-game-id="{$data['gameid']}" data-start-time="{if $data['tstarttime']}{$data['tstarttime']}{else}{$data['date']}{/if}" ajax-status-tag="true"
+                                 data-action="link" data-url="{WAP_PATH}game/{$data['gameid']}/analyse/">
+                                    <a href="{WAP_PATH}game/{$data['gameid']}/analyse/" class="gray btn-link fixed-right">
+                                        <i class="icon icon-right"></i>
+                                    </a>
+
+                                    <table class="table">
+                                        <tr>
+                                            <th width="40%" class="text-left">
+                                                <span class="card-title pull-left">{$data['competitionshortname']}</span>
+                                                <time class="gray time">{date('H:i', $data['date'])}</time>
+                                            </th>
+                                            <th>
+                                                <span class="red state" data-key="text">{$data['status_text']}</span>
+                                            </th>
+                                            <th width="40%">&nbsp;</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right">
+                                                <span class="home-animate"></span>
+                                                <span class="gray">
+                                                    {if isset($data['homerank'])}
+                                                    [{$data['homerank']}]
+                                                    {/if}
+                                                </span>
+                                                <span {if !is_null($data['homeyellowcard']) && $data['homeyellowcard'] != 0}class="yellow-card"{/if} data-key="homeyellowcard">{if $data['homeyellowcard']}{$data['homeyellowcard']}{/if}</span>
+                                                <span {if !is_null($data['homeredcard']) && $data['homeredcard'] != 0}class="red-card"{/if} data-key="homeredcard">{if $data['homeredcard']}{$data['homeredcard']}{/if}</span>
+                                                <span class="team-name home-name">{mb_substr($data['homeshortname'], 0, 6, 'utf-8')}</span>
+                                            </td>
+                                            <td>
+                                                <span class="live-score">
+                                                    <span data-key="homescore" data-target="home-name" data-animate=".home-animate">{$data['homescore']}</span>
+                                                    -
+                                                    <span data-key="awayscore" data-target="away-name" data-animate=".away-animate">{$data['awayscore']}</span>
+                                                </span>
+                                            </td>
+                                            <td class="text-left">
+                                                <span class="team-name away-name">{mb_substr($data['awayshortname'], 0, 6, 'utf-8')}</span>
+                                                <span {if !is_null($data['awayredcard']) && $data['awayredcard'] != 0}class="red-card"{/if} data-key="awayredcard">{if $data['awayredcard']}{$data['awayredcard']}{/if}</span>
+                                                <span {if !is_null($data['awayyellowcard']) && $data['awayyellowcard'] != 0}class="yellow-card"{/if} data-key="awayyellowcard">{if $data['awayyellowcard']}{$data['awayyellowcard']}{/if}</span>
+                                                <span class="gray">
+                                                    {if isset($data['awayrank'])}
+                                                    [{$data['awayrank']}]
+                                                    {/if}
+                                                </span>
+                                                <span class="away-animate">
+                                                </span>
+
+                                            </td>
+                                        </tr>
+                                        {if isset($data['homecorner']) && isset($data['awaycorner'])}
+                                        <tr class="fd gray">
+                                            <td>&nbsp;</td>
+                                            <td>
+                                                角：<span data-key="homecorner">{$data['homecorner']}</span> - <span data-key="awaycorner">{$data['awaycorner']}</span>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        {/if}
+                                    </table>
+                            </div>
+                            {/loop}
+                        </div>
+                    </div>
+                    <!-- 卡片 end -->
+                </div>
+
+                <!-- news -->
+                <div class="news">
+                    <div class="inner-title news">
+                        <a href="{WAP_PATH}zcfx/" class="more pull-right">更多</a>
+                    </div>
+                    <div class="buttons-tab tab-nav">
+                        <a href="#ft_tuijian" class="tab-link button active">足彩推荐</a>
+                        <a href="#ft_yuce" class="tab-link button">足彩预测</a>
+                        <a href="#ft_fenxi" class="tab-link button">足彩分析</a>
+                    </div>
+                    <div class="tabs">
+                        <div id="ft_fenxi" class="tab">
+                            <ul class="news-list">
+                                {pc:content action="lists" catid="1" num="5" thumb="1" order="id DESC"}
+                                {loop $data $key $val}
+                                <li class="news-item">
+                                    <a href="{url_replace($val['url'], WAP_PATH)}">
+                                        <img src="{get_thumb($val['thumb'], 500)}" alt="" class="pull-left list-pic">
+                                        <div class="list-detail">
+                                            <div class="list-title">{$val['title']}</div>
+                                            <p class="list-info">{str_cut($val['description'], '150', '...')}</p>
+                                            <div class="list-fd">
+                                                <time>{date('Y-m-d H:i', $val['inputtime'])}</time>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                        {/loop}
+                        {/pc}
+                        </ul>
+                    </div>
+                    <div id="ft_yuce" class="tab">
+                            <ul class="news-list">
+                                {pc:content action="lists" catid="2" num="5" thumb="1" order="id DESC"}
+                                {loop $data $key $val}
+                                <li class="news-item">
+                                    <a href="{url_replace($val['url'], WAP_PATH)}">
+                                        <img src="{get_thumb($val['thumb'], 500)}" alt="" class="pull-left list-pic">
+                                        <div class="list-detail">
+                                            <div class="list-title">{$val['title']}</div>
+                                            <p class="list-info">{str_cut($val['description'], '150', '...')}</p>
+                                            <div class="list-fd">
+                                                <time>{date('Y-m-d H:i', $val['inputtime'])}</time>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                {/loop}
+                                {/pc}
+                            </ul>
+                        </div>
+                        <div id="ft_tuijian" class="tab active">
+                            <ul class="news-list">
+                                {pc:content action="lists" catid="3" num="5" thumb="1" order="id DESC"}
+                                {loop $data $key $val}
+                                <li class="news-item">
+                                    <a href="{url_replace($val['url'], WAP_PATH)}">
+                                        <img src="{get_thumb($val['thumb'], 500)}" alt="" class="pull-left list-pic">
+                                        <div class="list-detail">
+                                            <div class="list-title">{$val['title']}</div>
+                                            <p class="list-info">{str_cut($val['description'], '150', '...')}</p>
+                                            <div class="list-fd">
+                                                <time>{date('Y-m-d H:i', $val['inputtime'])}</time>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                {/loop}
+                                {/pc}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                {template 'wap', 'footer_nav'}
+
+
+            </div>
+
+        </div>
+        
+    </div>
+
+
+
+
+{php $js = ['index.js'];}
+
+
+{template 'wap','wap_footer'}

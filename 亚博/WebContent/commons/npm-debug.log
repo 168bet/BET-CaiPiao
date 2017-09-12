@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'F:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'F:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'gulp' ]
+2 info using npm@3.10.9
+3 info using node@v7.2.0
+4 verbose stack Error: missing script: gulp
+4 verbose stack     at run (F:\Program Files\nodejs\node_modules\npm\lib\run-script.js:151:19)
+4 verbose stack     at F:\Program Files\nodejs\node_modules\npm\lib\run-script.js:61:5
+4 verbose stack     at F:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:356:5
+4 verbose stack     at checkBinReferences_ (F:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:320:45)
+4 verbose stack     at final (F:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:354:3)
+4 verbose stack     at then (F:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:124:5)
+4 verbose stack     at ReadFileContext.<anonymous> (F:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:295:20)
+4 verbose stack     at ReadFileContext.callback (F:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\graceful-fs.js:78:16)
+4 verbose stack     at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:335:13)
+5 verbose cwd G:\工作目录\yabo\WebContent\commons
+6 error Windows_NT 10.0.10240
+7 error argv "F:\\Program Files\\nodejs\\node.exe" "F:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "gulp"
+8 error node v7.2.0
+9 error npm  v3.10.9
+10 error missing script: gulp
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]

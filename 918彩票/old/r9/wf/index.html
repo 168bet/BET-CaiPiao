@@ -1,0 +1,54 @@
+<script>
+//右上角菜单显示或隐藏
+$(function (){
+	$("#pullIco").click(function(){
+		  $(this).parent().toggleClass("pullHover");
+		  $("#pullText").toggle();
+	});
+})
+</script>
+<article class="wfText">
+	<header class="tzHeader">
+     <section class="buyHeader">
+    	<h1>任九</h1>
+    	<a href="#class=home" class="backHome"></a>
+        <div class="pullDown">
+        	<em class="pullIco" id="pullIco"></em>
+            <div id="pullText" class="pullText" style="display:none">
+            	<a href="#class=url&xo=r9/index.html">选择比赛</a>
+            	<a href="#class=url&xo=hm/index.html&gid=81">合买跟单</a>
+            	<a href="#class=url&xo=kj/r.html&gid=80">开奖结果</a>
+            	<a href="javascript:;" style="border-bottom:none" class="cur">玩法帮助</a>
+            </div>
+       </div>
+      </section>
+    </header>
+    <section class="s_play">
+    	<p class="textindent">任选9场：简称任选九或者任九，是胜负彩的附加玩法，属竞技型彩票范畴，由体育彩票管理中心统一发行，在全国范围内销售。</p>
+    	<h2>一.玩法说明</h2>
+        <p>任选9场玩法竟猜规定的14场比赛中任意9场比赛90分钟内(含伤停补时)的胜平负结果。</p>       
+    </section>
+    <section class="s_winning">
+    	<h2>二.设奖及中奖</h2>
+        <ul class="s_syxw jxssc_syxw r9syxw">
+        	<li><ul class="s_th"><li class="sy_1">玩法</li><li  class="sy_2">中奖条件</li><li class="bor_r">单注奖金</li></ul></li>
+            <li class="bor_l lineht"><ul><li class="sy_1">一等奖</li><li class="sy_2">选任意9场比赛且全部猜中胜平负结果</li><li class="bor_r">奖金总额的100%与奖池奖金之和除以全国中奖注数</li></ul></li>
+                 
+        </ul>        
+        <h3>注：</h3>
+        <dl>
+            <dd>1）单注奖金封顶500万元。</dd>
+        </dl>
+    </section>
+    <section class="s_open">
+    	<h2>三.开奖及返奖</h2>
+        <dl>
+        	<dt>1、开奖</dt>
+            <dd>当期所有比赛完成后第二日开奖，开奖结果通过媒体向社会公布。</dd>
+        </dl>
+        <dl>
+        	<dt>2、返奖</dt>
+            <dd>奖金自动返还至用户在本站的购彩账户中，可继续投注或提款，永无弃奖。</dd>
+        </dl>		
+    </section>
+</article>

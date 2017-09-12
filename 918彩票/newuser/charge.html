@@ -1,0 +1,407 @@
+<link rel="stylesheet" href="/style/weui.css"/>
+<style>
+.recharge a .downArrow_{transform:rotate(-135deg); -webkit-transform:rotate(-135deg); -moz-transform:rotate(-135deg);-o-transform:rotate(-135deg); -ms-transform:rotate(-135deg)}
+</style>
+<div>
+	<article class="rechList pdLfrt09">
+		<div class="s3 s5 s3cur">
+			<div class="clearfix">
+				<cite>充值金额</cite><input id='money_' type="tel" class="moneyNum"
+					placeholder="请输入充值金额" value='100' onkeyup= "value=value.replace(/\D/g, '')"><i>元</i>
+			</div>
+			<div class="s3line"></div>
+		</div>
+		<ul class="clearfix" id="tab">
+			<li>10元</li>
+			<li>50元</li>
+			<li class="cur">100元</li>
+			<li>500元</li>
+		</ul>
+	</article>
+	<div class="recharge" id='changmoney'>
+		<!-- 
+		<a href="/user/sft.html?add=100" rectype="17" rate="0" minrecharge="1" maxrecharge="10000" h5_bankid="45">
+		<h3>飞客</h3>
+		<p>免手续费，最高1万/笔，本渠道充值款需100%消费，奖金提款不受限制</p>
+		<em class="zfbIco"></em> 
+		<iclass="rightarrow"></iclass="rightarrow">
+		</a>
+		 -->
+	</div>
+	<article style="display:"><!-- 因为使用易宝支付所以隐藏 -->
+		<div class="rechargeOther rechargeOther2">其它充值方式</div>
+		<div class="recharge" id="pay_con2" style='display:none;'>
+		<!-- 
+			<a href="javascript:;" class="rechargeLong" id='phonecz'>
+				<h3>储蓄卡电话充值</h3>
+				<p>单笔21-1000,1%手续费，手续费最低1元/笔</p> <em class="cxcallIco"></em> <i
+				class="rightArrow"></i>
+			</a> 
+			 -->
+			<a href="#type=url&p=user/charge2.html?t=2">
+				<h3>手机卡充值卡</h3>
+				<p>移动联通充值卡均可，4%手续费，充值款需100%消费</p> <em class="telczIco"></em> <i
+				class="rightArrow"></i>
+			</a>
+		</div>		
+	</article>
+	<article class="weui-article" style="font-size:14px; color:#666;">		
+		<p>温馨提示:</p><p>1.为防止套现和洗钱,每笔充值后需消费50%,剩余金额才可以提现,中奖奖金无限制;</p>
+        <p>2.信用卡充值不能提现,但可联系客服申请退款,网站会在15个工作日内处理,并由第三方支付收取1%的手续费;</p>
+        <p>3.大额充值请在电脑上登录网站www.9188.com   </p>
+	</article>
+	<!-- 
+	<div class="pdTop1 pdLeft04 gray">
+		<p>温馨提示：</p>
+		<p>1.为防止套现和洗钱，借记卡单笔充值后需消费50%才能提现</p>
+		<p>2.信用卡充值不能提现，可以原路退回，但需收1%手续费</p>
+		<p>3.“信用卡－银联提供”的《各银行信用卡额度表》</p>
+	</div>
+	 -->
+	<footer class="buyFooter">
+		<div class="buyFloat fixed tellNum">
+			<a href="tel:4006739188"><em class="tell"></em>客服电话：400-673-9188</a>
+		</div>
+	</footer>
+</div>
+
+<div id="dialogs">
+	<!-- 
+        <div class="js_dialog" id="iosDialog2" style="display: none;">
+            <div class="weui-mask"></div>
+            <div class="weui-dialog">
+                <div class="weui-dialog__bd" id="dm">弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内</div>
+                <div class="weui-dialog__ft">
+                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" id="btn">知道了</a>
+                </div>
+            </div>
+        </div>
+         -->
+    </div>
+
+<script type="text/javascript" src="/js/public/crypto-js.js"></script>
+<script type="text/javascript" src="/js/public/aes.js"></script>
+<script>
+
+var D={
+		createTC:function(content,dec,fun){
+			var html='<div class="js_dialog" id="iosDialog2" style="">'
+            html+='<div class="weui-mask"></div>'
+            html+='<div class="weui-dialog">'
+            html+='<div class="weui-dialog__bd" id="dm">'+content+'</div>'
+            html+='<div class="weui-dialog__ft">'
+            html+='<a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" id="btn">'+dec+'</a>'
+            html+='</div>'
+            html+='</div>'
+            html+='</div>'
+            $("#dialogs").html(html);
+            
+            $("#btn").click(function(){
+            	if(fun&&typeof fun=="function"){
+            		fun();
+            		$("#dialogs").html("");
+            	}
+            })
+		}
+}
+
+CP.Charge = (function(){
+	var agent = localStorage.getItem("agent");
+	var applyid=""
+	var g = {
+			grade : {'0':'10','1':'50','2':'100','3':'500'},
+			index : {'10':'0','50':'1','100':'2','500':'3'}
+	};
+	var back = 'http://'+window.location.host+'/user/index2.html';
+	var back2 = 'http://'+window.location.host;
+	var o = {
+			// 支付接口 addmoney.go
+			pay:function(bankid,rectype,tempvalue){
+				var data={};
+				/* if(bankid == '45'){ // 盛付通支付 45 传递参数=支付宝支付
+					data = {bankid:bankid,addmoney:tempvalue};
+				}else if(bankid=='62'){//飞客支付
+					data={"osversion":"10.1.1",bankid:bankid,addmoney:tempvalue,'appversion':'4.4.8',mtype:"4"}
+				}else if(bankid=='70'){ //现在支付 
+					data = {bankid:bankid,addmoney:tempvalue,mtype:"4",webcallbackurl:"http://5.9188.com /#type=url&p=user/index.html"};
+				}else if(bankid=='85' || bankid == '82'){ //威富通微信 ||支付宝
+					data = {bankid:bankid,addmoney:tempvalue,mtype:"4",webcallbackurl: "http://5.9188.com "};
+				}else if(bankid=='5002'){ // 京东支付
+					
+				} */
+				
+				if(rectype == '21'){ /* 京东支付  */
+					data = {bankid:bankid,addmoney:tempvalue,mtype:"4",webcallbackurl:'http://5.9188.com/user/umpay_h5_callback.go'};
+				}else if(rectype == '18'){ /* 现在支付 */
+					data = {bankid:bankid,addmoney:tempvalue,mtype:"4",webcallbackurl:"http://5.9188.com/#type=url&p=user/index.html"};
+				}else if(rectype == '19' || rectype == '20'){ /* 威富通微信  | 威富通支付宝*/
+					data = {bankid:bankid,addmoney:tempvalue,mtype:"4",webcallbackurl: "http://5.9188.com"};
+				}else if(rectype == '17'){ /* 盛付通支付*/
+					data = {bankid:bankid,addmoney:tempvalue,mtype:"4"};
+				}else{ /* 飞客支付 | 盛付通支付*/
+					data={"osversion":"10.1.1",bankid:bankid,addmoney:tempvalue,'appversion':'4.4.8',mtype:"4"}
+				}
+				
+				$.ajax({
+					url : "/user/addmoney.go",
+					type : "GET",
+					dataType : "xml",
+					data : data,
+					success : function(xml) {
+						var code = $(xml).find("Resp").attr("code");
+						var desc = $(xml).find("Resp").attr("desc");
+						var R = $(xml).find("Resp");
+						var row = R.find("row");
+						/* debugger */
+						if(rectype == "18"){//支付宝=现在支付
+							var payParam = decodeURIComponent(row.attr("payParam").replace(/\+/g, '%20'));
+							console.log(payParam)
+							var runway = row.attr("runway");
+							if(runway=="html"){
+								document.write(payParam);
+							}else{
+								location.href=payParam;
+							}
+							return;
+						}else if(rectype == "15"){//飞客=支付 
+							var payParam = row.attr("payParam");
+							console.log(payParam)
+							//return;
+							location.href = payParam
+							return;
+						}else if(rectype == "20"){ // 威富通支付
+							var payParam = row.attr("payParam");
+							console.log(payParam)
+							//return;
+							location.href=decodeURIComponent(payParam);
+							return;
+						}else if(rectype == "21"){ // 京东支付
+							var payParam = decodeURIComponent(row.attr("payParam").replace(/\+/g, '%20'));
+							document.write(payParam);
+						}else{
+							var prepay_url=row.attr("prepay_url");
+							applyid = row.attr("applyid");
+							window.location.href=decodeURIComponent(prepay_url);
+						}
+					}
+				});
+			},
+			
+			/*
+			 * @param opt
+			 * 0 支付宝网页充值
+			 * 1 联动支付 银行卡一键支付
+			 */
+			zf_type:function(maxrecharge,minrecharge,money,rectype,bankid){
+				if(!money || money<minrecharge){
+					D.alert('支付宝支付每次最低充值'+minrecharge+'元，最高充值'+maxrecharge+'元',"","","温馨提示");
+					return;
+				}
+				if(!money || money>maxrecharge){
+					D.alert('支付宝支付每次最低充值'+minrecharge+'元，最高充值'+maxrecharge+'元',"","","温馨提示");
+					return;
+				}
+				if(rectype == '17' || rectype == '18' || rectype=='15' || rectype=='19' || rectype=='21' || rectype=='20'){//支付宝 || 微信支付 ||京东支付
+					o.pay(bankid,rectype,money);
+				}else if(rectype == '2'){	//联动优势
+					location.href='/user/ldzf.html?add='+encodeURIComponent(money);
+				}else if(rectype == '7'){	//盛付通
+					location.href='/user/sft.html?add='+encodeURIComponent(money);
+				}
+			},		
+			bind : function() {
+				/*充值金额[[*/
+				$('#tab').Touch({children:'li', fun:function(el){
+					$(el).addClass('cur').siblings().removeClass('cur');
+					$('#money_').val(g.grade[$(el).index()]);
+				}});
+				$('#money_').keyup(function(){
+					var Q = $(this).val();
+					var Q1 = g.index[Q] || false;
+					$('#tab li').removeClass();
+					!!Q1 && $('#tab li').eq(Q1).addClass('cur');
+				});
+				/*]]充值金额*/
+
+				/*]]点击充值方式*/
+				$('#changmoney').delegate('a', 'click',function(){
+					var maxrecharge = Number($(this).attr('maxrecharge'));
+					var minrecharge = Number($(this).attr('minrecharge'));
+					var money = $.trim($('#money_').val());
+					var rectype =$(this).attr('rectype');
+					var h5_bankid = $(this).attr('h5_bankid');
+					if((rectype == 17 || rectype == 15 || rectype == 18 || rectype == 20 || rectype == 19) && navigator.userAgent.toLowerCase().indexOf("micromessenger") != -1 ){//微信
+	        			o.showMark(); /* 如果是微信显示遮罩层 */
+	                }else{
+	                	$.ajax({
+							url:'/user/query.go?flag=2',
+							type:'GET',
+							dataType:'xml',
+							success:function(xml){
+								var R = $(xml).find('Resp');
+								var c = R.attr('code');
+								var isBindIdCard = R.find('row').attr('idcard');
+								var isBindMobile = R.find('row').attr('mobbind');
+								if(c == '0'){
+									if(!isBindIdCard){
+										D.createTC("为保证您的账户安全，充值前请先绑定身份信息..。","知道了",function(){
+											location.href = '/alone/idcard.html';
+										})
+										
+										/***
+										$("#iosDialog2").show();
+										$("#dm").html("为保证您的账户安全，充值前请先绑定身份信息。")
+										$("#btn").bind("click",function(){
+											
+										})
+										***/
+									}else{
+										//dopay();
+										o.zf_type(maxrecharge,minrecharge,money,rectype,h5_bankid)
+									}
+								}
+							},error : function () {
+								remove_alert();
+								alert('网络异常请刷新重试');
+							}
+						})
+	                }
+				})
+				/*]]点击充值方式*/
+					
+				$('.rechargeOther').Touch({fun:function(el){
+					$('#pay_con2').slideToggle();
+					$(el).toggleClass('rechargeOther2')
+				}});
+				
+			},
+			/* 在微信中点击去充值，会显示遮罩层，提示去浏览器打开 */
+			showMark : function(){
+	            if(!$("#downloadDiv").length){
+						
+	            	var ua = navigator.userAgent;
+	            	
+	                var _d = document;
+	                var _b = _d.body;
+	                
+	                var downloadDiv = _d.createElement("div");
+	                downloadDiv.setAttribute("id","downloadDiv");
+	                _b.appendChild(downloadDiv);
+	                
+	                http://qzonestyle.gtimg.cn/qzone/em/e100.png
+	                if(ua.indexOf('Android') > -1 || ua.indexOf('Linux') > -1){ //android 
+	            	 $(downloadDiv).addClass("download_android");
+	                } else if(ua.indexOf('iPhone') > -1 || ua.indexOf('iPad') > -1 || ua.indexOf('iPod') > -1){ // ios
+	                	 $(downloadDiv).addClass("download_ios");
+	                } 
+	                
+	            }
+	            $("#downloadDiv").fadeIn(function(){
+	                $(this).bind("click",function(){
+	                    $(this).fadeOut();
+	                    /* $("#downloadDiv").removeClass("download_android");
+	                    $("#downloadDiv").removeClass("download_ios"); */
+	                });
+	            });
+	        },
+			//aes解码 
+			decrypt:function(word){ 
+				var key = CryptoJS.enc.Utf8.parse("9188123123123345");   
+				var iv  = CryptoJS.enc.Utf8.parse('9188123123123345');   
+				var dencrypted = CryptoJS.AES.decrypt(word, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});
+				dencrypted = dencrypted.toString(CryptoJS.enc.Utf8)
+		    	return t;  
+			},
+			// 支付 服务配置文件
+			gain :function(){ 
+				$.ajax({
+					url : '/user/get_recharge_list_H5.go',
+					type : "POST",
+					dataType : "xml",	
+					success : function(xml){
+						var R = $(xml).find("Resp")
+						var code = R.attr('code');
+						var bank = R.find("bank");
+						var row = bank.find("row");
+						var html = $('#changmoney').html();;
+						
+						if(code == 0){
+							 row.each(function(a,b){
+								var rectype = $(this).attr("rectype");
+								var name = $(this).attr("name");
+								var rate = $(this).attr("rate");
+								var desc = $(this).attr("desc");
+								var minrecharge = $(this).attr("minrecharge");
+								var maxrecharge = $(this).attr("maxrecharge");
+								var h5_bankid = $(this).attr("h5_bankid");
+								if(h5_bankid){
+									html += '<a href=javascript:; rectype='+rectype+' rate='+rate+' minrecharge='+minrecharge+' maxrecharge='+maxrecharge+' h5_bankid='+h5_bankid+'>'
+								}else{
+									html += '<a href=javascript:; rectype='+rectype+' rate='+rate+' minrecharge='+minrecharge+' maxrecharge='+maxrecharge+'>'
+								}
+								html += '<h3>'+name+'</h3><p>'+desc+'</p>'
+								if(rectype == '17'||rectype == '18' || rectype == '15'|| rectype == '20'){//支付宝
+									html += '<em class="zfbIco">'
+								}else if(rectype == '2'){//联动优势
+									html += '<em class="cxkIco">'
+								}else if(rectype == '7'){//盛付通
+									html += '<em class="sftIco">'
+								}else if(rectype == '19'){
+									html += '<em class="wxIco_1">'
+								}else if(rectype == '21'){
+									html += '<em class="jdIco">'
+								}
+								html += '</em> <i class="rightArrow"></i></a>'
+							})
+								$('#changmoney').html(html);
+							}else{
+								alert("充值前请先登录账户")
+								location.href = '/#type=fun&fun=CP.Home.openLogin&in=user/index.html'
+							}	
+						}
+					});
+			},
+			init : function(){
+				this.gain();
+				if(agent=="3019"){
+					$("#cib").show();
+					$("#cib").siblings().hide();
+					$('.rechargeOther').hide();//其他充值方式
+					$('.rechargeOther').siblings().hide()
+					//$("#is_bind_card").hide();
+				}
+			}
+	};
+	var init = function () {
+		TopAnch.init({
+			title:'充值',
+			prevShow:true,
+			prevFun:function(){//左侧按钮绑定事件
+				window.history.back();
+			},
+			nextShow: true,
+			nextText: '充值明细',
+			nextFun: function(){
+				window.location.href = '#type=url&p=user/detail.html?in=cz';
+			},
+			isBack:true
+		});  
+		var ua = window.navigator.userAgent.toLowerCase();
+	    if(ua.match(/MicroMessenger/i) == 'micromessenger' && agent=="3001" ){//微信支付	
+	    	$('#wx').hide();
+	    	$('#zfb').hide();
+	    	$('#xykcz').hide();
+	    }
+	    if(CP.Data.source == '3021'){
+	    	$('#zfb,.buyFooter').hide();
+	    	$('#pay_con2').show();
+	    	$('.rechargeOther').removeClass('rechargeOther2');
+	    }
+		$('#money_').val('100');
+		o.init();
+		o.bind();
+	};
+	return {init:init}
+})();
+CP.Charge.init()
+</script>

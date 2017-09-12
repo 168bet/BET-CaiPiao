@@ -1,0 +1,89 @@
+/**   
+* 文件名称: WebTrendController.java<br/>
+* 版本号: V1.0<br/>   
+* 创建人: alex<br/>  
+* 创建时间 : 2016-12-13 上午1:45:09<br/>
+*/  
+package com.mh.web.controller;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.alibaba.fastjson.JSONObject;
+import com.mh.commons.utils.DateUtil;
+import com.mh.commons.utils.ServletUtils;
+import com.mh.service.WebTrendService;
+import com.mh.web.util.TrendUtil;
+
+/** 
+ * 
+ * 走势图Controller
+ * 类描述: TODO<br/>
+ * 创建人: TODO alex<br/>
+ * 创建时间: 2016-12-13 上午1:45:09<br/>
+ */
+
+@Controller
+@RequestMapping("/trend")
+public class WebTrendController extends BaseController {
+	
+	@Autowired
+	private WebTrendService webTrendService;
+	
+	
+	
+	/**
+	 * 走势图
+	 * 方法描述: TODO</br> 
+	 * @param code
+	 * @param pageNo
+	 * @param request
+	 * @param response  
+	 * void
+	 */
+	@RequestMapping("/list/{code}/{pageNo}")
+	public void goList(@PathVariable(value = "code") String code,@PathVariable(value = "pageNo") String pageNo,
+			HttpServletRequest request,HttpServletResponse response){		
+		try {
+			Map<String,String> params = new HashMap<String,String>();
+			params.put("code", code);
+			params.put("pageNo",pageNo);// 第几页
+			params.put("pageSize","30");// 每页显示多少条30
+			Date currDate = new Date();
+			Date preDate = DateUtil.addDay(currDate, -3);
+			
+			String bTime = DateUtil.format(preDate, DateUtil.YEAR_MONTH_DAY_PATTERN_MIDLINE);
+			String eTime = DateUtil.format(currDate, DateUtil.YEAR_MONTH_DAY_PATTERN_MIDLINE);
+			
+			params.put("bTime", bTime);
+			params.put("eTime", eTime);
+			
+			Map<String,Object> valMap = this.webTrendService.getResultsList(params);
+			
+			List<Object[]>  valList = (List<Object[]>) valMap.get("list");
+			JSONObject all = TrendUtil.getTrend(code, valList);
+			all.put("pageNo", pageNo);
+			all.put("totalPages", valMap.get("totalPages"));
+			all.put("pageSize","30");
+						
+			ServletUtils.outPrintSuccess(request, response,all);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			ServletUtils.outPrintFail(request, response, "查询走势图失败！");
+		}
+		
+	}
+	
+
+}

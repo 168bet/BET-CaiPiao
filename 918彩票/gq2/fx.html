@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>兑换中心</title>
+<link href="gq.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.hot{ display: block;width:1.4rem; height:1rem; background:url(./img/hot_03.png) no-repeat center; background-size:1.4rem 1rem; position:absolute; top:1rem; left:50%;-webkit-animation: bounce 1s ease infinite ;		}
+@-webkit-keyframes bounce {
+  from, 20%, 53%, 80%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -4px, 0);
+  }
+
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -2px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0,-0px,0);
+    transform: translate3d(0,-0px,0);
+  }
+}
+</style>
+<body style="background: #f3f3f3;">
+<header class="tzHeader" style="display:none">
+     <div class="cgjHeader fixed2">
+    	<a href="javascript:history.go(-1)" class="fcbackIco2"></a>
+    	<h1>兑换中心</h1>
+        <article class="pullDown pullHover" style="display:none ;">
+        	<em class="pullIco"></em>
+            <div class="pullText">
+            	<a href="myjc.html" class="cur">我的竞猜</a>
+            	<a href="phb.html">排行榜</a>
+            	<a href="wfgz.html">玩法规则</a>
+            </div>
+        </article>
+      </div> 
+</header>
+<article class="fxlink">
+	<a href="/gq2/jpzx/" >
+		<span class="jdcj"></span>
+		<p><strong>兑换中心</strong>现金、话费天天抢！</p>
+	</a> 
+	<a href="/gq2/k3/k3.html"  style="position:relative;">
+		<span class="k3jd"></span>
+		<p><strong>金豆玩快三</strong>10分钟一期，即时派奖</p>
+		<i class="hot"></i>
+	</a>
+	 <a href="/gq2/sign/qdfb.html"  style="">
+		<span class="shop"></span>
+		<p><strong>积分商城</strong>超值道具帮您玩转边看边猜</p>
+	</a>
+	<a href="/gq2/hdzx.html"  style="">
+		<span class="hdzx"></span>
+		<p><strong>活动中心</strong>精彩活动火爆进行中</p>
+	</a>
+	<a href="wfgz.html" style="margin-top: .8rem; border-top: 1px solid #e1e1e1;">
+		<span class="wfgz"></span>
+		<p><strong>玩法规则</strong>如何免费获得金豆  如何算奖</p>
+	</a>
+	<a href="/gq/new.html">
+		<span class="gqgg"></span>
+		<p><strong>公告</strong>即时公告，随时通知</p>
+	</a>
+	<a style="display:none" href="http://chat8.live800.com/live800/chatClient/chatbox.jsp?companyID=152373&configID=127313&jid=4543042755&enterurl=http%3A%2F%2F5.9188.com %2F&pagetitle=%E3%80%909188%E5%BD%A9%E7%A5%A8%E8%A7%A6%E5%B1%8F%E7%89%88%E3%80%91&pagereferrer=&firstEnterUrl=http%3A%2F%2F5%2E9188%2Ecom%2F&lan=zh">
+		<span class="online"></span>
+		<p><strong>在线客服</strong>7*24小时不间断为您服务</p>
+	</a>
+</article>
+<footer class="pdtop3">
+	<article class="fixed kcfooter">
+		<div class="clearfix">
+			<a href="bkbc.html"><cite class="kcico"></cite>边看边猜</a>
+			<a href="phb.html"><cite class="phbico"></cite>排行榜</a>
+			<a href="fx.html" class="cur"><cite class="fxico"></cite>兑换中心</a>
+			<a href="myjc.html"><cite class="myjcico"></cite>我的竞猜</a>
+		</div>
+	</article>
+</footer>
+</body>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		var arg = localStorage.getItem("from");
+		var remove_header=function(){
+			
+			if(arg){
+				$(".tzHeader").hide();
+			}else{
+				$(".tzHeader").show();
+			}
+		}
+		
+		var remove_talk=function(){
+			if(arg=="android"||arg=="ANDROID"){
+				$(".fxlink a:last").hide();
+			}else{
+				$(".fxlink a:last").show();
+			}
+		}
+		
+		var init = function(){
+			remove_header()
+			remove_talk()
+		}
+		init();
+	})
+</script>

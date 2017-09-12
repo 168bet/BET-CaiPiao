@@ -1,0 +1,82 @@
+<script>
+if(location.hash == ''){
+	location.replace('/#class=url&xo=ssq/index.html');
+}
+</script>
+	<article style="background:#f7f7f7">
+	<header class="tzHeader">
+      <section class="fcHeader">
+    	<h1>双色球</h1>
+    	<a href="#class=home" class="fcbackHome"></a>
+        <div class="pullDown">
+        	<em class="fcpullIco" id="pullIco"></em>
+            <div class="pullText" id="pullText" style="display:none">
+            	<a href="javascript:;" class="cur">选号</a>
+            	<a href="#class=url&xo=hm/index.html&gid=01">合买跟单</a>
+            	<a href="#class=url&xo=kj/r.html&gid=01">开奖结果</a>
+            	<a href="#class=url&xo=ssq/wf/index.html" style="border-bottom:none">玩法帮助</a>
+            </div>
+        </div>
+      </section>
+    </header>
+    <nav class="sdTab ssqTab relative" id="ssq_tab">
+    	<ul class="clearfix">
+    		<li PlayID="1" class="cur" id="pttz">普通投注</li>
+    		<li PlayID="3">胆拖投注</li>
+    	</ul>
+        <em class="downline" style="width:22%; left:14%"></em>
+	</nav>
+    <article>
+   	    	<div class="p5kj clearfix">
+        		<div class="left">加载中...</div>
+            	<div class="right" id="lskj"><span class="left">历史开奖</span><em class="ssqup ssqdown"></em></div>
+        	</div>
+          <div class="ssqkjlist" style="display:none"></div>
+   </article>
+   <!-- 普通投注start -->
+   <article class="ssqText">
+        <div id="cpttz" class="relative" style="display:block">
+            <div class="shakeomit"><span class="left red" id="shake"><em class="shakeico"></em><cite>摇一注</cite></span><span class="left gray" id="yl"><em class="omitico"></em><cite>遗漏</cite></span></div>
+            <p class="gray">至少选择<em class="red">6个红球</em>，<em class="blue">1个蓝球</em></p>
+            <p class="gray" id="ylz" style="display:none">遗漏值：该号码自上次开出到本期间隔期数</p>
+            <div id="pt_buyChoice">
+            <div class="relative pdLeft08" id="xzhq" style="z-index:5">	
+            	<div class="ssqBall"><cite class="">01</cite><cite>02</cite><cite>03</cite><cite>04</cite><cite>05</cite><cite>06</cite><cite>07</cite><cite>08</cite><cite>09</cite><cite>10</cite><cite>11</cite><cite>12</cite><cite>13</cite><cite>14</cite><cite>15</cite><cite>16</cite><cite>17</cite><cite>18</cite><cite>19</cite><cite>20</cite><cite>21</cite><cite>22</cite><cite>23</cite><cite>24</cite><cite>25</cite><cite>26</cite><cite>27</cite><cite>28</cite><cite>29</cite><cite>30</cite><cite>31</cite><cite>32</cite><cite>33</cite></div>
+       			<div class="omitnum" style="display:none"><cite>23</cite><cite>4</cite><cite>24</cite><cite>12</cite><cite>2</cite><cite>3</cite><cite>14</cite><cite>23</cite><cite>5</cite><cite>43</cite><cite>3</cite><cite>14</cite><cite>8</cite><cite>16</cite><cite>37</cite><cite>48</cite><cite>16</cite><cite>48</cite><cite>28</cite><cite>39</cite><cite>20</cite><cite>5</cite><cite>4</cite><cite>24</cite><cite>12</cite><cite>2</cite><cite>3</cite><cite>14</cite><cite>3</cite><cite>14</cite><cite>48</cite><cite>8</cite><cite>37</cite></div>
+            </div>
+            <div class="ssqxhblue relative pdLeft08" id="xzlq" style="z-index:5">
+            	<div class="ssqBall ssqblueBall"><cite class="">01</cite><cite>02</cite><cite>03</cite><cite>04</cite><cite>05</cite><cite>06</cite><cite>07</cite><cite>08</cite><cite>09</cite><cite>10</cite><cite>11</cite><cite>12</cite><cite>13</cite><cite>14</cite><cite>15</cite><cite>16</cite></div>
+       			<div class="omitnum" style="display:none"><cite>23</cite><cite>4</cite><cite>24</cite><cite>12</cite><cite>2</cite><cite>3</cite><cite>14</cite><cite>23</cite><cite>5</cite><cite>43</cite><cite>3</cite><cite>14</cite><cite>8</cite><cite>16</cite><cite>37</cite><cite>48</cite></div>
+            </div>
+            </div>
+        </div>
+    <!-- 普通投注end -->	
+    <!-- 胆拖投注start -->
+        <div id="cdttz" style="display:none">
+            <p class="gray">请选择1-5个您认为必开出的<em class="red">红球</em></p>
+            <div class="ssqBall ssqBall2 pdLeft08" id="dxzhq"><cite class="">01</cite><cite>02</cite><cite>03</cite><cite>04</cite><cite>05</cite><cite>06</cite><cite>07</cite><cite>08</cite><cite>09</cite><cite>10</cite><cite>11</cite><cite>12</cite><cite>13</cite><cite>14</cite><cite>15</cite><cite>16</cite><cite>17</cite><cite>18</cite><cite>19</cite><cite>20</cite><cite>21</cite><cite>22</cite><cite>23</cite><cite>24</cite><cite>25</cite><cite>26</cite><cite>27</cite><cite>28</cite><cite>29</cite><cite>30</cite><cite>31</cite><cite>32</cite><cite>33</cite></div>
+			<div class="ssqxhblue">
+            	<p class="gray mgTop04">请选择2-20个您认为可能开出的<em class="red">红球</em></p>
+            	<div class="ssqBall ssqBall2 pdLeft08" id="txzhq"><cite class="">01</cite><cite>02</cite><cite>03</cite><cite>04</cite><cite>05</cite><cite>06</cite><cite>07</cite><cite>08</cite><cite>09</cite><cite>10</cite><cite>11</cite><cite>12</cite><cite>13</cite><cite>14</cite><cite>15</cite><cite>16</cite><cite>17</cite><cite>18</cite><cite>19</cite><cite>20</cite><cite>21</cite><cite>22</cite><cite>23</cite><cite>24</cite><cite>25</cite><cite>26</cite><cite>27</cite><cite>28</cite><cite>29</cite><cite>30</cite><cite>31</cite><cite>32</cite><cite>33</cite></div>
+            </div>
+			<div class="ssqxhblue">
+            	<p class="gray mgTop04">请选择<em class="blue" >蓝球</em></p>
+            	<div class="ssqBall ssqBall2 ssqblueBall pdLeft08" id="dtxzlq"><cite class="">01</cite><cite>02</cite><cite>03</cite><cite>04</cite><cite>05</cite><cite>06</cite><cite>07</cite><cite class="">08</cite><cite>09</cite><cite>10</cite><cite>11</cite><cite>12</cite><cite>13</cite><cite>14</cite><cite>15</cite><cite>16</cite></div>
+            </div>
+        </div>
+    <!-- 胆拖投注end -->	
+    </article>
+	<footer class="buyFooter">
+	    <div class="fixed buyFloat">
+	        <em class="ssqdeleted">清空</em>
+	        <span class="gray">共<cite id="countNotes">0</cite>注  <cite id="countMoney">0</cite>元</span>
+	        <a href="javascript:;" class="ture">确认</a>
+	    </div>
+	</footer>
+</article>
+<input type="hidden" value="" id="RedBallValue" name="RedBallValue"/>
+<input type="hidden" value="" id="BlueBallValue" name="BlueBallValue"/>
+<input type="hidden" value="" id="dRedBallValue" name="dRedBallValue"/>
+<input type="hidden" value="" id="tRedBallValue" name="tRedBallValue"/>
+<input type="hidden" value="" id="dtBlueBallValue" name="dtBlueBallValue">
+<script src="/js/ssq/index.js"></script>

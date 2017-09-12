@@ -1,0 +1,30 @@
+body {
+    margin:0px;
+    background:#100503;
+    height:100%;
+    overflow:hidden;
+    }
+.code {
+	display:block;
+	width:85px;
+	height:29px;
+   	line-height:27px;
+    font-size:21px;
+    font-family:Georgia, "Times New Roman", Times, serif;
+    letter-spacing:5px;
+	text-align:center;
+	color:#D7DA89;
+	background-image:url(/images/code1.bmp);
+}
+.btn {
+	BACKGROUND-IMAGE: url(/images/Login_but.jpg); BORDER-BOTTOM: #ff9224 0px solid; BORDER-LEFT: #ff9224 0px solid; BACKGROUND-COLOR: #ffffff; WIDTH: 104px; HEIGHT: 87px; BORDER-TOP: #ff9224 0px solid; CURSOR: hand background-position:0px 0; BORDER-RIGHT: #ff9224 0px solid
+}
+.btn_m {
+	BACKGROUND-IMAGE: url(/images/Login_but.jpg); BORDER-BOTTOM: #ff9224 0px solid; BORDER-LEFT: #ff9224 0px solid; BACKGROUND-COLOR: #ffffff; WIDTH: 104px; HEIGHT: 87px; BORDER-TOP: #ff9224 0px solid; CURSOR: hand background-position:0px 0; BORDER-RIGHT: #ff9224 0px solid
+}
+.btn {
+	BACKGROUND-POSITION: 0px 0px
+}
+.btn_m {
+	BACKGROUND-POSITION: -104px 0px; CURSOR: hand
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8" />
+    <meta content="充值确认" name="description">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="author" content="m.9188.com  ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="cleartype" content="on">
+    <link href="css/mflhb.css" rel="stylesheet">
+    <title>充值确认</title>
+    <link rel="stylesheet" href="css/weui.css"/>
+    <link rel="stylesheet" href="css/inside.css"/>
+    <style>
+        .weui-cells__title{font-size: 13px;}
+        .weui-cells_form .weui-cell__ft{position:relative;font-size: 17px; }
+        .weui-cells_form .weui-cell__ft:after{position:absolute; top:-9px; left:-9px; content:""; width:1px; height:44px;border-left: 1px solid #e5e5e5;}
+    </style>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<header class="cp9188-header">
+    <i class="cp9188-header_back"></i>
+    <h1 class="text-center">充值确认</h1>
+</header>
+<article>
+    <div class="weui-cells__title cardholder"> 请输入尾号<span class="red">7484</span>，银行预留手机号收到的验证码</div>
+    <div class="weui-cells weui-cells_form border-box">
+        <div class="weui-cell border" >
+            <div class="weui-cell__bd" >
+                <input class="weui-input" value="" placeholder="短信验证码" type="">
+            </div>
+            <div class="weui-cell__ft">
+                重新发送(54s)
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <a href="javascript:;" class="weui-btn weui-btn_primary margin_top">确定</a>
+    </div>
+
+    <div class="container">
+        <a href="javascript:;" class="weui-btn weui-btn_primary margin_top" id="showToast">已完成</a>
+    </div>
+    <div id="toast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+            <p class="weui-toast__content">已完成</p>
+        </div>
+    </div>
+</article>
+<script type="text/javascript">
+    // toast
+    $(function(){
+        var $toast = $('#toast');
+        $('#showToast').on('click', function(){
+            if ($toast.css('display') != 'none') return;
+
+            $toast.fadeIn(100);
+            setTimeout(function () {
+                $toast.fadeOut(100);
+            }, 1000);
+        });
+    });
+</script>
+</body>
+</html>

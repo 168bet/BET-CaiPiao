@@ -1,0 +1,16 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+<div class="page-bg1" ng-init="names = {'lucky': '幸运28', 'canada': '加拿大28', 'singapore': '新加坡28'}">
+    <div class="page-wrap trend-wrap">
+        <div class="bodywrap">
+            <div class="trend-menu">
+                <ul class="menulist clearfix" >
+                    <li class="item" ng-repeat="(name, text) in names" >
+                        <a ui-sref-active="current" ui-sref=".name({name: name})">{{text}}</a>
+                    </li>
+               </ul>
+            </div>
+            <div ui-view></div>
+        </div>
+    </div>
+</div>
+<ng-include src="templateURI('/footer.html')"></ng-include>

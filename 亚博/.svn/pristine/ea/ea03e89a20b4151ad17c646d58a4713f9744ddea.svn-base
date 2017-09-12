@@ -1,0 +1,15 @@
+ <div>
+   <ul class="newslist" style="padding:16px 16px 0px 16px">
+     <li data-ng-repeat="(key, value) in noticeDatas|orderBy:'ggId'">
+       <a href="javascript:void(0)" ng-click="goDetail(value.ggId)">{{value.ggTitle}}</a>
+       <span class="adddate">{{value.createTime}}</span>
+     </li>
+   </ul>
+ <!--   <div class="detail_page">
+   共24条记录&nbsp;&nbsp;当前1/2页
+   <span class="current">1</span>
+   <a href="/index/notice/page/2">2</a>
+   <a href="/index/notice/page/2">下一页</a>
+   <a href="/index/notice/page/2">尾页</a>
+ </div> -->
+ </div>

@@ -1,0 +1,23 @@
+CACHE MANIFEST
+#version 1.0.4
+ 
+# 指明缓存入口
+CACHE:
+#This is js and css files cache manifest
+ /js/jquery-1.9.1.min.js
+ #This is img files cache manifest
+ /activity/nrb/banner.jpg
+ /activity/nrb/pic.gif
+ /activity/nrb/title2.gif
+ /activity/nrb/title.gif
+ 
+# 以下资源必须在线访问
+NETWORK:
+index.html
+/
+ *
+ 
+# 如果index.php无法访问则用404.html代替
+FALLBACK:
+#/index.html /404.html
+

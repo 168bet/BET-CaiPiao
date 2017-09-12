@@ -1,0 +1,42 @@
+<?php
+// 数据库连接
+
+// 当前环境的操作系统
+if (PHP_OS == 'WINNT') {
+	define('IS_WIN', true);
+} else {
+	define('IS_WIN', false);
+}
+
+// 设置时区
+if(function_exists('date_default_timezone_set')) {
+	@date_default_timezone_set('Etc/GMT-8');
+}
+
+// 检查php版本
+// 使用php mysqli扩展需要php 5.0及以上版本
+if (PHP_VERSION < '5.0') {
+	exit('请将php升级到php 5.0及以上版本.');
+}
+
+$mysqli = new mysqli('localhost', 'root', 'root');
+
+// $connect_error需要php 5.2.9/5.3.0及以上版本
+// 使用mysqli_connect_error()为了兼容此前的版本
+if (mysqli_connect_errno()) {
+    exit('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
+}
+
+$mysqli->select_db('sportsdt.com');
+$mysqli->query("SET NAMES 'utf8'");
+
+if(!defined('SYS_START_TIME')) define('SYS_START_TIME', microtime());
+if(!defined('SYS_TIME')) define('SYS_TIME', time());
+
+
+
+
+
+
+
+

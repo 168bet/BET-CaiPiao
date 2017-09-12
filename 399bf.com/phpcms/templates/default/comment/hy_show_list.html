@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <title>资讯明细页</title>
+
+    <!-- css start -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/list.css" rel="stylesheet">
+    <!-- css end -->
+
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+<div id="bodyheight" class="container-fluid">
+    <!-- 发布评论 start -->
+    <section id="comment-section" class="row">
+        <div id="social-action" class="col-lg-12 clearfix">
+            <!-- 社区分享 -->
+            <div class="share-chanel pull-left">
+                <span>分享到:</span>
+                <a href="#"><span class="share-logo share-sina"></span></a>
+                <a href="#"><span class="share-logo share-qq-blog"></span></a>
+                <a href="#"><span class="share-logo share-qq"></span></a>
+                <a href="#"><span class="share-logo share-wechat"></span></a>
+                <a href="#"><span class="share-logo share-douban"></span></a>
+                <a href="#"><span class="share-logo share-renren"></span></a>
+                <a href="#"><span class="share-logo share-qq-zone"></span></a>
+            </div>
+            <!-- 交互 -->
+            <div class="social-chanel pull-right">
+                <a href="#"><span class="social-logo social-like"></span>爱看</a>
+                <a href="#"><span class="social-logo social-unlike"></span>不敢兴趣</a>
+                <a href="#"><span class="social-logo social-star"></span>收藏本文</a>
+            </div>
+        </div>
+        <!-- 文本区域 -->
+        <div id="submit-action" class="col-lg-12">
+            <form>
+                <div class="clearfix">
+                    <textarea name="comment" class="comment-area pull-left"></textarea>
+                    <button type="submit" class="comment-btn pull-right">登录并回复</button>
+                </div>
+            </form>
+            <span class="text-muted small comment-help">网友评论仅供其表达个人看法，并不表明火冶立场</span>
+        </div>
+    </section>
+    <!-- 发布评论 end -->
+
+    <!-- 评论 start -->
+    <section id="comments-section" class="row">
+        <div class="col-lg-12 comment-box">
+            <div class="comment">
+                <div class="comment-item clearfix">
+                    <!-- 用户头像 -->
+                    <div class="comment-avatar pull-left">
+                        <img src="images/avatar.jpg" class="img-circle img-responsive">
+                    </div>
+                    <div class="comment-header pull-right clearfix">
+                        <!-- 用户名 -->
+                        <div class="user-info pull-left">
+                            <span class="user-name">风一样的骚年</span>
+                            <span class="user-position text-muted">湖北省武汉市网友</span>
+                        </div>
+                        <!-- 发布时间 -->
+                        <div class="comment-info pull-right">
+                            <span class="comment-time text-muted">2016-04-07 18:49:02</span>
+                        </div>
+                    </div>
+                    <!-- 评论内容 -->
+                    <div class="comment-body pull-right">
+                        <p>对于这样的放铲球员就该做出赔偿。。。</p>
+                    </div>
+                </div>
+                <!-- 交互操作 -->
+                <div class="comment-footer clearfix">
+                    <div class="btn-toolbar pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default"><span class="fa fa-thumbs-o-up"></span><span
+                                    class="up-number">180</span></button>
+                            <button type="button" class="btn btn-default"><span class="fa fa-thumbs-o-down"></span><span
+                                    class="down-number">108</span></button>
+                            <button type="button" class="btn btn-default"><span class="fa fa-commenting"></span> 回复
+                            </button>
+                            <button type="button" class="btn btn-default"><span class="fa fa-share"></span> 分享</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 指定回复 -->
+                <div class="reply_to">
+                    <form>
+                        <textarea name="comment" class="reply_area"></textarea>
+                        <button type="submit" class="reply_btn"><span>发表评论</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 comment-box">
+            <div class="comment">
+                <div class="comment-item clearfix">
+                    <!-- 用户头像 -->
+                    <div class="comment-avatar pull-left">
+                        <img src="images/avatar.jpg" class="img-circle img-responsive">
+                    </div>
+                    <div class="comment-header pull-right clearfix">
+                        <!-- 用户名 -->
+                        <div class="user-info pull-left">
+                            <span class="user-name">风一样的骚年</span>
+                            <span class="user-position text-muted">湖北省武汉市网友</span>
+                        </div>
+                        <!-- 发布时间 -->
+                        <div class="comment-info pull-right">
+                            <span class="comment-time text-muted">2016-04-07 18:49:02</span>
+                        </div>
+                    </div>
+                    <!-- 评论内容 -->
+                    <div class="comment-body pull-right">
+                        <p>对于这样的放铲球员就该做出赔偿。。。</p>
+                    </div>
+                </div>
+                <!-- 交互操作 -->
+                <div class="comment-footer clearfix">
+                    <div class="btn-toolbar pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default"><span class="fa fa-thumbs-o-up"></span><span
+                                    class="up-number">180</span></button>
+                            <button type="button" class="btn btn-default"><span class="fa fa-thumbs-o-down"></span><span
+                                    class="down-number">108</span></button>
+                            <button type="button" class="btn btn-default"><span class="fa fa-commenting"></span> 回复
+                            </button>
+                            <button type="button" class="btn btn-default"><span class="fa fa-share"></span> 分享</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 指定回复 -->
+                <div class="reply_to">
+                    <form>
+                        <textarea name="comment" class="reply_area"></textarea>
+                        <button type="submit" class="reply_btn"><span>发表评论</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 comment-box">
+            <div class="comment">
+                <div class="comment-item clearfix">
+                    <!-- 用户头像 -->
+                    <div class="comment-avatar pull-left">
+                        <img src="images/avatar2.jpg" class="img-circle img-responsive">
+                    </div>
+                    <div class="comment-header pull-right clearfix">
+                        <!-- 用户名 -->
+                        <div class="user-info pull-left">
+                            <span class="user-name">大黑将至</span>
+                            <span class="user-position text-muted">福建省三明市网友</span>
+                        </div>
+                        <!-- 发布时间 -->
+                        <div class="comment-info pull-right">
+                            <span class="comment-time text-muted">2016-04-07 18:49:02</span>
+                        </div>
+                    </div>
+                    <!-- 评论内容 -->
+                    <div class="comment-body pull-right">
+                        <!-- 回复 -->
+                        <div class="reply">
+                            <a href="#">
+                                <span class="user-name">风一样的骚年</span>
+                                <span class="user-position">湖北省武汉市网友</span>
+                            </a>
+                            <p class="reply-body">
+                                曾经提到恒大，是未赢够的代名词。但本赛季亚冠赛场的恒大，如今却一胜难求。在昨夜败给浦和红钻之后，亚冠卫冕冠军被判处死缓！在4轮仅基2分的情况下，恒大把自己也推上了一周前国足的断头台上，但这次，他们理论出线希望比国足还渺茫！想要连续5个赛季亚冠小组突围，恒大需要奇迹，一个比国足还大的奇迹！晋级看别人脸色和天大的运气，这对于恒大来说，本身就是一项耻辱。</p>
+                        </div>
+                        <p>给她盖好被子。。。防止她着凉。。。</p>
+                    </div>
+                </div>
+                <!-- 交互操作 -->
+                <div class="comment-footer clearfix">
+                    <div class="btn-toolbar pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default"><span class="fa fa-thumbs-o-up"></span><span
+                                    class="up-number">180</span></button>
+                            <button type="button" class="btn btn-default"><span class="fa fa-thumbs-o-down"></span><span
+                                    class="down-number">108</span></button>
+                            <button type="button" class="btn btn-default"><span class="fa fa-commenting"></span> 回复
+                            </button>
+                            <button type="button" class="btn btn-default"><span class="fa fa-share"></span> 分享</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 指定回复 -->
+                <div class="reply_to">
+                    <form>
+                        <textarea name="comment" class="reply_area"></textarea>
+                        <button type="submit" class="reply_btn"><span>发表评论</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- 评论分页  -->
+        <div class="col-lg-12">
+            <nav class="pull-right">
+                <ul class="hy-pagination">
+                    <li class="disabled">
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true"> &#60; 上一页</span>
+                        </a>
+                    </li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true"> 下一页 &#62;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </section>
+    <!-- 评论 end -->
+</div>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

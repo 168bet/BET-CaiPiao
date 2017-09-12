@@ -1,0 +1,447 @@
+﻿@charset "utf-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body{
+	background:#f1f1f1;
+	font-family:Microsoft YaHei, Arial, Helvetica, sans-serif;
+}
+#wrapper{
+	width:1024px;
+	/*height:620px;*/
+	margin:0 auto;
+}
+/*************************** Header ****************************/
+#help_header{
+	height:120px;
+	width:1024px;
+	background-image:url('http://gambar.b0.upaiyun.com/App_Themes/red/images/help/top.jpg');
+	background-repeat:repeat-x;
+}
+#help_logo{
+	width:53px;
+	height:43px;
+
+	background-repeat:no-repeat;
+	margin-left:10px;
+}
+#help_logo label{
+	color: #FFF;
+	font-size: 26px;
+	font-weight: bold;
+	margin: 10px 0 0 60px;
+	position: absolute;
+	top:30px;
+
+}
+#callcenter{
+	float: right;
+	margin: -38px 20px 0 0;
+	width:117px;
+	height:39px;
+	background-image:url('http://gambar.b0.upaiyun.com/App_Themes/red/images/help/help_callcenter.png');
+	background-repeat:no-repeat;
+	cursor:pointer;
+}
+#callcenter label{
+	color: #FFF;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 14px 0 0 38px;
+	position: absolute;
+	cursor:pointer;
+}
+.header_img{
+	background-image:url('http://gambar.b0.upaiyun.com/App_Themes/red/images/help/help_image.png');
+	background-repeat:no-repeat;
+	width:486px;
+	height:48px;
+	position:absolute;
+	top:30px;
+	margin-left:525px;
+}
+/*************************** Content ****************************/
+#help_body{
+	position: absolute;
+	width:1024px;
+	height:620px;
+	background:#FFF;
+}
+.help_section{
+	font-size:14px;
+	position: relative;
+	width:1014px;
+	height:50px;
+	margin: 10px 0 10px 10px;
+}
+.help_section ul{
+	margin: -25px 0 10px 105px;
+}
+.help_section li{
+	float:left;
+	margin: 0 0 10px 0;
+	color:#7f7f7f;
+	width: 150px;
+	cursor:pointer;
+}
+.help_section li.dot_white,
+.help_section li.dot_white a,
+.help_section li.dot_white a:visited{
+	color:#FFF;
+	cursor:default;
+}
+.help_section li a{
+	color:#7f7f7f;
+	text-decoration:none;
+}
+.help_section li a:visited{	
+	color:#7f7f7f;
+	text-decoration:none;
+}
+.help_section li a:hover{
+	color:#0000ff;
+	text-decoration:underline;
+}
+.help_section li a:active{
+	color:#7f7f7f;
+	text-decoration:none;
+}
+.label_help_name{
+	display: block;
+	margin: 0px 5px;
+	padding-top: 5px;
+}
+.help_name_area{
+	width:87px;
+	height:31px;
+	color:#FFF;
+	font-size: 18px;
+	font-weight: bold;
+}
+/***新手向导***/
+#help_guide{
+	position: relative;
+	width:1014px;
+	height:170px;
+	border-top:1px solid #27a6ff;
+	margin: 10px 0 10px 10px;
+	color:#FFF;
+}
+#help_guide_name{
+	background:#27a6ff;
+}
+.help_guide_bg{
+	width:293px;
+	height:157px;
+	background-image:url('http://gambar.b0.upaiyun.com/App_Themes/red/images/help/item_bg.png');
+	background-repeat:no-repeat;
+	border-radius:10px
+}
+#help_guide ul{
+	margin: -20px 0 10px 105px;
+	_margin: -20px 0 10px 95px;
+}
+#help_guide li{
+	float:left;
+	margin-right: 10px;
+}
+.help_guide_item{
+	font-size:22px;
+	font-weight:bold;
+	float: left;
+	margin: 10px 0 0 20px;
+}
+.help_guide_text{
+	float:right;
+	margin: 20px 5px 0 0;
+	font-size: 12px;
+}
+.guide_game_bg{
+	display:block;
+	width:282px;
+	height:108px;
+	background-image:url('http://gambar.b0.upaiyun.com/App_Themes/red/images/help/pic_item1.jpg');
+	background-repeat:no-repeat;
+	margin: 40px 0 0 5px;
+	border-radius:5px;
+}
+.guide_deposit_bg{
+	display:block;
+	width:282px;
+	height:108px;
+	background-image:url('http://gambar.b0.upaiyun.com/App_Themes/red/images/help/pic_item2.jpg');
+	background-repeat:no-repeat;
+	margin: 40px 0 0 5px;
+	border-radius:5px;
+}
+.guide_withdrawal_bg{
+	display:block;
+	width:282px;
+	height:108px;
+	background-image:url('http://gambar.b0.upaiyun.com/App_Themes/red/images/help/pic_item3.jpg');
+	background-repeat:no-repeat;
+	margin: 40px 0 0 5px;
+	border-radius:5px;
+}
+.help_guide_btn{
+	color:#FFF;
+	display:block;
+	width:79px;
+	height:27px;
+	background-image:url('http://gambar.b0.upaiyun.com/App_Themes/red/images/help/btn_click.png');
+	background-repeat:no-repeat;
+	position: absolute;
+	top: 127px;
+	margin-left: 200px;
+	padding: 8px 16px;
+	font-size: 12px;
+	cursor:pointer;border-radius:5px;
+}
+
+/***玩法奖金***/
+#help_bouns{
+	border-top:1px solid #72b3dd;
+}
+#help_bouns_name{
+	background:#72b3dd;
+}
+
+/***充值相关***/
+#help_deposit{
+	border-top:1px solid #7fb22e;
+
+}
+#help_deposit_name{
+	background:#7fb22e;
+}
+/***提现相关***/
+#help_withdrawal{
+	border-top:1px solid #e7a719;
+}
+#help_withdrawal_name{
+	background:#e7a719;
+}
+/***帐号相关***/
+#help_account{
+	border-top:1px solid #e77cb0;
+}
+#help_account_name{
+	background:#e77cb0;
+}
+/***特有功能***/
+#help_special{
+	border-top:1px solid #ff0000;
+}
+#help_special_name{
+	background:#ff0000;
+}
+/***关于优游***/
+#help_about{
+	border-top:1px solid #ae59d9;
+}
+#help_about_name{
+	background:#ae59d9;
+}
+/***安装帮助***/
+#help_install{
+	border-top:1px solid #0cd39d ;
+}
+#help_install_name{
+	background:#0cd39d ;
+}
+/*************************************
+***************** Footer ***************
+**************************************/
+#help_footer{
+	height:80px;
+	width:1024px;
+	background:#fff;
+	position: relative;
+	bottom: 15px;
+}
+#help_footer_item{
+	width: 100%;
+	border-top: 1px solid #CCC;
+	position: relative;
+	top: 30px;
+}
+#help_footer_item li a{
+	color:#666;
+	text-decoration:none;
+}
+#help_footer_item li a:hover{
+	color:#3300ff;
+	text-decoration:underline;
+}
+#help_footer ul{
+	position: relative;
+	width: 348px;
+	margin: 7px auto;
+}
+#help_footer li{
+	float:left;
+	margin: 10px;
+	color:#0000ff;
+	font-size:12px;
+	cursor:pointer;
+}
+#help_footer li.node{
+	cursor:default;
+	color:#999;
+}
+
+/*************************************
+***************** 内页 ***************
+**************************************/
+#help_content{
+	position: relative;
+	width: 1024px;
+	background: #FFF;
+	top: -5px;
+}
+#help_page_link{
+	color:#0000ff;
+	font-size:12px;
+	margin: 5px 0 0 18px;
+}
+#help_page_solgan{
+	color:#7c7c7c;
+	font-size:18px;
+	margin: 0px 0 0 18px;
+	padding-top:20px;
+}
+#help_page_container{
+	width:986px;
+	border:1px solid #CCC;
+	margin: 10px 18px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+#help_page_container table{
+	width:940px;
+	margin:10px auto;
+}
+
+.help_item_title{
+	width:100%;
+	height:40px;
+	 background-image:url('http://gambar.b0.upaiyun.com/App_Themes/red/images/help/btn_click.png');
+	 background-position:left top;
+	 background-repeat:repeat-x;
+	background-color:#ca3434;
+	line-height:35px;
+	font-size:16px;
+	font-weight:bold;
+	padding-left: 10px;
+	margin-bottom:10px;
+	color:#fff
+}
+.help_item_titleline{
+	height:2px;
+	background-color:#d6dadc;
+	line-height:35px;
+	padding-left: 10px;
+}
+.help_item_pic{
+	padding: 5px 25px;
+}
+.help_item_text{
+	vertical-align:top;
+	padding: 10px 0;
+	font-size:12px;
+}
+.help_item_text li{
+	font-size:12px;	
+	margin-bottom: 5px;
+	*height:26px;
+}
+.red_circle{
+	font-size:12px;	
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-image: url('http://gambar.b0.upaiyun.com/App_Themes/red/images/help/list_redball.png');
+	background-repeat: no-repeat;
+	padding: 3px 5px;
+	color: #FFF;
+	line-height: 10px;
+}
+.item_text{
+	font-size:12px;	
+	position:absolute;
+	margin-top:3px;
+}
+
+
+.table_text{
+	font-size:12px;
+}
+.table_text02{
+	font-size:12px;
+	color:#006;
+	font-weight:bold;
+}
+.table_text03{
+	font-size:12px;
+	color:#666;
+	position:relative;
+	left:20px; 
+}
+.table_text tr{
+	border-top:#fff 2px solid;
+	border-bottom:#fff 2px solid;
+
+}
+.table_text td{
+	border-left:#fff 2px solid;
+	border-right:#fff 2px solid;
+	padding:5px 10px 5px 10px;
+	line-height:20px;
+
+}

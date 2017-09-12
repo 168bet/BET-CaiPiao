@@ -1,0 +1,157 @@
+<div class="content" id="user-password" style="min-height: 400px;" ng-if="global.user.isSetQA">
+	<div class="body-row">
+		<div class="step">
+			<table class="step-table">
+				<tbody>
+					<tr>
+						<td ng-class="{current: !formdata.qaValidated && !formdata.qaReset}"><div class="con">验证安全问题</div>
+						</td>
+						<td ng-class="{current: formdata.qaValidated}"><div class="tri">
+								<div class="con">输入新安全问题</div>
+							</div>
+						</td>
+						<td ng-class="{current: !formdata.qaValidated && formdata.qaReset}"><div class="tri">
+								<div class="con">更新成功</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="body-row">
+		<ul class="ui-form">
+			<form id="J-form" action="setquest" name="securityForm" method="post" ng-if="!formdata.qaValidated && !formdata.qaReset">
+            <li class="ui-item"><label style="width: 140px;">问题一： </label> 
+             <select id="sl_quest1" name="quest1" required 
+                 class="input input-normal input-radius" 
+                 ng-model="formdata.question1" 
+                 ng-options="option.value as option.question for option in questionGroupA">
+                 <option value="">请选择</option>
+            </select>
+             <span class="ui-check" ng-show="securityForm.quest1.$dirty && securityForm.quest1.$error.required">请选择问题</span>
+            </li>
+            <li class="ui-item"><label style="width: 140px;">答案：</label> 
+                 <input  type="text" name="anwser1" required ng-model="formdata.answer1" class="input input-normal input-radius">&nbsp;&nbsp;
+                 <span class="ui-check" ng-show="securityForm.anwser1.$dirty && securityForm.anwser1.$error.required">请输入答案</span>
+            </li>
+            <li class="ui-item" style="margin-top:24px"><label style="width: 140px;">问题二：</label>
+                <select name="quest2" required class="input input-normal input-radius" ng-model="formdata.question2" 
+                ng-options="option.value as option.question for option in questionGroupB">
+                <option value="">请选择</option>
+                </select>
+                <span class="ui-check" ng-show="securityForm.quest2.$dirty && securityForm.quest2.$error.required">请选择问题</span>   
+            </li>
+            <li class="ui-item"><label style="width: 140px;">答案：</label> 
+                 <input id="ip_anwser2" type="text" name="anwser2" ng-model="formdata.answer2" required class="input input-normal input-radius">&nbsp;&nbsp;
+                 <span class="ui-check" ng-show="securityForm.anwser2.$dirty && securityForm.anwser2.$error.required">请输入答案</span>
+            </li>
+            <li class="ui-item ui-spline" ><label>&nbsp;</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-left: 140px;display:inline-block;" href="javascript:;" submit-dirty="securityForm" ng-click="fun.validateSecurityFormSubmit(securityForm)" id="J-submit-btn"
+                class="btn btn-important btn-red">验证</a></li>
+        </form>
+        <form id="J-form" action="setquest" name="securityForm" method="post" ng-if="formdata.qaValidated">
+            <li class="ui-item"><label style="width: 140px;">问题一： </label> 
+             <select id="sl_quest1" name="quest1" required 
+                 class="input input-normal input-radius" 
+                 ng-model="formdata.question1" 
+                 ng-options="option.value as option.question for option in questionGroupA">
+                 <option value="">请选择</option>
+            </select>
+             <span class="ui-check" ng-show="securityForm.quest1.$dirty && securityForm.quest1.$error.required">请选择问题</span>
+            </li>
+            <li class="ui-item"><label style="width: 140px;">答案：</label> 
+                 <input  type="text" name="anwser1" required ng-model="formdata.answer1" class="input input-normal input-radius">&nbsp;&nbsp;
+                 <span class="ui-check" ng-show="securityForm.anwser1.$dirty && securityForm.anwser1.$error.required">请输入答案</span>
+            </li>
+            <li class="ui-item" style="margin-top:24px"><label style="width: 140px;">问题二：</label>
+                <select name="quest2" required class="input input-normal input-radius" ng-model="formdata.question2" 
+                ng-options="option.value as option.question for option in questionGroupB">
+                <option value="">请选择</option>
+                </select>
+                <span class="ui-check" ng-show="securityForm.quest2.$dirty && securityForm.quest2.$error.required">请选择问题</span>   
+            </li>
+            <li class="ui-item"><label style="width: 140px;">答案：</label> 
+                 <input id="ip_anwser2" type="text" name="anwser2" ng-model="formdata.answer2" required class="input input-normal input-radius">&nbsp;&nbsp;
+                 <span class="ui-check" ng-show="securityForm.anwser2.$dirty && securityForm.anwser2.$error.required">请输入答案</span>
+            </li>
+            <li class="ui-item" style="margin-top:24px"><label style="width: 140px;">问题三：</label>
+                <select  name="quest3" class="input input-normal input-radius" 
+                    ng-model="formdata.question3" required 
+                    ng-options="option.value as option.question for option in questionGroupC">
+                    <option value="">请选择</option>
+                    </select>
+                <span class="ui-check" ng-show="securityForm.quest3.$dirty && securityForm.quest3.$error.required">请选择问题</span>
+            </li>
+            <li class="ui-item"><label style="width: 140px;">答案：</label> <input id="ip_anwser3"
+                type="text" name="anwser3" required ng-model="formdata.answer3" class="input input-normal input-radius">&nbsp;&nbsp;
+                <span class="ui-check" ng-show="securityForm.anwser3.$dirty && securityForm.anwser3.$error.required">请选择问题</span>
+            </li>
+            <li class="ui-item ui-spline" ><label>&nbsp;</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-left: 140px;display:inline-block;" href="javascript:;" submit-dirty="securityForm" ng-click="fun.resetQASubmit(securityForm)" id="J-submit-btn"
+                class="btn btn-important btn-red">重新设置</a></li>
+        </form>
+        <div class="security-update-success" ng-if="formdata.qaReset">
+	        <div class="alert alert-success">
+	            <i></i>
+	            <div class="txt">
+	                <h4>安全问题设置成功</h4>
+	                <p>恭喜您,安全问题设置成功<br>现在,您可以进入 <a ui-sref="user.security">安全中心</a></p>
+	            </div>
+	        </div>
+        </div>
+		
+		</ul>
+	</div>
+</div>
+
+<div class="user-question-wrap user-center-form-wrap user-center-padding-wrap" ng-if="!global.user.isSetQA">
+	<dl class="prompt">
+	     <dt>温馨提示：</dt>
+	     <dd>安全信息是找回登录密码和资金流通安全凭证请妥善保存，切勿告诉他人。</dd>
+	</dl>
+	<ul class="ui-form">
+		<form id="J-form" action="setquest" name="securityForm" method="post">
+			<li class="ui-item"><label>问题一： </label> 
+			 <select id="sl_quest1" name="quest1" required 
+			     class="input input-normal input-radius" 
+			     ng-model="formdata.question1" 
+			     ng-options="option.value as option.question for option in questionGroupA">
+			     <option value="">请选择</option>
+			</select>
+			 <span class="ui-check" ng-show="securityForm.quest1.$error.required">请选择问题</span>
+			</li>
+			<li class="ui-item"><label>答案：</label> 
+			     <input  type="text" name="anwser1" required ng-model="formdata.answer1" class="input input-normal input-radius">&nbsp;&nbsp;
+			     <span class="ui-check" ng-show="securityForm.anwser1.$error.required">请输入答案</span>
+			</li>
+			<li class="ui-item" style="margin-top:24px"><label>问题二：</label>
+				<select name="quest2" required class="input input-normal input-radius" ng-model="formdata.question2" 
+				ng-options="option.value as option.question for option in questionGroupB">
+				<option value="">请选择</option>
+				</select>
+			    <span class="ui-check" ng-show="securityForm.quest2.$error.required">请选择问题</span>	
+			</li>
+			<li class="ui-item"><label>答案：</label> 
+			     <input id="ip_anwser2" type="text" name="anwser2" ng-model="formdata.answer2" required class="input input-normal input-radius">&nbsp;&nbsp;
+			     <span class="ui-check" ng-show="securityForm.anwser2.$error.required">请输入答案</span>
+			</li>
+			<li class="ui-item" style="margin-top:24px"><label>问题三：</label>
+				<select  name="quest3" class="input input-normal input-radius" 
+				    ng-model="formdata.question3" required 
+				    ng-options="option.value as option.question for option in questionGroupC">
+				    <option value="">请选择</option>
+				    </select>
+				<span class="ui-check" ng-show="securityForm.quest3.$error.required">请选择问题</span>
+		    </li>
+			<li class="ui-item"><label>答案：</label> <input id="ip_anwser3"
+				type="text" name="anwser3" required ng-model="formdata.answer3" class="input input-normal input-radius">&nbsp;&nbsp;
+				<span class="ui-check" ng-show="securityForm.anwser3.$error.required">请选择问题</span>
+			</li>
+
+			<li class="ui-item ui-spline"><label>&nbsp;</label>
+				&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" ng-click="fun.submitForm(securityForm)" id="J-submit-btn"
+				class="btn btn-important btn-red">马上设置</a></li>
+		</form>
+	</ul>
+</div>

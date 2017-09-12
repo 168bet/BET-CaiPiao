@@ -1,0 +1,56 @@
+CACHE MANIFEST
+#version 1.0.4
+ 
+# 指明缓存入口
+CACHE:
+#This is js and css files cache manifest
+ /js/jquery-1.9.1.min.js
+ /js/public/login.js
+ /js/iscroll.js
+ /js/trade/viewpath.js
+ /js/index.js
+ /css/bass.css
+ /css/fc.css
+ /css/zc.css
+ /css/kp.css
+ /css/account.css
+ 
+ #This is img files cache manifest
+ /img/index/zbico.png
+ /img/index/myGray.png
+ /img/index/hmGray.png
+ /img/index/kjGray.png
+ /img/index/jczqLogo.png
+ /img/index/logo.png
+ /img/index/down.png
+ 
+# /img/index/jxsscLogo.png
+# /img/index/syx5Logo.png
+# /img/index/r9Logo.png
+# /img/index/ahk3Logo.png
+
+# /img/index/dltLogo.png
+# /img/index/bjdcLogo.png
+ 
+ #This is /m/index files cache manifest
+# /img/index/sfcLogo.png
+# /img/index/jclqLogo.png
+# /img/index/sfggLogo.png
+# /img/index/syydjLogo.png
+# /img/index/sdLogo.png
+# /img/index/p3Logo.png
+# /img/index/p5Logo.png
+# /img/index/qxcLogo.png
+# /img/index/qlcLogo.png
+# /img/index/pk3Logo.png
+ 
+# 以下资源必须在线访问
+NETWORK:
+index.html
+/
+ *
+ 
+# 如果index.php无法访问则用404.html代替
+FALLBACK:
+#/index.html /404.html
+

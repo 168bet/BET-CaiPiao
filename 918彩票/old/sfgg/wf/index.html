@@ -1,0 +1,56 @@
+<script>
+//右上角菜单显示或隐藏
+$(function (){
+	$("#pullIco").click(function(){
+		  $(this).parent().toggleClass("pullHover");
+		  $("#pullText").toggle();
+	});
+})
+</script>
+<article class="wfText">
+	<header class="tzHeader">
+     <section class="buyHeader">
+    	<h1>胜负过关</h1>
+    	<a href="#class=home" class="backHome"></a>
+        <div class="pullDown">
+        	<em class="pullIco" id="pullIco"></em>
+            <div class="pullText" style="display:none" id="pullText">
+            	<a href="#class=url&xo=sfgg/index.html">选择比赛</a>
+            	<a href="javascript:;" class="cur" style="border-bottom:none">玩法帮助</a>
+            </div>
+        </div>
+      </section>
+    </header>
+    <section class="s_play">
+    	<h2>一.玩法说明</h2>
+        <p>胜负过关游戏以国家体育总局体育彩票管理中心选定的运动项目的比赛为竞猜对象，包括足球、篮球、网球、橄榄球、排球、羽毛球、乒乓球、沙滩排球、冰球、曲棍球、手球、水球比赛。所竞猜的比赛主队在前、客队在后，根据赛事特点确定比赛结果：</p>       
+    </section>
+    <section class="s_winning">
+        <dl>
+            <dd>(一)网球、排球、羽毛球、乒乓球、沙滩排球比赛为全场比赛结果；</dd>
+            <dd>(二)足球、手球、曲棍球、水球、冰球比赛为全场常规时间(含伤停补时，不含加时赛及点球)的比赛结果；</dd>
+            <dd>(三)篮球、橄榄球比赛为全场(含加时赛)的比赛结果。</dd>
+        </dl>
+    </section>
+    <section class="s_play">
+    	<h2>二、过关方式</h2>
+        <p class="textindent">比赛场次根据实际情况，由国家体育总局体育彩票管理中心采用让球(分、局、盘)方式确定胜负关系，具体让球(分、局、盘)球队(选手)及让球(分、局、盘)数量与竞猜赛程一同公布。 彩票购买者对指定的比赛的胜负结果进行投注，每场比赛设置主队胜和主队负两个结果选项，最少选择3场比赛，过关方式最低3串1，最高15串1。</p>       
+    </section>
+    <section class="s_open">
+    	<h2>三.奖金计算</h2>
+        <dl>
+        	<dt>1、胜负过关游戏设一个奖级，为浮动奖：单注奖金=2元×所选场次的单场SP。</dt>
+            <dd><strong>例如：</strong><p class="textindent">选择1、2、5、6场比赛竞猜，按4串1方式进行过关投注，如四场比赛全部竞猜正确，则中奖奖金=2元×SP1×SP2×SP5×SP6×65%。</p></dd>
+            <dd><strong>再如：</strong><p class="textindent">选择1、2、5、6场比赛竞猜，按4串5方式进行过关投注，如第1，2，5场竞猜正确，第6场竞猜错误，则只有1注过三关的投注中奖，中奖奖金=2元×SP1×SP2×SP5×65%。</p></dd>
+        </dl>
+        <dl>
+        	<dt>2、单注彩票中奖奖金最高限额为500万元。</dt>
+        </dl>		
+    </section>
+    <section class="s_play">
+    	<h2>四、特殊情况处理</h2>
+        <p>1、在当期单场销售前，部分或全部场次因故发生变化，则更改相应变化场次。</p>    
+        <p>2、在当期单场销售后，如果部分场次因故提前进行，则该场比赛销售时间相应提前结束，其余场次销售时间不变。</p>    
+        <p>3、如果部分场次因故延期，超过原定开奖时间12小时，则该场比赛在过关投注中的所有选项均视为选中，SP值按1计算；未超过12小时的，按实际比赛结果计奖。</p>    
+    </section>
+</article>

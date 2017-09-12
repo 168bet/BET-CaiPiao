@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <title>资讯明细页</title>
+
+    <!-- css start -->
+    <link href="{CSS_PATH}bootstrap.css" rel="stylesheet">
+    <link href="{CSS_PATH}font-awesome.css" rel="stylesheet">
+    <link href="{CSS_PATH}list.css" rel="stylesheet">
+    <!-- css end -->
+
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body onload="iframe_height()">
+{pc:comment action="get_comment" commentid="$commentid"}
+{php $comment = $data;}
+{/pc}
+<div id="bodyheight" class="container-fluid">
+    <!-- 发布评论 start -->
+    <section id="comment-section" class="row">
+        <div id="social-action" class="col-lg-12 clearfix">
+            <!-- 社区分享 -->
+            <div class="share-chanel pull-left">
+                <span>分享到:</span>
+                <a href="javascript:postToWb();" title="分享到腾讯微博"><span class="share-logo share-qq-blog"></span></a>
+                <script type="text/javascript">
+                    function postToWb(){
+                        var _t = encodeURI(document.title);
+                        var _url = encodeURIComponent(document.location);
+                        var _appkey = encodeURI("cba3558104094dbaa4148d8caa436a0b");
+                        var _pic = encodeURI('{$thumb}');
+                        var _site = '';
+                        var _u = 'http://v.t.qq.com/share/share.php?url='+_url+'&appkey='+_appkey+'&site='+_site+'&pic='+_pic+'&title='+_t;
+                        window.open( _u,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );
+                    }
+                </script>
+                <script type="text/javascript">document.write('<a href="http://v.t.sina.com.cn/share/share.php?url='+encodeURIComponent(location.href)+'&appkey=3172366919&title='+encodeURIComponent('{new_addslashes($title)}')+'" title="分享到新浪微博" class="t1" target="_blank"><span class="share-logo share-sina"></span></a>');</script>
+                <script type="text/javascript">document.write('<a href="http://www.douban.com/recommend/?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{new_addslashes($title)}')+'" title="分享到豆瓣" class="t2" target="_blank"><span class="share-logo share-douban"></span></a>');</script>
+                <script type="text/javascript">document.write('<a href="http://share.renren.com/share/buttonshare.do?link='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{new_addslashes($title)}')+'" title="分享到人人" class="t3" target="_blank"><span class="share-logo share-renren"></span></a>');</script>
+                <script type="text/javascript">document.write('<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+encodeURIComponent(location.href)+'" title="分享到QQ空间" class="t5" target="_blank"><span class="share-logo share-qq-zone"></span></a>');</script>
+            </div>
+            <!-- 交互 -->
+            <div class="social-chanel pull-right">
+                <a href="#"><span class="social-logo social-like"></span>爱看</a>
+                <a href="#"><span class="social-logo social-unlike"></span>不敢兴趣</a>
+                <a href="javascript:;" onclick="add_favorite('{addslashes($title)}');" class="t6"><span class="social-logo social-star"></span>收藏本文</a>
+            </div>
+        </div>
+        <!-- 文本区域 -->
+        <div id="submit-action" class="col-lg-12">
+            <form action="{APP_PATH}index.php?m=comment&c=index&a=post&commentid={$commentid}" method="post" onsubmit="return on_submit()">
+                <input type="hidden" name="title" value="{urlencode(($comment[title] ? $comment[title] : $title))}">
+                <input type="hidden" name="url" value="{urlencode(($comment[url] ? $comment[url] : $url))}">
+                <div class="clearfix">
+                    <textarea name="content" class="comment-area pull-left"></textarea>
+                    <button type="submit" class="comment-btn pull-right">登录并回复</button>
+                </div>
+            </form>
+            <span class="text-muted small comment-help">网友评论仅供其表达个人看法，并不表明火冶立场</span>
+        </div>
+    </section>
+    <!-- 发布评论 end -->
+
+    <!-- 评论 start -->
+    <section id="comments-section" class="row">
+        {pc:comment action="lists" commentid="$commentid" siteid="$siteid" page="$_GET[page]" hot="$hot" num="20"}
+        {if !empty($data)}
+        {loop $data $r}
+        <div class="col-lg-12 comment-box">
+            <div class="comment">
+                <div class="comment-item clearfix">
+                    <!-- 用户头像 -->
+                    <div class="comment-avatar pull-left">
+                        <img src="{IMG_PATH}avatar.jpg" class="img-circle img-responsive">
+                    </div>
+                    <div class="comment-header pull-right clearfix">
+                        <!-- 用户名 -->
+                        <div class="user-info pull-left">
+                            <span class="user-name">{if $r[userid]}{get_nickname($r[userid])}{else}{$r[username]}{/if}</span>
+                            <span class="user-position text-muted">###</span>
+                        </div>
+                        <!-- 发布时间 -->
+                        <div class="comment-info pull-right">
+                            <span class="comment-time text-muted">{format::date($r[creat_at], 1)}</span>
+                        </div>
+                    </div>
+                    <!-- 评论内容 -->
+                    <div class="comment-body pull-right">
+                        {$r[content]}
+                    </div>
+                </div>
+                <!-- 交互操作 -->
+                <div class="comment-footer clearfix">
+                    <div class="btn-toolbar pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" onclick="support({$r[id]}, '{$commentid}')"><span class="fa fa-thumbs-o-up"></span><span
+                                    class="up-number" id="support_{$r[id]}">{$r[support]}</span></button>
+                            <button type="button" class="btn btn-default" onclick="nonsupport({$r[id]}, '{$commentid}')"><span class="fa fa-thumbs-o-down"></span><span
+                                    class="down-number" id="nonsupport_{$r[id]}">{$r[nonsupport]}</span></button>
+                            <button type="button" class="btn btn-default" onclick="reply({$r[id]},'{$commentid}')"><span class="fa fa-commenting"></span> 回复
+                            </button>
+                            <button type="button" class="btn btn-default"><span class="fa fa-share"></span> 分享</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 指定回复 -->
+                <div class="reply_to" id="reply_{$r[id]}">
+                </div>
+            </div>
+        </div>
+        {/loop}
+
+        <!-- 评论分页  -->
+        <div class="col-lg-12">
+            <nav class="pull-right">
+                <ul class="hy-pagination">
+                    {$pages}
+                </ul>
+            </nav>
+        </div>
+        {/if}
+        {/pc}
+    </section>
+    <!-- 评论 end -->
+	<script type="text/javascript">
+		function support(id, commentid) {
+			$.getJSON('{APP_PATH}index.php?m=comment&c=index&a=support&format=jsonp&commentid='+commentid+'&id='+id+'&callback=?', function(data){
+				if(data.status == 1) {
+					$('#support_'+id).html(parseInt($('#support_'+id).html())+1);
+				} else {
+					alert(data.msg);
+				}
+			});
+		}
+
+        function nonsupport(id, commentid) {
+            $.getJSON('{APP_PATH}index.php?m=comment&c=index&a=nonsupport&format=jsonp&commentid='+commentid+'&id='+id+'&callback=?', function(data){
+                if(data.status == 1) {
+                    $('#nonsupport_'+id).html(parseInt($('#nonsupport_'+id).html())+1);
+                } else {
+                    alert(data.msg);
+                }
+            });
+        }
+
+		function reply(id,commentid) {
+			var str = '<form action="{APP_PATH}index.php?m=comment&c=index&a=post&commentid='+commentid+'&id='+id+'" method="post" onsubmit="return on_submit()"><textarea class="reply_area" name="content"></textarea><button type="submit" class="reply_btn"><span>发表评论</span></button></form>';
+			$('#reply_'+id).html(str).toggle();
+			iframe_height();
+		}
+
+		function hide_code() {
+			if ($('#yzmText').data('hide')==0) {
+				$('#yzm').hide();
+			}
+		}
+		function on_submit() {
+			iframe_height(200);
+			$('#bodyheight').hide();
+			$('#loading').show();
+			return true;
+		}
+		function iframe_height(height) {
+			if (!height) {
+				var height = document.getElementById('bodyheight').scrollHeight;
+			}
+			$('#top_src').attr('src', "{$domain}js.html?"+height+'|'+{if $comment['total']}{$comment['total']}{else}0{/if});
+		}
+        function add_favorite(title) {
+            $.getJSON('{APP_PATH}api.php?op=add_favorite&title='+encodeURIComponent(title)+'&url='+encodeURIComponent(location.href)+'&'+Math.random()+'&callback=?', function(data){
+                if(data.status==1)	{
+                    $("#favorite").html('收藏成功');
+                } else {
+                    alert('请登录');
+                }
+            });
+        }
+
+	</script>
+	<iframe width='0' id='top_src' height='0' src='' frameborder="0"></iframe>
+	<div class="hidden text-c" id="loading">
+		<img src="{IMG_PATH}msg_img/loading.gif" /> 正在提交中...
+	</div>
+</div>
+
+<script src="{JS_PATH}jquery-1.11.3.min.js"></script>
+<script src="{JS_PATH}bootstrap.js"></script>
+
+
+</body>
+</html>

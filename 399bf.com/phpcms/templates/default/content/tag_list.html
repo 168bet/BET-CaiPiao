@@ -1,0 +1,190 @@
+{php $css = array('tool.css', 'list.css', 'page.css')}
+{php $nav_id = 9}
+<!--{php $category = get_category(array(1, 2, 3, 6))}-->
+{template 'content', 'header_score'}
+<!--<div class="toolbar-container">-->
+    <!--<div class="container">-->
+        <!--<div class="row">-->
+            <!--<ul class="toolbar clearfix">-->
+                <!--<li class="nav-li"><a href="{APP_PATH}news/">最新</a></li>-->
+                <!--{loop $category $id $data}-->
+                <!--<li class="nav-li {if in_array($catid, $data['child_arr'])}active{/if}">-->
+                    <!--<a href="{APP_PATH}{$data['catdir']}/">{$data['catname']}</a>-->
+                <!--</li>-->
+                <!--{/loop}-->
+            <!--</ul>-->
+
+            <!--<div class="tab-content">-->
+                <!--{loop $category $id $data}-->
+                <!--{if in_array($catid, $data['child_arr'])}-->
+                <!--<ul class="inner-nav">-->
+                    <!--{loop $data['children'] $key $value}-->
+                    <!--<li><a href="{APP_PATH}{$value['catdir']}/" {if $catid == $key}class="active"{/if}>{$value['catname']}</a></li>-->
+                    <!--{/loop}-->
+                <!--</ul>-->
+                <!--{/if}-->
+                <!--{/loop}-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="main clearfix" style="margin-top: 15px">
+    <div class="left">
+        {loop $datas $r}
+        <div class="article-list">
+            <div class="title">
+                <a href="{$r['url']}" target="_blank" title="{$r['title']}">
+                    {str_cut($r['title'], 120, '...')}
+                </a>
+            </div>
+           <div class="article-thumbnail">
+               <a href="{$r['url']}" target="_blank" title="{$r['title']}">
+                   <img src="{get_thumb($r['thumb'], 350)}" alt="{$r['title']}">
+               </a>
+           </div>
+           <div class="article-detail">
+               <div class="abstract">
+                   <a href="{$r['url']}" title="{$r['title']}" target="_blank">
+                       {$r[description]}
+                   </a>
+               </div>
+               <div class="prompt">
+                   {date('Y-m-d H:i', $r['inputtime'])}
+               </div>
+               <div class="article-label">
+                   标签：
+                   {php $keywords = explode(' ',$r[keywords]);}
+                   {loop $keywords $keyword}
+                   <a class="orange" href="{APP_PATH}tag/{urlencode($keyword)}/" target="_blank">{$keyword}</a>
+                   {/loop}
+               </div>
+           </div>
+       </div>
+        {/loop}
+        <div class="page">
+                {$pages}
+        </div>
+    </div>
+    <div class="right">
+        <div class="side">
+            <div class="title bg-event">
+                赛事推荐<a class="more" href="{APP_PATH}zqscore/" target="_blank">更多</a>
+            </div>
+            <div class="list">
+                {php $hot_sql = get_hot_sql('', $catid);}
+                {pc:get sql="$hot_sql" dbsource="sportsdt" num="4"}
+                <ul class="clearfix">
+                    {loop $data $r}
+                    <li class="list-item">
+                        <div class="team-l">
+                            <div class="img-wrap">
+                                <a class="img-middle" target="_blank" href="{APP_PATH}team/{$r['hometeamid']}/">
+                                    <img src="{PHOTO_PATH}team/{$r['hometeamid']}.jpg" title="{$r[homeshortname]}" class="team-photo">
+                                </a>
+                            </div>
+                            <div class="team-name">
+                                <a title="{$r[homeshortname]}" target="_blank" href="{APP_PATH}team/{$r['hometeamid']}/">
+                                    {str_cut($r[homeshortname], 15)}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="team-m">
+                            <a target="_blank" href="{APP_PATH}game/{$r['gameid']}/analyse/">
+                            <div class="score clearfix">
+                                <div class="score-l orange">{$r[homescore]}</div>
+                                <div class="score-m orange">：</div>
+                                <div class="score-r orange">{$r['awayscore']}</div>
+                            </div>
+                            <div class="time">{date('n月j日 G:i', $r[date])}</div>
+                            </a>
+                            <!--<div class="match">{$CATEGORYS[$catid][catname]}</div>-->
+                        </div>
+                        <div class="team-r">
+                            <div class="img-wrap">
+                                <a class="img-middle" target="_blank" href="{APP_PATH}team/{$r['awayteamid']}/">
+                                    <img src="{PHOTO_PATH}team/{$r['awayteamid']}.jpg" title="{$r[awayshortname]}" class="team-photo">
+                                </a>
+                            </div>
+                            <div class="team-name">
+                                <a  title="{$r[awayshortname]}" target="_blank" href="{APP_PATH}team/{$r['awayteamid']}/">
+                                    {str_cut($r[awayshortname], 15)}
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+                {/pc}
+            </div>
+        </div>
+        <div class="side">
+            <div class="title bg-news">
+                相关咨讯<a class="more" href="{APP_PATH}news/" target="_blank">更多</a>
+            </div>
+            <div class="list">
+                {pc:content  action="lists_model" modelid="1" num="5" thumb="1" order="id DESC" cache="3600"}
+                <ul class="clearfix">
+                    {loop $data $r}
+                    <li class="list-item" style="border: none;">
+                        <div class="content clearfix">
+                            <div class="img-container">
+                                <a href="{$r[url]}" target="_blank">
+                                    <img src="{get_thumb($r[thumb], 350)}">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title2">
+                                    <a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r[title], 40, '...')}</a>
+                                </div>
+                                {str_cut($r[description], '70', '...')}
+                                <a class="orange" href="{$r[url]}" target="_blank">[详情]</a>
+                            </div>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+                {/pc}
+            </div>
+        </div>
+        <div class="side">
+            <div class="title bg-pic">
+                精彩图片<a class="more" href="{APP_PATH}tuku/" target="_blank">更多</a>
+            </div>
+            <div class="pd height422">
+                {pc:content  action="lists" catid="7" num="18" order="id DESC" cache="3600" thumb="1"}
+                {php $data = array_chunk($data, 6)}
+                {loop $data $list}
+                <ul class="list-pic-container clearfix">
+                    {loop $list $r}
+                    <li class="list-pic">
+                        <div class="list-img-wrap">
+                            <a href="{$r[url]}" target="_blank">
+                                <img src="{get_thumb($r[thumb],350)}" title="{$r[title]}">
+                            </a>
+                        </div>
+                        <div class="pic-des">
+                            {str_cut($r[title], 28, '...')}
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+                {/loop}
+            </div>
+            {if count($data) > 1}
+            <div class="tab-btn clearfix">
+                <ul class="fr">
+                    {loop $data $r}
+                    <li class="list-btn {if $n==1}active{/if}"></li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {/pc}
+        </div>
+    </div>
+</div>
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = array('article_tab.js', 'imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js')}
+{template 'content', 'footer'}

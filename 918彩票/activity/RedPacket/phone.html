@@ -1,0 +1,485 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>绑定手机号</title>
+<style type="text/css">
+body{ background:#f7f7f7; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+p{ line-height:1.2rem}
+a{ color:#333; text-decoration:none}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.clearfix{ overflow:hidden; zoom:1}
+.left{ float:left}
+.right{ float:right}
+.yellow{ color:#f6851f}
+.gray{ color:#8e8e8e}
+.pdLfrt09{ padding:.1rem .9rem 0 .9rem}
+.pdTop06{ padding-top:.6rem}
+.pdTop08{ padding-top:.8rem}
+.mgTop2{ margin-top:2rem}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.s1{ position:relative; line-height:2.5rem; background:#fff; margin-top:.7rem; overflow:hidden; zoom:1}
+.s1 span{ float:left; width:26%; margin-right:1%; text-align:center; color:#222; font-size:.93rem}
+.s1 input{ width:73%; border:none;height:1.3rem; line-height:1.3rem; margin-top:.7rem; font-size:.92rem}
+.payment{ display:block; line-height:2.5rem; text-align:center; letter-spacing:.1rem; margin-top:.8rem; color:#fff; font-size:1.1rem; background:#f26c60; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.payment:active{ color:#fff}
+.payment2{ margin-top:3rem}
+.captcha{ float:left; width:1.25rem; height:.34rem; margin:1.1rem .9rem 0 .8rem; background:url(/img/account/captcha.png) no-repeat center; background-size:1.25rem .34rem; -webkit-background-size:1.25rem .34rem; -moz-background-size:1rem 1.3rem}
+.phone{ float:left; width:.78rem; height:1.3rem; margin:.6rem .9rem 0 .8rem; background:url(/img/account/phone.png) no-repeat center; background-size:.78rem 1.3rem; -webkit-background-size:.78rem 1.3rem; -moz-background-size:.78rem 1.3rem}
+.loginBtn,.register{ display:block; width:46%; text-align:center; margin-top:1rem; line-height:2.6rem; color:#fff; background:#f26c60; font-size:1rem; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.register{ background:#bfbfbf}
+.loginBtn:active,.register:active{ text-decoration:none; color:#fff}
+.yzmpic{ position:absolute; width:2.5rem; height:.83rem; top:.2rem; right:.4rem;}
+
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:9999;left:0;top:0; display: none;}
+</style>
+<body>
+	<article class="gray">
+		<!-- <header class="tzHeader">
+		<div class="fixed2">
+			<section class="fcHeader">
+				<h1>绑定手机</h1>
+				<a href="javascript:history.go(-1);" class="fcbackIco2"></a>
+			</section>
+		</div>
+		</header> -->
+		<div>
+		<div class="pdLfrt09" style="display: block;" id="bindPhone1">
+			<div class="s1">
+				<em class="phone"></em><input type="text" placeholder="请输入您的手机号码"
+					id="phone">
+			</div>
+			<div class="s1">
+				<em class="phone"></em><input id="yzmpic" type="tel" placeholder="请输入右侧四位数字"><strong class="yzmpic"><img src="/yzm.yzm" width="100%"></strong>
+			</div>
+			<p class="gray pdTop08">短信收取大约60秒，如果没有收到验证码，可以重新发送，以最新验证码为准。</p>
+			<a href="javascript:;" class="payment payment2" id="fasong">发送验证码</a>
+		</div>
+		<div class="pdLfrt09" style="display: none" id="bindPhone2">
+			<div class="s1">
+				<em class="captcha"></em><input type="text" id="yzm"
+					placeholder="请输入手机收到的验证码">
+			</div>
+			<div class="clearfix mgTop2">
+				<a href="javascript:;" class="left loginBtn" id="sendyzm">提交</a><input
+					style="border: none" type="button" class="right register"
+					id="resend" value="重新发送" />
+			</div>
+		</div>
+		<!-- <div class="pdLfrt09" style="display: none" id="bindPhone3">
+			<p class="pdTop08 pdBot03">
+				绑定的手机号:<cite class="yellow" id="bindphone">159****1216</cite>
+			</p>
+			<a href="javascript:;" class="payment" id="modify">修改</a>
+		</div>
+		<div class="pdLfrt09" style="display: none" id="bindPhone4">
+			<div class="s1">
+				<em class="phone"></em><input type="text" placeholder="请输入旧的手机号码"
+					id="oldValue">
+			</div>
+			<div class="s1">
+				<em class="phone"></em><input type="text" placeholder="请输入新的手机号码"
+					id="newValue">
+			</div>
+			<div class="s1">
+				<em class="phone"></em><input type="text" placeholder="请输入右侧四位数字" id="modify_yzm"><strong class="yzmpic"><img src="/yzm.yzm" width="100%"></strong>
+			</div>
+			<p class="gray pdTop08">短信收取大约60秒，如果没有收到验证码，可以重新发送，以最后一个验证码为准。</p>
+			<a href="javascript:;" class="payment payment2" id="modifyyzm">发送验证码</a>
+		</div> -->
+		</div>
+	</article>
+	<div class="mask" style='display: none;' id='mask'></div>
+	<input type="hidden" id="pho" value=''/>
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script>
+var browser={
+    versions:function(){
+        var u = navigator.userAgent, app = navigator.appVersion;
+        return {
+            trident: u.indexOf('Trident') > -1, //IE内核
+            presto: u.indexOf('Presto') > -1, //opera内核
+            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,//火狐内核
+            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+            android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1 || u.indexOf('Linux') > -1, //android终端
+        };
+    }(),
+}
+var RedPacket={};
+RedPacket.AppJiek = {
+    appLogin:function(){//原生登录接口
+        if(browser.versions.android){//登录调用原生接口
+            window.caiyiandroid.clickAndroid(3, '');
+        }
+        if(browser.versions.ios){
+            WebViewJavascriptBridge.callHandler('clickIosLogin');
+        }
+    },
+    moBind:function(){
+        if(browser.versions.android){//绑定手机号调用原生接口
+            window.caiyiandroid.clickAndroid(5,'');
+        }
+        if(browser.versions.ios){
+            WebViewJavascriptBridge.callHandler('callBackIOS','1');
+        }
+    },
+    cardBind:function(){
+        if(browser.versions.android){//绑定身份证调用原生接口
+            window.caiyiandroid.clickAndroid(6,'');
+        }
+        if(browser.versions.ios){
+            WebViewJavascriptBridge.callHandler('callBackIOS','2');
+        }
+    },
+    ChargeMoney:function(){
+        if(browser.versions.android){
+            window.caiyiandroid.clickAndroid(7, '');
+        }
+        if(browser.versions.ios){
+            WebViewJavascriptBridge.callHandler('callBackIOS','3');
+        }
+    },
+    DownLoadApk:function(){
+        if(browser.versions.android){
+            // 调用外部下载
+            window.caiyiandroid.clickAndroid(12, '');
+        }
+    }
+}
+RedPacket.GetState=function(){
+    var allcookies = document.cookie;
+    if(allcookies.indexOf('TOKEN')!='-1'){
+        allcookies = allcookies.split('&');
+        var token = '',appid = '';
+        $.each(allcookies,function(index, val){
+            if(val.indexOf('TOKEN=')>=0){
+                token = val.split('TOKEN=')[1];
+            }
+            if(val.indexOf('APPID=')>=0){
+                appid = val.split('APPID=')[1];
+            }
+        });
+//      alert(token+" "+appid);
+        setTimeout(function(){
+        $.ajax({
+            url:'/user/swaplogin.go',
+            data:{
+                logintype:'1',
+                accesstoken:token,
+                appid:appid
+            },
+            type:'POST',
+            success:function(){
+                RedPacket.GetNowState();    
+            }
+        })},300);
+    }else{
+        RedPacket.GetNowState();
+    }     
+}
+//获取用户信息状态 
+RedPacket.GetNowState=function(){
+    $.ajax({
+        url : "/activity/getEightyRedPacketCheck.go",
+        type : "POST",
+        dataType : "xml",
+        success : function(xml) {
+           
+            var R = $(xml).find("Resp");
+            var code = R.attr("code");
+            var desc = R.attr('desc');
+            alert(code)
+
+            switch(code){
+                case '0':
+                    console.log('成功领取 ')
+                    window.location.href='./index.html';
+                break;
+                case '1001':
+                    console.log('非新用户')
+                    //绑定成功
+					window.location.href='./index.html';	    
+                break;
+                case '1002':
+                    console.log('未绑定手机号')
+                    window.location.reload();
+                break;
+                case '1003':
+                    console.log('未绑定身份证');
+                    window.location='./idcard.html';
+					//调用充值
+					// RedPacket.AppJiek.ChargeMoney();
+                break;
+                case '1004':
+                    console.log('手机或身份证检测不是新用户')
+                    window.location.href='./index.html';
+                break;
+                case '1005':
+                    console.log('有充值，金额小于20')
+                    window.location.href='./index.html';
+                break;
+                case '1006':
+                    console.log('未充值或者充值未到账');
+                    window.location.replace("./index.html");
+                    RedPacket.AppJiek.ChargeMoney();
+                break;
+                case '-1':
+                    console.log('用户未登录');
+                    window.location.href='./index.html';
+                break;
+                case '9999':
+                    alert('系统异常')
+                break;
+            }
+        }
+    });
+}
+//公用弹出层和加载层
+var win_alert = alert;
+window['alert'] = function (msg, loading) {
+	if (!loading) {
+		clearTimeout(window.alert.time);
+		var obj = $('<div class="alertBox">' + msg + '</div>');
+		$('body').append(obj);
+		window.alert.time = setTimeout(function () {
+			$(".alertBox").remove();
+		}, 2000);
+	} else {
+		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+		$('#mask').show();
+	}
+};
+
+var remove_alert = function () {
+	$('.alertBox').remove();
+	$('#mask').hide();
+};
+$(function () {
+	// var tag = location.search.getParam("tag");
+	// if(tag){
+	// 	$("#bindPhone4").show();
+	// }else{
+		// alert('获取绑定状态中，请稍候','load');
+		// $.ajax({
+		// 	url : "/user/querybind.go",
+		// 	type : "POST",
+		// 	dataType : "xml",
+		// 	success : function(xml) {
+		// 		remove_alert();
+		// 		var R = $(xml).find("Resp");
+		// 		var code = R.attr("code");
+		// 		var desc = R.attr('desc');
+		// 		if(code=="0"){
+		// 			var r = R.find("row");
+		// 			var mobile = r.attr("mobile");
+		// 			var mobbind = r.attr("mobbind");
+		// 			if(mobbind=="1"){//已绑定
+		// 				$("#bindphone").text(mobile);
+		// 				// $("#bindPhone3").show().siblings().hide();
+		// 			}else if(mobbind=="0"){//未绑定
+		// 				$("#bindPhone1").show().siblings().hide();
+		// 			}
+		// 		}else{
+		// 			alert(desc);
+		// 			// if(desc.indexOf('未登录')>=0){
+		// 			// 	setTimeout(function () {
+		// 			// 		window.location.href = '/alone/login.html';
+		// 			// 	}, 1500);
+		// 			// }
+		// 		}
+		// 	}
+		// });
+	// }
+	var wait=60;
+	function countDown(){
+		if (wait == 0) {
+			$("#resend").removeAttr("disabled");			
+			$("#resend").val("重新发送");
+			wait = 60;
+		} else {
+			$("#resend").attr("disabled", true);
+			$("#resend").val("重新发送(" + wait + ")");
+			wait--;
+			setTimeout(function() {
+				countDown();
+			}, 1000);
+		}
+	}
+	
+	
+	//输入手机号发送验证码(第一步：根据手机号发送验证码)
+	$("#fasong").bind("click",function(){
+		
+		//绑定手机号所需参数
+		var bind_phone_data={
+				flag:1,
+				newValue:$("#phone").val(),//手机号码
+				yzm:$("#yzmpic").val(),//四位图形验证码
+				hztype:0,//需要检测图片验证码
+				mtype:2,//终端类型
+				appversion:"3.2.9"//客户端版本号		
+		};
+		
+		if($("#phone").val()==""){
+			alert("请输入有效的手机号码");
+			return false;
+		}
+		if($("#yzmpic").val()==""){
+			alert("请输入有效的验证码");
+			return false;
+		}
+		var phoneValue = $("#phone").val();
+		alert('提交中', 'load');
+		$.ajax({
+			//url:'/user/userbind.go?flag=1&newValue='+phoneValue,
+			url:'/user/userbind.go',
+			type:"POST",
+			data:bind_phone_data,
+			success:function(xml) {
+				remove_alert();
+				var R = $(xml).find("Resp");
+				var code = R.attr("code");
+				var desc = R.attr("desc");
+				if(code=="0"){
+					$("#pho").val(phoneValue);
+					if(document.getElementById('bindPhone2').style.display == 'none'){
+						countDown();
+					}
+					$("#bindPhone2").show().siblings("div").hide();
+				}else{
+					alert(desc);
+				}
+			}
+		});
+	});
+	//重新发送验证码
+	function zeroDownAjax(){
+		$.ajax({
+			url : '/user/userbind.go',
+			dataType : "xml",
+			data:"flag=1&newValue="+$("#phone").val(),
+			success : function(xml) {
+				var R = $(xml).find("Resp");
+				var desc = $(R).attr("desc");
+				alert(desc);
+			}
+		});
+	}
+	//重新发送
+	$("#resend").bind("click",function(){
+		countDown();
+	});
+	//提交(第二步:根据输入的验证码提交)
+	$("#sendyzm").bind("click",function(){
+		var yzmValue = $("#yzm").val();
+		if(yzmValue==""){
+			alert("请输入验证码");
+			return false;
+		}
+		var data="flag=1&yzm="+yzmValue;
+		alert('提交中', 'load');
+		$.ajax({
+			url : '/user/userbindyz.go',
+			type : "POST",
+			dataType : "xml",
+			data:data,
+			success : function(xml) {
+				remove_alert();
+				var R = $(xml).find("Resp");
+				var code = $(R).attr("code");
+				var desc = $(R).attr("desc");
+				if(code=="0"){
+					alert(desc);
+					$("#bindPhone2").hide();
+					var phoneValue = $("#pho").val();
+					var bindcode = phoneValue.substring(0,3)+"****"+phoneValue.substring(7);
+					$("#bindphone").text(bindcode);
+					// $("#bindPhone3").show().siblings("div").hide();
+					wait=60;
+					RedPacket.GetState();		
+				}else{
+					alert(desc);
+				}
+			}
+		});
+	});
+	// $("#modify").bind("click",function(){
+		// $("#bindPhone3").hide();
+		// $("#bindPhone4").show().siblings("div").hide();
+	// });
+	
+	$(".yzmpic").on("click",function(){
+		$(this).find("img").attr("src","/yzm.yzm?"+Math.random())
+	})
+
+	//修改绑定，发送验证码
+	// $("#modifyyzm").bind("click",function(){
+	// 	var oldValue = $("#oldValue").val();
+	// 	var newValue = $("#newValue").val();
+		
+		
+	// 	var modify_yzm_data={
+	// 			flag:"1",
+	// 			newValue:$("#newValue").val(),
+	// 			mobileNo:$("#oldValue").val(),
+	// 			yzm:$("#modify_yzm").val(),
+	// 			hztype:"0",
+	// 			mtype:"2",
+	// 			appversion:"3.2.9"//触屏可以为空
+	// 	}
+	// 	if(oldValue==""||newValue==""){
+	// 		alert("请输入正确的手机号码");
+	// 		return false;
+	// 	}
+		
+	// 	if($("#modify_yzm").val()==""){
+	// 		alert("请输入正确的验证码");
+	// 		return false;
+	// 	};
+	// 	$.ajax({
+	// 		url : '/user/userbind.go',
+	// 		type : "POST",
+	// 		dataType : "xml",
+	// 		//data:"flag=1&newValue="+$("#newValue").val()+"&mobileNo="+oldValue,
+	// 		data:modify_yzm_data,
+	// 		success : function(xml) {
+	// 			var R = $(xml).find("Resp");
+	// 			var code = R.attr("code");
+	// 			var desc = R.attr("desc");
+	// 			if(code=="0"){
+	// 				$("#bindPhone2").show().siblings("div").hide();
+	// 				wait=60;
+	// 				$("#pho").val($("#newValue").val());
+	// 					countDown();
+	// 			}else {
+	// 				alert(desc);
+	// 			}
+	// 		}
+	// 	});
+	// });
+});
+</script>
+</body>
+</html>

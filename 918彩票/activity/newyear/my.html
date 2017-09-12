@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>新年活动-我的礼包</title>
+<style type="text/css">
+body{ margin:0; padding:0; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#272727; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+.relative{ position:relative}
+.fixed{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcbackIco{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.sdTab ul{ font-size:.95rem; background:#fff; border-bottom:1px solid #ebdec0; height:1.6rem; padding-top:.6rem; color:#5c5c5c; overflow:hidden; zoom:1}
+.sdTab li{ float:left; width:50%; text-align:center}
+.sdTab li.cur{ color:#db150b}
+.downline{ display:block; position:absolute; bottom:1px; height:2px; background:#db150b}
+.redcard dl{ font-size:.8rem; padding:.62rem .8rem .75rem .8rem; border-bottom:1px solid #ebdec0; overflow:hidden; zoom:1}
+.redcard dt{ float:left; color:#f64b40; font-size:.65rem; font-family:"黑体"; padding-top:.55rem; text-align:center; width:2.97rem; height:2.25rem; margin-right:.6rem; background:url(red.png) no-repeat center; background-size:2.97rem 2.8rem; -webkit-background-size:2.97rem 2.8rem; -moz-background-size:2.97rem 2.8rem}
+.redcard dt strong{ font-size:.8rem; color:#eb2722; margin:0 0 0 -.1rem}
+.redcard dd{ float:left; color:#6d6d6d; line-height:1.3rem; padding-top:.3rem}
+.redcard dd span{ display:block}
+.redcard dd.last{ float:right; color:#5c5c5c; padding:1rem .5rem 0 0}
+.redcard dd.last cite{ font-size:.98rem; margin:0 .05rem}
+
+.qdk p{ padding:1.7rem 0 1rem 0; text-align:center; font-size:.8rem; color:#a57501}
+.qdk p strong{ display:block; padding-top:.25rem; font-size:.97rem}
+.qdk ul li{ width:17.41rem; margin:0 auto; overflow:hidden; zoom:1}
+.qdk ul li span{ float:left; width:5.27rem; height:7.12rem; padding:.13rem 0 0 .2rem; margin:.5rem .5rem 0 0; color:#fff; font-size:.75rem; background-position:center; background-repeat:no-repeat; background-size:5.47rem 7.25rem; -webkit-background-size:5.47rem 7.25rem; -moz-background-size:5.47rem 7.25rem}
+.qdk ul li span:last-child{ margin-right:0}
+.brcard{ background-image:url(brcard.png)}
+.rmecard{ background-image:url(rmecard.png)}
+.hmcard{ background-image:url(hmcard.png)}
+.bscard{ background-image:url(bscard.png)}
+.tuscard{ background-image:url(tuscard.png)}
+.mlcard{ background-image:url(mlcard.png)}
+.qexcard{ background-image:url(qexcard.png)}
+
+.qdk ul li span.brcard.cur{ background-image:url(brcard2.png)}
+.qdk ul li span.cur.rmecard{ background-image:url(rmecard2.png)}
+.qdk ul li span.cur.hmcard{ background-image:url(hmcard2.png)}
+.qdk ul li span.cur.bscard{ background-image:url(bscard2.png)}
+.qdk ul li span.cur.tuscard{ background-image:url(tuscard2.png)}
+.qdk ul li span.cur.mlcard{ background-image:url(mlcard2.png)}
+.qdk ul li span.cur.qexcard{ background-image:url(qexcard2.png)}
+
+.ljdh{ width:18rem; margin:1.6rem auto 0 auto; line-height:2.57rem; text-align:center; text-decoration:none; background:#d5231f; color:#ffd800; font-size:1.4rem; border-radius:2.57rem; -webkit-border-radius:2.57rem; -moz-border-radius:2.57rem; box-shadow:0 .2rem 0 #ab0000; -webkit-box-shadow:0 .2rem 0 #ab0000; -moz-box-shadow:0 .2rem 0 #ab0000}
+article div.gray{ background:#bdbdbd; color:#fff; cursor:default; box-shadow:0 .2rem 0 #929292; -webkit-box-shadow:0 .2rem 0 #929292; -moz-box-shadow:0 .2rem 0 #929292}
+.popup2{ width:84%; position:fixed; top:35%; left:8%; background:#fff; z-index:2; border-radius:.3rem; -webkit-border-radius:.3rem;-moz-border-radius:.3rem}
+.popup2 h4{ line-height:4rem; color:#6e642b; font-size:1.1rem; text-align:center; font-weight:normal}
+.popup2 p{ text-align:left; width:82%; margin:0 auto; line-height:1.5rem; font-size:.85rem}
+.zfTrue{ line-height:2.5rem; font-size:.95rem; margin-top:1.2rem; text-align:center; overflow:hidden; zoom:1; border-top:1px solid #ccc; border-radius:0 0 .4rem .4rem; -webkit-border-radius:0 0 .4rem .4rem; -moz-border-radius:0 0 .4rem .4rem}
+.zfTrue a{ float:left; color:#106fe5; width:49.5%; text-decoration:none}
+.zfTrue a.zfqx{ border-right:1px solid #ccc}
+.zfTrue a.bfb{ width:100%}
+
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1}
+
+</style>
+<div class="popup2" style="display:none" id="dConfirm">
+	<h4>温馨提示</h4>
+    <p>参与"礼包天天送活动"，需先认证身份证信息;点击去认证，立即认证身份证信息！</p>
+	<div class="zfTrue"><a href="javascript:;" class="zfqx">去认证</a><a href="#">取消</a></div>
+</div>
+
+<div class="popup2" style="display:none" id="dAlert">
+	<h4>温馨提示</h4>
+    <p>您的手机号/身份证，已有帐号参与过本次活动，不能重复参与！</p>
+	<div class="zfTrue"><a href="javascript:;" class="bfb">知道了</a></div>
+</div>
+<div class="zhezhao" style="display:none" id="zhezhao"></div>
+<body style="background:#faf1e2">
+	<header class="tzHeader">
+		<div class="fixed">
+			<section class="fcHeader">
+				<h1>我的礼包</h1>
+				<a href="javascript:history.go(-1);" class="fcbackIco"></a>
+			</section>
+		</div>
+	</header>	
+	<nav class="sdTab relative">
+		<ul>
+			<li class="cur">球队卡</li>
+			<li>红包</li>
+		</ul>
+		<em class="downline" style="width:50%; left: 0%"></em>
+	</nav>
+	
+<!-- 球队卡 start -->
+    <article class="qdk" style="">
+    	<p>集齐7张不同球队的卡片，即可获得<strong>9188元巨额红包</strong></p>
+        <ul>
+        	<li><span class="brcard">0</span><span class="rmecard">0</span><span class="hmcard">0</span></li>
+        	<li><span class="bscard">0</span><span class="tuscard">0</span><span class="mlcard">0</span></li>
+        	<li><span class="qexcard">0</span></li>
+        </ul>
+        <div class="ljdh">立即兑换</div>
+        <p>* 球队卡由活动期间每日领取到的礼包开启获得</p>
+    </article>
+ <!-- 球队卡 end -->    
+ <!-- 红包 start -->
+    <article class="redcard" style="display:none">
+    	<!-- 
+    	<dl>
+        	<dt>￥<strong>20</strong>元</dt>
+            <dd><span>满10减1</span>有效期至2015.3.2</dd>
+            <dd class="last">余额<cite>1</cite>元</dd>
+        </dl>
+    	<dl>
+        	<dt>￥<strong>100</strong>元</dt>
+            <dd><span>满10减1</span>有效期至2015.3.2</dd>
+            <dd class="last">余额<cite>1</cite>元</dd>
+        </dl>
+         -->
+    </article>
+ <!-- 红包 end -->    
+    
+</body>
+<script src="/activity/newyear/js/jquery-1.9.1.min.js"></script>
+<script src="/activity/newyear/js/my.js"></script>

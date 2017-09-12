@@ -1,0 +1,355 @@
+*{
+    font-family: 'Helvetica Neue', Arial, 'Microsoft YaHei', sans-serif;
+}
+li{
+    list-style-type: none;
+}
+ul,li{
+    margin: 0;
+    padding: 0;
+}
+.clearfix{
+    clear: both;
+}
+.pdl-10{
+    padding-left: 10px;
+}
+.pdr13{
+    padding-right:13px;
+}
+.orange{
+    color: #ffa21d;
+    font-weight: bold;
+}
+.red{
+    color: red;
+}
+.green{
+    color: #89cb08;
+}
+.grey2{
+    color: #999999;
+}
+.mr5{
+    margin-right: 5px;
+}
+.mr10{
+    margin-right: 10px;
+}
+.fr{
+    float: right;
+}
+.ml18{
+    margin-left: 18px;
+}
+.ft18{
+    font-size: 18px;
+}
+.ft20{
+    font-size: 20px;
+}
+.m5{
+    margin: 0 5px;
+}
+.ft12{
+    font-size: 12px;
+}
+.pdr{
+    padding-right: 10px;
+}
+.pos{
+    float: right;
+    padding-right: 13px;
+}
+.start-pos{
+    position: relative;
+    left: 20px;
+}
+.grey{
+    color: #d7d7d7;
+}
+.height35{
+    height: 35px;
+}
+.match-tip.end {
+    background-image: url("../images/icon/match-tip-end-icon.png");
+}
+.match-tip {
+    display: inline-block;
+    padding-left: 45px;
+    color: #bbbbbb;
+    font-size: 16px;
+    background-position: 10px;
+    background-repeat: no-repeat;
+    height: 25px;
+    line-height: 25px;
+}
+.select-wrap{
+    height: 130px;
+    background: url("../images/bt_bg.jpg");
+}
+.select-item{
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.select-item .item{
+    float: left;
+    border-radius: 5px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #ffffff;
+    margin-right: 10px;
+    padding:0 10px;
+    color: #666;
+    font-size: 13px;
+}
+.select-item .active{
+    background-color: #ffa21d;
+    color: #ffffff;
+}
+.select-item .spe{
+    background-color: #d9d9da;
+}
+.data-wrap{
+    background-color: #f7f7f7;
+}
+.event{
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+.event .title{
+    color: #999999;
+    font-size: 16px;
+    padding-top: 20px;
+    font-weight: normal;
+}
+.data-item{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.data-item .time-wrap{
+    width: 65px;
+    float: left;
+    margin-top: 50px;
+}
+.time-wrap .time-start{
+    color: #ffffff;
+    background-color: #ffa21d;
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.time-wrap .time{
+    color: #000;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid #bbbbbb;
+    font-size: 14px;
+}
+.table-wrap{
+    border: 1px solid #ffa21d;
+    border-radius: 8px;
+    float: left;
+    width: 930px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+.event table tr{
+    height: 35px;
+}
+.event table td{
+    font-size: 14px;
+    border-right: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+}
+.footer .info{
+    width: 1000px;
+    border-bottom: 1px solid #bbbbbb;
+    margin: 0 auto;
+}
+.info-left{
+    width: 300px;
+    text-align: center;
+    float: left;
+    margin-top: 95px;
+}
+.info-right{
+    float: left;
+    width: 700px;
+}
+.link{
+    padding-top: 20px;
+    width: 200px;
+    float: left;
+}
+.link .item{
+    line-height: 50px;
+}
+.link .item a{
+    width: 100px;
+    display: inline-block;
+    color: #000000;
+}
+.site{
+    width: 1000px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: 0 auto;
+    color: #afafaf;
+}
+.ball{
+    background: url("../images/bt-ball-on.png") 0 0 no-repeat;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    position: relative;
+    top: 7px;
+    left: -5px;
+}
+.clock{
+    background: url("../images/icon-clock.png") 0 0 no-repeat;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    position: relative;
+    top: 7px;
+    left: -5px;
+}
+.rili{
+    background: url("../images/icon-calendar.png") 0 0 no-repeat;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    position: relative;
+    top: 7px;
+    left: -5px;
+}
+.imgCon{
+    float: left;
+    width: 35px;
+    height: 35px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 5px;
+}
+.teamname{
+    height: 35px;
+    line-height: 35px;
+    float: left;
+}
+/*checkbox*/
+.checkbox{
+    position: relative;
+    top: 11px;
+    left: 32px;;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    display: inline-block;
+    background: url("../images/icon-checkbox-off.png") 0 0 no-repeat;
+}
+
+.company,.racelist{
+    background-color: #ffffff;
+    margin: 0 -10px;
+    position: relative;
+    top: -5px;
+    text-align: center;
+    border: 1px solid #f2f2f2;
+}
+.company li,.racelist li{
+    border-bottom: 1px solid #f2f2f2;
+}
+
+/*date*/
+.date-item{
+    color: #000000;
+    font-size: 14px;
+}
+.date-wrap{
+    width: 1000px;
+    margin: 10px auto 0;
+    background-color: #cacacb;
+    border-radius: 8px;
+    height: 50px;
+    overflow: hidden;
+}
+.date-wrap li{
+    float: left;
+    width: 125px;
+    text-align: center;
+    padding-top: 5px;
+    height: 50px;
+}
+.date-wrap li.active{
+    background-color: #f5f6f7;
+    color: #ffa21d;
+    font-size: 14px;
+}
+
+/*dateplugn*/
+#date-plugn{
+    position: absolute;
+    top: -60px;
+    right: -300px;
+    z-index: 10;
+}
+
+/*cursor*/
+#calenBtn, .item{
+    cursor: pointer;
+}
+
+/*modal*/
+.modal-body label{
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.modal-body label [type="checkbox"]{
+    position: relative;
+    top: 2px;
+}
+/*set*/
+.btn-setting:hover{
+    background: #FFA21D;
+    color: #fff;
+}
+/*变换td背景色start*/
+.trans {
+    background-color: #FFFFFF;
+    -webkit-transition-property: background-color;
+    -webkit-transition-duration: .8s;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color;
+    transition-duration:.8s;
+    transition-timing-function: ease;
+}
+/*变换td背景色end*/
+.odds-up {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-left: 5px;
+    background-image: url(../images/arrow_index_up.gif);
+    background-position: 90% center;
+    background-repeat: no-repeat;
+}
+.odds-down {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-left: 5px;
+    background-image: url(../images/arrow_index_down.gif);
+    background-position: 90% center;
+    background-repeat: no-repeat;
+}
+.btn-setting{
+    background-color: #FFFFFF;
+}

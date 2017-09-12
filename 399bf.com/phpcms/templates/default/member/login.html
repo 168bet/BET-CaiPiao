@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <!-- css start -->
+    <link href="{CSS_PATH}bootstrap.css" rel="stylesheet">
+    <link href="{CSS_PATH}font-awesome-3.0.css" rel="stylesheet">
+
+    <link href="{CSS_PATH}base.css" rel="stylesheet">
+    <link rel="stylesheet" href="{CSS_PATH}login.css">
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <!-- css end -->
+    <!--[if lt IE 9]>
+
+    <![endif]-->
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="row">
+            <!-- logo -->
+            <a href="{APP_PATH}" class="logo">
+                <img src="{IMG_PATH}bt_logo.png" alt="">
+            </a>
+            <span class="title-text">登录</span>
+            <a href="##" class="back-btn">
+                返回首页
+            </a>
+
+        </div>
+    </div>
+</header>
+
+<section class="login-body">
+    <div class="container">
+        <div class="row">
+            <div class="login">
+
+                <div class="pc">
+                    <button type="button" class="code-login" id="code_login"></button>
+                    <div class="login-title">欢迎登录火冶网</div>
+
+                         <form method="post" action="" onsubmit="save_username();" id="login_form" name="myform">
+                            <input type="hidden" name="forward" id="forward" value="{$forward}">
+                            <input type="hidden" name="referer" id="referer" value="{$referer}">
+                            <div class="login-content">
+                                <div class="input-control">
+                                    <i class="icon-user"></i>
+                                    <input type="text" class="" name="username" id="username" placeholder="用户名/已验证邮箱或手机">
+                                </div>
+                                <div class="input-control">
+                                    <i class="icon-lock"></i>
+                                    <input type="password" class="" name="password" placeholder="登录密码" >
+                                </div>
+
+                                <div class="checkbox-group">
+
+                                    <label for="cookietime" class="checkbox-control">
+                                        <input type="checkbox" name="cookietime" value="true" id="cookietime">
+                                        记住用户名
+                                    </label>
+                                    <a href="{APP_PATH}u/fpwd/" class="fr">忘记密码?</a>
+                                </div>
+                                <div class="message" id="msg" style="display: none;">
+                                    <i class="error-icon"></i>
+                                    <span id="error_msg">用户名或密码有误，请重新输入！</span>
+                                </div>
+                            </div>
+                            <div class="login-fd">
+                                <button type="button" class="submit-btn" id="submit-btn">立即登录</button>
+                                <div class="hint">
+                                    没有帐号?
+                                    <a href="{APP_PATH}u/register/" class="green">立即注册</a>
+                                </div>
+                            </div>
+
+                        </form>
+                </div>
+
+                <!-- 二维码 -->
+                <div class="code" id="code">
+                    <button class="code-login pc" id="pc_login"></button>
+                    <div class="login-title">微信扫码登录</div>
+                    <div class="code-bd">
+                        <img src="{IMG_PATH}code.png" alt="">
+                    </div>
+                    <div class="code-fd">
+                        <i class="icon-scanner"></i>
+                        打开<a href="##" class="green">微信</a>扫一扫登录
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <a href="index.html" class="f-logo">
+                <img src="{IMG_PATH}bt_logo.png" alt="">
+            </a>
+            <p class="copyright">© 2016 HuoYe. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<script>
+    var APP_PATH = '{APP_PATH}';
+</script>
+<script src="{JS_PATH}jquery-1.11.3.min.js"></script>
+<script src="{JS_PATH}jquery.validate.min.js"></script>
+<script src="{JS_PATH}validate_messages_zh.js"></script>
+<script src="{JS_PATH}bf_validate.js"></script>
+<script src="{JS_PATH}login.js"></script>
+<script src="{JS_PATH}cookie.js"></script>
+
+<script src="{JS_PATH}selectivizr.js"></script>
+
+<script>
+
+
+
+    $(function(){
+        $('#username').focus();
+    });
+
+    function save_username() {
+        if($('#cookietime').is(':checked')==true) {
+            var username = $('#username').val();alert(username);
+            setcookie('username', username, 3);
+        } else {
+            delcookie('username');
+        }
+    }
+    var username = getcookie('username');
+
+    if(username != '' && username != null) {
+        $('#username').val(username);
+        $('#cookietime').attr('checked',true);
+    }
+
+
+
+    $("#submit-btn").click(function(){
+        // 登录表单验证
+        var V = $('#login_form').validate({
+
+            degbug: true,
+
+            onkeyup:false,
+
+            rules: {
+                username:'required',
+
+                password:'required'
+            },
+
+            messages: {
+                username:{
+                    required:'请输入用户名'
+                },
+                password:{
+                    required:'请输入密码'
+                }
+            },
+
+            errorClass:'invalid'
+        });
+
+        var status = V.form();
+
+        if(status){
+            $.ajax({
+                type:'POST',
+                url:'/index.php?m=member&c=index&a=login',
+                data:$('#login_form').serialize(),
+                dataType:'json',
+                success: function (jsonData) {
+                    if (jsonData.status == false) {
+                        $('#msg').show();
+                        $('#error_msg').text(jsonData.msg);
+
+                    } else {
+//                        $('#msg').show();
+//                        $('#error_msg').text(jsonData.msg);
+                        setTimeout(function () {
+                            window.location.href = jsonData.data.url;
+                        }, 100);
+                    }
+                },
+                error: function () {
+                    $('#msg').show();
+                    $('#error_msg').text('登录异常');
+                }
+            })
+        }
+
+    });
+
+</script>
+
+</body>

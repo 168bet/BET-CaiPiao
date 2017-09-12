@@ -1,0 +1,75 @@
+<div class="game-play hk6-game-play">
+	<div class="w1105 m0auto hgt328 relative" style="background: url({{staticURI}}/images/fclhc/lhcTop.png) no-repeat right;background-color: #DADADA">
+	    <div class="absolute white fz24" style="top: 70px;left: 60px;">{{lotKind}}</div>
+	    <div class="absolute fz20 white" style="left: 96px; top: 156px;">
+	        {{lotKind}}第
+	        <span class="yellow">{{lastNumber}}</span> 期开奖结果
+	    </div>
+	    <div class="inline-block absolute fz20 lhcOpenBg" style="left: 53px; top: 214px;">
+	        <ball number="result" ng-repeat="result in lastResults track by $index">
+	    </div>
+	    <div class="absolute white" style="left: 555px; top: 200px;">
+	        <div class="inline-block fz16">
+	            当前期为
+	            <span class="yellow">{{currentNumber}}</span> 期
+	        </div>
+	    </div>
+	    <div class="absolute white" style="left: 555px; top: 230px;">
+	        <div class="inline-block fz16">
+	            距离封盘截止还有
+	            <count-down time="downTimeLeft" tick="fun.closeTickCb"/>
+	        </div>
+	    </div>
+	    <div class="absolute white" style="left: 555px; top: 260px;">
+	        <div class="inline-block fz16">
+	            距离开奖截止还有
+	            <count-down time="closeTimeLeft" tick="fun.openTickCb"/>
+	        </div>
+	    </div>
+	</div>
+	<div class="w1105 m0auto text_center fz14" style="padding:20px 0px;background-color: #DFDFDF">
+	    <span class="inline-block border_red" ng-click="curPlay='TM'" ng-class="{border_red_active:curPlay=='TM'}">特码</span>
+	    <span class="inline-block border_red" ng-click="curPlay='ZMT'" ng-class="{border_red_active:curPlay=='ZMT'}">正特码</span>
+	    <span class="inline-block border_red" ng-click="curPlay='ZM'" ng-class="{border_red_active:curPlay=='ZM'}">正码</span>
+	    <span class="inline-block border_red" ng-click="curPlay='ZM1T6'" ng-class="{border_red_active:curPlay=='ZM1T6'}">正码1-6</span>
+	    <span class="inline-block border_red" ng-click="curPlay='GG'" ng-class="{border_red_active:curPlay=='GG'}">过关</span>
+	    <span class="inline-block border_red" ng-click="curPlay='LM'" ng-class="{border_red_active:curPlay=='LM'}">连码</span>
+	    <span class="inline-block border_red" ng-click="curPlay='BB'" ng-class="{border_red_active:curPlay=='BB'}">半波</span>
+	    <span class="inline-block border_red" ng-click="curPlay='YXYZTW'" ng-class="{border_red_active:curPlay=='YXYZTW'}">一肖&正特尾</span>
+	    <span class="inline-block border_red" ng-click="curPlay='TXTW'" ng-class="{border_red_active:curPlay=='TXTW'}">特肖首尾</span>
+	    <span class="inline-block border_red" ng-click="curPlay='ZYBZ'" ng-class="{border_red_active:curPlay=='ZYBZ'}">中&不中</span>
+	    <span class="inline-block border_red" ng-click="curPlay='WSL'" ng-class="{border_red_active:curPlay=='WSL'}">尾连数</span>
+	    <span class="inline-block border_red" ng-click="curPlay='LX'" ng-class="{border_red_active:curPlay=='LX'}">连肖</span>
+	    <span class="inline-block border_red" ng-click="curPlay='HX'" ng-class="{border_red_active:curPlay=='HX'}">合肖</span>
+	</div>
+	<ng-include src="templateURI('/fclhc/hk6_play_tm.html')" ng-if=" curPlay=='TM' "></ng-include>
+	<ng-include src="templateURI('/fclhc/hk6_play_zmt.html')" ng-if=" curPlay=='ZMT' "></ng-include>
+	<ng-include src="templateURI('/fclhc/hk6_play_zm.html')" ng-if=" curPlay=='ZM' "></ng-include>
+	<ng-include src="templateURI('/fclhc/hk6_play_zm1t6.html')" ng-if="curPlay=='ZM1T6' "></ng-include>
+	<ng-include src="templateURI('/fclhc/hk6_play_gg.html')" ng-if=" curPlay=='GG' "></ng-include>
+	<ng-include src="templateURI('/fclhc/hk6_play_lm.html')" ng-if=" curPlay=='LM' "></ng-include>
+	<ng-include src="templateURI('/fclhc/hk6_play_bb.html')" ng-if=" curPlay=='BB' "></ng-include>
+	<ng-include src="templateURI('/fclhc/hk6_play_yxyztw.html')" ng-if="curPlay=='YXYZTW' "></ng-include>
+	<ng-include src="templateURI('/fclhc/hk6_play_txtw.html')" ng-if=" curPlay=='TXTW' "></ng-include>
+	<ng-include src="templateURI('/fclhc/hk6_play_zybz.html')" ng-if=" curPlay=='ZYBZ' "></ng-include>
+	<ng-include src="templateURI('/fclhc/hk6_play_wsl.html')" ng-if=" curPlay=='WSL' "></ng-include>
+	<ng-include src="templateURI('/fclhc/hk6_play_lx.html')" ng-if=" curPlay=='LX' "></ng-include>
+	<ng-include src="templateURI('/fclhc/hk6_play_hx.html')" ng-if=" curPlay=='HX' "></ng-include>
+	
+	<div class="quick-order clearfix">
+	   <div class="right">
+	       <label for="qucik-order-money">快速下注</label>
+	       <input type="number" name="quick-order-money" ng-model="data.quickOrderMoney" ng-change="fun.quickOrderMoneyChanged(data.quickOrderMoney)" />
+	       <button name="reset" class="quick-order-money-reset" ng-click="data.quickOrderMoney= ''">重填</button>
+	   </div>
+	</div>
+	
+	<div class="mt35 pb30 text_center">
+	    <div class="inline-block mr50">
+	        <img src="{{staticURI}}/images/bjpk10/reset.png" ng-click="fun.cancelOrder();"/>
+	    </div>
+	    <div class="inline-block ml50">
+	        <img src="{{staticURI}}/images/bjpk10/bet.png" ng-click="fun.submitOrder();"/>
+	    </div>
+	</div>
+</div>

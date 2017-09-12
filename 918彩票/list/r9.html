@@ -1,0 +1,100 @@
+<section id=buy_r9>
+	<article id=betball>
+		<ul class="buyTab sfcTab clearfix" id=qici_lzc></ul>
+		<!-- 对阵[[ -->
+		<article id="item" class="sfcopt">
+			<div style="padding-top:50px;height:200px"><em class="rotate_load" style="margin:auto"></em><div style="text-align: center; padding: 10px;">加载对阵中，请稍候</div></div>
+		</article>
+		<!-- ]]对阵 -->
+	</article>
+	<!-- 发起合买[[ -->
+	<article class="pdLeft04" id="bethm" style="display: none;">
+		<p class="pdTop03 pdLeft06" id='hmDet'>
+			本方案共<cite class="yellow"></cite>注<cite class="yellow"></cite>倍，总金额<cite
+				class="yellow"></cite>元
+		</p>
+		<div class="s2">
+			<i>认购</i><span> <input type="tel"
+				onkeyup="this.value=this.value.replace(/\D/g,'')" id="rg"
+				class="hmInput" value=""> 元（<cite class="yellow" id="rg_bl"></cite>）
+			</span>
+		</div>
+		<div class="s2">
+			<i>保底</i><span> <input type="tel"
+				onkeyup="this.value=this.value.replace(/\D/g,'')" id="bd"
+				class="hmInput" value="0"> 元（<cite class="yellow" id="bd_bl">0%</cite>）<em
+				class="check nocheck" id="chk"></em><em class="gray">全额保底</em></span>
+		</div>
+		<div class="s2">
+			<i class="tcheight">提成比例</i>
+			<ul class="left scale" id="ratio">
+				<li v='0'>0%</li>
+				<li v='1'>1%</li>
+				<li v='2'>2%</li>
+				<li v='3'>3%</li>
+				<li v='4'>4%</li>
+				<li v='5' class="cur">5%</li>
+				<li v='6'>6%</li>
+				<li v='7'>7%</li>
+				<li v='8'>8%</li>
+				<li v='9'>9%</li>
+				<li v='10'>10%</li>
+			</ul>
+		</div>
+		<div class="s2">
+			<i class="gkheight">是否公开</i>
+			<ul class="left scale" id="isPublic">
+				<li v="0" class="cur">公开</li>
+				<li v="2" class="along">对跟单用户公开</li>
+				<li v="1">截止后公开</li>
+				<li v="3" class="along">截止后对跟单用户公开</li>
+			</ul>
+		</div>
+		<div class="s2">
+			<i class="faheight">方案宣言</i>
+			<textarea id='hmDesc' class="xyText" placeholder='一句好的口号将帮助方案尽快满员'></textarea>
+		</div>
+		<!-- 发起合买[[ -->
+		<footer class="buyFooter fcFooter" id=jc_hm_footer>
+			<div class="buyFloat hmFloat hmFloat fixed">
+				<span id="hm_m">认购<cite>0</cite>元 保底<cite>0</cite>元 共<cite
+					class="yellow">0</cite>元
+				</span> <a class="ture" href="javascript:;" id='hmSubmit'>提 交</a>
+			</div>
+		</footer>
+		<!-- ]]发起合买-->
+	</article>
+	<!-- ]]发起合买-->
+
+	<!-- 页脚[[ -->
+	<footer class="buyFooter zcFooter" id=jc_footer>
+		<article class="fixed" style="z-index: 10000">
+			<section class="jczqCheck">
+				<h5>
+					已选择<label id=lot_cur>0</label>场比赛<em id='jc_close'>&times;</em>
+				</h5>
+				<article class="ssqdouble pd063 jczqdouble">
+					<div class="clearfix r9double">
+						<cite>投</cite><input type="text" value="1" id='jc_bs' readonly><cite>倍</cite>
+					</div>
+				</article>
+				<div class="buyFloat">
+					<!-- <a href="javascript:;" class="ssqdeleted" id=dohm>发合买</a> --> <span
+						class="ssqgray">共<cite id=lot_cur_zhushu>1</cite>注 <cite
+						id=lot_cur_money>2</cite>元
+					</span> <a href="javascript:;" class="ture" id=dobuy>付款</a>
+				</div>
+			</section>
+		</article>
+		<article class="fixed">
+			<div class="buyFloat" id='jc_next'>
+				<em class="ssqdeleted">清空</em> <span class="ssqgray ssqgray2">已选择<cite
+					id=lot_cur_match>0</cite>场比赛
+				</span> <a href="javascript:;" class="ture">下一步</a>
+			</div>
+		</article>
+	</footer>
+	<!-- ]]页脚 -->
+</section>
+<div class='mask' id='jczq_mask'></div>
+<script type="text/javascript" src="/js/list/lzc.js"></script>

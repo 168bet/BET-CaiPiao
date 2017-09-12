@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>猜球赛,抢土豪</title>
+<link href="/word_weixin/css/bass.css" rel="stylesheet" type="text/css">
+<article>
+	<header class="freeHeader2"><em id='tuhao' style='display:none;'>土豪</em><em class="yellow" id='cname'>***</em>发起的球赛竞猜</header>
+    <section>
+    	<article class="freeBg3 relative">
+   	    	<img src="/word_weixin/img/freeBg.jpg"> 
+            <div class="freebgText pdTop04">
+                <div class="clearfix" id='duizhen'>
+                <!-- 
+               	  <div class="flagLeft left">
+                    	<div class="flagBg"><img src="/word_weixin/img/flag.jpg"></div>
+                        <span>德国</span>
+                  </div>
+                  <span class="left flagVs">VS</span>
+                  <span class="left score" style='display:none;'><b>3</b><strong>2</strong></span>
+                  <div class="flagLeft left">
+                    	<div class="flagBg"><img src="/word_weixin/img/flag2.jpg"></div>
+                        <span>巴西</span>
+                  </div>
+                   -->
+                </div>
+            <!-- 进度条 -->
+            	<div class="relative mgTop09" style='display:none;' id='jdt'>
+                <div class="bar">
+                	<div class="baryellow" id='scale'>
+                		<div class="bargreen" style="width:70%"></div>
+                    	<div class="barred" style="width:30%"></div>
+                    </div>
+                </div>
+                <div class="barNum" id='renshu'>
+                	<strong style="left:10%"></strong>
+                	<strong style="left:46%"></strong>
+                    <strong style="left:80%"></strong>
+                </div>
+                </div>
+            <!-- 进度条 -->   
+            </div>
+        </article>
+        <article class="freeList">
+        	<p class="freelistTitle" id='join_detail'></p>
+        	<div id='detail'>
+        	<!-- 
+            <dl>
+            	<dt>
+                	<span class="left admiIco"><img src="/word_weixin/img/admini.png" /></span>
+                	<div class="left admiText">
+                		<h3>发起人</h3>
+                    	<p>6月13日 10:36:12</p>
+                	</div>
+                </dt>
+                <dd>德国胜</dd>
+                <dd>等待开奖</dd>
+            </dl>
+             -->
+            </div>
+            <p class="more" id='click_more' style='display:none;'>点击显示更多</p>
+        </article>
+        <p class="loading"><img src="/img/load.gif">正在加载</p>
+	</section>
+</article>
+<footer class="pdtop1_5">
+	<div class="fixed">
+		<a class="payment" href="javascript:;" style="display:none;" id='invite_friend'>人越多钱越多，速度拉人</a>
+        <a class="payment" href="javascript:;" style='display:none;' id='my_tyrant'>我也要当土豪</a>
+    	<a class="payment" href="javascript:;" style="display:none;" id='my_share'>我要分享</a>  
+    </div>
+</footer>
+<div class="bombBox weige" style='position: fixed;display:none; z-index: 2;' id='jiang'>
+	<div class="pdTop06">您随机分得<em class="yellow" id='bscale'></em>的团队奖金，共<em class="yellow" id='bonus'></em>元</div>
+    <a href="javascript:;" id='xuanyao' class="fixBtn">炫耀一下</a>
+</div>
+<div class="show" id="invite_friend_xy" style='display:none;'><img width="100%" src="/word_weixin/img/show.png"></div>
+
+<div class="bombBox weige" style="width:18.5rem;display:none;z-index:2;position:fixed;" id='dbind'>
+	<p>想要成为土豪，请先将微信号与9188账户绑定</p>
+    <div class="fixBtn2 clearfix"><a href="/word_weixin/myrecord/telbind.html" class="left">前往绑定</a><a href="javascript:;" class="ture right">取消</a></div>
+</div>
+<div id="invite3" class="zhezhao" style='display:none;'></div>
+
+<div id="invite2" class="zhezhao" style='display:none;'></div>
+<div class="logints" id="tx_c" style='display:none;'></div>
+
+<script src="/word_weixin/js/jquery-1.9.1.min.js"></script>
+<script src="/word_weixin/js/wx.js"></script>
+<script src="/word_weixin/js/myrecord/convene.js"></script>

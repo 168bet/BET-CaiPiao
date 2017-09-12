@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<link href="css/dashen.css" rel="stylesheet">
+<link href="css/swiper.css" rel="stylesheet">
+<title>出票明细</title>
+<style>
+	.myMore {
+	    display: block;
+	    height:2.4rem; 
+	    line-height:2.4rem;
+	    text-align: center;
+	    font-size:.875rem; 
+	    color:#2395ff;
+	    text-decoration: none;
+	    cursor:pointer;
+	}
+	.mymore:hover{
+		color: #333;
+	}
+	.empty_user{ width:100%;height:10rem;background:url(/sdjc/img/empty.png) center center no-repeat; background-size:5.625rem 5.625rem;}
+	/*msg弹窗*/
+	@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+	@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+	@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+	.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+
+	@-webkit-keyframes rotate_load { from { -webkit-transform:rotate(0deg);} to { -webkit-transform:rotate(360deg);}  }
+	@-moz-keyframes rotate_load { from { -moz-transform:rotate(0deg);} to { -moz-transform:rotate(360deg);}  }
+	.rotate_load, #pullUp.loading .pullUpIcon, #pullDown.loading .pullDownIcon{ -webkit-animation:rotate_load 2s linear infinite;-moz-animation:rotate_load 2s linear infinite;}
+	.rotate_load, #pullUp.loading .pullUpIcon, #pullDown.loading .pullDownIcon{ display:block; width:32px; height:32px; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEbSURBVFhHxVZbDsIwDNsBgUvxyWl2hT7OBS0fqB15uEkYkypNWuokdp1124xPrfVSSrn31d+NMLZtLeHe1vOwdhva4q6c85VI/i6mf1uEo8MlehvlD66A/m1ENMmk0YsWoOGQrTfwm0YvIoEU03OwMkV1h+J8FbKyMeqcTEUgEiCn3CxBBzcdHqIqF47JPnQRn2mZUjp3WiJSTTFRXXOJRXyXXkCrIj4yWIAcbIiKv+J9SyEqvhpgyTrsUfFdQwMoTpUgcvgIDtAvMH+1IcDkuSFRbIw48CiOGkomHOl3LN5kDgJBJ58SVfXssOlXFxLoxqvRu9LIRARCXVQMa6uo7jQc0ddR+kbZGZZpxSmuyeai15WZsSE85YjkL27WCTEZnfhCAAAAAElFTkSuQmCC) no-repeat}
+</style>
+</html>
+<body>
+	<!--下载置顶-->
+	<div class="head_load clearfix">
+		<div class="head_close"></div><!--close-->
+		<div class="head_logo"></div><!--logo-->
+		<a href="#" class="head_btn"></a><!--load-->
+	</div>
+	<div class="height_h" id="heah_h"></div>
+	<div class="height_h" id="heah_h" style="height:2.5rem"></div>
+	<section class="jcds_head" style='top:3.125rem'>
+		<i class="jcds_head_back"></i>
+		<h1>出票明细</h1>
+	</section>
+	<!--下载置顶-->
+	<section class="wrap">
+		<div class="table_title clearfix">
+			<span class="span9">投注内容</span><span class="span8">倍数</span><span class="span10">奖金</span>
+		</div>
+		<table class="table" id='table' style=" display:table;"><!--隐藏-->
+		</table>
+	</section>
+</body>
+<script src='js/jquery-1.8.3.min.js'></script>
+<script src='js/base.js'></script>
+<script>
+	var hid = location.search.getParam('hid');
+	var gid = hid.substring(0,2);
+	$('#table').html('<div style="padding-top:50px;height:200px"><em class="rotate_load" style="margin:auto"></em></div>');
+	$.ajax({
+		url: '/trade/ai.go',
+		data:{
+			gid: gid,
+			hid: hid,
+			mtype: 4,
+			source: 3002,
+			logintype: 0
+		},
+		type : "POST",
+		success: function(xml){
+			var R = $(xml).find('rows');
+			var code = R.attr('code');
+			var des = R.attr('desc');
+			var rowcode,mul,num,bonus,tax;
+			var totalbonus= 0;
+			if(code == 1){
+				history.go(-1)
+			}else{
+				var row = R.find('row')
+				var html = '<tbody>'
+				row.each(function(a,b){
+					rowcode = $(this).attr('code');
+					mul = $(this).attr('mul');
+					num = $(this).attr('num');
+					bonus = $(this).attr('bonus');
+					tax = $(this).attr('tax');
+					totalbonus += Number(bonus)
+					html += '<tr>'
+					html += '<td class="width2" style=color:rgb(153,153,153);><p>'+rowcode+'</p></td>'
+					html += '<td class="width1" style=color:rgb(153,153,153);><p>'+num+'</p></td>'
+					html += '<td class="width3" style="'+(bonus>0?"color: #f03d3d":'')+'"><p>￥'+bonus+'</p></td>'
+					html += '</tr>'
+				})
+				html += '<tr>'
+				html += '<td class="width2" colspan="2"><p>合计</p></td>'
+				html += '<td class="width3 red" style="color: #f03d3d"><p>￥'+totalbonus.toFixed(2)+'</p></td>'
+				html += '</tr>'
+				html += '</tbody>'
+				$('#table').html(html)
+			}
+		},
+		error : function() {
+			alert('网络异常，请刷新重试');
+			return false;
+		}
+	})
+</script>
+</html>

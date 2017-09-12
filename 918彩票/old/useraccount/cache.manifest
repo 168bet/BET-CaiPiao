@@ -1,0 +1,30 @@
+CACHE MANIFEST
+#version 1.0.5
+ 
+# 指明缓存入口
+CACHE:
+#This is js and css files cache manifest
+ /js/jquery-1.9.1.min.js
+ /js/public/base.js
+ 
+ /css/account.css
+ /css/bass.css
+ 
+ #This is img files cache manifest
+ /img/fc/home.png
+ /img/account/redbalance.png
+ /img/account/withdrawal.png
+ /img/account/centerAdmi.png
+ /img/account/balance.png
+ /img/account/recharge.png
+ 
+# 以下资源必须在线访问
+NETWORK:
+ *
+
+
+ 
+# 如果index.php无法访问则用404.html代替
+FALLBACK:
+#/index.html /404.html
+

@@ -1,0 +1,536 @@
+[name="bf"] .container{
+    width: 800px;
+}
+.main{
+    position: relative;
+    z-index: 1;
+}
+.tableBox{
+    background-color: #fff;
+    border-radius: 5px;
+}
+#fixedTable{
+    border: none;
+    table-layout: fixed;
+}
+#fixedTable.table tr>th{
+    border-color: transparent;
+    font-size: 12px;
+    white-space: nowrap;
+}
+.bf .table tr>th{
+    vertical-align: middle; !important;
+    /*line-height: 1.5em;*/
+}
+.bf .table tr>td{
+    position: relative;
+    vertical-align: middle; !important;
+    font-size: 12px;
+    line-height: 3em;
+}
+.bf .table .corner-half div{
+    line-height: 1.2em;
+}
+.bf .table .other div{
+    line-height: 1.2em;
+    white-space: nowrap;
+}
+.bf .table tr .white:hover{
+    text-decoration: underline;
+}
+.table{
+    border-color:transparent ;
+}
+.table tr.streak{
+    background-color: #e6e6e6;
+}
+.table th, .table th{
+    background-color: #00a0e9;
+    font-weight: normal;
+    color: #fff;
+}
+.bf .table th,.bf .table td{
+    padding: 0;
+    border:none;
+    line-height: 42px;
+    /*border-bottom: #ffffff solid 1px;*/
+}
+/*ft-live-game*/
+.fixed-table{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/*ft-data css*/
+.ft-data{
+
+}
+.sideNav{
+    margin-left: -15px;
+}
+.mainBox{
+    margin-right: -12px;
+}
+.sideNav{
+    background-color: #ffffff;
+}
+.sideNav-title{
+    background-color: #00a0e9;
+    padding: 0 15px;
+    font-size: 1.4em;
+    line-height: 3em;
+    color: #ffffff;
+    font-weight: 800;
+}
+.sideNav li a{
+    display: block;
+    padding: 0 15px;
+    list-style: none;
+    font-size: 1.4em;
+    line-height: 3em;
+    font-weight: 800;
+    color: #666666;
+    letter-spacing: 5px;
+
+}
+.sideNav li.current a,.sideNav li:hover a{
+    background-color: #e71f20;
+    color: #ffffff;
+}
+.data-nav{
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    line-height: 3em;
+    color: #ffffff;
+    background-color:#00a0e9 ;
+}
+.data-nav li{
+    float: left;
+    position: relative;
+}
+.data-nav li:before{
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 0px;
+    height: 14px;
+    width: 1px;
+    background-color: #ffffff;
+}
+.data-nav ul>li:first-child:before{
+    display: none;
+}
+.data-nav li a{
+    display: block;
+    color: #ffffff;
+    font-weight: 800;
+    padding: 0 15px;
+}
+.data-nav li.current a,.data-nav li:hover a{
+    background-color:#e71f20 ;
+}
+.data-nav .nav-other a{
+    margin:0 5px;
+    color: #ffffff;
+}
+.data-content li{
+    display: inline-block;
+    position: relative;
+    padding-bottom: 20px;
+}
+/*弹层样式*/
+.layer{
+    border: 5px solid #ddd;
+    background-color: #ffffff;
+    width: 300px;
+    min-height: 90px;
+    max-height: 130px;
+    position: absolute;
+    z-index: 10;
+    left: 157px;
+    top: 10px;
+    display: none;
+    overflow: auto;
+}
+.layer-event li{
+    width: 80px;
+    height: 30px;
+    border: 1px solid #E1E0E0;
+    line-height: 30px;
+    background-color: #ebebeb;
+    text-align: center;
+    float: left;
+    margin: 5px;
+}
+.layer-event li a{
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    background-color: #EBEBEB;
+}
+/*弹层样式*/
+.data-content a{
+    display: block;
+    background-color: #ffffff;
+    width: 136px;
+}
+.data-content a>img{
+    width: 136px;
+    height: 138px;
+}
+.btn-data{
+    background-color: #00a0e9;
+    font-size: 1.4em;
+    line-height: 2em;
+    color: #fff;
+    border: none;
+}
+.data-content .btn-data{
+    display: block;
+    width: 100%;
+}
+.data-content li:hover .btn-data{
+    background-color: #e71f20;
+}
+/*图片自适应*/
+.data-img-auto{
+    width: 100%;
+    height: 138px;
+    line-height: 138px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #fff;
+}
+.data-img-auto img{
+    width: 60%;
+    max-height: 100%;
+}
+.isTop{
+    line-height: 25px;
+    color: white;
+    border:1px solid #337ab7 ;
+    background-color: #337ab7;
+    padding: 0 3px;
+}
+.isTop.toped{
+    background-color: red;
+    border:1px solid red;
+}
+.runBall{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-repeat: no-repeat;
+    background-position:center center;
+}
+.runBall.zd1{
+    background-image: url("../images/home_z.gif");
+}
+.runBall.zd2{
+    background-image: url("../images/zd2.gif");
+}
+.runBall.status{
+    background-image: url("../images/in.gif");
+}
+.runBall.cornerBall{
+    background-image: url("../images/angleBall.gif");
+}
+.colorA{
+    color: rgb(136, 0, 0);
+}
+.colorB{
+    color: rgb(102, 102, 102);
+}
+/*companyBtn*/
+.companyBtn{
+    position: relative;
+    display: inline-block;
+}
+.companyMenu{
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100px;
+    background-color: white;
+    border: #00a0e9 solid 1px;
+    overflow: auto;
+    z-index: 10;
+}
+.companyMenu li{
+    text-align: center;
+    font-size: inherit;
+    white-space: nowrap;
+}
+.companyMenu.text-left li{
+    text-align: left;
+}
+.companyMenu li span:hover{
+    color:#00a0e9;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.pathNav .reset-btn{
+    margin: 0 3px;
+    border: none;
+    background-color: transparent;
+    color: #00a0e9;
+}
+.cpi-group{
+    position: absolute;
+    width: 108px;
+    right: 0;
+    top: 5px;
+    white-space: nowrap;
+}
+.cpi-btn{
+    margin: 0 3px;
+    font-weight: normal;
+    cursor: pointer;
+}
+.cpi-btn [type="checkbox"]{
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+}
+
+.team-link {
+    padding: 5px;
+}
+
+.team-link.has-goal {
+    background-color: #1e88d3;
+    color: white;
+}
+
+.score-goal {
+    color: red;
+}
+
+.odds-up {
+    color: red;
+}
+
+.odds-up {
+    background-image: url(../images/arrow_index_up.gif);
+    background-position: 80% center;
+    background-repeat: no-repeat;
+}
+
+.odds-down {
+    color: green;
+}
+
+.odds-down {
+    background-image: url(../images/arrow_index_down.gif);
+    background-position: 80% center;
+    background-repeat: no-repeat;
+}
+
+.cpiDio {
+    position: relative;
+}
+
+.cpiPop{
+    position: absolute;
+    width: 560px;
+    bottom: 60px;
+    left: -150px;
+    margin-left: -105px;
+    z-index: 999;
+    border: 2px solid #337ab7;
+    background-color: white;
+}
+.cpiPop:after{
+    content: "";
+    font-size: 0;
+    line-height: 0;
+    border-top:15px solid #337ab7 ;
+    border-left:15px solid transparent;
+    border-right: 15px solid transparent;
+    position: absolute;
+    bottom: -16px;
+}
+.cpiPop .cpi-title{
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #337ab7;
+    color: white;
+    padding: 10px;
+}
+#cpiTable tr th{
+    background-color: transparent;
+    line-height: 30px;
+    font-size: 14px;
+    color: #666666;
+}
+#cpiTable tr th span{
+    font-size: 16px;
+}
+#cpiTable tr td{
+    line-height: 30px;
+    font-size:12px ;
+    text-align: left;
+}
+#cpiTable tr td.meta {
+    text-align: center;
+}
+
+.red-card {
+    background-color: red;
+    color: white;
+    padding: 0 2px;
+    text-align: center;
+}
+
+.yellow-card {
+    background-color: #fcc003;
+    color: white;
+    text-align: center;
+    padding: 0 2px;
+}
+/*@media (min-width: 1300px){*/
+    /*.container{*/
+        /*width: 1300px;*/
+    /*}*/
+    /*.main{*/
+        /*margin-right: -40px;*/
+    /*}*/
+    /*.side{*/
+        /*margin-left: 40px;*/
+    /*}*/
+/*}*/
+/*@media (max-width: 1300px) {*/
+    /*.col-lg-8,.col-lg-4,.col-md-2,.col-md-10{*/
+        /*width: 100%;*/
+    /*}*/
+    /*.side,.sideNav{*/
+        /*margin-right: -15px;*/
+        /*margin-left: -15px;*/
+    /*}*/
+    /*.main,.mainBox{*/
+        /*margin-right: -15px;*/
+        /*margin-left: -15px;*/
+    /*}*/
+
+/*}*/
+
+/*新增导航条即时比分，完场比分，下日赛程*/
+.nav{
+    border-bottom: 2px solid #00a0e9;
+    background-color: #ffffff;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.nav .item.on,.nav li:hover .item{
+    background-color: #E3E1E1;
+    color: #E71F20;
+}
+.nav li{
+    width: 80px;
+    text-align: center;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+.nav .item {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    color: #00a0e9;
+}
+.nav2{
+    margin-top: 15px;
+    float: left;
+}
+.nav2 li{
+    width: 90px;
+    text-align: center;
+    float: left;
+    height: 30px;
+}
+/*新增导航条即时比分，完场比分，下日赛程*/
+
+.alertBox{
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    z-index: 999;
+    padding-right: 10px;
+}
+.alertBox [name="close"] {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    padding: 5px;
+    font-size: 14px;
+    background-color: rgba(255,255,255,.6);
+    border-radius: 50%;
+}
+.alert-item{
+    position: relative;
+    border: 1px solid #666666;
+    border-radius: 5px;
+    background-color:white;
+    margin-bottom: 5px;
+}
+.alertBox .table tr,.alertBox .table td,.alertBox .table th{
+    border: none;
+}
+.alertBox .table th{
+    background-color: #337ab7;
+    border-bottom:1px solid #dddddd;
+}
+.alert-item th.on{
+    font-weight: bold;
+    color: red;
+}
+.alert-item td.on{
+    font-weight: bold;
+    color: red;
+}
+.scores:hover{
+    text-decoration:underline ;
+    color: #2579b6;
+}
+
+/*比分悬浮窗*/
+#scoreDialog{
+    position: absolute;
+    bottom: 40px;
+    left: -148px;
+    width: 350px;
+    border: #2579b6 solid 1px;
+    background-color: white;
+}
+#scoreDialog table .minute{
+    background-color: #e6e6e6;
+}
+#scoreDialog table tr th{
+    line-height: 30px;
+    font-size: 14px;
+}
+#scoreDialog table tr td{
+    border-top: #e6e6e6 solid 1px;
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/**/
+.bf .table .corner-half>span{
+    position: relative;
+    display: block;
+    line-height: 1.2em;
+}
+.bf .table .corner-half .cornerBall{
+    position: absolute;
+    left: -4px;
+}

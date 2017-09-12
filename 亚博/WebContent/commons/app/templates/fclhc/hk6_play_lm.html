@@ -1,0 +1,63 @@
+<div class="w1000 m0auto text_center fz14" style="padding:20px 70px">
+    <table>
+        <tbody>
+            <tr class="hgt30 line_hgt30" style="background: #F3F3F5">
+                <td colspan="10">
+                <span class="bold">类别：</span>
+                <input type="radio" name="rtype" ng-model="data.lmObject.rrtype" value="0"/><span>三全中</span>
+                <input type="radio" name="rtype" ng-model="data.lmObject.rrtype" value="1"/><span>三中二</span>
+                <input type="radio" name="rtype" ng-model="data.lmObject.rrtype" value="2"/><span>二全中</span>
+                <input type="radio" name="rtype" ng-model="data.lmObject.rrtype" value="3"/><span>二中特</span>
+                <input type="radio" name="rtype" ng-model="data.lmObject.rrtype" value="4"/><span>特串</span>
+                </td>
+            </tr>
+            <tr class="hgt30 line_hgt30 border_btm10" style="background: #F3F3F5">
+                <td colspan="10">
+                <span class="bold">赔率：</span>
+                <span>三全中</span> <span class="red">{{t3qz_pl}}</span>
+                <span>中二</span> <span class="red">{{tz2_pl}}</span>
+                <span>中三</span> <span class="red">{{tz3_pl}}</span>
+                <span>二全中</span> <span class="red">{{t2qz_pl}}</span>
+                <span>中特</span> <span class="red">{{tzt_pl}}</span>
+                <span>中特二</span> <span class="red">{{ttz2_pl}}</span>
+                <span>特串</span> <span class="red">{{ttc_pl}}</span></td>
+            </tr>
+            <tr class="hgt36 line_hgt36 white border_btm8" style="background-color: #DDDDDD" data-ng-repeat="(key, value) in range(0,10)">
+                <td><span class="redCircle inline-block">{{key*5+1}}</span></td>
+                <td  class="border_r8">
+                    <input type="checkbox" class="middle" value="1" ng-disabled="key*5 + 1 == data.lmObject.dm1 || key*5 + 1 == data.lmObject.dm2" ng-change="fun.lmCodeSelected(key*5 + 1)" ng-model="data.betSelected['id_'+ (key*5 + 1) ]" />
+                </td>
+                <td><span class="redCircle inline-block">{{key*5+2}}</span></td>
+                <td  class="border_r8">
+                    <input type="checkbox" class="middle" ng-disabled="key*5 + 2 == data.lmObject.dm1 || key*5 + 2 == data.lmObject.dm2" ng-change="fun.lmCodeSelected(key*5 + 2)" ng-model="data.betSelected['id_'+ (key*5 + 2) ]"/>
+                </td>
+                <td><span class="redCircle inline-block">{{key*5+3}}</span></td>
+                <td  class="border_r8">
+                    <input type="checkbox" class="middle" ng-disabled="key*5 + 3 == data.lmObject.dm1 || key*5 + 3 == data.lmObject.dm2" ng-change="fun.lmCodeSelected(key*5 + 3)" ng-model="data.betSelected['id_'+ (key*5 + 3) ]"/>
+                </td>
+                <td><span class="redCircle inline-block">{{key*5+4}}</span></td>
+                <td  class="border_r8">
+                    <input type="checkbox" class="middle" ng-disabled="key*5 + 4 == data.lmObject.dm1 || key*5 + 4 == data.lmObject.dm2" ng-change="fun.lmCodeSelected(key*5 + 4)" ng-model="data.betSelected['id_'+ (key*5 + 4) ]"/>
+                </td>
+                <td><span class="redCircle inline-block"  ng-if="key*5+5<50">{{key*5+5}}</span></td>
+                <td  class="border_r8">
+                    <input type="checkbox" class="middle" ng-if="key*5+5<50" ng-disabled="key*5 + 4 == data.lmObject.dm1 || key*5 + 4 == data.lmObject.dm2" ng-change="fun.lmCodeSelected(key*5 + 5)" ng-model="data.betSelected['id_'+ (key*5 + 5) ]"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" class="hgt42 line_hgt42 border_r8" style="background: #DDDDDD">
+                    <span>复式</span>
+                    <input type="radio" value="1" name="pabc" ng-model="data.lmObject.pabc" ng-click="fun.lmFushiOrDantuoSelected()" class="middle"/>
+                    <span>胆拖</span>
+                    <input type="radio" value="2" name="pabc" ng-model="data.lmObject.pabc" ng-click="fun.lmFushiOrDantuoSelected()" class="middle"/>
+                </td>
+                <td colspan="5" class="hgt42 line_hgt42 border_r8" style="background: #DDDDDD">
+                    <span>胆一</span>
+                    <input type="input" style="width:35px;" ng-disabled="true" name="dm1" ng-model="data.lmObject.dm1" class="middle"/>
+                    <span>胆二</span>
+                    <input type="input" style="width:35px;" ng-disabled="true" name="dm2" ng-model="data.lmObject.dm2" class="middle"/>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

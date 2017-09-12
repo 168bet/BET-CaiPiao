@@ -1,0 +1,292 @@
+{php $css = array('list_pic_video.css', 'carousel.css','water.css')}
+{template 'content', 'header_score'}
+    <div class="crumbs">
+        <i class="crumbs-icon"></i>当前位置：
+        <a href="{APP_PATH}" class="orange">首页</a>&gt;
+        {catpos($catid,'&gt;')}
+        {$title}
+    </div>
+    <div class="nav">
+        <i class="icon-nav-pic"></i>
+        <div class="title-wrap">
+            <div class="title">{$title}</div>
+            <div class="tip">
+                {loop $keywords $keyword}
+                <a href="{APP_PATH}tag/{urlencode($keyword)}/" class="tip-b orange" target="_blank">{$keyword}</a>
+                {/loop}
+            </div>
+        </div>
+    </div>
+    <div class="carousel">
+        <!--轮播图start-->
+        <div class="banner">
+            <div class="carousel-index"><span id="index" class="orange">1</span>/{count($pictureurls)}</div>
+            <div class="large_left_btn"></div>
+            <div class="large_right_btn"></div>
+            <div class="large_box">
+                <div class="img-mask"></div>
+                <ul>
+                    {loop $pictureurls $data}
+                    <li style="display: none;">
+                        <div class="large_img">
+                            <img src="{$data['url']}" alt="{$title}">
+                            <div class="text">{$data['description']}</div>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            <div class="small_box">
+                <span class="cbtn left_btn"><i class="icon-angle-left"></i></span>
+                <div class="small_list">
+                    <ul style="width: 720px; margin-left: 0;">
+                        {loop $pictureurls $data}
+                        <li {if $n==1}class="on"{/if}>
+                            <img src="{get_thumb($data['url'], 150)}" alt="{$data['alt']}">
+                            <div class="bun_bg"></div>
+                        </li>
+                        {/loop}
+                    </ul>
+                </div>
+                <span class="cbtn right_btn"><i class="icon-angle-right"></i></span>
+            </div>
+        </div>
+        <!--轮播图end-->
+    </div>
+    <div class="content clearfix">
+        <div class="content-left">
+            <div class="content-title">
+                    <span class="icon-title bg-new" style="margin-top:5px;"></span>
+                    焦点资讯
+            </div>
+            <ul class="nav-tabs" id="focusInfo">
+                <li class="active"><a href="#zctj" data-toggle="tab">足彩推荐</a></li>
+                <li><a href="#zcyc" data-toggle="tab">足彩预测</a></li>
+                <li><a href="#zcfx" data-toggle="tab">足彩分析</a></li>
+                <li><a href="#xwss" data-toggle="tab">赛事新闻</a></li>
+            </ul>
+            <div class="tab-content">
+            {pc:content action="lists" catid="1" num="6" thumb="1" order="id DESC"}
+                <div id="zcfx" class="tab-pane fade">
+                     {loop $data $r}
+                    <div class="data-news">
+                        <div class="data-title">
+                            <span class="hot">热</span>
+                            <a href="{$r['url']}" target="_blank" title="{$r['title']}">
+                                 {$r['title']}
+                            </a>
+                        </div>
+                        <div class="news-main">
+                            <div class="news-thumbnail">
+                                <a href="" title="" target="_blank">
+                                     <img src="{get_thumb($r['thumb'], 350)}" alt="{$r['title']}">
+                                </a>
+                            </div>
+                            <div class="news-text">
+                                <div class="news-abstract">
+                                    {str_cut($r['description'], 185, '...')}<a target="_blank" href="" style="color: #00a0e9;">详情</a>
+                                </div>
+                                <div class="news-date"><i class="mr10 icon-calendar"></i>{date('m月d日 H:i', $r['inputtime'])}</div>
+                                <div class="news-tip">
+                                    {php $keywords = explode(' ', $r['keywords']);}
+                                    {loop  $keywords $keyword}
+                                     <a target="_blank" href="{APP_PATH}tag/{urlencode($keyword)}/" class="orange mr5">{$keyword}</a>
+                                    {/loop}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     {/loop}
+                </div>
+            {/pc}
+            {pc:content action="lists" catid="2" num="6" thumb="1" order="id DESC"}
+                <div id="zcyc" class="tab-pane fade ">
+                     {loop $data $r}
+                    <div class="data-news">
+                        <div class="data-title">
+                            <span class="hot">热</span>
+                            <a href="{$r['url']}" target="_blank" title="{$r['title']}">
+                                 {$r['title']}
+                            </a>
+                        </div>
+                        <div class="news-main">
+                            <div class="news-thumbnail">
+                                <a href="" title="" target="_blank">
+                                     <img src="{get_thumb($r['thumb'], 350)}" alt="{$r['title']}">
+                                </a>
+                            </div>
+                            <div class="news-text">
+                                <div class="news-abstract">
+                                    {str_cut($r['description'], 185, '...')}<a target="_blank" href="" style="color: #00a0e9;">详情</a>
+                                </div>
+                                <div class="news-date"><i class="mr10 icon-calendar"></i>{date('m月d日 H:i', $r['inputtime'])}</div>
+                                <div class="news-tip">
+                                    {php $keywords = explode(' ', $r['keywords']);}
+                                    {loop  $keywords $keyword}
+                                     <a target="_blank" href="{APP_PATH}tag/{urlencode($keyword)}/" class="orange mr5">{$keyword}</a>
+                                    {/loop}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     {/loop}
+                </div>
+            {/pc}
+            {pc:content action="lists" catid="3" num="6" thumb="1" order="id DESC"}
+                <div id="zctj" class="tab-pane fade in active">
+                     {loop $data $r}
+                    <div class="data-news">
+                        <div class="data-title">
+                            <span class="hot">热</span>
+                            <a href="{$r['url']}" target="_blank" title="{$r['title']}">
+                                 {$r['title']}
+                            </a>
+                        </div>
+                        <div class="news-main">
+                            <div class="news-thumbnail">
+                                <a href="" title="" target="_blank">
+                                     <img src="{get_thumb($r['thumb'], 350)}" alt="{$r['title']}">
+                                </a>
+                            </div>
+                            <div class="news-text">
+                                <div class="news-abstract">
+                                    {str_cut($r['description'], 185, '...')}<a target="_blank" href="" style="color: #00a0e9;">详情</a>
+                                </div>
+                                <div class="news-date"><i class="mr10 icon-calendar"></i>{date('m月d日 H:i', $r['inputtime'])}</div>
+                                <div class="news-tip">
+                                    {php $keywords = explode(' ', $r['keywords']);}
+                                    {loop  $keywords $keyword}
+                                     <a target="_blank" href="{APP_PATH}tag/{urlencode($keyword)}/" class="orange mr5">{$keyword}</a>
+                                    {/loop}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     {/loop}
+                </div>
+            {/pc}
+            {pc:content action="lists" catid="6" num="6" thumb="1" order="id DESC"}
+                <div id="xwss" class="tab-pane fade ">
+                     {loop $data $r}
+                    <div class="data-news">
+                        <div class="data-title">
+                            <span class="hot">热</span>
+                            <a href="{$r['url']}" target="_blank" title="{$r['title']}">
+                                 {$r['title']}
+                            </a>
+                        </div>
+                        <div class="news-main">
+                            <div class="news-thumbnail">
+                                <a href="" title="" target="_blank">
+                                     <img src="{get_thumb($r['thumb'], 350)}" alt="{$r['title']}">
+                                </a>
+                            </div>
+                            <div class="news-text">
+                                <div class="news-abstract">
+                                    {str_cut($r['description'], 185, '...')}<a target="_blank" href="" style="color: #00a0e9;">详情</a>
+                                </div>
+                                <div class="news-date"><i class="mr10 icon-calendar"></i>{date('m月d日 H:i', $r['inputtime'])}</div>
+                                <div class="news-tip">
+                                    {php $keywords = explode(' ', $r['keywords']);}
+                                    {loop  $keywords $keyword}
+                                     <a target="_blank" href="{APP_PATH}tag/{urlencode($keyword)}/" class="orange mr5">{$keyword}</a>
+                                    {/loop}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     {/loop}
+                </div>
+            {/pc}
+            </div>
+        </div>
+        <div class="content-right">
+            <div class="side side_bt">
+                <h1 class="title pdT10">
+                    <span class="icon-title bg-pic"></span>精彩图片
+                    <a class="more" href="{APP_PATH}tuku/" target="_blank">更多</a>
+                </h1>
+
+                <div class="pd height422">
+                    {pc:content action="lists" catid="$catid" num="18" thumb="1" order="id DESC" cache="3600"}
+                    {php $data = array_chunk($data, 6)}
+                    {loop $data $list}
+                    <ul class="list-pic-container clearfix">
+                        {loop $list $r}
+                        <li class="list-pic">
+                            <div class="list-img-wrap">
+                                <a href="{$r[url]}" target="_blank">
+                                    <img src="{get_thumb($r[thumb],350)}" title="{$r[title]}">
+                                </a>
+                            </div>
+                            <div class="pic-des"><a href="{$r[url]}" target="_blank">{$r['title']}</a></div>
+                        </li>
+                        {/loop}
+                    </ul>
+                    {/loop}
+                </div>
+                {if count($data) > 1}
+                <div class="tab-btn clearfix">
+                    <ul class="fr">
+                        {loop $data $r}
+                        <li class="list-btn {if $n==1}active{/if}"></li>
+                        {/loop}
+                    </ul>
+                </div>
+                {/if}
+                {/pc}
+            </div>
+            <div class="side">
+                <h1 class="title pdT10">
+                        <span class="icon-title icon-jiangbei"> </span>
+                    最新赛事<a class="more" href="{APP_PATH}zqscore/" target="_blank">更多</a>
+                </h1>
+                <div class="m-list" id="match_list">
+                    {php $hot_sql = get_hot_sql();}
+                    {pc:get sql="$hot_sql" dbsource="sportsdt" num="4"}
+                    <ul>
+                        {loop $data $r}
+                        <li class="list-item clearfix">
+                            <div class="inner-col col-over">
+                                <div class="team-img">
+                                    <a href="{APP_PATH}team/{$r['hometeamid']}/" target="_blank">
+                                        <img src="{PHOTO_PATH}team/{$r['hometeamid']}.jpg" alt="{$r['homeshortname']}" class="team-photo">
+                                    </a>
+                                </div>
+                                <p>
+                                    <a href="{APP_PATH}team/{$r['hometeamid']}/" target="_blank">{$r['homeshortname']}
+1111                                    </a>
+                                </p>
+                            </div>
+                            <div class="inner-col">
+                                <a target="_blank" href="{APP_PATH}game/{$r['gameid']}/analyse/">
+                                    <div class="live-score">{$r['homescore']}:{$r['awayscore']}</div>
+                                    <p>{date('m月d日 H:i', $r['date'])}</p>
+                                </a>
+                            </div>
+                            <div class="inner-col col-over">
+                                <div class="team-img">
+                                    <a href="{APP_PATH}team/{$r['awayteamid']}/" target="_blank">
+                                        <img src="{PHOTO_PATH}team/{$r['awayteamid']}.jpg" alt="{$r['awayshortname']}" class="team-photo">
+                                    </a>
+                                </div>
+                                <p>
+                                    <a href="{APP_PATH}team/{$r['awayteamid']}/" target="_blank">
+                                        {$r['awayshortname']}
+                                    </a>
+                                </p>
+                            </div>
+                        </li>
+                        {/loop}
+                    </ul>
+                    {/pc}
+                </div>
+            </div>
+
+        </div>
+    </div>
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = array('carousel.min.js', 'show_picture.js', 'imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js','jquery.wookmark.js','show_pic_layout.js','article_tab.js')}
+{template 'content', 'footer'}

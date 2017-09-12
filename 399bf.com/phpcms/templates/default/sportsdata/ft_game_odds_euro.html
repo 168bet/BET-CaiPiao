@@ -1,0 +1,150 @@
+{php $css = array('ft_game_analyse.css')}
+{template 'content', 'header_score'}
+
+<!-- nav -->
+{template 'sportsdata', 'ft_game_info'}
+<!-- nav end -->
+
+<!-- main body -->
+<section class="main pdB20" id="table-content">
+    <div class="container">
+        <div class="row">
+
+            <div class="score-item">
+                <div class="score-item-bd pdT20">
+                    <table class="table">
+                        <tr>
+                            <th class="border">公司</th>
+                            <th>主胜</th>
+                            <th>和局</th>
+                            <th class="border">客胜</th>
+                            <th>主胜率</th>
+                            <th>和局率</th>
+                            <th>客胜率</th>
+                            <th  class="border">返还率</th>
+                            <th colspan="3" class="border">凯利指数</th>
+                            <th width="230">变化时间</th>
+                        </tr>
+                        {loop $odds_all $r}
+                        <tr>
+                            <td class="border">{$r[companyname]}</td>
+                            <td>{$r[homewin]}</td>
+                            <td>{$r[draw]}</td>
+                            <td class="border">{$r[awaywin]}</td>
+                            <td>{$r[homewinrate]}%</td>
+                            <td>{$r[drawrate]}%</td>
+                            <td>{$r[awaywinrate]}%</td>
+                            <td class="border">{$r[returnrate]}%</td>
+                            <td>{round($r[homewin]*$odds_stat[0][avg_homewinrate]/100,2)}</td>
+                            <td>{round($r[draw]*$odds_stat[0][avg_drawrate]/100,2)}</td>
+                            <td class="border">{round($r[awaywin]*$odds_stat[0][avg_awaywinrate]/100,2)}</td>
+                            <td>
+                                <time>{date('Y-m-d H:i:s', $r[oddsdate])}</time>
+                            </td>
+                        </tr>
+                        {/loop}
+                    </table>
+                    <div class="hint text-right pdB10 pdT10">
+                        合计<span class="orange">{$company_num}</span>家公司
+                    </div>
+                </div>
+            </div>
+
+            <div class="score-item">
+                <div class="score-item-bd pdT20 pdB20">
+                    <table class="table bigTable">
+                        <thead>
+                            <tr>
+                                <th class="border"></th>
+                                <th>主胜</th>
+                                <th>和局</th>
+                                <th class="border">客胜</th>
+                                <th>主胜率</th>
+                                <th>和局率</th>
+                                <th>客胜率</th>
+                                <th class="border">返还率</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="gray">
+                                <td rowspan="2" class="border tdIndex">最高值</td>
+                                <td>{$odds_stat[0][max_fhomewin]}</td>
+                                <td>{$odds_stat[0][max_fdraw]}</td>
+                                <td class="border">{$odds_stat[0][max_fawaywin]}</td>
+                                <td>{if !empty($odds_stat[0][max_fhomewinrate])}{$odds_stat[0][max_fhomewinrate]}%{/if}</td>
+                                <td>{if !empty($odds_stat[0][max_fdrawrate])}{$odds_stat[0][max_fdrawrate]}%{/if}</td>
+                                <td>{if !empty($odds_stat[0][max_fawaywinrate])}{$odds_stat[0][max_fawaywinrate]}%{/if}</td>
+                                <td class="border">{if !empty($odds_stat[0][max_freturnrate])}{$odds_stat[0][max_freturnrate]}%{/if}</td>
+                                <td>初始盘</td>
+                            </tr>
+                            <tr class="gray">
+                                <td>{$odds_stat[0][max_homewin]}</td>
+                                <td>{$odds_stat[0][max_draw]}</td>
+                                <td class="border">{$odds_stat[0][max_awaywin]}</td>
+                                <td>{if !empty($odds_stat[0][max_homewinrate])}{$odds_stat[0][max_homewinrate]}%{/if}</td>
+                                <td>{if !empty($odds_stat[0][max_drawrate])}{$odds_stat[0][max_drawrate]}%{/if}</td>
+                                <td>{if !empty($odds_stat[0][max_awaywinrate])}{$odds_stat[0][max_awaywinrate]}%{/if}</td>
+                                <td class="border">{if !empty($odds_stat[0][max_returnrate])}{$odds_stat[0][max_returnrate]}%{/if}</td>
+                                <td>即时盘</td>
+                            </tr>
+                            <tr class="gray">
+                                <td rowspan="2" class="border tdIndex">最低值</td>
+                                <td>{$odds_stat[0][min_fhomewin]}</td>
+                                <td>{$odds_stat[0][min_fdraw]}</td>
+                                <td class="border">{$odds_stat[0][min_fawaywin]}</td>
+                                <td>{if !empty($odds_stat[0][min_fhomewinrate])}{$odds_stat[0][min_fhomewinrate]}%{/if}</td>
+                                <td>{if !empty($odds_stat[0][min_fdrawrate])}{$odds_stat[0][min_fdrawrate]}%{/if}</td>
+                                <td>{if !empty($odds_stat[0][min_fawaywinrate])}{$odds_stat[0][min_fawaywinrate]}%{/if}</td>
+                                <td class="border">{if !empty($odds_stat[0][min_freturnrate])}{$odds_stat[0][min_freturnrate]}%{/if}</td>
+                                <td>初始盘</td>
+                            </tr>
+                            <tr class="gray">
+                                <td>{$odds_stat[0][min_homewin]}</td>
+                                <td>{$odds_stat[0][min_draw]}</td>
+                                <td class="border">{$odds_stat[0][min_awaywin]}</td>
+                                <td>{if !empty($odds_stat[0][min_homewinrate])}{$odds_stat[0][min_homewinrate]}%{/if}</td>
+                                <td>{if !empty($odds_stat[0][min_drawrate])}{$odds_stat[0][min_drawrate]}%{/if}</td>
+                                <td>{if !empty($odds_stat[0][min_awaywinrate])}{$odds_stat[0][min_awaywinrate]}%{/if}</td>
+                                <td class="border">{if !empty($odds_stat[0][min_returnrate])}{$odds_stat[0][min_returnrate]}%{/if}</td>
+                                <td>即时盘</td>
+                            </tr>
+                            <tr class="gray">
+                                <td rowspan="2" class="border tdIndex">平均值</td>
+                                <td>{round($odds_stat[0][avg_fhomewin],2)}</td>
+                                <td>{round($odds_stat[0][avg_fdraw],2)}</td>
+                                <td class="border">{round($odds_stat[0][avg_fawaywin],2)}</td>
+                                <td>{round($odds_stat[0][avg_fhomewinrate],2)}%</td>
+                                <td>{round($odds_stat[0][avg_fdrawrate],2)}%</td>
+                                <td>{round($odds_stat[0][avg_fawaywinrate],2)}%</td>
+                                <td class="border">{round($odds_stat[0][avg_freturnrate],2)}%</td>
+                                <td>初始盘</td>
+                            </tr>
+                            <tr class="gray">
+                                <td>{round($odds_stat[0][avg_homewin],2)}</td>
+                                <td>{round($odds_stat[0][avg_draw],2)}</td>
+                                <td class="border">{round($odds_stat[0][avg_awaywin],2)}</td>
+                                <td>{round($odds_stat[0][avg_homewinrate],2)}%</td>
+                                <td>{round($odds_stat[0][avg_drawrate],2)}%</td>
+                                <td>{round($odds_stat[0][avg_awaywinrate],2)}%</td>
+                                <td class="border">{round($odds_stat[0][avg_returnrate],2)}%</td>
+                                <td>即时盘</td>
+                            </tr>
+                        </tbody>   
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- main body -->
+<!-- js -->
+<script>
+    var APP_PATH = '{APP_PATH}';
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+
+{php $js = ['imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js'];}
+{template 'content', 'footer'}

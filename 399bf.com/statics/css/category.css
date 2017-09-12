@@ -1,0 +1,486 @@
+/*赛事直播条*/
+/*selectDiv*/
+.selectDiv{
+    display: none;
+    position: absolute;
+    left: 0;
+    top:120px;
+    width: 100%;
+    z-index: 10;
+}
+.selectDiv .selectBtn{
+    border: none;
+    border-top:#fff solid 1px;
+    width: 100%;
+    color: #333;
+    line-height: 20px;
+    background-color: #ccc;
+}
+#match {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.matchBar {
+    position: relative;
+    width: 100%;
+    height: 120px;
+}
+
+.tabBtn {
+    display: block;
+    position: absolute;
+    width: 22px;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+}
+.tabBtn:focus{
+    color: white;
+}
+.tabPrev {
+    top: 0;
+    left: 0;
+}
+
+.tabNext {
+    top: 0;
+    right: 0;
+}
+.csl .tabBtn {
+    background-color: #ed1c24;
+}
+.matchBar .tabBtn em {
+    margin-top: 50px;
+}
+
+.matchBar .btnGroup {
+    position: absolute;
+    width: 82px;
+    height: 100%;
+    top: 0;
+    left: 22px;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.btnGroup .session {
+    margin-top: 40px;
+    color: #4d4d4d;
+}
+
+.btnGroup .sessionBtn {
+    position: absolute;
+    width: 100%;
+    line-height: 19px;
+    bottom: 0;
+    left: 0;
+    border: none;
+    color: #333;
+    background-color: #ccc;
+}
+
+.matchBox {
+    position: relative;
+    margin-left: 104px;
+    margin-right: 22px;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+}
+.matchBox .match-item {
+    position: relative;
+    height: 120px;
+    width: 135px;
+    float: left;
+    text-align: center;
+    padding: 0 10px;
+    font-size: 12px;
+    border-top: #f2f2f2 solid 1px;
+    border-left: #f2f2f2 dashed 1px;
+}
+
+.match-item .match-hd {
+    margin-top: 13px;
+    color: #333;
+}
+.match-item .middle{
+    /*margin: 0 36px;*/
+}
+.match-item .match-hd em {
+    line-height: 60px;
+}
+
+.match-item .match-hd img {
+    display: block;
+    width: 35px;
+    height: 43px;
+}
+
+.match-item .match-bd {
+    margin-top: 5px;
+}
+
+.match-item .match-fd {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 19px;
+    color: #666;
+    background-color: #f2f2f2;
+}
+
+.match-item .match-fd .matchTime {
+    padding: 0 5px;
+}
+/*赛事直播条 end*/
+/*match_ css*/
+.matchBar_{
+    position: relative;
+    height: 100px;
+}
+.matchBar_ .tabBtn{
+    width: 25px;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    color: #808080;
+}
+.csl .tabBtn:visited{
+    color: #fff;
+}
+.csl .tabBtn:hover{
+    background-color: #ed1c24;
+    color: #fff;
+}
+.matchBar_ .tabPrev{
+    left: 15px;
+}
+.matchBar_ .tabNext{
+    right: 15px;
+}
+.matchBar_ .tabBtn em{
+    margin-top: 38px;
+}
+.matchBox_{
+    position: relative;
+    height: 100px;
+    margin: 0 60px;
+    overflow: hidden;
+}
+.matchBox_ ul{
+    width: 1000%;
+}
+.matchBox_ .matchItem{
+    float: left;
+    padding: 0 6px;
+    height: 100px;
+    width: 183px;
+}
+.matchItem dl{
+    border-radius: 5px;
+    border: #e6e6e6 solid 1px;
+    font-size: 1.4em;
+    color: #666666;
+}
+.matchItem dt{
+    background-color: #e6e6e6;
+    line-height: 2em;
+    font-weight: 800;
+    padding: 0 10px;
+}
+.matchItem dd{
+    padding: 25px 10px;
+}
+/*match_ end*/
+.section{
+    margin-bottom: 20px;
+}
+.csl .info-item-nav{
+    border-bottom: 2px solid #00a0e9;
+}
+.info-item-nav{
+    height: 40px;
+    font-size: 2em;
+    line-height: 2em;
+    margin-bottom: 15px;
+}
+.info-item-nav-icon{
+    color: #fff;
+    text-indent: 35px;
+    width: 191px;
+    background: url("../images/nav.png") 0 0 no-repeat;
+    background-size: 191px;
+}
+.nav-item{
+    float: left;
+    width: auto;
+    border-radius: 5px 5px 0 0;
+    color: #666666;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 10px;
+    padding: 0 10px;
+}
+.nav-item.current,.nav-item:hover{
+    background-color: #00a0e9;
+    color: #fff;
+}
+.tab-box{
+    display: none;
+}
+.tab-box.current{
+    display: block;
+}
+/*team-info css*/
+.team .side-title{
+    background-color: transparent;
+    border-bottom: none;
+}
+.team-info {
+    position: relative;
+    margin-bottom: 20px;
+}
+.team-icon {
+    display: block;
+    text-align: center;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.team-icon img {
+    /*border: #e6e6e6 solid 1px;*/
+    /*height: 130px;*/
+}
+
+.team-info-bd {
+    margin-left: 150px;
+    margin-right: 150px;
+    color: #4d4d4d;
+}
+
+.team-info-bd-title {
+    line-height: 36px;
+    margin-bottom: 16px;
+    font-size: 2em;
+    border-bottom: #e6e6e6 solid 1px;
+}
+
+.team-info-bd .SpecRankInfo .rank {
+    color: #fff;
+    height: 100%;
+    width: 80px;
+    overflow: hidden;
+}
+.csl .team-info-bd .SpecRankInfo .rank{
+    background-color: #ed1c24;
+}
+
+.team-info-bd .SpecRankInfo .rankNum {
+    display: block;
+    font-size: 2.5em;
+    line-height: 45px;
+}
+
+.team-info-bd .SpecRankInfo tr:first-child {
+    font-size: 1.4em;
+    font-weight: normal;
+}
+
+.team-info-bd .SpecRankInfo tr {
+    text-align: center;
+    font-weight: 800;
+    line-height: 30px;
+    font-size: 1.8em;
+}
+.csl .total{
+    color: #ed1c24;
+}
+
+.team-member{
+    margin-bottom: 20px;
+}
+.team-member-box{
+    background-color: #F2F2F2;
+    padding-top: 18px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.team-member-box ul{
+    width: 110%;
+}
+.team-member-box li{
+    float: left;
+    padding-right: 10px;
+}
+.team-member-box li img{
+    display: block;
+    width: 125px;
+    height: 160px;
+}
+.team-member-box li>a{
+    display: block;
+    color: #000;
+    font-size: 1.6em;
+    line-height: 2em;
+    font-weight: 800;
+    text-align: center;
+}
+
+.team-count{
+    margin-bottom: 20px;
+}
+
+/*banner css*/
+.banner{
+    position: relative;
+    height: 463px;
+    overflow: hidden;
+}
+.banner .banner-bd{
+    position: relative;
+    height: 350px;
+    margin-bottom: 10px;
+    background-color: #333333;
+    overflow: hidden;
+}
+.banner-bd>a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.banner-bd img{
+    height: 100%;
+    visibility: hidden;
+}
+.banner-bd .banner-title{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0,0,0,.6);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+    color: #fff;
+}
+.banner-title a{
+    font-size: 1.4em;
+    color: #fff;
+}
+.banner-title a:hover{
+    color: #00a0e9;
+}
+.banner-title .banner-num{
+    font-size: 3em;
+    color: #fff;
+    width: 150px;
+    margin-top: 15px;
+    text-align: center;
+}
+.banner-title .banner-index{
+    position: relative;
+    top: -15px;
+    color: #e71f20;
+}
+.banner-title .banner-title-text{
+    padding: 10px 0;
+}
+.banner-title-text h1{
+    font-size: 1.4em;
+}
+.banner .banner-fd{
+    position: relative;
+    height: 100px;
+    background-color: #F2F2F2;
+}
+.banner-fd li{
+    float: left;
+    box-sizing: border-box;
+    height:100px;
+    border: #c3c3c3 solid 1px;
+    width: 20%;
+    overflow: hidden;
+}
+.banner-fd li.active{
+    border-color:#e71f20 ;
+}
+.banner-fd li img{
+    display: block;
+    width: 100%;
+}
+/*banner end*/
+/*榜样式*/
+.notice-title{
+    font-size: 1.4em;
+    line-height: 2.2em;
+    color: #4d4d4d;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+.notice-title ul{
+    width: 110%;
+}
+.notice-title li{
+    float: left;
+    width: 125px;
+    text-align: center;
+    cursor: pointer;
+}
+.notice-title li.current{
+    border-top: 1px solid #4d4d4d;
+    background-color: #fff;
+}
+/*noticeTable css*/
+.noticeTable tr {
+    font-size: 1.4em;
+    line-height: 2.5em;
+    color: #808080;
+    text-align: center;
+    border-bottom: 1px solid #e6e6e6;
+}
+.noticeTable tr:hover {
+    background-color: #f8f8f8;
+}
+.noticeTable tr .picTog img {
+    height: 43px;
+}
+.noticeTable tr .player-icon img {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+}
+.noticeTable tr .picTog {
+    display: none;
+}
+.noticeTable tr.active .picTog {
+    display: block;
+}
+.noticeTable th {
+    font-weight: normal;
+    text-align: center;
+}
+.noticeTable td{
+    padding: 5px 0;
+}
+.rank-icon{
+    border-radius: 5px;
+    background-color: #808080;
+    color: #fff;
+    padding: 0 5px;
+}
+.rank-icon.hot{
+    background-color:#ed1c24 ;
+}
+.notice-other{
+    display: block;
+    font-size: 1.4em;
+    line-height: 2.2em;
+    background-color: #fafafa;
+    text-align: center;
+}
+

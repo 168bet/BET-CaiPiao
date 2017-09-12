@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>{$SEO['title']}</title>
+      <meta name="keywords" content="{$SEO['keyword']}">
+      <meta name="description" content="{$SEO['description']}">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <link rel="shortcut icon" href="/favicon.ico">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+      <!-- build css -->
+      <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+      <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+      <link rel="stylesheet" href="{WAP_CSS_PATH}font-awesome.min.css">
+      <link rel="stylesheet" href="{WAP_CSS_PATH}main.css">
+      <link rel="stylesheet" href="{WAP_CSS_PATH}ft_match.css">
+    <!-- build css end -->
+
+
+  </head>
+  <body>
+    <div class="page-group">
+
+        <div class="page page-current" id="ft_database">
+
+            {template 'wap', 'ft_game_info'}
+
+            <div class="content">
+                <!-- 二级导航 -->
+                <div class="buttons-tab">
+                    <a href="{WAP_PATH}game/{$gameid}/event/" class="tab-item button">事件</a>
+                    <a href="{WAP_PATH}game/{$gameid}/lineup/" class="tab-item button">阵容</a>
+                    <a href="{WAP_PATH}game/{$gameid}/analyse/" class="tab-item button">分析</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddsasia/" class="tab-item active button">亚赔</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddseuro/" class="tab-item button">欧赔</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddsou/" class="tab-item button">大小</a>
+                </div>
+                <!-- 二级导航 end-->
+
+                <div class="lump">
+                    
+                    <div class="lump-title">
+                        <table class="table-head table">
+                            <tr>
+                                <td width="22.3%">公司</td>
+                                <td width="35.6%">初盘</td>
+                                <td>即时盘</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="lump-content">
+                        {loop $odds $data}
+                        <div class="lump-item">
+                            <table class="table  table-noborder">
+                                <tr>
+                                    <td class="border" width="22.3%">{$data['companyname']}</td>
+                                    <td width="11.86%">{$data['fup']}</td>
+                                    <td width="11.86%">{$data['fgive']}</td>
+                                    <td width="11.86%" class="border">{$data['fdown']}</td>
+                                    <td>
+                                        <span class="{$data['up_trend']}">{$data['up']}</span>
+                                    </td>
+                                    <td>
+                                        <span class="{$data['give_trend']}">{$data['give']}</span>
+                                    </td>
+                                    <td>
+                                        <span class="{$data['down_trend']}">{$data['down']}</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        {/loop}
+                    </div>
+                </div>
+
+                {template 'wap', 'footer_nav'}
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+    {template 'wap', 'wap_footer'}

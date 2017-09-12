@@ -1,0 +1,335 @@
+/*for SI2*/
+html, body {
+	margin: 0px;
+	padding: 0px;
+	background: url(/images/member/head_bg_ft.jpg) repeat-x left top;
+	behavior:url(/style/member/csshover.htc);
+	
+}
+
+#container { /*position: relative;*/	
+}
+#header {	margin: 0px;	padding: 0px;}
+#header h1 {
+	/*behavior: url(png-opacity.htc);*/
+	background: transparent url(/images/member/inda_head_l.png) no-repeat left top;
+	margin: 0px;
+	display: block;
+	height: 56px;
+	padding: 0px;
+}
+#header span {
+	background: transparent url(/images/member/inda_head_r.jpg) no-repeat right top;
+	display: block;
+	height: 56px;
+}
+ul {	margin: 0;	padding: 0;}
+a { text-decoration: none;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ link 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#nav {
+	margin-left: 160px;
+	margin-top: 4px;
+	width:600px;
+	padding-left:10px;
+	padding-right:10px;
+	font-size:0.75em;
+	background-color: #D7D7C1;
+	white-space: nowrap;
+	position: absolute;
+	z-index: 2;
+	top: 56px;
+}
+#nav li {
+	list-style:none;
+	display:inline;
+	height:17px;
+	background:url(/images/member/head_nav_arr.gif) no-repeat left top;
+	padding-top: 3px; margin-top:0;
+}
+#nav a { padding:4px 4px 1px 14px;}
+#nav a:link, #nav a:visited { color: #000;}
+#nav a:hover { color: #00F;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ Early ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+div#nav li.early { position:relative;}
+div#nav .level2 a { display:block; float:left; padding:5px 4px 5px; text-decoration:none;}
+div#nav .level2 a:hover { background-color:#E5E096;}
+div#nav ul ul li { /*z-index:102;*/list-style:none; background:none;}
+div#nav ul.level1 li.early:hover ul.level2 { display:block; height:29px;}
+div#nav ul.level1 li.early:hover {background:transparent url(/images/member/head_leve2_arr.gif) no-repeat 8px 0;}
+div#nav ul.level2 {
+	top: -29px;
+	left:-80px;
+	position: absolute;
+	display:none;
+	border:1px solid #000;
+	background:#EDEED6;
+	visibility: visible;
+	
+}
+div#nav ul.level2 .tu { padding-left:10px;}
+#type, .fs { clear:left;}
+html > body div#nav ul ul { white-space:nowrap;}
+html > body div#nav ul.level2 {top: -27px;}
+html > body #back li { white-space:nowrap;}
+html > body .early:hover .level2 { display:block;}
+#type .ertitle { color:#FF3;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ link 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#type {
+	position: absolute;
+	top:81px;
+	clear:left;
+	font-size:0.75em;
+	padding-left:20px;
+	background: transparent url(/images/member/head_typ_ft.jpg) no-repeat left top;
+	border-left: 160px solid #413C15;
+	width:100%;
+	white-space: nowrap;
+	width:1000px;
+	visibility: visible;
+}
+#type li { list-style:none; display:inline; float:left; height:20px;}
+#type a { display:block; padding-top:3px; padding-left:14px;}
+#type a:link, #type a:visited { color: #FFF;}
+#type a:hover { color: #FF0;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ Game chuang ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+html#HFU, body#HFU { background-image: url(/images/member/head_bg_fu.jpg); }
+#HFU #type { background-image: url(/images/member/head_typ_fu.jpg);}
+html#HBK, body#HBK { background-image: url(/images/member/head_bg_bk.jpg); }
+#HBK #type { background-image: url(/images/member/head_typ_bk.jpg);}
+html#HTN, body#HTN { background-image: url(/images/member/head_bg_tn.jpg); }
+#HTN #type { background-image: url(/images/member/head_typ_tn.jpg);}
+html#HTU, body#HTU { background-image: url(/images/member/head_bg_tu.jpg); }
+#HTU #type { background-image: url(/images/member/head_typ_tu.jpg);}
+html#HVB, body#HVB { background-image: url(/images/member/head_bg_vb.jpg); }
+#HVB #type { background-image: url(/images/member/head_typ_vb.jpg);}
+html#HVU, body#HVU { background-image: url(/images/member/head_bg_vu.jpg); }
+#HVU #type { background-image: url(/images/member/head_typ_vu.jpg);}
+html#HFS, body#HFS { background-image: url(/images/member/head_bg_fs.jpg); }
+#HFS #type { background-image: url(/images/member/head_typ_fs.jpg);}
+html#HBU, body#HBU { background-image: url(/images/member/head_bg_bu.jpg); }
+#HBU #type { background-image: url(/images/member/head_typ_bu.jpg);}
+html#HBS, body#HBS { background-image: url(/images/member/head_bg_bs.jpg); }
+#HBS #type { background-image: url(/images/member/head_typ_bs.jpg);}
+html#HBE, body#HBE { background-image: url(/images/member/head_bg_be.jpg); }
+#HBE #type { background-image: url(/images/member/head_typ_be.jpg);}
+html#HOP, body#HOP { background-image: url(/images/member/head_bg_op.jpg); }
+#HOP #type { background-image: url(/images/member/head_typ_op.jpg);}
+html#HOM, body#HOM { background-image: url(/images/member/head_bg_om.jpg); }
+#HOM #type { background-image: url(/images/member/head_typ_om.jpg);}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~Game Selection~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body#HFT li.ft a:link, body#HFT li.ft a:visited,
+body#HFU li.fu a:link, body#HFU li.fu a:visited,
+body#HBK li.bk a:link, body#HBK li.bk a:visited,
+body#HBU li.bk a:link, body#HBU li.bk a:visited, body#HBU #nav li.bu a,
+body#HTN li.tn a:link, body#HTN li.tn a:visited,
+body#HTU li.tn a:link, body#HTU li.tn a:visited, body#HTU #nav li.tu a,
+body#HVB li.vb a:link, body#HVB li.vb a:visited,
+body#HVU li.vb a:link, body#HVU li.vb a:visited, body#HVU #nav li.vu a,
+body#HFS li.fs a:link, body#HFS li.fs a:visited,
+body#HBS li.bs a:link, body#HBS li.bs a:visited,
+body#HBE li.bs a:link, body#HBE li.bs a:visited, body#HBE #nav li.be a,
+body#HOP li.op a:link, body#HOP li.op a:visited,
+body#HOM li.om a:link, body#HOM li.om a:visited, body#HOM #nav li.om a
+{ color: #900;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ Mobile phone link ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#live {
+	position: absolute;
+	left: 245px;
+	top: 32px;
+	width:115px;
+	height:24px;
+	visibility: visible;
+}
+#live span {
+	display: block;
+	width:115px;
+	letter-spacing:0.1em;
+	background: url(/images/member/head_live.gif) no-repeat;
+	height: 24px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-left: 15px;
+}
+#live a  {display: block; width:100%; height:auto; padding: 9px 0 0 12px;}
+#download a {
+	display: block;
+	width:100%;
+	height:auto;
+	bottom: 0px;
+	padding-top: 5px;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0px;
+	_position: relative;	
+}
+
+
+#download {
+	position: absolute;
+	top: 32px;
+	width:115px;
+	height:25px;
+	left: 520px;	
+}
+#download span {
+	display: block;
+	width:110px;
+	letter-spacing:0.1em;
+	height: 25px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-left: 30px;
+	background-image: url(../../images/member/head_down.png);
+	background-repeat: no-repeat;
+	/*IE6 */  
+    _background: transparent;  
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../images/member/head_down.png', sizingMethod='scale'); 
+}
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ Data link ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#back {
+	position: absolute;
+	margin-left: 680px;
+	top: 0px;
+	visibility: visible;
+}
+#back li {display: block;padding-left: 30px;font: 12px Arial, Helvetica, sans-serif;clear: right;height: 24px;padding-top: 5px;}
+#back li.mem {
+	position: absolute;
+	background: url(/images/member/inda_all.gif) no-repeat;
+	white-space: nowrap;
+	visibility: visible;
+}
+#back li.rul {position: absolute;background: url(/images/member/inda_all.gif) no-repeat;margin-left: 90px;}
+#back li.home {
+	position: absolute;
+	background: url(/images/member/inda_all.gif) no-repeat;
+	margin-left: 65px;
+	visibility: visible;
+}
+#back li.qa {position: absolute;background: url(/images/member/inda_all.gif) no-repeat;margin-left: 142px;}
+#back li.est {
+	margin-top: -40px;
+	position: absolute;
+	margin-left: -130px;
+	background-image: url(/images/member/EST_bg.gif);
+	background-repeat: no-repeat;
+	height: 24px;
+	width: 130px;
+	visibility: visible;
+	/*display: none;*/
+}
+#back .est2 {
+	white-space: nowrap;
+	color: #FFFFFF;
+	margin-top: -2px;
+	margin-left: -2px;
+}
+#back .time {
+	margin-left: 25px;
+	margin-top: -16px;
+}
+#back span {
+	float: right;
+	text-decoration: none;
+	color: #FFF;
+	width: 0.1em;
+	background: url(/images/member/inda_all.gif) 100% 0 no-repeat;
+	padding: 0 12px 0 0;
+	top: 0px;
+	position: absolute;
+	height: 24px;
+	visibility: visible;
+}
+#back a:link, #back a:visited {color: #FC0; }
+#back a:hover {color: #FFF; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ For Mac/Safari Fix ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+html > body #nav { width: 640px; margin-top: 7px;}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ Hideaway link ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#extra2 {	display: none;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Extra link R.B ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#extra1 {
+	position: absolute;
+	left: 350px;
+	top: 32px;
+	width:110px;
+	height:24px;
+	visibility: visible;
+}
+#extra1 span {
+	display: block; width:110px; height:24px; text-align: center; font: 12px Arial, Helvetica, sans-serif; letter-spacing:0.1em;
+	background: url(/images/member/head_rb_ft.gif) no-repeat;
+	}
+#extra1 a {display: block; width:100%; height:auto; padding: 9px 18px 0 0;}
+#extra1 a:link, #extra1 a:visited, #live a:link, #live a:visited, #download a:link, #download a:visited  {color: #3F1F00;}
+#extra1 a:hover, #live a:hover {color: #900;}
+#HFT #extra1 span { background-image: url(/images/member/head_rb_ft.gif);}
+#HBK #extra1 span { background-image: url(/images/member/head_rb_bk.gif);}
+#HVB #extra1 span { background-image: url(/images/member/head_rb_vb.gif);}
+#HTN #extra1 span { background-image: url(/images/member/head_rb_tn.gif);}
+#HBS #extra1 span { background-image: url(/images/member/head_rb_bs.gif);}
+#HOP #extra1 span { background-image: url(/images/member/head_rb_op.gif);}
+#HFU #extra1, #HBU #extra1, #HFS #extra1, #HBE #extra1,  #HTU #extra1, #HVU #extra1,#HOM #extra1 { display: none;}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ Extra link Baccarat ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*#extra2 {	position: absolute;	left: 250px;	top: 2px;width:140px; height:27px; background: url(/images/member/head_ad_ba.gif) no-repeat 0 0;}
+#extra2 a { display:block; width:140px; height:27px;}*/
+
+.info {
+	font-size:0.75em;
+	white-space: nowrap;
+	position: absolute;
+	left: 580px;
+	padding-top: 5px;
+	display: none;
+	top: 19px;
+	visibility: visible;
+	z-index: 3;
+}
+.info  td {
+	list-style-type: circle;
+	font-family: Arial, Helvetica, sans-serif;
+	white-space: nowrap;
+	font-size: 0.75em;
+	padding-top: 2px;
+	padding-right: 10px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	border: 2px groove #BBBBA6;
+	background-color: #663300;
+	moz-opacity:0.1;
+	opacity: 0.1;
+	filter:alpha(opacity=90);
+}
+
+#mose a {
+	/*padding:4px 4px 1px 10px;*/
+	background-position: 2px;
+	/*padding-left: 5px;*/
+}
+#mose a:link, #mose a:visited {
+	color: #FFFFFF;
+}
+#mose a:hover {
+	color: #FFFF00;
+}
+/*ul#back li.mem:hover div.info { display:block; }*/
+/*html > body #back.mem:hover div.info { display:block;}*/
+#LIKE {
+	position: absolute;
+	top: 25px;
+	left: 630px;
+	z-index: 1;
+}
+#LIKE .Xbut {
+	position: absolute;
+	float: right;
+	padding-left: 20px;
+}
+div#nav ul.level1 li.six {background:#e5e096}
+div#nav ul.level1 li.six a { color:red}

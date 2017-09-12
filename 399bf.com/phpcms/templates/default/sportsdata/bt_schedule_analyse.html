@@ -1,0 +1,2877 @@
+{php $css = ['bt_schedule_analyse.css'];}
+{template 'content', 'header_score'}
+
+<!-- nav -->
+<nav>
+    <div class="container">
+        <div class="crumbs" style="margin-top: 5px;">
+            <i class="crumbs-icon"></i>当前位置：
+            <a href="{APP_PATH}" class="orange">首页</a>&gt;
+            <a href="{APP_PATH}lqevent/" class="orange">篮球资料库</a>&gt;
+            <a href="{APP_PATH}sclass/{$scheduleData['scheduleid']}/schedule/" class="orange">{$scheduleData['sclassname_cn']}</a>&gt;
+            {$scheduleData['homename_cn']} vs {$scheduleData['guestname_cn']}
+        </div>
+        <div class="row matchNav">
+
+            <div class="matchNav-hd clearfix">
+                <div class="col-md-4">
+                    <div class="match-tip">
+                        <span>
+                            {$sclassData['name_s']}
+                            {$scheduleData['sclasscategory_cn']}
+                        </span>
+                        <span>{$scheduleData['sclassseason']}</span>
+                    </div>
+                    <div class="match-team">
+                        <div class="team-rank">联赛排名：{$homeScheduleArr[0][0][6]}</div>
+                        <div class="team-name"><a href="{APP_PATH}lq/team/{$scheduleData['hometeamid']}/" target="_blank">{$scheduleData['homename_cn']}</a></div>
+                    </div>
+                    <div class="match-team-icon">
+                        <a href="{APP_PATH}lq/team/{$scheduleData['hometeamid']}/" target="_blank">
+                            <img src="{BT_TEAM_PATH}{$scheduleData['hometeamid']}.jpg" alt="" class="bt-team-photo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="match-score">
+                        <div class="line-score">
+                            <div class="team-score">{$scheduleData['homescore']}:{$scheduleData['guestscore']}</div>
+                            <div>半场{$scheduleData['homehalfscore']}:{$scheduleData['guesthalfscore']}</div>
+                        </div>
+                        <div class="line-site">
+                            <div>
+                                <i class="site-icon"></i>
+                                {$scheduleData['stadium']}
+                            </div>
+                            <div>
+                                <span class="">状态:</span>
+                                {$scheduleData['status_cn']}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 right">
+                    <div class="match-team-icon">
+                        <a href="{APP_PATH}lq/team/{$scheduleData['guestteamid']}/" target="_blank">
+                            <img src="{BT_TEAM_PATH}{$scheduleData['guestteamid']}.jpg" alt="" class="bt-team-photo">
+                        </a>
+                    </div>
+                    <div class="match-team">
+                        <div class="team-rank">联赛排名：{$homeScheduleArr[2][0][6]}</div>
+                        <div class="team-name"><a href="{APP_PATH}lq/team/{$scheduleData['guestteamid']}/" target="_blank">{$scheduleData['guestname_cn']}</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="matchNavBar">
+                <ul class="clearfix">
+                    <li><a href="javascript:;" class="active">分析</a></li>
+                    <li><a href="{APP_PATH}schedule/{$scheduleData['scheduleid']}/euro/">欧赔</a></li>
+                    <li><a href="{APP_PATH}schedule/{$scheduleData['scheduleid']}/asia/">让分</a></li>
+                    <li><a href="{APP_PATH}schedule/{$scheduleData['scheduleid']}/ou/">总分</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>
+<!-- nav end -->
+
+<!-- main body -->
+<section class="main pdB20" id="table-content">
+    <div class="container">
+        <div class="row">
+
+            <!-- 联赛积分排名 -->
+            <div class="score-item bt_scoreitem" id="scoreRank">
+
+                <div class="score-item-hd">
+                    <span class="score-item-title">联赛积分排名</span>
+                </div>
+
+                <div class="score-item-bd pdB20">
+
+                    <div class="row">
+                        <div class="col-md-6 pdR0">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td colspan="9" class="">{$scheduleData['homename_cn']}</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th width="65">全场</th>
+                                        <th>赛</th>
+                                        <th>胜</th>
+                                        <th>负</th>
+                                        <th>得</th>
+                                        <th>失</th>
+                                        <th>净</th>
+                                        <th>排名</th>
+                                        <th class="">胜率</th>
+                                    </tr>
+                                    {loop $homeScheduleArr[0] $key $item}
+                                    <tr>
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td><span class="red">{$item[3]}</span></td>
+                                        <td><span class="red">{$item[4]}</span></td>
+                                        <td><span class="red">{$item[5]}</span></td>
+                                        <td>{$item[6]}</td>
+                                        <td class="">{$item[7]}</td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                                <tbody>
+                                <tr>
+                                    <th width="65">半场</th>
+                                    <th>赛</th>
+                                    <th>胜</th>
+                                    <th>负</th>
+                                    <th>得</th>
+                                    <th>失</th>
+                                    <th>净</th>
+                                    <th>排名</th>
+                                    <th class="">胜率</th>
+                                </tr>
+                                {loop $homeScheduleArr[1] $key $item}
+                                <tr>
+                                    <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                    <td>{$item[0]}</td>
+                                    <td>{$item[1]}</td>
+                                    <td>{$item[2]}</td>
+                                    <td><span class="red">{$item[3]}</span></td>
+                                    <td><span class="red">{$item[4]}</span></td>
+                                    <td><span class="red">{$item[5]}</span></td>
+                                    <td>{$item[6]}</td>
+                                    <td class="">{$item[7]}</td>
+                                </tr>
+                                {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 pdL0">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td colspan="9" class="border">{$scheduleData['guestname_cn']}</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th width="65">全场</th>
+                                        <th>赛</th>
+                                        <th>胜</th>
+                                        <th>负</th>
+                                        <th>得</th>
+                                        <th>失</th>
+                                        <th>净</th>
+                                        <th>排名</th>
+                                        <th>胜率</th>
+                                    </tr>
+                                    {loop $homeScheduleArr[2] $key $item}
+                                    <tr>
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td><span class="red">{$item[3]}</span></td>
+                                        <td><span class="red">{$item[4]}</span></td>
+                                        <td><span class="red">{$item[5]}</span></td>
+                                        <td>{$item[6]}</td>
+                                        <td class="">{$item[7]}</td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                                <tbody>
+                                <tr>
+                                    <th width="65">全场</th>
+                                    <th>赛</th>
+                                    <th>胜</th>
+                                    <th>负</th>
+                                    <th>得</th>
+                                    <th>失</th>
+                                    <th>净</th>
+                                    <th>排名</th>
+                                    <th>胜率</th>
+                                </tr>
+                                {loop $homeScheduleArr[3] $key $item}
+                                <tr>
+                                    <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                    <td>{$item[0]}</td>
+                                    <td>{$item[1]}</td>
+                                    <td>{$item[2]}</td>
+                                    <td><span class="red">{$item[3]}</span></td>
+                                    <td><span class="red">{$item[4]}</span></td>
+                                    <td><span class="red">{$item[5]}</span></td>
+                                    <td>{$item[6]}</td>
+                                    <td class="">{$item[7]}</td>
+                                </tr>
+                                {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 交往战绩 -->
+            <div class="score-item" id="jiaowang">
+                <div class="score-item-hd">
+                    <span class="score-item-title">交往战绩</span>
+                </div>
+
+                <div class="score-item-bd">
+                    <table class="table">
+                        <tr>
+                            <th class="border">赛事</th>
+                            <th class="border">比赛时间</th>
+                            <th>主队</th>
+                            <th>比分</th>
+                            <th class="border">客队</th>
+                            <th class="border">胜负</th>
+                            <th class="border">分差</th>
+                            <th class="border">让分盘</th>
+                            <th class="border">盘路</th>
+                            <th class="border">总分</th>
+                            <th class="border">总分盘</th>
+                            <th>盘路</th>
+                        </tr>
+                        {loop $beforeSchedule['sclass'] $key $item}
+                        <tr>
+                            <td class="border">{$item['sclassname_cn']}</td>
+                            <td class="border">{date('Y-m-d', $item['date'])}</td>
+                            <td>{$item['homename_cn']}</td>
+                            <td>
+                                <span class="red">{$item['homescore']}-{$item['guestscore']}</span>
+                                <span class="orange">{$item['homehalfscore']}-{$item['guesthalfscore']}</span>
+                            </td>
+                            <td class="border">{$item['guestname_cn']}</td>
+                            <td class="border"><span class="green">{$item['result']}</span></td>
+                            <td class="border"><span class="red">{$item['poor']}</span></td>
+                            <td class="border">{$item['letgoal']}</td>
+                            <td class="border"><span class="red">{$item['plate']}</span></td>
+                            <td class="border"><span class="greenA">{$item['total_points']}</span></td>
+                            <td class="border">{$item['totalscore']}</td>
+                            <td><span class="red">{$item['total_plate']}</span></td>
+                        </tr>
+                        {/loop}
+                    </table>
+                </div>
+
+                <div class="score-item-fd">
+                    <p class="hint">
+                        两队近
+                        <span class="red">{$beforeSchedule['match'][0]}</span>
+                        场交锋，{$scheduleData['homename_cn']}胜
+                        <span class="red">{$beforeSchedule['match'][1]}</span>
+                        场，胜率:
+                        <span class="red">{$beforeSchedule['match'][2]}</span>,
+                        让分胜率:
+                        <span class="red">{$beforeSchedule['match'][3]}</span>
+                        大球率为:
+                        <span class="red">{$beforeSchedule['match'][4]}</span>
+
+                    </p>
+                </div>
+            </div>
+
+            <!-- 近期战绩 -->
+            <div class="score-item bt_scoreitem" id="jinqi">
+                <div class="score-item-hd">
+                    <span class="score-item-title">近期战绩</span>
+                </div>
+
+                <div class="score-item-bd">
+                    <div class="row">
+                        <div class="col-md-6 pdR0">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td colspan="9" class=" text-left">
+                                            <b class="team-label">{$scheduleData['homename_cn']}</b>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default" id="homeRecentButton" data-toggle="dropdown">
+                                                    近10场
+                                                    <i class="icon-angle-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="homeRecentButton">
+                                                    <ul>
+                                                        <li onclick="homeRecent(2)">5</li>
+                                                        <li onclick="homeRecent(3)">10</li>
+                                                        <li onclick="homeRecent(4)">20</li>
+                                                        <li onclick="homeRecent(1)">总</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <label for="recent_home" class="checkbox-inline" onclick="homeRecent('', 'home')">
+                                                <input type="checkbox" id="recent_home">
+                                                <i class="table-checkbox"></i>
+                                                主场
+                                            </label>
+                                            <label for="recent_general" class="checkbox-inline" onclick="homeRecent('', 'general')">
+                                                <input type="checkbox" id="recent_general" checked="checked" >
+                                                <i class="table-checkbox"></i>
+                                                常规赛
+                                            </label>
+                                            <label for="recent_season_before" class="checkbox-inline" onclick="homeRecent('', 'before')">
+                                                <input type="checkbox" id="recent_season_before">
+                                                <i class="table-checkbox"></i>
+                                                季前赛
+                                            </label>
+                                            <label for="recent_season_after" class="checkbox-inline" onclick="homeRecent('', 'after')">
+                                                <input type="checkbox" id="recent_season_after" checked="checked">
+                                                <i class="table-checkbox"></i>
+                                                季后赛
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>NBA</th>
+                                        <th>时间</th>
+                                        <th>主队</th>
+                                        <th>比分</th>
+                                        <th>客队</th>
+                                        <th>胜负</th>
+                                        <th>分差</th>
+                                        <th>盘口</th>
+                                        <th class="">盘路</th>
+                                    </tr>
+                                    {loop $recentSchedule['home'] $key $item}
+
+                                    <tr class="homeRecentAll homeRecent{$key} {if $item['hometeamid'] != $hometeamid}guestData{/if} category{$item['sclasscategory']}"  {if $item['sclasscategory']==1}style="display: none;"{/if}>
+                                        <td>{$item['sclassname_cn']}</td>
+                                        <td>{date('y-m-d', $item['date'])}</td>
+                                        <td class="{if $item['hometeamid'] == $hometeamid}orange{/if}">{$item['homename_cn']}</td>
+                                        <td>
+                                            <span class="red">{$item['homescore']}-{$item['guestscore']}</span>
+                                            <span class="orange">[{$item['homehalfscore']}-{$item['guesthalfscore']}]</span>
+                                        </td>
+                                        <td class="{if $item['guestteamid'] == $hometeamid}orange{/if}">{$item['guestname_cn']}</td>
+                                        <td><span class="{if $item['result']=='胜'}red win{else}green{/if}">{$item['result']}</span></td>
+                                        <td>{$item['poor']}</td>
+                                        <td>
+                                            {$item['letgoal']}
+                                            <span class="{if $item['total_result']=='大'}red big{else}green{/if}"></span>
+                                        </td>
+                                        <td><span class="{if $item['let_plate']=='赢'}red gain{else}green{/if}">{$item['let_plate']}</span></td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 pdL0">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td colspan="9" class="border text-left">
+                                            <b class="team-label">{$scheduleData['guestname_cn']}</b>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default" id="guestRecentButton" data-toggle="dropdown">
+                                                    近10场
+                                                    <i class="icon-angle-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="guestRecentButton">
+                                                    <ul>
+                                                        <li onclick="guestRecent(2)">5</li>
+                                                        <li onclick="guestRecent(3)">10</li>
+                                                        <li onclick="guestRecent(4)">20</li>
+                                                        <li onclick="guestRecent(1)">总</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <label for="guest_recent_home" class="checkbox-inline" onclick="guestRecent('')">
+                                                <input type="checkbox" id="guest_recent_home">
+                                                <i class="table-checkbox"></i>
+                                                客场
+                                            </label>
+                                            <label for="guest_recent_general" class="checkbox-inline" onclick="guestRecent('')">
+                                                <input type="checkbox" id="guest_recent_general" checked="checked" >
+                                                <i class="table-checkbox"></i>
+                                                常规赛
+                                            </label>
+                                            <label for="guest_recent_season_before" class="checkbox-inline" onclick="guestRecent('')">
+                                                <input type="checkbox" id="guest_recent_season_before">
+                                                <i class="table-checkbox"></i>
+                                                季前赛
+                                            </label>
+                                            <label for="guest_recent_season_after" class="checkbox-inline" onclick="guestRecent('')">
+                                                <input type="checkbox" id="guest_recent_season_after" checked="checked">
+                                                <i class="table-checkbox"></i>
+                                                季后赛
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>NBA</th>
+                                        <th>时间</th>
+                                        <th>主队</th>
+                                        <th>比分</th>
+                                        <th>客队</th>
+                                        <th>胜负</th>
+                                        <th>分差</th>
+                                        <th>盘口</th>
+                                        <th>盘路</th>
+                                    </tr>
+                                    {loop $recentSchedule['guest'] $key $item}
+                                    <tr class="guestRecentAll guestRecent{$key} {if $item['hometeamid'] == $guestteamid}homeData{/if} guest_category{$item['sclasscategory']}"  {if $item['sclasscategory']==1}style="display: none;"{/if}>
+                                    <td>{$item['sclassname_cn']}</td>
+                                    <td>{date('y-m-d', $item['date'])}</td>
+                                    <td class="{if $item['hometeamid'] == $hometeamid}orange{/if}">{$item['homename_cn']}</td>
+                                    <td>
+                                        <span class="red">{$item['homescore']}-{$item['guestscore']}</span>
+                                        <span class="orange">[{$item['homehalfscore']}-{$item['guesthalfscore']}]</span>
+                                    </td>
+                                    <td class="{if $item['guestteamid'] == $guestteamid}orange{/if}">{$item['guestname_cn']}</td>
+                                    <td><span class="{if $item['result']=='胜'}red win{else}green{/if}">{$item['result']}</span></td>
+                                    <td>{$item['poor']}</td>
+                                    <td>
+                                        {$item['letgoal']}
+                                        <span class="{if $item['total_result']=='大'}red big{else}green{/if}"></span>
+                                    </td>
+                                    <td><span class="{if $item['let_plate']=='赢'}red gain{else}green{/if}">{$item['let_plate']}</span></td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="score-item-fd row">
+                    <div class="col-md-6">
+                         <p class="hint">
+                            近<span class="red" name="homecount">10</span>场，
+                            胜<span class="red" name="homewin">5</span>负<span class="green" name="homelose">5</span>,
+                            胜率:
+                            <span class="red" name="homewin_rate">50%</span>,
+                            赢盘率:
+                            <span class="red" name="homedish_rate">50%</span>,
+                            大球率为:
+                            <span class="red" name="homeball_rate">30%</span>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                         <p class="hint">
+                            近<span class="red" name="guestcount">10</span>场，
+                            胜<span class="red" name="guestwin">5</span>负<span class="green" name="guestlose">5</span>,
+                            胜率:
+                            <span class="red" name="guestwin_rate">50%</span>,
+                            赢盘率:
+                            <span class="red" name="guestdish_rate">50%</span>,
+                            大球率为:
+                            <span class="red" name="guestball_rate">30%</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 让分盘路比较 -->
+            <div class="score-item bt_scoreitem" id="jinqiu">
+
+                <div class="score-item-hd">
+                    <span class="score-item-title">让分盘路比较</span>
+                </div>
+
+                 <div class="score-item-bd pdB20">
+                        <div class="row">
+                            <div class="col-md-6 pdR0">
+                                <table class="table bigTable">
+                                    <thead>
+                                        <tr>
+                                            <td colspan="7" class=" text-left">
+                                                <b class="team-label">{$scheduleData['homename_cn']}</b>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default" id="homeLetCompareButton" data-toggle="dropdown">
+                                                        近10场
+                                                        <i class="icon-angle-down"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="homeLetCompareButton">
+                                                        <ul>
+                                                            <li onclick="homeLetCompare(2)">5</li>
+                                                            <li onclick="homeLetCompare(3)">10</li>
+                                                            <li onclick="homeLetCompare(4)">20</li>
+                                                            <li onclick="homeLetCompare(1)">总</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="gray">
+                                            <td colspan="7" class="">全场</td>
+                                        </tr>
+                                        <tr class="gray">
+                                            <td>&nbsp;</td>
+                                            <td>赛</td>
+                                            <td>赢盘</td>
+                                            <td>走水</td>
+                                            <td>输盘</td>
+                                            <td>赢盘率</td>
+                                            <td class="">详情</td>
+                                        </tr>
+                                        {loop $letCompare[0] $key $item}
+                                        <tr class="homeLetCompare1" style="display: none;">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $letCompare[4] $key $item}
+                                        <tr class="homeLetCompare2" style="display: none;">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+
+                                            <td>{$item[0]}</td>
+
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+
+                                        {loop $letCompare[8] $key $item}
+                                        <tr class="homeLetCompare3">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+
+                                        {loop $letCompare[12] $key $item}
+                                        <tr class="homeLetCompare4" style="display: none;">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                    </tbody>
+                                    <tbody>
+                                        <tr class="gray">
+                                            <td colspan="7" class="">半场</td>
+                                        </tr>
+                                        <tr class="gray">
+                                            <td>&nbsp;</td>
+                                            <td>赛</td>
+                                            <td>赢盘</td>
+                                            <td>走水</td>
+                                            <td>输盘</td>
+                                            <td>赢盘率</td>
+                                            <td class="">详情</td>
+                                        </tr>
+                                        {loop $letCompare[1] $key $item}
+                                        <tr class="homeLetCompare1" style="display: none;">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $letCompare[5] $key $item}
+                                        <tr class="homeLetCompare2" style="display: none;">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $letCompare[9] $key $item}
+                                        <tr class="homeLetCompare3">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $letCompare[13] $key $item}
+                                        <tr class="homeLetCompare4" style="display: none;">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                    </tbody>
+                                    
+                                </table>
+                                <table class="table" style="border-top: none">
+                                    <thead>
+                                        <tr>
+                                            <td colspan="9" class="">
+                                                <b class="team-label">【相同历史盘口】</b>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default" id="homeSamePlateButton" data-toggle="dropdown">
+                                                        近5场
+                                                        <i class="icon-angle-down"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="homeSamePlateButton">
+                                                        <ul>
+                                                            <li onclick="homeSamePlate(1)">5</li>
+                                                            <li onclick="homeSamePlate(2)">10</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!--<label for="season_after2" class="checkbox-inline">-->
+                                                    <!--<input type="checkbox" id="season_after2">-->
+                                                    <!--<i class="table-checkbox"></i>-->
+                                                    <!--季后赛-->
+                                                <!--</label>-->
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>赛事</th>
+                                            <th>时间</th>
+                                            <th class="noBorder">主队</th>
+                                            <th class="noBorder">比分</th>
+                                            <th>客队</th>
+                                            <th>分差</th>
+                                            <th>胜负</th>
+                                            <th>盘口</th>
+                                            <th class="">盘路</th>
+                                        </tr>
+                                        {loop $letSameData['home'] $key $item}
+                                        <tr>
+                                            <td>{$item['sclassname_cn']}</td>
+                                            <td>{date('y-m-d', $item['date'])}</td>
+                                            <td class="noBorder"><span class="orange">{$item['homename_cn']}</span></td>
+                                            <td  class="noBorder">{$item['homescore']}-{$item['guestscore']}</td>
+                                            <td>{$item['guestname_cn']}</td>
+                                            <td>{$item['poor']}</td>
+                                            <td><span class="green">{$item['result']}</span></td>
+                                            <td>{$item['letgoal']}</td>
+                                            <td class=""><span class="green">{$item['let_plate']}</span></td>
+                                        </tr>
+                                        {/loop}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6 pdL0">
+                                <table class="table bigTable">
+                                    <thead>
+                                        <tr>
+                                            <td colspan="7" class="text-left">
+                                                <b class="team-label">{$scheduleData['guestname_cn']}</b>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default" id="jw_dropA" data-toggle="dropdown">
+                                                        近10场
+                                                        <i class="icon-angle-down"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="jw_dropA">
+                                                        <ul>
+                                                            <li onclick="guestLetCompare(2)">5</li>
+                                                            <li onclick="guestLetCompare(3)">10</li>
+                                                            <li onclick="guestLetCompare(4)">20</li>
+                                                            <li onclick="guestLetCompare(1)">总</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="gray">
+                                            <td colspan="7">全场</td>
+                                        </tr>
+                                        <tr class="gray">
+                                            <td>&nbsp;</td>
+                                            <td>赛</td>
+                                            <td>赢盘</td>
+                                            <td>走水</td>
+                                            <td>输盘</td>
+                                            <td>赢盘率</td>
+                                            <td>详情</td>
+                                        </tr>
+                                        {loop $letCompare[2] $key $item}
+                                        <tr class="guestLetCompare1" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $letCompare[6] $key $item}
+                                        <tr class="guestLetCompare2" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $letCompare[10] $key $item}
+                                        <tr class="guestLetCompare3">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $letCompare[14] $key $item}
+                                        <tr class="guestLetCompare4" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+
+                                    </tbody>
+                                    <tbody>
+                                        <tr class="gray">
+                                            <td colspan="7">半场</td>
+                                        </tr>
+                                        <tr class="gray">
+                                            <td>&nbsp;</td>
+                                            <td>赛</td>
+                                            <td>赢盘</td>
+                                            <td>走水</td>
+                                            <td>输盘</td>
+                                            <td>赢盘率</td>
+                                            <td>详情</td>
+                                        </tr>
+                                        {loop $letCompare[3] $key $item}
+                                        <tr class="guestLetCompare1" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $letCompare[7] $key $item}
+                                        <tr class="guestLetCompare2" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $letCompare[11] $key $item}
+                                        <tr class="guestLetCompare3">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $letCompare[15] $key $item}
+                                        <tr class="guestLetCompare4" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                    </tbody>
+                                </table>
+                                 <table class="table" style="border-top: none">
+                                    <thead>
+                                        <tr>
+                                            <td colspan="9" class="">
+                                                <b class="team-label">【相同历史盘口】</b>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default" id="guestSamePlateButton" data-toggle="dropdown">
+                                                        近5场
+                                                        <i class="icon-angle-down"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="guestSamePlateButton">
+                                                        <ul>
+                                                            <li onclick="guestSamePlate(1)">5</li>
+                                                            <li onclick="guestSamePlate(2)">10</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!--<label for="season_after3" class="checkbox-inline">-->
+                                                    <!--<input type="checkbox" id="season_after3">-->
+                                                    <!--<i class="table-checkbox"></i>-->
+                                                    <!--季后赛-->
+                                                <!--</label>-->
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>赛事</th>
+                                            <th>时间</th>
+                                            <th class="noBorder">主队</th>
+                                            <th class="noBorder">比分</th>
+                                            <th>客队</th>
+                                            <th>分差</th>
+                                            <th>胜负</th>
+                                            <th>盘口</th>
+                                            <th>盘路</th>
+                                        </tr>
+                                        {loop $letSameData['guest'] $key $item}
+                                        <tr>
+                                            <td>{$item['sclassname_cn']}</td>
+                                            <td>{date('y-m-d', $item['date'])}</td>
+                                            <td class="noBorder"><span class="orange">{$item['homename_cn']}</span></td>
+                                            <td  class="noBorder">{$item['homescore']}-{$item['guestscore']}</td>
+                                            <td>{$item['guestname_cn']}</td>
+                                            <td>{$item['poor']}</td>
+                                            <td><span class="green">{$item['result']}</span></td>
+                                            <td>{$item['letgoal']}</td>
+                                            <td class=""><span class="green">{$item['let_plate']}</span></td>
+                                        </tr>
+                                        {/loop}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </div>
+            </div>
+    
+            <!-- 总分盘路比较 -->
+            <div class="score-item bt_scoreitem" id="jinqiu">
+
+                <div class="score-item-hd">
+                    <span class="score-item-title">总分盘路比较</span>
+                </div>
+
+                 <div class="score-item-bd pdB20">
+                        <div class="row">
+                            <div class="col-md-6 pdR0">
+                                <table class="table bigTable">
+                                    <thead>
+                                        <tr>
+                                            <td colspan="7" class=" text-left">
+                                                <b class="team-label">{$scheduleData['homename_cn']}</b>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default" id="homeTotalCompareButton" data-toggle="dropdown">
+                                                        近10场
+                                                        <i class="icon-angle-down"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="homeTotalCompareButton">
+                                                        <ul>
+                                                            <li onclick="homeTotalCompare(2)">5</li>
+                                                            <li onclick="homeTotalCompare(3)">10</li>
+                                                            <li onclick="homeTotalCompare(4)">20</li>
+                                                            <li onclick="homeTotalCompare(1)">总</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="gray">
+                                            <td colspan="7" class="">全场</td>
+                                        </tr>
+                                        <tr class="gray">
+                                            <td>&nbsp;</td>
+                                            <td>赛</td>
+                                            <td>赢盘</td>
+                                            <td>走水</td>
+                                            <td>输盘</td>
+                                            <td>赢盘率</td>
+                                            <td class="">详情</td>
+                                        </tr>
+                                        {loop $totalCompare[0] $key $item}
+                                        <tr class="homeTotalCompare1" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $totalCompare[4] $key $item}
+                                        <tr class="homeTotalCompare2" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $totalCompare[8] $key $item}
+                                        <tr class="homeTotalCompare3">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $totalCompare[12] $key $item}
+                                        <tr class="homeTotalCompare4" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                    </tbody>
+                                    <tbody>
+                                        <tr class="gray">
+                                            <td colspan="7" class="">半场</td>
+                                        </tr>
+                                        <tr class="gray">
+                                            <td>&nbsp;</td>
+                                            <td>赛</td>
+                                            <td>赢盘</td>
+                                            <td>走水</td>
+                                            <td>输盘</td>
+                                            <td>赢盘率</td>
+                                            <td class="">详情</td>
+                                        </tr>
+                                        {loop $totalCompare[1] $key $item}
+                                        <tr class="homeTotalCompare1" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $totalCompare[5] $key $item}
+                                        <tr class="homeTotalCompare2" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $totalCompare[9] $key $item}
+                                        <tr class="homeTotalCompare3">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $totalCompare[13] $key $item}
+                                        <tr class="homeTotalCompare4" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            <td><span class="red">{$item[4]}</span></td>
+                                            {/if}
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                    </tbody>
+                                    
+                                </table>
+                                <table class="table" style="border-top: none">
+                                    <thead>
+                                        <tr>
+                                            <td colspan="9" class="">
+                                                <b class="team-label">【相同历史盘口】</b>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default" id="homeSameTotalButton" data-toggle="dropdown">
+                                                        近10场
+                                                        <i class="icon-angle-down"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="homeSameTotalButton">
+                                                        <ul>
+                                                            <li onclick="homeSameTotal(1)">5</li>
+                                                            <li onclick="homeSameTotal(2)">10</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!--<label for="season_after4" class="checkbox-inline">-->
+                                                    <!--<input type="checkbox" id="season_after4">-->
+                                                    <!--<i class="table-checkbox"></i>-->
+                                                    <!--季后赛1-->
+                                                <!--</label>-->
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>赛事</th>
+                                            <th>时间</th>
+                                            <th class="noBorder">主队</th>
+                                            <th class="noBorder">比分</th>
+                                            <th>客队</th>
+                                            <th>分差</th>
+                                            <th>胜负</th>
+                                            <th>盘口</th>
+                                            <th class="">盘路</th>
+                                        </tr>
+                                        {loop $totalSameData['home'] $key $item}
+                                        <tr>
+                                            <td>{$item['sclassname_cn']}</td>
+                                            <td>{date('y-m-d', $item['date'])}</td>
+                                            <td class="noBorder"><span class="orange">{$item['homename_cn']}</span></td>
+                                            <td  class="noBorder">{$item['homescore']}-{$item['guestscore']}</td>
+                                            <td>{$item['guestname_cn']}</td>
+                                            <td>{$item['total_points']}</td>
+                                            <td><span class="green">{$item['result']}</span></td>
+                                            <td>{$item['totalscore']}</td>
+                                            <td class=""><span class="green">{$item['total_result']}</span></td>
+                                        </tr>
+                                        {/loop}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6 pdL0">
+                                <table class="table bigTable">
+                                    <thead>
+                                        <tr>
+                                            <td colspan="7" class="text-left">
+                                                <b class="team-label">{$scheduleData['guestname_cn']}</b>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default" id="guestTotalCompareButton" data-toggle="dropdown">
+                                                        近10场
+                                                        <i class="icon-angle-down"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="guestTotalCompareButton">
+                                                        <ul>
+                                                            <li onclick="guestTotalCompare(2)">5</li>
+                                                            <li onclick="guestTotalCompare(3)">10</li>
+                                                            <li onclick="guestTotalCompare(4)">20</li>
+                                                            <li onclick="guestTotalCompare(1)">总</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="gray">
+                                            <td colspan="7">全场</td>
+                                        </tr>
+                                        <tr class="gray">
+                                            <td>&nbsp;</td>
+                                            <td>赛</td>
+                                            <td>赢盘</td>
+                                            <td>走水</td>
+                                            <td>输盘</td>
+                                            <td>赢盘率</td>
+                                            <td>详情</td>
+                                        </tr>
+                                        {loop $totalCompare[2] $key $item}
+                                        <tr class="guestTotalCompare1" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+
+                                            <td>{$item[0]}</td>
+
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            {/if}
+                                            <td><span class="red">{$item[4]}</span></td>
+
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                                <!--{$item[5]}-->
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $totalCompare[6] $key $item}
+                                        <tr class="guestTotalCompare2" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+
+                                            <td>{$item[0]}</td>
+
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            {/if}
+                                            <td><span class="red">{$item[4]}</span></td>
+
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                                <!--{$item[5]}-->
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $totalCompare[10] $key $item}
+                                        <tr class="guestTotalCompare3">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+
+                                            <td>{$item[0]}</td>
+
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            {/if}
+                                            <td><span class="red">{$item[4]}</span></td>
+
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                                <!--{$item[5]}-->
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $totalCompare[14] $key $item}
+                                        <tr class="guestTotalCompare4" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+
+                                            <td>{$item[0]}</td>
+
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            {/if}
+                                            <td><span class="red">{$item[4]}</span></td>
+
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                                <!--{$item[5]}-->
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                    </tbody>
+                                    <tbody>
+                                        <tr class="gray">
+                                            <td colspan="7">半场</td>
+                                        </tr>
+                                        <tr class="gray">
+                                            <td>&nbsp;</td>
+                                            <td>赛</td>
+                                            <td>赢盘</td>
+                                            <td>走水</td>
+                                            <td>输盘</td>
+                                            <td>赢盘率</td>
+                                            <td>详情</td>
+                                        </tr>
+                                        {loop $totalCompare[3] $key $item}
+                                        <tr class="guestTotalCompare1" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+
+                                            <td>{$item[0]}</td>
+
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            {/if}
+                                            <td><span class="red">{$item[4]}</span></td>
+
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                                <!--{$item[5]}-->
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $totalCompare[7] $key $item}
+                                        <tr class="guestTotalCompare2" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+
+                                            <td>{$item[0]}</td>
+
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            {/if}
+                                            <td><span class="red">{$item[4]}</span></td>
+
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                                <!--{$item[5]}-->
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $totalCompare[11] $key $item}
+                                        <tr class="guestTotalCompare3">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+
+                                            <td>{$item[0]}</td>
+
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            {/if}
+                                            <td><span class="red">{$item[4]}</span></td>
+
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                                <!--{$item[5]}-->
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {loop $totalCompare[15] $key $item}
+                                        <tr class="guestTotalCompare4" style="display: none">
+                                            <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{elseif $key==3}近6场{/if}</td>
+
+                                            <td>{$item[0]}</td>
+
+                                            <td {if $key==3}colspan="3"{/if}>{$item[1]}</td>
+
+                                            {if $key!=3}
+                                            <td><span class="red">{$item[2]}</span></td>
+                                            <td><span class="red">{$item[3]}</span></td>
+                                            {/if}
+                                            <td><span class="red">{$item[4]}</span></td>
+
+                                            <td class="">
+                                                <a href="##" class="greenA">查看</a>
+                                                <!--{$item[5]}-->
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                    </tbody>
+                                </table>
+                                 <table class="table" style="border-top: none">
+                                    <thead>
+                                        <tr>
+                                            <td colspan="9" class="">
+                                                <b class="team-label">【相同历史盘口】</b>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default" id="guestSameTotalButton" data-toggle="dropdown">
+                                                        近10场
+                                                        <i class="icon-angle-down"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="guestSameTotalButton">
+                                                        <ul>
+                                                            <li onclick="guestSameTotal(1)">5</li>
+                                                            <li onclick="guestSameTotal(2)">10</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <label for="season_after5" class="checkbox-inline">
+                                                    <input type="checkbox" id="season_after5">
+                                                    <i class="table-checkbox"></i>
+                                                    季后赛
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>赛事</th>
+                                            <th>时间</th>
+                                            <th class="noBorder">主队</th>
+                                            <th class="noBorder">比分</th>
+                                            <th>客队</th>
+                                            <th>分差</th>
+                                            <th>胜负</th>
+                                            <th>盘口</th>
+                                            <th>盘路</th>
+                                        </tr>
+                                        {loop $totalSameData['guest'] $key $item}
+                                        <tr>
+                                            <td>{$item['sclassname_cn']}</td>
+                                            <td>{date('y-m-d', $item['date'])}</td>
+                                            <td class="noBorder"><span class="orange">{$item['homename_cn']}</span></td>
+                                            <td  class="noBorder">{$item['homescore']}-{$item['guestscore']}</td>
+                                            <td>{$item['guestname_cn']}</td>
+                                            <td>{$item['total_points']}</td>
+                                            <td><span class="green">{$item['result']}</span></td>
+                                            <td>{$item['totalscore']}</td>
+                                            <td class=""><span class="green">{$item['total_result']}</span></td>
+                                        </tr>
+                                        {/loop}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <!-- 平均得分/失分对比 -->
+            <div class="score-item bt_scoreitem">
+                <div class="score-item-hd">
+                    <span class="score-item-title">平均得分/失分对比</span>
+                </div>
+
+                <div class="score-item-bd pdB20">
+                    <div class="row">
+                        <div class="col-md-6 pdR0">
+                            <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="8" class=" text-left">
+                                            <b class="team-label">{$scheduleData['homename_cn']}</b>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default" id="homeAvgCompareButton" data-toggle="dropdown">
+                                                    近10场
+                                                    <i class="icon-angle-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="homeAvgCompareButton">
+                                                    <ul>
+                                                        <li onclick="homeAvgCompare(2)">5</li>
+                                                        <li onclick="homeAvgCompare(3)">10</li>
+                                                        <li onclick="homeAvgCompare(4)">20</li>
+                                                        <li onclick="homeAvgCompare(1)">总</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td rowspan="2"></td>
+                                        <td rowspan="2">场次</td>
+                                        <td>第一节</td>
+                                        <td>第二节</td>
+                                        <td>第三节</td>
+                                        <td>第四节</td>
+                                        <td>加时</td>
+                                        <td class="">全场</td>
+                                    </tr>
+                                    <tr class="gray">
+                                        <td>得失</td>
+                                        <td>得失</td>
+                                        <td>得失</td>
+                                        <td>得失</td>
+                                        <td>得失</td>
+                                        <td class="">得失</td>
+                                    </tr>
+                                    {loop $getLossScore[0] $key $item}
+                                    <tr class="homeAvgCompare1" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>
+                                            <span class="col-inline">{$item[1]}</span>
+                                            <span class="col-inline">{$item[2]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[3]}</span>
+                                            <span class="col-inline">{$item[4]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[5]}</span>
+                                            <span class="col-inline">{$item[6]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[7]}</span>
+                                            <span class="col-inline">{$item[8]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[9]}</span>
+                                            <span class="col-inline">{$item[10]}</span>
+                                        </td>
+                                        <td class="">
+                                            <span class="col-inline">{$item[11]}</span>
+                                            <span class="col-inline">{$item[12]}</span>
+                                        </td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $getLossScore[4] $key $item}
+                                    <tr class="homeAvgCompare2" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>
+                                            <span class="col-inline">{$item[1]}</span>
+                                            <span class="col-inline">{$item[2]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[3]}</span>
+                                            <span class="col-inline">{$item[4]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[5]}</span>
+                                            <span class="col-inline">{$item[6]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[7]}</span>
+                                            <span class="col-inline">{$item[8]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[9]}</span>
+                                            <span class="col-inline">{$item[10]}</span>
+                                        </td>
+                                        <td class="">
+                                            <span class="col-inline">{$item[11]}</span>
+                                            <span class="col-inline">{$item[12]}</span>
+                                        </td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $getLossScore[8] $key $item}
+                                    <tr class="homeAvgCompare3">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>
+                                            <span class="col-inline">{$item[1]}</span>
+                                            <span class="col-inline">{$item[2]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[3]}</span>
+                                            <span class="col-inline">{$item[4]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[5]}</span>
+                                            <span class="col-inline">{$item[6]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[7]}</span>
+                                            <span class="col-inline">{$item[8]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[9]}</span>
+                                            <span class="col-inline">{$item[10]}</span>
+                                        </td>
+                                        <td class="">
+                                            <span class="col-inline">{$item[11]}</span>
+                                            <span class="col-inline">{$item[12]}</span>
+                                        </td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $getLossScore[12] $key $item}
+                                    <tr class="homeAvgCompare4" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>
+                                            <span class="col-inline">{$item[1]}</span>
+                                            <span class="col-inline">{$item[2]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[3]}</span>
+                                            <span class="col-inline">{$item[4]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[5]}</span>
+                                            <span class="col-inline">{$item[6]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[7]}</span>
+                                            <span class="col-inline">{$item[8]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[9]}</span>
+                                            <span class="col-inline">{$item[10]}</span>
+                                        </td>
+                                        <td class="">
+                                            <span class="col-inline">{$item[11]}</span>
+                                            <span class="col-inline">{$item[12]}</span>
+                                        </td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 pdL0">
+                            <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="8" class=" text-left">
+                                            <b class="team-label">{$scheduleData['guestname_cn']}</b>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default" id="guestAvgCompareButton" data-toggle="dropdown">
+                                                    近10场
+                                                    <i class="icon-angle-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="guestAvgCompareButton">
+                                                    <ul>
+                                                        <li onclick="guestAvgCompare(2)">5</li>
+                                                        <li onclick="guestAvgCompare(3)">10</li>
+                                                        <li onclick="guestAvgCompare(4)">20</li>
+                                                        <li onclick="guestAvgCompare(1)">总</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td rowspan="2"></td>
+                                        <td rowspan="2">场次</td>
+                                        <td>第一节</td>
+                                        <td>第二节</td>
+                                        <td>第三节</td>
+                                        <td>第四节</td>
+                                        <td>加时</td>
+                                        <td>全场</td>
+                                    </tr>
+                                    <tr class="gray">
+                                        <td>得失</td>
+                                        <td>得失</td>
+                                        <td>得失</td>
+                                        <td>得失</td>
+                                        <td>得失</td>
+                                        <td>得失</td>
+                                    </tr>
+                                    {loop $getLossScore[1] $key $item}
+                                    <tr class="guestAvgCompare1" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>
+                                            <span class="col-inline">{$item[1]}</span>
+                                            <span class="col-inline">{$item[2]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[3]}</span>
+                                            <span class="col-inline">{$item[4]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[5]}</span>
+                                            <span class="col-inline">{$item[6]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[7]}</span>
+                                            <span class="col-inline">{$item[8]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[9]}</span>
+                                            <span class="col-inline">{$item[10]}</span>
+                                        </td>
+                                        <td class="">
+                                            <span class="col-inline">{$item[11]}</span>
+                                            <span class="col-inline">{$item[12]}</span>
+                                        </td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $getLossScore[5] $key $item}
+                                    <tr class="guestAvgCompare2" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>
+                                            <span class="col-inline">{$item[1]}</span>
+                                            <span class="col-inline">{$item[2]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[3]}</span>
+                                            <span class="col-inline">{$item[4]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[5]}</span>
+                                            <span class="col-inline">{$item[6]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[7]}</span>
+                                            <span class="col-inline">{$item[8]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[9]}</span>
+                                            <span class="col-inline">{$item[10]}</span>
+                                        </td>
+                                        <td class="">
+                                            <span class="col-inline">{$item[11]}</span>
+                                            <span class="col-inline">{$item[12]}</span>
+                                        </td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $getLossScore[9] $key $item}
+                                    <tr class="guestAvgCompare3">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>
+                                            <span class="col-inline">{$item[1]}</span>
+                                            <span class="col-inline">{$item[2]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[3]}</span>
+                                            <span class="col-inline">{$item[4]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[5]}</span>
+                                            <span class="col-inline">{$item[6]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[7]}</span>
+                                            <span class="col-inline">{$item[8]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[9]}</span>
+                                            <span class="col-inline">{$item[10]}</span>
+                                        </td>
+                                        <td class="">
+                                            <span class="col-inline">{$item[11]}</span>
+                                            <span class="col-inline">{$item[12]}</span>
+                                        </td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $getLossScore[13] $key $item}
+                                    <tr class="guestAvgCompare4" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>
+                                            <span class="col-inline">{$item[1]}</span>
+                                            <span class="col-inline">{$item[2]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[3]}</span>
+                                            <span class="col-inline">{$item[4]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[5]}</span>
+                                            <span class="col-inline">{$item[6]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[7]}</span>
+                                            <span class="col-inline">{$item[8]}</span>
+                                        </td>
+                                        <td>
+                                            <span class="col-inline">{$item[9]}</span>
+                                            <span class="col-inline">{$item[10]}</span>
+                                        </td>
+                                        <td class="">
+                                            <span class="col-inline">{$item[11]}</span>
+                                            <span class="col-inline">{$item[12]}</span>
+                                        </td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 球队入球分数/单双统计 -->
+            <div class="score-item bt_scoreitem">
+                <div class="score-item-hd">
+                    <span class="score-item-title">球队入球分数/单双统计</span>
+                </div>
+
+                <div class="score-item-bd pdB20">
+                    <div class="row">
+                        <div class="col-md-6 pdR0">
+                            <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="11" class=" text-left">
+                                            <b class="team-label">{$scheduleData['homename_cn']}</b>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default" id="teamScoreButton" data-toggle="dropdown">
+                                                    近10场
+                                                    <i class="icon-angle-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="teamScoreButton">
+                                                    <ul>
+                                                        <li onclick="homeTeamScore(2)">5</li>
+                                                        <li onclick="homeTeamScore(3)">10</li>
+                                                        <li onclick="homeTeamScore(4)">20</li>
+                                                        <li onclick="homeTeamScore(1)">总</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td></td>
+                                        <td>赛</td>
+                                        <td>70-</td>
+                                        <td>71-80</td>
+                                        <td>81-90</td>
+                                        <td>91-100</td>
+                                        <td>100-110</td>
+                                        <td>111-120</td>
+                                        <td>120+</td>
+                                        <td>单</td>
+                                        <td class="">双</td>
+                                    </tr>
+                                    {loop $teamScore[0] $key $item}
+                                    <tr class="homeTeamScore1" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td>{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $teamScore[4] $key $item}
+                                    <tr class="homeTeamScore2" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td>{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $teamScore[8] $key $item}
+                                    <tr class="homeTeamScore3">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td>{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $teamScore[12] $key $item}
+                                    <tr class="homeTeamScore4" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td>{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 pdL0">
+                            <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="11" class=" text-left">
+                                            <b class="team-label">{$scheduleData['guestname_cn']}</b>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default" id="guestTeamScoreButton" data-toggle="dropdown">
+                                                    近10场
+                                                    <i class="icon-angle-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="guestTeamScoreButton">
+                                                    <ul>
+                                                        <li onclick="guestTeamScore(2)">5</li>
+                                                        <li onclick="guestTeamScore(3)">10</li>
+                                                        <li onclick="guestTeamScore(4)">20</li>
+                                                        <li onclick="guestTeamScore(1)">总</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td></td>
+                                        <td>赛</td>
+                                        <td>70-</td>
+                                        <td>71-80</td>
+                                        <td>81-90</td>
+                                        <td>91-100</td>
+                                        <td>100-110</td>
+                                        <td>111-120</td>
+                                        <td>120+</td>
+                                        <td>单</td>
+                                        <td class="">双</td>
+                                    </tr>
+                                    {loop $teamScore[1] $key $item}
+                                    <tr class="guestTeamScore1" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td>{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $teamScore[5] $key $item}
+                                    <tr class="guestTeamScore2" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td>{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $teamScore[9] $key $item}
+                                    <tr class="guestTeamScore3">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td>{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $teamScore[13] $key $item}
+                                    <tr class="guestTeamScore4" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td>{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 总分统计 -->
+            <div class="score-item bt_scoreitem">
+                <div class="score-item-hd">
+                    <span class="score-item-title">总分统计</span>
+                </div>
+
+                <div class="score-item-bd pdB20">
+                    <div class="row">
+                        <div class="col-md-6 pdR0">
+                            <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="11" class=" text-left">
+                                            <b class="team-label">{$scheduleData['homename_cn']}</b>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default" id="homeTotalScoreButton" data-toggle="dropdown">
+                                                    近10场
+                                                    <i class="icon-angle-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="homeTotalScoreButton">
+                                                    <ul>
+                                                        <li onclick="homeTotalScore(2)">5</li>
+                                                        <li onclick="homeTotalScore(3)">10</li>
+                                                        <li onclick="homeTotalScore(4)">20</li>
+                                                        <li onclick="homeTotalScore(1)">总</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td></td>
+                                        <td>赛</td>
+                                        <td>160-</td>
+                                        <td>160-170</td>
+                                        <td>170-180</td>
+                                        <td>180-190</td>
+                                        <td>190-200</td>
+                                        <td>200-210</td>
+                                        <td>210-220</td>
+                                        <td>220-230</td>
+                                        <td class="">230+</td>
+                                    </tr>
+                                    {loop $totalScore[0] $key $item}
+                                    <tr class="homeTotalScore1" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td class="">{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $totalScore[4] $key $item}
+                                    <tr class="homeTotalScore2" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td class="">{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $totalScore[8] $key $item}
+                                    <tr class="homeTotalScore3">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td class="">{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $totalScore[12] $key $item}
+                                    <tr class="homeTotalScore4" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td class="">{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 pdL0">
+                            <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="11" class=" text-left">
+                                            <b class="team-label">{$scheduleData['guestname_cn']}</b>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default" id="guestTotalScoreButton" data-toggle="dropdown">
+                                                    近10场
+                                                    <i class="icon-angle-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="guestTotalScoreButton">
+                                                    <ul>
+                                                        <li onclick="guestTotalScore(2)">5</li>
+                                                        <li onclick="guestTotalScore(3)">10</li>
+                                                        <li onclick="guestTotalScore(4)">20</li>
+                                                        <li onclick="guestTotalScore(1)">总</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td></td>
+                                        <td>赛</td>
+                                        <td>160-</td>
+                                        <td>160-170</td>
+                                        <td>170-180</td>
+                                        <td>180-190</td>
+                                        <td>190-200</td>
+                                        <td>200-210</td>
+                                        <td>210-220</td>
+                                        <td>220-230</td>
+                                        <td class="">230+</td>
+                                    </tr>
+                                    {loop $totalScore[1] $key $item}
+                                    <tr class="guestTotalScore1" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td class="">{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $totalScore[5] $key $item}
+                                    <tr class="guestTotalScore2" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td class="">{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $totalScore[9] $key $item}
+                                    <tr class="guestTotalScore3">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td class="">{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $totalScore[13] $key $item}
+                                    <tr class="guestTotalScore4" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td>{$item[6]}</td>
+                                        <td>{$item[7]}</td>
+                                        <td>{$item[8]}</td>
+                                        <td class="">{$item[9]}</td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 全半场 -->
+            <div class="score-item bt_scoreitem">
+                <div class="score-item-hd">
+                    <span class="score-item-title">全半场</span>
+                </div>
+
+                <div class="score-item-bd pdB20">
+                    <div class="row">
+                        <div class="col-md-6 pdR0">
+                            <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="8" class=" text-left">
+                                            <b class="team-label">{$scheduleData['homename_cn']}</b>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default" id="homeHalfTotalButton" data-toggle="dropdown">
+                                                    近10场
+                                                    <i class="icon-angle-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="homeHalfTotalButton">
+                                                    <ul>
+                                                        <li onclick="homeHalfTotal(2)">5</li>
+                                                        <li onclick="homeHalfTotal(3)">10</li>
+                                                        <li onclick="homeHalfTotal(4)">20</li>
+                                                        <li onclick="homeHalfTotal(1)">总</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td>半场</td>
+                                        <td rowspan="2">赛</td>
+                                        <td>胜</td>
+                                        <td>胜</td>
+                                        <td>和</td>
+                                        <td>和</td>
+                                        <td>负</td>
+                                        <td class="">负</td>
+                                    </tr>
+                                    <tr class="gray">
+                                        <td>全场</td>
+                                        <td>胜</td>
+                                        <td>胜</td>
+                                        <td>和</td>
+                                        <td>和</td>
+                                        <td>负</td>
+                                        <td class="">负</td>
+                                    </tr>
+                                    {loop $halfTotal[0] $key $item}
+                                    <tr class="homeHalfTotal1" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td class="">{$item[6]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $halfTotal[4] $key $item}
+                                    <tr class="homeHalfTotal2" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td class="">{$item[6]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $halfTotal[8] $key $item}
+                                    <tr class="homeHalfTotal3">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td class="">{$item[6]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $halfTotal[12] $key $item}
+                                    <tr class="homeHalfTotal4" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td class="">{$item[6]}</td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 pdL0">
+                             <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="8" class=" text-left">
+                                            <b class="team-label">{$scheduleData['guestname_cn']}</b>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default" id="guestHalfTotalButton" data-toggle="dropdown">
+                                                    近10场
+                                                    <i class="icon-angle-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="guestHalfTotalButton">
+                                                    <ul>
+                                                        <li onclick="guestHalfTotal(2)">5</li>
+                                                        <li onclick="guestHalfTotal(3)">10</li>
+                                                        <li onclick="guestHalfTotal(4)">20</li>
+                                                        <li onclick="guestHalfTotal(1)">总</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td>半场</td>
+                                        <td rowspan="2">赛</td>
+                                        <td>胜</td>
+                                        <td>胜</td>
+                                        <td>和</td>
+                                        <td>和</td>
+                                        <td>负</td>
+                                        <td class="">负</td>
+                                    </tr>
+                                    <tr class="gray">
+                                        <td>全场</td>
+                                        <td>胜</td>
+                                        <td>胜</td>
+                                        <td>和</td>
+                                        <td>和</td>
+                                        <td>负</td>
+                                        <td class="">负</td>
+                                    </tr>
+                                    {loop $halfTotal[1] $key $item}
+                                    <tr class="guestHalfTotal1" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td class="">{$item[6]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $halfTotal[5] $key $item}
+                                    <tr class="guestHalfTotal2" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td class="">{$item[6]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $halfTotal[9] $key $item}
+                                    <tr class="guestHalfTotal3">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td class="">{$item[6]}</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $halfTotal[13] $key $item}
+                                    <tr class="guestHalfTotal4" style="display: none">
+                                        <td>{if $key==0}总{elseif $key==1}主{elseif $key==2}客{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td>{$item[5]}</td>
+                                        <td class="">{$item[6]}</td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 技术统计 -->
+            <div class="score-item bt_scoreitem">
+                <div class="score-item-hd">
+                    <span class="score-item-title">技术统计</span>
+                </div>
+
+                <div class="score-item-bd pdB20">
+                    <div class="row">
+                        <div class="col-md-6 pdR0">
+                            <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="7" class=" text-left">
+                                            <b class="team-label">{$scheduleData['homename_cn']}</b>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td></td>
+                                        <td>投篮命中率</td>
+                                        <td>三分命中率</td>
+                                        <td>平均篮板</td>
+                                        <td>平均助攻</td>
+                                        <td>平均抢断</td>
+                                        <td class="">平均失误</td>
+                                    </tr>
+                                    {loop $technic['home'] $key $item}
+                                    <tr>
+                                        <td>{if $key==1}季前赛{elseif $key==2}常规赛{elseif $key==3}近10场{/if}</td>
+                                        <td>{$item[0]}</td>
+                                        <td>{$item[1]}</td>
+                                        <td>{$item[2]}</td>
+                                        <td>{$item[3]}</td>
+                                        <td>{$item[4]}</td>
+                                        <td class="">{$item[5]}</td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 pdL0">
+                                <table class="table bigTable">
+                                    <thead>
+                                        <tr>
+                                            <td colspan="7" class=" text-left">
+                                                <b class="team-label">{$scheduleData['guestname_cn']}</b>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="gray">
+                                            <td></td>
+                                            <td>投篮命中率</td>
+                                            <td>三分命中率</td>
+                                            <td>平均篮板</td>
+                                            <td>平均助攻</td>
+                                            <td>平均抢断</td>
+                                            <td class="">平均失误</td>
+                                        </tr>
+                                        {loop $technic['guest'] $key $item}
+                                        <tr>
+                                            <td>{if $key==1}季前赛{elseif $key==2}常规赛{elseif $key==3}近10场{/if}</td>
+                                            <td>{$item[0]}</td>
+                                            <td>{$item[1]}</td>
+                                            <td>{$item[2]}</td>
+                                            <td>{$item[3]}</td>
+                                            <td>{$item[4]}</td>
+                                            <td class="">{$item[5]}</td>
+                                        </tr>
+                                        {/loop}
+                                        
+                                    </tbody>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 赛程分析 -->
+            <div class="score-item bt_scoreitem">
+                <div class="score-item-hd">
+                    <span class="score-item-title">赛程分析</span>
+                </div>
+
+                <div class="score-item-bd pdB20">
+                    <div class="row">
+                        <div class="col-md-6 pdR0">
+                            <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="6" class="noBorder text-left">
+                                            <b class="team-label">{$scheduleData['homename_cn']}</b>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default" id="homeAnalyzeButton" data-toggle="dropdown">
+                                                    前后6场
+                                                    <i class="icon-angle-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="homeAnalyzeButton">
+                                                    <ul>
+                                                        <li onclick="homeAnalyze(1)">前后6场</li>
+                                                        <li onclick="homeAnalyze(2)">未来6场</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td>赛事</td>
+                                        <td>时间</td>
+                                        <td>主队</td>
+                                        <td>比分</td>
+                                        <td>客队</td>
+                                        <td class="">与本场相隔</td>
+                                    </tr>
+                                    {loop $beforeThreeSchedule['home'] $key $item}
+                                    <tr class="homeAnalyze1">
+                                        <td>{$item['sclassname_cn']}</td>
+                                        <td>{date('Y-m-d', $item['date'])}</td>
+                                        <td class="{if $item['hometeamid'] == $hometeamid}orange{/if}">{$item['homename_cn']}</td>
+                                        <td>
+                                            {if $item['homescore'] != 0 || $item['guestscore'] != 0}
+                                            <span class="red">{$item['homescore']}</span>-
+                                            <span class="green">{$item['guestscore']}</span>
+                                            {else} VS
+                                            {/if}
+                                        </td>
+                                        <td class="{if $item['hometeamid'] != $hometeamid}orange{/if}">{$item['guestname_cn']}</td>
+                                        <td class="">{$item['days']}天</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $afterSixSchedule['home'] $key $item}
+                                    <tr class="homeAnalyze2" style="display: none">
+                                        <td>{$item['sclassname_cn']}</td>
+                                        <td>{date('Y-m-d', $item['date'])}</td>
+                                        <td class="{if $item['hometeamid'] == $hometeamid}orange{/if}">{$item['homename_cn']}</td>
+                                        <td>
+                                            {if $item['homescore'] != 0 || $item['guestscore'] != 0}
+                                            <span class="red">{$item['homescore']}</span>-
+                                            <span class="green">{$item['guestscore']}</span>
+                                            {else} VS
+                                            {/if}
+                                        </td>
+                                        <td class="{if $item['hometeamid'] != $hometeamid}orange{/if}">{$item['guestname_cn']}</td>
+                                        <td class="">{$item['days']}天</td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 pdL0">
+                                <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="6" class=" text-left">
+                                            <b class="team-label">{$scheduleData['guestname_cn']}</b>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default" id="guestAnalyzeButton" data-toggle="dropdown">
+                                                    前后6场
+                                                    <i class="icon-angle-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="guestAnalyzeButton">
+                                                    <ul>
+                                                        <li onclick="guestAnalyze(1)">前后6场</li>
+                                                        <li onclick="guestAnalyze(2)">未来6场</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td>赛事</td>
+                                        <td>时间</td>
+                                        <td>主队</td>
+                                        <td>比分</td>
+                                        <td>客队</td>
+                                        <td class="">与本场相隔</td>
+                                    </tr>
+                                    {loop $beforeThreeSchedule['guest'] $key $item}
+                                    <tr class="guestAnalyze1">
+                                        <td>{$item['sclassname_cn']}</td>
+                                        <td>{date('Y-m-d', $item['date'])}</td>
+                                        <td class="{if $item['hometeamid'] == $guestteamid}orange{/if}">{$item['homename_cn']}</td>
+                                        <td>
+                                            {if $item['homescore'] != 0 || $item['guestscore'] != 0}
+                                            <span class="red">{$item['homescore']}</span>-
+                                            <span class="green">{$item['guestscore']}</span>
+                                            {else} VS
+                                            {/if}
+                                        </td>
+                                        <td class="{if $item['hometeamid'] != $guestteamid}orange{/if}">{$item['guestname_cn']}</td>
+                                        <td class="">{$item['days']}天</td>
+                                    </tr>
+                                    {/loop}
+                                    {loop $afterSixSchedule['guest'] $key $item}
+                                    <tr class="guestAnalyze2" style="display: none">
+                                        <td>{$item['sclassname_cn']}</td>
+                                        <td>{date('Y-m-d', $item['date'])}</td>
+                                        <td class="{if $item['hometeamid'] == $guestteamid}orange{/if}">{$item['homename_cn']}</td>
+                                        <td>
+                                            {if $item['homescore'] != 0 || $item['guestscore'] != 0}
+                                            <span class="red">{$item['homescore']}</span>-
+                                            <span class="green">{$item['guestscore']}</span>
+                                            {else} VS
+                                            {/if}
+                                        </td>
+                                        <td class="{if $item['hometeamid'] != $guestteamid}orange{/if}">{$item['guestname_cn']}</td>
+                                        <td class="">{$item['days']}天</td>
+                                    </tr>
+                                    {/loop}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 预计阵容 -->
+            <div class="score-item bt_scoreitem">
+                <div class="score-item-hd">
+                    <span class="score-item-title">预计阵容</span>
+                </div>
+
+                <div class="score-item-bd pdB20">
+                    <div class="row">
+                        <div class="col-md-6 pdR0">
+                            <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="2" class=" text-left">
+                                            <b class="team-label">{$scheduleData['homename_cn']}</b>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td>正选</td>
+                                        <td class="">后备</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {loop $lineup['homelineup'] $key $item}
+                                            <div class="table-line">
+                                                {$item[0]}
+                                                {$item[1]}
+                                                {$item[2]}
+                                            </div>
+                                            {/loop}
+                                        </td>
+                                        <td class="">
+                                            {loop $lineup['homebackup'] $key $item}
+                                            <div class="table-line">
+                                                {$item[0]}
+                                                {$item[1]}
+                                                {$item[2]}
+                                            </div>
+                                            {/loop}
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 pdL0">
+                           <table class="table bigTable">
+                                <thead>
+                                    <tr>
+                                        <td colspan="2" class=" text-left">
+                                            <b class="team-label">{$scheduleData['guestname_cn']}</b>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gray">
+                                        <td>正选</td>
+                                        <td>后备</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {loop $lineup['guestlineup'] $key $item}
+                                            <div class="table-line">
+                                                {$item[0]}
+                                                {$item[1]}
+                                                {$item[2]}
+                                            </div>
+                                            {/loop}
+                                        </td>
+                                        <td class="">
+                                            {loop $lineup['guestbackup'] $key $item}
+                                            <div class="table-line">
+                                                {$item[0]}
+                                                {$item[1]}
+                                                {$item[2]}
+                                            </div>
+                                            {/loop}
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- 丙队伤停情况 -->
+            <div class="score-item" id="jiaowang">
+                <div class="score-item-hd">
+                    <span class="score-item-title">两队伤停情况</span>
+                </div>
+
+                <div class="score-item-bd pdB20">
+                    <table class="table bigTable">
+                        <tr class="gray">
+                            <th>球队</th>
+                            <th>球员</th>
+                            <th>位置</th>
+                            <th>原因</th>
+                            <th>日期</th>
+                            <th>备注</th>
+                        </tr>
+                        {loop $lineup['injury'] $key $item}
+                        <tr>
+                            <td>{$item[0]}</td>
+                            <td>{$item[1]}</td>
+                            <td>{$item[2]}</td>
+                            <td>{$item[3]}</td>
+                            <td>{$item[4]}</td>
+                            <td>{$item[5]}</td>
+                        </tr>
+                        {/loop}
+                    </table>
+                </div>
+
+            </div>
+
+            <!-- 心水推介 -->
+            <div class="score-item" id="jiaowang">
+                <div class="score-item-hd">
+                    <span class="score-item-title">心水推介</span>
+                </div>
+
+                <div class="score-item-bd">
+                    <table class="table bigTable">
+                        <tr>
+                            <td>{$scheduleData['homename_cn']}</td>
+                            <td>
+                                近况走势-
+                                {$lineup['homenear6']}
+                            </td>
+                            <td>
+                                盘路输赢-
+                                {$lineup['homeodds']}
+                            </td>
+                            <td>
+                                上下盘路-
+                                {$lineup['homeou']}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{$scheduleData['guestname_cn']}</td>
+                            <td>
+                                近况走势-
+                                {$lineup['guestnear6']}
+                            </td>
+                            <td>
+                                盘路输赢-
+                                {$lineup['guestodds']}
+                            </td>
+                            <td>
+                                上下盘路-
+                                {$lineup['guestou']}
+                            </td>
+                        </tr>
+                        <tr class="gray">
+                            <td colspan="2">
+                                近信心指数-
+                                <span class="orange">{$lineup['confidence']}</span>
+                            </td>
+                            <td colspan="2">
+                                对赛成绩-{$lineup['vs']}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="score-item-fd">
+                    <p class="hint">
+                        {$lineup['note']}
+                    </p>
+                </div>
+            </div>
+
+            <!-- 分析推荐 -->
+            <div class="score-item" id="jiaowang">
+                <div class="score-item-hd">
+                    <b class="score-item-title">分析推荐</b>
+                </div>
+
+                <div class="score-item-bd pdB20">
+                    <table class="table bigTable">
+                        <tr>
+                            <td>
+                                火箭
+                                VS
+                                太阳:
+                                火箭主场向日成功
+                            </td>
+                            <td>
+                                火箭
+                                VS
+                                太阳:
+                                火箭主场向日成功
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                火箭
+                                VS
+                                太阳:
+                                火箭主场向日成功
+                            </td>
+                            <td>
+                                火箭
+                                VS
+                                太阳:
+                                火箭主场向日成功
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                火箭
+                                VS
+                                太阳:
+                                火箭主场向日成功
+                            </td>
+                            <td>
+                                火箭
+                                VS
+                                太阳:
+                                火箭主场向日成功
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+    
+
+
+        </div>
+    </div>
+</section>
+<!-- main body -->
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = ['bt_schedule_analyse.js', 'imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js'];}
+{template 'content', 'footer'}

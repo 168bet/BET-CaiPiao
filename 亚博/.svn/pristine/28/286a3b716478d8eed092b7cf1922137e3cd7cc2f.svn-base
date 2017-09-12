@@ -1,0 +1,19 @@
+package com.mh.service;
+
+import java.util.List;
+
+import com.mh.entity.WebKjPay;
+
+public interface WebKjPayService 
+{
+	/**
+	 * 根据支付类型查询
+	 * @param type
+	 * @return
+	 */
+	public WebKjPay getKjPay(Integer type);
+	
+	public List<WebKjPay> getKjPayList();
+	
+	public int getPayCount(Integer type);
+}

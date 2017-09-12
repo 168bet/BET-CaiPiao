@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>支付宝转账</title>
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<style type="text/css">
+body{ margin:0; padding:0; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#333; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{ -webkit-appearance: none !important; margin: 0;}
+input[type="number"]{-moz-appearance:textfield;}
+ul,li{ list-style-type:none}
+em,cite,i{ font-style:normal}
+a{ color: #409ae4; text-decoration:none}
+.left{ float:left}
+.right{ float:right}
+.red{ color:#f13d3d}
+.clearfix{ overflow:hidden; zoom:1}
+.input{ width: 90%; padding: 0 5%; font-size: .9rem; line-height: 2.8rem; margin: 1.2rem 0 .5rem 0; background: #fff; border-top: 1px solid #dedfe0; border-bottom: 1px solid #dedfe0;}
+.input input{ float: left; font-family: "微软雅黑"; font-size: 1rem; border: none; line-height: 1.2rem; width: 50%; margin: .8rem 8%;font-weight:bold;}
+.text{ padding: 0 5%;}
+.text li{ float: left; width: 31%; line-height: 3.7rem; text-align: center; background: #fff; margin: .6rem 2.4% 0 0; border: 1px solid #c8c8c8;-webkit-border-radius: .4rem;}
+.text li.cur{ border: 1px solid #e33f3f; color: #e33f3f;}
+.btn{ line-height: 2.5rem; background: #d9d9d9; color: #fff; font-size: .94rem; text-align: center; margin: 1.3rem 0 .5rem 0; letter-spacing: .1rem; -webkit-border-radius: .4rem;}
+.btncur{ background: #e33f3f;}
+.text a{ float: right;font-size:16px;}
+.text p{ color: #a5a5a5; line-height: 1.5rem; padding: 1.5rem 0;}
+
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:1}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcbackIco2{position:fixed;top:0;left:0;width:2.7rem;height:2.7rem;display:inline-block;text-align:center;background-color:#db150b;cursor:pointer;-webkit-box-sizing:border-box;box-sizing:border-box}
+.fcbackIco2:active{background-color:#A50F0F}
+.fcbackIco2 .icon-back{width:2.7rem;height:2.7rem;line-height:2.7rem;font-style:normal;-webkit-box-sizing:border-box;box-sizing:border-box}
+.icon-back::before{content:"";display:inline-block;width:.7rem;height:.65rem;vertical-align:middle;border-left:.16rem solid #fff;border-bottom:.16rem solid #fff;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-box-sizing:border-box;box-sizing:border-box}
+
+
+
+.text2 ul{ padding: 0 0 0 5%; font-size: .9rem; margin: 1.2rem 0 .5rem 0; background: #fff; border-top: 1px solid #dedfe0; border-bottom: 1px solid #dedfe0;}
+.text2 ul li{ line-height: 2.8rem; border-bottom: 1px solid #dedfe0; overflow: hidden; zoom:1}
+.text2 ul li:last-child{ border-bottom: none;}
+.text2 ul li span{ float: left; width: 6.2rem;}
+.text2 ul li input{ float: left; width: 65%; font-family: "微软雅黑"; font-size: .9rem; border: none; line-height: 1.2rem; margin: .8rem 0;}
+.text2 p{ color: #a5a5a5; line-height: 1.5rem; padding: 1.5rem 5%;}
+.btn2{ line-height: 2.5rem; background: #d9d9d9; color: #fff; font-size: .94rem; text-align: center; margin: 1.3rem 5% .5rem 5%; letter-spacing: .1rem; -webkit-border-radius: .4rem;}
+.btn2cur{ background: #e33f3f;}
+
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:2}
+.popup{ width:84%; font-size: .75rem; position:fixed; top:35%; left:8%; background:#fff; z-index:3;-webkit-border-radius:.6rem;}
+.popup h4{ line-height:2.8rem; font-size:1rem; border-bottom: 1px solid #eee; text-align:center; font-weight:normal}
+.popup p{ text-align:center; width:82%; margin:.5rem auto; line-height:1.4rem;}
+.popup span{ display: block; font-size: 1rem; color:#c30000; text-align:center; line-height:1.35rem}
+.popup cite{ display: block; color: #ccc;}
+.popup a{ display: block; text-align: center; font-size: .8rem; line-height:2.2rem; color:#409ae4; border-top: 1px solid #eee;}
+.popup3{ color: #000; font-size: .85rem; width:87%;left:50%;margin-left:-43.5%; top:50% !important; margin-top:-12.5rem;}
+.popup3 h4{ line-height:3.5rem; width: 7.24rem; padding: 0 0 0 1.2rem; margin: 0 auto; font-size:1.2rem; border-bottom: none;}
+.popup3 figure{ width: 8.44rem; height: 10.4rem; margin: .5rem auto 1rem auto;}
+.popup3 p{ width:86%; margin:.5rem auto 1rem auto;}
+.popup3 span{ display: inline-block; font-size: 1.1rem; color:#ff0000; padding-right: .4rem;}
+.popup3 cite{ display: inline-block; color: #ff0000; font-size: 1rem;}
+.popup3 b{ font-size: .75rem; font-weight: normal;}
+.popup3 em{ color: #ff0000;}
+.popup3 a{ font-size: 1.1rem; line-height:3.3rem;}
+.popup2{ top: 35%;}
+.popup2 a{ font-size: .95rem; line-height: 3rem;}
+.popup2 h4{ font-size: .95rem; width: 80%; padding: 2rem 10%;line-height:1.5rem; border-bottom: none;}
+.popup4{margin-top:-7rem !important;}
+
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}100%{opacity:1;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}100%{opacity:1;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}100%{opacity:1;}}
+.alertBox{font-size:15px;text-align: center;border-radius:20px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+.ts{ color:#fff; font-size:.8rem; margin-top:2rem; line-height:1.3rem; padding:0 4%; text-align:center}
+ 
+</style>
+<!-- 登录提示 -->
+<header class="tzHeader" id="box_header">
+		<article class="fixed2">
+			<section class="fcHeader">
+				<h1>支付宝转账</h1>
+			</section>
+			<span class="fcbackIco2" id="btn_prev"><i class="icon-back"></i></span>
+		</article>
+</header>
+<div id="popup" class="popup popup3" style="width：86%;display:none;">
+	<h4>转账说明</h4>
+	<figure><img src="img/pic.png" width="100%"></figure>
+    <p>请在支付宝转账【添加备注】处 , <span>长按粘贴</span>或填入<cite id="name"></cite><b>(您的9188彩票用户名)，</b><em>否则将无法自动到账</em></p>
+	<a href="javascript:;" id="gotIt">知道了</a>
+</div>
+<div id="popup2" class="popup popup2" style="display:none;">
+	<h4>返回9188彩票</h4>
+	<a href="javascript:;" id="idKonw" style="float:left;width:50%;border-right:1px solid #eee">取消</a>
+	<a href="javascript:;" id="iKonw">返回9188彩票</a>
+</div>
+<div class="zhezhao" style="display:none;"></div>
+
+<body style="background:#efefef">
+<div id="account">
+	<figure><img src="img/banner.png" width="100%"></figure>
+	<div class="input clearfix"><span class="left">金额</span><input type="number" id="payMoney" placeholder="请输入转账金额"><cite class="right">元</cite></div>
+	<article class="text" id="selectMoney">
+		<ul class="clearfix">
+			<li value="100">100元</li>
+			<li value="500">500元</li>
+			<li value="1000" style="margin-right: 0;">1000元</li>
+			<li value="5000">5000元</li>
+			<li value="10000">10000元</li>
+			<li value="50000" style="margin-right: 0;">50000元</li>
+		</ul>
+		<div class="btn">确认转账</div>
+		<a href="javascript:;" class="notAccount">充值未到账 >></a>
+		<p>温馨提示：<br>
+	为确保您的款项及时到账，请您留意以下几点：<br>
+	1. 充值10分钟以上未到账,可在充值按钮下的”充值未到账”自行补单；<br>
+	2. 转账支付宝账户用户姓名需与9188账户绑定真实姓名一致，否则将无法到账，无法到账款项将在10个工作日内退回原支付宝充值账户；<br>
+	3. 账户不允许从事无真实交易背景和虚假交易,银行卡转账套现或洗钱等违反国家相关法律,法规的行为,否则充值项目将不能提现；<br>
+	4. 充值金额需消费100%，不可提现，中奖奖金可提现无限制；<br>
+	5. 联系客服电话400-673-9188</p>
+	</article>
+</div>
+<div id="notAccount" style="display:none;">
+	<article class="text2">
+		<ul>
+			<li><span>用户名</span><input type="text" readonly="readonly" id="userName" placeholder="请输入9188彩票用户名"></li>
+			<li><span>支付宝账号</span><input type="text" id="alipayId" placeholder="请输入你转账的支付宝账户名"></li>
+			<li><span>订单号</span><input type="text" id="orderId" placeholder="请输入您的支付宝订单号"></li>
+			<li><span>转账金额</span><input type="number" id="payMoney2" placeholder="请输入您转账的金额"></li>
+		</ul>
+		<div class="btn2">提交审核</div>
+		<p>温馨提示：<br>
+	支付宝转账成功却未到账的用户请核对您的9188彩票用户名，提交该笔转账的支付宝订单号（打开支付宝手机客户端，点击进入该账单，再点击右上角“更多”可见），支付宝账号，支付金额，我们将在十分钟之内给您处理</p>
+	    
+	</article>
+</div>
+<script type="text/javascript" src="index.js"></script>
+</body>

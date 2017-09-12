@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="/newuser/css/redpack.css"/>
+<!--兑换红包-->
+<section>
+    <div class="duihuan_box">
+        <img src="/newuser/img/group_img.png">
+        <input type="text" placeholder="请输入兑换码（字母区分大小写）" id='CDkey'>
+    </div>
+    <div class="duihuan_btn">
+        <a class="btn_a1" id='CDbtn' style='margin:0;'>立即兑换</a>
+        <p class="p5">输入兑换码，兑换可抵用购彩现金的红包</p>
+    </div>
+
+</section>
+<script>
+CP.newRedPackKey = (function(){
+	var DOM = {
+		CDkey: $('#CDkey'),
+		CDbtn: $('#CDbtn')
+	}
+	var o = {
+		init:function(){
+			var key = DOM.CDkey.val();
+			$.ajax({
+				url:'/user/cardChongzhi.go',
+				type:'POST',
+				dataType:'xml',
+				data:{ccardid : key.substring(0,12),
+					ccardpwd: key.substring(12,key.length),
+					mtype: 4,
+					source: 3002,
+					logintype: 'session'
+				},
+				success:function(xml){
+					var R = $(xml).find('Resp');
+					var code = R.attr('code');
+					var desc = R.attr('desc');
+					if(code == '0'){
+						/* window.location.href = '' */
+					}else{
+						alert(desc);
+					}
+				},error : function (){
+					remove_alert();
+					alert('网络异常请刷新重试');
+				}
+			})
+		},
+		bind:function(){
+			DOM.CDbtn.bind('click', function(){
+				if(DOM.CDkey.val().length > 19){
+					o.init();
+				}
+			})
+			DOM.CDkey.bind('keyup' ,function(){
+				if($(this).val().length > 19){
+					DOM.CDbtn.removeClass('btn_a1').addClass('btn_a2')
+				}else{
+					DOM.CDbtn.removeClass('btn_a2').addClass('btn_a1')
+				}
+			})
+		}	
+	};
+	var init = function () {
+		TopAnch.init({
+			title:'红包兑换',
+			prevShow:true,
+			prevFun:function(){//左侧按钮绑定事件
+				window.history.back();
+			},
+			nextShow: true,
+			nextText: '',
+			nextFun: function(){
+				/* window.location.href = '#type=url&p=user/detail.html?in=cz'; */
+			},
+			isBack:true,
+			/* style:true */
+		});
+		/* o.init() */
+		o.bind();
+		delete resetPage //删除订单详情中的全局变量
+	};
+	return {init:init}
+})();
+CP.newRedPackKey.init()
+</script>

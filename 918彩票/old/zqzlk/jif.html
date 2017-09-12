@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title></title>
+
+<link href="style.css" rel="stylesheet" type="text/css">
+<style>
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+
+</style>
+<body style="background: #f5f5f5">
+	<header class="tzHeader zlkssHeader">
+		<div class="fixedTop">
+			<div class="moreHeader">
+				<a href="index.html" class="backIco"></a>
+				<h1>英超</h1>
+			</div>
+			<nav class="relative">
+				<div class="zlkTab clearfix" id="Play_Tab">
+					<a v="ss" href="javascript:;" class="cur">赛事</a>
+					<a v="jf" href="javascript:;">积分</a> <a v="sd" href="javascript:;">射手</a>
+					<a v="tj" href="javascript:;">统计</a>
+				</div>
+				<em class="downline" style="width: 13%; left: 6%"></em>
+			</nav>
+			<div id="load_nav">
+				<div class="zlksaisTitle" style="display:none">
+					<div class="zlksaisText" id="wdls">
+						<span class="prevArrow"></span>
+						<ul>
+							<li>上一轮</li>
+							<li class="cur">加载中...</li>
+							<li>下一轮</li>
+						</ul>
+						<span class="nextArrow"></span>
+					</div>
+				</div>
+				<div class="zlkssList zlkssTitle"><strong>排名</strong><em>球员</em><cite>球队</cite><span>总进球(点球)</span></div>
+			</div>
+		</div>
+	</header>
+	<div id="ALL_CONT">
+		<!-- 横向滑动内容  赛事的所有数据 -->
+		<div id="slideCont" style="overflow: hidden; position: relative; height: 550px;"></div>
+		<!-- 横向滑动内容  赛事的所有数据 -->
+		
+		<!-- 积分内容 -->
+		<div id="jfCont" style="display: none">
+			<article>
+				<!-- 
+				<div class="sfcTitle">
+					英超积分<em class="up"></em>
+				</div>
+				 -->
+				<div style="display:">
+					<div class="zlkjfList zlkssTitle">
+						<strong>排名</strong><cite>球队</cite><em>场</em><em>胜</em><em>平</em><em>负</em><em>积分</em>
+					</div>
+					<ul class="zlkjfList" id="jfData">
+						<!-- 
+						<li><strong><i class="greenbg">1</i></strong><cite>切尔西</cite><em>11</em><em>9</em><em>2</em><em>0</em><em>29</em></li>
+						<li><strong><i class="greenbg">2</i></strong><cite>南安普顿</cite><em>11</em><em>9</em><em>2</em><em>0</em><em>29</em></li>
+						<li><strong>3</strong><cite>曼彻斯特成</cite><em>11</em><em>9</em><em>2</em><em>0</em><em>29</em></li>
+						<li><strong>4</strong><cite>西汉姆联</cite><em>11</em><em>9</em><em>2</em><em>0</em><em>29</em></li>
+						 -->
+					</ul>
+				</div>
+			</article>
+		</div>
+		<!-- 积分内容 -->
+		
+		<!-- 射手内容 -->
+		<div id="ssCont" style="display:none">
+			<ul class="zlkssList">
+				<!-- 
+				<li><strong><i class="one">01</i></strong><em>阿奎罗</em><cite>皇家马德里</cite><span>12(2)</span></li>
+				<li><strong><i class="two">02</i></strong><em>阿奎罗</em><cite>拜仁慕尼黑</cite><span>12(2)</span></li>
+				<li><strong><i class="three">03</i></strong><em>阿奎罗</em><cite>利物浦 </cite><span>10(2)</span></li>
+				<li><strong>04</strong><em>阿奎罗</em><cite>多特蒙德</cite><span>12(2)</span></li>
+				<li><strong>05</strong><em>阿奎罗</em><cite>皇家马德里</cite><span>12(2)</span></li>
+				<li><strong>06</strong><em>阿奎罗</em><cite>拜仁慕尼黑</cite><span>10(2)</span></li>
+				<li><strong>07</strong><em>阿奎罗</em><cite>利物浦</cite><span>12(2)</span></li>
+				<li><strong>08</strong><em>阿奎罗</em><cite>奈梅亨</cite><span>10(2)</span></li>
+				<li><strong>09</strong><em>阿奎罗</em><cite>曼彻斯特城</cite><span>12(2)</span></li>
+				 -->
+			</ul>
+		</div>
+		<!-- 射手内容 -->
+		
+		<div id="tjCont" style="display:none">
+			<ul class="zlktjList">
+				<li class="grayBg">
+			    	<p class="gray"><cite>已比赛的场次</cite><em>106</em><span>占27.89%</span></p>
+			        <p><cite>未比赛的场次</cite><em>274</em><span>占72.11%</span></p>
+			    </li>
+				<li>
+			    	<p><cite>主场胜出</cite><em>43</em><span>占40.57%</span></p>
+			        <p><cite>客场胜出</cite><em>31</em><span>占29.29%</span></p>
+			    </li>
+				<li class="grayBg">
+			    	<p><cite>平局数</cite><em>43</em><span>占40.57%</span></p>
+			        <p><cite>总进球数</cite><em>231</em><span>平均2.7球/场</span></p>
+			    </li>
+			    <li>
+			    	<p><cite>主场进球数</cite><em>43</em><span>平均1.2球/场</span></p>
+			        <p><cite>客场进球数</cite><em>31</em><span>平均1.2球/场</span></p>
+			    </li>
+				<li class="grayBg">
+			    	<p><cite>攻击力最佳</cite><em>切尔西</em><span>得28球</span></p>
+			    	<p><cite>攻击力最差</cite><em>阿斯顿维拉</em><span>得5球</span></p>
+			    </li>
+			    <li>
+			    	<p><cite>主场攻击力最佳</cite><em>南安普顿</em><span>得17球</span></p>
+			    	<p><cite>主场攻击力最差</cite><em>阿斯顿维拉</em><span>得3球</span></p>
+			    </li>
+			    <li class="grayBg">
+			    	<p><cite>客场攻击力最佳</cite><em>切尔西</em><span>得15球</span></p>
+			    	<p><cite>客场攻击力最差</cite><em>莱切斯特城</em><span>得1球</span></p>
+			    </li>
+				<li>
+			    	<p><cite>防守最佳</cite><em>南安普顿</em><span>失5球</span></p>
+			    	<p><cite>防守最差</cite><em>女王公园巡</em><span>失22球</span></p>
+			    </li>
+				<li class="grayBg">
+			    	<p><cite>主场防守最佳</cite><em>南安普顿</em><span>失1球</span></p>
+			    	<p><cite>主场防守最差</cite><em>埃弗顿</em><span>失11球</span></p>
+			    </li>
+				<li>
+			    	<p><cite>客场防守最佳</cite><em>南安普顿</em><span>失4球</span></p>
+			    	<p><cite>客场防守最差</cite><em>女王公园巡</em><span>失14球</span></p>
+			    </li>
+			</ul>
+		</div>
+	</div>
+	<div class="zlkNO" style="display:none"></div>
+	 
+	<footer class="zlkFooter" style="display:none">
+		<!-- <p class="fixedBt">最新更新时间：<em>2014年06月30日15时23分49秒</em></p> -->
+	</footer>
+	 <!--
+	<footer class="zlkFooter" style="display: none">
+		<div class="fixedBt zlkjfFloat">
+			<div class="zlkjfFloat2">
+				<em class="greenbg">&nbsp;</em>小组出线
+			</div>
+		</div>
+	</footer>
+	-->
+</body>
+<!-- 百度统计 -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff6babc6e11c8122615416b76c3b54696' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- 百度统计 -->
+<script src="/app/zqzlk/js/jquery-1.9.1.min.js"></script>
+<script src="/app/zqzlk/js/data.js"></script>

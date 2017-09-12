@@ -1,0 +1,181 @@
+<div class="w1105 m0auto text_center fz14 white" style="padding:20px 0 0 0;">
+    <div class="hgt30 line_hgt30 p10_0" style="background: #EAEAEA">
+        <span class="inlilne-block border_red1 red p5_25" ng-class="{yzActive:yzLists.yzList=='yzzh'}" ng-click=" yzLists.yzList ='yzzh'; fun.cancelOrder(); ">一字组合</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-class="{yzActive:yzLists.yzList=='bdw'}" ng-click=" yzLists.yzList ='bdw';fun.cancelOrder(); ">百定位</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-class="{yzActive:yzLists.yzList=='sdw'}" ng-click=" yzLists.yzList ='sdw';fun.cancelOrder(); ">拾定位</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-class="{yzActive:yzLists.yzList=='gdw'}" ng-click=" yzLists.yzList ='gdw';fun.cancelOrder(); ">个定位</span>
+    </div>
+    
+    
+    <div ng-show=" yzLists.yzList== 'yzzh' " >
+        <div ng-repeat="(key,items) in yzzhPls track by $index">
+            <div class="hgt36 line_hgt36 black">
+                <span class="p9 bg_red">{{key}}</span>
+            </div>
+            <div class="text_center middle">
+                <div>
+                    <div class="inline-block bg-gray" ng-repeat="value in [1,1,1,1,1] track by $index">
+                        <span>号码</span>
+                        <span class="m0_25">赔率</span>
+                        <span>金额</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="inline-block bg-lightgray" ng-repeat="item in items|limitTo:5 track by $index">
+                        <span class="w50 inline-block"> {{item.number}}</span>
+                        <span class="w50 inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(item)" ng-class="{'peiyu-selected': data.betPeiyuSelected[item.id]}">{{item.pl}}</span>
+                        <input type="number" ng-class="{'has-error': data.inputErrors[item.id]}" ng-model="data.betMoney[item.id]" ng-change="fun.codeSelected(item)" class="w50 border_black" />
+                    </div>
+                </div>
+                <div>
+                    <div class="inline-block bg-lightgray" ng-repeat="item in items|limitTo:-5 track by $index">
+                        <span class="w50 inline-block">{{item.number}}</span>
+                        <span class="w50 inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(item)" ng-class="{'peiyu-selected': data.betPeiyuSelected[item.id]}">{{item.pl}}</span>
+                        <input type="number" ng-class="{'has-error': data.inputErrors[item.id]}" ng-model="data.betMoney[item.id]" ng-change="fun.codeSelected(item)" class="w50 border_black" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show=" yzLists.yzList=='sdw' ">
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">拾定位</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block bg-gray" ng-repeat="value in [1,1,1,1,1] track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" ng-repeat="item in sdwNumPls|limitTo:5 track by item.number">
+                    <span class="w50 inline-block">{{item.number}}</span>
+                    <span class="w50 inline-block peiyu-selected-hover" ng-click="fun.peiyuSelected(item)" ng-class="{'peiyu-selected': data.betPeiyuSelected[item.id]}">{{item.pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[item.id]}" ng-model="data.betMoney[item.id]" ng-change="fun.codeSelected(item)" class="w50 border_black" />
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" ng-repeat="item in sdwNumPls|limitTo:-5 track by $index">
+                    <span class="w50 inline-block ">{{item.number}}</span>
+                    <span class="w50 inline-block  peiyu-selected-hover" ng-click="fun.peiyuSelected(item)" ng-class="{'peiyu-selected': data.betPeiyuSelected[item.id]}">{{item.pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[item.id]}" ng-model="data.betMoney[item.id]" ng-change="fun.codeSelected(item)"  class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">拾</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block bg-gray" style="width:161px" ng-repeat="value in [1,1,1,1,1,1] track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" style="width:161px" ng-repeat="item in sdwPls|limitTo:-6 track by $index">
+                    <span class="w50 inline-block">{{item.number}}</span>
+                    <span class="w50 inline-block  peiyu-selected-hover" ng-click="fun.peiyuSelected(item)" ng-class="{'peiyu-selected': data.betPeiyuSelected[item.id]}">{{item.pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[item.id]}" ng-model="data.betMoney[item.id]" ng-change="fun.codeSelected(item)"  class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show=" yzLists.yzList=='bdw' ">
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">百定位</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block bg-gray" ng-repeat="value in [1,1,1,1,1] track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" ng-repeat="item in bdwNumPls|limitTo:5 track by item.number">
+                    <span class="w50 inline-block">{{item.number}}</span>
+                    <span class="w50 inline-block  peiyu-selected-hover" ng-click="fun.peiyuSelected(item)" ng-class="{'peiyu-selected': data.betPeiyuSelected[item.id]}">{{item.pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[item.id]}" ng-model="data.betMoney[item.id]" ng-change="fun.codeSelected(item)"  class="w50 border_black" />
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" ng-repeat="item in bdwNumPls|limitTo:-5 track by $index">
+                    <span class="w50 inline-block">{{item.number}}</span>
+                    <span class="w50 inline-block  peiyu-selected-hover" ng-click="fun.peiyuSelected(item)" ng-class="{'peiyu-selected': data.betPeiyuSelected[item.id]}">{{item.pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[item.id]}" ng-model="data.betMoney[item.id]" ng-change="fun.codeSelected(item)"  class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">百</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block bg-gray" style="width:161px" ng-repeat="value in [1,1,1,1,1,1] track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" style="width:161px" ng-repeat="item in bdwPls|limitTo:-6 track by $index">
+                    <span class="w50 inline-block">{{item.number}}</span>
+                    <span class="w50 inline-block  peiyu-selected-hover" ng-click="fun.peiyuSelected(item)" ng-class="{'peiyu-selected': data.betPeiyuSelected[item.id]}">{{item.pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[item.id]}" ng-model="data.betMoney[item.id]" ng-change="fun.codeSelected(item)"  class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show=" yzLists.yzList=='gdw' ">
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">个定位</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block bg-gray" ng-repeat="value in [1,1,1,1,1] track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" ng-repeat="item in gdwNumPls|limitTo:5 track by item.number">
+                    <span class="w50 inline-block">{{item.number}}</span>
+                    <span class="w50 inline-block  peiyu-selected-hover" ng-click="fun.peiyuSelected(item)" ng-class="{'peiyu-selected': data.betPeiyuSelected[item.id]}">{{item.pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[item.id]}" ng-model="data.betMoney[item.id]" ng-change="fun.codeSelected(item)"  class="w50 border_black" />
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" ng-repeat="item in gdwNumPls|limitTo:-5 track by $index">
+                    <span class="w50 inline-block">{{item.number}}</i></span>
+                    <span class="w50 inline-block  peiyu-selected-hover" ng-click="fun.peiyuSelected(item)" ng-class="{'peiyu-selected': data.betPeiyuSelected[item.id]}">{{item.pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[item.id]}" ng-model="data.betMoney[item.id]" ng-change="fun.codeSelected(item)"  class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+        <div class="hgt36 line_hgt36 black">
+            <span class="p9 bg_red">个</span>
+        </div>
+        <div class="text_center middle">
+            <div>
+                <div class="inline-block bg-gray" style="width:161px" ng-repeat="value in [1,1,1,1,1,1] track by $index">
+                    <span>号码</span>
+                    <span class="m0_25">赔率</span>
+                    <span>金额</span>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-lightgray" style="width:161px" ng-repeat="item in gdwPls|limitTo:-6 track by $index">
+                    <span class="w50 inline-block">{{item.number}}</span>
+                    <span class="w50 inline-block  peiyu-selected-hover" ng-click="fun.peiyuSelected(item)" ng-class="{'peiyu-selected': data.betPeiyuSelected[item.id]}">{{item.pl}}</span>
+                    <input type="number" ng-class="{'has-error': data.inputErrors[item.id]}" ng-model="data.betMoney[item.id]" ng-change="fun.codeSelected(item)"  class="w50 border_black" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

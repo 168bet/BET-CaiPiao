@@ -1,0 +1,9 @@
+diff a/sdjc/login.html b/sdjc/login.html	(rejected hunks)
+@@ -384,6 +384,7 @@
+ 					var agentFrom = location.search.getParam("agentFrom");
+ 					(lo.getParam("page")) && (lo.getParam("type_from"))
+ 					setTimeout(function(){
++						/*location.replace(document.referrer)  */
+ 						history.go(-1);
+ 					},1e3);
+ 				}else{

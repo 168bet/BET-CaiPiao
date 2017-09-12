@@ -1,0 +1,166 @@
+{php $css = ['laydate-need.css', 'laydate.css','bt_odds.css'];}
+{php $nav_id = 5;}
+{template 'content', 'header_score'}
+
+<div class="banner-wrap">
+    <div class="shop">
+        <div class="odds-title">
+            <a href="{APP_PATH}zqodds/">足球赔率</a>
+        </div>
+        <div class="odds-title active">
+            <a href="{APP_PATH}lqodds/">篮球赔率</a>
+        </div>
+        <div class="nav">
+            <ul class="odds-nav">
+                <li class="active"><a href="{APP_PATH}lqodds/">综合指数</a></li>
+                <li><a href="{APP_PATH}lqoddseuro/">欧赔指数</a></li>
+                <li><a href="{APP_PATH}lqoddsasia/">亚盘指数</a></li>
+                <li><a href="{APP_PATH}lqoddsou/">大小球</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="choose">
+    <div class="choose-time clearfix">
+        <ul style="float: left;">
+            <li class="{if $odds_status == 1}active{/if}"><a href="{APP_PATH}lqodds/">即时指数</a></li>
+            <li class="{if $odds_status == 2}active{/if}"><a href="{APP_PATH}lqodds/?odds_status=2">已开赛</a></li>
+            <li class="{if $odds_status == 3}active{/if}"><a href="{APP_PATH}lqodds/?odds_status=3">历史</a></li>
+            <li class="{if $odds_status == 4}active{/if}"><a href="{APP_PATH}lqodds/?odds_status=4">早盘</a></li>
+            <li>
+                <div class="dropdown" style="display: inline-block;">
+                    <button class="btn btn-control" data-toggle="modal" data-target="#game-modal" style="background-color: #fff;width: 90px;">
+                        选择赛事
+                        <i class="icon-angle-down"></i>
+                    </button>
+                </div>
+            </li>
+        </ul>
+        {if in_array($odds_status, array(3, 4)) }
+        <div id="date-wrap" class="search-date" >
+            <form method="post" action="{APP_PATH}lqodds/">
+                <input type="hidden" name="odds_status" value="{$odds_status}" />
+                日期：<input id="{if $odds_status == 3}history{else}tomorrow{/if}" name="date" value="{$date}" type="text" style="width: 145px;height: 26px;">
+                <button type="submit" class="btn btn-warning btn-sm">查询</button>
+            </form>
+        </div>
+        {/if}
+    </div>
+    <div class="choose-company clearfix">
+        <form method="post" action="{APP_PATH}lqodds/">
+            <input type="hidden" name="dosubmit" value="1" />
+            <input type="hidden" name="odds_status" value="{$odds_status}" />
+            <input type="hidden" name="date" value="{$date}" />
+            <ul style="float: left;">
+                {loop $companies $cid $c}
+                <li class="{if $c[checked]}active{/if}"><a href="">{$c['name']}</a><input type="checkbox" style="display: none" name="companyid[]" value="{$cid}"></li>
+                {/loop}
+            </ul>
+            <a id="sure" class="sure">确定</a>
+
+        </form>
+    </div>
+</div>
+<div class="content">
+    <div id="table-header" class="table-header-wrap">
+        <table class="table-header">
+            <tr class="bg-grey">
+                <td width="132" rowspan="2">公司</td>
+                <td width="270" colspan="3">亚盘</td>
+                <td width="270" colspan="3">欧赔</td>
+                <td width="270" colspan="3">大小对比</td>
+                <td width="90" rowspan="2"></td>
+            </tr>
+            <tr class="bg-grey">
+                <td>主赔</td>
+                <td>盘口</td>
+                <td>客赔</td>
+                <td>主胜</td>
+                <td>客胜</td>
+                <td>返回率</td>
+                <td>大球</td>
+                <td>盘口</td>
+                <td>小球</td>
+            </tr>
+        </table>
+    </div>
+    <div class="time"><i class="rili"></i>{$date_text}</div>
+    {loop $live_games $gameid $game}
+    <!--一条数据start-->
+    <div class="data-container" data-competition="{$game['sclassid']}">
+        <div class="competition-info">
+            <i class="data-btn data-open"></i>
+            <span class="ml30">{$game[sclassname_cn]}&nbsp;&nbsp;{date('H:i', $game[date])}</span>
+            <span class="red mr40">{$arr_status[$game[status]]}</span>
+            <span class="ml40"><span class="red mr5">{if !empty($game[homerank])}［{$game[homerank]}］{/if}</span>{$game[homename_cn]}</span>
+            <span class="red mr20">{if isset($game[homescore])}{$game[homescore]}{/if}－{if isset($game[guestscore])}{$game[guestscore]}{/if}</span>
+            <span class="mrr40">{$game[guestname_cn]}<span class="red ml5">{if !empty($game[guestrank])}［{$game[guestrank]}］{/if}</span></span>
+            <a target="_blank" href="{APP_PATH}schedule/{$gameid}/analyse/" class="analysis">析</a>
+        </div>
+        <div class="competition-data">
+            <table>
+                {php $rowspan = true;}
+                {loop $game['odds'] $r}
+                <tr>
+                    <td width="132">{$r[companyname]}</td>
+                    <td width="90">{$r[homeodds]}</td>
+                    <td width="90">{$r[letgoal]}</td>
+                    <td width="90">{$r[guestodds]}</td>
+                    <td width="90">{$r[homewin]}</td>
+                    <td width="90">{$r[guestwin]}</td>
+                    <td width="90">{$r[return]}</td>
+                    <td width="90">{$r[highodds]}</td>
+                    <td width="90">{$r[totalscore]}</td>
+                    <td width="90">{$r[lowodds]}</td>
+                    {if $rowspan}
+                    <td width="90" rowspan="{$count($game[odds])}">
+                        <a href="{APP_PATH}schedule/{$gameid}/asia/" target="_blank">亚</a>
+                        <a href="{APP_PATH}schedule/{$gameid}/ou/" target="_blank">大</a>
+                        <a href="{APP_PATH}schedule/{$gameid}/euro/" target="_blank">欧</a>
+                    </td>
+                    {/if}
+                </tr>
+                {php $rowspan = false;}
+                {/loop}
+            </table>
+        </div>
+    </div>
+    <!--一条数据end-->
+    {/loop}
+</div>
+
+<!--弹层-->
+<div class="modal fade" id="game-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" >赛事选择</h4>
+            </div>
+            <div class="modal-body">
+                <div class="dioLog-bd clearfix">
+                    {loop $sclassidData $r}
+                    <div class="col-sm-3">
+                        <label>
+                            <input type="checkbox" name="competitionid[]" data-name="competition" value="{$r[sclassid]}">
+                            {$r[name_s]}
+                        </label>
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info checkAll" data-action="check-all" data-target="competition">全选</button>
+                <button type="button" class="btn btn-info clearCheck" data-action="check-clear" data-target="competition">全不选</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-target="competition" data-action="submit" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //指数状态
+    var odds_status = {$odds_status};
+</script>
+{php $js = ['bt_odds.js','laydate.dev.js','date.js','fixed.js'];}
+{template 'content', 'footer'}

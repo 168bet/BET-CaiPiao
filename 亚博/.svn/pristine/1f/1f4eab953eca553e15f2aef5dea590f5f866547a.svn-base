@@ -1,0 +1,66 @@
+<div class="page-bg1" style="padding:10px 0 38px 0;background:#E8E8E8;">
+    <div class="login_wrapbox clearfix">
+        <div id="loginbox" style="padding-top:0;float:left;">
+            <div class="loginwrap" style="padding-top:0;">
+                <div class="main-box isShow-box" id="getpass-1">
+                    <div class="box_title"> <i class="ico_titile" style="margin-left:0px;"></i>
+                        <span class="txt_titile" style="font-size:28px;width:180px;">找回用户密码</span>
+                    </div>
+                    <div class="box_row box_ip"> <i class="user"></i>
+                        <input type="text" class="ip_hold" value="请输入注册用户名" style="display: inline-block;">
+                        <input id="ip_username" class="ip_holder" type="text" value="" style="display: none;"></div>
+                    <div class="box_row box_ip">
+                        <i class="pass"></i>
+                        <input type="text" class="ip_hold" value="请输入资金密码" style="display: inline-block;">
+                        <input id="ip_password" class="ip_holder" type="password" value="" style="display:none;"></div>
+                    <div class="box_row clearfix box_checkimg" id="box-checkcode">
+                        <span class="box_ip">
+                            <input type="text" class="ip_hold" value="请输入验证码" style="display: inline-block;">
+                            <input id="ip_checkcode" class="ip_holder" type="text" value="" style="display:none;"></span>
+                        <img src="/Verify" alt="请在左边输入图片内容" id="checkimg" style="cursor:pointer;">
+                        <a href="javascript:;" class="ip_link" id="checkimg2">换一张</a>
+                    </div>
+                    <div class="box_row clearfix" style="padding:12px 0 16px 0">
+                        <a href="login" class="getpass">现在去登陆</a>
+                        <a href="javascript:;" class="reset" id="button_reset">重置</a>
+                    </div>
+                    <div class="box_btn" id="submitbtn-box">
+                        <a href="javascript:;" class="btn" id="submitbtn">
+                            <span>
+                                <i></i>
+                                提 交
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="main-box" id="getpass-2">
+                    <div class="box_title">
+                        <span class="txt_titile" style="font-size:28px;width:100%;text-align:center;line-height:108px;">设置新用户密码</span>
+                    </div>
+                    <div class="box_row box_ip">
+                        <i class="pass"></i>
+                        <input type="text" class="ip_hold" value="请输入新用户密码">
+                        <input id="ip_npassword" class="ip_holder" type="password" value="" style="display:none;"></div>
+                    <div class="box_row box_ip">
+                        <i class="pass"></i>
+                        <input type="text" class="ip_hold" value="请再输入一次密码">
+                        <input id="ip_npassword2" class="ip_holder" type="password" value="" style="display:none;"></div>
+                    <div class="box_row clearfix" style="padding:12px 0 16px 0">
+                        <a href="login" class="getpass">现在去登陆</a>
+                        <a href="javascript:;" class="reset" id="button_reset2">重置</a>
+                    </div>
+                    <div class="box_btn" id="submitbtn-box">
+                        <a href="javascript:;" class="btn" id="submitbtn2">
+                            <span>
+                                <i></i>
+                                提 交
+                            </span>
+                        </a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="picbox" style="float:left;width:400px;padding:16px 0;">
+            <img src="{{staticURI}}/images/reg/login-pic.jpg" width="520" height="420"></div>
+    </div>
+</div>

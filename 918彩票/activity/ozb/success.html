@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+	<title></title>
+	<style>
+body{background:#f7f7f7;min-width:320px;font-size:14px;font-family:arial,Microsoft YaHei,Helvetica,sans-serif;color:#222;tap-highlight-color:transparent;-webkit-tap-highlight-color:transparent;-moz-tap-highlight-color:transparent}
+body,button,dd,dl,dt,figure,h1,h2,h3,h4,h5,html,input,li,p,select,span,textarea,ul{margin:0;padding:0}
+@media screen and (min-width:480px){body,button,html,input,select,textarea{font-size:18px}
+}
+@media screen and (min-width:640px){body,button,html,input,select,textarea{font-size:24px}
+}
+input,li,ol,ul{list-style:none}
+cite,em,i,o{font-style:normal}
+img{border:0}
+.clearfix{overflow:hidden;zoom:1}
+.clear{clear:both}
+.left{float:left}
+.right{float:right}
+a{color:#333;text-decoration:none}
+a:visited{color:#333}
+p{line-height:1.2rem}
+.pdLfrt09{padding:.1rem .9rem 0 .9rem}
+.great{width:15.5rem;margin:0 auto;padding:3.2rem 0 1.5rem 0}
+.great p{color:#32ca1f;font-size:1.1rem;line-height:1.8rem}
+.clearfix{overflow:hidden;zoom:1}
+.loginBtn,.register{display:block;width:100%;letter-spacing:.2rem;text-align:center;margin-top:1rem;line-height:3rem;color:#fff;background:#f26c60;font-size:1.1rem;border-radius:.2rem;-webkit-border-radius:.2rem;-moz-border-radius:.2rem}
+.greatIco{float:left;margin-right:.4rem;width:1.7rem;height:1.7rem;background:url(/img/fc/great.png) no-repeat center;background-size:1.6rem 1.6rem;-webkit-background-size:1.6rem 1.6rem;-moz-background-size:1.6rem 1.6rem}
+.register{background:#bfbfbf;margin-top:2rem}
+.weui_toptips.weui_warn{background-color:#E64340}
+.weui_toptips{position:fixed; padding: 5px 0;-webkit-transform:translateZ(0);width:100%;top:0;font-size:14px;text-align:center;color:#FFF;z-index:2}
+.weui_mask{position:fixed;z-index:3;width:100%;height:100%;top:0;left:0;background:rgba(0,0,0,.6)}
+.weui_dialog{position:fixed;z-index:13;width:85%;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);background-color:#FAFAFC;text-align:center;border-radius:3px;overflow:hidden}
+.weui_dialog_hd{padding:1.2em 0 .5em}
+.weui_dialog_title{font-weight:400;font-size:17px}
+.weui_dialog_confirm .weui_dialog .weui_dialog_bd{text-align:left}
+.weui_dialog_bd{padding:0 20px;font-size:15px;color:#888;word-wrap:break-word;word-break:break-all}
+.weui_dialog_ft{position:relative;line-height:42px;margin-top:20px;font-size:17px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}
+.weui_dialog_confirm .weui_dialog_ft a{position:relative}
+.weui_btn_dialog.default{color:#353535}
+.weui_btn_dialog.primary{color:#0BB20C}
+.weui_dialog_ft a{display:block;-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;color:#3CC51F;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.weui_dialog_confirm .weui_dialog_ft a:after{content:" ";position:absolute;left:0;top:0;width:1px;height:100%;border-left:1px solid #D5D5D6;color:#D5D5D6;-webkit-transform-origin:0 0;transform-origin:0 0;-webkit-transform:scaleX(.5);transform:scaleX(.5)}
+.weui_dialog_ft:after{content:" ";position:absolute;left:0;top:0;width:100%;height:1px;border-top:1px solid #D5D5D6;color:#D5D5D6;-webkit-transform-origin:0 0;transform-origin:0 0;-webkit-transform:scaleY(.5);transform:scaleY(.5)}
+
+	</style>
+</head>
+<body>
+<div class="weui_dialog_confirm" id="dialog2" style='display:none;'>
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">升级提醒</strong></div>
+        <div class="weui_dialog_bd"></div>
+        <div class="weui_dialog_ft">
+            <a href="javascript:;" class="weui_btn_dialog default">取消</a>
+            <a href="javascript:;" class="weui_btn_dialog primary">立即升级</a>
+        </div>
+    </div>
+</div>
+	<div class="weui_toptips weui_warn js_tooltips" style="display: none;"></div>
+	<article id="content_home" style="background-color: rgb(247, 247, 247);"><div class="pdLfrt09">
+	<div class="great" style="width:100%； padding:3.5rem 0 1.5rem 0">
+		<p style="width:13rem; margin: 0 auto;">
+			<em class="greatIco"></em><em id="yycg">购买成功</em>
+		</p>
+		<!-- <p style="font-size:0.8rem;color:gray">资金已冻结,彩票o2o系统正在为您出票</p> -->
+		<p style="font-size:0.8rem;color:#bebebe;padding-top:.8rem; text-align: center;">资金已冻结,彩票o2o系统正在为您出票</p>
+		<span style="display: none"></span>
+	</div>
+	<div class="clearfix">
+		<a href="javascript:;" class="left register" id="cxgcjl">查询购彩记录</a>
+		<a href="javascript:;" class="right loginBtn" id="rebuy" style="margin-top:2rem">继续购买</a>
+	</div>
+</div>
+</article>
+<script src='js/zepto.min.js'></script>
+<script src='js/fastclick.min.js'></script>
+<script>
+FastClick.attach(document.body);
+var CP = {}
+CP.WIN = (function(){
+	var hasTouch = 'ontouchstart' in window;
+	var end_ev = hasTouch ? 'touchend' : 'mouseup';
+	var $dom = {
+			rebuy : $('#rebuy'),//继续购买
+			record : $('#cxgcjl')//查询购彩记录
+	}
+	function getParam(name) { 
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+		var r = window.location.search.substr(1).match(reg); 
+		if (r != null) return unescape(r[2]); return null; 
+	}
+	var appversion = sessionStorage.getItem('appversion')||''//版本号
+	var projid = getParam('projid') || '';//方案编号
+	appversion = appversion.replace(/\./g,'');
+	var gid = projid.substr(0,2);//彩种编号
+	
+	var grade = localStorage.getItem("grade");
+	var msg = '', msg2 = '';
+	var o = {
+		init:function(){
+			if(appversion == ''){
+				msg = '为避免无法正常查看详情页。请升级到最新版本>>'
+				msg2 = '为避免无法正常查看详情页，请升级到最新版本。'
+				$('.weui_toptips').text(msg).show();
+			}
+			if(appversion < 432){
+				msg = '您的版本过低，可能无法正常查看详情页。点击升级>>'
+				msg2 = '您的版本号过低，可能无法正常查看详情页，请升级到最新版本。'
+				$('.weui_toptips').text(msg).show();
+			}
+			
+			$("#yycg").html(parseInt(grade)>0?"预约订单发布成功":"购买成功")
+			$("#cxgcjl").html(parseInt(grade)>0?"查看约单详情":"查询购彩记录")
+			$("#rebuy").html(parseInt(grade)>0?"继续预约":"继续购买")
+			o.bindEvent();
+		},
+		bindEvent : function(){
+			$dom.rebuy.bind(end_ev, function () {
+				history.back();
+			});
+			$dom.record.bind(end_ev, function () {
+				if(appversion == '' || appversion < 432){
+					$('#dialog2 .weui_dialog_bd').text(msg2)
+					$('#dialog2').show().on('click', '.weui_btn_dialog', function (e) {
+							if($(this).index()){
+								location.href='http://t.9188.com  '
+							}
+		                    $('#dialog2').off('click').hide();
+	                });
+				}else{
+					location.replace('/#type=url&p=user/viewpath.html?hid='+projid);
+				}
+			});
+			$('.js_tooltips').bind(end_ev, function(){
+				location.href='http://t.9188.com  '
+			})
+		}		
+	}	
+	return {init:o.init}
+})();
+
+CP.WIN.init();
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,186 @@
+{php $css = array('ft_event.css')}
+{php $nav_id = 6;}
+{template "content", "header_score"}
+
+<nav>
+    <div class="container">
+        <div class="row">
+            <div class="main-nav">
+                <ul class="clearfix">
+                    <li class="active"><a href="{APP_PATH}zqevent/" class="football">足球数据库</a></li>
+                    <li><a href="{APP_PATH}lqevent/" class="basketball">篮球数据库</a></li>
+                </ul>
+            </div>
+            <div class="matchNavBar">
+                <ul class="clearfix">
+                    <li class="zone-item" data-zoneid="13"><a class="active" href="javascript:;" >欧洲赛事</a></li>
+                    <li class="zone-item" data-zoneid="25"><a href="javascript:;" >亚洲赛事</a></li>
+                    <li class="zone-item" data-zoneid="26"><a href="javascript:;">美洲赛事</a></li>
+                    <li class="zone-item" data-zoneid="27"><a href="javascript:;" >大洋洲赛事</a></li>
+                    <li class="zone-item" data-zoneid="29"><a href="javascript:;" >国际赛事</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-left ">
+                <div class="main">
+
+                    {loop $eventData $zoneid $item1}
+                    <!-- 国家 -->
+                    <div class="guojia-m zone-{$zoneid}" {if $zoneid != 13}style="display:none"{/if}>
+                        <h1 class="title pdT10">
+                            <span class="icon-title icon-jiangbei">
+                            </span>
+                            国家赛事
+
+                        </h1>
+                        <div class="m-box">
+                            <ul class="clearfix">
+                                {loop $item1[2] $key $item}
+                                <li class="m-item">
+                                    <div class="m-item-img"><img src="{$item['countrylogo']}" alt="" height="50"></div>
+                                    <div class="m-item-title">
+                                        {$item['countryname']}
+                                        <i class="icon-angle-down fr"></i>
+                                    </div>
+                                    <div class="m-dropdown">
+                                        <ul>
+                                            {loop $item['event'] $r}
+                                            <li><a target="_blank" href="{APP_PATH}competition/{$r['eventid']}/schedule/">{$r['eventname']}</a></li>
+                                            {/loop}
+                                        </ul>
+                                    </div>
+                                </li>
+                                {/loop}
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 国际 -->
+                    <div class="guojia-m zone-{$zoneid}" {if $zoneid != 13}style="display:none"{/if}>
+                        <h1 class="title pdT10">
+                            <span class="icon-title icon-jiangbei">
+                            </span>
+                            洲际赛事
+                        </h1>
+                        <div class="m-box">
+                            <ul class="clearfix">
+                                {loop $item1[1] $key $r}
+                                <li class="m-item">
+                                    <a target="_blank" href="{APP_PATH}competition/{$r['id']}/schedule/">
+                                        <div class="m-item-img"><img src="{$r['countrylogo']}" alt="" height="50"></div>
+                                        <div class="m-item-title">
+                                            {$r['name']}
+                                        </div>
+                                    </a>
+                                </li>
+                                {/loop}
+                            </ul>
+                        </div>
+                    </div>
+                    {/loop}
+
+                </div>
+            </div>
+            <div class="col-right pdL15">
+                <div class="side">
+                    <h1 class="title pdT10">
+                        <span class="icon-title icon-jiangbei">
+                        </span>
+                        最新赛事
+
+                    </h1>
+
+                    <div class="m-list" id="match_list">
+                        <ul>
+                            {loop $hot_data $data}
+                            <li class="list-item clearfix">
+                                <div class="inner-col col-over">
+                                    <div class="team-img">
+                                        <a href="{APP_PATH}team/{$data['hometeamid']}/" target="_blank">
+                                            <img src="{PHOTO_PATH}team/{$data['hometeamid']}.jpg" alt="{$data['homeshortname']}" class="team-photo">
+                                        </a>
+                                    </div>
+                                    <p>
+                                        <a href="{APP_PATH}team/{$data['hometeamid']}/" target="_blank">
+                                            {$data['homename']}
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="inner-col">
+                                    <a target="_blank" href="{APP_PATH}game/{$data['gameid']}/analyse/">
+                                        <div class="live-score">{$data['homescore']}:{$data['awayscore']}</div>
+                                        <p>{date('m月d日 H:i')}</p>
+                                    </a>
+                                </div>
+                                <div class="inner-col col-over">
+                                    <div class="team-img">
+                                        <a href="{APP_PATH}team/{$data['awayteamid']}/" target="_blank">
+                                            <img src="{PHOTO_PATH}team/{$data['awayteamid']}.jpg" alt="{$data['awayshortname']}" class="team-photo">
+                                        </a>
+                                    </div>
+                                    <p>
+                                        <a href="{APP_PATH}team/{$data['awayteamid']}/" target="_blank">
+                                            {$data['awayname']}
+                                        </a>
+                                    </p>
+                                </div>
+                            </li>
+                            {/loop}
+                        </ul>
+                    </div>
+                </div>
+                <div class="side side_bt">
+                    <h1 class="title pdT10">
+                        <span class="icon-title bg-pic">
+                        </span>
+                        精彩图片
+                        <a class="more" href="{APP_PATH}tuku/" target="_blank">更多</a>
+                    </h1>
+
+                    <div class="pd height422">
+                        {pc:content  action="lists" catid="7" num="18" order="id DESC" cache="3600" thumb="1"}
+                        {php $data = array_chunk($data, 6)}
+                        {loop $data $list}
+                        <ul class="list-pic-container clearfix">
+                            {loop $list $r}
+                            <li class="list-pic">
+                                <div class="list-img-wrap">
+                                    <a href="{$r[url]}" target="_blank">
+                                        <img src="{get_thumb($r[thumb],350)}" title="{$r[title]}">
+                                    </a>
+                                </div>
+                                <div class="pic-des">
+                                    {str_cut($r[title], 28, '...')}
+                                </div>
+                            </li>
+                            {/loop}
+                        </ul>
+                        {/loop}
+                    </div>
+                    {if count($data) > 1}
+                    <div class="tab-btn clearfix">
+                        <ul class="fr">
+                            {loop $data $r}
+                            <li class="list-btn {if $n==1}active{/if}"></li>
+                            {/loop}
+                        </ul>
+                    </div>
+                    {/if}
+                    {/pc}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = array('article_tab.js','ft_event.js', 'imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js')}
+{template "content", "footer"}

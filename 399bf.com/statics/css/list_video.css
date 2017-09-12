@@ -1,0 +1,85 @@
+body{
+    background-color: #f2f2f2;
+}
+.mp {
+    margin: 0;
+    padding: 0;
+}
+.img-list-li {
+    font-size: 1.4em;
+    float: left;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+}
+.list-video-img{
+    width: 258px;
+    height: 297px;
+    background-color: #ffffff;
+    float: left;
+    margin-right: 32px;
+    margin-top: 10px;
+}
+.imgCon{
+    height:187px;
+    overflow:hidden;
+}
+.list-video-img:hover{
+    border: 1px solid #c1c1c1;
+    box-shadow: 0 0 5px #929190;
+}
+.img-desc, .time {
+    color: #b3b3b3;
+}
+.img-desc {
+    width: 245px;
+    margin: 0 auto;
+    padding: 10px;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 1.4em;
+}
+.img-desc a{
+    color: #b3b3b3;
+}
+.img-desc a:hover{
+    color: #424953;
+}
+.time {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    font-size: 1.4em;
+}
+
+
+/*瀑布流样式*/
+#main {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.pin {
+    padding: 15px 15px 0 0;
+    float: left;
+}
+
+.box {
+    width: 275px;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 0 5px #929190;
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+}
+
+.box.detail img {
+    width: 100%;
+}
+.box-img{
+    height:400px;
+    overflow: hidden;
+}

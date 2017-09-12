@@ -1,0 +1,19 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+
+<div class="game-section">
+	<div class="page-bg-game">
+	    <div class="body-wrap">
+	        <div class="game-wrap">
+	            <div class="game-nav">
+	                <ul class="clearfix">
+	                    <li><a ui-sref-active="active" ui-sref="klsf.name({name:'GDKLSF'})">广东快乐十分</a></li>
+	                    <li><a ui-sref-active="active" ui-sref="klsf.name({name:'TJKLSF'})">天津快乐十分</a></li>
+	                </ul>
+	            </div>
+	            <div ui-view="klsf"></div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<ng-include src="templateURI('/footer.html')"></ng-include>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link href="css/global.css" rel="stylesheet" type="text/css" />
+<title>金豆乐园</title>
+<body>
+<!--温馨提示弹窗-->
+	<div class="tishi" style="display:none">
+		<span class="tishi_1">温馨提示:</span>
+		<span class="tishi_2">
+			<em class="tishi_3">
+				可用于砸蛋的金豆数是根据您<span class="green">当天盈利，当月盈利和历史总盈利这三种情况中取其中最大数值</span>为用户的砸蛋金豆数。
+			</em>
+			<em class="close">关闭</em>
+		</span>	
+	</div>
+<!--中红包弹窗-->
+	<div class="zhong_1" style="display:none" id="dAlert_hb">
+		<em class="zhong_2">
+			<a class="ou">欧耶 188元红包入口袋，爽歪歪~</a>
+		</em>
+		<!-- <div class="look">查看奖品</div> -->
+		<div class="guanbi">Ⅹ</div>
+	</div>	
+<!--中金豆弹窗-->
+	<div class="zhong_1" style="display:none" id="dAlert_jd">
+		<em class="zhong_2_dou">
+			<a class="ou">欧耶！188元红包入口袋，爽歪歪~</a>
+		</em>
+		<!-- <div class="look">查看奖品</div> -->
+		<div class="guanbi">Ⅹ</div>
+	</div>	
+<!--缺少金豆弹窗-->
+	<div class="que_1_dou" style="display:none" id="dAlert">
+		<em class="que_2_dou">
+			<a class="que_dou_1">囧~您目前的可砸蛋金豆不够砸蛋哦~攒够金豆再战吧！</a>
+		</em>
+		<div class="sure">确定</div>
+		<div class="guanbi_dou">Ⅹ</div>
+	</div>	
+<!--活动结束弹窗--> 
+	<!-- 
+	<div class="que_1_dou" style="display:none">
+		<em class="que_2_dou">
+			<a class="que_dou_1">悲剧~客官您来完了~本次活动结束啦！</a>
+		</em>
+		<div class="sure">确定</div>
+		<div class="guanbi_dou">Ⅹ</div>
+	</div>
+	 -->
+<!--绑定弹窗-->
+	<div class="md_1" style="display:none" id="dConfirm">
+		<em class="md_2">
+			<a class="md_3">参与活动前需先绑定手机号！</a>
+		</em>
+		<div class="md_close">关闭</div>
+		<div class="md_sure">去绑定</div>	
+	</div>
+	 
+<!--完善信息弹窗-->
+	<!-- 
+	<div class="md_1" style="display:none">
+		<em class="md_2">
+			<a class="md_3">参与活动前请先完善信息！</a>
+		</em>
+		<div class="md_close">关闭</div>
+		<div class="md_sure">去完善</div>		
+	</div>
+	-->
+<!--实名认证弹窗-->
+	<!-- 
+	<div class="md_1" style="display:none;">
+		<em class="md_2">
+			<a class="md_3">参与活动前请先认证信息！</a>
+		</em>
+		<div class="md_close">关闭</div>
+		<div class="md_sure">去认证</div>		
+	</div>
+	 -->	
+<!--未登录弹窗-->
+	<div class="md_1" style="display:none" id="dConfirm_login">
+		<em class="md_2">
+			<a class="md_3">参与活动前需要先登录！</a>
+		</em>
+		<div class="md_close">注册</div>
+		<div class="md_sure">登录</div>
+		<div class="guanbi_dou">Ⅹ</div>
+	</div>	
+<div class="zhezhao" style="display:none;"></div>
+<!--顶部条-->
+<header class="tzHeader">
+     <div class="zcHeader fixed2">
+    	<a href="javascript:history.go(-1);" class="fcbackIco2" id="back"></a>
+    	<h1>金豆乐园</h1>
+      </div> 
+</header>
+<!--主要功能区域-->
+<div class="main">
+		<div class="main_1">
+        	<div class="title"></div>
+			<div class="list" id="demo">
+				<ul id="scroll_Cont">
+					<!-- 			
+					<li>anme****敲中了188元红包</li>
+                    <li>anme****敲中了188元红包</li>
+                    <li>anme****敲中了188元红包</li>
+                    <li>anme****敲中了188元红包</li>
+                    <li>anme****敲中了188元红包</li>
+                    <li>anme****敲中了188元红包</li>
+                    <li>anme****敲中了188元红包</li>
+                     -->
+				</ul>
+				<ul id="demo2"></ul>
+			</div>
+			<ul class="eg_box">
+				<li class="egg_1"></li>
+				<!--中100,000金豆-->
+				<li class="egg_1_zhong_jindou"  style="display: none;"><em class="zhong_j">100,000金豆</em></li>
+				<!--中1,888红包-->
+				<li class="egg_1_zhong_hongbao" style="display: none;"><em class="zhong_j">1,888红包</em></li>
+				
+				<li class="egg_2"></li>
+				<!--中10,000金豆-->
+				<li class="egg_2_zhong_jindou"  style="display: none;"><em class="zhong_j_xie">100,000金豆</em></li>
+				<!--中1,88红包-->
+				<li class="egg_2_zhong_hongbao" style="display: none;"><em class="zhong_j_xie">1,888红包</em></li>
+				
+				<li class="egg_3"></li>	
+				<!--中200金豆-->
+				<li class="egg_3_zhong_jindou"  style="display: none;"><em class="zhong_j_xie">200金豆</em></li>
+				<!--中8元红包-->
+				<li class="egg_3_zhong_hongbao" style="display: none;"><em class="zhong_j_xie">8元红包</em></li>
+				<!--三个锤子-->
+	
+				<div id="chuizi_1" class="chuizi chuizi_anmation" style="position:absolute; left:50%; margin-left:-2.5rem; z-index:4;display:none;"></div>
+                <div id="chuizi_3" class="chuizi chuizi_anmation" style="position:absolute; left:2rem; z-index:4;display:none;"></div>
+                <div id="chuizi_2" class="chuizi chuizi_anmation" style="position:absolute; right:2rem; z-index:4;display:none;"></div>
+
+			</ul>
+			
+		</div>	
+</div>
+<a href="jp.html" class="jiang_ico"><!-- <em class="jiang_num">10</em> --></a>
+<article class="button_bg">
+	<div class="button_1">
+
+		<em  id="my_jd_info" ><!-- tanmeiling   可用盈利金豆：<span class="white">12,000</span> --></em>
+		<button id="hit_egg">拿起锤子砸蛋</button>	
+	</div>
+	<div class="chuizi chuizi_anmation"  id="run"  style="top:1.5rem;"></div>
+	<div class="wen"></div>
+</article>
+<article class="rank_1">
+	<div class="guan">
+		<span class="guan_bg">
+			<em class="zhang"></em>
+			<em class="wz">10,000豆砸蛋随机奖品</em>
+		</span>
+	</div>
+	<div class="money">
+		<ul class="bg_1">
+			<li class="clearshow">
+				<em class="hongbao"></em>
+				<em class="yuan raduis1">1,888元红包</em>
+			</li>
+			<li>
+				<em class="hongbao"></em>
+				<em class="yuan">1,88元红包</em>
+			</li>
+			<li>
+				<em class="hongbao"></em>
+				<em class="yuan">88元红包</em>
+			</li>
+			<li>
+				<em class="hongbao goldn"></em>
+				<em class="yuan raduis">1000~10万金豆</em>
+			</li>
+		</ul>
+	</div>
+</article>
+<article class="rank_1">
+	<div class="guan">
+		<span class="guan_bg guan_2">
+			<em class="zhang zhang1"></em>
+			<em class="wz wz1">1000豆砸蛋随机奖品</em>
+		</span>
+	</div>
+	<div class="money bg_gr">
+		<ul class="bg_2">
+			<li class="clearshow">
+				<em class="hongbao"></em>
+				<em class="yuan bg_y raduis1">888元红包</em>
+			</li>
+			<li>
+				<em class="hongbao"></em>
+				<em class="yuan bg_y">88元红包</em>
+			</li>
+			<li>
+				<em class="hongbao"></em>
+				<em class="yuan bg_y">8元红包</em>
+			</li>
+			<li>
+				<em class="hongbao goldn"></em>
+				<em class="yuan bg_y raduis">100~10000金豆</em>
+			</li>
+		</ul>
+	</div>
+</article>
+<article class="rank_1">
+	<div class="guan">
+		<span class="guan_bg guan_3">
+			<em class="zhang zhang2"></em>
+			<em class="wz wz2">100豆砸蛋随机奖品</em>
+		</span>
+	</div>
+	<div class="money bg_ye">
+		<ul class="bg_3">
+			<li class="clearshow">
+				<em class="hongbao"></em>
+				<em class="yuan bg_h raduis1">88元红包</em>
+			</li>
+			<li>
+				<em class="hongbao"></em>
+				<em class="yuan bg_h">8元红包</em>
+			</li>
+			<li>
+				<em class="hongbao"></em>
+				<em class="yuan bg_h">1元红包</em>
+			</li>
+			<li>
+				<em class="hongbao goldn"></em>
+				<em class="yuan bg_h raduis">10~2000金豆</em>
+			</li>
+		</ul>
+	</div>
+</article>
+<article class="des">
+	<div class="bt_bg">
+		<div class="bt">砸蛋须知</div>
+	</div>
+	<div class="wz_bg">
+		<div class="wz_bg1">
+			<div class="num">1、</div>
+			<div class="word">本次活动<em class="white">仅限“边看边猜”活动用户参与，</em>参与抽奖用户须绑定手机号和身份证。</div>	
+		</div>
+		
+		<div class="wz_bg2">
+			<div class="num">2、</div>
+			<div class="word">特别声明：可用于砸蛋的金豆数是根据您当天盈利、当月盈利和历史总盈利情况来取其中最大数值为砸蛋 金豆数。</div>
+			<div class="word"></div>
+			<div class="word">您的账户若满足以下三种盈利情况之一且有足够砸蛋盈利金豆数，即可成功参与，<em class="white">用户可用砸蛋金豆数取以下三个数值中最大的</em>为准：</div>
+			<div class="word">1）当日金豆盈利</div>
+			<div class="word">2）当月金豆盈利</div>
+			<div class="word">3）总金豆盈利</div>
+		</div>
+		<div class="wz_bg3">
+			<div class="num">3、</div>
+			<div class="word">抽奖所中<em class="white">奖品可在"我的奖品"中查看</em>，红包和金豆奖品实时派发，金豆亦可到"边看边猜活动页-我的金豆"中查看；红包亦可到“我的彩票-我的红包”明细中查看。</div>	
+		</div>
+		<div class="wz_bg4">
+			<div class="num">4、</div>
+			<div class="word">本次活动在<em class="white">网站、手机触屏网、安卓和IOS客户端</em>均可参与。</div>	
+		</div>
+		<div class="wz_bg5">
+			<div class="num">5、</div>
+			<div class="word">任何通过作弊等非正规手段参与抽奖用户将被取消抽奖资格，本网站对本次活动保留最终解释权。</div>	
+		</div>
+			
+	</div>
+</article>
+<div id="layer" style="display:none;position:fixed; width:100%; height:100%; background:#000; opacity:.6; top:0; z-index:2;"></div>
+</body>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/activity/gq/egg/js/index.js" type="text/javascript" charset="utf-8"></script>
+
+</script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1e1a0d86a7a03a31cc8c75a4e20490f5";
+  var s = document.getElementsByTagName("script")[0];  
+   
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 百度统计 -->

@@ -1,0 +1,96 @@
+.klsfTopCircle{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+}
+.ball {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+}
+.ball-gray {
+    background-color: #b2b2b2;
+}
+.ball-red {
+	background-color: #d41525;
+}
+.ball-green {
+	background-color: #55be24;
+}
+.ball-blue {
+	background-color: #3996e6;
+}
+.ball-rec {
+    border-radius: 0px;
+    border: 1px solid #898989;
+    color: #000;
+}
+.ball-rec-green {
+    border-radius: 0px;
+    background-color: #55be24;
+}
+.ball-rec-red {
+    border-radius: 0px;
+    background-color: #d41525;
+}
+.ball-rec-blue {
+    border-radius: 0px;
+    background-color: #3996e6;
+}
+.sepTitle{
+  height: 42px;
+  line-height: 42px;
+  background: #C12727;
+  width: 924px;
+  margin-left: 92px;
+  color: white;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.boder_green{
+  border: 1px solid green;
+}
+.mb_20{
+  margin-bottom: -20px;
+}
+
+.lhcOpenBg span.ball {
+	margin-right: 10px;
+}
+
+.lhcOpenBg > :last-child span.ball{
+	margin-right: 0px;
+}
+
+.game-play {
+	position: relative;
+}
+.mask-ngDialog {
+	position: absolute;
+}
+.mask-ngDialog .ngdialog-overlay {
+    position: absolute;
+}
+body.ngdialog-open.mask-dialog-open {
+    overflow: auto;
+}
+
+input[type="number"].has-error{
+    border: 1px solid #d41525;
+}
+.money-input-border {
+    border: 1px solid #cdcdcd;
+}
+
+.left-time-wrap .box-time .red span {
+    color: #c12727;
+}

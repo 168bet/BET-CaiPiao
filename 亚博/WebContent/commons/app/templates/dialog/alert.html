@@ -1,0 +1,7 @@
+<div class="alert-dialog-con">
+    <h3>{{ngDialogData.title}}</h3>
+    <div class="alert-con"><p ng-bind-html="ngDialogData.msg | trustHTML"></p></div>
+    <div class="alert-bottom clearfix">
+        <button class="alert-close btn" ng-click="closeThisDialog()()">确定</button>
+    </div>
+</div>

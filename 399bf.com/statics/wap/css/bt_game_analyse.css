@@ -1,0 +1,180 @@
+.red{
+    color: #ff0000;
+}
+.green{
+    color: #009944;
+}
+.orange{
+    color: #ffa21d;
+}
+.nav {
+    position: absolute;
+    height: 10.89844rem;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: url("../images/bbg.jpg") center bottom no-repeat;
+    background-size: cover;
+}
+.bar-nav {
+    color: #fff;
+    background-color: transparent;
+    border-bottom-color: #1a1a1a;
+}
+.white{
+    color: #ffffff;
+}
+.back{
+    color: #ffffff;
+    border-color: transparent;
+}
+.nav .title,.nav .icon-left{
+    font-size: 0.7rem;
+}
+.match-nav{
+    position: relative;
+    top: 3.5rem;
+    color: #ffffff;
+}
+.match-nav .team-icon img {
+    border-radius: 0.39063rem;
+    box-shadow: 0 0 0.39063rem #333;
+    height: 3rem;
+}
+.match-nav .team {
+    padding-top: 0.54688rem;
+}
+.match-nav [class^="col"] {
+    text-align: center;
+}
+.match-nav .team-name {
+    font-family: "SimSun";
+    font-size: 0.625rem;
+}
+.match-nav .match-state {
+    display: inline-block;
+    border-radius: 0.39063rem;
+    border: 0.03906rem solid #fff;
+    width: 4.5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 0.39063rem #333;
+}
+.match-nav .match-state .score-line {
+    font-weight: bold;
+    font-size: 1rem;
+}
+.match-nav .match-state > p {
+    margin: 0;
+    font-size: 0.625rem;
+    line-height: 0.9375rem;
+}
+.nav ~ .content {
+    top: 10.89844rem;
+    padding-bottom: 3.90625rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.buttons-tab {
+    border-bottom: 0.03906rem solid #dddddd;
+}
+.buttons-tab .button{
+    height: 1.8rem;
+    line-height: 1.8rem;
+    font-size: 0.7rem;
+    color: #999999;
+}
+.buttons-tab .button.active {
+    color: #ffa21d;
+    border-color: #ffa21d;
+    z-index: 100;
+}
+.content-block{
+    padding: 0;
+    margin: 0;
+}
+.content-block table{
+    width: 100%;
+    background-color: #ffffff;
+}
+.content-block table td{
+    text-align: center;
+    font-size: 0.6rem;
+}
+.content-block table tr{
+    border-bottom: 1px solid #dddddd;
+    height: 2rem;
+}
+.line{
+    height: 1rem;
+    line-height: 1rem;
+}
+.content-block table td.text-right{
+    text-align: right;
+}
+.content-block table td.text-left{
+    text-align: left;
+}
+.data-title{
+    font-size: 0.6rem;
+    color: #333;
+    padding: 0 0.70313rem;
+    line-height: 2rem;
+    height: 2rem;
+    border-bottom: 1px solid #dddddd;
+    background-color: #f4f4f8;
+}
+.data-title > img {
+    vertical-align: middle;
+    max-height: 1.44531rem;
+}
+
+/*欧赔*/
+.lump {
+    position: relative;
+    padding: 0 0.46875rem;
+}
+.lump .lump-title {
+    margin-top: 0.39063rem;
+    margin-bottom: -0.39063rem;
+}
+.lump table tr{
+    height: 1.2rem;
+}
+.lump .table.table-head td {
+    color: #666666;
+    border-bottom: none;
+    font-size: 0.6rem;
+    text-align: center;
+}
+.lump .lump-item {
+    border-radius: 0.39063rem;
+    background-color: white;
+    box-shadow: 0 0 0.58594rem 0.03906rem #dddddd;
+    margin: 0.39063rem 0;
+}
+.lump .lump-item.euro {
+    padding: 0.19531rem 0;
+}
+.lump table{
+    width: 100%;
+}
+.lump .lump-item .table td {
+    color: #333333;
+    font-size: 0.6rem;
+    text-align: center;
+}
+.lump .lump-item .table td.red{
+    color: #ff0000;
+}
+.lump .lump-item .table td.green{
+    color: #26a157;
+}
+.lump .lump-item .table-noborder {
+    border-bottom: none;
+}
+.lump .lump-item .table-noborder tr:last-child td {
+    border-bottom: none;
+}
+.lump .lump-item:first-child .table td {
+    color: #666666;
+}

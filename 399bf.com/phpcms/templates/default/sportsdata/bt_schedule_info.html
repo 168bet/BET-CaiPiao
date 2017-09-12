@@ -1,0 +1,75 @@
+<!-- nav -->
+<nav>
+    <div class="container">
+        <div class="crumbs" style="margin-top: 5px;">
+            <i class="crumbs-icon"></i>当前位置：
+            <a href="{APP_PATH}" class="orange">首页</a>&gt;
+            <a href="{APP_PATH}lqevent/" class="orange">篮球资料库</a>&gt;
+            <a href="{APP_PATH}sclass/{$schedule_id}/schedule/" class="orange">{$schedule_info['sclassname_cn']}</a>&gt;
+            {$schedule_info['homename_cn']} vs {$schedule_info['guestname_cn']}
+        </div>
+        <div class="row matchNav">
+            <div class="matchNav-hd clearfix">
+                <div class="col-md-4">
+                    <div class="match-tip">
+                        <span>
+                            {$schedule_info['sclassname_cn']}
+                            {$schedule_info['sclasscategory_cn']}
+                        </span>
+                        <time>{$schedule_info['sclassseason']}</time>
+                    </div>
+                    <div class="match-team">
+                        <div class="team-rank">联赛排名：{if $schedule_info['homerank']}{$schedule_info['homerank']}{/if}</div>
+                        <div class="team-name"><a href="{APP_PATH}lq/team/{$schedule_info['hometeamid']}/" target="_blank">{$schedule_info['homename_cn']}</a></div>
+                    </div>
+                    <div class="match-team-icon">
+                        <a href="{APP_PATH}lq/team/{$schedule_info['hometeamid']}/" target="_blank">
+                            <img src="{BT_TEAM_PATH}{$schedule_info['hometeamid']}.jpg" class="bt-team-photo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="match-score">
+                        <div class="line-score">
+                            <div class="team-score">{$schedule_info['homescore']}:{$schedule_info['guestscore']}</div>
+                            <div>半场{$schedule_info['homehalfscore']}:{$schedule_info['guesthalfscore']}</div>
+                        </div>
+                        <div class="line-site">
+
+                            <div>
+                                <i class="site-icon"></i>
+                                {$schedule_info['stadium']}
+                            </div>
+                            <div>
+                                <span>状态:</span>
+                                {$arr_status[$schedule_info['status']]}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 right">
+                    <div class="match-team-icon">
+                        <a href="{APP_PATH}lq/team/{$schedule_info['guestteamid']}/" target="_blank">
+                            <img src="{BT_TEAM_PATH}{$schedule_info['guestteamid']}.jpg" class="bt-team-photo">
+                        </a>
+                    </div>
+                    <div class="match-team">
+                        <div class="team-rank">联赛排名：{if $schedule_info['guestrank']}{$schedule_info['guestrank']}{/if}</div>
+                        <div class="team-name"><a href="{APP_PATH}lq/team/{$schedule_info['guestteamid']}/" target="_blank">{$schedule_info['guestname_cn']}</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="matchNavBar">
+                <ul class="clearfix">
+                    <li><a href="{APP_PATH}schedule/{$schedule_id}/analyse/"  id="analyse">分析</a></li>
+                    <li><a href="{APP_PATH}schedule/{$schedule_id}/euro/"  id="euro">欧赔</a></li>
+                    <li><a href="{APP_PATH}schedule/{$schedule_id}/asia/"  id="asia">让分</a></li>
+                    <li><a href="{APP_PATH}schedule/{$schedule_id}/ou/"  id="ou">总分</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>
+<!-- nav end -->

@@ -1,0 +1,163 @@
+{php $css = ['bt_immediate.css'];}
+{php $nav_id = 2;}
+{template 'wap', 'wap_header'}
+<!-- 你的html代码 -->
+<div class="content">
+    <div class="buttons-tab">
+        <a href="{WAP_PATH}lqscore/" class="active button">即时</a>
+        <a href="{WAP_PATH}lqwanchang/" class="button close-popup">完场</a>
+        <a href="{WAP_PATH}lqsaicheng/" class="button close-popup">下日</a>
+        <a href="{WAP_PATH}lqevent/" class="button close-popup">资料</a>
+        <a href="{WAP_PATH}lqodds/" class="button close-popup">指数</a>
+    </div>
+    <div class="content-block">
+        <div class="tabs">
+            <div class="tab active">
+                <div id="start-list">
+                    <div class="text-center">
+                        {if count($return['in_progress'])}
+                        <span class="list-title" id="start">正在进行的比赛</span>
+                        {/if}
+                    </div>
+                    <div class="list-container">
+                        {loop $return['in_progress'] $r}
+                        <div class="data-item clearfix" data-schedule-id="{$r['scheduleid']}">
+                            <div class="data-item-top">
+                                <span class="data-event-name">{$r['sclassname_cn']}</span>
+                                <span class="data-time" data-key="date">{date('H:i', $r['date'])}</span>
+                                <span class="data-fields" data-key="status">{$r['status']}</span>&nbsp;&nbsp;
+                                <span class="data-fields" data-key="remaintime">{$r['remaintime']}</span>
+                            </div>
+                            <div class="data-item-bottom">
+                                <div class="left">
+                                    <div class="team home-name">{$r['homename_cn']}</div><div class="team guest-name">{$r['guestname_cn']}</div>
+                                </div>
+                                <div class="right">
+                                    <div class="team">
+                                        <span class="data-num orange" data-key="home-letgoal">{if $r['letgoal'] >= 0 }{abs($r['letgoal'])}{/if}</span>
+                                        <span class="data-num" data-key="homeone">{$r['homeone']}</span>
+                                        <span class="data-num" data-key="hometwo">{$r['hometwo']}</span>
+                                        <span class="data-num" data-key="homethree">{$r['homethree']}</span>
+                                        <span class="data-num" data-key="homefour">{$r['homefour']}</span>
+                                        <span class="data-num red fr" data-key="homescore" data-target="home-name">{$r['homescore']}</span>
+                                    </div>
+                                    <div class="team">
+                                        <span class="data-num orange" data-key="guest-letgoal">{if $r['letgoal'] < 0 }{abs($r['letgoal'])}{/if}</span>
+                                        <span class="data-num" data-key="guestone">{$r['guestone']}</span>
+                                        <span class="data-num" data-key="guesttwo">{$r['guesttwo']}</span>
+                                        <span class="data-num" data-key="guestthree">{$r['guestthree']}</span>
+                                        <span class="data-num" data-key="guestfour">{$r['guestfour']}</span>
+                                        <span class="data-num red fr" data-key="guestscore" data-target="guest-name">{$r['guestscore']}</span>
+                                    </div>
+                                </div>
+                                <div class="link">
+                                    <a href="{WAP_PATH}schedule/{$r['scheduleid']}/analyse/" class="icon_arrow" ></a>
+                                </div>
+                            </div>
+                        </div>
+                        {/loop}
+                    </div>
+                </div>
+                <div id="ready-list">
+                    <div class="text-center">
+                        {if count($return['not_started'])}
+                        <span class="list-title" id="ready">未开始的比赛</span>
+                        {/if}
+                    </div>
+                    <div class="list-container">
+                        {loop $return['not_started'] $r}
+                        <div class="data-item clearfix" data-schedule-id="{$r['scheduleid']}" data-start-time="{$r['date']}">
+                            <div class="data-item-top">
+                                <span class="data-event-name">{$r['sclassname_cn']}</span>
+                                <span class="data-time" data-key="date">{date('H:i', $r['date'])}</span>
+                                <span class="data-fields" data-key="status">{$r['status']}</span>&nbsp;&nbsp;
+                                <span class="data-fields" data-key="remaintime">{$r['remaintime']}</span>
+                            </div>
+                            <div class="data-item-bottom">
+                                <div class="left">
+                                    <div class="team home-name">{$r['homename_cn']}</div><div class="team guest-name">{$r['guestname_cn']}</div>
+                                </div>
+                                <div class="right">
+                                    <div class="team">
+                                        <span class="data-num orange" data-key="home-letgoal">{if $r['letgoal'] >= 0 }{abs($r['letgoal'])}{/if}</span>
+                                        <span class="data-num" data-key="homeone">{$r['homeone']}</span>
+                                        <span class="data-num" data-key="hometwo">{$r['hometwo']}</span>
+                                        <span class="data-num" data-key="homethree">{$r['homethree']}</span>
+                                        <span class="data-num" data-key="homefour">{$r['homefour']}</span>
+                                        <span class="data-num red fr" data-key="homescore" data-target="home-name">{$r['homescore']}</span>
+                                    </div>
+                                    <div class="team">
+                                        <span class="data-num orange" data-key="guest-letgoal">{if $r['letgoal'] < 0 }{abs($r['letgoal'])}{/if}</span>
+                                        <span class="data-num" data-key="guestone">{$r['guestone']}</span>
+                                        <span class="data-num" data-key="guesttwo">{$r['guesttwo']}</span>
+                                        <span class="data-num" data-key="guestthree">{$r['guestthree']}</span>
+                                        <span class="data-num" data-key="guestfour">{$r['guestfour']}</span>
+                                        <span class="data-num red fr" data-key="guestscore" data-target="guest-name">{$r['guestscore']}</span>
+                                    </div>
+                                </div>
+                                <div class="link">
+                                    <a href="{WAP_PATH}schedule/{$r['scheduleid']}/analyse/" class="icon_arrow"></a>
+                                </div>
+                            </div>
+                        </div>
+                        {/loop}
+                    </div>
+                </div>
+                <div id="end-list">
+                    <div class="text-center">
+                        {if count($return['finished'])}
+                        <span class="list-title" id="end">结束的比赛</span>
+                        {/if}
+                    </div>
+                    <div class="list-container">
+                        {loop $return['finished'] $r}
+                        <div class="data-item clearfix">
+                            <div class="data-item-top">
+                                <span class="data-event-name">{$r['sclassname_cn']}</span>
+                                <span class="data-time">{date('H:i', $r['date'])}</span>
+                                <span class="data-fields">{$r['status']}&nbsp;&nbsp;{$r['remaintime']}</span>
+                            </div>
+                            <div class="data-item-bottom">
+                                <div class="left">
+                                    <div class="team">{$r['homename_cn']}</div><div class="team">{$r['guestname_cn']}</div>
+                                </div>
+                                <div class="right">
+                                    <div class="team">
+                                        <span class="data-num orange">{if $r['letgoal'] >= 0 }{abs($r['letgoal'])}{/if}</span>
+                                        <span class="data-num">{$r['homeone']}</span>
+                                        <span class="data-num">{$r['hometwo']}</span>
+                                        <span class="data-num">{$r['homethree']}</span>
+                                        <span class="data-num">{$r['homefour']}</span>
+                                        <span class="data-num red fr">{$r['homescore']}</span>
+                                    </div>
+                                    <div class="team">
+                                        <span class="data-num orange">{if $r['letgoal'] < 0 }{abs($r['letgoal'])}{/if}</span>
+                                        <span class="data-num">{$r['guestone']}</span>
+                                        <span class="data-num">{$r['guesttwo']}</span>
+                                        <span class="data-num">{$r['guestthree']}</span>
+                                        <span class="data-num">{$r['guestfour']}</span>
+                                        <span class="data-num red fr">{$r['guestscore']}</span>
+                                    </div>
+                                </div>
+                                <div class="link">
+                                    <a href="{WAP_PATH}schedule/{$r['scheduleid']}/analyse/" class="icon_arrow"></a>
+                                </div>
+                            </div>
+                        </div>
+                        {/loop}
+                    </div>
+                </div>
+           </div>
+
+        </div>
+    </div>
+
+    {template 'wap', 'footer_nav'}
+
+</div>
+
+</div>
+</div>
+
+{php $js = ['bt_live_schedule.js'];}
+{template 'wap', 'wap_footer'}

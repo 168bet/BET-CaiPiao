@@ -1,0 +1,58 @@
+@charset "utf-8";
+/*样式初始化*/
+body{ 
+	min-width:320px;
+	font-size:14px; 
+	font-family:arial,Microsoft YaHei, Helvetica, sans-serif; 
+	color:#3c3c46; tap-highlight-color:rgba(0,0,0,0); 
+	-webkit-tap-highlight-color:rgba(0,0,0,0); 
+	-moz-tap-highlight-color:rgba(0,0,0,0);
+	background: #f4f4f4;
+}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,u,strong{ 
+	margin:0; 
+	padding:0;
+}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li{
+	list-style:none;
+}
+cite,em,i{ 
+	font-style:normal;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.content{
+	width: 92%;
+	margin: .5rem auto;
+}
+.content div{
+	text-align: justify;
+	font-size:1rem;
+	letter-spacing:.05rem;
+	margin-bottom:.4rem; 
+}
+.content h1{
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-bottom:.6rem;
+	text-align: center; 
+}
+.content div:nth-child(9){
+	margin-bottom:.6rem 
+}
+.bold{
+	font-weight: bold;
+}
+.content p{
+	text-align: justify;
+	margin-bottom:.6rem; 
+	font-size:1rem;
+	letter-spacing:.05rem;
+	line-height:1.5rem;
+}

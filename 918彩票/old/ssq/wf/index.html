@@ -1,0 +1,91 @@
+<script>
+//右上角菜单显示或隐藏
+$(function (){
+	$("#pullIco").click(function(){
+		  $(this).parent().toggleClass("pullHover");
+		  $("#pullText").toggle();
+	});
+})
+</script>
+<article class="wfText">
+	<header class="tzHeader">
+    	<section class="buyHeader">
+    	<a href="#class=home" class="homeIco backHome"></a>
+    	<h1>双色球</h1>
+        <div class="pullDown">
+        	<em class="pullIco" id="pullIco"></em>
+            <div class="pullText" id="pullText" style="display:none">
+            	<a href="#class=url&xo=ssq/index.html">选号</a>
+            	<a href="#class=url&xo=hm/index.html&gid=01">合买跟单</a>
+            	<a href="#class=url&xo=kj/r.html&gid=01">开奖结果</a>
+            	<a href="javascript:;" class="cur" style="border-bottom:none">玩法帮助</a>
+            </div>
+        </div>
+     </section>
+    </header>
+	<cite class="s_caption">双色球由中国福利彩票发行管理中心发行并在全国销售，属“乐透型”彩票，每周三期，逢周二、四、日晚21:30进行电视开奖直播。</cite>
+    <section class="s_play">
+    	<h2>一.玩法说明</h2>
+        <cite> “双色球”每注投注号码由6个红色球和1个蓝色球组成。红球号码从01～33号中选出，蓝球号码从01～16号中选出，每注2元。双色球玩法主要有以下几种：</cite>       
+		<dl>
+            <dt>1）标准投注</dt>
+            <dd>选择至少6个红球（最多20个）和至少1个蓝球（最多16个）进行投注，单个方案金额不能超过20万元。</dd>
+		</dl>
+		<dl>
+            <dt>2）胆拖投注</dt>
+            <dd>选择红球时，先选1～5个你认为必中的号作为每注都包含的投注号码（即胆码），再补充其它你认为可能中的红球号码（即拖码），胆码和拖码共6-20个；蓝球无胆码和拖码之分。单个方案金额不能超过20万元。</dd>
+        </dl>
+    </section>
+    <section class="s_winning">
+    	<h2>二.设奖及中奖</h2>
+        <cite>双色球共分六个奖级，一、二等奖为浮动奖金，三-六等奖为固定奖金，详细如下：</cite>        
+        <ul class="s_winbox">
+        	<li><ul class="s_th"><li class="s_jj">奖级</li><li class="s_tj">中奖条件</li><li class="s_sm">说明</li><li class="s_bon">奖金</li></ul></li>
+            <li><ul class="s_td"><li class="s_jj">一等奖</li><li class="s_tj"><i></i><i></i><i></i><i></i><i></i><i></i><em></em></li><li class="s_sm">中6+1</li><li class="s_bon">浮动</li></ul></li>
+            <li><ul class="s_td"><li class="s_jj">二等奖</li><li class="s_tj"><i></i><i></i><i></i><i></i><i></i><i></i></li><li class="s_sm">中6+0</li><li class="s_bon">浮动</li></ul></li>
+            <li><ul class="s_td"><li class="s_jj">三等奖</li><li class="s_tj"><i></i><i></i><i></i><i></i><i></i><em></em></li><li class="s_sm">中5+1</li><li class="s_bon">3000元</li></ul></li>
+            <li><ul class="s_td45">
+            		<li class="s_jj">四等奖</li>
+                    <li class="s_tj"><span><i></i><i></i><i></i><i></i><i></i></span><span class="last"><i></i><i></i><i></i><i></i><em></em></span></li>
+                    <li class="s_sm"><span>中5+0</span><span class="last">或4+1</span></li>
+                    <li class="s_bon">200元</li>
+            </ul></li>
+            <li><ul class="s_td45">
+            		<li class="s_jj">五等奖</li>
+                    <li class="s_tj"><span><i></i><i></i><i></i><i></i></span><span class="last"><i></i><i></i><i></i><em></em></span></li>
+                    <li class="s_sm"><span>中4+0</span><span class="last">或3+1</span></li>
+                    <li class="s_bon">10元</li>
+            </ul></li>                    
+            <li><ul class="s_td6 bor_l">
+            		<li class="s_jj">六等奖</li>
+                    <li class="s_tj"><span><i></i><i></i><em></em></span><span><i></i><em></em></span><span class="last"><em></em></span></li>
+                    <li class="s_sm"><span>中2+1</span><span>或1+1</span><span class="last">或0+1</span></li>
+                    <li class="s_bon">5元</li>
+            </ul></li>            
+        </ul>        
+        <h3>奖金计算：</h3>
+        <dl>
+            <dt>1）高奖级奖金＝奖金总额－ 固定奖奖金。</dt>
+            <dd>奖金总额等于当期销售总额的49%，固定奖奖金等于三、四、五、六等奖奖金派送之和。</dd>
+        </dl>
+        <dl>
+            <dt>2）一等奖奖金计算</dt>
+            <dd>当奖池资金低于1亿元时，奖金总额为当期高奖级奖金的75%与奖池中累积的资金之和，单注奖金按注均分，最高500万。</dd>
+            <dd>当奖池奖金超过1亿元(含)时，奖金总额包括两部分，一部分为高奖级奖金的55%与奖池奖金之和，单注奖金按注均分，封顶500万元；另一部分为高奖级奖金的20%，单注奖金按注均分，封顶500万元；单注奖金最高可达1000万。</dd>
+        </dl>
+        <dl>
+            <dt>3）二等奖奖金计算：</dt>
+            <dd>当期高奖级奖金的25%，单注奖金按注均分，单注最高500万元。</dd>
+        </dl>       
+    </section>
+    <section class="s_open">
+    	<h2>三.开奖及返奖</h2>
+        <dl>
+        	<dt>1、开奖</dt>
+            <dd>每周二、四、日21:30开奖，开奖号码（6个红球和1个蓝球）通过摇奖方式产生，中国教育电视台对开奖进行现场直播。</dd>
+        </dl>
+        <dl>
+        	<dt>2、返奖</dt>
+            <dd>小奖自动返还至用户在本站帐户中，可继续投注或提款，大奖委托本站代为领取，永无弃奖。</dd>
+        </dl>		
+    </section>

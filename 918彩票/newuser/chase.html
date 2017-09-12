@@ -1,0 +1,182 @@
+<article class="gcjlTit" id=chase>
+	<!-- 追号详情内容 -->
+	<div class="pd063">
+		<div style='padding: 58px;' id='initLoad'>
+			<em class="rotate_load" style='margin: auto'></em>
+		</div>
+	</div>
+</article>
+<script>
+CP.Chase = (function () {
+	var $_hid = CP.Util.getPara('hid', window.location.href, 2);//追号编号
+	var $_gid = $_hid.substr(0, 2);//彩种id
+	var g = {
+			icmoney : 0,//累计投注金额
+			istate:{'0':'未完成','1':'已完成','2':'中奖停止','3':'用户手工停止'},//
+			iflag:{'0':'中奖后追号不停止','1':'中奖后追号停止','2':'盈利停止'},//
+			chk:{'0':'该方案自动跟单中，请等待','1':'认购中','2':'已满员','3':'系统已撤单','4':'发起人已撤单','5':'系统已撤单','-1':'未支付'}
+	};
+	var zhData = [];
+	var o = {
+			//页面跳转
+			pageGo: {
+				goBack: function () {
+					TopAnch.init({
+						title:'追号详情',
+						prevShow:true,
+						prevFun:function(){//左侧按钮绑定事件
+							window.history.back();
+						},
+						isBack:true
+					});
+				}
+			},
+			state : function (t) {
+				var Q = '';
+				if ( t.istate == 0 ) {
+					if(t.isreturn<2){
+						Q = '<em>未投注</em>';
+					}else{
+						Q = '<em>未结算</em>';
+					}
+				} else if( t.istate ==1 ) {
+					Q = '<em>出票中</em>';
+				} else if ( t.istate == 2 ) {
+						if(t.itax>0){
+							Q = '<em class="yellow">中奖'+t.itax+'元</em>';
+						}else if(t.isreturn=="0"){
+							Q = '<em>未结算</em>';
+						}else if(t.isreturn=="3"&& t.itax=="0"){
+							Q = '<em>未中奖</em>';
+						}else{
+							Q = '<em>已投注</em>';
+						}
+				} else if ( t.istate == 3 || t.istate== 5) {
+					Q = '<em>系统撤销</em>';
+				} else if ( t.istate == 4 ) {
+					Q = '<em>用户撤销</em>';
+				}
+				return Q;
+			},
+			//渲染追号详情
+			render : function (opt) {
+				var opt = opt || [];
+				var out_ = [];
+				for (var Q1 in opt) {
+					var Q = opt[Q1];
+					awardcode = Q.awardcode;
+					if($_gid == '58'){//快乐扑克 开奖号码
+						var kjcode = awardcode.split(',');
+						var ncode = '';
+						if(kjcode != ''){
+							for(var j=0;j<kjcode.length;j++){
+								var aa = kjcode[j].substr(0,1);
+								var bb = parseInt(kjcode[j].substr(1));
+								aa = {'1':'黑桃','2':'红桃','3':'梅花','4':'方片'}[aa];
+								bb = {'1':'A','2':'J','3':'Q','4':'K'}[bb] || bb;
+								ncode += aa+bb;
+								if(j != (kjcode.length-1)){
+									ncode +=',';
+								}
+							}
+						}
+						awardcode = ncode
+					}
+					if (Q1 == '0') {
+						out_.push('<p>'+CP.Util.lot($_gid)+'&nbsp;'+Q.cadddate+'发起</p>\
+								<div class="zhxqList mgTop06">\
+								<ul>\
+								<li><cite>方案编号</cite><span>'+Q.czhid+'</span></li>\
+								<li><cite>方案期数</cite><span>'+opt.length+'期('+g.iflag[Q.izhflag]+')</span></li>\
+								<li><cite>方案状态</cite><span>'+g.istate[Q.reason]+'</span></li>\
+								<li><cite>投注内容</cite><span class="red">'+CP.Util.showcode($_gid, Q.ccodes)+'</span></li>\
+								</ul>\
+								<div class="zhxqTxt"><p class="gray pdTop06 fontSize092">追号明细</p>');
+					}
+					var Q2 = o.state(Q);
+					g.icmoney += parseInt(Q.icmoney);
+					out_.push('<div class="zhmxList">\
+							<p>\
+							第'+Q.cperiodid+'期 <em class="gray">'+Q.ccastdate+'</em>\
+							</p>\
+							<p class="zhmx">\
+							<cite>'+g.icmoney+'/'+Q.icmoney+'元</cite><span class="red">'+(awardcode||'--')+'</span>'+Q2+'\
+							</p>\
+							<p class="gray zhmx">\
+							<cite>总额<i class="accountLine"></i>当期\
+							</cite><span>开奖号</span><em>状态</em>\
+							</p>\
+					</div>');
+				}
+				out_.push('</div></div>');
+				$('#chase .pd063').html(out_.join(''));
+			},
+			//调用追号详情接口
+			zh: function () {
+				var data = {
+						flag : '39',
+						gid : $_gid,
+						tid : $_hid,
+						pn : 1,
+						ps : '100'
+				}
+				$.ajax({
+					url:CP.Data.apps+"/user/query.go?"+jQuery.param(data),
+					type:'POST',
+					dataType:'xml',
+					success  : function (xml){
+						var R = $(xml).find('Resp');
+						var c = R.attr('code');
+						var d = R.attr('desc');
+						if (c == '0') {
+							var r = R.find('row');
+							r.each(function () {
+								var t = {};
+								t.rec = $(this).attr('rec');//
+								t.czhid = $(this).attr('czhid');//追号id
+								t.cperiodid = $(this).attr('cperiodid');//期号
+								t.ccodes = $(this).attr('ccodes');//投注号码
+								t.awardcode = $(this).attr('awardcode');//开奖号码
+								t.icmoney = $(this).attr('icmoney');//当期购买金额
+								t.ccastdate = $(this).attr('ccastdate');//
+								/*0该方案自动跟单中，请等待，1认购中，2已满员 ，3系统已撤单，4发起人已撤单，5系统已撤单，-1未支付*/
+								t.istate = $(this).attr('istate');//是否投注成功
+								t.isreturn = $(this).attr('isreturn');//
+								t.cadddate = $(this).attr('cadddate');//添加追号记录的时间
+								t.cwininfo = $(this).attr('cwininfo');//
+								t.imulity = $(this).attr('imulity');//倍数
+								t.itax = $(this).attr('itax');//税后奖金
+								/*（0 未结算 1 正在结算 3已结算）*/
+								t.ijiesuan = $(this).attr('ijiesuan');//结算标志
+								/*0普通追号,1套餐追号(无法停止追号)*/
+								t.zhtype = $(this).attr('zhtype');//追号类型
+								/*(0 不停止 1停止 2 盈利停止*/
+								t.izhflag = $(this).attr('izhflag');//中奖是否停止
+								/*0:自选,1机选*/
+								t.seltype = $(this).attr('seltype');//选择类型
+								/*0 未完成 1  已完成  2 中奖停止 3 用户手工停止*/
+								t.reason = $(this).attr('reason');//停止原因(属于整个状态)
+								t.pnums = $(this).attr('pnums');//追号总期数
+								zhData.push(t);
+							});
+							o.render(zhData);
+						} else {
+							alert(d);
+							$('#chase .pd063').html('<div style="padding-top:50px;height:200px;text-align:center;">查询失败</div>')
+						}
+					}
+				});
+			},
+			init : function () {
+				o.zh();
+			}
+	};
+	var init = function () {
+		o.pageGo.goBack();
+		o.init();
+	};
+	return{init : init};
+})();
+CP.Chase.init();
+var t = new iScroll('chase')
+</script>

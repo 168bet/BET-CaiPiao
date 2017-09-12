@@ -1,0 +1,218 @@
+<!-- 账户明细 -->
+<div class="right-side" id="user-history">
+   <div class="sidewrap sidetitle" ng-if="!data.userName">
+       <div class="recharge">
+         <table>
+           <tbody>
+             <tr>
+               <td>{{global.user.userName}}</td>
+               <td>可用余额：<span class="color-red">{{global.user.userMoney}} 元</span></td>
+               <td><a class="btn" href="">充 值</a></td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+    </div>
+   <div class="sidewrap" ng-show="tabCurrent == 1">
+		<div class="ui-tab">
+			<div class="ui-tab-title tab-title-bg clearfix">
+				<ul>
+					<li ng-class="{current: tabCurrent == 1}" ng-click="tabCurrent = 1">账户明细</li>
+					<li ng-class="{current: tabCurrent == 2}" ng-click="tabCurrent = 2"><a
+						href="">充值记录</a>
+					</li>
+					<li ng-class="{current: tabCurrent == 3}" ng-click="tabCurrent = 3"><a
+						href="">提现记录</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="ui-search search-fund clearfix" >
+				<li class="ui-item">
+				    <lable class="special">摘要：</lable>
+				    <select class="ui-select" name="queryStatus" id="queryStatus" ng-options="item.typeCode as item.typeName for (key, item) in formdata.options.actOptType track by item.typeCode"
+				        ng-model="formdata.filter.actOptType" style="width:96px;">
+						<option value="">所有摘要</option>
+				    </select>
+				</li>
+				<li class="ui-item number"><lable class="special">交易流水号：</lable>
+					<input type="text" class="ip-text" id="orderCode"
+					placeholder="如：ABC7779" ng-model="formdata.filter.orderNo"
+					style="width:88px;"></li>
+				<li class="ui-item date"><label for="dateStar">时间：</label> <input
+					type="text" class="ip-time" ng-model="formdata.filter.beginTimeStr"
+					laydate format="YYYY-MM-DD hh:mm:ss" id="J-date-start" value=""
+					name="dateStar" style="width:102px;"> <input type="text"
+					class="ip-time" value="" id="J-date-end" name="dateEnd"
+					ng-model="formdata.filter.endTimeStr" laydate format="YYYY-MM-DD hh:mm:ss"
+					style="width:102px;"></li>
+				<li class="ui-item button"><a style="margin:0;"
+					href="javascript:void(0);" ng-click="fun.accountDetailsSubmit()"
+					class="btn btn-important" id="J-button-submit"> 提 交 </a></li>
+			</ul>
+		</div>
+		<div class="content">
+			<div class="body-row hist_list_body">
+				<table class="table table-info">
+					<thead>
+						<tr>
+							<th>时间</th>
+							<th>摘要</th>
+							<th>收入金额</th>
+							<th>支出金额</th>
+							<th>可用余额</th>
+							<th>备注</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody id="bet-history">
+					   <tr ng-repeat="account in data.accountDetails">
+                            <td>{{account.createTime}}</td>
+                            <td ng-init="actType = fun.actType(account.actOptType)"><font color="#0b7be7">{{actType['typeName']}}</font></td>
+                            <td><span>
+                                <font ng-if="account.actOptMoney < 0 " color="#0b7be7">--</font>
+                                <font ng-if="account.actOptMoney > 0 " color="#0b7be7">{{account.actOptMoney}}</font></span></td>
+                            <td><span>
+                                <font ng-if="account.actOptMoney > 0 "  color="#FF3300">--</font>
+                                <font ng-if="account.actOptMoney <= 0 "  color="#FF3300">{{account.actOptMoney}}</font></span></td>
+                            <td><font color="#00b29f">{{account.actResultMoney}}</font></td>
+                            <td><font color="#ff7800">{{account.remark}}</font></td>
+                            <td><a ui-sref="user.orderdetail({id: account.actOrder})" class="txt_link">详情</a></td>
+					   </tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--选择第几页  -->
+		<full-pager page-conf="pageConf"></full-pager>
+	</div>
+
+   <div class="sidewrap" ng-show="tabCurrent == 2">
+        <div class="ui-tab">
+            <div class="ui-tab-title tab-title-bg clearfix">
+                <ul>
+                    <li ng-class="{current: tabCurrent == 1}" ng-click="tabCurrent = 1">账户明细</li>
+                    <li ng-class="{current: tabCurrent == 2}" ng-click="tabCurrent = 2"><a href="">充值记录</a></li>
+                    <li ng-class="{current: tabCurrent == 3}" ng-click="tabCurrent = 3"><a href="">提现记录</a></li>
+                </ul>
+            </div>
+            <ul class="ui-search search-fund clearfix" >
+                <li class="ui-item"><lable class="special">状态：</lable>
+	                <select
+	                    class="ui-select" name="queryStatus" id="queryStatus"
+	                    ng-options="item.value as item.label for item in formdata.options.status"
+	                    ng-model="formdata.filter.status" style="width:96px;">
+	                </select>
+                </li>
+                <li class="ui-item number"><lable class="special">交易流水号：</lable>
+                    <input type="text" class="ip-text" id="orderCode"
+                    placeholder="如：ABC7779" ng-model="formdata.filter.orderNo"
+                    style="width:88px;"></li>
+                <li class="ui-item date"><label for="dateStar">时间：</label> <input
+                    type="text" class="ip-time" ng-model="formdata.filter.beginTimeStr"
+                    laydate format="YYYY-MM-DD hh:mm:ss" id="J-date-start" value=""
+                    name="dateStar" style="width:102px;"> <input type="text"
+                    class="ip-time" value="" id="J-date-end" name="dateEnd"
+                    ng-model="formdata.filter.endTimeStr" laydate format="YYYY-MM-DD hh:mm:ss"
+                    style="width:102px;"></li>
+                <li class="ui-item button"><a style="margin:0;"
+                    href="javascript:void(0);" ng-click="fun.accountDepositSubmit()"
+                    class="btn btn-important" id="J-button-submit"> 提 交 </a></li>
+            </ul>
+        </div>
+		<div class="content" style="padding:0;">
+			<div class="body-row hist_list_body">
+				<table class="table table-info">
+					<thead>
+						<tr>
+							<th>交易流水号</th>
+							<th>发起时间</th>
+							<th>申请金额</th>
+							<th>到账金额</th>
+							<th>充值方式</th>
+							<th>状态</th>
+						</tr>
+					</thead>
+					<tbody id="bet-history">
+						<tr ng-repeat="detail in data.depositDetails">
+							<td><span><font color="#27ae60">{{detail.hkOrder}}</font></span></td>
+							<td>{{detail.hkTime}}</td>
+							<td><font color="#2980b9">{{detail.hkMoney}}</font></td>
+							<td><font color="#EE4443" ng-if="detail.hkStatus == '通过审核'">{{detail.hkMoney}}</font></td>
+							<td><font color="#f4a62a">{{detail.hkCompayBank}}</font></td>
+							<td><font color="#888888">{{detail.hkStatus}}</font></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+           <full-pager page-conf="depositPageConf"></full-pager>
+		</div>
+	</div>
+
+   <div class="sidewrap" ng-show="tabCurrent == 3">
+        <div class="ui-tab">
+            <div class="ui-tab-title tab-title-bg clearfix">
+                <ul>
+                    <li ng-class="{current: tabCurrent == 1}" ng-click="tabCurrent = 1">账户明细</li>
+                    <li ng-class="{current: tabCurrent == 2}" ng-click="tabCurrent = 2"><a
+                        href="">充值记录</a>
+                    </li>
+                    <li ng-class="{current: tabCurrent == 3}" ng-click="tabCurrent = 3"><a
+                        href="">提现记录</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="ui-search search-fund clearfix">
+                <li class="ui-item"><lable class="special">摘要：</lable> <select
+                    class="ui-select" name="queryStatus" id="queryStatus"
+                    ng-options="item.value as item.label for item in formdata.options.status"
+                    ng-model="formdata.filter.actOptType" style="width:96px;">
+                </select></li>
+                <li class="ui-item number"><lable class="special">交易流水号：</lable>
+                    <input type="text" class="ip-text" id="orderCode"
+                    placeholder="如：ABC7779" ng-model="formdata.filter.orderNo"
+                    style="width:88px;"></li>
+                <li class="ui-item date"><label for="dateStar">时间：</label> <input
+                    type="text" class="ip-time" ng-model="formdata.filter.beginTimeStr"
+                    laydate format="YYYY-MM-DD hh:mm:ss" id="J-date-start" value=""
+                    name="dateStar" style="width:102px;"> <input type="text"
+                    class="ip-time" value="" id="J-date-end" name="dateEnd"
+                    ng-model="formdata.filter.endTimeStr" laydate format="YYYY-MM-DD hh:mm:ss"
+                    style="width:102px;"></li>
+                <li class="ui-item button"><a style="margin:0;"
+                    href="javascript:void(0);" ng-click="fun.accountWithdrawSubmit()"
+                    class="btn btn-important" id="J-button-submit"> 提 交 </a></li>
+            </ul>
+        </div>
+        <div class="content" style="padding:0;">
+          <div class="body-row hist_list_body">
+	          <table class="table table-info">
+	              <thead>
+	                  <tr>
+	                      <th>交易流水号</th>
+	                      <th>发起时间</th>
+	                      <th>申请提现</th>
+	                      <th>实际提现</th>
+	                      <th>提现银行</th>
+	                      <th>卡号尾号</th>
+	                  </tr>
+	              </thead>
+	              <tbody>
+	                   <tr ng-repeat="detail in data.withdrawDetails">
+	                           <td><span><font color="#27ae60">{{detail.userOrder}}</font></span></td>
+	                           <td>{{detail.createTime}}</td>
+	                           <td><font color="#2980b9">{{detail.withdrawMoney}}</font></td>
+	                           <td><font color="#EE4443">{{detail.actWithdrawMoney}}</font></td>
+	                           <td><font color="#f4a62a">{{detail.withdrawBank}}</font></td>
+	                           <td><font color="#888888">{{detail.withdrawBankCard}}</font></td>
+	                       </tr>
+	              </tbody>
+	          </table>
+        </div>
+
+        <full-pager page-conf="withdrawPageConf"></full-pager>
+   </div>
+</div>
+
+
+

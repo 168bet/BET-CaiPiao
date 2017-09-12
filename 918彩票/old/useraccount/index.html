@@ -1,0 +1,37 @@
+<script>
+if(location.hash == ''){
+	location.replace('/#class=url&xo=useraccount/index.html');
+}
+checkLogin(function(){
+	;
+	});
+</script>
+	<header class="tzHeader">
+    	<section class="buyHeader">
+    		<a href="#class=home" class="backHome"></a>
+    		<h1>个人中心</h1>
+    	</section>
+    </header>
+<div class="grayBg">
+ 	<a href="#class=url&xo=useraccount/setup.html" class="myAccount relative clearfix"><span class="left" id='uName'><i class="centerAdmi"></i></span><span class="right gray" id='mSale'>安全等级<em class="green pdLeft04"></em></span><i class="hmArrow"></i></a>
+	<div class="myAccount" style="padding:0">
+    	<div class="clearfix myLink"><i class="balance"></i><a href="#class=url&xo=useraccount/details.html"><em class="left">账户余额</em><span class="right gray"><em class="red fontSize1_06" id="remaining"></em> 元</span></a><i class="hmArrow"></i></div>
+    	<div class="clearfix myLink"><i class="recharge3"></i><a href="#class=url&xo=useraccount/recharge.html"><em class="left">充值</em><span class="right gray">方式多 到账快</span></a><i class="hmArrow"></i></div>
+    	<div class="clearfix myLink"><i class="withdrawal"></i><a href="javascript:;" id="withdrawal"><em class="left">提款</em><span class="right gray">提款0手续费</span></a><i class="hmArrow"></i></div>
+    	<div class="clearfix myLink" id="rebate" style='display:none;'><i class="balance"></i><a href="#class=url&xo=useraccount/myrebates.html"><em class="left">我的返利</em><span class="right gray"><em class="red fontSize1_06" id="rebateMoney">115</em> 元</span></a><i class="hmArrow"></i></div>
+    </div>
+ 	<a href="#class=url&xo=useraccount/myred.html" class="myAccount relative clearfix"><span class="left"><i class="redbalance"></i>红包余额</span><span class="right gray"><em class="red fontSize1_06" id="redPacket"></em> 元</span><i class="hmArrow"></i></a>
+	<ul class="myAccount">
+    	<li id="gcjl" class="cur">购彩记录</li>
+        <li id="zhjl">追号记录</li>
+        <li id="tcjl" style="border-right:none">套餐记录</li>
+        <div class="clear"></div>
+    </ul>
+</div>
+ <!-- 购彩记录start -->   
+   <div id="gcjlContent" style="background:#fff;display:">
+    <div class="myRecord" id="myRecord">
+    </div>    
+   </div>
+ <!-- 套餐记录end -->   
+<script src="/js/useraccount/index.js"></script>

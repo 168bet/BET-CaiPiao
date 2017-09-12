@@ -1,0 +1,10 @@
+var win = window.parent.document;
+$('.hide-successinfo',win).show();
+$('#left_times_title',win).show();
+$('#loadWaiting',win).hide();
+$('#g_left_qihao',win).html( $('input[name=number]').val() );
+$('#successinfo',win).show();//.css('overflow','hidden');
+$('#successinfo',win).find('li.success').html($('#orderResult').html());
+$('#newOrder',win).hide();
+$('.playtype',win).hide();
+parent.getinfo2();

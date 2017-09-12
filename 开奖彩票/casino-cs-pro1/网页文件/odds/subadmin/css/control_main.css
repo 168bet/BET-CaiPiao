@@ -1,0 +1,108 @@
+.table_ftc_cen { border: 2px #CCCCCC solid; background-color: #E0E0E0; font-size: 12px}
+.tr_cen_title {  background-color: #000099; font-size: 12px; color: #FFFFFF; text-align: center}
+.tr_lef_open {  font-size: 12px; text-align: left; background-color: #FFFFFF}
+tr {  font-family: "Arial"; font-size: 12px}
+a:link {  text-decoration: none}
+a:visited {  text-decoration: none}
+.za_select {  font-family: "Arial"; font-size: 12px; height: 18px}
+.m_tab {  background-color: #000000; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.m_cen {  background-color: #FFFFFF; text-align: center}
+.za_text {  background-color: #FFFFFF; height: 18px; padding-right: 2px; padding-left: 2px; border: #000000; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; font-family: "Arial"; font-size: 12px}
+.za_text_00 { background-color: #FFFFFF; vertical-align: middle; height: 20px; padding-right: 2px; padding-left: 2px; border: 0px #000000 solid; cursor: text; font-family: "Arial"; font-size: 12px; margin-bottom: 4px ; margin-left: 4px; margin-top: 2px; width: 8px}
+.za_text_01 { background-color: #FFFFFF; vertical-align: middle; height: 20px; padding-right: 2px; padding-left: 2px; border: 1px #000000 solid; cursor: text; font-family: "Arial"; font-size: 12px; margin-bottom: 4px ; margin-left: 4px; margin-top: 2px; width: 80px}
+.za_text_02 { background-color: #FFFFFF; vertical-align: middle; height: 20px; padding-right: 2px; padding-left: 2px; border: 1px #000000 solid; cursor: text; font-family: "Arial"; font-size: 12px; margin-bottom: 4px ; margin-left: 4px; margin-top: 2px; width: 80px}
+
+.m_bc_ed {  background-color:f2faff; padding-left: 5px}
+.m_mem_ed {  background-color: #E0E0E0; text-align: right}
+.m_ag_ed {  text-align: right }
+.m_tab_ed { background-color: #dcdcdc; border: 1px #000000 solid;}
+.za_dot {  height: 12px; width: 12px; margin-bottom: 2px}
+.m_rig { text-align: right; background-color: #FFFFFF}
+.m_rig_re { background-color: #DAE9F2; text-align: right }
+.m_rig_to { background-color: #990000; text-align: right ; color: #FFFFFF}
+.m_title { background-color: #990000; text-align: center ; color: #FFFFFF}
+.m_title_bk { background-color: #52a4e3; text-align: center }
+.m_title_ft { background-color: #000088; text-align: center; color: #FFFFFF }
+.m_title_edit { background-color: #000099; text-align: center; color: #FFFFFF }
+.za_text_ed { background-color: #FFFFFF; height: 18px; padding-right: 1px; padding-left: 1px; border: #000000; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; font-family: "Arial"; font-size: 12px ; width: 65px}
+.m_rig_close { text-align: right; background-color: #CCCCCC}
+.m_cen_top { background-color: #FFFFFF; text-align: center ; vertical-align: top }
+.m_cen_top_close { background-color: #CCCCCC; text-align: center ; vertical-align: top }
+.m_cen_close { background-color: #CCCCCC; text-align: center }
+.m_tab_fix { padding-top: 5px; padding-right: 5px; padding-left: 5px; padding-bottom: 5px; background-color: #A4C0CE}
+.m_title_ft_future { background-color: #4B807E; text-align: center; ; color: #FFFFFF}
+.m_large {  font-size: 15px}
+.m_title_bk_future { background-color: #316288; text-align: center ; color: #FFFFFF}
+
+
+.rp_bg_tab { background-color: #dcdcdc; border: 1px #000000 solid;}
+.rp_title_l {  background-color: #930905; text-align: right; color: #FFFFFF}
+.rp_title_r {  background-color: #CCCCCC; }
+.rp_bg_bt { border: 1px #000000 solid;}
+.rp_m_tab {   background-color: #000000; padding-top: 3px; padding-right: 2px; padding-left: 2px}
+.rp_m_title {  background-color: #990000; text-align: center; color: #FFFFFF}
+.rp_m_bt {  background-color: #000033; color: #FFFFFF;}
+
+
+.za_button {  font-family: "Arial"; font-size: 12px; height: 20px; padding-top: 1px}
+
+
+.mem_index_ctrl_bg {  background-color: #ABB9D7;}
+.mem_index_ctrl_line {  background-color: #4694b5;}
+.mem_index_title {  background-color: #990000; color: #FFFFFF; text-align: center;}
+.mem_index_tab {  background-color: #E3D46E; padding-top: 3px; padding-right: 2px; padding-left: 2px;}
+.mem_index_cen {  background-color: #FFFFFF; text-align: center}
+
+
+
+.ag_index_ctrl_bg {  background-color: #ABB9D7;}
+.ag_index_ctrl_line {  background-color: #4694b5;}
+.ag_index_title {  background-color: #990000; color: #FFFFFF; text-align: center;}
+.ag_index_tab {  background-color: #E3D46E; padding-top: 3px; padding-right: 2px; padding-left: 2px;}
+.ag_index_cen {  background-color: #FFFFFF; text-align: center}
+
+
+.spag_index_ctrl_bg {  background-color: #ABB9D7;}
+.spag_index_ctrl_line {  background-color: #4694b5;}
+.spag_index_title {  background-color: #990000; color: #FFFFFF; text-align: center;}
+.spag_index_tab {  background-color: #E3D46E; padding-top: 3px; padding-right: 2px; padding-left: 2px;}
+.spag_index_cen {  background-color: #FFFFFF; text-align: center}
+
+
+.spag_add_title {  background-color: #446239; text-align: center ; color: #FFFFFF;}
+
+
+.co_add_title {  background-color: #000000; text-align: center ; color: #FFFFFF;}
+
+
+
+
+.sbuser_index_ctrl_bg {  background-color: #ABB9D7;}
+.sbuser_index_ctrl_line {  background-color: #4694b5;}
+.sbuser_index_title {  background-color: #990000; color: #FFFFFF; text-align: center;}
+.sbuser_index_tab {  background-color: #E3D46E; padding-top: 3px; padding-right: 2px; padding-left: 2px;}
+.sbuser_index_cen {  background-color: #FFFFFF; text-align: center}
+
+
+.ch_pwd_tab {  background-color: #98B3C2;  text-align: center;}
+.ch_pwd_title {  background-color: #770000; color: #FFFFFF;}
+.ch_pwd_cen {  background-color: #E0E0E0; color: #000000;}
+
+
+
+.ra_listbet_ctrl_bg {  background-color: #ABB9D7;}
+.ra_listbet_ctrl_line {  background-color: #4694b5;}
+
+
+.ra_listbet_tab {  background-color: #ABB9D7; padding-to006255; padding-right: 2px; padding-left: 2px;}
+.ra_listbet_title { background-color: #000088; text-align: center ; color: #FFFFFF}
+
+.ra_listbet_rp_tab {  background-color: #ABB9D7; padding-top: 3px; padding-right: 2px; padding-left: 2px;}
+.ra_listbet_rp_title { background-color: #770000; text-align: center ; color: #FFFFFF}
+.ra_listbet_cen {  background-color: #FFFFFF; color: #000000;}
+.ra_listbet_null {  background-color: #E0E0E0;}
+.ra_listbet_total {  background-color: #E3F5E0;}
+
+.m_title_reall {  background-color: #687780; text-align: center; color: #FFFFFF}.select_cen {  font-size: 10px}
+
+.m_white {  background-color: #F5F5F5; text-align: justify }

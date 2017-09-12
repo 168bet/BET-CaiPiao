@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$SEO['title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}font-awesome.min.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}main.css">
+    <link rel="stylesheet" href="{WAP_CSS_PATH}bt_game_analyse.css">
+
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <!-- 你的html代码 -->
+ <nav class="nav">
+            <!-- header -->
+            <header class="bar bar-nav">
+                <a class="button pull-left back" href="{WAP_PATH}lqscore/">
+                    <i class="icon icon-left"></i>
+                </a>
+                <h1 class="title white">
+                    {$schedule_info['sclassname_cn']}
+                    {$schedule_info['sclasscategory_cn']}
+                    {$schedule_info['sclassseason']}
+                </h1>
+            </header>
+            <!-- header end -->
+            <div class="row match-nav">
+                <div class="col-33 team">
+                    <div class="team-icon">
+                        <img src="{BT_TEAM_PATH}{$scheduleData['hometeamid']}.jpg" alt="" class="bt-team-photo">
+                    </div>
+                    <div class="team-name">{$schedule_info['homename_cn']}</div>
+                     <div class="team-rank">联赛排名：{if $schedule_info['homerank']}{$schedule_info['homerank']}{/if}</div>
+                </div>
+                <div class="col-33">
+                    <div class="match-state">
+                        <div class="score-line">{$schedule_info['homescore']}:{$schedule_info['guestscore']}</div>
+                        <p>{date('Y-m-d', $schedule_info['date'])}</p>
+                        <p>半场{$schedule_info['homehalfscore']}:{$schedule_info['guesthalfscore']}</p>
+                        <p>状态:{$arr_status[$schedule_info['status']]}</p>
+                    </div>
+                </div>
+                <div class="col-33 team">
+                    <div class="team-icon">
+                        <img src="{BT_TEAM_PATH}{$schedule_info['guestteamid']}.jpg" alt="" class="bt-team-photo">
+                    </div>
+                    <div class="team-name">{$schedule_info['guestname_cn']}</div>
+                    <div class="team-rank">联赛排名：{if $schedule_info['guestrank']}{$schedule_info['guestrank']}{/if}</div>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="buttons-tab">
+                <a href="{WAP_PATH}schedule/{$sclassid}/analyse/" class="tab-item button">分析</a>
+                <a href="{WAP_PATH}schedule/{$sclassid}/euro/" class="tab-item button active">欧赔</a>
+                <a href="{WAP_PATH}schedule/{$sclassid}/asia/" class="tab-item button">让分</a>
+                <a href="{WAP_PATH}schedule/{$sclassid}/ou/" class="tab-item button">总分</a>
+            </div>
+            <div class="lump">
+                <div class="lump-content">
+                    <div class="lump-item">
+                        <table class="table  table-noborder">
+                            <tr>
+                                <td width="21.6%" rowspan="2" style="font-weight: bold;">最高值</td>
+                                <td width="10.4%">{round($max_odds['homewin_f'],2)}</td>
+                                <td width="7.6%">{round($max_odds['guestwin_f'],2)}</td>
+                                <td width="15.2%">{round($max_odds['probability_hf'],2)}%</td>
+                                <td width="15.2%">{round($max_odds['probability_gf'],2)}%</td>
+                                <td width="15.2%">{round($max_odds['probability_tf'],2)}%</td>
+                                <td width="15.8%">{$max_odds['kelly_h']}</td>
+                            </tr>
+                            <tr>
+                                <td>{round($max_odds['homewin'],2)}</td>
+                                <td>{round($max_odds['guestwin'],2)}</td>
+                                <td>{round($max_odds['probability_h'],2)}%</td>
+                                <td>{round($max_odds['probability_g'],2)}%</td>
+                                <td>{round($max_odds['probability_t'],2)}%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="lump-item">
+                        <table class="table  table-noborder">
+                            <tr>
+                                <td width="21.6%" rowspan="2" style="font-weight: bold;">最低值</td>
+                                <td width="10.4%">{round($min_odds['homewin_f'],2)}</td>
+                                <td width="7.6%">{round($min_odds['guestwin_f'],2)}</td>
+                                <td width="15.2%">{round($min_odds['probability_hf'],2)}%</td>
+                                <td width="15.2%">{round($min_odds['probability_gf'],2)}%</td>
+                                <td width="15.2%">{round($min_odds['probability_tf'],2)}%</td>
+                                <td width="15.8%">{$min_odds['kelly_h']}</td>
+                            </tr>
+                            <tr>
+                                <td>{round($min_odds['homewin'],2)}</td>
+                                <td>{round($min_odds['guestwin'],2)}</td>
+                                <td>{round($min_odds['probability_h'],2)}%</td>
+                                <td>{round($min_odds['probability_g'],2)}%</td>
+                                <td>{round($min_odds['probability_t'],2)}%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="lump-item">
+                        <table class="table  table-noborder">
+                            <tr>
+                                <td width="21.6%" rowspan="2" style="font-weight: bold;">平均值</td>
+                                <td width="10.4%">{$avg_odds['homewin_f']}</td>
+                                <td width="7.6%">{$avg_odds['guestwin_f']}</td>
+                                <td width="15.2%">{round($avg_odds['probability_hf'],2)}%</td>
+                                <td width="15.2%">{round($avg_odds['probability_gf'],2)}%</td>
+                                <td width="15.2%">{round($avg_odds['probability_tf'],2)}%</td>
+                                <td width="15.8%">{$avg_odds['kelly_h']}</td>
+                            </tr>
+                            <tr>
+                                <td>{$avg_odds['homewin']}</td>
+                                <td>{$avg_odds['guestwin']}</td>
+                                <td>{$avg_odds['probability_h']}%</td>
+                                <td>{$avg_odds['probability_g']}%</td>
+                                <td>{$avg_odds['probability_t']}%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="lump-title">
+                        <table class="table-head table">
+                            <tr>
+                                <td width="21.6%">公司</td>
+                                <td width="10.4%">主赔</td>
+                                <td width="7.6%">客赔</td>
+                                <td width="15.2%">主胜率</td>
+                                <td width="15.2%">客胜率</td>
+                                <td width="15.2%">返还率</td>
+                                <td width="15.8%">变化时间</td>
+                            </tr>
+                        </table>
+                    </div>
+                     {loop $euro_detail $data}
+                    <div class="lump-item">
+                        <table class="table  table-noborder">
+                            <tr>
+                                <td rowspan="2" width="21.6%">{$company[$data['companyid']]['name_cn']}</td>
+                                <td width="10.4%">{$data['homewin_f']}</td>
+                                <td width="7.6%">{$data['guestwin_f']}</td>
+                                <td width="15.2%">{round($data['probability_hf'],2)}%</td>
+                                <td width="15.2%">{round($data['probability_gf'],2)}%</td>
+                                <td width="15.2%">{round($data['probability_tf'],2)}%</td>
+                                <td width="15.8 %" rowspan="2">{date('m-d H:i:s', $data['modifytime'])}</td>
+                            </tr>
+                            <tr>
+                                <td {if $data['homewin_trend'] > 0}class="red"{elseif $data['homewin_trend'] <0}class="green"{else}{/if}>{$data['homewin']}</td>
+                                <td {if $data['guestwin_trend'] > 0}class="red"{elseif $data['guestwin_trend'] <0}class="green"{else}{/if}>{$data['guestwin']}</td>
+                                <td>{round($data['probability_h'],2)}%</td>
+                                <td>{round($data['probability_g'],2)}%</td>
+                                <td>{round($data['probability_t'],2)}%</td>
+                            </tr>
+                        </table>
+                    </div>
+                     {/loop}
+                </div>
+            </div>
+
+            {template 'wap', 'footer_nav'}
+
+        </div>
+
+    </div>
+</div>
+
+
+{template 'wap', 'wap_footer'}  

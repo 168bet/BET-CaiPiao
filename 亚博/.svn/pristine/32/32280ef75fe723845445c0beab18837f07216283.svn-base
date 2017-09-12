@@ -1,0 +1,59 @@
+<div class="w1000 m0auto text_center fz14 white" style="padding:20px 0;" ng-init="data.wlsConfig = {
+    props: ['ewl_pls', 'sawl_pls', 'siwl_pls'],
+    wlsTabs: ['ewl', 'sawl', 'siwl'],
+    nums: [
+        ['10', '20', '30', '40'],
+        ['01', '11', '21', '31', '41'],
+        ['02', '12', '22', '32', '42'],
+        ['03', '13', '23', '33', '43'],
+        ['04', '14', '24', '34', '44'], 
+        ['05', '15', '25', '35', '45'],
+        ['06', '16', '26', '36', '46'],
+        ['07', '17', '27', '37', '47'],
+        ['08', '18', '28', '38', '48'],
+        ['09', '19', '29', '39', '49']
+    ]
+};">
+    <div class="hgt30 line_hgt30 text_left p10_0" style="background: #EAEAEA">
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.wslTab='ewl'; fun.cancelOrder(); " ng-class="{tm_active:data.wslTab=='ewl'}">二尾连</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.wslTab='sawl'; fun.cancelOrder(); " ng-class="{tm_active:data.wslTab=='sawl'}">三尾连</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="data.wslTab='siwl'; fun.cancelOrder(); " ng-class="{tm_active:data.wslTab=='siwl'}">四尾连</span>
+    </div>
+    
+    <div ng-show="data.wslTab==item" ng-repeat="(index, item) in data.wlsConfig['wlsTabs']" data-tab="{{item}} - {{index}}">
+        <table>
+            <thead>
+                <tr class="hgt40 line_hgt42 border_btm5" style="background: #82817F">
+                    <td>号码</td>
+                    <td>赔率</td>
+                    <td>勾选</td>
+                    <td class="border_r8">号码</td>
+                    <td>号码</td>
+                    <td>赔率</td>
+                    <td>勾选</td>
+                    <td class="border_r8">号码</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="hgt40 line_hgt42 border_btm5" style="background: #DDDDDD" ng-repeat="wlsNum in range(0, 5, 1)">
+                    <td data-set="{{index}} - {{wlsNum}} - {{ewl_pls}} -{{this[data.wlsConfig['props'][index]] }}" style="background: #EB3D00">{{this[data.wlsConfig['props'][index]][wlsNum].number}}</td>
+                    <td class="red">{{this[data.wlsConfig['props'][index]][wlsNum].pl}}</td>
+                    <td class="w78">
+                        <input type="checkbox" style="vertical-align: middle;" value="1" class="w40 green" ng-class="{'has-error': data.inputErrors[this[data.wlsConfig['props'][index]][wlsNum].id] }" ng-model="data.betMoney[this[data.wlsConfig['props'][index]][wlsNum].id]" ng-change="fun.zybzCodeSelected(this[data.wlsConfig['props'][index]][wlsNum])"/>
+                    </td>
+                    <td  class="border_r8">
+                        <ball class="smaller-circle" number="num" ng-repeat="num in data.wlsConfig['nums'][wlsNum]"/>
+                    </td>
+                    <td data-set="{{index}} - {{wlsNum + 5}}" style="background: #EB3D00">{{this[data.wlsConfig['props'][index]][wlsNum + 5].number}}</td>
+                    <td class="red">{{this[data.wlsConfig['props'][index]][wlsNum + 5].pl}}</td>
+                    <td class="w78">
+                        <input type="checkbox" style="vertical-align: middle;" value="1" class="w40 green" ng-class="{'has-error': data.inputErrors[this[data.wlsConfig['props'][index]][wlsNum + 5].id] }" ng-model="data.betMoney[this[data.wlsConfig['props'][index]][wlsNum + 5].id]" ng-change="fun.zybzCodeSelected(this[data.wlsConfig['props'][index]][wlsNum + 5])"/>
+                    </td>
+                    <td class="border_r8">
+                        <ball class="smaller-circle" number="num" ng-repeat="num in data.wlsConfig['nums'][wlsNum + 5]"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="code-table-wrap">
+	<table class="code-table">
+	    <thead>
+	        <tr>
+	            <th rowspan="2"><span>期号</span></th>
+	            <th colspan="28"><span>号码分布</span></th>
+	            <th colspan="2"><span>单双</span></th>
+	            <th colspan="2"><span>中边</span></th>
+	            <th colspan="2"><span>大小</span></th>
+	            <th rowspan="2"><span>极<br />值</span></th>
+	            <th rowspan="2"><span>豹<br />子</span></th>
+	        </tr>
+	        <tr class="balltitle">
+	            <th ng-repeat="code in codeRange" ng-if="code != '极' && code != '豹'"><span>{{code}}</span></th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr ng-repeat="qs in qsRange" ng-init="items = getItemWithY(qs)">
+	            <td class="issue">{{qs}}</td>
+	            <td  ng-class="{bor: $index < 10 || ($index > 18 && $index < 28 )}" ng-repeat="code in codeRange track by $index">
+	                <span style="display: none;" ball="item['data']" ng-if="item['x'] == code" ng-repeat="item in items" chart-num>{{item['data']}}</span>
+	                <ball number="item['data']" ng-if="item['data'] == code" ng-repeat="item in items" class="chart-number" type="pcegg"></ball>
+	            </td>
+	        </tr>
+	    </tbody>
+	    <tfoot>
+	        <tr class="total_title">
+	            <td><span>当前统计</span></td>
+	            <td ng-repeat="code in codeRange" ><span>{{code}}</span></td>
+	        </tr>
+	        <tr class="total_num">
+	            <td><span>当前出现次数 </span></td>
+	            <td ng-repeat="num in codeRange track by $index"><span>{{$index}}</span></td>
+	        </tr>
+	    </tfoot>
+	</table>
+    <canvas name="code-line" class="code-line"></canvas>
+</div>
+

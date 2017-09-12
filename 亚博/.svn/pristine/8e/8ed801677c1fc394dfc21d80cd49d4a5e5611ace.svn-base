@@ -1,0 +1,47 @@
+<!-- 个人盈亏 -->
+<div class="userplayWlost">
+	<ul class="ui-search search-fund clearfix">
+		<li class="ui-item date">
+          <label for="dateStar">时间：</label>
+          <input type="text" class="ip-time" laydate format="YYYY-MM-DD hh:mm:ss" ng-model="filter.startTimeStr" id="J-date-start" value="" name="dateStar" style="width:132px;">&nbsp;-&nbsp;
+          <input type="text" class="ip-time" laydate format="YYYY-MM-DD hh:mm:ss" ng-model="filter.endTimeStr" value="" id="J-date-end" name="dateEnd" style="width:132px;">
+        </li>
+        <li class="ui-item button">
+           <a style="margin:0;" href="javascript:void(0);" class="btn btn-important" id="J-button-submit" ng-click="fun.loadUserProfit()"> 搜 索 </a>
+        </li>
+   </ul>     
+   <div class="content" style="padding:0;">
+    <div class="body-row hist_list_body">
+    	<table class="table table-info">
+    		<thead>
+              <tr>
+                  <th class="special">时间</th>
+                  <th>充值</th>
+                  <th>提现</th>
+                  <th>投注</th>
+                  <th>中奖</th>
+                  <th>下级返点</th>
+                  <th>总盈亏</th>
+              </tr>
+            </thead>
+            <tbody id="bet-history">
+                <tr><td colspan="7" ng-if="data.profitLogs.length <= 0">抱歉, 暂无数据!</td></tr>
+            	<tr ng-repeat="log in data.profitLogs">
+            	   <td>{{log.betDate}}</td>
+            	   <td>{{log.withdrawAmount}}</td>
+            	   <td>{{log.depositAmount}}</td>
+            	   <td>{{log.betIncome}}</td>
+            	   <td>{{log.winAmount}}</td>
+            	   <td>{{log.feebackAmount}}</td>
+            	   <td>{{log.profitMargin}}</td>
+            	</tr>
+            </tbody>
+    	 </table>
+    </div>
+   
+   <full-pager page-conf="pageConf"></full-pager>
+    
+ </div>
+
+
+</div>

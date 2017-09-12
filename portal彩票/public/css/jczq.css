@@ -1,0 +1,623 @@
+﻿
+i, o, cite, em
+{
+    font-style:normal;
+}
+ol, ul, li, input{list-style:none outside none;}
+.tzHeader {/*margin-bottom: 2.6rem;*/ position: relative; z-index: 10;}
+.fixed2
+{
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+#content_ {text-align:center;}
+.hmHeader h1
+{
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 0 auto;
+    text-align: left;
+    width: 11rem;
+    height: 2.6rem;
+    line-height: 2.6rem;
+}
+.content_home
+{
+    width: 100%;
+}
+
+.hmHeader{ background: #CD0508;
+    color: #fff;
+    border-bottom: 1px solid #d5d5d5;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    text-indent: 0.6rem;}
+.hmHeader h1:after{ 
+	border-color: transparent transparent transparent #fff;
+    border-style: solid;
+    border-width: 0.5rem;
+    content: "";
+    position: absolute;
+    top: 1.8rem;
+    left: 9rem;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);}
+.hmHeader h1.hmTit:after{border-color: transparent transparent transparent #fff;border-style: solid;border-width: 0.5rem;content: "";position: absolute;
+    top: 2.1rem;left:9rem;transform: rotate(90deg);-webkit-transform:rotate(90deg); -moz-transform:rotate(90deg)}
+
+.hmPull {
+    background: none repeat scroll 0 0 #fff;
+    border-left: 1px solid #d5d5d5;
+    margin-left: 1px;
+    position: absolute;
+    top: 2.68rem;
+    width: 100%;
+    z-index: 1;
+}
+.hmPull a, .competitions span {
+    border-bottom: 1px solid #d5d5d5;
+    border-right: 1px solid #d5d5d5;
+    float: left;
+    font-size: 1rem;
+    line-height: 3rem;
+    position: relative;
+    text-align: center;
+    width: 33%;
+    text-decoration:None;
+}
+
+.hmPull a.cur:after, .competitions span.cur:after, .competitions1 span.cur:before{
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHlSURBVGhD1dm9TsMwEADgvAkDExsbL8Az8AjwBjwAEmJgqNSNGVaYYGJAQgxMLAztghADCxJIDG0gpDkcK4nin+Rsx+e4lipVqmp9vp7vqkuSrMECgP2/hyksjzf4K3oyB99PZjU4erQOHDW6Cxwtug8cJRoDR4c2AUeFNgVHg7YBR4G2BY+OdgGPinYFj4YeAh4FPRQcHO0DHBTtCxwM7RMcBO0bTI6mAJOiqcBkaEowCZoa7B0dAuwVTQFOT7dg9XIHP2e7zfjAG5oM/PbItgYoFp8CfPDcgwK8PNnkEW6vFTuAl2FNKHDx9QrpdGc4ug+cTraFHGxPh3rfswjnsxshwsX3uwB2zuk+cHZ9qOSgEboEP18pYPkSOqExMBS59vJg8PzpQgRLl895loflsGmk5APYgK0ijYE5xDAn2+hyhCusbKHUZfmQRiXPCFzNjnXlSr79NUILPt9DLzGKtgL3wT/m0K4qrmA0PZzAFZy34Kqj1T9/UcGz2yM1JQwijDaXIeB6cy2c1V2xTOTwe3mApgRaPXyA2/AywtrFyqMtWJsePsENnHVIBe4IVtAU4C542TmxhtP1eVM9KMENnP3pKS/nEHAT6RBg16jqvpesG5hHWn6w6DMiVHslVBtT7ruW6H9W8ppOm5u6EQAAAABJRU5ErkJggg==");
+    background-size: 1.4rem 1.4rem;
+    bottom: -1px;
+    content: "";
+    height: 1.4rem;
+    position: absolute;
+    right: -1px;
+    width: 1.4rem;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+.hmPull a.cur:before, .competitions span.cur:before,.competitions1 span.cur:before {
+    border: 1px solid #f6851f;
+    content: "";
+    height: 3rem;
+    left: -1px;
+    position: absolute;
+    top: -1px;
+    width: 100%;
+}
+.fcbackHome
+{
+    background: url("../images/home.png");
+    display: block;
+    background-size: 1.56rem 1.35rem;
+    height: 1.35rem;
+    left: 0.9rem;
+    position: absolute;
+    top: 0.6rem;
+    width: 1.56rem;
+}
+.pullDown { height: 1.4375rem;
+    position: absolute;
+    right: 1.6rem;
+    top: 0.4rem;
+    width: 1.5rem;}
+.pullDown a{text-decoration:none;}
+.fcbackHome {background: url("../images/home.png");background-size: 1.56rem 1.35rem;  display: block; height: 1.35rem; left: 0.9rem;  position: absolute; top: 0.6rem; width: 1.56rem;}
+
+.pullText { background: none repeat scroll 0 0 #fff;border: 1px solid #b6b6b6; position: absolute; right: -1.5rem;top: 2.2rem; width: 7rem;z-index:1;}
+.pullText a { border-bottom: 1px solid #cacaca;display: block; font-size: 0.93rem; line-height: 2.45rem;text-align: center;}
+.pullText a.cur {  color: #f6851f;}
+.pullIco {
+    background: url("../images/1-1.0双色球投注_r2_c2.gif") no-repeat scroll center center;
+    display: block;
+    height: 2rem;
+    width: 3rem;
+    margin-right: 2rem;
+    background-size: 2rem 0.5rem;
+}
+.pullHover .pullIco {
+    background: url("../images/1-1.1双色球投注_r2_c2.gif") no-repeat scroll center center / 0.5rem 1.9rem rgba(0,0,0,0);
+    height: 1.9rem;
+    width: 2.5rem;
+    margin: 0 auto;
+}
+.sfcTitle {
+    background: none repeat scroll 0 0 #f2f2f2;
+    border-bottom: 1px solid #e4e4e4;
+    color: #5c5c5c;
+    font-size: 0.85rem;
+    line-height: 2.1rem;
+    padding: 0 0.68rem;
+    position: relative;
+    text-align:left;
+}
+.up, .down
+{
+    border-right: 0.15rem solid #db150b;
+    border-top: 0.15rem solid #db150b;
+    height: 0.6rem;
+    position: absolute;
+    right: 0.68rem;
+    top: 0.9rem;
+    transform: rotate(-45deg);
+     -webkit-transform:rotate(-45deg); 
+     -moz-transform:rotate(-45deg);
+    width: 0.6rem;
+}
+.down {
+    top: 0.5rem;
+    transform: rotate(-225deg);
+      -webkit-transform:rotate(-225deg); 
+     -moz-transform:rotate(-225deg);
+}
+.sfcxs {
+    border-bottom: 1px solid #e4e4e4;
+    overflow: hidden;
+    padding: 0.9rem 0 0.5rem;
+    background:none repeat scroll 0 0 #f8f8f8;
+}
+.sfcxs li:first-child
+{ color: #5c5c5c;
+    line-height: 1rem;
+    text-align: center;
+    width: 4.2rem;
+}
+.sfcxs li:first-child p {
+    font-size: 0.9rem;
+}
+.sfcxs li:first-child cite {
+    color: #aaa;
+    display: block;
+    font-size: 0.75rem;
+}
+.sfcxs li:last-child {
+    margin-right: 0;
+}
+.spfzpkNum span {
+    float: left;
+    text-align: center;
+    width: 40%;
+}
+.spfzpkNum span.spfvs {
+    width: 18%;
+}
+.spfzpk, .spfzpkNum {
+    overflow: hidden;
+}
+.sfcxs li {
+    color: #343434;
+    float: left;
+    font-size: 0.8rem;
+    width: 79%;
+}
+.xzup, .xzdown {
+    border-right: 0.1rem solid #cacaca;
+    border-top: 0.1rem solid #cacaca;
+    display: inline-block;
+    height: 0.5rem;
+    margin-top: 0.5rem;
+    transform: rotate(-45deg);
+    -webkit-transform:rotate(-45deg); 
+    -moz-transform:rotate(-45deg);
+    width: 0.5rem;
+}
+.xzdown {
+    margin: 0.1rem 0 0.4rem;
+    transform: rotate(-225deg);
+    -webkit-transform:rotate(-225deg); 
+    -moz-transform:rotate(-225deg);
+}
+p {
+    line-height: 1.2rem;
+}
+
+.spfzpk span {
+    border: 1px solid #db150b;
+    border-radius: 0.2rem;
+    color: #db150b;
+    float: left;
+    font-size: 0.9rem;
+    height: 2rem;
+    line-height: 2rem;
+    margin: 0.6rem 1.2% 0;
+    overflow: hidden;
+    text-align: center;
+    width: 30%;
+}
+.spfzpk2 span.spfvs, .spfNum .spfzpk2 span.spfvs {
+    width: 20%;
+}
+.spfpl span {
+    color: #aaa;
+    display: inline-block;
+    font-size: 0.75rem;
+    margin-top: 0.2rem;
+    text-align: center;
+    width: 39%;
+}
+.spfpl span.spfvs, .spfNum .spfpl span.spfvs {
+    width: 22%;
+}
+.spfzpk2 span cite {
+    display: block;
+    font-size: 0.95rem;
+}
+.spfzpk span.cur
+{
+    background-color: #db150b;
+    color: #fff;
+}
+.sfcpl {
+    background: none repeat scroll 0 0 #f2f2ed;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 0 2%;
+    height:1.6rem;
+}
+.sfcpl dl {
+    border-bottom: 1px solid #e4e4e4;
+    line-height: 1.6rem;
+    overflow: hidden;
+    text-align: center;
+}
+.sfcpl dt {
+    color: #5c5c5c;
+    float: left;
+    width: 20%;
+}
+.sfcpl dd {
+    float: left;
+    width: 26.5%;
+}
+.sfcpl dl:last-child {
+    border-bottom: medium none;
+}
+.blue {
+    color: #177ffc;
+}
+.buyFooter, .buyFooter1 {
+    padding-top: 9rem;
+}
+.buyFloat {
+    background: none repeat scroll 0 0 #f9f9f9;
+    border-top: 1px solid #d5d5d5;
+    font-size: 0.95rem;
+    line-height: 3rem;
+    text-align: center;
+}
+.fixed {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+.deleted {bottom: 0.65rem;display: block;left: 1.3rem;position: absolute;height: 1.875rem;line-height:1.875rem;width: 5rem;border:1px solid #eee;color:#db150b;}
+
+.yellow {
+    color: #f6851f;
+}
+.ture, .fqhm, .useRed, .fqhmGray {
+    background: none repeat scroll 0 0 #db150b;
+    border-radius: 0.2rem;
+    bottom: 0.5rem;
+    color: #fff;
+    font-size: 0.875rem;
+    line-height: 1.875rem;
+    padding: 0 1.3rem;
+    position: absolute;
+    right: 0.65rem;
+    text-align: center;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+/*半全场 比分*/
+.competitions span {border-bottom: 1px solid #d5d5d5;border-right: 1px solid #d5d5d5;float: left;font-size: 1rem;line-height: 3rem;position: relative;text-align: center;width: 33%;text-decoration:none;color:#333;}
+.competitions {background: none repeat scroll 0 0 #fff;border-left: 1px solid #d5d5d5;border-top: 1px solid #d5d5d5;margin: 0 4%;width: 92%;}
+.spfzp span {border: 1px solid #db150b;border-radius: 0.2rem;color: #db150b;float: left;font-size: 0.9rem;height: 2rem;line-height: 2rem;margin: 0.6rem 1.2% 0;overflow: hidden;text-align: center;width: 30%;}
+.bfpk span {width: 88%;}
+.spfzpkNum span.spfvs {width: 18%;}
+.spfzpk, .spfzpkNum {overflow: hidden;}
+.spfzpk2 span{ width:35%; font-size:.8rem; height:2.1rem; padding:.4rem 0; line-height:2.1rem; margin-top:0}
+.spfzpk2 span.spfvs,.spfNum .spfzpk2 span.spfvs{ width:20%}
+
+.bfcom span{ width:19.53%; height:2rem; padding:.3rem 0; line-height:1rem}
+.bfcom span.bflast strong{ letter-spacing:normal; font-weight:normal; color:#333}
+.bfcom strong,.bfcom em{ display:block; color:#5c5c5c; font-size:.81rem}
+.bfcom strong{ letter-spacing:.2rem}
+.bfcom em{ font-size:.75rem; color:#8e8e8e}
+.bfcom span.cur strong,.bfcom span.cur em{ color:#f6851f}
+.bfcom span.bflast strong {
+    color: #333;
+    font-weight: normal;
+    letter-spacing: normal;
+}
+.competitions span.cur:before{height:2.6rem;}
+
+/*进球数*/
+
+.jczqHh li:first-child {margin-top: 1rem;}
+.jqzpk li:first-child {margin-top: 2rem;}
+.jqzpk .spfzpk span, .jqNum .spfzpk span,.sxdsNum .spfzpk span{height: 1.6rem;line-height: 0.85rem;padding: 0.4rem 0;width: 19%;}
+.jqzpk .spfzpk span b, .jqNum .spfzpk span b,.sxdsNum .spfzpk span b {display: block;font-size: 0.9rem;font-weight: normal;}
+.jqzpk .spfzpk span cite, .jqNum .spfzpk span cite,.sxdsNum .spfzpk span cite {color: #aaa;font-size: 0.75rem;}
+.jqzpk .spfzpk span.cur cite, .jqNum .spfzpk span.cur cite,.sxdsNum .spfzpk span.cur cite{color:#fff;}
+
+/*hh*/
+.jczqHh .competitions span {border-bottom: 1px solid #d5d5d5;border-right: 1px solid #d5d5d5;float: left;font-size: 1rem;line-height: 1rem;position: relative;text-align: center;width: 32.89%;text-decoration:none;color:#333;}
+.jczqHh .brqspf_ .competitions span.unsale,.jczqHh .spf_ .competitions span.unsale{ width: 100%;line-height: 2rem}
+.jczqHh .competitions {background: none repeat scroll 0 0 #fff;border-left: 1px solid #d5d5d5;border-top: 1px solid #d5d5d5;margin: 0 4%;width: 92.5%;}
+.jczqHh .bf_ .competitions span,.jczqHh .brqbf_ .competitions span {border-bottom: 1px solid #d5d5d5;border-right: 1px solid #d5d5d5;float: left;font-size: 1rem;line-height: 1rem;position: relative;text-align: center;width: 19.61%;text-decoration:none;color:#333;}
+.jczqHh .bf_ .competitions span  span .cur{ border: 1px solid #f6851f;
+    content: "";
+    height: 3rem;
+    left: -1px;
+    position: absolute;
+    top: -1px;
+    width: 100%;}
+.jczqHh .jqs_ .competitions span,.jczqHh .brqjqs_ .competitions span {border-bottom: 1px solid #d5d5d5;border-right: 1px solid #d5d5d5;float: left;font-size: 1rem;line-height: 1rem;position: relative;text-align: center;width: 24.63%;text-decoration:none;color:#333;}
+.jczqHh .jqs_ .competitions span em:first-child,.jczqHh .brqjqs_ .competitions span em:first-child{color:#222;font-size:.85rem}
+.jczqHh .bqc_ .competitions span ,.jczqHh .brqbqc_ .competitions span {border-bottom: 1px solid #d5d5d5;border-right: 1px solid #d5d5d5;float: left;font-size: 1rem;line-height: 1rem;position: relative;text-align: center;width: 32.8%;text-decoration:none;color:#333;}
+.jczqHh .bqc_ .competitions ,.jczqHh .brqbqc_ .competitions{background: none repeat scroll 0 0 #fff;border-left: 1px solid #d5d5d5;border-top: 1px solid #d5d5d5;margin: 0 18%;width: 65%;}
+.jczqHh .spfzpk2 span{ width:16%; font-size:.8rem; height:2.4rem; padding:.4rem 0; line-height:2.4rem; margin-top:0}
+/*
+.spfzpk2 span {
+    font-size: 0.75rem;
+    height: 2.1rem;
+    line-height: 1.2rem;
+    margin-top: 0;
+    padding: 0.4rem 0;
+    width: 35%;
+}
+*/
+/*弹窗*/
+.bf_,.bqc_,.spf_,.jqs_,.brqbf_,.brqbqc_,.brqspf_,.brqjqs_{background: none repeat scroll 0 0 #ffffff;border-radius: 0.4rem;left: 50%;margin-left: -9.25rem;position: fixed;top: 45%;width: 18.5rem;z-index: 1000;border: 1px solid #d5d5d5}
+.bfPop p{ font-size:.8rem; padding:.3rem 0 .3rem .8rem;text-align:left;}
+.bfTitle p{ position:relative; float:left; padding:0; color:#fff; width:8.85rem; text-align:center; background:#f03d3d; line-height:2.2rem; font-size:1rem; border-radius:.4rem 0 0 0; -webkit-border-radius:.4rem 0 0 0; -moz-border-radius:.4rem 0 0 0}
+.bfTitle p span{ font-style:italic; font-size:1rem}
+.bfTitle p:last-child{ background:#6ea5fd; width:9.65rem; border-radius:0 .4rem 0 0; -webkit-border-radius:0 .4rem 0 0; -moz-border-radius:0 .4rem 0 0}  
+.bfTitle p:last-child span{ border-color:#f03d3d transparent transparent transparent; border-style:solid; border-width:2.2rem .8rem 0 0; height:0; line-height:0; width:0}
+.bfTitle p em{ position:absolute; font-style:italic; top:0; right:-.2rem; z-index:1}
+.bfTitle p:last-child em{ top:1.15rem; right:8.6rem}
+.bfPop .zfTrue{ margin-top:.5rem}
+.bfPop .zfTrue a{text-decoration:none;}
+.zfTrue {border-top: 1px solid #ccc;font-size: 1.05rem;line-height: 2.5rem;margin-top: 2.5rem;text-align: center;}
+.zfTrue a {color: #f6851f;float: left;width: 49.5%;}
+.zfTrue a.zfqx {border-right: 1px solid #ccc;color: #999;}
+.bfcom span.cur:before{height: 2.6rem;}
+.left{float:left;}
+.right{float:right;}
+.clear{clear:both;}
+.clearfix{overflow:hidden;}
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:gray;z-index: 999;opacity: 0.5}
+
+
+
+
+.tzNum,.spfNum{ border-top:1px solid #e4e4e4; border-bottom:1px solid #e4e4e4;}
+.tzNum p,.spfNum li{ background: none repeat scroll 0 0 white;position:relative; padding:.625rem 0 .625rem .56rem; border-bottom:1px solid #ebebeb; overflow:hidden; zoom:1; float:none;}
+.tzNum p:last-child,.spfNum li:last-child{ border-bottom:none}
+.tzNum p i{ float:left; color:#8e8e8e; font-size:.91rem; width:4.375rem}
+.tzNum p span{ float:left; font-size:.97rem; color:#f03d3d; width:11.5rem}
+.tzNum p span cite,.zfNum p cite{ color:#177ffc; padding-left:.4rem}
+.spfNum .errorBg {
+    top: 1.3rem;
+}
+.spfNum .spfzpk2 span {
+    width: 30%;
+}
+.spfNum .spfpl span {
+    width: 34%;
+}
+.spfNum .bjdcspfpl span {
+    width: 29% !important;  
+}
+.spfjj {
+    background: none repeat scroll 0 0 #efefef;
+    border-top: 1px solid #dfdfdf;
+    color: #8e8e8e;
+    font-size: 0.8rem;
+    line-height: 1.7rem;
+    padding: 0 1rem;
+}
+.double input.spfinput {
+    width: 5rem;
+}
+.spfzpk o{background: none repeat scroll 0 0 #ff9898;
+    border-radius: 0.2rem;
+    color: #fff;
+    float: left;
+    font-size: 0.75rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    margin: 0.1rem 1% 0 0;
+    padding: 0.15rem 1%;
+    text-align: center;
+    width: 12%;}
+.spfzpk o.rq{background: none repeat scroll 0 0 #98c5ff; height: 1.5rem;}
+.jczqHh .spfzpk {margin:0.3rem 0 0 0}
+.spfNum  .spfzpk2 b {
+    color: #343434;
+    float: left;
+    font-size: 0.75rem;
+    font-weight: normal;
+    padding-top: 1rem;
+    text-align: center;
+    width: 8%;
+}
+.jclqsftz .spfzpk2 span,.jclqrfsftz .spfzpk2 span {
+    width: 38%;
+}
+.jclqVs .spfpl span {
+    margin: 0 9.2% 0 1.2%;
+    width: 43.8%;
+}
+.jclqsftz .spfpl span,.jclqrfsftz .spfpl span {
+    width: 39%;
+}
+.jczqHh .spfzpk {margin:0.3rem 0 0 0}
+.bfcom p{text-align:left;}
+.spfNum   .hh span { width: 16%;line-height: 2.2rem;}
+ .spfzpk .chang {
+    border: medium none;
+    color: #fff;
+    line-height: 0.9rem;
+    text-align: center;
+    width: 1.3rem;
+}
+ .spfzpk .bgred,.zcjq .bgred{
+    background-color: #ff9899;
+}
+.spfzpk .bgblue,.zcjq .bgblue {
+    background-color: #9ac4fe;
+}
+.zcbqc  span {
+    height: 1.6rem;
+    line-height: 1.6rem;
+    padding: 0.4rem 0;
+    width: 26%;
+}
+.zcjq span {
+     width: 19%;
+}
+.spfpl .pei {
+    width: 10% !important;
+}
+
+.t4cjqsp span {
+    width: 25% !important;
+}
+
+.hhNum .errorBg, .jqNum .errorBg {
+    top: 4rem;
+}
+.bfpk .spfzpk span cite, .bjdcpk .spfzpk span cite, .bfpk span cite {
+    display: inline-block;
+    font-size: 0.95rem;
+    width:15%
+}
+.bfpk span cite.sqt {
+    font-size: 0.82rem;
+    width: 20%;
+}
+.jclqdxftz .spfzpk span {
+    margin: 0.4rem 17% 0 0;
+    width: 32%;
+}
+.jclqdxftz .spfzpkNum span {
+      width: 26%;
+}
+ .jclqhh span {
+    width: 19%;
+}
+.rf_, .sf_, .dxf_, .sfc_ {
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 0.4rem;
+    left: 50%;
+    margin-left: -9.25rem;
+    position: fixed;
+    top: 50%;
+    width: 18.5rem;
+    z-index: 1000;
+}
+
+.rf_ .competitions, .sf_ .competitions, .dxf_ .competitions, .sfc_ .competitions {
+      background: none repeat scroll 0 0 #fff;
+    margin: 4%;
+    width: 92%;
+    border: none
+}
+.rf_ .competitions span, .sf_ .competitions span, .dxf_ .competitions span, .sfc_ .competitions span {
+      border: 1px solid #d5d5d5;
+    color: #333;
+    float: left;
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-left: 1.8rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: 33%;
+     padding: 0.3rem 0;
+         height: 2rem;
+}
+.competitions1 {
+    background: none repeat scroll 0 0 #fff;
+    border-left: 1px solid #d5d5d5;
+    border-top: 1px solid #d5d5d5;
+    margin: 5%;
+    width: 92%;
+}
+.competitions1 .chazhi {
+    color: #db150b;
+    display: inline-block;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.competitions1 span, .competitions1 i {
+    border-bottom: 1px solid #d5d5d5;
+    border-right: 1px solid #d5d5d5;
+    color: #333;
+    float: left;
+    line-height: 3rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: 32.9%;
+}
+.bfcom span, .bfcom i {
+    height: 2rem;
+    line-height: 1rem;
+    padding: 0.3rem 0;
+}
+.usale{ text-align: center;display: block;}
+.fixed2 {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+.jczqNav {
+    padding-bottom: 1.8rem;
+}
+.zkTitle {
+    background: none repeat scroll 0 0 #fff;
+    border-bottom: 1px solid #c7c7c7;
+    color: #999;
+    font-size: 0.8rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    padding: 0.4rem 0;
+    top: 2.7rem;
+}
+.zkTitle li {
+    border-left: 1px solid #ccc;
+    float: left;
+    text-align: center;
+    width: 33.5%;
+}
+.zkTitle li.zkVS {
+  
+    width: 8.5%;
+}
+.zkTitle li:first-child {
+    border-left: medium none;
+    width: 20%;
+}
+.spfzpk span.no_dg{ border: 1px solid #d5d5d5;color: #999}
+.buyHeader a.jjyh{ display: inline-block;position: absolute;right: 1.1rem;top: 0.9rem }
+input.true_disabled,a.true_disabled{ background-color: #d5d5d5;color: #fff;}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的帐户</title>
+    <!-- css start -->
+    <link href="{CSS_PATH}bootstrap.css" rel="stylesheet">
+    <link href="{CSS_PATH}font-awesome-3.0.css" rel="stylesheet">
+
+    <link href="{CSS_PATH}base.css" rel="stylesheet">
+    <link rel="stylesheet" href="{CSS_PATH}login.css">
+
+    <!-- css end -->
+    <!--[if lt IE 9]>
+    <script src="{JS_PATH}selectivizr.js"></script>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="row">
+            <!-- logo -->
+            <a href="index.html" class="logo">
+                <img src="{IMG_PATH}bt_logo.png" alt="">
+            </a>
+            <span class="title-text">个人中心</span>
+            <a href="##" class="back-btn">
+                返回首页
+            </a>
+
+        </div>
+    </div>
+</header>
+
+<section class="account-body">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-3 pdL0 pdR0">
+                <div class="side">
+                    <ul class="side-nav">
+                        <li>
+                            <a href="##" class="title-inner jicai">竞猜中心</a>
+                        </li>
+                        <li>
+                            <a href="{APP_PATH}index.php?m=member&c=index&a=init">我的竞猜</a>
+                        </li>
+                        <li>
+                            <a href="{APP_PATH}index.php?m=member&c=index&a=favorite">我的收藏</a>
+                        </li>
+                        <li>
+                            <a href="##">我的兑奖</a>
+                        </li>
+                        <li>
+                            <a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_info" class="title-inner vipinfo">会员信息</a>
+                        </li>
+                        <li class="active">
+                            <a href="##">我的账户</a>
+                        </li>
+                        <li>
+                            <a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_address">收货地址</a>
+                        </li>
+                        <li>
+                            <a href="{APP_PATH}index.php?m=member&c=index&a=account_manage_password">修改密码</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-9 plR0 ">
+                <div class="main">
+                    <h1 class="account-title">我的帐户</h1>
+                    <div class="account-info clearfix">
+                        <img src="{$avatar[90]}" width="80" height="80" alt="" class="account-photo fl" onerror="this.src='{$phpsso_api_url}/statics/images/member/nophoto.gif'">
+                        <div class="account-name">{if $memberinfo['nickname']}{$memberinfo['nickname']}{else}{$memberinfo['username']}{/if}</div>
+                        <div class="account-safeinfo">
+                            帐户安全
+                            <i class="safe-bar" size="75"></i>
+                            75%
+                        </div>
+                    </div>
+                    <div class="account-item clearfix">
+                        <div class="email-safe fl">认证邮箱</div>
+                        认证后可用于快速找回密码
+                        <button class="fr btn-safe">认证邮箱</button>
+                    </div>
+                    <div class="account-item clearfix">
+                        <div class="phone-safe fl">认证手机</div>
+                        认证后可用于快速找回密码
+                        <button class="fr btn-safe">认证手机</button>
+                    </div>
+                    <div class="account-item clearfix">
+                        <div class="pwd-safe fl">登录密码</div>
+                        认证后可用于快速找回密码
+                        <button class="fr btn-safe">设置密码</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <a href="index.html" class="f-logo">
+                <img src="{IMG_PATH}bt_logo.png" alt="">
+            </a>
+            <p class="copyright">© 2016 HuoYe. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

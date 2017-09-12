@@ -1,0 +1,762 @@
+{php $css = array('event.css',"past_record.css","ft_game_info.css")}
+{template "content", "header"}
+<!--路径导航-->
+<section class="hy-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <ol class="breadcrumb hy">
+                <li>
+                    <a href="{siteurl($siteid)}">首页</a>
+                </li>
+                <li>
+                    <a href="{APP_PATH}competition/{$gameinfo['competitionid']}/schedule/" target="_blank">
+                        {$gameinfo['competitionname']}
+                    </a>
+                </li>
+                <li class="active">
+                    <span>{$gameinfo['homename']}VS{$gameinfo['awayname']}</span>
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+<!--路径导航 end-->
+<!--body start-->
+<section class="main-body">
+    <div class="container">
+        <div class="row">
+            <div class="tableBox">
+                {template 'sportsdata', 'ft_game_info'}
+                <!--<div class="eventDetailNav">-->
+                    <!--<div class="col-sm-4 current">-->
+                        <!--<a href="javascript:void(0);">数据分析</a>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-4">-->
+                        <!--<a href="{APP_PATH}game/{$gameid}/oddsasia/">赛事指数</a>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-4">-->
+                        <!--<a href="{APP_PATH}game/{$gameid}/stats/">实况统计</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="table-item">
+                    <h1 class="table-item-title">
+                        <span id="yc">比赛预测</span>
+                    </h1>
+                    <table class="table_" width="100%" border="0">
+                        <tr>
+                            <th>主队</th>
+                            <th>客队</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                主队近况走势-
+                                {loop $forecast_data['homerecenttendency'] $data}
+                                {$data}
+                                {/loop}
+                            </td>
+                            <td>
+                                客队近况走势-
+                                {loop $forecast_data['awayrecenttendency'] $data}
+                                {$data}
+                                {/loop}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                主队近况输赢-
+                                {loop $forecast_data['homeoddswinlose'] $data}
+                                {$data}
+                                {/loop}
+                            </td>
+                            <td>
+                                客队近况输赢-
+                                {loop $forecast_data['awayoddswinlose'] $data}
+                                {$data}
+                                {/loop}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">信心指数-{$forecast_data['confidence']}，主队对赛成绩-{$forecast_data['resultsofthematch']}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p class="fl pdL15">{$forecast_data['content']}</p>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="table-tip">
+                        以上纯属作者个人观点，不代表本站言论。
+                    </div>
+                </div>
+                <div class="table-item ">
+                    <h1 class="table-item-title">
+                        <span id="sc">未来赛程</span>
+                    </h1>
+                    <div class="clearfix">
+                        <table class="table_ fl" width="50%" border="0" role="streak">
+                            <tr>
+                                <th colspan="5">主队</th>
+                            </tr>
+                            <tr>
+                                <th>赛事</th>
+                                <th>时间</th>
+                                <th>球队</th>
+                                <th width="40">VS</th>
+                                <th>球队</th>
+                            </tr>
+                            {loop $game_home $data}
+                            <tr>
+                                <td>
+                                    <a href="{APP_PATH}competition/{$data['Id'][1]}/schedule/" target="_blank"><span class="match-icon" style="background-color:#{$league_datas[$data['Id'][1]]['Color']}">{$league_datas[$data['Id'][1]]['ShortName']}</span></a>
+                                </td>
+                                <td>
+                                    <time>{$data['Date']}</time>
+                                </td>
+                                <td>
+                                    <a href="{APP_PATH}team/{$data['Id'][2]}/" target="_blank">{$team_datas[$data['Id'][2]]['Name']}</a>
+                                </td>
+                                <td>
+                                    VS
+                                </td>
+                                <td>
+                                    <a href="{APP_PATH}team/{$data['Id'][3]}/" target="_blank">{$team_datas[$data['Id'][3]]['Name']}</a>
+                                </td>
+                            </tr>
+                            {/loop}
+                        </table>
+                        <table class="table_ fl" width="50%" border="0" role="streak">
+                            <tr>
+                                <th colspan="5">客队</th>
+                            </tr>
+                            <tr>
+                                <th>赛事</th>
+                                <th>时间</th>
+                                <th>球队</th>
+                                <th width="40">VS</th>
+                                <th>球队</th>
+
+                            </tr>
+                            {loop $game_away $data}
+                            <tr>
+                                <td>
+                                    <a href="{APP_PATH}competition/{$data['Id'][1]}/schedule/" target="_blank"><span class="match-icon" style="background-color:#{$league_datas[$data['Id'][1]]['Color']}">{$league_datas[$data['Id'][1]]['ShortName']}</span></a>
+                                </td>
+                                <td>
+                                    <time>{$data['Date']}</time>
+                                </td>
+                                <td>
+                                    <a href="{APP_PATH}team/{$data['Id'][2]}/" target="_blank">{$team_datas[$data['Id'][2]]['Name']}</a>
+                                </td>
+                                <td>
+                                    VS
+                                </td>
+                                <td>
+                                    <a href="{APP_PATH}team/{$data['Id'][3]}/" target="_blank">{$team_datas[$data['Id'][3]]['Name']}</a>
+                                </td>
+                            </tr>
+                            {/loop}
+                        </table>
+                    </div>
+                </div>
+                <div class="table-item">
+                    <h1 class="table-item-title">
+                        <span id="pl">以往盘路（场数）</span>
+                    </h1>
+                    <table class="table_ minLineTable" width="100%" border="0">
+                        <tr>
+                            <th colspan="9" width="50%">主队</th>
+                            <th colspan="9" width="50%">客队</th>
+                        </tr>
+                    </table>
+                    <table class="table_ minLineTable" width="100%" border="0" role="streak_">
+                        <tr>
+                            <th width="5.36%">上盘赢</th>
+                            <th width="5.36%">上盘走</th>
+                            <th width="5.36%">上盘输</th>
+                            <th width="5.36%">下盘赢</th>
+                            <th width="5.36%">下盘走</th>
+                            <th width="5.36%">下盘输</th>
+                            <th width="5.36%">平盘赢</th>
+                            <th width="5.36%">平盘走</th>
+                            <th width="5.36%">平盘输</th>
+                            <th></th>
+                            <th width="5.36%">上盘赢</th>
+                            <th width="5.36%">上盘走</th>
+                            <th width="5.36%">上盘输</th>
+                            <th width="5.36%">下盘赢</th>
+                            <th width="5.36%">下盘走</th>
+                            <th width="5.36%">下盘输</th>
+                            <th width="5.36%">平盘赢</th>
+                            <th width="5.36%">平盘走</th>
+                            <th width="5.36%">平盘输</th>
+                        </tr>
+                        {loop $type $key $val}
+                        {if $key != 'Last6Game'}
+                        <tr>
+                            {if !empty($plate_home[$key])}
+                            {loop $plate_home[$key] $k $v}
+                            <td>
+                                <span class="isBlock">{$v}</span>
+                                {if $k <= 2}
+                                {round($v/($plate_home[$key][0]+$plate_home[$key][1]+$plate_home[$key][2])*100,2)}%
+                                {elseif $k <= 5}
+                                {round($v/($plate_home[$key][3]+$plate_home[$key][4]+$plate_home[$key][5])*100,2)}%
+                                {else}
+                                {round($v/($plate_home[$key][6]+$plate_home[$key][7]+$plate_home[$key][8])*100,2)}%
+                                {/if}
+                            </td>
+                            {/loop}
+                            {else}
+                            <td colspan="9"></td>
+                            {/if}
+
+                            <td class="bg-green1">{$val}</td>
+
+                            {if !empty($plate_away[$key])}
+                            {loop $plate_away[$key] $k $v}
+                            <td>
+                                <span class="isBlock">{$v}</span>
+                                {if $k <= 2}
+                                {round($v/($plate_away[$key][0]+$plate_away[$key][1]+$plate_away[$key][2])*100,2)}%
+                                {elseif $k <= 5}
+                                {round($v/($plate_away[$key][3]+$plate_away[$key][4]+$plate_away[$key][5])*100,2)}%
+                                {else}
+                                {round($v/($plate_away[$key][6]+$plate_away[$key][7]+$plate_away[$key][8])*100,2)}%
+                                {/if}
+                            </td>
+                            {/loop}
+                            {else}
+                            <td colspan="9"></td>
+                            {/if}
+                        </tr>
+                        {/if}
+                        {/loop}
+                    </table>
+                </div>
+                <div class="table-item">
+                    <h1 class="table-item-title">
+                        <span id="pm">排名统计</span>
+                    </h1>
+                    <table class="table_" width="100%" border="0">
+                        <tr>
+                            <th colspan="5" width="50%">主队</th>
+                            <th colspan="5" width="50%">客队</th>
+                        </tr>
+                    </table>
+                    <table class="table_" width="100%" border="0" role="streak_">
+                        <tr>
+                            <th width="4.75%">胜率</th>
+                            <th width="4.75%">排名</th>
+                            <th width="4.75%">得分</th>
+                            <th width="4.75%">净</th>
+                            <th width="4.75%">失</th>
+                            <th width="4.75%">得</th>
+                            <th width="4.75%">负</th>
+                            <th width="4.75%">平</th>
+                            <th width="4.75%">胜</th>
+                            <th width="4.75%">赛</th>
+                            <th>全场</th>
+                            <th width="4.75%">赛</th>
+                            <th width="4.75%">胜</th>
+                            <th width="4.75%">平</th>
+                            <th width="4.75%">负</th>
+                            <th width="4.75%">得</th>
+                            <th width="4.75%">失</th>
+                            <th width="4.75%">净</th>
+                            <th width="4.75%">得分</th>
+                            <th width="4.75%">排名</th>
+                            <th width="4.75%">胜率</th>
+                        </tr>
+                        {loop $type $key $val}
+                        {if $key !='Neutral'}
+                        <tr>
+                            {if !empty($ranking_datas['Home'][$key])}
+                            {php krsort($ranking_datas['Home'][$key]);}
+                            {loop $ranking_datas['Home'][$key] $k $v}
+                            <td>{$v}</td>
+                            {/loop}
+                            {else}
+                            <td colspan="10"></td>
+                            {/if}
+
+                            <td class="bg-green1">{$val}</td>
+
+                            {if !empty($ranking_datas['Away'][$key])}
+                            {loop $ranking_datas['Away'][$key] $k $v}
+                            <td>{$v}</td>
+                            {/loop}
+                            {else}
+                            <td colspan="10"></td>
+                            {/if}
+                        </tr>
+                        {/if}
+                        {/loop}
+                    </table>
+                </div>
+                <div class="table-item">
+                    <h1 class="table-item-title">
+                        <span id="ds">进球数、单双统计(场数)</span>
+                    </h1>
+                    <table class="table_" width="100%" border="0">
+                        <tr>
+                            <th width="50%" colspan="6">主队</th>
+                            <th width="50%" colspan="6">客队</th>
+                        </tr>
+                    </table>
+                    <table class="table_" width="100%" border="0">
+                        <tr>
+                            <th width="8.33%">0-1球</th>
+                            <th width="8.33%">2-3球</th>
+                            <th width="8.33%">4-6球</th>
+                            <th width="8.35%">7球以上</th>
+                            <th width="8.33%">单数</th>
+                            <th width="8.33%">双数</th>
+                            <th width="8.33%">0-1球</th>
+                            <th width="8.33%">2-3球</th>
+                            <th width="8.33%">4-6球</th>
+                            <th width="8.35%">7球以上</th>
+                            <th width="8.33%">单数</th>
+                            <th width="8.33%">双数</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                {$ds_home[0]}
+                            </td>
+                            <td>
+                                {$ds_home[1]}
+                            </td>
+                            <td>
+                                {$ds_home[2]}
+                            </td>
+                            <td>
+                                {$ds_home[3]}
+                            </td>
+                            <td>
+                                {$ds_home[4]}
+                            </td>
+                            <td>
+                                {$ds_home[5]}
+                            </td>
+                            <td>
+                                {$ds_away[0]}
+                            </td>
+                            <td>
+                                {$ds_away[1]}
+                            </td>
+                            <td>
+                                {$ds_away[2]}
+                            </td>
+                            <td>
+                                {$ds_away[3]}
+                            </td>
+                            <td>
+                                {$ds_away[4]}
+                            </td>
+                            <td>
+                                {$ds_away[5]}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-item">
+                    <h1 class="table-item-title">
+                        <span id="jq">进球数统计</span>
+                    </h1>
+                    <table class="table_ minLineTable" width="100%" border="0">
+                        <tr>
+                            <th width="50%" colspan="9">主队</th>
+                            <th width="50%" colspan="9">客队</th>
+                        </tr>
+                    </table>
+                    <table class="table_ minLineTable" width="100%" border="0">
+                        <tr>
+                            <th width="5.36%">净胜2+</th>
+                            <th width="5.36%">净胜1</th>
+                            <th width="5.36%">平</th>
+                            <th width="5.36%">净负1</th>
+                            <th width="5.36%">净负2+</th>
+                            <th width="5.36%">进球数0</th>
+                            <th width="5.36%">进球数1</th>
+                            <th width="5.36%">进球数2</th>
+                            <th width="5.36%">进球数3+</th>
+                            <th></th>
+                            <th width="5.36%">净胜2+</th>
+                            <th width="5.36%">净胜1</th>
+                            <th width="5.36%">平</th>
+                            <th width="5.36%">净负1</th>
+                            <th width="5.36%">净负2+</th>
+                            <th width="5.36%">进球数0</th>
+                            <th width="5.36%">进球数1</th>
+                            <th width="5.36%">进球数2</th>
+                            <th width="5.36%">进球数3+</th>
+                        </tr>
+                        {loop $type $key $val}
+                        {if $key != 'Last6Game'}
+                        <tr>
+                            {if !empty($goal_home[$key])}
+                            {loop $goal_home[$key] $k $v}
+                            <td>
+                                <span class="isBlock">{$v}</span>
+                                {round($v/array_sum($goal_home[$key])*100,2)}%
+                            </td>
+                            {/loop}
+                            {else}
+                            <td colspan="9"></td>
+                            {/if}
+
+                            <td class="bg-green1">{$val}</td>
+
+                            {if !empty($goal_away[$key])}
+                            {loop $goal_away[$key] $k $v}
+                            <td>
+                                <span class="isBlock">{$v}</span>
+                                {round($v/array_sum($goal_away[$key])*100,2)}%
+                            </td>
+                            {/loop}
+                            {else}
+                            <td colspan="9"></td>
+                            {/if}
+                        </tr>
+                        {/if}
+                        {/loop}
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="container pd0" style="background-color: #ffffff;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="border mt10 mb10">
+                <h1 class="record-tip">
+                    <span class="auto-title" id="jz">交往战绩</span>
+                </h1>
+            </div>
+            <table width="100%">
+                <tr>
+                    <td>编号</td>
+                    <td>联赛</td>
+                    <td>日期</td>
+                    <td>球队</td>
+                    <td>比分</td>
+                    <td>球队</td>
+                    <td>红牌</td>
+                    <td>半场</td>
+                    <td>让球</td>
+                    <td>盘路</td>
+                </tr>
+                {loop $meeting $r}
+                <tr>
+                    <td>{$r['gameid']}</td>
+                    <td style="background-color: #{$r['competition_color']};" class="competition-link">
+                        <a href="{APP_PATH}competition/{$r['competitionid']}/schedule/" target="_blank">
+                            {$r['competition_name']}
+                        </a>
+                    </td>
+                    <td>{$r['date']}</td>
+                    <td>
+                        <a href="{APP_PATH}team/{$r['hometeamid']}/" target="_blank">
+                            {$r['homename']}
+                        </a>
+                    </td>
+                    <td>{$r['homescore']}-{$r['awayscore']}</td>
+                    <td>
+                        <a href="{APP_PATH}team/{$r['awayteamid']}/" target="_blank">
+                            {$r['awayname']}
+                        </a>
+                    </td>
+                    <td>{$r['redcard']}</td>
+                    <td>{$r['half']}</td>
+                    <td>{$r['handicap']}</td>
+                    <td><span class="red">{L($r['plate'][0])}{L($r['plate'][1])}</span></td>
+                </tr>
+                {/loop}
+                <tr style="background-color: #ffffff;">
+                    <td colspan="10">
+                        交战历史　双方近{count($meeting)}次交战，{$gameinfo['homename']}
+                        <span class="red">{$total['win']}胜</span>
+                        <span class="blue">{$total['equal']}平</span>
+                        <span class="green">{$total['lose']}负</span>
+                        ，赢盘{$total['win_plate']}场，走盘{$total['waste_plate']}场，输盘{$total['lose_plate']}场，进{$total['goal']}球，失球{$total['lost']}球，大球{$total['big']}次，小球{$total['little']}次。
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="border mt15 mb15">
+                <h1 class="record-tip">
+                    <span class="auto-title" id="wj">{$gameinfo['homename']}以往战绩
+                    </span>
+                </h1>
+            </div>
+            <div class="amount clearfix">
+                <form id="home_form" action="{APP_PATH}game/{$gameid}/analyse/" method="post" class="clearfix">
+                    <input type="hidden" name="home_tag" id="home_tag" value="{$_POST['home_tag']}">
+                    <ul class="amount-nav ft14 clearfix">
+                        <li class="amount-item"><a class="btn-url {if !$_POST['home_tag']}active{/if}" href="javascript:;" data-id="0" data-target="home_tag">总场数</a></li>
+                        <li class="amount-item"><a class="btn-url {if $_POST['home_tag']}active{/if}" href="javascript:;" data-id="{$gameinfo['hometeamid']}" data-target="home_tag">主场</a></li>
+                    </ul>
+                    <div class="select fr">
+                        {loop $competition_list['home'] $id $name}
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="home_competition_id[]" id="home_competition_id" value="{$id}" {if in_array($id, $_POST['home_competition_id']) || !isset($_POST['home_competition_id'])}checked{/if}> {$name}
+                        </label>
+                        {/loop}
+                        <label class="checkbox-inline" style="min-width: 110px">
+                            最近&nbsp;
+                            <select name="home_page" id="home_page">
+                                <option value="10" {if $_POST['home_page']==10}selected{/if}>10</option>
+                                <option value="20" {if $_POST['home_page']==20}selected{/if}>20</option>
+                                <option value="30" {if $_POST['home_page']==30}selected{/if}>30</option>
+                            </select>
+                            &nbsp;场
+                        </label>
+                        <button type="button" data-target="away_form" class=" btn btn-sm btn-info ft_game_analyse_btn" style="margin-left: 10px;"><span class="glyphicon glyphicon-search"></span> 查询 </button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <table width="100%">
+                    <tr>
+                        <td>赛事</td>
+                        <td>时间</td>
+                        <td>球队</td>
+                        <td>赛果</td>
+                        <td>球队</td>
+                        <td>胜负</td>
+                        <td>让球</td>
+                        <td>盘路</td>
+                        <td>全场大小<br>(2.5)</td>
+                        <td>单双</td>
+                        <td>半场</td>
+                        <td>半场大小<br>(0.75)</td>
+                    </tr>
+                    {loop $team_history['home'] $history}
+                    <tr>
+                        <td style="background-color: #{$history['competition_color']};" class="competition-link">
+                            <a href="{APP_PATH}competition/{$history['competitionid']}/schedule/" target="_blank">
+                                {$history['competition_name']}
+                            </a>
+                        </td>
+                        <td>{$history['date']}</td>
+                        <td>
+                            <a href="{APP_PATH}team/{$history['hometeamid']}/" target="_blank">
+                                {$history['homename']}
+                            </a>
+                        </td>
+                        <td><span class="red">{$history['homescore']}</span>-<span class="blue">{$history['awayscore']}</span></td>
+                        <td>
+                            <a href="{APP_PATH}team/{$history['awayteamid']}/" target="_blank">
+                                {$history['awayname']}
+                            </a>
+                        </td>
+                        <td><span class="green">{L($history['result'])}</span></td>
+                        <td>{L($history['handicap'])}</td>
+                        <td><span class="red">{L($history['plate'][0])}{L($history['plate'][1])}</span></td>
+                        <td><span class="blue">{L($history['full_size'])}</span></td>
+                        <td><span class="red">{L($history['single_double'])}</span></td>
+                        <td>{$history['half']}</td>
+                        <td><span class="blue">{L($history['half_size'])}</span></td>
+                    </tr>
+                    {/loop}
+                    <tr style="background-color: #ffffff;">
+                        <td colspan="12" style="text-align: left;padding-left: 40px;">
+                            {php $home_history_number = count($team_history['home'])}
+                            {$home_history_number}场交锋：<span class="red">{$team_history['list_total']['home']['win']}</span>胜(<span class="red">{$team_history['list_total']['home']['win_rate']}</span>)、<span class="green">{$team_history['list_total']['home']['equal']}</span>平(<span class="green">{$team_history['list_total']['home']['equal_rate']}</span>)、<span class="blue">{$team_history['list_total']['home']['lose']}</span>负(<span class="blue">{$team_history['list_total']['home']['lose_rate']}</span>)。<br>
+                            {$home_history_number}场开盘：<span class="red">{$team_history['list_total']['home']['win_plate']}</span>赢盘(<span class="red">{$team_history['list_total']['home']['win_plate_rate']}</span>)、<span class="green">{$team_history['list_total']['home']['waste_plate']}</span>走水(<span class="green">{$team_history['list_total']['home']['waste_plate_rate']}</span>)、<span class="blue">{$team_history['list_total']['home']['lose_plate']}</span>输盘(<span class="blue">{$team_history['list_total']['home']['lose_plate_rate']}</span>)。<br>
+                            {$home_history_number}场交锋：<span class="red">{$team_history['list_total']['home']['big']}</span>场大，<span class="blue">{$team_history['list_total']['home']['little']}</span>场小，<span class="red">{$team_history['list_total']['home']['double']}</span>场双，<span class="blue">{$team_history['list_total']['home']['single']}</span>场单，<span class="red">{$team_history['list_total']['home']['half_big']}</span>场半场大，<span class="blue">{$team_history['list_total']['home']['half_little']}</span>场半场小。<br>
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%">
+                    <tr>
+                        <td>总胜</td>
+                        <td>总平</td>
+                        <td>总负</td>
+                        <td>主胜</td>
+                        <td>主平</td>
+                        <td>主负</td>
+                        <td>中胜</td>
+                        <td>中平</td>
+                        <td>中负</td>
+                        <td>客胜</td>
+                        <td>客平</td>
+                        <td>客负</td>
+                    </tr>
+                    <tr style="background-color: #ffffff">
+                        <td>{$team_history['total']['home']['win']}</td>
+                        <td>{$team_history['total']['home']['equal']}</td>
+                        <td>{$team_history['total']['home']['lose']}</td>
+                        <td>{$team_history['total']['home']['home_win']}</td>
+                        <td>{$team_history['total']['home']['home_equal']}</td>
+                        <td>{$team_history['total']['home']['home_lose']}</td>
+                        <td>{$team_history['total']['home']['neutral_win']}</td>
+                        <td>{$team_history['total']['home']['neutral_equal']}</td>
+                        <td>{$team_history['total']['home']['neutral_lose']}</td>
+                        <td>{$team_history['total']['home']['away_win']}</td>
+                        <td>{$team_history['total']['home']['away_equal']}</td>
+                        <td>{$team_history['total']['home']['away_lose']}</td>
+                    </tr>
+                    <tr style="background-color: #ffffff">
+                        <td>{$team_history['total']['home']['win_rate']}</td>
+                        <td>{$team_history['total']['home']['equal_rate']}</td>
+                        <td>{$team_history['total']['home']['lose_rate']}</td>
+                        <td>{$team_history['total']['home']['home_win_rate']}</td>
+                        <td>{$team_history['total']['home']['home_equal_rate']}</td>
+                        <td>{$team_history['total']['home']['home_lose_rate']}</td>
+                        <td>{$team_history['total']['home']['neutral_win_rate']}</td>
+                        <td>{$team_history['total']['home']['neutral_equal_rate']}</td>
+                        <td>{$team_history['total']['home']['neutral_lose_rate']}</td>
+                        <td>{$team_history['total']['home']['away_win_rate']}</td>
+                        <td>{$team_history['total']['home']['away_equal_rate']}</td>
+                        <td>{$team_history['total']['home']['away_lose_rate']}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="border mt15 mb15">
+                <h1 class="record-tip">
+                    <span class="auto-title">
+                    {$gameinfo['awayname']}以往战绩
+                    </span>
+                </h1>
+            </div>
+            <div class="amount clearfix">
+                <form id="away_form" action="{APP_PATH}game/{$gameid}/analyse/" method="post">
+                    <input type="hidden" name="away_tag" id="away_tag" value="{$_POST['away_tag']}">
+                    <ul class="amount-nav ft14 clearfix">
+                        <li class="amount-item"><a class="btn-url {if !$_POST['away_tag']}active{/if}" href="javascript:;" data-id="0" data-target="away_tag">总场数</a></li>
+                        <li class="amount-item"><a class="btn-url {if $_POST['away_tag']}active{/if}" href="javascript:;" data-id="{$gameinfo['awayteamid']}" data-target="away_tag">主场</a></li>
+                    </ul>
+                    <div class="select fr">
+                        {loop $competition_list['away'] $id $name}
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="away_competition_id[]" id="away_competition_id" value="{$id}" {if in_array($id, $_POST['away_competition_id']) || !isset($_POST['away_competition_id'])}checked{/if}> {$name}
+                        </label>
+                        {/loop}
+                        <label class="checkbox-inline">
+                            最近&nbsp;
+                            <select name="away_page" id="away_page">
+                                <option value="10" {if $_POST['away_page']==10}selected{/if}>10</option>
+                                <option value="20" {if $_POST['away_page']==20}selected{/if}>20</option>
+                                <option value="30" {if $_POST['away_page']==30}selected{/if}>30</option>
+                            </select>
+                            &nbsp;场
+                        </label>
+                        <button type="button" data-target="home_form" class="btn btn-sm btn-info ft_game_analyse_btn" style="margin-left: 10px;"><span class="glyphicon glyphicon-search"></span> 查询 </button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <table width="100%">
+                    <tr>
+                        <td>赛事</td>
+                        <td>时间</td>
+                        <td>球队</td>
+                        <td>赛果</td>
+                        <td>球队</td>
+                        <td>胜负</td>
+                        <td>让球</td>
+                        <td>盘路</td>
+                        <td>全场大小<br>(2.5)</td>
+                        <td>单双</td>
+                        <td>半场</td>
+                        <td>半场大小<br>(0.75)</td>
+                    </tr>
+                    {loop $team_history['away'] $history}
+                    <tr>
+                        <td style="background-color: #{$history['competition_color']};" class="competition-link">
+                            <a href="{APP_PATH}competition/{$history['competitionid']}/schedule/" target="_blank">
+                                {$history['competition_name']}
+                            </a>
+                        </td>
+                        <td>{$history['date']}</td>
+                        <td>
+                            <a href="{APP_PATH}team/{$history['hometeamid']}/" target="_blank">
+                                {$history['homename']}
+                            </a>
+                        </td>
+                        <td><span class="red">{$history['homescore']}</span>-<span class="blue">{$history['awayscore']}</span></td>
+                        <td>
+                            <a href="{APP_PATH}team/{$history['awayteamid']}/" target="_blank">
+                                {$history['awayname']}
+                            </a>
+                        </td>
+                        <td><span class="green">{L($history['result'])}</span></td>
+                        <td>{L($history['handicap'])}</td>
+                        <td><span class="red">{L($history['plate'][0])}{L($history['plate'][1])}</span></td>
+                        <td><span class="blue">{L($history['full_size'])}</span></td>
+                        <td><span class="red">{L($history['single_double'])}</span></td>
+                        <td>{$history['half']}</td>
+                        <td><span class="blue">{L($history['half_size'])}</span></td>
+                    </tr>
+                    {/loop}
+                    <tr style="background-color: #ffffff;">
+                        <td colspan="12" style="text-align: left;padding-left: 40px;">
+                            {php $away_history_number = count($team_history['away'])}
+                            {$away_history_number}场交锋：<span class="red">{$team_history['list_total']['away']['win']}</span>胜(<span class="red">{$team_history['list_total']['away']['win_rate']}</span>)、<span class="green">{$team_history['list_total']['away']['equal']}</span>平(<span class="green">{$team_history['list_total']['away']['equal_rate']}</span>)、<span class="blue">{$team_history['list_total']['away']['lose']}</span>负(<span class="blue">{$team_history['list_total']['away']['lose_rate']}</span>)。<br>
+                            {$away_history_number}场开盘：<span class="red">{$team_history['list_total']['away']['win_plate']}</span>赢盘(<span class="red">{$team_history['list_total']['away']['win_plate_rate']}</span>)、<span class="green">{$team_history['list_total']['away']['waste_plate']}</span>走水(<span class="green">{$team_history['list_total']['away']['waste_plate_rate']}</span>)、<span class="blue">{$team_history['list_total']['away']['lose_plate']}</span>输盘(<span class="blue">{$team_history['list_total']['away']['lose_plate_rate']}</span>)。<br>
+                            {$away_history_number}场交锋：<span class="red">{$team_history['list_total']['away']['big']}</span>场大，<span class="blue">{$team_history['list_total']['away']['little']}</span>场小，<span class="red">{$team_history['list_total']['away']['double']}</span>场双，<span class="blue">{$team_history['list_total']['away']['single']}</span>场单，<span class="red">{$team_history['list_total']['away']['half_big']}</span>场半场大，<span class="blue">{$team_history['list_total']['away']['half_little']}</span>场半场小。<br>
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%">
+                    <tr>
+                        <td>总胜</td>
+                        <td>总平</td>
+                        <td>总负</td>
+                        <td>主胜</td>
+                        <td>主平</td>
+                        <td>主负</td>
+                        <td>中胜</td>
+                        <td>中平</td>
+                        <td>中负</td>
+                        <td>客胜</td>
+                        <td>客平</td>
+                        <td>客负</td>
+                    </tr>
+                    <tr style="background-color: #ffffff">
+                        <td>{$team_history['total']['away']['win']}</td>
+                        <td>{$team_history['total']['away']['equal']}</td>
+                        <td>{$team_history['total']['away']['lose']}</td>
+                        <td>{$team_history['total']['away']['home_win']}</td>
+                        <td>{$team_history['total']['away']['home_equal']}</td>
+                        <td>{$team_history['total']['away']['home_lose']}</td>
+                        <td>{$team_history['total']['away']['neutral_win']}</td>
+                        <td>{$team_history['total']['away']['neutral_equal']}</td>
+                        <td>{$team_history['total']['away']['neutral_lose']}</td>
+                        <td>{$team_history['total']['away']['away_win']}</td>
+                        <td>{$team_history['total']['away']['away_equal']}</td>
+                        <td>{$team_history['total']['away']['away_lose']}</td>
+                    </tr>
+                    <tr style="background-color: #ffffff">
+                        <td>{$team_history['total']['away']['win_rate']}</td>
+                        <td>{$team_history['total']['away']['equal_rate']}</td>
+                        <td>{$team_history['total']['away']['lose_rate']}</td>
+                        <td>{$team_history['total']['away']['home_win_rate']}</td>
+                        <td>{$team_history['total']['away']['home_equal_rate']}</td>
+                        <td>{$team_history['total']['away']['home_lose_rate']}</td>
+                        <td>{$team_history['total']['away']['neutral_win_rate']}</td>
+                        <td>{$team_history['total']['away']['neutral_equal_rate']}</td>
+                        <td>{$team_history['total']['away']['neutral_lose_rate']}</td>
+                        <td>{$team_history['total']['away']['away_win_rate']}</td>
+                        <td>{$team_history['total']['away']['away_equal_rate']}</td>
+                        <td>{$team_history['total']['away']['away_lose_rate']}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--body end-->
+{php $js = array('selectivizr.js','ft_matchnartop.js','ft_game_data.js','ft_game.js', "ft_game_analyse.js", "imagesloaded.pkgd.common.js")}
+{template "content", "footer"}

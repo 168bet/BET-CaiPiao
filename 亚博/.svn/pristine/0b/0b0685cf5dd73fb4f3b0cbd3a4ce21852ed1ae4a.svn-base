@@ -1,0 +1,35 @@
+<div class="left-menu">
+	<div class="wrap">
+		<h3 class="icon icon-tzgl">投注管理</h3>
+		<ul class="clearfix">
+			<li><a ui-sref-active="active" ui-sref="user.historder">投注记录</a></li>
+			<li><a ui-sref-active="active" ui-sref="user.tracelist" ng-if="false">追号记录</a></li>
+			<li><a ui-sref-active="active" ui-sref="user.accountdetail">账户明细</a></li>
+			<li><a ui-sref-active="active" ui-sref="user.playwlost">个人盈亏</a></li>
+		</ul>
+		<h3 class="icon icon-ucenter">用户中心</h3>
+		<ul class="clearfix">
+			<li><a ui-sref-active="active" ui-sref="user.info">个人资料</a></li>
+			<li><a ui-sref-active="active" ui-sref="user.bank">银行卡管理</a></li>
+			<li ng-if="false"><a ui-sref-active="active" ui-sref="user.task">平台任务</a></li>
+			<li><a ui-sref-active="active" ui-sref="user.bonus">奖金详情</a></li>
+		</ul>
+		<h3 class="icon icon-safe">账户安全</h3>
+		<ul class="clearfix">
+			<li><a ui-sref-active="active" ui-sref="user.security">安全中心</a></li>
+			<li><a ui-sref-active="active" ui-sref="user.security/passwd">密码管理</a></li>
+		</ul>
+		<h3 class="icon icon-agent">代理中心</h3>
+		<ul class="clearfix">
+			<li><a ui-sref-active="active" ui-sref="user.proxy/index">代理首页</a></li>
+			<li><a ui-sref-active="active" ui-sref="user.proxy/useradd">开户中心</a></li>
+			<li><a ui-sref-active="active" ui-sref="user.proxy/customer">客户管理</a></li>
+		</ul>
+		<h3 class="icon icon-fund">资金</h3>
+		<ul class="clearfix">
+			<li><a ui-sref-active="active" ui-sref="user.funds/onlinePay">我要充值</a></li>
+			<li><a ui-sref-active="active" ui-sref="user.funds/withdraw">我要提现</a></li>
+			<li><a ui-sref-active="active" ui-sref="user.funds/water">我要返水</a></li>
+		</ul>
+	</div>
+</div>

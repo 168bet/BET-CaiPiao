@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<config>
+	<!--
+		服务器升级后资源版本控制
+		version: 静态资源版本号
+		skin: 皮肤
+	-->
+	<category name="resource" >
+		<property name="version" value="1.0" />
+		<property name="skin" value="commons" />
+	</category>
+	
+	<category name="login">
+		<property name="limitTime" value="3" />
+	</category>
+	
+	<!-- FTP服务器 -->
+	<category name="FTP_DEFAULT">
+		<property name="FTP_SERVER_IP" value="" />
+		<property name="FTP_SERVER_PORT" value="" />
+		<property name="FTP_SERVER_USER" value="" />
+		<property name="FTP_SERVER_PWD" value="" />
+		<property name="FTP_SERVER_PATH" value="" />
+	</category>
+	
+	<!-- 定义非法字符, 定义多个字符以",分隔" -->
+	<category name="ILLEGAL_CHAR">
+		<property name="illegal_char" value="$,@" />
+	</category>
+	
+	
+</config>

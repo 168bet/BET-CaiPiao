@@ -1,0 +1,56 @@
+li{
+    list-style-type: none;
+}
+ul,li{
+    margin: 0;
+    padding: 0;
+}
+.clearfix{
+    clear: both;
+}
+.pdl-10{
+    padding-left: 10px;
+}
+.orange{
+    color: #ffa21d;
+    font-weight: bold;
+}
+.red{
+    color: red;
+}
+.green{
+    color: #89cb08;
+}
+.mr5{
+    margin-right: 5px;
+}
+.mr10{
+    margin-right: 10px;
+}
+.fr{
+    float: right;
+}
+.ft18{
+    font-size: 18px;
+}
+.m5{
+    margin: 0 5px;
+}
+.ft12{
+    font-size: 12px;
+}
+.pdr{
+    padding-right: 10px;
+}
+.mtr5{
+    margin-right: 5px;
+}
+.pd{
+    padding: 15px 5px 5px;
+}
+.mtr10{
+    margin-right: 10px;
+}
+.mtl5{
+    margin-left: 5px;
+}

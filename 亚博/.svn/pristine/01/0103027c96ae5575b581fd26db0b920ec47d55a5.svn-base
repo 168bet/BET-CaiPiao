@@ -1,0 +1,89 @@
+<div class="sidewrap merge-footer bank-charge-wap">
+  <div class="content" id="user-fund">
+      <div class="body-row">
+          <div class="ui-tab-title tab-title-bg clearfix">
+	        <ul id="recharge-type">
+	            <li ui-sref="user.funds/bankcharge" ui-sref-active="current">网银汇款</li>
+	            <li ui-sref="user.funds/charge" ui-sref-active="current">微信支付充值</li>
+	        </ul>
+          </div>
+          <div class="content bank-select" ng-if="data.step == 1">
+              <div class="step">
+                <table class="step-table">
+                  <tbody>
+                    <tr>
+                      <td class="current"><div class="con">1.选择银行并填写金额</div></td>
+                      <td><div class="tri">
+                          <div class="con">2.确认充值信息</div>
+                        </div></td>
+                      <td><div class="tri">
+                          <div class="con">3.登录网上银行汇款</div>
+                        </div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <form name="userFundBankChargeForm">
+              <ul class="ui-form">
+                <li class="ui-item">
+                  <label>充值银行：</label>
+                   <select name="bank" id="" ng-model="formdata.bank">
+                       <option value="1">在线充值</option>
+                   </select>
+                </li>
+                <li class="ui-item ui-text" style="margin-left:80px">
+                  <div class="prompt" id="tipsText"><div name="initialMoney">充值金额：单笔最低充值金额为100.00元，最高50,000.00元<br></div>充值时限：请在15分钟内完成充值</div>
+                </li>
+                <li class="ui-item">
+                  <label>充值金额：</label>
+                  <input type="number" style="width: 140px;" class="ip-text w200" value="" required min="100" max="50000" name="money" id="chargeamount" autocomplete="off" ng-model="formdata.money">
+                  <span class="ui-text-info">元</span>
+                  &nbsp;&nbsp;<span id="ck_money" class="ui-check" ng-if="userFundBankChargeForm.money.$error.required">请输入充值金额 </span>
+                  <span id="ck_money" class="ui-check" ng-if="userFundBankChargeForm.money.$error.min || userFundBankChargeForm.money.$error.max">充值金额：单笔最低充值金额为100.00元，最高50,000.00元</span>
+                </li>
+                  <li class="ui-item"><label>&nbsp;</label><a href="javascript:void(0);" ng-click="fun.goStepTwo(userFundBankChargeForm)" class="btn btn-important" id="J-Submit">下一步</a></li>
+                </ul>
+              </form>
+            </div>
+            
+            <div class="content bank-select" ng-if="data.step == 2">
+	            <div class="step">
+	              <table class="step-table">
+	                <tbody>
+	                  <tr>
+	                    <td><div class="con">1.选择银行并填写金额</div></td>
+	                    <td class="current"><div class="tri"><div class="con">2.确认信息充值</div></div></td>
+	                    <td><div class="tri"><div class="con">3.登录网上银行充值</div></div></td>
+	                  </tr>
+	                </tbody>
+	              </table>
+	            </div>
+	            <div class="bank-check">
+	              <div class="bank-title">待完成充值订单</div>
+	              <ul class="ui-form">
+	                <li>
+	                  <label style="width: 108px;">充值方式：</label>
+	                  <span>在线直充</span>
+	                </li>
+	                <li>
+	                  <label style="width: 108px;">充值银行：</label>
+	                  <span class="ico-bank YEEPAY"></span>
+	                </li>
+	                <li>
+	                  <label style="width: 108px;">充值金额：</label>
+	                  <span class="ui-singleline"><font color="red">100.00</font> 元</span>
+	                </li>
+	                <li>
+	                  <label style="width: 108px;">充值说明：</label>
+	                  <span class="ui-singleline">正常情况下会弹出充值新窗口，如果充值新窗口被当成广告拦截，请多点击几次“弹出支付窗口”按钮。</span>
+	                </li>
+	              </ul>
+	            </div>
+	            <a href="javascript:void(0);" id="J-pay-for" ng-click="fun.chargeSubmit()" class="btn btn-important">弹出支付窗口</a>
+	            &nbsp;&nbsp;&nbsp;&nbsp;
+	            <a href="javascript:void(0);" id="J-pay-cancel" class="btn" ng-click="fun.goStepOne()">撤销订单</a>
+            </div>
+            
+        </div>
+    </div>
+</div>

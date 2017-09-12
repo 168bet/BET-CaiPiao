@@ -1,0 +1,133 @@
+package com.mh.service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import com.mh.commons.constants.WebConstants;
+import com.mh.dao.PayCenterDao;
+import com.mh.dao.WebAccountsDao;
+import com.mh.dao.WebUserDao;
+import com.mh.entity.TWebBankHuikuan;
+import com.mh.entity.TWebThirdPay;
+import com.mh.entity.WebAccounts;
+import com.mh.entity.WebUser;
+import com.mh.service.PayCenterService;
+
+@Service
+public class PayCenterServiceImpl implements PayCenterService {
+	private Logger log = LoggerFactory.getLogger(getClass());
+	@Resource
+	private PayCenterDao payCenterDao;
+	@Resource
+	private WebUserDao webUserDao;
+	@Resource
+	private WebAccountsDao webAccountsDao;
+
+	public List<TWebThirdPay> findTWebThirdPay(Integer usertypeId) {
+		return this.payCenterDao.findTWebThirdPay(usertypeId);
+	}
+
+	public TWebThirdPay findTWebThirdPayById(int id){
+		return this.payCenterDao.findTWebThirdPayById(id);
+	}
+	
+	public void saveBankHuikuan(TWebBankHuikuan entity) {
+		this.payCenterDao.saveBankHuikuan(entity);
+	}
+	
+	/**
+	 * 根据用户名查询用户信息
+	 * 方法描述: TODO</br> 
+	 * @param userName
+	 * @return  
+	 * WebUser
+	 */
+	public WebUser findWebrUseByUserName(String userName){
+		return this.webUserDao.findWebrUseByUserName(userName);
+	}
+	/**
+	 * @Description: 根据订单号查找订单支付信息
+	 * @param
+	 * @return TWebBankHuikuan
+	 * @author Andy
+	 * @date 2015-6-9
+	 */
+	public TWebBankHuikuan loadTWebBankHuikuanForBillno(String billno,int hkStatus) {
+		return this.payCenterDao.loadTWebBankHuikuanForBillno(billno,hkStatus);
+	}
+
+	public boolean updateWebUserDeposit(TWebBankHuikuan bankHk) throws Exception {
+		int row = 0;
+			/** 增加主帐号金额 **/
+			// updateLocalUserPayment(bankHk.getUserName(),
+			// -bankHk.getHkMoney());//增加主账号金额
+			/** 更新支付记录信息 **/
+			TWebBankHuikuan info = new TWebBankHuikuan();
+			info.setHkCheckStatus(WebConstants.T_WEB_BANK_HUIKUAN_CHECKED_STATUS_1);
+			info.setHkStatus(WebConstants.T_WEB_BANK_HUIKUAN_STATUS_1);
+			info.setHkCheckTime(bankHk.getHkCheckTime());
+			info.setModifyTime(bankHk.getModifyTime());
+			info.setRemark(bankHk.getRemark());
+			info.setHkOnlinePayNo(bankHk.getHkOnlinePayNo());
+			
+			
+			row=this.payCenterDao.updateTWebBankHuikuanForPay(info,
+					bankHk.getHkOrder(),
+					WebConstants.T_WEB_BANK_HUIKUAN_CHECKED_STATUS_0,
+					WebConstants.T_WEB_BANK_HUIKUAN_STATUS_0,
+					bankHk.getUserName());
+			if (row < 1) {
+				log.error("订单号:" + bankHk.getHkOrder() + "更新支付记录信息失败!");
+				throw new RuntimeException("更新支付记录信息失败!");
+			}
+			
+			WebUser user = webUserDao.findWebrUseByUserName(bankHk.getUserName());
+			// 入账之后,用户拥有总金额
+			Double sumMoney = user.getUserMoney() + bankHk.getHkMoney();
+			
+			/** 财务记录 开始 **/
+			WebAccounts account = new WebAccounts();
+			account.setActOptMoney(bankHk.getHkMoney());
+			// 此处从memcache当中取数据字典。目前没有基础功能支持，所以先写死，如有变动在修改
+			account.setActProType("huikuan");// 充值标识
+			account.setActOptType("2");// 在线充值标识
+
+			account.setActOrder(bankHk.getHkOrder());
+			account.setActResultMoney(sumMoney);
+			account.setCreateTime(bankHk.getHkCheckTime());
+			account.setModifyTime(bankHk.getHkCheckTime());
+			account.setRemark(bankHk.getRemark());
+			// account.setSysUserName(bankHk.getHkCheckSysUserName());
+			account.setUserName(user.getUserName());
+			account.setStatus(0);
+			account.setGmt4Time(bankHk.getGmt4Time());
+			account.setUserAgent(user.getUserAgent());
+			this.webAccountsDao.saveWebAccounts(account);
+			/** 财务记录 结束 **/
+			if (null == account.getId() || account.getId() < 1) {
+				if (row < 1) {
+					log.error("订单号:" + bankHk.getHkOrder() + "记录资金流水失败!");
+					throw new RuntimeException("记录资金流水失败!");
+				}
+			}
+			
+			row = webUserDao.updateWebUserForMoney(bankHk.getUserName(),
+					bankHk.getHkMoney());
+			log.info("更新用户金额-----------");
+			log.info(user.getUserName()+"余额："+user.getUserMoney()+",充值："+bankHk.getHkMoney()+",总额："+sumMoney);
+			if (row < 1) {
+				log.error("用户名:" + bankHk.getUserName() + "更新会员账户金额失败!");
+				throw new RuntimeException("更新会员账户金额失败!");
+			}
+
+		return true;
+	}
+
+
+
+}

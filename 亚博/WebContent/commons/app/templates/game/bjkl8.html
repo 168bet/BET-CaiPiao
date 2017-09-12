@@ -1,0 +1,125 @@
+<div class="xy28-wrap">
+  <div class="cur-issue"> <i class="icon icon-bg icon-28"></i>
+    <div class="box-code-type left">
+      <span>{{bol.dxds}}</span>
+      <span>{{bol.baozi}}</span>
+      <span>{{bol.fast}}</span>
+      <span class="ball_c0">{{bol.sb}}</span>
+    </div>
+    <div class="box-numbers left clearfix" style="background-color: #fff">
+      <div class="code left">
+        <div class="result_issue">
+          {{lotKind}} 第 <b id="result-issue">{{lastNumber}}</b>
+          期开奖结果
+        </div>
+        <div class="result_codes" id="result-codes">
+          <span class="num_code">{{lastResults[0]}}</span>
+          <span class="num_add">+</span>
+          <span class="num_code">{{lastResults[1]}}</span>
+          <span class="num_add">+</span>
+          <span class="num_code">{{lastResults[2]}}</span>
+          <span class="num_add">=</span>
+          <span class="num_result">{{xy28}}</span>
+        </div>
+      </div>
+      <div class="link link-help left">
+        <a href="http://www.bwlc.net/bulletin/keno.html" target="_blank">[官方查询]</a>
+        <br />
+        <a href="/Index/check/cid/32/issue/783237" target="_blank" id="link-result">[开奖规则]</a>
+      </div>
+      <div class="times left">
+        <div>
+          当前期为第 <b id="cur-issue">{{currentNumber}}</b>
+          期
+        </div>
+        <div id="lefttime">
+            
+            <count-down ng-show="false" tick="fun.closeTimeTickCb" class="red" time="data.closeTimeLeft" type="colon"></count-down>
+            <count-down ng-show="false" tick="fun.openTimeTickCb" class="red" time="data.openTimeLeft" type="colon"></count-down>
+          {{data.closeTimeLeftLeft
+          <=0?'当前已经停止投注!':'距下单截止时间还有' +data.closeTimeLeftLeft +'秒'}}</div>
+            <div id="opentime">
+              {{data.openTimeLeftLeft
+              <=1?'当前期正在开奖...':'距开奖时间还有' +data.openTimeLeftLeft +'秒'}}</div></div>
+            </div>
+            <div class="box-actions left">
+              <a href="javascript:;" onclick="window.location.reload(true);"> <i class="icon icon-bg icon-refresh"></i>
+                <span>刷新</span>
+              </a>
+              <a href="javascript:void()">
+                <i class="icon icon-bg icon-help"></i>
+                <span>帮助</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="game-list-table" scroll-here-class="fixed-table-header">
+            <div class="list-bg"></div>
+            <div class="list-wrap pure-g" >
+              <div class="ui-head-son" >
+                <div class="pure-g">
+                  <div class="pure-u-4-24" style="width:16%">
+                    <div class="ui-item-son">期号</div>
+                  </div>
+                  <div class="pure-u-4-24" style="width:20%">
+                    <div class="ui-item-son">开奖时间</div>
+                  </div>
+                  <div class="pure-u-4-24" style="width:16%">
+                    <div class="ui-item-son">开奖结果</div>
+                  </div>
+                  <div class="pure-u-4-24" style="width:16%">
+                    <div class="ui-item-son">已下单数</div>
+                  </div>
+                  <div class="pure-u-4-24" style="width:16%">
+                    <div class="ui-item-son">中奖人数</div>
+                  </div>
+                  <div class="pure-u-4-24" style="width:16%">
+                    <div class="ui-item-son">状态</div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-body-son" ng-repeat="(key, value) in gameResults">
+                <div class="pure-g">
+                  <div class="pure-u-4-24" style="width:16%">
+                    <div class="ui-item-son">{{value.formatQs}}</div>
+                  </div>
+                  <div class="pure-u-4-24" style="width:20%">
+                    <div class="ui-item-son">{{value.gtKjsj}}</div>
+                  </div>
+                  <div class="pure-u-4-24" style="width:16%">
+                    <div class="ui-item-son" ng-if="value.kl8Kjjg == '等待开奖' ">{{value.kl8Kjjg}}</div>
+                    <div class="ui-item-son" ng-if="value.status == '已经开奖' ">
+                      {{value.d1q}}+{{value.d2q}}+{{value.d3q}} =
+                      <span class="codeTM">{{value.xy28Kjjg}}</span>
+                    </div>
+                  </div>
+                  <div class="pure-u-4-24" style="width:16%">
+                    <div class="ui-item-son">{{value.xd}}</div>
+                  </div>
+                  <div class="pure-u-4-24" style="width:16%">
+                    <div class="ui-item-son" ng-if="value.status == '已经开奖' ">{{value.zjrs}}</div>
+                    <div class="ui-item-son" ng-if="value.kl8Kjjg == '等待开奖' ">---</div>
+                  </div>
+                  <div class="pure-u-4-24" style="width:16%">
+                    <div class="ui-item-son" ng-if="value.kl8Kjjg == '等待开奖' ">
+                      <a ui-sref="game.name.play({name: 'BJKL8', qs: value.formatQs})"> 投注<i class="icon icon-bg icon-hot"></i></a>
+                    </div>
+                    <div class="ui-item-son" ng-if="value.status == '已经开奖' ">
+                      <a style="color:gray">
+                        {{value.status}}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="pager">
+                <p class="pager-info">共{{totalCount}}条记录 &nbsp;&nbsp;当前1/{{totalPages}}页</p>
+                <a ng-click="firstPage()">首页</a>
+                <a ng-click="prevPage()">上一页</a>
+                <a ng-class="{current:currentPage==pageIndex+$index}" ng-repeat="item in range(pageIndex,totalPages+1)|limitTo:numberLimit track by $index" ng-click="secPage(pageIndex+$index)">{{item}}</a>
+                <a ng-click="nextPage()">下一页</a>
+                <a ng-click="lastPage()">尾页</a>
+              </div>
+            </div>
+          </div>
+        </div>

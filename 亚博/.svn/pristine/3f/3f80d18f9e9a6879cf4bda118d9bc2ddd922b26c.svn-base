@@ -1,0 +1,26 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+
+<div class="game-section">
+	<div class="page-bg-game">
+		<div class="body-wrap">
+			<div class="game-wrap">
+				<div class="game-nav">
+					<ul class="clearfix">
+						<li>
+							<a ui-sref-active="active" ui-sref="ssc.name({name:'CQSSC'})">重庆时时彩</a>
+						</li>
+						<li>
+							<a ui-sref-active="active" ui-sref="ssc.name({name:'TJSSC'})">天津时时彩</a>
+						</li>
+						<li>
+							<a ui-sref-active="active" ui-sref="ssc.name({name:'XJSSC'})">新疆时时彩</a>
+						</li>
+					</ul>
+				</div>
+				<div class="ui-view-load-animate" ui-view="ssc"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ng-include src="templateURI('/footer.html')"></ng-include>

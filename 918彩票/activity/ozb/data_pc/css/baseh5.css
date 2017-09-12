@@ -1,0 +1,49 @@
+html{color:#333;font-family:tahoma,"Microsoft YaHei",Arial,sans-serif,"宋体";background:#fff;_background:url(xx.jpg);-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}
+/*@font-face{ font-family: FZLTCXH; src: url(http://www.miui.com/static/index6/styles/FZLTCXH.TTF);}*/
+html,body{_height:100%;min-height:100%}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+ol,ul{list-style:none}
+h1,h2,h3,h4,h5,h6,b{font-size:100%;font-weight:500}
+address,caption,cite,code,dfn,em,th,var,i,b{font-style:normal;font-weight:500}
+blockquote:before,blockquote:after,q:before,q:after{content:''}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-0.5em}
+sub{bottom:-0.25em}
+pre{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-o-pre-wrap;*word-wrap:break-word;*white-space:normal;}
+abbr,acronym{border:0;font-variant:normal}
+del{text-decoration:line-through}
+a:hover{text-decoration:underline}
+ins,a{text-decoration:none}
+*{background-repeat:no-repeat;}
+fieldset,img{border:0}
+embed,object{outline:0}
+canvas{-ms-touch-action:double-tap-zoom}
+img,input,select{vertical-align:middle;display:inline-block}
+body,button,input,select,textarea{font:0.75em/1.5 Tahoma,arial,"微软雅黑",\5b8b\4f53}
+input,select,textarea{font-size:100%}
+:focus,*[hidefocus],input,textarea,a{outline:0;}
+table{border-collapse:collapse;border-spacing:0}
+th{text-align:inherit}
+iframe{display:block}
+
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:"\20 ";clear:both;height:0}
+.clearfix{zoom:1}
+.nowrap{white-space:nowrap;word-break:keep-all}
+.wrap{white-space:normal;word-break:break-all}
+.ellipsis{overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;white-space:nowrap;word-break:keep-all;word-wrap:normal}
+body.hide{display:none}
+body.hide2{visibility:hidden}
+body.hide3{position:absolute;left:-99999px;top:-99999px}
+.fl{float:left}
+.fr{float:right}
+.pr{position:relative}
+#noScript{position:fixed;_position:absolute;left:0;top:0;width:100%;height:100%;z-index:999999;background-color:#ccc;opacity:.7;filter:alpha(opacity=70)}
+#noScript div{background-color:#222;padding:10px;border:1px solid#000;position:absolute;width:350px;margin-left:-175px;left:50%;
+top:30%;_top:150px;-webkit-border-radius:12px;-moz-border-radius:12px;border-radius:12px;-moz-background-clip:padding;-webkit-background-clip:padding-box;
+background-clip:padding-box;-webkit-transition:all.3s ease-out;-moz-transition:all.3s ease-out;-ms-transition:all.3s ease-out;-o-transition:all.3s ease-out;transition:all.3s ease-out}
+#noScript div:hover{-webkit-transform:scale(1.5);-moz-transform:scale(1.5);-ms-transform:scale(1.5);-o-transform:scale(1.5);transform:scale(1.5)}
+#noScript h2{font-size:18px;font-weight:700;color:#fff}
+#noScript p{margin:8px 0 0;color:#CCC}
+#noScript a{color:#fff;text-decoration:underline}

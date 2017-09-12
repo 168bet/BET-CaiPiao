@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>猜球赛,抢土豪</title>
+<link href="/word_weixin/css/bass.css" rel="stylesheet" type="text/css">
+<article>
+	<header class="freeHeader">选择一个比赛结果并送出奖金发起竞猜，邀请好友参与竞猜，猜中者瓜分奖金</header>
+    <section>
+    	<article class="freeBg relative">
+   	    	<img src="/word_weixin/img/freeBg.jpg" width="640" height="464"> 
+            <div class="freebgText">
+            	<p class="freeTitle" id='cdesc_cbegindate'></p>
+                <div class="clearfix" id='duizhen'>
+                <!-- 
+                	<div class="flagLeft left">
+                    	<div class="flagBg"><img src="/word_weixin/img/flag.jpg"></div>
+                        <span>德国</span>
+                  </div>
+                  <span class="left flagVs">VS</span>
+                  <div class="flagLeft left">
+                    	<div class="flagBg"><img src="/word_weixin/img/flag2.jpg"></div>
+                        <span>巴西</span>
+                  </div>
+                   -->
+                </div>
+                <div class="flagSelect clearfix" id='option' style='display:none;'>
+                	<span tz='3'><em id='option_one'></em>胜</span>
+                	<span tz='1'>打平</span>
+                	<span tz='0' style='float:right'><em id='option_two'></em>胜</span>
+                </div>
+            </div>
+        </article>
+        <div class="tyrantCz gray2">
+        	<p class="mgLeft05">账户余额<em class="yellow mgLeft05" id='yue'>0</em>元  
+        		<a href="javascript:;" id='recharge' class="blue mgLeft05">充值&gt;</a>
+        	</p>
+            <div class="s1">送出奖金<input id='money' type="tel" value="" placeholder='请输入金额' maxlength='6'>元</div>
+            <p class="red fontsize075" id='czhi' style='display:none;'>余额不足请充值</p>
+        </div>
+        <a href="javascript:;" id='isOk' class="payment payment2">确定送出</a><!-- /word_weixin/tyrant/success.html -->
+	</section>
+</article>
+
+<div class="bombBox weige" style="width:18.5rem;display:none;z-index:2;position:fixed;" id='go_cz'>
+	<p>请下载9188手机客户端进行充值</p>
+    <div class="fixBtn2 clearfix"><a href="http://tt.9188.com  " class="left">前往下载</a><a href="javascript:;" class="ture right">取消</a></div>
+</div>
+<div class="bombBox weige" style="display:none;z-index:2;position:fixed;" id='pwd_c'>
+	<p>为保证您的账户安全，请输入您所绑定的9188账户的密码</p>
+    <p><input type="password" class="passwordInput" id='pwd'></p>
+    <p class="red" style='display:none;' id='error'>密码错误</p>
+  <div class="fixBtn2 clearfix"><a href="javascript:;" class="left">确定</a><a href="javascript:;" class="ture right">取消</a></div>
+</div>
+
+<div id="invite3" class="zhezhao" style='display:none;'></div>
+<div class="logints" id="tx_c" style='display:none;'></div>
+<script src="/word_weixin/js/jquery-1.9.1.min.js"></script>
+<script src="/word_weixin/js/wx.js"></script>
+<script src="/word_weixin/js/tyrant/index.js"></script>

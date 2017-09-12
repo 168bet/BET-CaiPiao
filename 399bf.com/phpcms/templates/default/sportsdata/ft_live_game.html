@@ -1,0 +1,590 @@
+{php $css = array('ft_live_game.css');}
+{php $nav_id = 3}
+{template 'content', 'header_score'}
+<nav>
+    <div class="container">
+        <div class="row">
+            <div class="bt-nav">
+                <div class="inline-alink">
+                    <a href="{APP_PATH}zqscore/" class="btn btn-alink active">即时</a>
+                    <a href="{APP_PATH}zqwanchang/" class="btn btn-alink">完场</a>
+                    <a href="{APP_PATH}zqsaicheng/" class="btn btn-alink">下日</a>
+                </div>
+                <div class="inline-btn" id="selectControl">
+                    <button class="btn btn-control" name="save">保留选中</button>
+                    <button class="btn btn-control" name="del">删除选中</button>
+                    <button class="btn btn-control" name="restore">显示全部</button>
+                </div>
+                <div class="inline-droup">
+                    <div class="dropdown" style="display: inline-block">
+                        <button class="btn btn-control" data-toggle="modal" data-target="#give-modal">
+                            选择盘口
+                            <i class="icon-angle-down"></i>
+                        </button>
+                    </div>
+                    <div class="dropdown" style="display: inline-block">
+                        <button id="company-list" class="btn btn-control dropdown-toggle" data-toggle="dropdown">
+                            选择公司
+                            <i class="icon-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="company-list">
+                            {loop $companies $c}
+                            <li>
+                                <a href="javascript:;" data-id="{$c[companyid]}" data-action="company">{$c[companyname]}</a>
+                            </li>
+                            {/loop}
+                        </ul>
+                    </div>
+                    <div class="dropdown" style="display: inline-block">
+                        <button class="btn btn-control" data-toggle="modal" data-target="#game-modal">
+                            选择赛事
+                            <i class="icon-angle-down"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="btn-group" id="cpi-group">
+                    <label for="ou" class="btn">
+                        <input id="ou" type="checkbox" checked>
+                        <i class="table-checkbox"></i>
+                        大
+                    </label>
+                    <label for="euro" class="btn">
+                        <input id="euro" type="checkbox">
+                        <i class="table-checkbox"></i>
+                        欧
+                    </label>
+                    <label for="asia" class="btn">
+                        <input id="asia" type="checkbox" checked>
+                        <i class="table-checkbox"></i>
+                        亚
+                    </label>
+                </div>
+
+                <div class="dropdown fr">
+                    <button id="option-list" class="btn btn-setting" data-toggle="dropdown">
+                        设置
+                        <i class="icon-cogs"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="option-list">
+                        <li>
+                            <a href="javascript:;">
+                                <label for="audio-btn" class="cpi-btn">
+                                    <input type="checkbox" id="audio-btn" checked>&nbsp;进球声
+                                </label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <label for="rank-btn" class="cpi-btn">
+                                    <input type="checkbox" id="rank-btn" checked>&nbsp;球队排名
+                                </label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <label for="yellow-btn" class="cpi-btn">
+                                    <input type="checkbox" id="yellow-btn" checked>&nbsp;显示黄牌
+                                </label>
+                            </a>
+                        </li>
+                        <!--<li>-->
+                            <!--<a href="javascript:;">-->
+                                <!--<label for="showAlertRed_btn" class="cpi-btn">-->
+                                    <!--<input type="checkbox" id="showAlertRed_btn" checked>&nbsp;红牌弹窗提示-->
+                                <!--</label>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <li>
+                            <a href="javascript:;">
+                                <label for="alert-btn" class="cpi-btn">
+                                    <input type="checkbox" id="alert-btn"  checked>&nbsp;进球弹窗提示
+                                </label>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="main pdB20">
+    <div class="container">
+        <div class="row">
+            <div class="wrap" id="table-content">
+                <!-- table-header  -->
+                <div id="table-header" class="table-header">
+                    <table class="table">
+                        <tr>
+                            <td width="50">
+                                <button class="checkbox-all">
+                                    全选
+                                </button>
+                            </td>
+                            <td width="120">12月13日</td>
+                            <td width="50">时间</td>
+                            <td width="55">状态</td>
+                            <td width="185">主队</td>
+                            <td width="50">比分</td>
+                            <td width="185">客队</td>
+                            <td width="64">角/半</td>
+                            <td width="80">S2</td>
+                            <td width="">走</td>
+                            <td width="80">数据</td>
+                            <td width="68">功能</td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- table-item -->
+                <div class="table-item">
+                    {if count($data_list['start'])}
+                    <table class="table" id="start-table">
+                        <thead>
+                            <tr>
+                                <td colspan="12">
+                                    <span class="match-tip going">正在进行的比赛</span>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {loop $data_list['start'] $data}
+                            <tr data-id="tr{$n}" data-run-tag="{if $data['isrun']}true{else}false{/if}" data-competition="{$data[competitionid]}" data-status-id="{$data['status']}" data-start-time="{if $data['tstarttime']}{$data['tstarttime']}{else}{$data['date']}{/if}" data-handicap="{$data[give]}" data-game-id="{$data['gameid']}" ajax-status-tag="true" {if $data['give']}ajax-odds-tag="true"{/if}>
+                                <td width="50">
+                                    <a role="button" class="table-checkbox"></a>
+                                </td>
+                                <td width="120" class="clearfix">
+                                    <div class="pull-left">
+                                        <a target="_blank" href="{APP_PATH}competition/{$data['competitionid']}/schedule/">
+                                        <img src="{PHOTO_PATH}competition/{$data['competitionid']}.jpg" class="competition-photo">
+                                            </a>
+                                    </div>
+                                    <div class="pull-right" >
+                                        <a target="_blank" href="{APP_PATH}competition/{$data['competitionid']}/schedule/">
+                                            <span style="color:#{$data['competitioncolor']};font-weight: bold;">{$data['competitionshortname']}|</span></a>
+                                    </div>
+                                </td>
+                                <td width="50">{date('H:i', $data['date'])}</td>
+                                <td width="55">
+                                    {if in_array($data['status'], array(1, 3))}
+                                    <!--<img src="{IMG_PATH}icon/timeicon.png" class="status-time">-->
+                                        <span class="table-status add" data-key="time">
+                                        {$data['time']}
+                                        </span>
+                                    <!--<img src="{IMG_PATH}icon/point.png" class="status-point">-->
+                                    {else}
+                                    <span class="table-status" data-key="time">
+                                        {$arr_status[$data['status']]}
+                                    </span>
+                                    {/if}
+                                </td>
+                                <td width="185">
+                                    <span class="home-animate"></span>
+                                    <span class="num">{if !empty($data['homerank'])}[{$data['homerank']}]{/if}</span>
+                                    <span {if !is_null($data['homeyellowcard']) && $data['homeyellowcard'] != 0}class="yellowcard"{/if} data-key="homeyellowcard" data-style="yellowcard">{if $data['homeyellowcard']}{$data['homeyellowcard']}{/if}</span>
+                                    <span {if !is_null($data['homeredcard']) && $data['homeredcard'] != 0}class="redcard"{/if} data-key="homeredcard" data-style="redcard">{if $data['homeredcard']}{$data['homeredcard']}{/if}</span>
+                                    <span class="teamname">
+                                        <a target="_blank" title="{$data['homeshortname']}" class="team-link home-link" href="{APP_PATH}team/{$data['hometeamid']}/">{str_cut($data['homeshortname'], 24, '...')}</a>
+                                    </span>
+                                </td>
+                                <td width="50" class="score">
+                                    <a href="{APP_PATH}game/{$data['gameid']}/stats/" target="_blank">
+                                        <span class="red" data-key="homescore" data-target="home-link" data-role="home" data-animate=".home-animate">{$data['homescore']}</span>
+                                        -
+                                        <span class="red" data-key="awayscore" data-target="away-link" data-role="away" data-animate=".away-animate">{$data['awayscore']}</span>
+                                    </a>
+                                </td>
+                                <td width="185">
+                                    <span class="teamname">
+                                        <a target="_blank" title="{$data['awayshortname']}" class="team-link away-link" href="{APP_PATH}team/{$data['awayteamid']}/">{str_cut($data['awayshortname'], 24, '...')}</a>
+                                    </span>
+                                    <span {if !is_null($data['awayredcard']) && $data['awayredcard'] != 0}class="redcard"{/if} data-key="awayredcard" data-style="redcard">{if $data['awayredcard']}{$data['awayredcard']}{/if}</span>
+                                    <span {if !is_null($data['awayyellowcard']) && $data['awayyellowcard'] != 0}class="yellowcard"{/if} data-key="awayyellowcard" data-style="yellowcard">{if $data['awayyellowcard']}{$data['awayyellowcard']}{/if}</span>
+                                    <span class="num">{if !empty($data['awayrank'])}[{$data['awayrank']}]{/if}</span>
+                                    <span class="away-animate"></span>
+                                </td>
+                                <td width="64" class="corner">
+                                    <div class="table-line">
+                                        <span data-key="homecorner">{$data['homecorner']}</span>-<span data-key="awaycorner">{$data['awaycorner']}</span>
+                                    </div>
+                                    <div class="table-line" style="background: none">
+                                        <span data-key="half" class="red">
+                                        {if isset($data['half'])}{$data['half']}{else}-{/if}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td width="80" class="table-cpi">
+                                    {if $data['status'] == 0}
+                                    <div class="table-line" data-name="asia" data-key="handicap" data-first="{$data['fgive']}">{if isset($data['fgive'])}{get_handicap($data['fgive'])}{/if}</div>
+                                    <div class="table-line" data-name="ou" data-key="total" data-first="{$data['ftotal']}">{handicap_ou($data['ftotal'])}</div>
+                                    <div class="table-line" data-name="euro" data-key="draw" data-first="{$data['fdraw']}">{$data['fdraw']}</div>
+                                    {else}
+                                    <div class="table-line" data-name="asia" data-key="handicap" data-first="{$data['give']}">{if isset($data['give'])}{get_handicap($data['give'])}{/if}</div>
+                                    <div class="table-line" data-name="ou" data-key="total" data-first="{$data['total']}">{handicap_ou($data['total'])}</div>
+                                    <div class="table-line" data-name="euro" data-key="draw" data-first="{$data['draw']}">{$data['draw']}</div>
+                                    {/if}
+                                </td>
+                                <td width="">
+                                    {if $data[isrun] == 1}
+                                    {if in_array($data['status'], array(1,2,3))}
+                                    <span class="runBall is_run zd2" title="正在走地"></span>
+                                    {else}
+                                    <span class="runBall is_run zd1" title="有走地赛事"></span>
+                                    {/if}
+                                    {/if}
+                                </td>
+                                <td width="80">
+                                    <a href="{APP_PATH}game/{$data[gameid]}/analyse/" class="red" target="_blank">析</a>
+                                    <a href="{APP_PATH}game/{$data[gameid]}/oddsasia/" class="table-link" target="_blank">亚</a>
+                                    <a href="{APP_PATH}game/{$data[gameid]}/oddsou/" class="table-link" target="_blank">大</a>
+                                    <a href="{APP_PATH}game/{$data[gameid]}/oddseuro/" class="table-link" target="_blank">欧</a>
+                                </td>
+                                <td width="68">
+                                    {if $data['islive']}
+                                    <a href="{APP_PATH}game/{$data[gameid]}/live/" class="table-player" target="_blank" title="直播"></a>
+                                    {/if}
+                                    <a href="##" class="table-star">
+                                        <i class="icon-star-empty icon-large"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                    {/if}
+                </div>
+                <!-- table-item -->
+                <div class="table-item">
+                    {if count($data_list['ready'])}
+                    <table class="table" id="ready-table">
+                        <thead>
+                        <tr>
+                            <td colspan="12">
+                                <span class="match-tip future">未开始的比赛</span>
+                            </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $data_list['ready'] $data}
+                        <tr data-id="tr{$n}" data-run-tag="{if $data['isrun']}true{else}false{/if}" data-competition="{$data[competitionid]}" data-status-id="0" data-start-time="{if $data['tstarttime']}{$data['tstarttime']}{else}{$data['date']}{/if}" data-handicap="{$data[give]}" data-game-id="{$data['gameid']}" {if $data['give']}ajax-odds-tag="true"{/if}>
+                        <td width="50">
+                            <a role="button" class="table-checkbox"></a>
+                        </td>
+                        <td width="120" class="clearfix">
+                            <div class="pull-left">
+                                <a target="_blank" href="{APP_PATH}competition/{$data['competitionid']}/schedule/">
+                                <img src="{PHOTO_PATH}competition/{$data['competitionid']}.jpg" class="competition-photo"></a>
+                            </div>
+                            <div class="pull-right" >
+                                <a target="_blank" href="{APP_PATH}competition/{$data['competitionid']}/schedule/">
+                                    <span style="color:#{$data['competitioncolor']};font-weight: bold;">{$data['competitionshortname']}|</span></a>
+                            </div>
+                        </td>
+                        <td width="50">{date('H:i', $data['date'])}</td>
+                        <td width="55">
+                            {if in_array($data['status'], array(1, 3))}
+                            <img src="{IMG_PATH}icon/timeicon.png" class="status-time">
+                                        <span class="table-status" data-key="time">
+                                        {$data['time']}
+                                        </span>
+                            <img src="{IMG_PATH}icon/point.png" class="status-point">
+                            {else}
+                                    <span class="table-status" data-key="time">
+                                        {$arr_status[$data['status']]}
+                                    </span>
+                            {/if}
+                        </td>
+                        <td width="185">
+                            <span class="home-animate"></span>
+                            <span class="num">{if !empty($data['homerank'])}[{$data['homerank']}]{/if}</span>
+                            <span {if !is_null($data['homeyellowcard']) && $data['homeyellowcard'] != 0}class="yellowcard"{/if} data-key="homeyellowcard" data-style="yellowcard">{if $data['homeyellowcard']}{$data['homeyellowcard']}{/if}</span>
+                            <span {if !is_null($data['homeredcard']) && $data['homeredcard'] != 0}class="redcard"{/if} data-key="homeredcard" data-style="redcard">{if $data['homeredcard']}{$data['homeredcard']}{/if}</span>
+                                <span class="teamname">
+                                    <a target="_blank" title="{$data['homeshortname']}" class="team-link home-link" href="{APP_PATH}team/{$data['hometeamid']}/">{str_cut($data['homeshortname'], 24, '...')}</a>
+                                </span>
+                        </td>
+                        <td width="50" class="score">
+                            <a href="{APP_PATH}game/{$data['gameid']}/stats/" target="_blank">
+                                <span data-key="homescore" data-target="home-link" data-role="home" data-animate=".home-animate">{$data['homescore']}</span>
+                                -
+                                <span data-key="awayscore" data-target="away-link" data-role="away" data-animate=".away-animate">{$data['awayscore']}</span>
+                            </a>
+                        </td>
+                        <td width="185">
+                                <span class="teamname">
+                                    <a target="_blank" title="{$data['awayshortname']}" class="team-link away-link" href="{APP_PATH}team/{$data['awayteamid']}/">{str_cut($data['awayshortname'], 24, '...')}</a>
+                                </span>
+                            <span {if !is_null($data['awayredcard']) && $data['awayredcard'] != 0}class="red-card"{/if} data-key="awayredcard" data-style="redcard">{if $data['awayredcard']}{$data['awayredcard']}{/if}</span>
+                            <span {if !is_null($data['awayyellowcard']) && $data['awayyellowcard'] != 0}class="yellow-card"{/if} data-key="awayyellowcard" data-style="yellowcard">{if $data['awayyellowcard']}{$data['awayyellowcard']}{/if}</span>
+                            <span class="num">{if !empty($data['awayrank'])}[{$data['awayrank']}]{/if}</span>
+                            <span class="away-animate"></span>
+                        </td>
+                        <td width="64" class="corner">
+                            <div class="table-line">
+                                <span data-key="homecorner">{$data['homecorner']}</span>-<span data-key="awaycorner">{$data['awaycorner']}</span>
+                            </div>
+                            <div class="table-line" style="background: none">
+                                    <span data-key="half" class="red">
+                                    {if isset($data['half'])}{$data['half']}{else}-{/if}
+                                    </span>
+                            </div>
+                        </td>
+                        <td width="80" class="table-cpi">
+                            {if $data['status'] == 0}
+                            <div class="table-line" data-name="asia" data-key="handicap" data-first="{$data['fgive']}">{if isset($data['fgive'])}{get_handicap($data['fgive'])}{/if}</div>
+                            <div class="table-line" data-name="ou" data-key="total" data-first="{$data['ftotal']}">{handicap_ou($data['ftotal'])}</div>
+                            <div class="table-line" data-name="euro" data-key="draw" data-first="{$data['fdraw']}">{$data['fdraw']}</div>
+                            {else}
+                            <div class="table-line" data-name="asia" data-key="handicap" data-first="{$data['give']}">{if isset($data['give'])}{get_handicap($data['give'])}{/if}</div>
+                            <div class="table-line" data-name="ou" data-key="total" data-first="{$data['total']}">{handicap_ou($data['total'])}</div>
+                            <div class="table-line" data-name="euro" data-key="draw" data-first="{$data['draw']}">{$data['draw']}</div>
+                            {/if}
+                        </td>
+                        <td width="">
+                            {if $data[isrun] == 1}
+                            {if in_array($data['status'], array(1,2,3))}
+                            <span class="runBall is_run zd2" title="正在走地"></span>
+                            {else}
+                            <span class="runBall is_run zd1" title="有走地赛事"></span>
+                            {/if}
+                            {/if}
+                        </td>
+                        <td width="80">
+                            <a href="{APP_PATH}game/{$data[gameid]}/analyse/" class="red" target="_blank">析</a>
+                            <a href="{APP_PATH}game/{$data[gameid]}/oddsasia/" class="table-link" target="_blank">亚</a>
+                            <a href="{APP_PATH}game/{$data[gameid]}/oddsou/" class="table-link" target="_blank">大</a>
+                            <a href="{APP_PATH}game/{$data[gameid]}/oddseuro/" class="table-link" target="_blank">欧</a>
+                        </td>
+                        <td width="68">
+                            {if $data['islive']}
+                            <a href="{APP_PATH}game/{$data[gameid]}/live/" class="table-player" target="_blank" title="直播"></a>
+                            {/if}
+                            <a href="##" class="table-star">
+                                <i class="icon-star-empty icon-large"></i>
+                            </a>
+                        </td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                    {/if}
+                </div>
+                <!-- table-item -->
+                <div class="table-item">
+                    {if count($data_list['end'])}
+                    <table class="table" id="end-table">
+                        <thead>
+                            <tr>
+                                <td colspan="12">
+                                    <span class="match-tip end">结束的比赛</span>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {loop $data_list['end'] $data}
+                            <tr data-id="tr{$n}" data-run-tag="{if $data['isrun']}true{else}false{/if}" data-competition="{$data[competitionid]}" data-status-id="{$data['status']}" data-start-time="{if $data['tstarttime']}{$data['tstarttime']}{else}{$data['date']}{/if}" data-handicap="{$data[give]}" data-game-id="{$data['gameid']}" {if $data['give']}ajax-odds-tag="true"{/if}>
+                            <td width="50">
+                                <a role="button" class="table-checkbox"></a>
+                            </td>
+                            <td width="120" class="clearfix">
+                                <div class="pull-left">
+                                    <a target="_blank" href="{APP_PATH}competition/{$data['competitionid']}/schedule/">
+                                    <img src="{PHOTO_PATH}competition/{$data['competitionid']}.jpg" class="competition-photo"></a>
+                                </div>
+                                <div class="pull-right">
+                                    <a target="_blank" href="{APP_PATH}competition/{$data['competitionid']}/schedule/">
+                                    <span style="color:#{$data['competitioncolor']};font-weight: bold;">{$data['competitionshortname']}|</span></a>
+                                </div>
+                            </td>
+                            <td width="50">{date('H:i', $data['date'])}</td>
+                            <td width="55">
+                                {if in_array($data['status'], array(1, 3))}
+                                    <img src="{IMG_PATH}icon/timeicon.png" class="status-time">
+                                        <span class="table-status" data-key="time">
+                                        {$data['time']}
+                                        </span>
+                                    <img src="{IMG_PATH}icon/point.png" class="status-point">
+                                {else}
+                                    <span class="table-status" data-key="time">
+                                        {$arr_status[$data['status']]}
+                                    </span>
+                                {/if}
+                            </td>
+                            <td width="185">
+                                <span class="num">{if !empty($data['homerank'])}[{$data['homerank']}]{/if}</span>
+                                <span {if !is_null($data['homeyellowcard']) && $data['homeyellowcard'] != 0}class="yellowcard"{/if} data-key="homeyellowcard" data-style="yellowcard">{if $data['homeyellowcard']}{$data['homeyellowcard']}{/if}</span>
+                                <span {if !is_null($data['homeredcard']) && $data['homeredcard'] != 0}class="redcard"{/if} data-key="homeredcard" data-style="redcard">{if $data['homeredcard']}{$data['homeredcard']}{/if}</span>
+                                <span class="teamname">
+                                    <a target="_blank" title="{$data['homeshortname']}" class="team-link home-link" href="{APP_PATH}team/{$data['hometeamid']}/">{str_cut($data['homeshortname'], 24, '...')}</a>
+                                </span>
+                            </td>
+                            <td width="50" class="score">
+                                <a href="{APP_PATH}game/{$data['gameid']}/stats/" target="_blank">
+                                    <span class="red" data-key="homescore" data-target="home-link" data-role="home">{$data['homescore']}</span>
+                                    -
+                                    <span class="red" data-key="awayscore" data-target="away-link" data-role="away">{$data['awayscore']}</span>
+                                </a>
+                            </td>
+                            <td width="185">
+                                <span class="teamname">
+                                    <a target="_blank" title="{$data['awayshortname']}" class="team-link away-link" href="{APP_PATH}team/{$data['awayteamid']}/">{str_cut($data['awayshortname'], 24, '...')}</a>
+                                </span>
+                                <span {if !is_null($data['awayredcard']) && $data['awayredcard'] != 0}class="redcard"{/if} data-key="awayredcard" data-style="redcard">{if $data['awayredcard']}{$data['awayredcard']}{/if}</span>
+                                <span {if !is_null($data['awayyellowcard']) && $data['awayyellowcard'] != 0}class="yellowcard"{/if} data-key="awayyellowcard" data-style="yellowcard">{if $data['awayyellowcard']}{$data['awayyellowcard']}{/if}</span>
+                                <span class="num">{if !empty($data['awayrank'])}[{$data['awayrank']}]{/if}</span>
+                            </td>
+                            <td width="64" class="corner">
+                                <div class="table-line">
+                                    <span data-key="homecorner">{$data['homecorner']}</span>-<span data-key="awaycorner">{$data['awaycorner']}</span>
+                                </div>
+                                <div class="table-line" style="background: none">
+                                    <span data-key="half" class="red">
+                                    {if isset($data['half'])}{$data['half']}{else}-{/if}
+                                    </span>
+                                </div>
+                            </td>
+                            <td width="80" class="table-cpi">
+                                {if $data['status'] == 0}
+                                <div class="table-line" data-name="asia" data-key="handicap" data-first="{$data['fgive']}">{if isset($data['fgive'])}{get_handicap($data['fgive'])}{/if}</div>
+                                <div class="table-line" data-name="ou" data-key="total" data-first="{$data['ftotal']}">{handicap_ou($data['ftotal'])}</div>
+                                <div class="table-line" data-name="euro" data-key="draw" data-first="{$data['fdraw']}">{$data['fdraw']}</div>
+                                {else}
+                                <div class="table-line" data-name="asia" data-key="handicap" data-first="{$data['give']}">{if isset($data['give'])}{get_handicap($data['give'])}{/if}</div>
+                                <div class="table-line" data-name="ou" data-key="total" data-first="{$data['total']}">{handicap_ou($data['total'])}</div>
+                                <div class="table-line" data-name="euro" data-key="draw" data-first="{$data['draw']}">{$data['draw']}</div>
+                                {/if}
+                            </td>
+                            <td width="">
+                                {if $data[isrun] == 1}
+                                {if in_array($data['status'], array(1,2,3))}
+                                <span class="runBall is_run zd2" title="正在走地"></span>
+                                {else}
+                                <span class="runBall is_run zd1" title="有走地赛事"></span>
+                                {/if}
+                                {/if}
+                            </td>
+                            <td width="80">
+                                <a href="{APP_PATH}game/{$data[gameid]}/analyse/" class="red" target="_blank">析</a>
+                                <a href="{APP_PATH}game/{$data[gameid]}/oddsasia/" class="table-link" target="_blank">亚</a>
+                                <a href="{APP_PATH}game/{$data[gameid]}/oddsou/" class="table-link" target="_blank">大</a>
+                                <a href="{APP_PATH}game/{$data[gameid]}/oddseuro/" class="table-link" target="_blank">欧</a>
+                            </td>
+                            <td width="68">
+                                {if $data['islive']}
+                                <a href="{APP_PATH}game/{$data[gameid]}/live/" class="table-player" target="_blank" title="直播"></a>
+                                {/if}
+                                <a href="##" class="table-star">
+                                    <i class="icon-star-empty icon-large"></i>
+                                </a>
+                            </td>
+                            </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                    {/if}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 图例说明 -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="table-explain">
+                <div class="explain-label">
+                    图例说明
+                </div>
+                <span class="explain-item goal">入球</span>
+                <span class="explain-item point">点球</span>
+                <span class="explain-item own-goal">乌龙球</span>
+                <span class="explain-item yellow-card">黄牌</span>
+                <span class="explain-item red-card">红牌</span>
+                <span class="explain-item yr-merge">两黄变红</span>
+                <span class="explain-item substitute">换人</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="give-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">盘口选择</h4>
+            </div>
+            <div class="modal-body">
+                <div class="dioLog-bd clearfix">
+                    {loop $handicap_data $r}
+                    <div class="col-sm-3">
+                        <label>
+                            <input type="checkbox" name="handicap[]" data-name="handicap" value="{$r[give]}">
+                            {get_handicap($r[give])}[{$r[count]}]
+                        </label>
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info checkAll" data-action="check-all" data-target="handicap">全选</button>
+                <button type="button" class="btn btn-info clearCheck" data-action="check-clear" data-target="handicap">全不选</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-target="handicap" data-action="submit" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="game-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" >赛事选择</h4>
+            </div>
+            <div class="modal-body">
+                <div class="dioLog-bd clearfix">
+                    {loop $competition_data $r}
+                    <div class="col-sm-3">
+                        <label>
+                            <input type="checkbox" name="competitionid[]" data-name="competition" value="{$r[competitionid]}">
+                            {$r[competitionshortname]}[{$r[count]}]
+                        </label>
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info checkAll" data-action="check-all" data-target="competition">全选</button>
+                <button type="button" class="btn btn-info clearCheck" data-action="check-clear" data-target="competition">全不选</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-target="competition" data-action="submit" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form action="{APP_PATH}zqscore/" method="post" id="search-form">
+    <input type="hidden" id="companyid" name="companyid" value="{$companyid}">
+    <input type="hidden" id="dosubmit" name="dosubmit" value="true">
+</form>
+
+<div class="audioBox hid" style="display: none">
+    <audio id="audio">
+        <source src="{JS_PATH}audio/1.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+</div>
+
+<div id="alertBox">
+
+</div>
+
+<!-- js -->
+<script>
+    var APP_PATH = '{APP_PATH}';
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+
+{php $js = array('ft_live_game.js', 'imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js','fixed.js');}
+{template 'content', 'footer'}

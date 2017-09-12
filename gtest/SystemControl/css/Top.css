@@ -1,0 +1,204 @@
+body{
+	background: url(Images/top_right.jpg) #bcbcbc;
+	background-repeat: repeat-x;
+	margin:0;
+	font-family: Tahoma,Arial,Sans-serif;
+	font-size:12px;
+}
+body, div, span, p, b, textarea, input, select, form, table,tr,td {
+	color:#f8ff2d;
+}
+a{
+	text-decoration:none;
+	 
+}
+a:hover{
+	cursor: hand;
+	text-decoration:none;
+	 
+}
+
+.but_1, .but_1_m{
+	color: #FFFFFF;
+	border: 0px solid #FF9224; 
+	background-color: #B3C5EF;
+	cursor:pointer; 
+}
+
+.but_1 {
+	width: 68px;
+	height: 27px;
+	line-height: 27px;
+	background: url(images/main_nav.png) repeat scroll 0% 0% transparent;
+	font-size: 12px;
+	margin-right: 2px;
+	margin-top: 1px; 
+	cursor: pointer;
+}
+.but_1_m {
+	height: 27px;
+	width: 68px;
+	background: url(images/main_nav.png) repeat scroll 0% 0% transparent;
+	background-position: 0px -47px;
+	color: rgb(179, 11, 0);
+	line-height: 27px;
+	margin-top: 0px;
+	margin-right: 2px;
+}
+.navbtn{ border-bottom:#6f110f solid 1px;  height:30px;}
+
+.Font_New {
+	color: #deff00;
+}
+.Font_Count {
+	color: #d8f5ff;
+}
+
+.bST_1, .bST_1_s, .bST_2, .bST_2_s, .bST_3, .bST_3_s{
+	border: 0px solid #FF9224; 
+	background-color: #B3C5EF; 
+	background-image: url('Images/But_S4.jpg');
+	height: 29px;
+}
+.header {
+	position: relative;
+	text-align:left;
+}
+.header .tleft{
+	background: url(images/main_nav.png) no-repeat scroll 0px -348px transparent;
+	float: left;
+	height: 21px;
+	width: 9px;  
+	position: absolute;
+	left: 0px;
+}
+.header .switch {
+	background: url(images/sys_switch.png) no-repeat scroll 0px -19px transparent;
+	height: 18px;
+	line-height: 18px;
+	color: rgb(138, 138, 138);
+	font-weight: 700;
+	display: inline-block;
+	text-indent: 6px; 
+	position: relative;
+	padding-right: 6px; 
+} 
+.header .switch-on {
+    color: rgb(254, 167, 0);
+    background-position: 0px 0px;
+} 
+.header b{
+	background:   url(images/sys_switch.png) no-repeat scroll right -19px transparent; 
+	width: 6px;
+	height: 18px;
+	display: inline-block;  
+	line-height: 18px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.header .switch-on b {
+	BACKGROUND-POSITION: right 0px; COLOR: #fea700
+}
+
+.header  .split {
+    margin: 0px 5px;
+    font-size: 8px;
+    position: relative;
+    bottom: 2px;
+}
+.header .gray {
+    color: rgb(193, 193, 193);
+}
+.header .blue {
+    color: rgb(149, 239, 134);
+}
+.bold {
+    font-weight: 700;
+}
+.header .yel2 {
+    color: rgb(254, 214, 39);
+}
+.header  .right {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+.header .user_logo {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url(images/person.png) repeat scroll 0% 0% transparent;
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+}
+.header .logout-link {
+    color: rgb(0, 0, 0);
+    background: url(images/main_nav.png) no-repeat scroll 0px -219px transparent;
+    display: inline-block;
+    width: 39px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    z-index: 10;
+    margin: 0px 0px 0px 5px;
+}
+.header .marquee {
+    background: url(images/marquee.png) repeat-x scroll 0px -20px transparent;
+    height: 20px;
+    left: 170px;
+    line-height: 20px;
+}
+.header .marquee .left {
+    background: url(images/marquee.png) no-repeat scroll 0px 0px transparent;
+    height: 20px;
+    width: 9px;
+}
+.header .marquee .marqueeBox {
+    color: rgb(165, 217, 5);
+    margin: -20px 230px 0px 16px;
+}
+.header .kefu_announce {
+    display: block;
+    margin: -21px 10px 0px 0px;
+    float: right;
+    padding-left: 10px;
+}
+.kefu_announce .more {
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+}
+.buthtml{padding-left:170px; background:url(Images/vertical_bg.png) -0px -174px;color:blue;}
+.buthtml #a_span{
+	margin-top:3px;
+    display: inline;
+    float: left;
+    height: 45px;
+    line-height: 18px;
+    
+}
+.buthtml #a_span a{
+    display: inline;
+    float: left;
+    margin-left: 4px;
+    padding: 1px 6px;
+    color:blue;
+    text-decoration:none;
+}
+.buthtml #a_span a:hover{
+	 
+}
+.buthtml  .split{float:left;color:blue;}
+
+
+.top-op {
+	POSITION: relative; LINE-HEIGHT: 1.5; PADDING-LEFT: 10px; BACKGROUND: url(images/vertical_bg.png) repeat-x 0px -243px; HEIGHT: 22px
+}
+.top-op .left {
+	POSITION: absolute; WIDTH: 9px; BACKGROUND: url(images/main_nav.png?v=1) no-repeat 0px -348px; FLOAT: left; HEIGHT: 21px; LEFT: 0px
+}
+.top-op .right {
+	POSITION: absolute; TOP: 0px; RIGHT: 10px
+}

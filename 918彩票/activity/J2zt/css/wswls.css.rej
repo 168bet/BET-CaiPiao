@@ -1,0 +1,6 @@
+diff a/activity/J2zt/css/wswls.css b/activity/J2zt/css/wswls.css	(rejected hunks)
+@@ -2,3 +3,4 @@
++html{background-color:#bed190;}
+ body{ position:relative; background-color:#bed190;min-width:320px; font-size:14px; font-family:Hiragino Sans GB, Arial,Microsoft YaHei, Helvetica,"黑体", sans-serif;
+  color:#191919; -webkit-touch-callout: inherit ;  -webkit-user-select: auto ;tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+ html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0;outline: none;}

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#每隔2秒获取一次即时变化的数据
+
+step=2; #时间间隔2秒，不能超过60
+
+for ((i = 0; i < 60; i = (i + step))); do
+    php 'cron_live_schedule_check.php'
+    sleep $step
+done
+
+exit 0

@@ -1,0 +1,30 @@
+
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script>
+    if (router === undefined) {
+        var router = false;
+    }
+    $.config = {
+        router: router
+    };
+</script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+
+
+<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
+<script>
+    var IMG_PATH = '{WAP_IMG_PATH}';
+    var WAP_PATH = '{WAP_PATH}';
+</script>
+
+<script src="{WAP_JS_PATH}main.js"></script>
+{if isset($js)}
+{loop $js $data}
+<script src="{WAP_JS_PATH}{$data}"></script>
+{/loop}
+{/if}
+<!--百度统计代码-->
+<script src="{WAP_JS_PATH}hm.js"></script>
+</body>
+</html>

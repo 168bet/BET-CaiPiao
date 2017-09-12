@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>游戏礼包</title>
+<meta content="游戏礼包" name="description">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<link href="css/game.css" rel="stylesheet">
+</head>
+<body>
+<div class="loadpop" id="loadpop" style="display: block;">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+</div>
+<div class="index_cont" style="display: none;">
+    <article class="game_list">
+    <ul class="game_list-li clearfix">
+        
+    </ul>
+    </article>
+    <article class="game_more">
+        更多礼包，敬请期待
+    </article>
+</div>
+<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    setTimeout(function(){$(".loadpop").fadeOut(function(){
+        $('.index_cont').show();
+    })},.5e3);
+</script>
+<script type="text/javascript" src='./js/clipboard.min.js'></script>
+
+<script type="text/javascript" src="./js/GamePacks.js"></script>
+</body>
+
+</html>

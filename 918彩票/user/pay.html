@@ -1,0 +1,172 @@
+<!doctype html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<head>
+	<title>快捷支付</title>
+</head>
+<style type="text/css">	
+/* 初始化 */
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article, 
+aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section{margin:0; padding:0; border:0;}
+body{background: #f7f7f7;font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#212121;}
+em,i{font-style:normal;}
+strong{font-weight: normal;}
+.clearfix:after{content:""; display:block; visibility:hidden; height:0; clear:both; color:#212121;}
+.clearfix{zoom:1;}
+a,a:link,a:visited,a:hover,a:active{text-decoration:none; font-family:arial,Microsoft YaHei, Helvetica, sans-serif;}
+ul,ol{list-style:none;}
+h1, h2, h3, h4, h5, h6{ font-size:100%; font-family: Microsoft YaHei;}
+img{border: none;}
+li{
+	margin: 2rem auto;
+}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}.clearfix{ overflow:hidden; zoom:1}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.left{ float:left}
+.right{ float:right}
+.red{ color:#db150b}
+.relative{ position:relative}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; font-weight: normal; color:#fff}
+.zcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#DB150B}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.15rem solid #fff; border-bottom:.15rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.back{ position:absolute; font-size:.75rem; color:#fff; right:.6rem; top:.8rem}
+
+.inp{
+	display: block;
+	width: 95%;
+	margin: 1rem auto;
+	line-height: 2.7rem;
+	text-align: center;
+	border-radius: .2rem;
+	outline: none;
+	background-color: #F7F7F7;
+    color: #F7F7F7;
+    display: none; 
+}
+.btn{
+	display: block;
+	width: 95%;
+	margin: 0 auto;
+	line-height: 2.7rem;
+	text-align: center;
+	border-radius: .2rem;
+	outline: none;
+	background: #F26C60;
+    color: #fff;
+    font-size: 1.2rem;
+}
+.ts-txt{
+	width: 94%;
+    margin: 1.4rem auto;
+    text-align: left;
+    color: #363636;
+    letter-spacing: .05rem;
+    font-size: .9rem;
+}
+.ts-txt .red{
+	color: red;
+}
+</style>
+<body>
+	<header class="tzHeader">
+		<section class="zcHeader fixed2">
+			<h1>快捷支付</h1>
+			<a href="javascript:history.go(-1);" class="fcbackIco2"></a>
+	        <a href="bkbc.html" class="back"></a>
+		</section>
+	</header>
+	<section>
+		<div class="form_warp">
+			<form action="https://yintong.com.cn/llpayh5/payment.htm"
+				method="post">
+				<ul>
+					<li>
+						<input class="inp" type="txt" name="req_data" value="1"/>
+						<div id="paymoney">
+						<!-- <div class="ts-txt">本次充值<i class="red">60</i>元,手续费<i class="red">7</i>元,实际到账<i class="red">12</i>元</div> -->
+						</div>
+						<button name="next_btn" class="btn" type="submit" id="next_btn">确认充值</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+
+	</section>
+</body>
+
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script>
+	String.prototype.getParam = function(n){
+		var r = new RegExp("[\?\&]"+n+"=([^&?]*)(\\s||$)", "gi");
+		var r1=new RegExp(n+"=","gi");
+		var m=this.match(r);
+		if(m==null){
+			return "";
+		}else{
+			return typeof(m[0].split(r1)[1])=='undefined'?'':decodeURIComponent(m[0].split(r1)[1]);
+		}
+	};
+		var addmoney = location.search.getParam("addmoney");
+		var times = location.search.getParam("times");
+		var bankid = location.search.getParam("bankid");
+		var bank_code = location.search.getParam("bankCode");
+		var coupon = location.search.getParam("coupon");
+		var dealid = location.search.getParam("dealid");
+
+
+
+
+		var sx = Math.round(addmoney * 0.6)/100;
+		var sj = addmoney - sx;
+		
+				
+
+		$("#paymoney").html('<div class="ts-txt">本次充值<i class="red">'+addmoney+'</i>元,手续费<i class="red">'+ sx+'</i>元,实际到账<i class="red">'+sj+'</i>元</div>');
+	
+	$(function(){
+
+		var money = function(){
+			
+			if(times=="second"){
+				var url_pay="/user/addmoney.go?bankid="+bankid+"&bankCode="+bank_code+"&dealid="+dealid+"&addmoney="+addmoney;
+			}else{
+				var url_pay="/user/addmoney.go?bankid="+bankid+"&bankCode="+bank_code+"&coupon="+coupon+"&addmoney="+addmoney;
+			}
+
+			$.ajax({
+				url:url_pay,
+				type:"GET",
+				dateType:"XML",
+				success:function(xml){
+					 var R = $(xml).find("Resp");
+					 var code = R.attr("code");
+					 var desc = R.attr("desc");
+					 
+					 if(code==0){
+					 	var row = R.find("row");
+					 	var req_data = row.attr("req_data");
+					 	req_data=req_data.replace(/'/g, '"');
+
+					 	$("input").val(req_data);
+
+					 }
+
+				}
+			})
+		}
+
+	money();
+
+	})
+</script>

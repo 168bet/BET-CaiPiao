@@ -1,0 +1,126 @@
+{php $css = ['bt_team_player.css'];}
+{php $nav_id = 6;}
+{template 'content', 'header_score'}
+<div class="crumbs">
+    <i class="crumbs-icon"></i>当前位置：<span class="orange">篮球资料库</span>&gt;<span class="orange">{$sclass_info['name_s']}</span>&gt;{$team_info['name_cn']}
+</div>
+<div class="team">
+    <div class="team-logo">
+        <img src="{$team_info['logo']}" alt="" class="bt-team-photo">
+    </div>
+    <div class="team-name">
+        <div class="c-name">{$team_info['name_cn']}</div>
+        <div class="e-name">{$team_info['name_en']}</div>
+    </div>
+    <div class="team-info">
+        <ul>
+            <li class="clearfix">
+                <span class="col-1">国家：</span>
+                <span class="col-2">{$sclass_info['countryname']}</span>
+                <span class="col-3">加入联赛时间：</span>
+                <span class="col-4">{$team_info['joinyear']}</span>
+                <span class="col-5">平均年龄：</span>
+                <span class="col-6">{$team_info['avg_age']}</span>
+            </li>
+            <li class="clearfix">
+                <span class="col-1">城市：</span>
+                <span class="col-2">{$team_info['city']}</span>
+                <span class="col-3">主教练：</span>
+                <span class="col-4">{$team_info['drillmaster']}</span>
+                <span class="col-5">联系地址：</span>
+                <span class="col-6"></span>
+            </li>
+            <li class="clearfix">
+                <span class="col-1">球场：</span>
+                <span class="col-2">{$team_info['gymnasium']}</span>
+                <span class="col-3">官方网址：</span>
+                <span class="col-4"><a href="{$team_info['url']}">进入官网</a></span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="content clearfix">
+    <div class="left">
+        <div class="content-nav">
+            <a class="nav-item" href="{APP_PATH}lq/team/{$teamid}/">球队数据</a>
+            <a class="nav-item" href="{APP_PATH}lq/team/{$teamid}/schedule/">球队赛程</a>
+            <a class="nav-item active" href="{APP_PATH}lq/team/{$teamid}/lineup/">球队阵容</a>
+            <a class="nav-item" href="{APP_PATH}lq/team/{$teamid}/transfer/">球队转会</a>
+        </div>
+        <div class="data-list">
+            <div class="data-list-con">
+                <table>
+                    <tr>
+                        <td>号码</td>
+                        <td>姓名</td>
+                        <td>生日</td>
+                        <td>身高</td>
+                        <td>体重</td>
+                        <td>位置</td>
+                        <td>国籍</td>
+                        <td>年薪</td>
+                        <td>NBA年龄</td>
+                        <td>合同期限</td>
+                    </tr>
+                    {loop $players $r}
+                    <tr>
+                        <td>{$r['number']}</td>
+                        <td>{$r['name_s']}</td>
+                        <td>{$r['birthday']}</td>
+                        <td>{$r['tallness']}</td>
+                        <td>{$r['weight']}</td>
+                        <td>{$r['place']}</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>{$r['nbaage']}年</td>
+                        <td>-</td>
+                    </tr>
+                    {/loop}
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="side">
+            <div class="side-title">{$team_info['name_cn']}主教练</div>
+            <div class="peo-info clearfix">
+                <div class="coach"><img src="{$drillmaster_info['photo']}" alt="" class="bt-player-photo"></div>
+                <div class="fr">
+                    <div class="list-info">中文名：{$drillmaster_info['name_cn']}</div>
+                    <div class="list-info">英文名：{$drillmaster_info['name_en']}</div>
+                    <div class="list-info">粤语名：{$drillmaster_info['name_tw']}</div>
+                    <div class="list-info">&nbsp;&nbsp;&nbsp;&nbsp;国籍：</div>
+                </div>
+                <div class="list-info" style="width: 100%"><span class="w130">生日：{$drillmaster_info['birthday']}</span>性别：</div>
+                <div class="list-info" style="width: 100%"><span class="w130">身高：{$drillmaster_info['tallness']}</span>体重：{$drillmaster_info['weight']}<br>
+                    所属俱乐部：金山勇士</div>
+            </div>
+        </div>
+        <div class="side">
+            <div class="side-title">{$team_info['name_cn']}球员</div>
+            {loop $player_info $place $info}
+            <div class="forward">
+                <div class="pos-title">{$place}</div>
+            </div>
+            <div class="member-info clearfix">
+                <ul>
+                    {loop $info $r}
+                    <li>
+                        <a href="{APP_PATH}lq/player/{$r['playerid']}/">
+                            <img src="{$r['photo']}" alt="" class="bt-player-photo">
+                            <div class="member-name">{str_cut($r['name_s'], 15, '...')}</div>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/loop}
+        </div>
+    </div>
+</div>
+
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = ['bt_team_player.js','imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js'];}
+{template 'content', 'footer'}

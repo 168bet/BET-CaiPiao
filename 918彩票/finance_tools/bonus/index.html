@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>年终奖税费计算器</title>
+<link href="./css/nzj.css" rel="stylesheet" type="text/css">
+<style>
+/**************************** 提示弹窗 start*******************************/
+@-webkit-keyframes boxfade{0%{opacity:0;-webkit-transform:translateY(40px)}30%{opacity:0.8;-webkit-transform:translateY(0px)}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;-o-transform:translateY(40px)}30%{opacity:0.8;-o-transform:translateY(0px)}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;-ms-transform:translateY(40px)}30%{opacity:0.8;-ms-transform:translateY(0px)}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;padding: 16px 0px;line-height:22px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/**************************** 提示弹窗 end*******************************/
+</style>
+<script src="js/nzj/carlChart.js"></script>
+<body>
+	<header class="header-nzj clear">
+		<cite class="left orange">请输入税前年终奖<i>或</i>税后年终奖</cite>
+		<a class="right blue" href="method.html">计算方法</a>
+	</header>
+	<div class="top"></div>
+	<article class="wrap-nzj">
+		<ul>
+			<li>
+				<em>税前年终奖:</em>
+				<input id="beforeNum" type="text" name="points"  placeholder="请输入税前年终奖" style="width: 60%;">
+				<em>元</em>
+			</li>
+			<li>
+				<em>税后年终奖:</em>
+				<input id="afterNum" type="text" name="points" placeholder="请输入税后年终奖" style="width: 60%;">
+				<em>元</em>
+			</li>
+		</ul>
+		<div class="btn-wrap-js">
+			<button class="btn-js" id="calculate">开始计算</button>
+		</div>
+	</article>
+	<div style="padding: 0px 1rem; line-height: 2rem;font-size: .8rem;color: #2798E6;display:none" id="twoCase">您的 税前年终奖 可能会有两种情况哦</div>
+	<article id="resultShow">
+		<!-- 饼图位置 start -->
+		<!-- <div style="height:250px;width:100%">
+			<canvas class="vas" width="200" height="200"/>
+		</div> -->
+		<!-- 饼图位置 end -->
+
+		<!-- 金额控制区域 start -->
+		<!-- <div class="txt-money">
+			<span>
+				<i class="ico-or"></i>
+				<cite>税后年终奖:</cite>
+				<cite class="orange1">12926元</cite>
+				<cite>(95%)</cite>
+			</span>
+			<span>
+				<i class="ico-lv"></i>
+				<cite>税:</cite>
+				<cite>26元</cite>
+				<cite>(5%)</cite>
+			</span> 
+		</div>
+		<text class="money-txt">税前：<cite>20000元</cite>(100%)</text>
+		<h1 style="width:100%; text-align:center; font-size:2rem; line-height:3rem;">或</h1>-->
+		<!-- 金额控制区域 end -->
+		
+	</article>
+	<script>
+	var o = {
+		init: function(){
+			o.bind();
+		},
+		bind: function(){
+			//开始计算
+			document.getElementById('calculate').addEventListener('touchstart', function(){
+				//开始计算按钮状态切换
+				this.className += ' cur';
+				var befN = Number(document.getElementById('beforeNum').value),//税前年终奖
+					aftN = Number(document.getElementById('afterNum').value);//税后年终奖
+				
+				if(aftN){
+					if(!aftN || aftN<1 || aftN>10000000 || /\./.test(String(aftN)))return alert('请输入1~1000万之间的整数金额！');
+					o.getTaxByAT(aftN);//根据税后年终奖获取税收
+				}else{
+					if(!befN || befN<1 || befN>10000000 || /\./.test(String(befN)))return alert('请输入1~1000万之间的整数金额！');
+					o.getTaxByPreT(befN);//根据税前年终奖获取税收
+				}
+			});
+			//开始计算按钮状态切换
+			document.getElementById('calculate').addEventListener('touchend', function(){
+				this.className = this.className.replace(' cur','');
+			});
+			//税前年终奖
+			document.getElementById('beforeNum').addEventListener('focus', function(){
+				this.style.color = 'black';
+				document.getElementById('afterNum').value = '';
+				//清空饼图
+				document.getElementById('resultShow').innerHTML = '';
+				//清空提示
+				document.getElementById("twoCase").style.display = "none";
+			});
+			//税后年终奖
+			document.getElementById('afterNum').addEventListener('focus', function(){
+				this.style.color = 'black';
+				document.getElementById('beforeNum').value = '';
+				//清空饼图
+				document.getElementById('resultShow').innerHTML = '';
+				//清空提示
+				document.getElementById("twoCase").style.display = "none";
+			});
+		},
+		//根据税前年终奖获取税收
+		getTaxByPreT: function(befN){
+			var aftN = Number(document.getElementById('afterNum').value);//税后年终奖
+			var perMonth = befN/12;
+			var tax = 0;
+			if(perMonth > 0 && perMonth <= 1500){
+				//不超过1500元，税率3%，速算扣除费用0
+				tax = befN * 0.03;
+			}else if(perMonth > 1500 && perMonth <= 4500){
+				//1500元到4500元，税率10%，速算扣除费用105
+				tax = befN * 0.1 - 105;
+			}else if(perMonth > 4500 && perMonth <= 9000){
+				//4500元到9000元，税率20%，速算扣除费用555
+				tax = befN * 0.2 - 555;
+			}else if(perMonth > 9000 && perMonth <= 35000){
+				//9000元到35000元，税率25%，速算扣除费用1005
+				tax = befN * 0.25 - 1005;
+			}else if(perMonth > 35000 && perMonth <= 55000){
+				//35000元到55000元，税率30%，速算扣除费用2755
+				tax = befN * 0.3 - 2755;
+			}else if(perMonth > 55000 && perMonth <= 80000){
+				//55000元到80000元，税率35%，速算扣除费用5505
+				tax = befN * 0.35 - 5505;
+			}else if(perMonth > 80000){
+				//超过80000元，税率45%，速算扣除费用13505
+				tax = befN * 0.45 - 13505;
+			}else{
+				//alert('请输入合法的金额!');
+			}
+			aftN = Number(befN - tax).toFixed(0);
+			
+			var aEle = document.getElementById('afterNum');
+			aEle.value = aftN;
+			aEle.style.color = '#FDB45C';
+			o.drawPie([{befN: befN, aftN: aftN, tax: tax}]);
+		},
+		//根据税后年终奖获取税收
+		getTaxByAT: function(aftN){
+			var rateList = [{taxRate:0.03, deduction:0, minPerMonth:0, maxPerMonth:1500}
+						,{taxRate:0.1, deduction:105, minPerMonth:1500, maxPerMonth:4500}
+						,{taxRate:0.2, deduction:555, minPerMonth:4500, maxPerMonth:9000}
+						,{taxRate:0.25, deduction:1005, minPerMonth:9000, maxPerMonth:35000}
+						,{taxRate:0.3, deduction:2755, minPerMonth:35000, maxPerMonth:55000}
+						,{taxRate:0.35, deduction:5505, minPerMonth:55000, maxPerMonth:80000}
+						,{taxRate:0.45, deduction:13505, minPerMonth:80000, maxPerMonth:9e20}
+				];
+			var befN,//税前年终奖
+				aftN = Number(document.getElementById('afterNum').value);//税后年终奖
+			var paramsList = [];//结果参数
+			for(var i = 0; i < rateList.length; i++){
+				var t = rateList[i];
+				
+				befN = (aftN - t.deduction)/(1 - t.taxRate);
+				var perMonth = befN/12;
+				if(perMonth > t.minPerMonth && perMonth <= t.maxPerMonth){
+					tax = befN - aftN;
+					paramsList.push({befN: Number(befN).toFixed(0), aftN: aftN, tax: tax});
+				}
+			}
+			var bEle = document.getElementById('beforeNum');
+			bEle.value = paramsList[0].befN;
+			bEle.style.color = '#FDB45C';
+			for(var i = 1; i < paramsList.length; i++){
+				bEle.value += ' 或 ' + paramsList[i].befN;
+			}
+			o.drawPie(paramsList);
+		},
+		//画饼图
+		drawPie: function(paramsList){
+			/**
+			befN:税前年终奖；
+			aftN:税后年终奖；
+			tax:税；
+			*/
+			document.getElementById('resultShow').innerHTML = '';//清空
+			var dwidth = document.documentElement.clientWidth;//可见区域宽度  
+			
+			if(paramsList.length>1){
+				document.getElementById("twoCase").style.display = "block";
+			}else{
+				document.getElementById("twoCase").style.display = "none";
+			}
+			
+			for(var index = 0; index < paramsList.length; index++){
+				var befN = Number(paramsList[index].befN).toFixed(0);
+				var article = '';
+				if(index % 2 !=0) article = '<h1 style="width:100%; text-align:center; font-size: 2rem;padding-top: 3rem;font-weight: normal;    color: #2798E6;">或</h1>';
+				article +='<div style="height:200px;width:100%;">'
+					+'<canvas class="" width="'+dwidth*2+'" height="400" style="width:'+dwidth+'px;height:200px"/>'
+					+'</div>'
+					+'<text class="money-txt">税前：<cite>'+ befN +'元</cite>(100%)</text>';
+				//更新dom	
+				document.getElementById('resultShow').innerHTML += article;
+			}
+			for(var index = 0; index < paramsList.length; index++){
+				var aftN = Number(paramsList[index].aftN).toFixed(0);
+				var tax = Number(paramsList[index].tax).toFixed(0);
+				//饼图走起
+				var ctx = document.getElementsByTagName("canvas")[index].getContext("2d");
+				CarlChart.drawPie(ctx,{font:"20px serif", lineLength: 40, r:140}, [{
+						value: tax,
+						color: "#46BFBD",
+						label: "税费",
+						unit: "元"
+					},
+					{
+						value: aftN,
+						color: "#FDB45C",
+						label: "税后",
+						unit: "元"
+					}]);
+			}
+		}
+	};
+	
+	//初始化
+	;(function(){
+		window.alert = function(msg){
+			var obj = document.createElement('div');
+			obj.className = 'alertBox';
+			obj.innerText = msg;
+			document.body.appendChild(obj);
+			setTimeout(function () {
+				var list = document.getElementsByClassName('alertBox');
+				for(var i = 0 ; i < list.length; i ++){
+					list[i].remove();
+				}
+			}, 2e3);
+		}
+		//初始化
+		o.init();
+	})();
+	</script>
+</body>
+</html>

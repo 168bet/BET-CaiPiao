@@ -1,0 +1,248 @@
+angular.module('cpApp')
+	.factory('UserCenter', ['$http', function($http) {
+		var defaults = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			transformRequest: function(obj) {
+				var str = [];
+				for (var p in obj){
+					str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+				}
+				return str.join("&");
+			},
+		};
+		return {
+			defaults: defaults,
+			logout: function() {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/loginOut',
+				}));
+			},
+			updateLoginPasswd: function(oldpwd, newpwd, confimPwd) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/user/doLoginPassword',
+					data: {
+						oldPwd: oldpwd,
+						newPwd1: confimPwd,
+						newPwd2: newpwd
+					}
+				}));
+			},
+			updateWithdrawPasswd: function(oldpwd, newpwd, confimPwd) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/user/doSecurityPassword',
+					data: {
+						oldPwd: oldpwd,
+						newPwd1: confimPwd,
+						newPwd2: newpwd
+					}
+				}));
+			},
+			userLogin: function(uname, upwd) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/login',
+					data: {
+						'loginName': uname,
+						'password': upwd
+					},
+				}));
+			},
+			userInfo: function() {
+				return $http({
+					url: baseURI + '/user/getUserInfo',
+					method: 'GET',
+				});
+			},
+			updateUserInfo: function(user) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/user/doPersonalUpdate',
+					data: user
+				}));
+			},
+			getOrderHistory: function(filter) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/cpOrder/getCpOrderList',
+					data: filter
+				}));
+			},
+			getAccountDetailItems: function(filter) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/webAccount/getAccountList',
+					data: filter
+				}));
+			},
+			proxyOpenAccount: function(account) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/child/register',
+					data: account
+				}));
+			},
+			proxyAddRegisterLink: function(params) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/link/register',
+					data: params
+				}));
+			},
+			proxyRegisterLinks: function() {
+				return $http({
+					url: baseURI + '/link/register/list',
+					method: 'GET'
+				});
+			},
+			proxyDelRegisterLink: function(linkId) {
+				return $http({
+					url: baseURI + '/link/delete/' + window.encodeURIComponent(linkId),
+				});
+			},
+			accountActTypes: function() {
+				return $http({
+					url: baseURI + '/webAccount/getactOpttypeList',
+					method: 'GET'
+				});
+			},
+			accountDepositOrders: function(query) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/webBankHuiKuan/getWebBankHuiKuanList',
+					data: query
+				}));
+			},
+			accountWithdrawOrders: function(query) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/webUserWithdraw/getWebUserWithdrawList',
+					data: query
+				}));
+			},
+			sendBindMailAddress: function(mail) {
+				return $http(angular.extend(defaults, {
+					url: baseURI + '/user/doBindMail',
+					data: {
+						mail: mail
+					}
+				}));
+			},
+			setSecurityQuestionAnwser: function(data) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/safetyQuestion/setSafetyQuestion',
+					data: data
+				}));
+			},
+			validateUserQA: function(data) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/safetyQuestion/validateSafetyQuestion',
+					data: data
+				}));
+			},
+			updateSecurityQuestionAnwser: function (data) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/safetyQuestion/updateSafetyQuestion',
+					data: data
+				}));
+			},
+			availableBankList: function () {
+				return $http({
+					url: baseURI + '/game/bankcode',
+					method: 'GET'
+				});
+			},
+			userBankList: function() {
+				return $http({
+					url: baseURI + '/member/getUserBankList',
+					method: 'GET'
+				});
+			},
+			userAddBank: function(data) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/member/bindBankCard',
+					data: data,
+				}));
+			},
+			userWithdraw: function(data) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/member/drawMoney',
+					data: data,
+				}));
+			},
+			provinceAndCity: function(province) {
+				var url = baseURI + '/game/area';
+				if (province) {
+					url += '?provinces=' + encodeURI(province);
+				}
+				return $http({
+					url: url,
+					method: 'GET',
+				});
+			},
+			availableBalance: function() {
+				return $http({
+					url: baseURI + '/member/availableBalance',
+					method: 'GET'
+				});
+			},
+			loadTraceOrder: function(data) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/chaseball/goChaseballList',
+					data: data
+				}));
+			},
+			getTeamDetail: function() {
+				return $http({
+					url: baseURI + '/proxyCenter?method=getTeamDetail',
+					method: 'GET'
+				});
+			},
+			agentIndex: function(fromDate,toDate) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/user/getAgentIndex',
+					method: 'POST',
+					data: {
+						beginTimeStr: fromDate,
+						endTimeStr: toDate
+					},
+				}));
+			},
+			// 彩票游戏 说明
+			betGameBonusContents: function () {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/game/gameBonusContents',
+					method: 'POST',
+				}));
+			},
+			selfProfit: function (filter) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/game/selfProfit',
+					method: 'POST',
+					data: filter
+				}));
+			},
+			registerAccount: function (data) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/register',
+					method: 'POST',
+					data: data
+				}));
+			},
+			loadMyMembers: function (filter) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/user/getMemberList',
+					method: 'POST',
+					data: filter
+				}));
+			},
+			updateProfitPoint: function (data) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/user/doBackPoint',
+					method: 'POST',
+					data: data
+				}));
+			},
+			loadUserProfitPoint: function (userName) {
+				return $http(angular.extend({}, defaults, {
+					url: baseURI + '/user/goBackPoint',
+					method: 'POST',
+					data: {userName: userName}
+				}));
+			},
+		};
+	}]);

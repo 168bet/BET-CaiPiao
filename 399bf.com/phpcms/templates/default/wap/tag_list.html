@@ -1,0 +1,47 @@
+{php $css = ['bt_information.css'];}
+{template 'wap', 'wap_header'}
+
+<div class="content">
+    <div class="" >
+        <div class="tabs">
+            <div class="tab active">
+                <div class="" style="margin: -25px 0">
+                    <div class="list-block media-list">
+                        <ul>
+                            {loop $datas $r}
+                            <li>
+                                <a href="{$r['url']}" class="item-link item-content pd">
+                                    <div class="item-media">
+                                        <img src="{get_thumb($r['thumb'], 350)}" alt="{$r['title']}">
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">
+                                                {$r['title']}
+                                            </div>
+                                        </div>
+                                        <div class="item-text">
+                                            {$r['description']}
+                                        </div>
+                                        <div class="list_desc">
+                                            <span class="">{date('Y-m-d H:i', $r['inputtime'])}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            {/loop}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {template 'wap', 'footer_nav'}
+
+</div>
+
+</div>
+</div>
+
+{template 'wap', 'wap_footer'}

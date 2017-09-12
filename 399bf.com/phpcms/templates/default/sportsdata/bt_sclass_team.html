@@ -1,0 +1,160 @@
+{php $css = ['bt_info.css'];}
+{php $nav_id = 6;}
+{template 'content', 'header_score'}
+<nav>
+    <div class="container">
+        <div class="row">
+            <div class="matchNav">
+                <ul class="clearfix">
+                    <li><a {if ! in_array($id, [92,85,34,39,152,149,1,5])}class="active"{/if} href="javascript:;">热门联赛</a></li>
+                    <li><a {if $id == 92}class="active"{/if} href="{APP_PATH}competition/92/schedule/">英超</a></li>
+                    <li><a {if $id == 85}class="active"{/if} href="{APP_PATH}competition/85/schedule/">西甲</a></li>
+                    <li><a {if $id == 34}class="active"{/if} href="{APP_PATH}competition/34/schedule/">意甲</a></li>
+                    <li><a {if $id == 39}class="active"{/if} href="{APP_PATH}competition/39/schedule/">德甲</a></li>
+                    <li><a {if $id == 152}class="active"{/if} href="{APP_PATH}competition/152/schedule/">中超</a></li>
+                    <li><a {if $id == 149}class="active"{/if} href="{APP_PATH}competition/149/schedule/">世足</a></li>
+                    <li><a {if $id == 1}class="active"{/if} href="{APP_PATH}sclass/1/schedule/">NBA</a></li>
+                    <li><a {if $id == 5}class="active"{/if} href="{APP_PATH}sclass/5/schedule/">CBA</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<section>
+    <div class="container">
+        {template 'sportsdata', 'bt_sclass_crumbs'}
+        <div class="row">
+            <div class="col-sm-2 pdL0">
+
+                <!-- 树形菜单 start -->
+                <div class="navMenu treeMenu" id="treeMenu">
+                    <ul>
+
+                        <!-- 一级 -->
+                        {loop $event_menu $zone_name $item}
+                        <li class="tree-menu">
+
+                            <div class="tree-one-title" tree-title name="one">
+                                {$zone_name}
+                                <i class="icon-angle-right fr"></i>
+                            </div>
+
+
+                            <div class="tree" tree-menu >
+
+                                <!-- 二级 -->
+                                {loop $item $country_name $item2}
+                                <div class="tree-item">
+
+                                    <div class="tree-two-title" tree-title name="two">
+                                        <i class="icon-plus"></i>
+                                        {$country_name}
+                                    </div>
+                                    <div class="tree" tree-menu>
+
+                                        <ul>
+                                            {loop $item2 $r}
+                                            <li><a target="_blank" href="{APP_PATH}sclass/{$r['sclassid']}/team/">{$r['name']}</a></li>
+                                            {/loop}
+                                        </ul>
+
+                                    </div>
+
+
+                                </div>
+                                {/loop}
+
+                            </div>
+                        </li>
+                        {/loop}
+
+                    </ul>
+                </div>
+                <!-- 树形菜单 end -->
+
+                <!--<div class="side-search">-->
+                    <!--<div class="search-title">资料库搜索</div>-->
+                    <!--<div class="search-control">-->
+                        <!--<input class="input-search" type="text" placeholder="搜索">-->
+                        <!--<button type="submit" class="btn-search">-->
+                            <!--<i class="icon-search"></i>-->
+                        <!--</button>-->
+                    <!--</div>-->
+                    <!--<div class="radio-group">-->
+                        <!--<label for="player" class="checkbox-inline">-->
+                            <!--<input type="checkbox" id="player">-->
+                            <!--<i class="table-checkbox"></i>-->
+                            <!--球员-->
+                        <!--</label>-->
+                        <!--<label for="team" class="checkbox-inline">-->
+                            <!--<input type="checkbox" id="team">-->
+                            <!--<i class="table-checkbox"></i>-->
+                            <!--球队-->
+                        <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+            <div class="col-sm-10 pdL0 pdR0">
+
+
+                <!-- iframe -->
+                <div class="iframe-page" id="iframe_page">
+
+                    <div class="iframe-head clearfix">
+                        <h1 class="m-title fl">
+                            <img src="{BT_SCLASS_PATH}{$sclassid}.jpg" width="59" height="59" alt="" class="fl bt-competition-photo">
+                            {$sclass_info['season']} {$sclass_info['name_cn']} 球队资料
+                        </h1>
+                    </div>
+
+                    <div class="iframe-table">
+
+                        <div class="iframe-nav">
+                            <ul class="clearfix">
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/schedule/" >赛程赛果</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/standings/" >联盟排名</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/letgoal/" >让球盘路榜</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/totalscore/" >大小盘路榜</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/singleDouble/" >单双统计</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/teamTechnic/" >球队技术统计</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/playerTechnic/">球员技术统计</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclassid}/team/" class="active">球队资料</a></li>
+                            </ul>
+                        </div>
+                        <div class="data clearfix">
+                            <ul>
+                                {loop $team_info $r}
+                                <li>
+                                    <div class="inner">
+                                        <a target="_blank" href="{$r['url']}">
+                                            <div class="img-wrap"><img src="{$r['logo']}" alt="" class="bt-team-photo"></div>
+                                            <p>{$r['name_cn']}</p>
+                                        </a>
+                                    </div>
+                                </li>
+                                {/loop}
+                            </ul>
+                        </div>
+                        <div class="hint">
+                            最后更新时间:{date('Y-m-d H:i:s')}
+                        </div>
+
+                    </div>
+                </div>
+                <!-- iframe end -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = ['tree.js','imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js'];}
+{template 'content', 'footer'}
+<script>
+    $('#treeMenu').treeCreate();
+</script>

@@ -1,0 +1,108 @@
+{php $css = ['bt_immediate.css'];}
+{php $nav_id = 2;}
+{template 'wap', 'wap_header'}
+
+<div class="content">
+    <div class="buttons-tab">
+        <a href="{WAP_PATH}lqscore/" class=" button close-popup">即时</a>
+        <a href="{WAP_PATH}lqwanchang/" class=" button close-popup">完场</a>
+        <a href="{WAP_PATH}lqsaicheng/" class=" button close-popup">下日</a>
+        <a href="{WAP_PATH}lqevent/" class="close-popup button">资料</a>
+        <a href="{WAP_PATH}lqodds/" class=" active  button close-popup">指数</a>
+    </div>
+    <div class="content-block">
+        <div class="tabs">
+            <div class="tab active">
+                <div class="shop">
+                    <div class="btn-group fl">
+                        <input class="btn" id="picker1" type="text" value="{$company[$companyid]}">
+                        <i class="fa fa-angle-down btn-pos"></i>
+                    </div>
+                    <div class="btn-group fr">
+                        <input class="btn" id="picker2" type="text" value="NBA">
+                        <i class="fa fa-angle-down btn-pos"></i>
+                    </div>
+                </div>
+                <div class="odds-item">
+                    {loop $live_schedule $r}
+                     <div class="sclass sclassid-{$r['sclassid']}">
+                      <div class="odds-data"><a class="orange">{$r['sclassname_cn']} {date('m-d H:i', $r['date'])}  {$r['homename_cn']} VS {$r['guestname_cn']}<i class="icon-angle-right pos"></i></a></div>
+                      <table class="immdiate-table" width="100%">
+                          <tr class="border-b">
+                              <td colspan="3" style="text-align: right;padding-right: 4%;">主(大)</td>
+                              <td>盘口</td>
+                              <td>客(小)</td>
+                          </tr>
+                          <tr>
+                              <td rowspan="2" class="border-r">让分</td>
+                              <td>初盘</td>
+                              <td>{$r['homeodds_f']}</td>
+                              <td>{$r['letgoal_f']}</td>
+                              <td>{$r['guestodds_f']}</td>
+                          </tr>
+                          <tr class="border-b">
+                              <td>即盘</td>
+                              <td>{$r['homeodds']}</td>
+                              <td class="red">{$r['letgoal']}</td>
+                              <td class="green">{$r['guestodds']}</td>
+                          </tr>
+                          <tr>
+                              <td rowspan="2" class="border-r">总分</td>
+                              <td>初盘</td>
+                              <td>{$r['highodds_f']}</td>
+                              <td>{$r['totalscore_f']}</td>
+                              <td>{$r['lowodds_f']}</td>
+                          </tr>
+                          <tr class="border-b">
+                              <td>即盘</td>
+                              <td>{$r['highodds']}</td>
+                              <td>{$r['totalscore']}</td>
+                              <td>{$r['lowodds']}</td>
+                          </tr>
+                          <tr>
+                              <td rowspan="2" class="border-r">欧赔</td>
+                              <td>初盘</td>
+                              <td>{$r['homewin_f']}</td>
+                              <td>{$r['return_f']}</td>
+                              <td>{$r['guestwin_f']}</td>
+                          </tr>
+                          <tr class="border-b">
+                              <td>即盘</td>
+                              <td>{$r['homewin']}</td>
+                              <td class="red">{$r['return']}</td>
+                              <td class="green">{$r['guestwin']}</td>
+                          </tr>
+                      </table>
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {template 'wap', 'footer_nav'}
+
+</div>
+
+</div>
+</div>
+
+<script>
+    //选择公司
+    var companyIdArr = [];
+    var companyNameArr = [];
+    {loop $company $id $name}
+        companyIdArr.push({$id});
+        companyNameArr.push('{$name}');
+    {/loop}
+
+    //选择赛事
+    var sclassIdArr = [];
+    var sclassNameArr = [];
+    {loop $sclass $id $name}
+        sclassIdArr.push('sclassid-'+{$id});
+        sclassNameArr.push('{$name}');
+    {/loop}
+</script>
+{php $js = ['bt_odds.js'];}
+{template 'wap', 'wap_footer'}

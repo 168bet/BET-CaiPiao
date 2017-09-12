@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>登录</title>
+<style type="text/css">
+#login{min-height:220px;}
+.contact{padding-bottom:20px;}
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:1000;left:0;top:0; display: none;}
+
+/* 在线客服 */
+#live800iconlink{float: none;
+				border: 0px;
+				color: #333;}
+#usernamelist .weui-icon-cancel{color:#999;}
+</style>
+<link rel="stylesheet" href="/style/weui.css"/>
+<link rel="stylesheet" href="/style/example.css"/>
+<body>
+<article class="content">
+	<section class="page__hd">
+	   <div class="weui-flex">
+	     <a class="weui-cell__back" href="javascript:history.back()"></a>
+	     <p class="weui-flex__item txt_center">9188账户登录</p>      
+	   </div>    
+	</section>
+	<section class="logofont">
+		<img src="/sdjc/img/logofont.png"/>
+	</section>
+	<section class="page__bd" id='login'>        
+	  <div class="weui-cells weui-cells_form visible" style="margin-top:.8rem;">               
+	    <div class="weui-cell">
+	      <div class="weui-cell__hd"><label for="" class="weui-label">账号</label></div>
+	      <div class="weui-cell__bd my_icon_box" id="usernamebox">
+	      	<input class="weui-input" value="" placeholder="请输入用户名/手机号" id="username" type="text" autocomplete="off">
+	      	<i class="my-icon-delete delete-code" style='display:none;'></i>
+	      </div>
+	      <ul class="cp9188-datalist" id="usernamelist"  style="display: none;">
+	          <!-- <li><a class="cp9188-datalist__bd" href="javascript:;">测试帐号</a><i class="weui-icon-close"></i></li>
+	          <li><a class="cp9188-datalist__bd" href="javascript:;">花生</a><i class="weui-icon-close"></i></li>
+	          <li><a class="cp9188-datalist__bd" href="javascript:;">ply12</a><i class="weui-icon-close"></i></li>
+	          <li><a class="cp9188-datalist__bd" href="javascript:;">ply19</a><i class="weui-icon-close"></i></li>
+	          <li><a class="cp9188-datalist__bd" href="javascript:;">ply21</a><i class="weui-icon-close"></i></li> -->
+	      </ul>
+	    </div>
+	    <div class="weui-cell">
+	      <div class="weui-cell__hd"><label for="" class="weui-label">密码</label></div>
+	      <div class="weui-cell__bd my_icon_box">
+	        <input class="weui-input" value="" placeholder="请输入密码" id=password  type="password" autocomplete="off">
+	        <i class="my-icon-delete delete-code" style='display:none;right:24px;'></i>
+	        <i class="my-icon-eyes" id='eye' style='right:-8px;'></i>
+	      </div>
+	    </div>            
+	  </div>
+	  <div class="weui-btn-area">
+	    <button class="weui-btn weui-btn_primary weui-btn_disabled"  id="loginBtn" disabled='true'>确定</button>
+	  </div>
+	  <div class="weui-footer">
+	    <p class="weui-footer__links">
+	      <a href="javascript:;" id="showIOSActionSheet" class="weui-footer__link gray">登录遇到问题？</a>
+	    </p>
+	  </div>	  
+	</section>
+</article> 
+<div class="weui-btn-area contact">
+  <a class="weui-btn weui-btn_plain-primary" style="width:110px;font-size:16px;" id='zhuce' >立即注册</a>
+</div>
+<div>
+	<div class="weui-mask" id="iosMask" style="display: none"></div>
+	<div class="weui-actionsheet" id="iosActionsheet">
+		<div class="weui-actionsheet__menu">
+	    	<div class="weui-actionsheet__cell"><a  href='/alone/newforgotpwd.html'>忘记密码</a></div>
+	    	<div class="weui-actionsheet__cell">
+	    		<script language="javascript" src="http://chat8.live800.com/live800/chatClient/textButton.js?jid=4543042755&companyID=152373&configID=127313&codeType=custom"></script><script id='write' language="javascript">function writehtml(){var temptext=text_generate();document.getElementById('live127313').innerHTML=temptext;setTimeout('write.src',9000);}writehtml();</script>
+			</div>
+	    </div>
+	    <div class="weui-actionsheet__action">
+	      <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
+	    </div>
+	</div>
+</div>
+<script src='/js/public/jquery-1.9.1.min.js'></script>
+<script src="/js/public/weui.min.js"></script>
+<script src='/js/public/JQ.md5.js'></script>
+<script>
+$(function(){
+    var wContact=$(document).height()-$('.content').outerHeight();
+    var w=wContact-80;
+    $('.contact').css('margin-top',w);
+});
+</script>
+<script>
+
+//公用弹出层和加载层
+var win_alert = alert;
+window['alert'] = function (msg, loading) {
+	if (!loading) {
+		clearTimeout(window.alert.time);
+		var obj = $('<div class="alertBox">' + msg + '</div>');
+		$('body').append(obj);
+		window.alert.time = setTimeout(function () {
+			$(".alertBox").remove();
+		}, 2000);
+	} else {
+		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+		$('#mask').show();
+	}
+};
+var remove_alert = function () {
+	$('.alertBox').remove();
+	$('#mask').hide();
+};
+
+String.prototype.getParam = function(n){
+	var r = new RegExp("[\?\&]"+n+"=([^&?]*)(\\s||$)", "gi");
+	var r1=new RegExp(n+"=","gi");
+	var m=this.match(r);
+	if(m==null){
+		return "";
+	}else{
+		return typeof(m[0].split(r1)[1])=='undefined'?'':decodeURIComponent(m[0].split(r1)[1]);
+	}
+};
+
+var agentFrom = location.search.getParam("agentFrom")||"";
+
+$(function () {
+	$("#zhuce").attr("href","/sdjc/register.html?agentFrom="+agentFrom);
+	
+	if(document.domain == '1ydb.5.9188.com '){
+		alert('登录失效,请重新进入')
+		setTimeout(function(){
+			location.href = localStorage.getItem('target_url')
+		},1e3);
+		return;
+	}
+	var user_name = localStorage.getItem("username");
+	!!user_name && $('#username').val(user_name).next().show();//填装用户名
+	$('#password').keyup(function(){
+		if($(this).val()){
+			$('#loginBtn').removeAttr('disabled');
+			$('#loginBtn').removeClass('weui-btn_disabled');
+			$(this).next('i').css({'display':'block'});
+		}else{
+			$('#loginBtn').attr('disabled','true');
+			$('#loginBtn').addClass('weui-btn_disabled');
+			$(this).next('i').css({'display':'none'});
+		}
+	})
+	$("#login").off().keydown(function(e){
+		if(e.which == 13){//按回车的时候提交登录
+			MiniLogin();
+			return false;
+		}
+	});
+	$('#login .s3').bind('click', function(){
+		$(this).find('input').focus();
+		$(this).addClass('s3cur').siblings().removeClass('s3cur');
+	});
+	
+	//忘记密码
+	var $iosMask = $('#iosMask');
+    var winHeight = $(window).height();
+    var bodyScroll = $('body').scrollTop();
+    $("#showIOSActionSheet").click(function () {
+        if(winHeight != $(window).height() || bodyScroll != $('body').scrollTop() ){
+            setTimeout(function(){
+                $iosMask.fadeIn(200);
+                $("#iosActionsheet").slideDown(200);
+            }, 500 )
+        }else{
+            $iosMask.fadeIn(200);
+            $("#iosActionsheet").slideDown(200);
+        }
+    });
+    $("#iosActionsheetCancel").click(function(){
+          $iosMask.fadeOut(200);
+          $("#iosActionsheet").slideUp(200);
+    })
+    $iosMask.click(function(){
+        $iosMask.fadeOut(200);
+        $("#iosActionsheet").slideUp(200);
+    })
+    //忘记密码
+
+	$('#loginBtn').bind('click', function(){MiniLogin();});
+	$('.s3 input').bind('keyup', function(){$(this).val() != '' && $(this).next().show() || $(this).next().hide();});
+	$('.s3 em').bind('click', function(){$(this).hide().prev().val('');});
+	$('#eye').click(function(){
+		var eyes = $(this).hasClass('my-icon-eyes');
+		if(eyes){
+			$(this).removeClass('my-icon-eyes').addClass('my-icon-eyes_on');
+			$(this).prevAll('input').attr('type','text');
+		}else{
+			$(this).removeClass('my-icon-eyes_on').addClass('my-icon-eyes');
+			$(this).prevAll('input').attr('type','password');
+		}
+	})
+	
+	//登录账户名下拉框
+	var unlist =function(){
+		 if(localStorage.getItem('unlist')){
+				var unlist = JSON.parse(localStorage.getItem('unlist'));
+				var html = ''
+				if(unlist.length > 5){
+					unlist.length = 5
+				}
+				for(var i=0;i<unlist.length;i++){
+					html += '<li><a class="cp9188-datalist__bd" href="javascript:;">'+unlist[i]+'</a><i class="weui-icon-close"></i></li>'
+				}
+				$('#usernamelist').html(html);
+			} 
+	 }()
+	 $("body>*").bind("click",function(){})
+    $("#username").click(function(event){
+        $("#usernamelist").toggle();
+        $(document).one('click',function(event){
+            var eo=$(event.target);
+            if($("#usernamelist").css('display') == 'block' ){
+           	 $('#usernamelist').hide()
+            }   
+        });
+        event.stopPropagation();
+    });
+    $("#usernamelist").delegate('li>a' ,'click',function(){
+        var value=$(this).html();
+        $("#username").val(value);
+    })
+    $("#usernamelist").delegate('li>i' ,'click',function(){
+        $(this).parent("li").remove();
+        var unlist = JSON.parse(localStorage.getItem('unlist'));
+        var a = $(this).prev().html();
+         var arr = [];
+         for(i in unlist){
+       	 if(a != unlist[i]){
+       		 arr.push(unlist[i]);
+       	 }
+        }
+        localStorage.setItem('unlist',JSON.stringify(arr));
+    })
+    $("#username").keyup(function(){
+		if($(this).val()){
+			$(this).next('i').css({'display':'block'}); 
+		}else{
+			$(this).next('i').css({'display':'none'}); 
+		}
+	})
+    $("#username").focus(function(event){
+		var ev = event || window.event;
+		ev.stopPropagation();
+		if($(this).val()){
+			$(this).next('i').css({'display':'block'});
+		}else{
+			$(this).next('i').css({'display':'none'}); 
+		}
+	})
+	$("#password").focus(function(event){
+		var ev = event || window.event;
+		ev.stopPropagation();
+		if( $(this).val() ){
+			$(this).next('i').css({'display':'block'});
+		}else{
+			$(this).next('i').css({'display':'none'}); 
+		}
+	})
+	$('.delete-code').click(function(event){
+		var ev = event || window.event;
+		ev.stopPropagation();
+		$(this).prev().val('');
+		$(this).css({'display':'none'});
+		$(this).prev().focus();
+		if(!$('#password').val()){
+			$('#loginBtn').attr('disabled','true');
+			$('#loginBtn').addClass('weui-btn_disabled');
+		}
+	})
+	$("#password").blur(function(event){
+		setTimeout(function(){
+			$("#password").next('i').css({'display':'none'});
+		},50)
+	})
+	$("#username").blur(function(event){
+		setTimeout(function(){
+			$("#username").next('i').css({'display':'none'});
+		},50) 
+	})
+});
+
+//判断设备
+var browser={
+	    versions:function(){
+	        var u = navigator.userAgent, app = navigator.appVersion;
+	        return {
+	            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+	            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+	            android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1 || u.indexOf('Linux') > -1, //android终端
+	        };
+	    }(),
+}
+//判断设备
+
+//数组去重
+var redelete = function(arr){
+	var res = [];
+	 var json = {};
+	 for(var i = 0; i < arr.length; i++){
+	  if(!json[arr[i]]){
+		res.push(arr[i]);
+		json[arr[i]] = 1;
+	  }
+	 }
+	 return res;
+}
+
+var MiniLogin = function(){
+	var uname = $("#username").val();
+    var upwd = $("#password").val();
+    if (uname == "") {
+        alert('请输入用户名');
+        return false;
+    }else if (upwd == "") {
+    	alert('请输入密码');
+        return false;
+    }else{
+    	alert('登录中，请稍后！','loading');
+    	/* var mjmyz = 'http://www.9188.com  /';
+    	var hjmyz = 'http://www.huishuaka.com/';
+    	var pwd = $.md5(upwd + mjmyz);
+    	var merchantacctid = browser.versions.android?'130313002':'130313003';
+    	var key = 'A9FK25RHT487ULMI';
+    	var newpwd = $.md5(upwd + hjmyz);
+    	var signmsg = $.md5('signtype='+1+'&merchantacctid='+merchantacctid+'&uid='+uname+'&pwd='+pwd+'&newpwd='+newpwd+'&key='+key)
+		var mtype = browser.versions.android?'1':'2';
+    	var rnd = Math.random();
+    	var data ={
+			'uid': uname,
+			'pwd': pwd,
+			'newpwd': newpwd,
+			'merchantacctid': merchantacctid,
+			'signtype': 1,
+			'signmsg': signmsg.toUpperCase(),
+			'mtype': mtype,
+			'appversion': '4.4.0',
+			'rnd': rnd,
+			'source': 3000
+		} */
+		var data = "uid=" + encodeURIComponent(uname)+ "&pwd=" + encodeURIComponent(upwd)+ "&source=3000";
+	    $.ajax({
+	    	/* url: '/user/mlogin.go', */
+	    	url: '/user/login.go',
+	        type: "POST",
+	        dataType : "xml",
+	        data: data,
+	        cache: false,
+	        success : function (xml) {
+	        	remove_alert();
+	        	var R = $(xml).find("Resp");
+				var code = R.attr("code");
+				var desc = R.attr("desc");
+				if (code == "0") {
+					localStorage.setItem("username", uname);
+					if(localStorage.getItem('unlist')){
+						var unlist = JSON.parse(localStorage.getItem('unlist'));
+						unlist.unshift(uname);
+						var list = redelete(unlist)
+						localStorage.setItem('unlist',JSON.stringify(list));
+					}else{
+						var unlist = [uname]
+						localStorage.setItem('unlist',JSON.stringify(unlist));
+					}
+					alert(desc);
+					var lo = location.search;
+					var agentFrom = location.search.getParam("agentFrom");
+					(lo.getParam("page")) && (lo.getParam("type_from"))
+					setTimeout(function(){
+						/*location.replace(document.referrer)  */
+						history.go(-1);
+					},1e3);
+				}else{
+					alert(desc);
+				}
+	        },error : function (){
+	        	remove_alert();alert('网络异常请刷新重试');
+	        	return
+	        }		        
+	    });
+    }
+}
+</script>
+</body>

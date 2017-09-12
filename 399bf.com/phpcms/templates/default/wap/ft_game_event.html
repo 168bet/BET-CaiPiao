@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>{$SEO['title']}</title>
+      <meta name="keywords" content="{$SEO['keyword']}">
+      <meta name="description" content="{$SEO['description']}">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <link rel="shortcut icon" href="/favicon.ico">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+      <!-- build css -->
+      <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+      <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+      <link rel="stylesheet" href="{WAP_CSS_PATH}font-awesome.min.css">
+      <link rel="stylesheet" href="{WAP_CSS_PATH}main.css">
+      <link rel="stylesheet" href="{WAP_CSS_PATH}ft_match.css">
+    <!-- build css end -->
+
+
+  </head>
+  <body>
+    <div class="page-group">
+
+        <div class="page page-current" id="ft_database">
+
+            {template 'wap', 'ft_game_info'}
+
+            <div class="content">
+                <!-- 二级导航 -->
+                <div class="buttons-tab">
+                    <a href="{WAP_PATH}game/{$gameid}/event/" class="tab-item active button">事件</a>
+                    <a href="{WAP_PATH}game/{$gameid}/lineup/" class="tab-item button">阵容</a>
+                    <a href="{WAP_PATH}game/{$gameid}/analyse/" class="tab-item button">分析</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddsasia/" class="tab-item button">亚赔</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddseuro/" class="tab-item button">欧赔</a>
+                    <a href="{WAP_PATH}game/{$gameid}/oddsou/" class="tab-item button">大小</a>
+                </div>
+                <!-- 二级导航 end-->
+
+                <!-- 赛事事件 -->
+                <div class="match-card">
+                    <div class="match-title">比赛事件</div>
+                    <table class="table table-min match-event">
+                        {loop $event_info $data}
+                        {if $data['Type'] == 1}
+                        <tr>
+                            {if $data['replace']}
+                            <td class="border-right" width="44.9%">
+                                <span class="gray">{$data['Upname']}</span>
+                                <em class="{$data['Class']}"></em>
+                                <span class="gray">{$data['Downname']}</span>
+                            </td>
+                            <td class="noborder">{$data['Minute']}'</td>
+                            <td class="border-left" width="44.9%"></td>
+                            {else}
+                            <td class="border-right" width="44.9%">
+                                <em class="{$data['Class']}"></em>
+                                <span class="gray">{$data['Pname']}</span>
+                            </td>
+                            <td class="noborder">{$data['Minute']}'</td>
+                            <td class="border-left" width="44.9%"></td>
+                            {/if}
+                        </tr>
+                        {else}
+                        <tr>
+                            {if $data['replace']}
+                            <td class="border-right" width="44.9%"></td>
+                            <td class="noborder">{$data['Minute']}'</td>
+                            <td class="border-left" width="44.9%">
+                                <span class="gray">{$data['Upname']}</span>
+                                <em class="{$data['Class']}"></em>
+                                <span class="gray">{$data['Downname']}</span>
+                            </td>
+                            {else}
+                            <td class="border-right" width="44.9%"></td>
+                            <td class="noborder">{$data['Minute']}'</td>
+                            <td class="border-left" width="44.9%">
+                                <em class="{$data['Class']}"></em>
+                                <span class="gray">{$data['Pname']}</span>
+                            </td>
+                            {/if}
+                        </tr>
+                        {/if}
+                        {/loop}
+                    </table>
+                    <div class="match-hint">
+                        <em class="hasgoal"></em>入球
+                        <em class="pointgoal"></em>点球
+                        <em class="urongoal"></em>乌龙球
+                        <em class="yellowCard"></em>黄牌
+                        <em class="RYcard"></em>两黄变红
+                        <em class="redCard"></em>红牌
+                        <em class="replace"></em>换人
+                    </div>
+                </div>
+                <!-- 赛事事件 end -->
+
+                <!-- 技术统计 -->
+                <div class="match-card">
+                    <div class="match-title">技术统计</div>
+                    <table class="table table-min">
+                        {loop $stat_info $data}
+                        <tr>
+                            <td class="border-right" width="38%">
+                                {$data['Home']}
+                            </td>
+                            <td class="noborder hasbg">{$data['Name']}</td>
+                            <td class="border-left" width="38%">{$data['Away']}</td>
+                        </tr>
+                        {/loop}
+                    </table>
+                </div>
+
+
+                {template 'wap', 'footer_nav'}
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+    {template 'wap', 'wap_footer'}

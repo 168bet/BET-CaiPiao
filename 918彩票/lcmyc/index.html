@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>购彩大厅</title>
+<style type="text/css">
+body{ min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+img { border:0; }
+.clearfix{ overflow:hidden; zoom:1}
+.clear{ clear:both}
+.left{ float:left}
+.right{ float:right}
+a{ color:#333; text-decoration:none}
+p{ line-height:1.2rem}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+.red{ color:#f03d3d}
+.gray{ color:#8e8e8e}
+.pdTop03{ padding-top:.3rem}
+.pdTop06{ padding-top:.6rem}
+.pdTop08{ padding-top:.8rem}
+.pdLeft04{ padding-left:.4rem}
+.pdLeft06{ padding-left:.6rem}
+.fixed{ position:fixed; bottom:0; left:0; z-index:99; width:100%}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.zcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#0b7e07; border-bottom:1px solid #046b00}
+.fcbackHome{ display:block; position:absolute; left:.9rem; top:.6rem; width:1.56rem; height:1.35rem; background:url(/img/fc/home.png) no-repeat center; background-size:1.56rem 1.35rem; -webkit-background-size:1.56rem 1.35rem; -moz-background-size:1.56rem 1.35rem}
+.fcHeader .zcHeader{ background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcHeader .fcbackHome{ background:none; width:.7rem; height:.65rem; top:.9rem; left:1.1rem; color:#fff; margin-right:.01rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.gddgxh{ font-size:.75rem; color:#fff; width:100%; height:17.5rem; background:url(/img/zc/lcmycpic.jpg) no-repeat center; background-size:100% 17.5rem; -webkit-background-size:100% 17.5rem; -moz-background-size:100% 17.5rem}
+.gddgxh a{ display:block; text-align:right; margin:.8rem 6% .8rem 0; color:#fff17c}
+.next,.prev{ margin-top:.75rem; width:.75rem; height:.75rem; border-right:.15rem solid #9b9fa8; border-bottom:.15rem solid #9b9fa8}
+.prev,.prevStop{ float:left; transform:rotate(135deg); -webkit-transform:rotate(135deg); -moz-transform:rotate(135deg)}
+.next,.nextStop{ float:right; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.prevStop{ border-right:.15rem solid #16181b; border-bottom:.15rem solid #2f333a}
+.nextStop{ border-right:.15rem solid #16181b; border-bottom:.15rem solid #2f333a}
+.gddgbd{ float:left; width:90%}
+.gddgScroll{ padding:1.3rem 4% 0 4%}
+.gddgScroll ul{ height:2.88rem; text-align:center; overflow:hidden; zoom:1}
+.gddgScroll ul li{ float:left; height:2.88rem; width:100%}
+.gddgScroll ul li p{ color:#c7c7c7; font-size:.75rem}
+.gddgScroll ul li div{ font-size:1.06rem; margin-bottom:.3rem}
+.gddgScroll ul li div cite{ display:inline-block; width:40%; text-align:right}
+.gddgScroll ul li div i{ display:inline-block; width:14%}
+.gddgScroll ul li div span{ position:relative; display:inline-block; width:46%; text-align:left}
+.gddgScroll ul li div span:after{ position:absolute; content:""; top:0; width:1.78rem; height:.75rem; margin-left:.25rem; background:url(/img/zc/zdico.png) no-repeat center; background-size:1.78rem .75rem; -webkit-background-size:1.78rem .75rem; -moz-background-size:1.78rem .75rem}
+.gddgxhList{ padding:0 1.1rem}
+.gddgxhList ul li{ color:#d7d7d7; overflow:hidden; zoom:1}
+.gddgxhList ul li:first-child{ margin-top:.4rem}
+.gddgxhList ul li cite{ float:left; font-size:.75rem; color:#fff17c; width:14%; text-align:center; margin-top:2rem}
+.gddgxhList ul li cite.lcpl{ margin-top:0}
+.gddgxhList ul li span{ float:left; width:38%; height:2.6rem; padding-top:.34rem; text-align:center; font-size:.75rem; margin:1.35rem 0 0 4%; border:1px solid #919191; background:rgba(58,58,58,0.45); border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.gddgxhList ul li span strong{ display:block; font-size:.875rem; font-weight:normal; line-height:1.3rem}
+.gddgxhList ul li span strong i{ font-size:.75rem}
+.gddgxhList ul li span:last-child,.gddgxhList ul li em:last-child{ margin-right:0}
+.gddgxhList ul li span.cur{ position:relative; border:1px solid #ffdf1b}
+.gddgxhList ul li span.cur:before{ position:absolute; content:""; bottom:0; right:0; width:1.5rem; height:1.4rem; background:url(/img/zc/lcmyccur.png) no-repeat center; background-size:1.5rem 1.4rem; -webkit-background-size:1.5rem 1.4rem; -moz-background-size:1.5rem 1.4rem}
+.gddgxhList ul li em{ float:left; width:38%; text-align:center; margin:.45rem 0 0 5%}
+
+.gddgdouble{ text-align:center; width:15rem; font-size:.8rem; padding:1.3rem 0 0 0; margin:1rem auto 0 auto}
+.gddgdouble cite{ float:left; line-height:2.2rem; font-size:1rem;}
+.gddgdouble span{ float:left; border:1px solid #399e5c; width:66%; height:2.1rem; background:#399e5c; overflow:hidden; zoom:1; margin:0 .25rem; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.gddgdouble span em{ float:left; width:25%; text-align:center; font-size:1.5rem; color:#fff}
+.gddgdouble span em:first-child{ font-size:2rem; line-height:1.6rem}
+.gddgdouble input{ float:left; width:47%; text-align:center; line-height:1.7rem; height:2.1rem; border:none; border-left:1px solid #399e5c; border-right:1px solid #399e5c; font-size:.875rem; color:#222; background:#fff}
+
+.s2{ margin-top:.5rem; overflow:hidden; zoom:1}
+.s2 i{ float:left; color:#9b9d9d; line-height:2rem; font-size:.9rem; width:19%; padding-right:1%; text-align:right}
+.s2 span{ float:left; width:80%}
+.s2 i.tcheight{ padding-top:2.9rem}
+.s2 i.gkheight{ line-height:5.1rem}
+.s2 i.faheight{ line-height:3.6rem}
+.hmInput{ line-height:2rem; border:1px solid #dcdcdc; width:28%; margin-right:.2rem; padding-left:.6rem; font-size:1rem}
+.scale{ width:80%}
+.scale li{ float:left; width:30.5%; font-size:.9rem; line-height:2rem; text-align:center; border:1px solid #dcdcdc; background:#fff; margin:1.5% 1.5% 0 0}
+.scale li.cur{ background:#db150b; color:#fff} 
+.scale li.along{ width:62.5%}
+.xyText{ width:74.5%; height:2.5rem; padding:.5rem .3rem; border:none; font-size:.9rem; color:#ccc; border:1px solid #dcdcdc}
+.check,.nocheck{ display:inline-block; width:.87rem; height:.87rem; background:url(/img/check.png) no-repeat center; background-size:.87rem .87rem; -webkit-background-size:.87rem .87rem; -moz-background-size:.87rem .87rem; margin:.1rem .2rem 0 0}
+.nocheck{ background-image:url(/img/nocheck.png)}
+.buyFooter{ position:relative; padding-top:5.5rem}
+.gddgFloat{ background:#f9f9f9; height:3.7rem; border-top:1px solid #b2b2b2; overflow:hidden; zoom:1}
+.gddgFloat a{ line-height:2.6rem; text-align:center}
+.ssqdeleted{ display:block; width:25%; position:absolute; bottom:.5rem; left:.65rem; line-height:1.875rem; text-align:center; color:#db150b; font-size:.875rem; background:#fff; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem; box-shadow:0 0 0 1px #c5c5c5 inset; -webkit-box-shadow:0 0 0 1px #c5c5c5 inset; -moz-box-shadow:0 0 0 1px #c5c5c5 inset}
+.ture{ position:absolute; width:65%; right:.65rem; bottom:.5rem; line-height:1.875rem; text-align:center; color:#fff; font-size:.875rem; background:#db150b; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.buyFloat{ text-align:left; color:#8e8e8e; padding-left:.9rem; line-height:3rem; font-size:.95rem; background:#f9f9f9; border-top:1px solid #d5d5d5}
+.ture2{ position:absolute; right:1.65rem; bottom:.5rem; width:4.5rem; line-height:1.875rem; text-align:center; color:#fff; font-size:.875rem; background:#db150b; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+
+.pdLeft1{ padding-left:1rem}
+.pdTop1{ padding-top:1rem}
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:999;left:0;top:0; display: none;}
+.zfpop{ position:fixed; width:90%; top:15%; left:5%; z-index:1000; background:#fff; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem}
+.zfpop h4{ padding:1rem 0; font-size:1.125rem; text-align:center}
+.poptzText p{ line-height:1.8rem; font-size:.875rem}
+.zfTrue{ line-height:2.5rem; font-size:1rem; margin-top:1rem; text-align:center; border-top:1px solid #ccc; background:#fff; border-radius:0 0 .4rem .4rem; -webkit-border-radius:0 0 .4rem .4rem; -moz-border-radius:0 0 .4rem .4rem}
+.zfTrue a{ float:left; color:#106fe5; width:49.5%}
+.zfTrue a.zfqx{ border-right:1px solid #ccc }
+.zfTrue a.bfb{ width:100%}
+.tcinput{ border:1px solid #ccc; height:1.7rem; line-height:1.7rem; color:#999; text-indent:5px; width:13rem; margin:.7rem 0 -1rem 2.4rem}
+.popuseRed{ padding:0 12% .5rem 0}
+.popuseRed span{ position:relative; width:3.8rem; height:1.3rem; font-size:.75rem; color:#106fe5; padding-top:.5rem}
+.popuseRed span:before{ position:absolute; content:""; right:0rem; top:.65rem; width:.35rem; height:.35rem; border-left:1px solid #106fe5; border-bottom:1px solid #106fe5; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.zfRed{ max-height:9rem; overflow:hidden; overflow-y:scroll}
+.redText{ float:left; font-size:.8rem; padding-top:.1rem; width:91%; color:#999}
+.zfRed .cur .redText{ color:#333}
+.zfRed .cur .nocheck{ background-image:url(../img/check.png)}
+.zfpopNone .zfRed{ display:none}
+.zfpopCur .popuseRed span:before{ top:.9rem; transform:rotate(135deg); -webkit-transform:rotate(135deg); -moz-transform:rotate(135deg)}
+.zfpopCur .zfRed{ display:block}
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -90px;background:#000;color:#fff;width:180px;height:35px;line-height:35px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:1000}
+.nobs{ text-align:center; font-size:1.3rem; line-height:2.2rem; letter-spacing:.1rem; padding-top:5rem}
+.lcmycts{ padding:1.5rem 0 1rem 0; line-height:1.6rem; text-align:center; font-size:.95rem}
+</style>
+<body style="background:#efefef">
+<header class="tzHeader">
+      <section class="zcHeader fixed2">
+    	<h1>篮彩-买一场</h1>
+    	<a href="javascript:;" class="fcbackHome" id=back></a>
+      </section>
+ </header>
+<article id=bet_list>
+   	<section>
+    	<article class="gddgxh">
+    	  <div>
+        	<div class="gddgScroll clearfix" id='lcScroll'>
+            	<span class="prev prevStop"></span>
+                <div class="gddgbd">
+                <ul id='wapper'></ul>
+                </div>
+                <span class="next"></span>
+            </div>
+            <div class="gddgxhList">
+                <ul id='content'></ul>
+            </div>
+          </div>
+          <div class="nobs" style='display:none;'>每周三,五,六,日<br>开售1场NBA单关投注<br>敬请期待！</div>    
+        </article>
+        <div class="gddgdouble" id=money>
+        	<div class="clearfix"><cite>每项买</cite><span><em id=jian>-</em><input type='tel' maxlength="6" value="10"><em id=jia>+</em></span><cite>元</cite></div>
+    		<p class="pdTop06" id='yc'></p>
+    	</div>
+    </section>
+	<footer class="buyFooter">
+    	<div class="fixed gddgFloat">
+        	<a href="javascript:;" class="ssqdeleted" id='dohm'>发合买</a>
+        	<a href="javascript:;" class="ture" id='dobuy'>猜中比赛结果即获奖 </a>
+   		</div>
+	</footer>  
+</article>
+
+<!-- 发起合买[[ -->
+	<article id="bethm" style=display:none;>
+	<div class="pdLeft04" >
+    	<p class="pdTop03 pdLeft06" id='hmDet'>本方案共<cite class="yellow"></cite>注<cite class="yellow"></cite>倍，总金额<cite class="yellow"></cite>元</p>
+        <div class="s2"><i>认购</i><span>
+	        <input type="tel" onkeyup="this.value=this.value.replace(/\D/g,'')" id="rg" class="hmInput" value="">
+	       	 元（<cite class="yellow" id="rg_bl"></cite>）</span>
+        </div>
+        <div class="s2"><i>保底</i><span>
+	        <input type="tel" onkeyup="this.value=this.value.replace(/\D/g,'')" id="bd" class="hmInput" value="0">
+	       	 元（<cite class="yellow" id="bd_bl">0%</cite>）<em class="check nocheck" id="chk"></em><em class="gray">全额保底</em></span>
+        </div>
+        <div class="s2">
+        	<i class="tcheight">提成比例</i>
+            <ul class="left scale" id="ratio">
+            	<li v='0'>0%</li>
+                <li v='1'>1%</li>
+                <li v='2'>2%</li>
+                <li v='3'>3%</li>
+                <li v='4'>4%</li>
+                <li v='5' class="cur">5%</li>
+                <li v='6'>6%</li>
+                <li v='7'>7%</li>
+                <li v='8'>8%</li>
+                <li v='9'>9%</li>
+                <li v='10'>10%</li>
+            </ul>
+        </div>
+        <div class="s2">
+        	<i class="gkheight">是否公开</i>
+            <ul class="left scale" id="isPublic">
+            	<li v="0" class="cur">公开</li>
+                <li v="2" class="along">对跟单用户公开</li>
+                <li v="1">截止后公开</li>
+                <li v="3" class="along">截止后对跟单用户公开</li>
+            </ul>
+        </div>
+        <div class="s2">
+        	<i class="faheight">方案宣言</i>
+            <textarea id='hmDesc' class="xyText" placeholder='一句好的口号将帮助方案尽快满员'></textarea>
+      	</div>
+      	</div>
+      	<footer class="buyFooter">
+   	  	<div class="buyFloat fixed">
+        	<span id=hm_m>认购1元 保底0元 共<cite class="red">1</cite>元</span>
+        	<a href="javascript:;" class="ture2" id=hmSubmit>提 交</a>
+    	</div>
+	</footer> 
+  	</article>
+	<!-- ]]发起合买-->
+
+<!-- 支付弹窗[[ -->
+<section id=buy_box class="zfpop zfpopNone" style="position:fixed; top:50%; left:5%; z-index:10000;display:none">
+    <h4>投注确认</h4>
+    <div class="poptzText pdLeft1" id=buy_reveal>
+    	<p>投注金额： <cite class="red" id='tzmoney'>0元</cite></p>
+    	<p>奖金范围： <cite class="red" id='bouns'>2.54~4.98元</cite></p>
+    	<div class="clearfix popuseRed"><p class="left">账户余额： <cite class="red" id='yue'>0元</cite></p><span class="right" id=redpack>使用红包</span></div>
+    </div>
+    <div class="zfRed pdTop08" id='buy_hide'></div> 
+    <div class="zfTrue clearfix"><a href="javascript:;" class="zfqx" id='cancle'>取消</a><a href="javascript:;" style='display:none;' id=gocz>去充值</a><a href="javascript:;" id=isok>确认</a></div>
+</section>
+<section class="zfpop zfpopNone" style="position:fixed; top:50%; left:5%; z-index:10000;display:none" id='record'>
+    <p class="lcmycts">恭喜你,投注成功！<br>请前往【我的彩票】查看投注记录</p>
+    <div class="zfTrue clearfix"><a href="javascript:;" class="bfb">确认</a></div>
+</section>
+<section class="zfpop zfpopNone" style="position:fixed; top:50%; left:5%; z-index:10000;display:none" id='recharge'>
+    <p class="lcmycts">余额不足，<br>请前往客户端充值后购买</p>
+    <div class="zfTrue clearfix"><a href="javascript:;" class="bfb">确认</a></div>
+</section>
+
+<div class="mask" id=mask></div>
+<script type="text/javascript" src="zepto.js"></script>
+<script type="text/javascript" src='index.js'></script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1e1a0d86a7a03a31cc8c75a4e20490f5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 百度统计 -->
+</body>

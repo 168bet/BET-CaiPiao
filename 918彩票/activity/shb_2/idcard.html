@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>身份证绑定</title>
+<style type="text/css">
+body{ background:#f7f7f7; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+p{ line-height:1.2rem}
+a{ color:#333; text-decoration:none}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}.clearfix{ overflow:hidden; zoom:1}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.yellow{ color:#f6851f}
+.gray{ color:#8e8e8e}
+.red{ color:#f03d3d}
+.aGreen{ color:#7ac0e5}
+.pdLfrt09{ padding:.1rem .9rem 0 .9rem}
+.pdTop06{ padding-top:.6rem}
+.pdTop08{ padding-top:.8rem}
+.pdTop1{ padding-top:1rem}
+.mgBot1{ margin-bottom:1rem}
+.relative{ position:relative}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.s1{ line-height:2.5rem; background:#fff; margin-top:.7rem; overflow:hidden; zoom:1}
+.s1 span{ float:left; width:26%; margin-right:1%; text-align:center; color:#222; font-size:.93rem}
+.s1 input{ width:73%; border:none;height:1.3rem; line-height:1.3rem; margin-top:.7rem; font-size:.92rem}
+.payment{ display:block; line-height:2.5rem; text-align:center; letter-spacing:.1rem; margin-top:.8rem; color:#fff; font-size:1.1rem; background:#f26c60; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.payment:active{ color:#fff}
+.error{ position:absolute; right:.5rem; top:.65rem; width:1.06rem; height:1.06rem; background:url(/img/error.png) no-repeat center; background-size:1.06rem 1.06rem; -webkit-background-size:1.06rem 1.06rem; -moz-background-size:1.06rem 1.06rem}
+.redError{ float:left; width:.9375rem; height:.9375rem; margin:.15rem .25rem 0 0; background:url(/img/account/redError.png) no-repeat center; background-size:.9375rem .9375rem; -webkit-background-size:.9375rem .9375rem; -moz-background-size:.9375rem .9375rem}
+.bankcard p span{ display:inline-block; width:23%}
+.fixed{ position:fixed; bottom:0; left:0; z-index:99; width:100%}
+.buyFooter{ padding-top:5rem} 
+.buyFloat{ text-align:center; background:#fff; line-height:2.5rem}
+.tellNum a{ display:block; color:#777; font-size:1rem; width:13.2rem; margin:0 auto}
+.tell{ float:left; margin:.6rem 0 0 0; width:1.4rem; height:1.4rem; background:url(/img/fc/tell.png) no-repeat center; background-size:1.36rem 1.36rem; -webkit-background-size:1.36rem 1.36rem; -moz-background-size:1.36rem 1.36rem}
+
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:9999;left:0;top:0; display: none;}
+</style>
+<body>
+	<article class="gray">
+		<header class="tzHeader">
+		<div class="fixed2">
+			<section class="fcHeader">
+				<h1>身份证绑定</h1>
+				<a href="javascript:history.go(-1);" class="fcbackIco2"></a>
+			</section>
+		</div>
+		</header>
+		<div class="pdLfrt09" id='bind' style='display: none;'>
+			<p class="pdTop08">真实姓名和身份证是兑奖和提款的重要凭证，填写错误将无法兑奖和提款，请注意！</p>
+			<div class="s1 relative">
+				<span>真实姓名</span><input type="text" placeholder="请输入真实姓名" id='tName'><em
+					class="error" style='display: none;'></em>
+			</div>
+			<p class="red pdTop08" style='display: none;'>
+				<em class="redError"></em>真实姓名只能是中文
+			</p>
+			<div class="s1 relative">
+				<span>身份证号</span><input type="text" placeholder="请输入身份证号" id='tCard'><em
+					class="error" style='display: none;'></em>
+			</div>
+			<div class="s1 relative">
+				<span>重复输入</span><input type="text" placeholder="请重复输入身份证号"
+					id='tCard2'><em class="error" style='display: none;'></em>
+			</div>
+			<div class="s1 mgBot1 relative">
+				<span>登录密码</span><input type="password" placeholder="请输入账户密码"
+					id='tCode'><em class="error" style='display: none;'></em>
+			</div>
+			<p>
+				<a href="/alone/forgotpwd.html" class="aGreen">忘记密码？</a>
+			</p>
+			<a href="javascript:;" onclick='setdata()' class="payment">确认</a>
+		</div>
+		<div class="pdLfrt09 bankcard" id='success' style='display: none;'>
+			<p class="pdTop06"></p>
+			<p class="pdTop06"></p>
+			<p class="yellow pdTop1">真实姓名绑定后无法修改,如有问题请拨打客服电话400-673-9188</p>
+		</div>
+<footer class="buyFooter">
+	<div class="buyFloat fixed tellNum"><a href="tel:400-673-9188"><em class="tell"></em>客服电话：400-673-9188</a></div>
+</footer>  		
+	</article>
+	<div class="mask" style='display: none;' id='mask'></div>
+	<script type="text/javascript" src="/js/public/zepto.js"></script>
+<script>
+//公用弹出层和加载层
+var win_alert = alert;
+window['alert'] = function (msg, loading) {
+	if (!loading) {
+		clearTimeout(window.alert.time);
+		var obj = $('<div class="alertBox">' + msg + '</div>');
+		$('body').append(obj);
+		window.alert.time = setTimeout(function () {
+			$(".alertBox").remove();
+		}, 2000);
+	} else {
+		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+		$('#mask').show();
+	}
+};
+var remove_alert = function () {
+	$('.alertBox').remove();
+	$('#mask').hide();
+};
+var Wi = [ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1 ];    // 加权因子   
+var ValideCode = [ 1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2 ];            // 身份证验证位值.10代表X   
+$(function () {
+	initial();
+	$("#tName").val('');
+	$("#tCard").val('');
+	$("#tCard2").val('');
+	$("#tCode").val('');
+	$("#tName").on('keyup blur',function(){
+		var str = $(this).val();
+		var reg = /^[\u4E00-\u9FA5]+$/;
+		var tt = str;
+		tt = tt.replace(/·/g,'');
+		if(str.indexOf('.')>=0){
+			str=str.replace('.','·');
+			$(this).val(str);
+		}
+		else if(!reg.test(tt) && tt !=''){
+			$('#bind p').eq(1).show();
+		}else{
+			$('#bind p').eq(1).hide();
+		}
+	});
+	$("#bind div input").bind('keyup',function(){
+		if($(this).val().length>0){
+			$(this).next().show();
+		}else{
+			$(this).next().hide();
+		}
+	});
+	$('#bind div .error').click(function(){
+		$(this).prev().val('');
+		$(this).hide();
+	});
+});
+function initial(){
+	alert("1")
+		$.ajax({
+			url : "http://t209.gs.9188.com/user/query.go?flag=2",
+			type : "POST",
+			dataType : "xml",
+			success : function(xml) {
+				var R = $(xml).find("Resp");
+				var code = R.attr("code");
+				var desc = R.attr("desc");
+				alert(code)
+				if (code == "0") {
+					var r= R.find("row");
+					var rname = r.attr("rname");
+					var idcard = r.attr("idcard");
+					if(rname == ""){
+						$("#bind").show();
+						$("#success").hide();
+					}else {
+						$("#bind").hide();
+						$("#success").show();
+						$("#success p").eq(0).html('<span class="gray">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>'+rname);
+						$("#success p").eq(1).html('<span class="gray">身份证号</span>'+idcard);
+					}
+				}else{
+					alert(desc);
+					$("#bind").show();
+					$("#success").hide();
+					if(desc.indexOf('未登录')>=0){
+						setTimeout(function () {
+							window.location.href = 'login.html';
+						}, 1500);
+					}
+				}
+			},
+			error:function(){
+				alert("用户登录异常")
+			}
+		});
+	}
+function setdata(){
+var card1 = $.trim($("#tCard").val());
+var tCode = $.trim($("#tCode").val());
+	
+if ($.trim($("#tName").val())==""){
+	alert('请输入您的真实姓名');
+	return false;
+}
+if (card1==""){
+	alert('请输入您的身份证号码');
+	return false;
+}
+if(!IdCardValidate(card1)){
+	alert('请输入正确的身份证');
+	return false;
+}
+if (card1 != $.trim($("#tCard2").val())){
+	alert('两次输入的身份证号码不一致');
+	return false;
+}
+
+	if (tCode==""){
+		alert('请输入您的登录密码以确认您的身份');
+		return false;
+	}
+alert('提交中', 'load');
+$.ajax({
+	url : '/user/modify.go?flag=7',
+	type : "POST",
+	dataType : "xml",
+	data : "realName=" + encodeURIComponent($.trim($("#tName").val()))
+	+ "&idCardNo=" + encodeURIComponent($.trim($("#tCard").val()))
+	+ "&upwd=" + encodeURIComponent(tCode)
+	+ "&rnd=" + Math.random(),
+	success : function(xml) {
+		remove_alert();
+		var R = $(xml).find("Resp");
+		var code = R.attr("code");
+		var desc = R.attr("desc");
+		
+		if (/绑定身份证成功/.test(desc)) {
+			alert('身份证绑定成功');
+			
+			
+			
+			$.ajax({
+				url : "/user/querybind.go",
+				type : "POST",
+				dataType : "xml",
+				success : function(xml) {
+					remove_alert();
+					var R = $(xml).find("Resp");
+					var code = R.attr("code");
+					var desc = R.attr('desc');
+					if(code=="0"){
+						var r = R.find("row");
+						var mobile = r.attr("mobile");
+						var mobbind = r.attr("mobbind");
+						if(mobbind=="1"){//已绑定
+							window.location.href="index.html"
+						}else if(mobbind=="0"){//未绑定
+							window.location.href="phone.html";
+						}
+					}else{
+						window.location.href="index.html"
+					}
+				}
+			});
+		} else {
+			alert(desc);
+		}
+	}
+});
+}
+function IdCardValidate(idCard) {
+idCard = trim2(idCard.replace(/ /g, ""));               //去掉字符串头尾空格                     
+if (idCard.length == 15) {   
+    return isValidityBrithBy15IdCard(idCard);       //进行15位身份证的验证    
+} else if (idCard.length == 18) {   
+    var a_idCard = idCard.split("");                // 得到身份证数组   
+    if(isValidityBrithBy18IdCard(idCard)&&isTrueValidateCodeBy18IdCard(a_idCard)){   //进行18位身份证的基本验证和第18位的验证
+        return true;   
+    }else {   
+        return false;   
+    }   
+} else {   
+    return false;   
+}   
+};
+function isValidityBrithBy15IdCard(idCard15){   
+var year =  idCard15.substring(6,8);   
+var month = idCard15.substring(8,10);   
+var day = idCard15.substring(10,12);   
+var temp_date = new Date(year,parseFloat(month)-1,parseFloat(day));   
+// 对于老身份证中的你年龄则不需考虑千年虫问题而使用getYear()方法   
+if(temp_date.getYear()!=parseFloat(year)   
+        ||temp_date.getMonth()!=parseFloat(month)-1   
+        ||temp_date.getDate()!=parseFloat(day)){   
+          return false;   
+  }else{
+  	if(idCard15.indexOf('e')!=-1){
+  		return false;
+  	}else{
+  		if(isNaN(idCard15)){
+        		return false;
+        	}else{
+        		return true;
+        	} 
+  	}
+  }   
+};
+function isTrueValidateCodeBy18IdCard(a_idCard) {
+var sum = 0;                             // 声明加权求和变量   
+if (a_idCard[17].toLowerCase() == 'x') {   
+    a_idCard[17] = 10;                    // 将最后位为x的验证码替换为10方便后续操作   
+}   
+for ( var i = 0; i < 17; i++) {   
+    sum += Wi[i] * a_idCard[i];            // 加权求和   
+}   
+valCodePosition = sum % 11;                // 得到验证码所位置   
+if (a_idCard[17] == ValideCode[valCodePosition]) {   
+    return true;   
+} else {   
+    return false;   
+}   
+} 
+function isValidityBrithBy18IdCard(idCard18){
+var year =  idCard18.substring(6,10);   
+var month = idCard18.substring(10,12);   
+var day = idCard18.substring(12,14);   
+var temp_date = new Date(year,parseFloat(month)-1,parseFloat(day));   
+// 这里用getFullYear()获取年份，避免千年虫问题   
+if(temp_date.getFullYear()!=parseFloat(year)   
+      ||temp_date.getMonth()!=parseFloat(month)-1   
+      ||temp_date.getDate()!=parseFloat(day)){   
+        return false;   
+}else{   
+    return true;   
+}   
+};
+//去掉字符串头尾空格
+function trim2(str) {
+return str.replace(/(^\s*)|(\s*$)/g, "");   
+};
+</script>
+</body>
+</html>

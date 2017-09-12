@@ -1,0 +1,386 @@
+
+.info-item-top{
+    height: 150px;
+    padding: 10px 5px;
+}
+.match{
+    float: left;
+    width: 75px;
+    height: 150px;
+    text-align: center;
+    margin-left: 15px;
+}
+.match-tip{
+    display: block;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.fight-l{
+    width: 155px;
+    float: left;
+    text-align: center;
+    height: 127px;
+    margin-left: 50px;
+}
+.fight-m{
+    width: 100px;
+    height: 127px;
+    text-align: center;
+    float: left;
+    padding-top: 30px;
+}
+.fight-r{
+    width: 155px;
+    float: left;
+    text-align: center;
+    height: 127px;
+}
+.fight-team{
+    width: 90px;
+    height: 126px;
+}
+.analysis{
+    width: 200px;
+    float: left;
+    padding-left: 20px;
+}
+.analysis a {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    font-size: 14px;
+}
+.forecast{
+    height: 25px;
+    line-height: 25px;
+    margin-top: 15px;
+}
+.forecast a{
+    color: #ffffff;
+}
+.forecast a:hover{
+    color: #ffffff;
+}
+.info-item-bottom{
+    padding: 10px 15px;
+    text-indent: 2em;
+    margin-top: 10px;
+}
+.info-item-bottom a:hover{
+    color: #00a0e9;
+}
+.hot-live-title{
+    font-size: 1.4em;
+    width: 94%;
+    margin: 0 auto;
+}
+.imgCon{
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+    display: none;
+}
+li.active .imgCon{
+    display: block;
+}
+li.active .special-title{
+    display: none;
+}
+.video-live .img-container a img {
+    width: 100%;
+}
+
+.imgCon .mask{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.6);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+}
+.imgCon img{
+    width: 100%;
+}
+.special-title{
+    height: 40px;
+    line-height: 40px;
+}
+.news-title{
+    height: 40px;
+    line-height: 40px;
+}
+.video-tip{
+    height: 25px;
+    margin-top: 5px;
+}
+.img-container a:hover{
+    color: #00a0e9;
+}
+.img-container img:hover{
+    box-shadow: 0 0 5px #000;
+}
+.checkbox-inline .middle{
+    margin-top: 2px;
+}
+
+/*足球指数start*/
+.ft-table{
+    font-size: 1.4em;
+}
+.tb{
+    background: url("../images/tb.png") 0 0 no-repeat;
+    height: 40px;
+}
+.tb-li{
+    width: 80px;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+}
+.on{
+    background-color: #08ace9;
+    border-radius: 3px 3px 0 0;
+}
+.on a{
+    color: #ffffff;
+}
+.tb-item{
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    color: #ffffff;
+    width: 80px;
+    padding: 10px 0 10px 0;
+}
+.td-blue{
+    background-color: #04a7e9;
+    color: #fff;
+}
+.tb-header tr{
+    height: 35px;
+}
+.tb-header tr a:hover{
+    text-decoration: underline;
+}
+.tr{
+    text-align: center;
+    background-color: #08abe9;
+    color: #ffffff;
+}
+.tr td{
+    border: 1px solid #0fb7f2;
+}
+.tr td:first-child{
+    border-left: none;
+}
+.tr td:last-child{
+    border-right: none;
+}
+.center{
+    text-align: center;
+}
+.block{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 8px;
+    margin-right: 10px;
+    height: 28px;
+    line-height: 28px;
+    background-color: #2a2b80;
+    text-align: center;
+    padding: 0 10px;
+}
+.reduce{
+    position: relative;
+    top: 5px;
+    margin-left: 8px;
+    font-size: 1.4em;
+}
+.team-l{
+    display: inline-block;
+    height: 28px;
+    text-align: right;
+    margin-left: 70px;
+}
+.team-r{
+    display: inline-block;
+    height: 28px;
+    text-align: left;
+    margin-right: 70px;
+}
+.red{
+    color: red;
+}
+.spot{
+    position: relative;
+    top: 2px;
+}
+.bar{
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+}
+.xi{
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    border-right: 1px solid #0fb7f2;
+    padding-right: 5px;
+    right: 35px;
+    float: right;
+}
+.tb-header .td-data{
+    height: 40px;
+    background-color: #f5f9fc;
+    border-bottom: 1px solid #f3f4f5;
+    color: #666666;
+}
+.td-data td{
+    text-align: center;
+    border-right: 1px solid #ffffff;
+}
+.td-data td:last-child{
+    border-right: none;
+}
+.blue{
+    color: #00a0e9;
+}
+.ft14{
+    font-size: 13px;
+    font-weight:normal;
+}
+.ft14 .btn{
+    font-size: 13px;
+}
+.init{
+    display: inline;
+    width: 34px;
+    height: 26px;
+    border-radius: 2px;
+    background-color: #00A0E9;
+    color: #fff;
+    padding: 5px 8px;
+}
+a.init:hover{
+    background-color: #0790CE;
+    color: #ffffff;
+    text-decoration: none;
+}
+.ensure{
+    background-color: #00A0E9;
+    color: #fff;
+    width: 44px;
+    height: 26px;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+}
+button.ensure:hover{
+    background-color: #0790CE;
+    color: #ffffff;
+}
+/*足球指数end*/
+
+.img-container,.img-container a{
+    height: auto;
+}
+
+/*football_live新增*/
+.fight-l-title,.fight-r-title{
+    width: 65px;
+    display: inline-block;
+    padding-top: 45px;
+    font-size: 14px;
+}
+.fight-l-title{
+    padding-right: 5px;
+}
+.fight-r-title{
+    padding-left: 5px;
+}
+/*新增导航条*/
+.select-event-nav{
+    margin-left: -15px;
+    margin-right: -15px;
+    background-color: #ffffff;
+    border-bottom: 2px solid #00a0e9;
+}
+.select-event-nav li{
+    float: left;
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+}
+.select-event-nav li a{
+    display: block;
+    color: #00a0e9;
+}
+.select-event-nav li a .tip{
+    position: relative;
+    left: 2px;
+    top: -9px;
+    padding: 1px;
+    background-color: #00a0e9;
+    color: #fff;
+    font-size: 12px;
+
+}
+.select-event-nav li a.select{
+    color: #F61316;
+}
+.date{
+    margin-top: 15px;
+    font-size: 14px;
+    float: left;
+}
+.date .active,.date li:hover a{
+    background-color: #00a0e9;
+    color: #ffffff;
+}
+.date li{
+    padding: 0 5px;
+    height: 32px;
+    text-align: center;
+    float: left;
+}
+.date-item{
+    display: block;
+    width: 100px;
+    height: 30px;
+    border: 1px solid #e6e6e6;
+    text-align: center;
+    line-height: 30px;
+}
+.select-date{
+    float: left;
+    font-size: 14px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.search{
+    width:70px;
+    text-align: center;
+    margin-left: 10px;
+}
+.date-wrap{
+    margin-left: -15px;
+    margin-right: -5px;
+    background-color: #ffffff;
+    padding-bottom: 10px;
+}
+/*比赛状态*/
+.status{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-image: url("../images/in.gif");
+}

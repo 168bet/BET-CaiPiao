@@ -1,0 +1,162 @@
+@charset "UTF-8";
+$color:#333;
+$grayColor:#555;
+$lightGrayColor:#c7c7c7;
+$backgroundColor:#f5f4f9;
+$borderColor:#e1e1e1;
+$fontSize:.875rem !default;
+$hFontSize:pxToRem(32px);
+$fontFamily:Arial,"Microsoft Yahei",Helvetica !default;
+
+//居中显示
+%center-block{
+  margin-left:auto;
+  margin-right:auto;
+}
+//清除浮动样式
+ %clearfix{
+   &:before,&:after{
+    content:"";
+    display:table;
+    font: 0/0;
+  } 
+  &:after{
+    clear:both;
+    overflow:hidden;
+  } 
+} 
+// 单位转换 px to rem
+@function pxToRem($px) {
+  @return ($px / 27px) * 1rem;
+}
+//透明度
+@mixin opacity($opacity){
+  opacity:$opacity;
+  filter:Alpha(opacity=$opacity*100);
+}
+//公共样式
+*{
+  margin:0;
+  padding:0;  
+}
+cite,em{font-style:normal;}
+li,ul{list-style-type:none;}
+a{ text-decoration:none;}
+html,body{height:100%;color:$color; font-size:$fontSize; font-family:$fontFamily; background-color:$backgroundColor;}
+h1,h2,h3{font-weight:normal;}
+@media screen and (min-width: 480px) {
+  html, body, button, input, select, textarea {
+      font-size: 18px;
+  }
+}
+@media screen and (min-width: 640px) {
+  html, body, button, input, select, textarea {
+      font-size: 24px;
+  }
+}
+//占位符兼容样式
+::-webkit-input-placeholder{color:$lightGrayColor; text-align:right; font-size:$hFontSize;} 
+:-moz-placeholder{color:$lightGrayColor; text-align:right; font-size:$hFontSize;}
+::-moz-placeholder{color:$lightGrayColor; text-align:right; font-size:$hFontSize;}
+:-ms-input-placeholder{color:$lightGrayColor; text-align:right; font-size:$hFontSize;}
+
+//main
+
+.id_top{
+  width:100%; padding-top:pxToRem(68px);
+  background-color:#fff; border-bottom:1px solid $borderColor; 
+  i{
+    display:block;  width:pxToRem(128px); height:pxToRem(128px);
+    border-radius:pxToRem(28px);      
+    @extend %center-block;  
+    img{
+       width:pxToRem(128px); height:pxToRem(128px); border-radius:pxToRem(28px);
+    }
+  }
+}
+
+.id_form{
+  display:block;width:96%; padding-left:4%;	margin-top:pxToRem(86px);	
+  font-size:pxToRem(32px);
+  li{@extend %clearfix; padding:pxToRem(25px) 0;}
+  li:first-child{
+    border-bottom:1px solid $borderColor;
+    span{ width:19%;}
+    input{ width:76%;}
+  }
+  li:last-child{
+    span{ width:14%;}
+    input{ width:81%;}
+  }
+  li.newid{
+    span{ width:24%;}
+    input{ width:71%;}
+  }
+  span{ display:inline-block;height:pxToRem(46px); float:left;line-height:pxToRem(46px); }
+  input{
+    display:inline-block;height:pxToRem(46px); float:left;line-height:pxToRem(46px); text-align:right; font-size:pxToRem(32px); border:none;      
+  }
+}
+.id_success{
+  padding-top:pxToRem(240px);
+  i{
+    display:block;  width:pxToRem(158px); height:pxToRem(158px);
+    text-align:center; line-height:7.5rem;
+    background-color:#31ba8e; border-radius:pxToRem(79px);  
+    @extend %center-block;  
+    img{
+       width:pxToRem(88px); height:pxToRem(64px);
+       @extend %center-block;  
+    }
+  }
+  h2{
+    margin-top:pxToRem(36px); 
+  }
+  p{
+    margin-top:pxToRem(56px); line-height:pxToRem(40px); font-size:pxToRem(28px); color:$grayColor; text-align:center;
+  }  
+}
+
+.id_add{
+  width:92%;padding:pxToRem(86px) 0 pxToRem(32px) 0; text-align:center;
+  border:1px dashed #fdaa9b; border-radius:3px;  
+  @extend %center-block; 
+  .id_addimg{
+    position:relative;width:pxToRem(305px); height:pxToRem(180px);border-radius:3px;
+    box-shadow:0 0 6px rgba(254,172,157,.16);
+    @extend %center-block;  
+    .addinput{position:absolute; top:0; left:0; z-index:10; display:block; width:pxToRem(305px); height:pxToRem(180px);
+      background:none; border:none; cursor:pointer; opacity:0;
+    }
+    img{
+    width:pxToRem(305px); height:pxToRem(180px);
+    box-shadow:0 pxToRem(7px) 5px rgba(228,180,180,.36);
+    }
+  }  
+  p{
+    height:pxToRem(90px); line-height:pxToRem(90px); color:#f84b32; font-size:pxToRem(30px);
+  }  
+}
+
+.h2{
+  height:pxToRem(74px); line-height:pxToRem(74px); font-size:pxToRem(32px);text-align:center;
+}
+.bold{font-weight:bold;}
+.button{
+  display:block;width:92%; height:pxToRem(88px); margin-top:pxToRem(72px);
+  line-height:pxToRem(88px);color:#fff;  text-align:center; font-size:pxToRem(36px);
+  background-color:#fc5638; border:none;border-radius:.375rem;    
+  @extend %center-block;
+  &:hover{
+    opacity:.5;
+  }  
+}
+.button[disabled=disabled]{
+  opacity:.5;
+}
+.bg_fff{ background-color:#fff;}
+.padding_bottom3{ padding-bottom:pxToRem(30px);}
+.margin_bottom8{ margin-bottom:pxToRem(46px);}
+.margin_top{ margin-top:pxToRem(30px);}
+.box-shadow1{box-shadow:1px 3px 8px rgba(244,133,49,.89);}
+.box-shadow2{box-shadow:1px 3px 8px rgba(254,172,157,.5);}

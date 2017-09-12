@@ -1,0 +1,482 @@
+{php $css = array('banner.css', 'index.css')}
+{php $nav_id = 1}
+{template 'content', 'header_score'}
+<!-- banner section-->
+<section class="section-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 pdL0 pdR0">
+
+                <!--banner-->
+                <div class="banner" id="banner">
+
+                    <div class="banner-bd">
+
+                        <a href="#" target="_blank">
+                            <img src="" data-name="banner-img">
+                        </a>
+
+                        <div class="banner-title">
+
+                            <h1><a href="#" name="title" target="_blank"></a></h1>
+                            <p><a href="#" name="titleInfo" target="_blank"></a> </p>
+                        </div>
+
+                        <a href="javascript:;" class="banner-btn prev">
+                            <i class="icon-chevron-left icon-3x"></i>
+                        </a>
+                        <a href="javascript:;" class="banner-btn next">
+                            <i class="icon-chevron-right icon-3x"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="banner-fd">
+                        {pc:content action="position" posid="1" num="5" order="listorder DESC"}
+                        <ul class="clearfix">
+                            {loop $data $r}
+                            <li class="active xBanner-item">
+                                <img src="{get_thumb($r['thumb'], 350)}" data-title="{$r['title']}" data-title-info="{str_cut($r['description'], '120', '...')}" data-img = "{$r['thumb']}" data-link="{$r['url']}">
+                            </li>
+                            {/loop}
+                        </ul>
+                        {/pc}
+                    </div>
+                </div>
+                <!--banner end-->
+
+            </div>
+
+            <div class="col-sm-4 pdR0">
+
+                <div class="sideNew">
+                    <div class="title pdT10">
+                        <span class="icon-title icon-new"></span>
+                        最新资讯
+                    </div>
+                    {pc:content action="position" posid="2" num="3" order="listorder DESC"}
+                    <ul>
+                        {loop $data $r}
+                        <li class="new-item">
+                            <h2 class="new-title">
+                                <a href="{$r['url']}" target="_blank" title="{$r['title']}">
+                                    <i class="icon-hot">热点</i>
+                                    {str_cut($r['title'], '48', '...')}
+                                </a>
+                            </h2>
+                            <ul>
+                                {pc:content action="relation" catid="$r['catid']" relation="$r['relation']" num="4" order="id DESC"}
+                                {loop $data $r}
+                                <li><a href="{$r['url']}" target="_blank">{str_cut($r['title'], '72', '...')}</a></li>
+                                {/loop}
+                                {/pc}
+                            </ul>
+                        </li>
+                        {/loop}
+                    </ul>
+                    {/pc}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- main body -->
+<section>
+    <div class="container">
+
+        <!-- 竞猜 -->
+        <div class="row section-item">
+
+            <div class="col-sm-8 pdL0 pdR0">
+                <h1 class="title pdT10">
+					<span class="icon-jicai icon-title">
+					</span>
+                    即时赛事
+                    <a target="_blank" href="{APP_PATH}zqscore/" class="more">更多</a>
+                </h1>
+
+                {loop $live_game_data $data}
+                <div class="content" data-action="live-game-stats" data-game-id="{$data['gameid']}" data-minute="{$data['minute']}">
+                    <p class="hint">{$data['competitionshortname']} {date('m-d H:i', $data['date'])} {$data['homeshortname']} VS {$data['awayshortname']} </p>
+                    <ul class="clearfix">
+                        <li class="jicai-item" data-action="link" data-url="{APP_PATH}team/{$data['hometeamid']}/">
+                            <div class="jicai-col">
+                                <div class="team-img">
+                                    <img src="{PHOTO_PATH}team/{$data['hometeamid']}.jpg" alt="{$data['homeshortname']}" class="team-photo">
+                                </div>
+                            </div>
+
+                            <div class="jicai-col tip">
+                                <div data-stats="event" data-type="1" class="stats-event"></div>
+                                <p class="team-name">{$data['homeshortname']}</p>
+                            </div>
+                            <div class="arrowtip"></div>
+                        </li>
+                        <li class="jicai-item live-score" data-action="link" data-url="{APP_PATH}game/{$data['gameid']}/analyse/">
+                            <div class="jicai-m">
+                                <p>比分</p>
+                                <span class="jicai-span" data-stats="homescore">{$data['homescore']}</span>
+                                <span class="jicai-span">：</span>
+                                <span class="jicai-span" data-stats="awayscore">{$data['awayscore']}</span>
+                            </div>
+                            <div class="arrowtip"></div>
+                        </li>
+                        <li class="jicai-item" data-action="link" data-url="{APP_PATH}team/{$data['awayteamid']}/">
+                            <div class="jicai-col">
+                                <div class="team-img">
+                                    <img src="{PHOTO_PATH}team/{$data['awayteamid']}.jpg" alt="{$data['awayshortname']}" class="team-photo">
+                                </div>
+                            </div>
+                            <div class="jicai-col tip">
+                                <div data-stats="event" data-type="2" class="stats-event"></div>
+                                <p class="team-name">{$data['awayshortname']}</p>
+                            </div>
+                            <div class="arrowtip"></div>
+                        </li>
+                    </ul>
+                </div>
+                {/loop}
+
+                <!-- 今日股指 -->
+                <h1 class="title pdT10">
+					<span class="icon-guzhi icon-title">
+					</span>
+                    今日股指
+
+                    <a href="{APP_PATH}st/list/" class="more">更多</a>
+                </h1>
+
+                <div class="content today_guzhi">
+                    <ul class="clearfix">
+                        {loop $dapan_data $r}
+                        <li class="today_guzhi-item">
+                            <h1>{$r['name']}</h1>
+                            <p>
+								<span class="{if $r['increase'] < 0}guzhi-down{else}guzhi-up{/if}">{$r['nowpri']}
+									<span class="{if $r['increase'] < 0}index-down{else}index-up{/if}"></span>
+								</span>
+                                <span>{if $r['increase'] > 0}+{/if}{$r['increase']}&nbsp;{if $r['increase'] > 0}+{/if}{$r['increPer']}%</span>
+                            </p>
+                        </li>
+                        {/loop}
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="col-sm-4 pdL0 pdR0 side">
+                <h1 class="title pdT10">
+					<span class="icon-kaijiang icon-title">
+					</span>
+                    最新彩票开奖
+                    <a href="{APP_PATH}cp/info/" target="_blank" class="more">更多</a>
+                </h1>
+
+                <div class="tab-nav clearfix"></div>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel">
+                        <ul>
+                            {loop $lottery $key $value}
+                            <li class="caipiao" id="{$key}">
+                                <div class="caipiao-hd">
+                                    <b class="black">{$lottery_info[$key]}</b>
+                                    <span class="gray">{$value['id']}期</span>
+                                    <time class="gray fr">{date('Y-m-d', $value['uptime'])}</time>
+                                </div>
+                                <div class="caipiao-bd" data-action="lottery-list" data-type="{$key}">
+                                    {php $numbers = explode(',', $value['numbers'])}
+                                    {loop $numbers $number}
+                                    <sapn class="circle">{$number}</sapn>
+                                    {/loop}
+                                </div>
+                                <div class="caipiao-fd">
+                                    {php $pinyin2id = ['qxc'=>1,'xglhc'=>2,'gdklsf'=>3,'bjpks'=>4,'cqssc'=>5];}
+                                    <a target="_blank" href="{APP_PATH}cp/info/?id={$pinyin2id[$key]}">详细</a>
+                                    |
+                                    <a target="_blank" href="{APP_PATH}cp/{$key}/trendbase/">走势</a>
+                                </div>
+                            </li>
+                            {/loop}
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 焦点赛事 -->
+        <div class="row section-item">
+            <h1 class="title pdT10">
+				<span class="icon-jiangbei icon-title">
+				</span>
+                焦点赛事
+
+                <div class="table-tab-nav clearfix">
+                    <ul class="clearfix" role="tablist">
+                        <li class="active" role="presentation"><a href="#ft" data-toggle="tab">足球</a></li>
+                        <li role="presentation"><a href="#bt" data-toggle="tab">篮球</a></li>
+                    </ul>
+                </div>
+
+            </h1>
+            <div class="tab-content">
+                <div class="tab-pane active index-table" id="ft">
+                    <table class="table">
+                        {loop $live_info $data}
+                        <tr>
+                            <td width="129">
+                                <time class="gray">{date('H:i m-d', $data['date'])}</time>
+                            </td>
+                            <td width="240">
+                                <div class="pull-left">
+                                    <a href="{APP_PATH}competition/{$data['competitionid']}/schedule/" target="_blank">
+                                        <img src="{PHOTO_PATH}competition/{$data['competitionid']}.jpg" width="30" height="30" alt="{$data['competitionshortname']}" class="competition-photo">
+                                    </a>
+                                </div>
+                                <div class="pull-left" style="margin-left: 20px;"><a href="{APP_PATH}competition/{$data['competitionid']}/schedule/" target="_blank">{$data['competitionshortname']}</a></div>
+                            </td>
+                            <td class="text-left" style="padding-left: 60px;">
+                                <a href="{APP_PATH}team/{$data['hometeamid']}/" target="_blank">
+                                    {$data['homeshortname']}
+                                </a>
+                                &nbsp;
+                                VS
+                                &nbsp;
+                                <a href="{APP_PATH}team/{$data['awayteamid']}/" target="_blank">
+                                    {$data['awayshortname']}
+                                </a>
+                            </td>
+                            <td width="100" class="text-right">
+                                <a href="{APP_PATH}game/{$data['gameid']}/analyse/" target="_blank">析</a>
+                                {if $data['islive']}
+                                <a href="{APP_PATH}game/{$data['gameid']}/live/" target="_blank" class="table-player"></a>
+                                {/if}
+                                <a class="table-star" href="javascript:void(0)"><i class="icon-star-empty icon-large"></i></a>
+                            </td>
+                            <input type="hidden" value="2|{$data['gameid']}">
+                        </tr>
+                        {/loop}
+                    </table>
+                    <div class="table-fd">
+                        <a href="{APP_PATH}zqscore/" target="_blank">更多足彩比分</a>
+                    </div>
+                </div>
+                <div class="tab-pane index-table" id="bt">
+                    <table class="table">
+                        {loop $bt_live_info $data}
+                        <tr>
+                            <td width="129">
+                                <time class="gray">{date('H:i m-d', $data['date'])}</time>
+                            </td>
+                            <td width="240">
+                                <div class="pull-left">
+                                    <a target="_blank" href="{APP_PATH}sclass/{$data['sclassid']}/schedule/">
+                                        <img src="{BT_SCLASS_PATH}{$data['sclassid']}.jpg" width="30" height="30" alt="" class="bt-competition-photo">
+                                    </a>
+                                </div>
+                                <div class="pull-left" style="margin-left: 20px;color:{$data['sclasscolor']};"><a target="_blank" href="{APP_PATH}sclass/{$data['sclassid']}/schedule/">{$data['sclassname_cn']}</a></div>
+                            </td>
+                            <td class="text-left" style="padding-left: 60px;">
+                                <a href="{APP_PATH}lq/team/{$data['hometeamid']}/" target="_blank">
+                                    {$data['homename_cn']}
+                                </a>
+                                &nbsp;
+                                VS
+                                &nbsp;
+                                <a href="{APP_PATH}lq/team/{$data['guestteamid']}/" target="_blank">
+                                    {$data['guestname_cn']}
+                                </a>
+                            </td>
+                            <td width="100" class="text-right">
+                                <a href="{APP_PATH}schedule/{$data['scheduleid']}/analyse/" target="_blank">析</a>
+                                <a class="table-star" href="javascript:void(0)"><i class="icon-star-empty icon-large"></i></a>
+                            </td>
+                            <input type="hidden" value="3|{$data['scheduleid']}">
+                        </tr>
+                        {/loop}
+                    </table>
+                    <div class="table-fd">
+                        <a href="{APP_PATH}lqscore/" target="_blank">更多篮球比分</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--情报中心-->
+        <div class="row section-item">
+
+            <h1 class="title pdT10">
+                <span class="icon-title icon-new"></span>
+                情报中心
+            </h1>
+            <div class="new-box">
+                <ul class="clearfix">
+                    <li class="new-item">
+                        <div class="title">
+                            足彩分析
+                            <a href="{APP_PATH}zcfx/" target="_blank" class="more">更多</a>
+                        </div>
+                        {pc:content action="lists" catid="1" num="4" moreinfo="1" hits="1" order="id DESC"}
+                        <ul class="new-list">
+                            {loop $data $r}
+                            <li><a href="{$r['url']}" target="_blank">{str_cut($r['title'], 100, '...')}</a><span class="new-date">{date('Y-m-d', $r['inputtime'])}</span></li>
+                            {/loop}
+                        </ul>
+                        {/pc}
+                    </li>
+                    <li class="new-item">
+                        <div class="title">
+                            足彩预测
+                            <a href="{APP_PATH}zcyc/" target="_blank" class="more">更多</a>
+                        </div>
+                        {pc:content action="lists" catid="2" num="4" moreinfo="1" hits="1" order="id DESC"}
+                        <ul class="new-list">
+                            {loop $data $r}
+                            <li><a href="{$r['url']}" target="_blank">{str_cut($r['title'], 100, '...')}</a><span class="new-date">{date('Y-m-d', $r['inputtime'])}</span></li>
+                            {/loop}
+                        </ul>
+                        {/pc}
+                    </li>
+                    <li class="new-item">
+                        <div class="title">
+                            足彩推荐
+                            <a href="{APP_PATH}zctj/" target="_blank" class="more">更多</a>
+                        </div>
+                        {pc:content action="lists" catid="3" num="4" moreinfo="1" hits="1" order="id DESC"}
+                        <ul class="new-list">
+                            {loop $data $r}
+                            <li><a href="{$r['url']}" target="_blank">{str_cut($r['title'], 100, '...')}</a><span class="new-date">{date('Y-m-d', $r['inputtime'])}</span></li>
+                            {/loop}
+                        </ul>
+                        {/pc}
+                    </li>
+                    <li class="new-item">
+                        <div class="title">
+                            五大联赛
+                            <a href="{APP_PATH}wdls/" target="_blank" class="more">更多</a>
+                        </div>
+                        {pc:content action="lists" catid="28" num="4" moreinfo="1" hits="1" order="id DESC"}
+                        <ul class="new-list">
+                            {loop $data $r}
+                            <li><a href="{$r['url']}" target="_blank">{str_cut($r['title'], 100, '...')}</a><span class="new-date">{date('Y-m-d', $r['inputtime'])}</span></li>
+                            {/loop}
+                        </ul>
+                        {/pc}
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- 重点赛事 -->
+        <div class="row section-item">
+
+            <h1 class="title pdT10">
+					<span class="icon-stars icon-title">
+					</span>
+                重点赛事
+                <a href="{APP_PATH}zqevent/" target="_blank" class="more">更多</a>
+            </h1>
+
+            <div class="content saishi">
+                {pc:get sql="SELECT `competitionid`,`shortname` FROM ft_competition WHERE `competitionid` IN (92,85,34,39,93,152,139,149)" order="`competitionid`" num="9" dbsource="sportsdt"}
+                <ul class="clearfix">
+                    {loop $data $r}
+                    <li>
+                        <a href="{APP_PATH}competition/{$r['competitionid']}/schedule/" target="_blank">
+                            <img src="{PHOTO_PATH}competition/{$r['competitionid']}.jpg" alt="{$r['shortname']}" class="competition-photo">
+                            <p>{$r['shortname']}</p>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+                {/pc}
+            </div>
+        </div>
+
+        <!-- 图库推荐 -->
+        <div class="row section-item">
+            <h1 class="title pdT10">
+				<span class="icon-xiangji icon-title">
+				</span>
+                图库推荐
+                <a href="{APP_PATH}tuku/" target="_blank" class="more">更多</a>
+            </h1>
+            <div class="photo" id="tuku">
+                <a href="javascript:;" class="btn-control tabPrev prev">
+                    <i class="icon-chevron-left icon-2x fr"></i>
+                </a>
+                <a href="javascript:;" class="btn-control tabNext next">
+                    <i class="icon-chevron-right icon-2x fl"></i>
+                </a>
+                {pc:content action="position" posid="12" num="6" order="listorder DESC" thumb="1"}
+                <ul class="clearfix" name="content">
+                    {loop $data $r}
+                    <li class="slide-item">
+                        <div class="photo-bd">
+                            <a href="{$r['url']}" target="_blank" title="{$r['title']}">
+                                <img src="{$r['thumb']}" alt="{$r['title']}">
+                            </a>
+                        </div>
+                        <div class="photo-fd">
+                            <a href="{$r['url']}" target="_blank" title="{$r['title']}">
+                                {str_cut($r['title'], 60, '...')}
+                            </a>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+                {/pc}
+            </div>
+        </div>
+
+        <!-- 视频推荐 -->
+        <div class="row section-item">
+            <h1 class="title pdT10">
+				<span class="icon-video icon-title">
+				</span>
+                视频推荐
+                <a href="{APP_PATH}video/" target="_blank" class="more">更多</a>
+            </h1>
+            <div class="photo" id="video">
+                <a href="javascript:;" class="btn-control tabPrev prev">
+                    <i class="icon-chevron-left icon-2x fr"></i>
+                </a>
+                <a href="javascript:;" class="btn-control tabNext next">
+                    <i class="icon-chevron-right icon-2x fl"></i>
+                </a>
+                {pc:content action="position" posid="49" num="6" order="listorder DESC" thumb="1"}
+                <ul class="clearfix" name="content">
+                    {loop $data $r}
+                    <li class="slide-item">
+                        <div class="photo-bd">
+                            <a href="{$r['url']}" target="_blank" title="{$r['title']}">
+                                <img src="{$r['thumb']}" alt="{$r['title']}">
+                            </a>
+                        </div>
+                        <div class="photo-fd">
+                            <a href="{$r['url']}" target="_blank" title="{$r['title']}">
+                                {str_cut($r['title'], 60, '...')}
+                            </a>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+                {/pc}
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- main body -->
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+    var APP_PATH = '{APP_PATH}';
+</script>
+{php $js = array('jquery.mousewheel.js', 'banner.js', 'slideBar.js', 'index.js',  'imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js', 'http://echarts.baidu.com/build/dist/echarts.js', 'guzhi.js', 'chart.js')}
+{template 'content', 'footer'}

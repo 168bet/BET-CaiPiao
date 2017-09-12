@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <taglib>
+ <tlib-version>1.0</tlib-version>
+ <jsp-version>1.2</jsp-version>
+ <short-name>mh</short-name>
+ <uri>http://www.mh.com/framework/tags</uri>
+ <tag>
+   <name>token</name>
+   <tag-class>com.mh.tag.FormTokenTag</tag-class>
+   <description>令牌控件，用于防止重复提交，需将此控件写在from内部</description>
+ </tag>
+ </taglib>

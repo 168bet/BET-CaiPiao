@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>百分百中奖</title>
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<style type="text/css">
+body{ margin:0; padding:0; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#272727; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ul,li{ list-style-type:none}
+em,cite,i{ font-style:normal}
+.clearfix{ overflow:hidden; zoom:1}
+.clear{ clear:both}
+.left{ float:left}
+.right{ float:right}
+.banner{ position:relative; overflow:hidden; zoom:1}
+.login{ position:absolute; width:80%; bottom:8%; left:11%}
+.login a{ display:block; width:80%; line-height:2.2rem; margin:0 auto; text-align:center; font-size:1.2rem; background:#ecb113; color:#5a3e00; text-decoration:none; border:.1rem solid #f6cd2e; box-shadow:0 .2rem 0 #213516; -webkit-box-shadow:0 .2rem 0 #213516; -moz-box-shadow:0 .2rem 0 #213516; background:inear-gradient(top,#f6cd2e 50%,#ecb113 0%); background:-webkit-linear-gradient(top,#f6cd2e 50%,#ecb113 0%); background:-moz-linear-gradient(top,#f6cd2e 50%,#ecb113 0%)}
+.login p{ text-align:center; font-size:.94rem; color:#ffff00}
+a{ color:#333; text-decoration:none}
+.time{ line-height:1.82rem; background:#fffb98; padding:0 4%; color:#1d600c; font-size:.75rem; overflow:hidden; zoom:1}
+.bg{ background:#fff7d6; width:95%; margin:0 auto; padding-bottom:1rem; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.gddgScroll{ padding:1rem 0 .4rem 0; height:2.88rem; text-align:center; overflow:hidden; zoom:1}
+.gddgScroll div{ font-size:1.12rem; color:#1c8101; margin-bottom:.3rem}
+.gddgScroll div cite{ display:inline-block; width:43%; text-align:right}
+.gddgScroll div i{ display:inline-block; width:14%}
+.gddgScroll div em{ display:inline-block; width:43%; text-align:left}
+.gddgScroll p{ font-size:.8rem; color:#666}
+.gddgxhList{ padding:0 3%}
+.gddgxhList p{ line-height:1.5rem; font-size:.94rem; text-align:center}
+.gddgxhList ul li,.gddghot{ overflow:hidden; zoom:1}
+.gddgxhList ul li span{ float:left; width:30.4%; height:2.26rem; padding-top:.3rem; line-height:1.1rem; text-align:center; color:#51b236; font-size:1.12rem; margin:.45rem 3% 0 0; box-shadow:0 0 0 .1rem #51b236 inset; -webkit-box-shadow:0 0 0 .1rem #51b236 inset; -moz-box-shadow:0 0 0 .1rem #51b236 inset; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.gddgxhList ul li span:last-child,.gddgxhList ul li em:last-child{ margin-right:0}
+.gddgxhList ul li em{ float:left; width:31%; font-size:.75rem; text-align:center; margin:.4rem 3% 0 0}
+.gddgxhList ul li span.cur{ position:relative; background:#51b236; border:.1rem solid #51b236; color:#ffef37}
+.gddgxhList ul li span.cur:before{ position:absolute; content:""; bottom:0rem; right:0rem; width:1.344rem; height:1.156rem; background:url(curico.png) no-repeat center; -webkit-background-size:1.344rem 1.156rem}
+.gddgxhList ul li span cite{ display:block; font-size:.75rem}
+.gddgxhList ul li span i{ font-size:.75rem} 
+.gddghot p{ position:relative; float:left; width:30.4%; font-size:.75rem; color:#666; height:3.9rem; margin:.5rem 3% 0 0; text-align:center}
+.gddghot p:last-child{ margin-right:0}
+.gddghot span{ display:block; width:75%; position:absolute; bottom:0; left:13%;}
+.gddghot i{ display:block; background:#ffd542;-webkit-transition:all 1s ease;-ms-transition:all 1s ease;-o-transition:all 1s ease;-moz-transition:all 1s ease;}
+.buy{ width:85%; margin:0 auto}
+.buy a,.nobs a{ display:block; line-height:2.4rem; background:#ff9c1c; margin:.7rem 0; color:#fff; font-size:1.12rem; text-align:center; text-decoration:none; border-radius:.3rem; -webkit-border-radius:.3rem; -moz-border-radius:.3rem}
+.buy a.gray{ background:#bdbdbd; color:#fff; cursor:default}
+.buy p{ color:#626161; font-size:.75rem; padding-left:3%}
+.buy p em,.list ul li span i,.popup p em{ color:#ff221f}
+.buy u{ display:block; padding:.5rem 0 0 3%; font-size:.7rem; color:#29941b}
+.tab{ margin:0 0 1.1rem 0; background:#5ba524}
+.tab li{ float:left; position:relative; font-size:1.1rem; width:25%; text-align:center;line-height:2.4rem; color:rgba(255,255,255,0.5)}
+.tab li.last{ width:50%}
+.tab li.cur{ background:#ffd659; color:#1c8101}
+.tab li.cur:after{ position:absolute; content:""; display:block; left:37%; border-width:.6rem; border-style:solid; border-color:#ffd659 transparent transparent transparent}
+.tab li.last.cur:after{ left:47%}
+.list{ position:relative; margin:1.2rem 1% 0 1%; padding:1rem .5rem}
+.title{ position:absolute; width:100%; height:2.1rem; overflow:hidden; zoom:1; top:0; left:0; z-index:1}
+.title em{ float:left; width:2rem; height:2.1rem; background:url(ltbg.png) no-repeat center; background-size:2rem 2.1rem; -webkit-background-size:2rem 2.1rem; -moz-background-size:2rem 2.1rem}
+.title em:last-child{ background-image:url(rtbg.png)}
+.title span{ float:left; text-align:center; width:79.5%; line-height:2.1rem; background:#56b83a; color:#fff; font-size:.94rem; margin-top:.21rem}
+.hdgz{ padding:1rem 5% 0 5%; color:#fff; font-size:.94rem}
+.hdgz span{ display:block; padding:.7rem 0 .4rem 0; color:#ffec69; font-size:1.06rem}
+.hdgz p{ line-height:1.4rem; padding:.6rem 0}
+.popup{ position:fixed; top:35%; left:3.5%; background:#feffee; width:85%; padding:0 4% 1rem 4%; z-index:2}
+.clock{ position:absolute; right:.4rem; top:.4rem; display:block; width:1.45rem; height:1.45rem; background:url(clock.gif) no-repeat center; background-size:1.4rem 1.4rem; -webkit-background-size:1.4rem 1.4rem; -moz-background-size:1.4rem 1.4rem}
+.popup p{ padding:2.8rem .5rem 1rem .5rem; font-size:.875rem; line-height:1.3rem; text-align:center; letter-spacing:.05rem; color:#636363}
+.popup p.yhm{ font-size:1.06rem}
+.btn{width:85%; margin:0 auto; overflow:hidden; zoom:1}
+.btn span,.btn a{ width:45%;  text-decoration:none; padding:.4rem 0 .2rem 0; line-height:1.5rem; text-align:center; color:#fff; background:#51b236; font-size:1.06rem; margin:.8rem auto 0 auto; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.wxts{ line-height:2.09rem; color:#6e642b; background:#f7efc2; font-size:1.06rem; text-align:center}
+.popup2{ padding:0 0 1rem 0; width:93%}
+.popup p.yhm2{ padding:1.2rem 0}
+.popup p.yhm3{ text-align:left; width:70%; margin:0 auto; padding:1.5rem 0 .5rem 0; line-height:1.5rem}
+.back{ display:block; position:absolute; top:0; right:0; width:4.31rem; height:4.94rem; background:url(back.png) no-repeat center; background-size:4.31rem 4.94rem; -webkit-background-size:4.31rem 4.94rem; -moz-background-size:4.31rem 4.94rem}
+.notitle{ line-height:2.4rem; background:#ffedc1; padding-left:.8rem; border-radius:.2rem .2rem 0 0; -webkit-border-radius:.2rem .2rem 0 0; -moz-border-radius:.2rem .2rem 0 0}
+.notitle time{ color:#ff3f3f}
+.nobs{ position:relative}
+.nobs figure{ margin:1.5rem auto .2rem auto; width:3.433rem}
+.nobs p{ color:#e1d6a9; font-size:1rem; text-align:center}
+.nobs p span{ display:block; font-size:1.31rem}
+.nobs a{ width:85%; margin:1.2rem auto 0 auto}
+.novs{ padding:1.4rem 0 1rem 0}
+.novs p{ font-size:.9rem; color:#666; padding-top:.2rem}
+.novs div{ line-height:2.5rem; overflow:hidden; zoom:1}
+.novs div cite,.novs div em{ float:left; width:30%; text-align:left; color:#1c8101; font-size:1.3rem}
+.novs div cite{ text-align:right}
+.novs div i{ float:left; width:40%; text-align:center; font-size:2.6rem; letter-spacing:.2rem}
+.jion{ position:relative; width:60%; margin:0 auto; height:2.2rem; line-height:2.3rem; text-align:center; background:#c1df9d; color:#1c8101; font-size:.94rem}
+.jion:before,.jion:after{ position:absolute; content:""; top:0; border-width:1.15rem 1rem 1.15rem 1rem; border-style:solid; border-color:transparent transparent transparent #c1df9d}
+.jion:before{ left:-1.95rem; border-color:transparent #c1df9d transparent transparent}
+.jion:after{ right:-1.95rem}
+.jion span:before,.jion span:after{ display:block; position:absolute; content:""; top:.92rem; width:.375rem; height:.375rem; background:#fff7d6; border-radius:.375rem; -webkit-border-radius:.375rem; -moz-border-radius:.375rem; z-index:1}
+.jion span:before{ left:-.15rem}
+.jion span:after{ right:-.15rem}
+.tb{ display:block; position:absolute; width:6.25rem; height:3.34rem; right:.8rem; top:.5rem;}
+.yzj{ background:url(yzj.png) no-repeat center;background-size:6.25rem 3.34rem; -webkit-background-size:6.25rem 3.34rem; -moz-background-size:6.25rem 3.34rem}
+.wzj{ background:url(wzj.png) no-repeat center;background-size:6.25rem 3.34rem; -webkit-background-size:6.25rem 3.34rem; -moz-background-size:6.25rem 3.34rem}
+.wcy{ background:url(wcy.png) no-repeat center;background-size:6.25rem 3.34rem; -webkit-background-size:6.25rem 3.34rem; -moz-background-size:6.25rem 3.34rem}
+.ycy{ background:url(ycy.png) no-repeat center;background-size:6.25rem 3.34rem; -webkit-background-size:6.25rem 3.34rem; -moz-background-size:6.25rem 3.34rem}
+.wait{ display:block; position:absolute; width:6.78rem; height:3.44rem; left:35%; top:.4rem; background:url(wait.png) no-repeat center; background-size:6.78rem 3.44rem; -webkit-background-size:6.78rem 3.44rem; -moz-background-size:6.78rem 3.44rem}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:1;left:0;top:0; display: none;}
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -90px;background:#000;color:#fff;width:180px;height:35px;line-height:35px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:100}
+/* 动画效果 */
+@-webkit-keyframes fadeInRight{0%{opacity:0;-webkit-transform:translateX(20px)}
+100%{opacity:1;-webkit-transform:translateX(0)}
+}
+@-moz-keyframes fadeInRight{0%{opacity:0;-moz-transform:translateX(20px)}
+100%{opacity:1;-moz-transform:translateX(0)}
+}
+@-o-keyframes fadeInRight{0%{opacity:0;-o-transform:translateX(20px)}
+100%{opacity:1;-o-transform:translateX(0)}
+}
+.totop{-webkit-animation-name:fadeInRight;-webkit-animation-duration:1s;-webkit-animation-timing-function:ease;-webkit-animation-delay:.1s;-webkit-animation-fill-mode:both;-webkit-animation-iteration-count:1;-moz-animation-name:fadeInRight;-moz-animation-duration:1s;-moz-animation-timing-function:ease;-moz-animation-delay:.1s;-moz-animation-fill-mode:both;-moz-animation-iteration-count:1;-o-animation-name:fadeInRight;-o-animation-duration:1s;-o-animation-timing-function:ease;-o-animation-delay:.1s;-o-animation-fill-mode:both;-o-animation-iteration-count:1}
+@-webkit-keyframes indexbg_play{0%{-webkit-transform:scale(2.5,2.5);opacity:0}
+100%{-webkit-transform:scale(1,1);opacity:1}
+}
+@-moz-keyframes indexbg_play{0%{-moz-transform:scale(2.5,2.5);opacity:0}
+100%{-moz-transform:scale(1,1);opacity:1}
+}
+.scale_{opacity:0;-webkit-animation-name:indexbg_play;-webkit-animation-duration:1s;-webkit-animation-fill-mode:forwards;-webkit-transform-origin:center top;-webkit-transform:translate3d(0,0,0);-moz-animation-name:indexbg_play;-moz-animation-duration:1s;-moz-animation-fill-mode:forwards;-moz-transform-origin:center top;-moz-transform:translate3d(0,0,0)}
+@-webkit-keyframes bounceInRight{0%{opacity:0;-webkit-transform:translateX(2000px)}
+60%{opacity:1;-webkit-transform:translateX(-30px)}
+80%{-webkit-transform:translateX(10px)}
+100%{-webkit-transform:translateX(0)}
+}
+@-moz-keyframes bounceInRight{0%{opacity:0;-moz-transform:translateX(2000px)}
+60%{opacity:1;-moz-transform:translateX(-30px)}
+80%{-moz-transform:translateX(10px)}
+100%{-moz-transform:translateX(0)}
+}
+@-o-keyframes bounceInRight{0%{opacity:0;-o-transform:translateX(2000px)}
+60%{opacity:1;-o-transform:translateX(-30px)}
+80%{-o-transform:translateX(10px)}
+100%{-o-transform:translateX(0)}
+}
+.toright{-webkit-animation-name:bounceInRight;-webkit-animation-duration:1s;-webkit-animation-timing-function:ease;-webkit-animation-fill-mode:both;-webkit-animation-iteration-count:1;-moz-animation-name:bounceInRight;-moz-animation-duration:1s;-moz-animation-timing-function:ease;-moz-animation-fill-mode:both;-moz-animation-iteration-count:1;-o-animation-name:bounceInRight;-o-animation-duration:1s;-o-animation-timing-function:ease;-o-animation-fill-mode:both;-o-animation-iteration-count:1}
+@-webkit-keyframes rotate_load{from{-webkit-transform:rotate(0deg)}
+to{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes rotate_load{from{-moz-transform:rotate(0deg)}
+to{-moz-transform:rotate(360deg)}
+}
+.ball{ display:block; width:3.433rem; height:3.433rem; background:url(ball.gif) no-repeat center;background-size:3.125rem 3.125rem; -webkit-background-size:3.333rem 3.333rem; -moz-background-size:3.125rem 3.125rem; -webkit-animation:rotate_load 2s linear infinite;-moz-animation:rotate_load 2s linear infinite}
+.red{ color:#f03d3d}
+.pdTop03{ padding-top:.3rem}
+.pdTop08{ padding-top:.8rem}
+.pdTop1{ padding-top:1rem}
+.pdLeft1{ padding-left:1rem}
+.popup2 .poptzText p{ line-height:1.8rem; font-size:.875rem; padding:0; text-align:left}
+.tcinput{ border:1px solid #ccc; height:1.7rem; line-height:1.7rem; color:#999; text-indent:5px; width:13rem; margin:.7rem 0 -1rem 2.4rem}
+.popuseRed{ padding:0 12% .5rem 0}
+.popuseRed span{ position:relative; width:3.8rem; height:1.3rem; font-size:.75rem; color:#106fe5; padding-top:.5rem}
+.popuseRed span:before{ position:absolute; content:""; right:0rem; top:.65rem; width:.35rem; height:.35rem; border-left:1px solid #106fe5; border-bottom:1px solid #106fe5; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.zfRed{ max-height:9rem; margin-bottom:.8rem; overflow:hidden; overflow-y:scroll}
+.redText{ float:left; font-size:.8rem; padding-top:.1rem; width:91%}
+.redText p{ line-height:1.2rem; font-size:.75rem; padding:0; text-align:left; color:#999}
+.zfRed .cur .redText p{ color:#333}
+.zfpopNone .zfRed{ display:none}
+.zfpopCur .popuseRed span:before{ top:.9rem; transform:rotate(135deg); -webkit-transform:rotate(135deg); -moz-transform:rotate(135deg)}
+.zfpopCur .zfRed{ display:block}
+.nocheck{ display:inline-block; width:.87rem; height:.87rem; background:url(/img/nocheck.png) no-repeat center; background-size:.87rem .87rem; -webkit-background-size:.87rem .87rem; -moz-background-size:.87rem .87rem; margin:.1rem .2rem 0 0}
+.zfRed .cur .nocheck{ background-image:url(/img/check.png)}
+</style>
+<div class='mask' id='mask'></div>
+<!-- 支付弹窗[[ -->
+<section id=buy_box class="popup popup2 zfpopNone" style="position:fixed; top:50%; left:5%; z-index:10000;display:none;">
+    <div class="wxts" style=" margin-bottom:.7rem">投注确认</div>
+    <div class="poptzText pdLeft1" id=buy_reveal>
+    	<p>投注金额： <cite class="red" id='tzmoney'>0元</cite></p>
+    	<p>奖金范围： <cite class="red" id='bouns'>2.54~4.98元</cite></p>
+    	<div class="clearfix popuseRed"><p class="left">账户余额： <cite class="red" id='yue'>0元</cite></p><span class="right" id=redpack>使用红包</span></div>
+    </div>
+    <div class="zfRed pdTop08" id='buy_hide'></div> 
+    <div class="btn"><a href="javascript:;" class="left" id='cancle'>取消</a><a href="javascript:;" class="right" style='display:none;' id=gocz>去充值</a><a href="javascript:;" class="right" id=isok>确认</a></div>
+</section>
+<!-- 先登录 -->
+<div id='ts_2' class="popup" style="display:none;">
+	<em class="clock"></em>
+    <p class="yhm">参加活动前，请先登录！</p>
+	<div class="btn"><a href="javascript:;" id=login2 style="display:block; width:80%; margin:0 auto">立即参与</a></div>
+</div>
+<!-- 已中奖 -->
+<div id=ts_3 class="popup" style="display:none">
+	<em class="clock"></em>
+    <p class="yhm3" style="padding-top:2rem; width:80%">您已中过奖！本次购买无法参与不中奖返红包活动，是否继续购买？ </p>
+	<div class="btn"><a id=goon href="javascript:;" class="left">继续购买</a><a id=gobuy2 href="javascript:;" class="right">去高手场</a></div>
+</div>
+<!-- 非新用户 -->
+<div id=ts_4 class="popup popup2" style="display:none">
+	<div class="wxts">温馨提示</div>
+    <p class="yhm2">囧～您非新用户，不能参与本次活动。</p>
+	<div class="btn"><span class="left">确定</span><a id=gobuy3 href="javascript:;" class="right">高手猜球赛</a></div>
+</div>
+<!-- 充值 -->
+<div id=ts_5 class="popup popup2" style="display:none">
+	<div class="wxts">温馨提示</div>
+    <p class="yhm3">萌萌哒，您余额不足，请充值后再参与！</p>
+	<div class="btn"><span class="left">关闭</span><a href="javascript:;" class="right">去充值</a></div>
+</div>
+<!-- 完善信息 -->
+<div id=ts_6 class="popup popup2" style="display:none">
+	<div class="wxts">温馨提示</div>
+    <p class="yhm3">参与活动请先完善信息！</p>
+	<div class="btn"><span class="left">关闭</span><a href="javascript:;" class="right">去完善</a></div>
+</div>
+<!-- 已参加过当前场次 -->
+<div id=ts_7 class="popup" style="display:none">
+	<em class="clock"></em>
+    <p class="yhm3" style="padding-top:2rem; width:80%">囧～您已在活动页购买该场比赛了，再次购买该订单不中奖不返红包哦！</p>
+	<div class="btn"><span class="left">关闭</span><a href="javascript:;" class="right" id=goon2>继续购买</a></div>
+</div>
+<!-- 让球是什么？ -->
+<div class="popup" style="display:none" id=isrq>
+	<em class="clock"></em>
+    <p style="text-align:left"><strong style="color:#1c8101">举例：</strong>在比赛“XX vs XX”中，左边为主队，右边为客队。-1表示主队让1球，主队须赢至少2球以上才算赢；+1球表示主队受让1球，主队打平就算赢。</p>
+</div>
+
+<body style="background: #39652a">
+	<div id="wrapper">
+		<div id="scroller">
+			<div id=content>
+				<figure class="banner totop">
+					<img src="banner.jpg" width="100%">
+					<a href="/" class="back"></a>
+					<div class="login">
+						<p style="display: none" id='noLogin'>
+							<a href="javascript:;" class="toright" id=login>立即参与</a>
+						</p>
+						<p style="display: none" id='hasLogin'>
+							尊敬的<em style="color:#F7F7F7;font-size:1.2rem"></em>,9188欢迎您
+						</p>
+					</div>
+				</figure>
+				<section style='position: relative; margin-top:-.2rem'>
+					<div style='position: absolute; line-height: 2.4rem; top: 0%' id=left></div>
+					<div style='position: absolute; line-height: 2.4rem; top: 0%; right: 0%' id=right></div>
+					<div id='secNav' style="float: none; width: 100%;overflow:hidden">
+						<ul class="tab" id="play_tabs" style="height: 2.4rem; width: 10000px">
+							<div class="clear"></div>
+						</ul>
+					</div>
+				</section>					
+					<article>
+						<div class="bg">
+							<!-- 等待开奖 -->
+							<article class="nobs" id=wait style='display:none;'></article>
+							<!-- 等待开奖 -->
+							<!-- 加载中 -->
+							<article class="nobs" id='loading'>
+							<div style='padding-top:1px'></div>
+								<figure>
+									<img src="ball.gif" class="ball">
+								</figure>
+								<div><p>玩命加载中...</p></div>
+							</article>
+							<!-- 加载中 -->
+							
+							<!-- 对阵 -->
+							<article class="nobs" style="display: none;position:relative;" id='con'></article>
+							<!-- 对阵 -->
+							
+							<!-- 没有比赛 -->
+							<article class="nobs" style='display: none;' id='nobs'>
+								<!--<div class="notitle">
+									倒计时：离开售还有
+									<time>00:00:00</time>
+								</div>-->
+								<div style='padding-top:1px'></div>
+								<figure>
+									<img src="ball.gif" width="100%" class='ball'>
+								</figure>
+								<p>
+									<span>当天暂无比赛开售！</span>
+								</p>
+								<a href="javascript:;" id='gobuy'>去高手挑战</a>
+							</article>
+							<!-- 没有比赛 -->
+						</div>
+					</article>
+			</div>
+			<div class="hdgz">
+				<span>活动规则&gt;&gt;</span>
+				<section style='display: none;' class='totop'>
+					<p>1、活动期间（1月28日 00:00:00——2月3日 23:59:59）新注册用户在本页面投注（每天限投1次），第一天不中奖立返2元红包，第二天不中再返2元红包，第三天……直到中奖为止；</p>
+					<p>2、用户参与前须完成手机号和实名认证，手机号或身份证号相同的用户视为同一用户；</p>
+					<p>3、用户在本站任何页面（含活动页面）购买的该场比赛单关方案中有任何一个中奖，则视为用户中奖，不返红包；</p>
+					<p>4、用户获赠的红包不可提现，中奖奖金可提现，赠送的红包自派送起7天内有效；</p>
+					<p>5、对于通过作弊方式多次参与的用户，将不予赠送红包，已赠送的红包我站有权要求用户返还，并查封作弊账号；</p>
+					<p>6、在法律许可范围内，本网站对本活动保留最终解释权,如有疑问请致电咨询客服400-673-9188。</p>
+				</section>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src='zepto.js'></script>
+<script type="text/javascript" src='iscroll.js'></script>
+<script src="http://5.9188.com /activity/bfbzj/index.js"></script>
+<!-- 百度统计 -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff6babc6e11c8122615416b76c3b54696' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- 百度统计 -->

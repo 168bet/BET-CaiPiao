@@ -1,0 +1,57 @@
+<div class="sidewrap merge-footer bank-charge-wap">
+  <div class="content" id="user-fund">
+    <div class="body-row">
+      <div class="ui-tab-title tab-title-bg clearfix">
+        <ul id="recharge-type">
+          <li ui-sref="user.funds/onlinePay" ui-sref-active="current">在线支付</li>
+          <li ui-sref="user.funds/weixinPay" ui-sref-active="current">微信支付</li>
+          <li ui-sref="user.funds/culturePay" ui-sref-active="current">公司入款</li>
+        </ul>
+      </div>
+      <div class="content bank-select" ng-if="data.step == 1">
+        <div class="step">
+          <table class="step-table">
+            <tbody>
+              <tr>
+                <td class="current"><div class="con">1.查看公司账户并填表</div></td>
+                <td><div class="tri">
+                  <div class="con">2.正在操作，稍候查询</div>
+                </div></td>
+                <td><div class="tri">
+                  <div class="con">3.结束</div>
+                </div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <form name="weixinPayForm">
+          <ul class="ui-form">
+            <li class="ui-item">
+              <label>会员账号：</label>
+              <span class="ui-text-info">{{global.user.userName}}</span>
+            </li>
+            <li class="ui-item">
+              <label>总账户余额：</label>
+              <span class="ui-text-info">{{global.user.userMoney}}</span>
+              <span class="ui-text-info">元</span>
+            </li>
+            <li class="ui-item">
+              <label>充值金额：</label>
+              <input type="number" style="width: 140px;" class="ip-text w200" value="" required min="100" max="50000" name="weixinPaymoney" ng-model="formdata.money">
+              <span class="ui-text-info">元</span>
+              &nbsp;&nbsp;<span class="ui-check">单笔支付（100 ~ 500000）元！ </span>
+            </li>
+            <li class="ui-item"><label>&nbsp;</label><a href="javascript:void(0);" ng-click="" class="btn btn-important">充值</a></li>
+          </ul>
+        </form>
+      </div>
+      
+      <div class="content bank-select" ng-if="data.step == 2">
+        正在进行相应操作请稍后查询！
+      </div>
+      <div class="content bank-select" ng-if="data.step == 3">
+        支付成功！
+      </div>
+    </div>
+  </div>
+</div>

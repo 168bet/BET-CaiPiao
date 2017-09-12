@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>分期付款计算器</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="yes">
+<meta http-equiv="cleartype" content="yes">
+<link href="css/bank.css" rel="stylesheet">
+<style type="text/css">
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+</style>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/globle.js"></script>
+<script>
+//手机字体rem计算
+var fontSizeRem=document.documentElement.clientWidth*0.04375;
+document.getElementsByTagName("html")[0].style.fontSize=fontSizeRem+"px"; 
+</script>
+</head>
+
+<body>
+	<section class="scope">
+    	<figure class="info clearfix">
+        	<dl><dt>首期还款金额（元）</dt><dd>0.00</dd></dl>
+            <dl><dt>手续费（元）</dt><dd>0.00</dd></dl>
+            <dl><dt>以后每期还款金额（元）</dt><dd>0.00</dd></dl>
+            <dl><dt>总还款金额（元）</dt><dd>0.00</dd></dl>
+        </figure>
+        <ul class="selectUl">
+        	<li class="clearfix" id="f_bankSelect"><div>银行</div><div class="spanArrow"><span class="" id="bankSelect">选择银行</span></div></li>
+            <li class="clearfix" id="s_repaymentSelect"><div>分期数</div><div class="spanArrow"><span class="" id="repaymentSelect">选择期数</span></div></li>
+            <li class="clearfix"><div>分期总额</div><div><input type="number" placeholder="请输入金额" class="inputMoney"></div></li>
+        </ul>
+        <!--手续费收取方式-->
+        <ul class="selectUl" style="height:3.16rem;display:none;" id="feeType">
+        	<li class="clearfix"><div>手续费收取方式</div><div><span class="spanArrow1" id="zhaoshangSelect">请选择</span></div></li>
+        </ul>
+        <!--招商期数-->
+        <div class="ZhaoshangInfo clearfix" style="display:none;">
+            <div class="zhaoshangTxt">分期付款</div>
+            <div class="zhaoshangTxt">首次付清</div>
+        </div>
+        <!--比比价-->
+        <div class="bottomDiv"><a href="javascript:;" class="" id="bj">比比价？</a></div><!--去掉active 就是灰色-->
+    </section>
+    <!--弹出层-->
+    <div class="mask" style="display:none;"></div>
+    <!--银行列表-->
+    <div class="bankList" style="display:none;">
+    	<!-- 
+    	<div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/gongshang.png" class="bankIcon"></div><div class="bankTxt">工商银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/nongye.png" class="bankIcon"></div><div class="bankTxt">农业银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/zhongguo.png" class="bankIcon"></div><div class="bankTxt">中国银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/jianshe.png" class="bankIcon"></div><div class="bankTxt">建设银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/jiaotong.png" class="bankIcon"></div><div class="bankTxt">交通银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/minsheng.png" class="bankIcon"></div><div class="bankTxt">民生银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/guangda.png" class="bankIcon"></div><div class="bankTxt">光大银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/zhongxin.png" class="bankIcon"></div><div class="bankTxt">中信银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/zhaoshang.png" class="bankIcon"></div><div class="bankTxt">招商银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/xingye.png" class="bankIcon"></div><div class="bankTxt">兴业银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/pufa.png" class="bankIcon"></div><div class="bankTxt">浦发银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/guangfa.png" class="bankIcon"></div><div class="bankTxt">广发银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/pingan.png" class="bankIcon"></div><div class="bankTxt">平安银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/huaxia.png" class="bankIcon"></div><div class="bankTxt">华夏银行</div></div>
+        <div class="clearfix bankInfo"><div class="bankIconDiv"><img src="images/youzheng.png" class="bankIcon"></div><div class="bankTxt">邮储银行</div></div>
+         -->
+    </div>
+    <!--分期-->
+
+    <div class="repaymentList" style="display:none;">
+    	<!-- 
+    	<div class="repaymentTxt">3 期</div>
+        <div class="repaymentTxt">6 期</div>
+        <div class="repaymentTxt">3 期</div>
+        <div class="repaymentTxt">6 期</div>
+        <div class="repaymentTxt">3 期</div>
+        <div class="repaymentTxt">6 期</div>
+         -->
+    </div>
+
+</body>
+</html>

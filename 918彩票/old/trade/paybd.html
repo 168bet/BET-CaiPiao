@@ -1,0 +1,149 @@
+<script>
+checkLogin(function(){},location.hash);
+</script>
+<section class="zfPop" style='display:none;position: absolute;z-index: 1999;' id='packet'>
+    <h4>红包支付</h4>
+    <div class='zfRed'></div>
+    <div class="zfTrue clearfix">
+	<a class="zfqx" href="javascript:;">取消</a>
+	<a href="javascript:;">确 定</a>
+	</div>
+</section>
+<div id='zhezhao' style='position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; display: none; background: none repeat scroll 0% 0% gray; opacity: 0.5; z-index: 999;'></div>
+
+<article class="gray">
+	<header class="tzHeader">
+    	<section class="buyHeader">
+    		<h1>支付</h1>
+    		<a href="javascript:history.go(-1)" class="backIco2"></a>
+    	</section>
+    </header>
+	  <div class="pdLfrt09">
+	        <div class="zfText">
+	        	<div class="" id='slideLoop'>
+	            	<p><cite></cite>&nbsp;&nbsp;<cite style='display:none'></cite><em class="right downArrow"></em></p>
+	                <p>应付金额&nbsp;&nbsp;<cite class="yellow"></cite>&nbsp;&nbsp;元</p>
+	            </div>
+	        	<div id="updownContent" style="display:none">
+	            	<p><cite></cite></p>
+	        		<div class="clearfix" >
+	                	<i class="left w4">过关方式</i>
+	                    <div class="left zfNum w11 yellow" id="mp_content">
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	  </div>
+	  <div class="pdLfrt104">
+	  	<div class="zfMoney" style='display:none;'>
+	        <p>红包支付&nbsp;&nbsp;<cite class="yellow" id='rPay'>0</cite>&nbsp;&nbsp;元</p>
+	        <p>账户支付&nbsp;&nbsp;<cite class="yellow" id='mPay'>8</cite>&nbsp;&nbsp;元</p>
+	        <a href="javascript:;" id='redPacket' class="useRed right">使用红包</a>
+	    </div>
+	    <p>账号余额  <cite class="blue" id='yue'></cite>  元</p>
+	    <p class="pdTop03" style='display:none;'>差&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额 <cite id='chae'></cite>  元</p>
+	    <a href="javascript:;" style='display:none;' id='pay' class="payment">支&nbsp;&nbsp;付</a>
+	    <a href="javascript:;" style='display:none;' id='cz' class="payment">去充值</a>
+	  </div> 
+	  
+	  <!-- -----↓充值↓-------- -->
+   <div class="pdLfrt09" style='display:none;' id='recharge'>
+  	<div class="recharge pd063 clearfix"><span class="left">充值金额 <input type="tel" value="" placeholder='请输入充值金额' class="moneyNum" maxlength="5" /></span><em class="right">元</em></div>
+    
+    <div class="recharge recharge2">
+    	<ul>
+        	<li class="cur" id='pay1' onclick='setTab("pay",1,4)'><cite>储蓄卡</cite></li>
+            <li id='pay2' onclick='setTab("pay",2,4)'><cite>信用卡</cite></li>
+            <li id='pay3' onclick='setTab("pay",3,4)'><cite>支付宝</cite></li>
+            <li id='pay4' onclick='setTab("pay",4,4)'><cite style="border-right:none">其 他</cite></li>
+            <div class="clear"></div>
+        </ul>
+      <!--  储蓄卡start -->
+      <div id='pay_con1'>
+    	<a href="javascript:;">
+        	<h3>储蓄卡</h3>
+            <p>单笔单日2000元，单月10000元，免手续费</p>
+            <em class="cxkIco"></em>
+            <i class="rightArrow"></i>
+        </a>
+    	<a href="javascript:;" style="border-bottom:none">
+        	<h3>储蓄卡电话充值</h3>
+            <p>单笔21-1000元，1%手续费，最低1元/笔</p>
+            <em class="ylIco"></em>
+            <i class="rightArrow"></i>
+        </a>
+        <a href="javascript:;" style="border-bottom:none;display:none;">
+        	<h3>安智充值</h3>
+            <p>单笔单日1000元，免手续费</p>
+            <em class="anzhi"></em>
+            <i class="rightArrow"></i>
+        </a>
+      </div>
+      <!--  储蓄卡end -->
+      <!--  信用卡快捷-支付宝start -->
+      <div style="display:none;" id='pay_con2'>
+        <a href="javascript:;" style="border-bottom:none">
+        	<h3>信用卡-支付宝提供</h3>
+            <p>单笔单日2000元，单月10000元，免手续费</p>
+            <em class="xykIco"></em>
+            <i class="rightArrow"></i>
+        </a>
+      </div>
+      <!--  信用卡start -->
+      <!--  支付宝网页版start -->
+      <div style="display:none;" id='pay_con3'>
+        <a href="javascript:;" style="padding-top:1rem;height:2.9rem;border-bottom:none">
+        	<h3>支付宝</h3>
+            <p>0手续费，无限额</p>
+            <em class="zfbIco"></em>
+            <i class="rightArrow"></i>
+        </a>
+      </div>
+      <!--  支付宝end -->
+      <!--  其他start -->
+      <div style="display:none;" id='pay_con4'>
+        <a href="/useraccount/add_card.html" style="padding-top:.9rem;height:2.9rem;border-bottom:none">
+        	<h3>手机卡充值</h3>
+            <p>安全便捷  收取4%的手续费</p>
+            <em class="telczIco"></em>
+            <i class="rightArrow"></i>
+        </a>
+      </div>
+      <!--  其他end -->
+    </div>
+    <div id="ccb" class="recharge recharge2" style="border-right:none;border-left:none;display:none">
+      <div style="" class="pdLeft06">
+        <a href="javascript:;" style="padding-top:.9rem;height:2.9rem;border-bottom:none">
+        	<h3>建设银行卡充值</h3>
+            <p>单日限500元,免手续费</p>
+            <em class="jhkIco"></em>
+            <i class="rightArrow"></i>
+        </a>
+      </div>
+    </div>
+    <div id="cib" class="recharge recharge2" style="border-right:none;border-left:none;display:none">
+      <div style="" class="pdLeft06">
+        <a href="javascript:;" style="padding-top:.9rem;height:2.9rem;border-bottom:none">
+        	<h3>兴业银行卡充值</h3>
+            <p>单日限500元,免手续费</p>
+            <em class="xyyhIco"></em>
+            <i class="rightArrow"></i>
+        </a>
+      </div>
+    </div>
+    <div class="pdTop03 pdLeft04" id='wxts'>
+    	<p>温馨提示：</p>
+		<p>1.为防止套现和洗钱，单笔充值后需消费30%才能提现</p>
+		<p>2.信用卡充值不能提现，可以原路退回，但需收1%手续费</p>
+		<p style='display:none;'>1.用户充值金额只可用于购彩，不可提现，中奖金额可随时提现</p>
+    </div>
+  </div>
+  <!-- -----↑充值↑-------- -->
+	<footer class="buyFooter">
+   	  	<div class="buyFloat fixed tellNum"><a href="tel:400-673-9188"><em class="tell"></em>客服电话：400-673-9188</a></div>
+	</footer>  
+</article>
+<input type="hidden" id='cptid' value=''/><!-- 红包编号 -->
+<input type="hidden" id='codes' value=''/><!-- 投注格式-->
+<script src="/js/trade/paybd.js"></script>
+<script src='/js/useraccount/recharge.js'></script>

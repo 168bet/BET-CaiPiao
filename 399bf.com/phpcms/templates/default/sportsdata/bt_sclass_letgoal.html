@@ -1,0 +1,342 @@
+{php $css = array('bt_info.css')}
+{php $nav_id = 6;}
+{template 'content', 'header_score'}
+<nav>
+    <div class="container">
+        <div class="row">
+            <div class="matchNav">
+                <ul class="clearfix">
+                    <li><a {if ! in_array($id, [92,85,34,39,152,149,1,5])}class="active"{/if} href="javascript:;">热门联赛</a></li>
+                    <li><a {if $id == 92}class="active"{/if} href="{APP_PATH}competition/92/schedule/">英超</a></li>
+                    <li><a {if $id == 85}class="active"{/if} href="{APP_PATH}competition/85/schedule/">西甲</a></li>
+                    <li><a {if $id == 34}class="active"{/if} href="{APP_PATH}competition/34/schedule/">意甲</a></li>
+                    <li><a {if $id == 39}class="active"{/if} href="{APP_PATH}competition/39/schedule/">德甲</a></li>
+                    <li><a {if $id == 152}class="active"{/if} href="{APP_PATH}competition/152/schedule/">中超</a></li>
+                    <li><a {if $id == 149}class="active"{/if} href="{APP_PATH}competition/149/schedule/">世足</a></li>
+                    <li><a {if $id == 1}class="active"{/if} href="{APP_PATH}sclass/1/schedule/">NBA</a></li>
+                    <li><a {if $id == 5}class="active"{/if} href="{APP_PATH}sclass/5/schedule/">CBA</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<section>
+    <div class="container">
+        {template 'sportsdata', 'bt_sclass_crumbs'}
+        <div class="row">
+            <div class="col-sm-2 pdL0">
+
+                <!-- 树形菜单 start -->
+                <div class="navMenu treeMenu" id="treeMenu">
+                    <ul>
+
+                        {loop $tree $zone_name $item}
+                        <li class="tree-menu">
+
+                            <div class="tree-one-title" tree-title name="one">
+                                {$zone_name}
+                                <i class="icon-angle-right fr"></i>
+                            </div>
+
+
+                            <div class="tree" tree-menu >
+
+                                <!-- 二级 -->
+                                {loop $item $country_name $item2}
+                                <div class="tree-item">
+
+                                    <div class="tree-two-title" tree-title name="two">
+                                        <i class="icon-plus"></i>
+                                        {$country_name}
+                                    </div>
+                                    <div class="tree" tree-menu>
+
+                                        <ul>
+                                            {loop $item2 $r}
+                                            <li><a target="_blank" href="{APP_PATH}sclass/{$r['sclassid']}/letgoal/">{$r['name']}</a></li>
+                                            {/loop}
+                                        </ul>
+
+                                    </div>
+
+
+                                </div>
+                                {/loop}
+
+                            </div>
+                        </li>
+                        {/loop}
+
+                    </ul>
+                </div>
+                <!-- 树形菜单 end -->
+
+                <!--<div class="side-search">-->
+                    <!--<div class="search-title">资料库搜索</div>-->
+                    <!--<div class="search-control">-->
+                        <!--<input class="input-search" type="text" placeholder="搜索">-->
+                        <!--<button type="submit" class="btn-search">-->
+                            <!--<i class="icon-search"></i>-->
+                        <!--</button>-->
+                    <!--</div>-->
+                    <!--<div class="radio-group">-->
+                        <!--<label for="player" class="checkbox-inline">-->
+                            <!--<input type="checkbox" id="player">-->
+                            <!--<i class="table-checkbox"></i>-->
+                            <!--球员-->
+                        <!--</label>-->
+                        <!--<label for="team" class="checkbox-inline">-->
+                            <!--<input type="checkbox" id="team">-->
+                            <!--<i class="table-checkbox"></i>-->
+                            <!--球队-->
+                        <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+            <div class="col-sm-10 pdL0 pdR0">
+
+
+                <!-- iframe -->
+                <div class="iframe-page" id="iframe_page">
+
+                    <div class="iframe-head clearfix">
+                        <h1 class="m-title fl">
+                            <img src="{BT_SCLASS_PATH}{$sclass_id}.jpg" width="59" height="59" alt="" class="fl bt-competition-photo">
+                            {$sclass_info['currseason']}{$sclass_info['name_cn']}
+                        </h1>
+
+                        <div class="dropdown fr">
+                            <button class="btn btn-default" id="jw_dropA" data-toggle="dropdown" aria-expanded="true">
+                                <i class="icon-calendar"></i>
+                                {$sclass_info['currseason']}
+                                <i class="icon-angle-down"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="jw_dropA">
+                                <ul>
+                                    {loop $season_arr $data}
+                                    <li data-action="link" data-url="{APP_PATH}sclass/{$sclass_id}/letgoal/?season={$data}">{$data}</li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="dropdown fr">
+                            <button class="btn btn-default" data-toggle="dropdown" aria-expanded="true">
+                                <span id="team-name">请选择球队</span>
+                                <i class="icon-angle-down"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="jw_dropA">
+                                <ul data-action="filter" data-target=".standings-table" data-filter="team" data-show="#team-name">
+                                    <li data-value="false">请选择球队</li>
+                                    {loop $team_arr $id $name}
+                                    <li data-value="{$id}">{$name}</li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="iframe-table">
+
+                        <div class="iframe-nav">
+                            <ul class="clearfix">
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/schedule/" >赛程赛果</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/standings/" >联盟排名</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/letgoal/" class="active">让球盘路榜</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/totalscore/" >大小盘路榜</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/singleDouble/" >单双统计</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/teamTechnic/" >球队技术统计</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/playerTechnic/">球员技术统计</a></li>
+                                <li><a href="{APP_PATH}sclass/{$sclass_id}/team/" >球队资料</a></li>
+                            </ul>
+                        </div>
+                        <div class="table-item table-min">
+                            <div class="table-tab clearfix">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#type-total" aria-controls="type-total" role="tab" data-toggle="tab">总盘路榜</a></li>
+                                    <li role="presentation"><a href="#type-home" aria-controls="type-home" role="tab" data-toggle="tab">主场盘路榜</a></li>
+                                    <li role="presentation"><a href="#type-guest" aria-controls="type-guest" role="tab" data-toggle="tab">客场盘路榜</a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                {loop $standings_info $type $list}
+                                <div class="tab-item tab-pane {if $type == 'total'}active{/if}" role="tabpanel" id="type-{$type}">
+                                    <table class="table standings-table">
+                                        <thead>
+                                        <tr>
+                                            <td>排名</td>
+                                            <td>球队名称</td>
+                                            <td>赛</td>
+                                            <td>上盘</td>
+                                            <td>下盘</td>
+                                            <td>赢</td>
+                                            <td>走</td>
+                                            <td>输</td>
+                                            <td>净</td>
+                                            <td>胜%</td>
+                                            <td>走%</td>
+                                            <td>负%</td>
+                                            <td>盘路</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {loop $list $index $row}
+                                        {php $rank = $index + 1}
+                                            {loop $row $data}
+                                            <tr data-team="{$data['id']}">
+                                                <td>{$rank}</td>
+                                                <td>
+                                                    <a href="{APP_PATH}lq/team/{$data['id']}/" target="_blank">
+                                                        {$data['name']}
+                                                    </a>
+                                                </td>
+                                                <td>{if $data['total']}{$data['total']}{else}0{/if}</td>
+                                                <td>{if $data['up']}{$data['up']}{else}0{/if}</td>
+                                                <td>{if $data['down']}{$data['down']}{else}0{/if}</td>
+                                                <td>{if $data['win']}{$data['win']}{else}0{/if}</td>
+                                                <td>{if $data['equal']}{$data['equal']}{else}0{/if}</td>
+                                                <td>{if $data['lose']}{$data['lose']}{else}0{/if}</td>
+                                                <td>{if $data['net']}{$data['net']}{else}0{/if}</td>
+                                                <td class="orange2">{if $data['win_rate']}{$data['win_rate']}{else}0{/if}%</td>
+                                                <td>{if $data['draw_rate']}{$data['draw_rate']}{else}0{/if}%</td>
+                                                <td>{if $data['lose_rate']}{$data['lose_rate']}{else}0{/if}%</td>
+                                                <td><a class="grass">详情</a></td>
+                                            </tr>
+                                            {/loop}
+                                        {/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {/loop}
+                                <table class="table">
+                                    <tbody><tr>
+                                        <td colspan="3">全场让球盘路数据统计</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-left" width="33.3%">主场赢盘</td>
+                                        <td width="33.3%">{$stats['win']['home']}</td>
+                                        <td width="33.3%">{$stats['win']['home_avg']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-left">和局走水</td>
+                                        <td>{$stats['draw']['total']}</td>
+                                        <td>{$stats['draw']['avg']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-left">客场赢盘</td>
+                                        <td>{$stats['win']['guest']}</td>
+                                        <td>{$stats['win']['guest_avg']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-left">最佳<span class="red">投注</span>球队</td>
+                                        <td>
+                                            {loop $stats['best']['total'] $id $name}
+                                            <a href="{APP_PATH}lq/team/{$id}/" target="_blank">
+                                                {$name}
+                                            </a>
+                                            {/loop}
+                                        </td>
+                                        <td>{$stats['win_max']['total']}%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-left">避免<span class="green">投注</span>球队</td>
+                                        <td>
+                                            {loop $stats['weak']['total'] $id $name}
+                                            <a href="{APP_PATH}lq/team/{$id}/" target="_blank">
+                                                {$name}
+                                            </a>
+                                            {/loop}
+                                        </td>
+                                        <td>{$stats['win_min']['total']}%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-left">主场<span class="red">最佳</span>球队</td>
+                                        <td>
+                                            {loop $stats['best']['home'] $id $name}
+                                            <a href="{APP_PATH}lq/team/{$id}/" target="_blank">
+                                                {$name}
+                                            </a>
+                                            {/loop}
+                                        </td>
+                                        <td>{$stats['win_max']['home']}%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-left">主场<span class="green">避免</span>球队</td>
+                                        <td>
+                                            {loop $stats['weak']['home'] $id $name}
+                                            <a href="{APP_PATH}lq/team/{$id}/" target="_blank">
+                                                {$name}
+                                            </a>
+                                            {/loop}
+                                        </td>
+                                        <td>{$stats['win_min']['home']}%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-left">客场<span class="red">最佳</span>球队</td>
+                                        <td>
+                                            {loop $stats['best']['guest'] $id $name}
+                                            <a href="{APP_PATH}lq/team/{$id}/" target="_blank">
+                                                {$name}
+                                            </a>
+                                            {/loop}
+                                        </td>
+                                        <td>{$stats['win_max']['guest']}%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-left">客场<span class="green">避免</span>球队</td>
+                                        <td>
+                                            {loop $stats['weak']['guest'] $id $name}
+                                            <a href="{APP_PATH}lq/team/{$id}/" target="_blank">
+                                                {$name}
+                                            </a>
+                                            {/loop}
+                                        </td>
+                                        <td>{$stats['win_min']['guest']}%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-left">走水<span class="red">最多</span>球队</td>
+                                        <td>
+                                            {loop $stats['draw']['max'] $id $name}
+                                            <a href="{APP_PATH}lq/team/{$id}/" target="_blank">
+                                                {$name}
+                                            </a>
+                                            {/loop}
+                                        </td>
+                                        <td>{$stats['draw_max']}%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-left">走水<span class="green">最少</span>球队</td>
+                                        <td>
+                                            {loop $stats['draw']['min'] $id $name}
+                                            <a href="{APP_PATH}lq/team/{$id}/" target="_blank">
+                                                {$name}
+                                            </a>&nbsp;
+                                            {if $n%2 == 0}
+                                            <br>
+                                            {/if}
+                                            {/loop}
+                                        </td>
+                                        <td>{$stats['draw_min']}%</td>
+                                    </tr>
+                                    </tbody></table>
+                            </div>
+                        </div>
+                        <div class="hint">
+                            页面最后更新时间：{$update_time}
+                        </div>
+
+                    </div>
+                </div>
+                <!-- iframe end -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var IMG_PATH = '{IMG_PATH}';
+</script>
+{php $js = array('tree.js', 'bt_sclass_letgoal.js', 'imagesloaded.pkgd.min.js', 'imagesloaded.pkgd.common.js')}
+{template 'content', 'footer'}

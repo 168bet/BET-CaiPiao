@@ -1,0 +1,161 @@
+body 		{ font-family: arial; font-size: 12px; background-color:#e4e4e4; font-weight:normal }
+tr 			{ background-color:#ffffff }
+td 			{ font-family: arial; font-size: 12px; color:black; text-align:center; font-weight:normal }
+th			{ font-family: arial; font-size: 12px; color:black; text-align:center; font-weight:normal }
+input		{ font-family: arial; font-size: 12px; color: navy; font-weight:normal }
+select		{ font-family: arial; font-size: 12px; color: navy; font-weight:normal }
+
+A:visited 	{ text-decoration: none; color:#0000FF }
+A:hover 	{ text-decoration: none; color:#0000FF }
+A:link 		{ text-decoration: none; color:#0000FF }
+
+A.tix:visited 	{ text-decoration: none; color:red }
+A.tix:hover 	{ text-decoration: none; color:red }
+A.tix:link 		{ text-decoration: none; color:red }
+
+.del		{ background-color: silver; cursor:hand }	
+.tdL		{ text-align: left }	
+.tdR		{ text-align: right }	
+.tdC		{ text-align: center }
+.tdB		{ font-weight: bold }
+
+.transL		{ background-color:transparent; text-align:left }
+.transR		{ background-color:transparent; text-align:right }
+
+.butt			{ font-family: arial; font-size: 12px; font-weight:normal }
+.buttsave		{ font-family: arial; font-size: 12px; font-weight:normal; color:navy }
+.buttcancel		{ font-family: arial; font-size: 12px; font-weight:normal; color:maroon }
+.buttquery		{ font-family: arial; font-size: 12px; font-weight:normal; color:black }
+.buttrefresh	{ font-family: arial; font-size: 12px; font-weight:normal; color:darkgreen }
+
+.odds		{ font-weight:bold; color:red }
+.hdp		{ font-weight:bold; color:blue }
+.betslip	{ color:#4b0082 }
+.error		{ background-color:#c0c0c0;color:red;text-align:left }
+
+#oddnavi		{ word-spacing:2px; padding-bottom:4px }
+#selected	{ font-weight:bold; color:navy; text-decoration:underline }
+
+.master_agent			{ background-color:#000066;}
+.master_agent th 		{ background-color:#191970; padding:3px; color:white; text-align:center; }
+.master_agent td 		{ padding: 3px; }
+.master_agent .tdR		{ text-align:right; padding-right:2px }
+.master_agent .tdL		{ text-align:left; padding-left:2px }
+.master_agent .inactive	{ background-color:#d6d6d6 }
+.master_agent .hidden 	{ display: none }
+.master_agent .visible 	{ display: visible }
+
+.agent			{ background-color:#000066;}
+.agent th 		{ background-color:#191970; padding:3px; color:white; text-align:center; }
+.agent td 		{ padding: 3px; }
+.agent .tdR		{ text-align:right; padding-right:2px }
+.agent .tdL		{ text-align:left; padding-left:2px }
+.agent .inactive	{ background-color:#d6d6d6 }
+.agent .hidden 	{ display: none }
+.agent .visible 	{ display: visible }
+
+.member			{ background-color:#000066;}
+.member th 		{ background-color:#191970; padding:3px; color:white; text-align:center;  }
+.member td 		{ padding: 3px; }
+.member .tdR		{ text-align:right; padding-right:2px }
+.member .tdL		{ text-align:left; padding-left:2px }
+.member .inactive	{ background-color:#d6d6d6 }
+.member .hidden 	{ display: none }
+.member .visible 	{ display: visible }
+.member .negavtivecl { background-color:#ffe4e1 }
+
+#editor			{ background-color:#000066;  position: absolute}
+#editor2			{ background-color:#000066;  position: absolute}
+
+.editor			{ background-color:#000066;  position: absolute}
+.editor th 		{ background-color:#191970; padding:3px; color:white;}
+.editor td 		{ padding: 3px; background-color:lightyellow; text-align:left}
+.editor .tdR	{ text-align:right; padding-right:2px }
+.editor .tdL	{ text-align:left; padding-left:2px }
+.editor .line	{ height:1px; background-color:#000000 }
+
+.om				{ background-color:#000066; }
+.om	th 			{ background-color:#191970; padding:3px; color:white;  }
+.om	td 			{ padding: 3px; }
+.om	.cs 		{ padding-left: 5px; padding-right: 5px; }
+.om .team		{ text-align:left; padding-left:5px }
+.om .tdR		{ text-align:right; padding-right:5px }
+.om .tdL		{ text-align:left; padding-left:5px }
+.om	.spacer		{ background-color:#b5b5b5 }
+.om .inactive	{ background-color:#d6d6d6 }
+.om .hidden	 	{ display: none }
+.om .visible 	{ display: visible }
+
+.started			{ background-color:#000066; }
+.started  th 		{ background-color:#191970; padding:3px; color:white;  }
+.started  td 		{ padding: 3px; vertical-align:top }
+.started .cs 		{ padding-left: 5px; padding-right: 5px; }
+.started .team		{ text-align:left; padding-left:5px }
+.started .tdR		{ text-align:right; padding-right:5px }
+.started .tdL		{ text-align:left; padding-left:5px }
+.started .spacer	{ background-color:#b5b5b5 }
+.started .inactive	{ background-color:#d6d6d6 }
+.started .hidden 	{ display: none }
+.started .visible 	{ display: visible }
+
+.wager			{ width:180px }
+.wager td 		{ padding:0px; text-align:right }
+.wager tr 		{ background-color:transparent }
+.wager .hdp		{ text-align:left; width:35px }
+.wager .hidden 	{ display: none }
+
+.substart			{ padding:1px }
+.substart td 		{ padding:0px; text-align:right }
+.substart tr 		{ background-color:transparent }
+.substart .hdp		{ text-align:left }
+
+.league_select		{ background-color:#000066; }
+.league_select th	{ background-color:#191970; padding:3px; color:white; text-align:left }
+.league_select td	{ padding:3px; padding-right:10px  }
+
+.euro			{ width:110px; padding:0px; }
+.euro th 		{ padding:0px; text-align:left; color:black; background-color:transparent; background-image:none }
+.euro td 		{ padding:0px; text-align:right }
+.euro tr 		{ background-color:transparent }
+.euro .hdp		{ text-align:left; padding-left:1px; }
+.euro .hidden 	{ display: none }
+
+.report			{ background-color:#000066;}
+.report th 		{ background-color:#191970; padding:2px; color:white; text-align:center}
+.report td 		{ padding: 2px; text-align:right }
+.report .title	{ text-align:center; padding-right:2px }
+.report .subtotal	{ background-color:#b22222; color:#ffffff }
+.report .subtotal1	{ background-color:#dfefff; color:#000000 }
+.report .tdR	{ text-align:right; padding-right:2px }
+.report .tdL	{ text-align:left; padding-left:5px }
+
+#footer		{ font-size:10px; color:gray }
+
+.onlinelist				{ background-color:#000066; }
+.onlinelist	th 			{ background-color:#191970; padding:3px; color:white;  white-space: nowrap; width:62px }
+.onlinelist	td 			{ font-size:11px; padding:4px; text-align:right; color:navy; white-space: nowrap }
+.onlinelist	.neg 		{ color:red }
+.onlinelist	.caption	{ background-color:#f0f8ff; }
+.onlinelist	.team		{ background-color:#e4e4e4; padding:2px; padding-left:6px; text-align:left; }
+
+#onlinelist_editor			{ position: absolute; border:solid; border-width:1px; border-color:#393939; padding:5px; text-align:center; background-color:lightyellow; visibility:hidden }
+#onlinelist_editor td 		{ text-align:right; background-color:lightyellow; }
+#onlinelist_editor input 	{ width:22px; }
+
+.deposit		{ background-color:#000066;}
+.deposit th 	{ background-color:#778899; padding:2px; color:white; text-align:center}
+.deposit td 	{ padding: 2px; text-align:left; }
+.deposit .tdL	{ text-align:left; padding-left:5px; width:5500px }
+.deposit .tdR	{ text-align:right; padding-right:2px; }
+.deposit .title	{ text-align:center; padding-right:2px; color:#393939 }
+
+.deposit .title2		{ text-align:center; }
+
+.calShadow{}
+.calMain{width:165px;position:absolute;font-weight: normal;left:0px;top:0px;background-color:white;border-width:1px;border-style:outset;border-color:black;padding:1px;visibility:hidden;}
+.calH{width:165px;height:11px;overflow:hide;background-color:#191970;padding:1px;text-align:right;color:white;cursor:pointer}
+.calMonthYear{font-size:11px;font-family:arial;color:#000000;cursor:hand;padding:0px;}
+.calHdr{width:22px;font-size:11px;font-weight:normal;font-family:arial;color:white;cursor:default;padding:0px;background-color:#191970;}
+.calToday{width:22px;font-size:11px;font-family:arial;color:red; font-weight:bold; background-color:white;}
+.calText{width:22px;font-size:11px;font-family:arial;color:black;cursor:default;background-color:white;}
+.calTextH{width:22px;font-size:11px;font-family:arial;color:black;cursor:hand; font-weight:bold; background-color:white;}

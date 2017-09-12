@@ -1,0 +1,109 @@
+<script>
+//右上角菜单显示或隐藏
+$(function (){
+	$("#pullIco").click(function(){
+		  $(this).parent().toggleClass("pullHover");
+		  $("#pullText").toggle();
+	});
+})
+</script>
+<article class="wfText">
+	<header class="tzHeader">
+      <section class="buyHeader">
+    	<h1>大乐透</h1>
+    	<a href="#class=home" class="backHome"></a>
+        <div class="pullDown">
+        	<em class="pullIco" id="pullIco"></em>
+            <div class="pullText" id="pullText" style="display:none">
+            	<a href="#class=url&xo=dlt/index.html">选号</a>
+            	<a href="#class=url&xo=hm/index.html&gid=50">合买跟单</a>
+            	<a href="#class=url&xo=kj/r.html&gid=50">开奖结果</a>
+            	<a href="javascript:;" class="cur" style="border-bottom:none">玩法帮助</a>
+            </div>
+        </div>
+      </section>
+    </header>
+	<cite class="s_caption">超级大乐透由国家体育总局体彩中心发行并在全国销售，属"乐透型"彩票，每周三期，逢周一、三、六晚20:30开奖。</cite>
+    <section class="s_play">
+    	<h2>一.玩法说明</h2>
+        <cite> "大乐透"每注投注号码由5个前区号码和2个后区号码组成。前区号码从01～35号中选出，后区号码从01～12号中选出，每注2元。大乐透玩法主要有以下几种：</cite>       
+		<dl>
+            <dt>1）标准投注</dt>
+            <dd>选择至少6个前区号码（最多18个）和至少1个后区号码（最多12个）进行投注，单个方案金额不能超过20万元，单注最高奖金1000万元。在标准投注基础上，每注可再追加投注1元，追加投注后每注最高奖金可达1600万元。</dd>
+		</dl>
+		<dl>
+            <dt>2）胆拖投注</dt>
+            <dd>选择前区号码时，先选1～4个你认为必中的号作为每注都包含的投注号码（胆码），再补充其它你认为可能中的号码（拖码），胆码和拖码共6-18个； 选择后区号码时，可选1个（也可不选）你认为必中的号作为每注都包含的投注号码（即胆码），再补充其它你认为可能中的号码（即拖码），胆码和拖码共2-12个 单个方案金额不能超过20万元。</dd>
+        </dl>
+    </section>
+    <section class="s_winning">
+    	<h2>二.设奖及中奖</h2>
+        <cite>大乐透共分六个奖级，一、二、三等奖为浮动奖金，四、五、六等奖为固定奖金，详细如下：</cite>        
+        <ul class="s_winbox">
+        	<li><ul class="s_th"><li class="s_jj">奖级</li><li class="s_tj">中奖条件</li><li class="s_sm">说明</li><li class="s_bon">单注奖金</li></ul></li>
+            <li><ul class="s_td"><li class="s_jj">一等奖</li><li class="s_tj"><i></i><i></i><i></i><i></i><i></i><em></em><em></em></li><li class="s_sm">中5+2</li><li class="s_bon">浮动</li></ul></li>
+            <li><ul class="s_td"><li class="s_jj">二等奖</li><li class="s_tj"><i></i><i></i><i></i><i></i><i></i><em></em></li><li class="s_sm">中5+1</li><li class="s_bon">浮动</li></ul></li>
+            <li><ul class="s_td45">
+            		<li class="s_jj">三等奖</li>
+                    <li class="s_tj"><span><i></i><i></i><i></i><i></i><i></i></span><span class="last"><i></i><i></i><i></i><i></i><em></em><em></em></span></li>
+                    <li class="s_sm"><span>中5+0</span><span class="last">中4+2</span></li>
+                    <li class="s_bon">浮动</li>
+            </ul></li>
+            <li><ul class="s_td45">
+            		<li class="s_jj">四等奖</li>
+                    <li class="s_tj"><span><i></i><i></i><i></i><i></i><em></em></span><span class="last"><i></i><i></i><i></i><em></em><em></em></span></li>
+                    <li class="s_sm"><span>中4+1</span><span class="last">或3+2</span></li>
+                    <li class="s_bon">200元</li>
+            </ul></li>
+            <li><ul class="s_td6">
+            		<li class="s_jj">五等奖</li>
+                    <li class="s_tj"><span><i></i><i></i><i></i><i></i></span><span><i></i><i></i><i></i><em></em></span><span class="last"><i></i><i></i><em></em><em></em></span></li>
+                    <li class="s_sm"><span>中4+0</span><span>或3+1</span><span class="last">或2+2</span></li>
+                    <li class="s_bon">10元</li>
+            </ul></li>                    
+            <li><ul class="s_td7 bor_l ">
+            		<li class="s_jj">六等奖</li>
+                    <li class="s_tj"><span><i></i><i></i><i></i></span><span><i></i><i></i><em></em></span><span><i></i><em></em><em></em></span><span class="last"><em></em><em></em></span></li>
+                    <li class="s_sm"><span>中3+0</span><span>中2+1</span><span>中1+2</span><span class="last">中0+2</span></li>
+                    <li class="s_bon">5元</li>
+            </ul></li>            
+        </ul>        
+        <h3>奖金计算：</h3>
+        <dl>
+            <dt>1、 当期奖金额等于销售金额的49%，固定奖总额等于四、五、六等奖金派送之和。</dt>
+        </dl>
+        <dl>
+            <dt>2、一等奖奖金计算：</dt>
+            <dd>当奖池资金低于1亿元时，奖金总额为当期奖金额减去固定奖总额后的75%与奖池中累积的奖金之和，单注奖金按注均分，最高500万。</dd>
+            <dd>当奖池资金高于1亿元(含)且低于3亿元时，奖金总额包括两部分，一部分为当期奖金额减去固定奖总额后的58%与奖池中累积的奖金之和，单注奖金按注均分，最高500万；另一部分为当期奖金额减去固定奖总额后的17%，单注奖金按注均分，最高500万元；单注最高1000万。</dd>
+            <dd>当奖池资金高于3亿元(含)时，奖金总额包括两部分，第一部分为当期奖金额减去固定奖总额后的42%与奖池中累积的奖金之和，单注奖金按注均分，最高500万；第二部分为当期奖金额减去固定奖总额后的33%，单注奖金按注均分，最高500万；单注最高1000万。</dd>
+        </dl>
+        <dl>
+            <dt>3、二等奖奖金计算：</dt>
+            <dd>奖金总额为当期奖金额减去固定奖总额后的18%，单注奖金按注均分，单注最高500万。</dd>
+        </dl> 
+        <dl>
+        	<dt>4、三等奖奖金计算：</dt>
+            <dd>奖金总额为当期奖金额减去固定奖总额后的7%，单注奖金按注均分，单注最高500万。</dd>
+        </dl>   
+        <dl>
+        	<dt>5、追加奖金计算：</dt>
+            <dd>追加投注仅参与一至五等奖的奖金分配。追加投注一、二、三等奖为浮动奖，四至五等奖为固定奖。如追加投注中得浮动奖，则追加投注奖金为当期基本投注对应单注奖金的60%。如追加投注中得固定奖，则追加投注奖金为当期基本投注对应单注奖金的50%。</dd>
+        </dl> 
+        <dl>
+        	<dt>6、最低奖金计算</dt>
+            <dd>一、二、三等奖按照该奖级实际中奖注数平均分配该奖级奖金。一、二、三等奖均设置单注最低奖金，一等奖单注最低奖金为单注奖金封顶金额的3%，二等奖单注最低奖金为单注奖金封顶金额的0.3%，三等奖单注最低奖金为单注奖金封顶金额的0.03%。同时，当上一奖级单注奖金低于下一奖级单注奖金的2倍且低于500万元时，上一奖级单注奖金补足至下一奖级单注奖金的2倍并不高于500万元。所需资金从调节基金中支付，若调节基金不足时，用彩票兑奖周转金垫支。</dd>
+        </dl>   
+    </section>
+    <section class="s_open">
+    	<h2>三.开奖及返奖</h2>
+        <dl>
+        	<dt>1、开奖</dt>
+            <dd>每周一、三、六20:30开奖，开奖号码（5个前区号码和2个后区号码）通过摇奖方式产生，CCTV－5《天天体彩》20:30播出开奖节目。</dd>
+        </dl>
+        <dl>
+        	<dt>2、返奖</dt>
+            <dd>小奖自动返还至用户在本站帐户中，可继续投注或提款，大奖委托本站代为领取，永无弃奖。</dd>
+        </dl>		
+    </section>
+</article>

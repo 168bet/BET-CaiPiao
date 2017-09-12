@@ -1,0 +1,89 @@
+body{ min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+img { border:0; }
+a{ color:#333; text-decoration:none}
+p{ line-height:1.2rem}
+.clearfix{ overflow:hidden; zoom:1}
+.left{ float:left}
+.right{ float:right}
+.red{ color:#e91a1a}
+.gray{ color:#a8a8a8}
+.green{ color:#14a514}
+.grayBg{ background:#f0f0f0}
+.relative{ position:relative}
+.fixedTop{ position:fixed; top:0; left:0; width:100%}
+.fixedBt{ position:fixed; bottom:0; left:0; width:100%}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:1}
+.zlkHeader{ padding-bottom:5.15rem}
+.zlkssHeader{ padding-bottom:6.95rem}
+.antjHeader{ padding-bottom:2.45rem}
+.anHeader{ padding-bottom:4.25rem}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.moreHeader{ height:2rem; padding-top:.7rem; background:#0b7e07; border-bottom:1px solid #046b00}
+.backIco{ position:absolute; display:inline-block; width:.7rem; height:.65rem; top:.95rem; left:1.1rem; color:#fff; font-size:.91rem; margin-right:.01rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.all{ background:#fff; padding:0 3.5%}
+.all li{ overflow:hidden; zoom:1; border-bottom:1px solid #ebebeb}
+.all li a{ float:left; width:49.8%; padding-top:1.1rem; height:3.6rem; color:#676767; text-align:left; border-right:1px solid #ebebeb}
+.all li a:last-child{ border-right:none}
+.all li a:hover{ background:#f7f7f7}
+.all li h2{ float:left; font-size:.9rem; color:#333; text-align:center; font-weight:normal; margin-top:.6rem}
+.all li p{ font-size:.75rem; color:#999; text-align:center; line-height:1.3rem; padding-top:.1rem}
+.all li p.green{ color:#14a514}
+.all li span{ float:left; margin:0 1.2rem 0 12%; width:2.31rem; height:2.75rem; background-repeat:no-repeat; background-position:center; background-size:2.31rem 2.69rem; -webkit-background-size:2.31rem 2.69rem; -moz-background-size:2.31rem 2.69rem}
+.zlkTab{ font-size:.9rem; background:#fff; border-bottom:1px solid #e2e2e2; line-height:2.4rem; color:#5c5c5c}
+.zlkTab a{ float:left; width:25%; text-align:center}
+.zlkTab a.cur{ color:#db150b}
+.ogzlkTab a{ width:33.3%}
+.downline{ display:block; position:absolute; bottom:1px; height:.12rem; background:#db150b}
+.zlktjList li p{ color:#686868; line-height:2.2rem; font-size:.8rem; text-align:left; padding-left:5%; overflow:hidden; zoom:1}
+.zlktjList li p.gray{ color:#a8a8a8}
+.zlktjList li p cite{ float:left; width:41%}
+.zlktjList li p em{ float:left; width:31%}
+.zlktjList li p span{ float:left; width:28%}
+.zlkFooter{ padding-top:2rem}
+.zlkFooter p{ line-height:2rem; background:#28ae61; color:#fff; font-size:.8rem; text-align:center; border-top:1px solid #cfcfcf}
+.zlkNO{ width:6rem; height:10.13rem; margin:5rem auto; background:url(/zqzlk/img/pic.png) no-repeat center; background-size:6rem 10.13rem; -webkit-background-size:6rem 10.13rem; -moz-background-size:6rem 10.13rem}
+.zlkssList li,.zlkssTitle,.zlkjfList li,.zlksaisList a{ line-height:2.6rem; font-size:.8rem; text-align:center; border-bottom:1px solid #e0e0e0; overflow:hidden; zoom:1}
+.zlkssTitle{ background:#f0f0f0; line-height:1.75rem; color:#bdbdbd}
+.zlkssList strong{ float:left; width:15%; font-weight:normal; color:#3ba33e}
+.zlkssTitle strong{ color:#bdbdbd}
+.zlkssList strong i{ display:inline-block; width:1.15rem; height:1.15rem; line-height:1.25rem; text-align:center; border-radius:.15rem; -webkit-border-radius:.15rem; -moz-border-radius:.15rem}
+.one{ background:#f13e21; color:#fff}
+.two{ background:#ff9c1b; color:#fff}
+.three{ background:#f6d72d; color:#fff}
+.zlkssList em{ float:left; width:23%}
+.zlkssList cite,.zlkssList span{ float:left; width:31%}
+.zlkjfList strong{ float:left; width:15%; font-weight:normal}
+.zlkjfList strong i,.zlkjfFloat em{ display:inline-block; width:1.2rem; font-size:.75rem; line-height:1.2rem; text-align:center; border-radius:1.2rem; -webkit-border-radius:1.2rem; -moz-border-radius:1.2rem}
+.zlkjfFloat em{ color:#fff}
+.greenbg{ background:#28ae61; color:#fff}
+.redbg{ background:#faa5a5; color:#fff}
+.bluebg{ background:#55bdff; color:#fff}
+.graybg{ background:#c9c9c9; color:#fff}
+.zlkjfList cite{ float:left; width:30%}
+.zlkjfList em{ float:left; width:11%}
+.zlkjfFloat{ width:100%; padding:.3rem 0 .3rem 3%; height:1.2rem; font-size:.75rem; line-height:1.2rem; background:#fff; overflow:hidden; zoom:1}
+.zlkjfFloat span{ float:left; width:25%}
+.zlkjfFloat span.ogfjs{ width:30%}
+.zlkjfFloat span:last-child{ width:17%}·
+.zlkjfFloat em{ margin-right:.2rem}
+.zlkjfFloat2{ width:5rem; margin:0 auto}
+.zlksaisList em{ float:left; width:25%}
+.zlksaisList span{ float:left; width:30%}
+.zlksaisList cite{ float:left; width:11%; font-size:.95rem}
+.zlksaisList a{ display:block; position:relative}
+.zlksaisList a:after{ position:absolute; content:""; display:block; width:.45rem; height:.45rem; right:.7rem; top:1rem; border-bottom:.12rem solid #9e9e9e; border-right:0.12rem solid #9e9e9e; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.zlksaisTitle{ background:#f0f0f0; font-size:.8rem; height:1.75rem; line-height:1.75rem; color:#bdbdbd; border-bottom:1px solid #e0e0e0}
+.zlksaisText{ width:96%; margin:0 auto; overflow:hidden; zoom:1}
+.prevArrow,.nextArrow{ float:left; width:.45rem; height:.45rem; margin:.6rem 0 0 .2rem; border-bottom:.12rem solid #9e9e9e; border-right:0.12rem solid #9e9e9e; transform:rotate(135deg); -webkit-transform:rotate(135deg); -moz-transform:rotate(135deg)}
+.nextArrow{ float:right; margin:.6rem .2rem 0 0; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.zlksaisTitle ul{ float:left; width:90%; height:1.75rem; margin:0 auto; overflow:hidden; zoom:1}
+.zlksaisTitle ul li{ float:left; width:33.3%; text-align:center}
+.zlksaisTitle ul li.cur{ color:#28ae61}
+.sfcTitle{ height:1rem; font-size:.8rem; color:#28ae61; background:#fff; padding:.35rem .7rem; border-bottom:1px solid #e4e4e4; overflow:hidden; zoom:1}
+.up,.down{ float:right; -webkit-transition:all .2s ease;-ms-transition:all .5s ease;-o-transition:all .5s ease;-moz-transition:all .5s ease; margin:.5rem .3rem 0 0; width:.5rem; height:.5rem; border-right:.12rem solid #b0b0b0; border-top:.12rem solid #b0b0b0; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg)}
+.down{ margin-top:.1rem; transform:rotate(-225deg); -webkit-transform:rotate(-225deg); -moz-transform:rotate(-225deg)}

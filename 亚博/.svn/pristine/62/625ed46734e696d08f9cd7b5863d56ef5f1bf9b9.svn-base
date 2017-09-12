@@ -1,0 +1,91 @@
+<!-- 用户任务  -->
+<div class="content"  style="padding:0;">
+	<div class="body-row hist_list_body">
+	 <table class="table table-info">
+	 	<thead>
+           <tr>
+               <th>任务名称</th>
+               <th>任务内容</th>
+               <th>奖励</th>
+               <th>完成时限</th>
+               <th>状态</th>
+               <th>操作</th>
+           </tr>
+        </thead>
+        <tbody>
+        	<tr taskid="2003">
+              <td><font color="#0b7be7">充值送礼金</font></td>
+              <td>新用户首充送礼</td>
+              <td>现金 285 元</td>
+              <td>长期有效</td>
+              <td>未完成</td>
+              <td><a href="" style="color:#c00;">查看详情</a></td>
+            </tr>
+            <tr taskid="2002">
+              <td><font color="#0b7be7">每日消费</font></td>
+              <td>每日消费送礼金</td>
+              <td>现金 120 元</td>
+              <td>2016-04-10 00:00:00 ~ 2016-04-17 00:00:00</td>
+              <td>未完成</td>
+              <td><a href="/Special/betaward" style="color:#c00;">查看详情</a></td>
+            </tr>
+            <tr taskid="2001">
+	            <td><font color="#0b7be7">每日签到任务</font></td>
+	            <td>每日签到投注送礼金</td>
+	            <td>现金 58.88</td>
+	            <td>长期有效</td>
+	            <td>未完成</td>
+	            <td><a href="/Special/signday" style="color:#c00;">查看详情</a></td>
+            </tr>
+            <tr taskid="1006">
+                <td><font color="#0b7be7">绑定手机</font></td>
+                <td>绑定手机送礼金</td>
+                <td>现金 1 元</td>
+                <td>长期有效</td>
+                <td>未完成</td>
+                <td><a href="/Service/setmobile" style="color:#c00;">去完成</a></td>
+            </tr>
+            <tr taskid="1005">
+               <td><font color="#0b7be7">设置问题</font></td>
+               <td>设置安全问题送礼金</td>
+               <td>现金 1 元</td>
+               <td>长期有效</td>
+               <td>已完成</td>
+               <td><a class="txt_link" href="javascript:;" target="_black">领取奖励</a></td>
+            </tr>
+            <tr taskid="1004">
+               <td><font color="#0b7be7">设置QQ</font></td>
+               <td>设置QQ送礼金</td>
+               <td>现金 1 元</td>
+               <td>长期有效</td>
+               <td>未完成</td>
+               <td><a href="/Service/personal" style="color:#c00;">去完成</a></td>
+            </tr>
+            <tr taskid="1003">
+               <td><font color="#0b7be7">绑定银行卡</font></td>
+               <td>绑定银行卡送礼金</td>
+               <td>现金 1 元</td>
+               <td>长期有效</td>
+               <td>未完成</td>
+               <td><a href="/Service/bank" style="color:#c00;">去完成</a></td>
+            </tr>
+            <tr taskid="1002">
+              <td><font color="#0b7be7">设置密码</font></td>
+              <td>设置安全密码送礼金</td>
+              <td>现金 1 元</td>
+              <td>长期有效</td>
+              <td>已完成</td>
+              <td><a class="txt_link" href="javascript:;" target="_black">领取奖励</a></td>
+           </tr>
+           <tr taskid="1001">
+              <td><font color="#0b7be7">绑定邮箱</font></td>
+              <td>绑定邮箱送礼金</td>
+              <td>现金 1 元</td>
+              <td>长期有效</td>
+              <td>未完成</td>
+              <td><a href="/Service/setmail" style="color:#c00;">去完成</a></td>
+           </tr>
+       </tbody>
+	 </table>
+    </div>
+</div>

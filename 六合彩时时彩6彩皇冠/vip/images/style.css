@@ -1,0 +1,228 @@
+BODY {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial,Verdana
+}
+TD {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial,Verdana
+}
+FORM {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+INPUT {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial,Verdana
+}
+SELECT {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial,Verdana
+}
+TEXTAREA {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial,Verdana
+}
+aaa {
+	BORDER-RIGHT: #0066cc 1pt solid; BORDER-TOP: #0066cc 1pt solid; BORDER-LEFT: #0066cc 1pt solid; BORDER-BOTTOM: #0066cc 1pt
+}
+HR {
+	HEIGHT: 1px
+}
+TABLE {
+	BORDER-RIGHT: 1px; BORDER-TOP: 1px; BORDER-LEFT: 1px; BORDER-BOTTOM: 1px
+}
+TD {
+	BORDER-LEFT-COLOR: black; BORDER-BOTTOM-COLOR: black; BORDER-TOP-COLOR: black; BORDER-RIGHT-COLOR: black
+}
+UL {
+	MARGIN-LEFT: 20px
+}
+.black {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.black:hover {
+	TEXT-DECORATION: underline
+}
+.white {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.white:hover {
+	TEXT-DECORATION: underline
+}
+.yellow {
+	COLOR: #ffffcc; TEXT-DECORATION: none
+}
+.yellow:hover {
+	TEXT-DECORATION: underline
+}
+.black {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.linkcolor {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.linkcolor:hover {
+	COLOR: #ff6600; TEXT-DECORATION: none
+}
+.red {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.red:hover {
+	TEXT-DECORATION: underline
+}
+.blue {
+	COLOR: #0000ff; TEXT-DECORATION: none
+}
+.blue:hover {
+	TEXT-DECORATION: underline
+}
+.green {
+	COLOR: green; TEXT-DECORATION: none
+}
+.title_001 {
+	PADDING-LEFT: 42px; FONT-SIZE: 13px; COLOR: #990000
+}
+.title_002 {
+	PADDING-LEFT: 42px; FONT-SIZE: 13px; COLOR: #000099
+}
+.title_003 {
+	PADDING-RIGHT: 32px; PADDING-LEFT: 42px
+}
+.title_004 {
+	PADDING-LEFT: 42px; FONT-SIZE: 13px; COLOR: red
+}
+.title_005 {
+	FONT-SIZE: 13px; COLOR: #000099
+}
+.odds {
+	FONT-WEIGHT: bold; COLOR: firebrick; FONT-FAMILY: Arial,Verdana; TEXT-DECORATION: none
+}
+.odds2 {
+	FONT-WEIGHT: bold; COLOR: red; FONT-FAMILY: Arial,Verdana; BACKGROUND-COLOR: #f9f111; TEXT-DECORATION: none
+}
+.odds:hover {
+	BACKGROUND-COLOR: #ffff99; TEXT-DECORATION: none
+}
+.odds2:hover {
+	BACKGROUND-COLOR: #ffff99; TEXT-DECORATION: none
+}
+.odds_black {
+	FONT-WEIGHT: bold; COLOR: black; FONT-FAMILY: Arial,Verdana; TEXT-DECORATION: none
+}
+.odds_gray {
+	FONT-WEIGHT: bold; COLOR: #343333; FONT-FAMILY: Arial,Verdana; TEXT-DECORATION: none
+}
+.odds_gray:hover {
+	BACKGROUND-COLOR: #ffff99; TEXT-DECORATION: none
+}
+.odds_black:hover {
+	BACKGROUND-COLOR: #ffff99; TEXT-DECORATION: none
+}
+.odds_red {
+	FONT-WEIGHT: bold; COLOR: red; FONT-FAMILY: Arial,Verdana; TEXT-DECORATION: none
+}
+.odds_red:hover {
+	BACKGROUND-COLOR: #ffff99; TEXT-DECORATION: none
+}
+.odds2_black {
+	FONT-WEIGHT: bold; COLOR: black; FONT-FAMILY: Arial,Verdana; BACKGROUND-COLOR: #f9f111; TEXT-DECORATION: none
+}
+.odds2_gray {
+	FONT-WEIGHT: bold; COLOR: #343333; FONT-FAMILY: Arial,Verdana; BACKGROUND-COLOR: #f9f111; TEXT-DECORATION: none
+}
+.odds2_gray:hover {
+	BACKGROUND-COLOR: #ffff99; TEXT-DECORATION: none
+}
+.odds2_black:hover {
+	BACKGROUND-COLOR: #ffff99; TEXT-DECORATION: none
+}
+.odds2_red {
+	FONT-WEIGHT: bold; COLOR: red; FONT-FAMILY: Arial,Verdana; BACKGROUND-COLOR: #f9f111; TEXT-DECORATION: none
+}
+.odds2_red:hover {
+	BACKGROUND-COLOR: #ffff99; TEXT-DECORATION: none
+}
+.table-scedule_font_size {
+	FONT-SIZE: 26px; COLOR: #000000; LETTER-SPACING: 0px
+}
+.uline {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; FONT-WEIGHT: bold; BORDER-LEFT: #ffffff 1px solid; COLOR: firebrick; BORDER-BOTTOM: #ffffff 1px solid
+}
+.utext {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid
+}
+.table-title {
+	FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/2t_1.gif); COLOR: #000000; LETTER-SPACING: 0px
+}
+.button1 {
+	BORDER-RIGHT: #000099 1px solid; BORDER-TOP: #000099 1px solid; BACKGROUND-IMAGE: url(../images/button_bg.jpg); PADDING-BOTTOM: 0px; BORDER-LEFT: #000099 1px solid; COLOR: #ffffff; PADDING-TOP: 3px; BORDER-BOTTOM: #000099 1px solid; BACKGROUND-COLOR: #677dd9
+}
+.button_del {
+	BORDER-RIGHT: #000099 1px solid; BORDER-TOP: #000099 1px solid; FONT-SIZE: 10px; BACKGROUND-IMAGE: url(../images/button_bg.jpg); PADDING-BOTTOM: 0px; BORDER-LEFT: #000099 1px solid; COLOR: #ffffff; PADDING-TOP: 3px; BORDER-BOTTOM: #000099 1px solid; BACKGROUND-COLOR: #677dd9
+}
+.button2 {
+	BORDER-RIGHT: #000099 1px solid; BORDER-TOP: #000099 1px solid; BACKGROUND-IMAGE: url(../images/button_bg.jpg); PADDING-BOTTOM: 0px; BORDER-LEFT: #000099 1px solid; COLOR: #ffffff; PADDING-TOP: 3px; BORDER-BOTTOM: #000099 1px solid; BACKGROUND-COLOR: #4673b4
+}
+.button3 {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BACKGROUND-IMAGE: url(../images/button_bg_red.jpg); PADDING-BOTTOM: 0px; BORDER-LEFT: black 1px solid; COLOR: #ffffff; PADDING-TOP: 3px; BORDER-BOTTOM: black 1px solid; BACKGROUND-COLOR: red
+}
+.button4 {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BACKGROUND-IMAGE: url(../images/button_bg_green.jpg); PADDING-BOTTOM: 0px; BORDER-LEFT: black 1px solid; COLOR: #ffffff; PADDING-TOP: 3px; BORDER-BOTTOM: black 1px solid; BACKGROUND-COLOR: green
+}
+.button5 {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; PADDING-BOTTOM: 0px; BORDER-LEFT: black 1px solid; COLOR: #000000; PADDING-TOP: 3px; BORDER-BOTTOM: black 1px solid; BACKGROUND-COLOR: #cad99e
+}
+.button6 {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; PADDING-BOTTOM: 0px; BORDER-LEFT: black 1px solid; COLOR: #000000; PADDING-TOP: 3px; BORDER-BOTTOM: black 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.show_tr {
+	DISPLAY: block
+}
+.css {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 17px
+}
+.top A:visited {
+	FONT-SIZE: 9pt; COLOR: #000000; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.top A:hover {
+	FONT-SIZE: 9pt; COLOR: #ff0000; LINE-HEIGHT: 17px; TEXT-DECORATION: underline
+}
+.top A:link {
+	FONT-SIZE: 9pt; COLOR: #000000; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.menu A:visited {
+	FONT-SIZE: 9pt; COLOR: #ffffff; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.menu A:hover {
+	FONT-SIZE: 9pt; COLOR: #ffff33; LINE-HEIGHT: 17px; TEXT-DECORATION: underline
+}
+.menu A:link {
+	FONT-SIZE: 9pt; COLOR: #ffffff; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.menu1 A:visited {
+	FONT-SIZE: 9pt; COLOR: #000000; LINE-HEIGHT: 14px; TEXT-DECORATION: none
+}
+.menu1 A:hover {
+	FONT-SIZE: 9pt; COLOR: #ff0000; LINE-HEIGHT: 14px; TEXT-DECORATION: underline
+}
+.menu1 A:link {
+	FONT-SIZE: 9pt; COLOR: #000000; LINE-HEIGHT: 14px; TEXT-DECORATION: none
+}
+.copyright A:visited {
+	FONT-SIZE: 9pt; COLOR: #ffffff; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.copyright A:hover {
+	FONT-SIZE: 9pt; COLOR: #ff0000; LINE-HEIGHT: 17px; TEXT-DECORATION: underline
+}
+.copyright A:link {
+	FONT-SIZE: 9pt; COLOR: #ffffff; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.login-bj {
+	BACKGROUND-POSITION: 50% top; BACKGROUND-IMAGE: url(../images/login-img/bj.gif); BACKGROUND-REPEAT: repeat-x
+}
+.login-title {
+	FONT-SIZE: 12pt; LINE-HEIGHT: 18px
+}
+.login-box1 {
+	BORDER-RIGHT: #7f9db9 1pt solid; BORDER-TOP: #7f9db9 1pt solid; FONT-SIZE: 9pt; BORDER-LEFT: #7f9db9 1pt solid; WIDTH: 90px; BORDER-BOTTOM: #7f9db9 1pt solid; HEIGHT: 18px; BACKGROUND-COLOR: #ffffff
+}
+.login-box2 {
+	BORDER-RIGHT: #7f9db9 1pt solid; BORDER-TOP: #7f9db9 1pt solid; FONT-SIZE: 9pt; BORDER-LEFT: #7f9db9 1pt solid; WIDTH: 40px; BORDER-BOTTOM: #7f9db9 1pt solid; HEIGHT: 18px; BACKGROUND-COLOR: #ffffff
+}
+#downloading {
+	WIDTH: 100%; POSITION: absolute; HEIGHT: 100%; BACKGROUND-COLOR: white
+}

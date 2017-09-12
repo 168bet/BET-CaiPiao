@@ -1,0 +1,17 @@
+<ng-include src="templateURI('/header.html')"></ng-include>
+<div class="page-bg1">
+  <div class="page-wrap helps-wrap">
+    <div class="bodywrap">
+      <div class="single_wrap clearfix">
+        <div id="page_leftnav">
+          <a ui-sref=".about" class="nav leftnav_about" ng-class="{active:noticeActive=='about'}" ng-click="noticeActive='about'">关于我们</a>
+          <a ui-sref=".notice" class="nav leftnav_notice" ng-class="{active:noticeActive=='notice'}" ng-click="noticeActive='notice'">平台公告</a>
+          <a ui-sref=".help" class="nav leftnav_helps active" ng-class="{active:noticeActive=='help'}" ng-click="noticeActive='help'">玩家帮助</a>
+          <a ui-sref=".provision" class="nav leftnav_provision" ng-class="{active:noticeActive=='fuwu'}" ng-click="noticeActive='fuwu'">服务条款</a>
+        </div>
+        <div ui-view></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-include src="templateURI('/footer.html')"></ng-include>

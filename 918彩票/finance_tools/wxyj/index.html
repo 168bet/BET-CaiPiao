@@ -1,0 +1,108 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apDple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<title>税后工资/五险一金计算器</title>	
+<style type="text/css">
+body{ min-width:320px; background: #f5f5f5;font-size:12px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#212121; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,u{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:16px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:20px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}.clearfix{ overflow:hidden; zoom:1}
+.clearfix{ overflow:hidden; zoom:1}
+.info{ width:90%; background:#2798e6; color:#fff; padding:2rem 5% 0;}
+.info dl{width:57%; float:left;padding-bottom:1.8rem;padding-left:3%;}
+.info dl:nth-child(2n){width:40%;padding-left:0;}
+.info dl dt{ font-size: .75rem;}
+.info dl dd{ font-size:1.5rem;padding-top:0.5rem;}
+
+.selectUl{ background:#fff; font-size: 1rem; width:100%;}
+.selectUl li{ height:3.2rem; display:block;padding:0 8% 0 5%; line-height:3.16rem;border-bottom:1px solid #e2dfdf;}
+.selectUl li:last-child{border-bottom:none;}
+.selectUl li span{ float:left;width:30%;}
+.selectUl li cite{ float: right; position: relative; width: 60%; font-size: .95rem; color: #888; text-align: right;}
+.selectUl li cite:after{ position: absolute; content: ""; right: -.75rem; top: 1.3rem; width: .5rem; height: .5rem; border-right: .12rem solid #ccc; border-top: .12rem solid #ccc; -webkit-transform: rotate(45deg);}
+.selectUl li input{ float: right; font-size: 1.0rem; line-height:3.2rem; width: 60%; border: none; text-align: right;}
+
+.bottomDiv{width:95%; text-align:right; text-decoration: underline; padding:1.2rem 5% 0 0;}
+.bottomDiv a{ color:#2798e6; font-size: .8rem;}
+.bottomDiv a.active{ color:#1f92e2}
+
+/*遮罩层*/
+.mask{ position:fixed;top:0;left:0; width:100%; height:100%; background-color:rgba(0,0,0,.5); z-index:10;}
+
+/*分期*/
+.repaymentList{position:fixed; font-size: .8rem; z-index:20; left:0;bottom:0; height:18rem; width:100%; background-color:#fff; overflow:scroll; box-sizing:border-box;}
+.repaymentList span{ display: block; background: #eee; line-height: 2.5rem; padding-left: 8%; border-bottom:1px solid #e2dfdf; font-size: 1rem; color: #2798e6;}
+.cslist li{ width:100%; line-height:2.8rem;border-bottom:1px solid #e2dfdf;box-sizing:border-box; text-align:center;background-color:#fff;}
+.cslist li:link,.cslist li:visited{ background-color:#fff;}
+.cslist li:active{ background-color:#f1f5f8;}
+
+	
+</style>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/globle.js"></script>
+</head>
+
+<body style="background: #f1f5f8;">
+    	<article class="info clearfix">
+        	<dl><dt>税前工资</dt><dd>0.00</dd></dl>
+            <dl><dt>税后工资</dt><dd>0.00</dd></dl>
+            <dl><dt>五险一金</dt><dd>0.00</dd></dl>
+            <dl><dt>应缴个人所得税</dt><dd>0.00</dd></dl>
+        </article>
+        <ul class="selectUl">
+            <li class="clearfix" id="s_repaymentSelect"><span>城市</span><cite>请选择城市</cite></li>
+            <li class="clearfix"><span>每月工资</span><input type="tel" placeholder="请输入金额" id="num_1"></li>
+        </ul>     
+        <!--比比价-->
+        <div class="bottomDiv" style="display:none"><a href="javascript:;" id="btn">计算明细&gt;&gt;</a></div>
+    <!--弹出层-->
+    <!-- <div class="mask" style="display:none;"></div> -->
+    <!--分期-->
+    <div class="repaymentList" style="display:none;"> 
+    	<!-- 
+    	<div>
+	    	<span>热门</span>
+	    	<ul class="cslist">
+	    		<li>上海</li>
+	        	<li>北京</li>
+	        	<li>广州</li>
+	        	<li>深圳</li>
+	        </ul>
+        </div>
+        <div>
+	        <span>A—D</span>
+	    	<ul class="cslist">
+	    		<li>上海</li>
+	        	<li>北京</li>
+	        	<li>广州</li>
+	        	<li>深圳</li>
+	        </ul>
+        </div>
+        <div>
+	        <span>E—H</span>
+	    	<ul class="cslist">
+	    		<li>上海</li>
+	        	<li>北京</li>
+	        	<li>广州</li>
+	        	<li>深圳</li>
+	        </ul>
+        </div> 
+         -->
+    </div>
+ 
+</body>
+</html>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/global.js"></script>

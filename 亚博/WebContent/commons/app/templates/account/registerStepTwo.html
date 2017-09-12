@@ -1,0 +1,47 @@
+<div class="reg_new_form" style="height: 340px;">
+  <!--第二步-->
+  <form name="registerForm" id="registerForm" method="post">
+    <div class="word_tip">
+      <p>为了给你提高更好的交易、充值、提现业务，您需要设置安全信息，安全信息一经录入不得修改。</p>
+      <p>
+        <span>
+          您的AG蛋蛋用户名： <em>jjww1122</em>
+        </span>
+      </p>
+    </div>
+    <ul class="lst_fields_reg">
+      <li>
+        <span class="img1_box"> <em class="reg_img reg_img_phone"></em>
+        </span>
+        <span class="cell_input">
+          <input type="text" class="input_txt" id="pay_account" placeholder="输入手机号码" maxlength="11"></span>
+        <span class="cell_tip">
+          <span class="ico_type ico_tip"></span>
+          <label>请输入手机号。</label>
+        </span>
+      </li>
+
+      <li>
+        <span class="img1_box">
+          <em class="reg_img reg_img_code"></em>
+        </span>
+        <span class="cell_input">
+          <input id="code" maxlength="6" type="text" class="input_txt input_txt_yzm" placeholder="验证码"></span>
+        <span class="cell_tip">
+          <a id="codeinfo" style="cursor:pointer" class="code_btn btn-disabled">获取验证码(免费)</a>
+          <span class="ico_type ico_tip"></span>
+          <label>请输入短信验证码，收不到验证码请及时联系在线客服。</label>
+        </span>
+      </li>
+
+      <li class="word_tip_wxts" style="margin-top: 0">*温馨提示：我们将对所有的信息进行保密，请您放心认证！</li>
+      <li>
+
+        <span class="cell_input">
+          <a id="formsubmit" style="cursor:pointer" class="btn_reg" ng-click="subFun.validate()">提交验证，领取奖励</a>
+        </span>
+      </li>
+    </ul>
+
+  </form>
+</div>

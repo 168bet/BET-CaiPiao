@@ -1,0 +1,35 @@
+.m_tline {  background-image:    url(/images/agents/top/top_03b.gif)}
+tr {  font-family: "Arial"; font-size: 12px}
+a:link {  text-decoration: none; color: #FFFF66}
+a:visited {
+	text-decoration: none;
+	color: #FFFF66;
+}
+.za_button {  font-family: "Arial"; font-size: 12px; height: 18px; padding-top: 1px; background-color: #FFFFFF; border: #000000; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px}
+.za_select {  font-family: "Arial"; font-size: 12px; height: 18px}
+.m_tab {  padding-left: 5px; border-color: black #B08A71 #B08A71; padding-bottom: 15px; border-style: solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px}
+.m_cen {  background-color: #FFFFFF; text-align: center}
+.za_text {  background-color: #FFFFFF; height: 18px; padding-right: 2px; padding-left: 2px; border: 1px #000000 solid; font-family: "Arial"; font-size: 12px; margin-bottom: 2px}
+.za_dot {  height: 12px; width: 12px; margin-bottom: 2px}
+.mou { font-size: 12px; color: #FFFFFF; padding-top: 3px; text-align: center; background-color: #2490d8}
+.m_title { background-color: #99CCCC; text-align: center}
+.m_top { border-color: #B08A71 black black #B08A71; border-style: solid; border-top-width: 1px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 1px }
+.m_tab_main { padding-left: 2px; padding-right: 2px; padding-top: 3px}
+.m_foot {  font-size: 11px; padding-top: 2px}
+.m_title_he {
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 2px;
+	background-image: url(/images/agents/top/800/header_ph10.jpg);
+	background-repeat: no-repeat;
+	background-position: left;
+	height: 25px;
+}
+a:hover {  color: #565f63}
+.za_text_card { background-color: #FFFFFF; height: 18px; padding-right: 2px; padding-left: 2px; border: #000000; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; font-family: "Arial"; font-size: 12px; width: 37px ; margin-bottom: 2px}
+.m_title_1 {
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 2px;
+	height: 25px;
+}

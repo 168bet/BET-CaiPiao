@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>赐我手机号</title>
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<style type="text/css">
+body{ margin:0; padding:0; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#272727; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ul,li{ list-style-type:none}
+em,cite,i{ font-style:normal}
+a{ text-decoration:none}
+.banner{ position:relative}
+.text{ position:absolute; width:80%; top:81%; left:10%}
+.input{ position:relative; background:#fdef9a; width:100%; padding:1.6rem 0}
+.input:before{ position:absolute; content:""; top:0; left:0; width:100%; height:1.1rem; background:url(img/tpbg.png) no-repeat center; background-size:100% 1.1rem; -webkit-background-size:100% 1.1rem; -moz-background-size:100% 1.1rem}
+.input:after{ position:absolute; content:""; bottom:0; left:0; width:100%; height:.25rem; background:url(img/btbg.png) no-repeat center; background-size:100% .25rem; -webkit-background-size:100% .25rem; -moz-background-size:100% .25rem}
+.input input{ width:88%; text-align:center; line-height:2.5rem; margin-left:5%; color:#8c8c8c; font-size:1.125rem; border:none; border:1px solid #bda40a; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem}
+.text a{ display:block; line-height:3rem; text-align:center; background:#fdf63f; color:#a5050c; font-size:1.5rem; letter-spacing:.2rem; margin-top:.8rem; border-radius:.7rem; -webkit-border-radius:.7rem; -moz-border-radius:.7rem; box-shadow:0 .3rem 0 #bd8604; -webkit-box-shadow:0 .3rem 0 #bd8604; -moz-box-shadow:0 .3rem 0 #bd8604}
+.text2 .input{ padding:1.6rem 0 1rem 0}
+.text2 input{ color:#fb3b43; font-size:1.3rem}
+.text2 p,.text3 p,.yzm{ overflow:hidden; zoom:1; margin-top:.6rem}
+.text2 p input{ width:56%; float:left; color:#605e5e; font-size:1rem}
+.text2 p span{ float:left; width:28%; line-height:1.5rem; text-align:center; background:#fff; border:1px solid #b5b5b5; font-size:.75rem; color:#605e5e; margin:.5rem 0 0 3%}
+
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:1}
+.popup{ width:100%; height:11.33rem; position:fixed; top:30%; left:0; z-index:2; background:url(img/tk.png) no-repeat center; background-size:80% 11.33rem; -webkit-background-size:80% 11.33rem; -moz-background-size:80% 11.33rem}
+.popup p{ color:#238c05; font-size:1.2rem; margin:2.7rem 0 0 19%; transform:rotate(-8deg); -webkit-transform:rotate(-8deg); -moz-transform:rotate(-8deg)}
+.popup3 p{ font-size:.95rem; margin:2.2rem 0 0 17%; line-height:1.5rem}
+.popup3 p span{ display:block; margin-left:17%}
+.zfTrue{ overflow:hidden; zoom:1; height:2rem; margin:3.7rem 0 0 17.5%}
+.zfTrue a{ float:left; width:35%; line-height:1.9rem; text-align:center; background:#ffd800; color:#fff; font-size:1.1rem; letter-spacing:.2rem; margin-right:7%; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem; box-shadow:0 .15rem 0 #fd8d2c; -webkit-box-shadow:0 .15rem 0 #fd8d2c; -moz-box-shadow:0 .15rem 0 #fd8d2c; text-shadow:0 .1rem 0 #0e3d00; -webkit-text-shadow:0 .1rem 0 #0e3d00; -moz-text-shadow:0 .1rem 0 #0e3d00; font-weight:bold}
+.popup3 .zfTrue{ margin-top:2.85rem}
+.popup2{ position:fixed; top:30%; left:13%; z-index:2; width:64%; padding:1.6rem 5%; background:#fef185; border-radius:.4rem; -webkit-border-radius:.7rem; -moz-border-radius:.4rem}
+.popup2:after{ position:absolute; content:""; top:-2.3rem; right:.1rem; width:4.69rem; height:3.47rem; background:url(img/zy.png) no-repeat center; background-size:4.69rem 3.47rem; -webkit-background-size:4.69rem 3.47rem; -moz-background-size:4.69rem 3.47rem}
+.popup2 p{ color:#39961a; font-size:.8rem; line-height:1.5rem}
+.popup2 span{ color:#ff0012}
+.popup2 span strong{ font-size:1.1rem; letter-spacing:.1rem; font-style:oblique}
+.qxbtn{ height:2rem; margin-top:1.3rem; overflow:hidden; zoom:1}
+.qxbtn a{ float:left; width:40%; line-height:1.7rem; text-align:center; background:#fb3b43; color:#fff; font-size:.9rem; margin-left:7%; border-radius:.4rem; -webkit-border-radius:.4rem; -moz-border-radius:.4rem; box-shadow:0 .15rem 0 #a5050c; -webkit-box-shadow:0 .15rem 0 #a5050c; -moz-box-shadow:0 .15rem 0 #a5050c}
+.text3 .input{ padding:1rem 0}
+.text3 cite{ float:left; margin-left:3%; width:19%; text-align:right; color:#d94402; font-size:.75rem; line-height:2.5rem}
+.text3 input{ float:left; width:70%; margin-left:2%;text-align:left;padding-left:3%;}
+.text3 p.red input{ text-align:left; color:#fb3b43; padding-left:3%; width:67%}
+.yzm input{ float:left; width:50%; padding-left:5%; margin-left:3%; text-align:left}
+.yzm span{ float:left; width:33%; line-height:2.5rem; text-align:center; background:#5cb33e; color:#fff; margin-left:3%; text-shadow:0 0 .1rem rgba(7,1,2,0.35); -webkit-text-shadow:0 0 .1rem rgba(7,1,2,0.35); -moz-text-shadow:0 0 .1rem rgba(7,1,2,0.35)}
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+.ts{ color:#fff; font-size:.8rem; margin-top:2rem; line-height:1.3rem; padding:0 4%; text-align:center}
+
+</style>
+
+<script type="text/javascript" src="/js/public/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/activity/tel/js/index.js"></script>
+
+<!-- 登录提示 -->
+<div id="popup" class="popup" style="display:none">
+	<p>萌萌哒！请先登录哦！！</p>
+	<div class="zfTrue"><a href="#">注册</a><a href="#">登录</a></div>
+</div>
+<!-- 绑定提示 -->
+<div id="popup3" class="popup popup3" style="display:none">
+	<p>萌萌哒！ 您账户将绑定的手机号<span>为 15077498832？</span></p>
+	<div class="zfTrue"><a href="javascript:;">取消</a><a href="#">确认</a></div>
+</div>
+<!-- 修改 -->
+<div id="popup2" class="popup2" style="display:none">
+	<p>您已绑定的手机号与当前提交的开售通知电话不一致，<span>是否修改您绑定的手机号为 <strong>15021367743</strong></span> ?</p>
+	<div class="qxbtn"><a href="#">取消</a><a href="#">确认修改</a></div>
+</div>
+<div class="zhezhao" style="display:none"></div>
+<body style="background:#74cc56">
+<figure class="banner">
+	<img src="img/banner.jpg" width="100%">
+	<article class="text" style="display:block;">
+		<div class="input"><input id="tel" type="text" name="" value="请输入您的手机号" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></div>
+        <a id="btn" href="javascript:;">提交</a>
+        <p class="ts">温馨提示：成功提交手机号，本站将在开售后第一时间短信通知您。</p>
+	</article>
+    <article class="text text2" style="display:none">
+		<div class="input">
+        	<input id="bdtel" type="text" name="" value="15121107017" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+            <div class="yzm"><input id="yzm" type="text" style="color: rgb(140, 140, 140);" name="" value="输入验证码"><span>获取验证码</span></div>
+        </div>
+        <a id="bdbtn" href="javascript:;">提交</a>
+	</article>
+	<article class="text text3" style="display:none">
+		<div class="input">
+        	<p><cite>旧手机号</cite><input id="tel2" type="text" name="" value="请输入您的手机号" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></p>
+            <p class="red"><cite>新手机号</cite><input id="newtel" type="text" name="" value="15121107017" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></p>
+            <div class="yzm"><input id="yzm2" type="text" name="" value="输入验证码"><span>获取验证码</span></div>
+        </div>
+        <a id="upbtn" href="javascript:;">提交</a>
+	</article>
+</figure>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1e1a0d86a7a03a31cc8c75a4e20490f5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 百度统计 -->
+</body>

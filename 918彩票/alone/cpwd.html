@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>修改密码</title>
+<script type="text/javascript" src="/js/public/zepto.js"></script>
+<style type="text/css">
+body{ background:#f7f7f7; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+p{ line-height:1.2rem}
+a{ color:#333; text-decoration:none}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}
+.gray{ color:#8e8e8e}
+.fixed2{ position:fixed; top:0; left:0; z-index:9; width:100%}
+.pdLfrt09{ padding:.1rem .9rem 0 .9rem}
+.relative{ position:relative}
+.tzHeader{ position:relative; padding-bottom:2.7rem; z-index:10}
+.tzHeader h1{ width:11rem; margin:0 auto; text-align:center; font-size:1.1rem; color:#fff}
+.fcHeader{ width:100%; height:2rem; padding-top:.7rem; background:#db150b; border-bottom:1px solid #d5d5d5}
+.fcbackIco2{ position:absolute; top:.9rem; left:1.1rem; color:#fff; display:inline-block; width:.7rem; height:.65rem; border-left:.2rem solid #fff; border-bottom:.2rem solid #fff; transform:rotate(-315deg); -webkit-transform:rotate(-315deg); -moz-transform:rotate(-315deg)}
+.s1{ line-height:2.5rem; background:#fff; margin-top:.7rem; overflow:hidden; zoom:1}
+.s1 span{ float:left; width:26%; margin-right:1%; text-align:center; color:#222; font-size:.93rem}
+.s1 input{ width:73%; border:none;height:1.3rem; line-height:1.3rem; margin-top:.7rem; font-size:.92rem}
+.cancel{ position:absolute; color:#fff; font-size:.9rem; right:.9rem; top:.9rem}
+.zhuceOpen,.zhuceOpen2{ position:absolute; right:.5rem; top:.3rem; font-size:.8rem; width:3rem; line-height:1.7rem; padding:0 .25rem; border:2.5px solid #e5e5e5; color:#ccc; border-radius:2rem; -webkit-border-radius:2rem; -moz-border-radius:2rem}
+.zhuceOpen:after,.zhuceOpen2:after{ content:""; position:absolute; right:0; top:-1px; width:1.6rem; height:1.6rem; border-radius:1.6rem; -webkit-border-radius:1.6rem; -moz-border-radius:1.6rem; box-shadow:-3px 4px 2px rgba(0,0,1,0.06); -webkit-box-shadow:-3px 4px 2px rgba(0,0,1,0.06); -moz-box-shadow:-3px 4px 2px rgba(0,0,1,0.06)}
+.zhuceOpen2{ text-align:right; padding:0 .5rem 0 0}
+.zhuceOpen2:after{ left:0; box-shadow:3px 4px 2px rgba(0,0,1,0.06); -webkit-box-shadow:3px 4px 2px rgba(0,0,1,0.06); -moz-box-shadow:3px 4px 2px rgba(0,0,1,0.06)}
+.payment{ display:block; line-height:2.5rem; text-align:center; letter-spacing:.1rem; margin-top:.8rem; color:#fff; font-size:1.1rem; background:#f26c60; border-radius:.2rem; -webkit-border-radius:.2rem; -moz-border-radius:.2rem}
+.payment:active{ color:#fff}
+.payment2{ margin-top:3rem}
+/*msg弹窗*/
+@-webkit-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-o-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+@-ms-keyframes boxfade{0%{opacity:0;}20%{opacity:0.8;}80%{opacity:0.8;}100%{opacity:0;}}
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:50%;margin:-20px 0 0 -150px;background:#000;color:#fff;width:300px;height:40px;line-height:40px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:10001}
+/*遮罩层*/
+.mask{background:#000;opacity:0.4;width:100%;height:150%;position:fixed;z-index:9999;left:0;top:0; display: none;}
+</style>
+<body>
+<article class="gray">
+	<header class="tzHeader">
+		<article class="fixed2">
+    		<section class="fcHeader"><h1>修改密码</h1></section>
+            <a href="javascript:history.go(-1)" class="fcbackIco2"></a>
+    		<a href="/alone/forgotpwd.html" class="cancel">忘记密码</a>    	
+    	</article>
+    </header>
+    <div class="pdLfrt09">
+    	<div class="s1 relative"><span>原 密 码</span><input id='initp' type="text" value="" placeholder='请输入原密码'><em class="zhuceOpen">123</em><em class="zhuceOpen2" style="display: none;">***</em></div>
+    	<div class="s1 relative"><span>新 密 码</span><input id='newp' type="text" value="" placeholder='请输入新密码'><em class="zhuceOpen">123</em><em class="zhuceOpen2" style="display: none;">***</em></div>
+        <div class="s1 relative"><span>重新输入</span><input id='newpr' type="text" value="" placeholder='请重复输入新密码'><em class="zhuceOpen">123</em><em class="zhuceOpen2" style="display: none;">***</em></div>
+        <a href="javascript:;" class="payment payment2" id="modify">确定</a>
+    </div> 
+</article>
+<div class="mask" style='display:none;' id='mask'></div>
+<script>
+//公用弹出层和加载层
+var win_alert = alert;
+window['alert'] = function (msg, loading) {
+	if (!loading) {
+		clearTimeout(window.alert.time);
+		var obj = $('<div class="alertBox">' + msg + '</div>');
+		$('body').append(obj);
+		window.alert.time = setTimeout(function () {
+			$(".alertBox").remove();
+		}, 2000);
+	} else {
+		$('body').append($('<div class="alertBox"><div class="box_loading"><div class="loading_mask"></div></div>' + msg + '</div>'));
+		$('.alertBox').css({"webkitAnimationName": "boxfade_loading", "opacity": 0.8});
+		$('#mask').show();
+	}
+};
+var remove_alert = function () {
+	$('.alertBox').remove();
+	$('#mask').hide();
+};
+
+var flag = "";
+
+$(function () {
+	var username = localStorage.getItem("username")||"";
+	var data = 'uid='
+		+ encodeURIComponent($.trim(username))
+		
+	$.ajax({
+		url:'/user/query_zcsh_pwd_flag.go?',
+		type:'POST',
+		data:data,
+		success:function(xml){
+			var R = $(xml).find("Resp")
+			var code = R.attr("code");
+			var desc = R.attr("desc");
+			
+			if(code=="0"){
+				var row = R.find("row");
+				var nickid = row.attr("nickid");
+				var pwdflag =flag= row.attr("pwdflag")
+				
+				if(pwdflag==0){
+					$("#initp").parent().hide()
+				}
+			}
+		}
+	})
+	
+	var pass = location.search.getParam('pass') || '';
+	$('#initp').val(pass);
+	
+	if(document.domain !="t2015.9188.com "){
+		$("#initp").attr("placeholder","请输入原购彩密码")
+		$("#newp").attr("placeholder","请输入新购彩密码")
+		$("#newpr").attr("placeholder","请重复输入新购彩密码")
+	}
+	
+	bind();
+});
+function bind(){
+	$(".zhuceOpen2").bind("click",function(){
+		$(this).parent(".relative").find('input').attr("type","text");
+		$(this).hide();
+		$(this).parent(".relative").find('.zhuceOpen').show();
+	});
+	$(".zhuceOpen").bind("click",function(){
+		$(this).parent(".relative").find('input').attr("type","password");
+		$(this).hide();
+		$(this).parent(".relative").find('.zhuceOpen2').show();
+	});
+	$('.pdLfrt09 input').keyup(function(){
+		this.value=this.value.replace(/[\u4e00-\u9fa5]/g,'');
+	});
+	
+	$("#modify").bind("click",function(){
+		console.log(flag)
+		changepass();
+	})
+}
+function changepass(){
+	var initp = $.trim($('#initp').val());
+	var newp = $.trim($('#newp').val());
+	var newpr = $.trim($('#newpr').val());
+	if(initp == ''){
+		alert('请输入原密码');
+	}else if(initp.length >20 || initp.length <4){
+		alert('原密码长度4-20个字符');
+	}else if(newp == ''){
+		alert('请输入新密码');
+	}else if(newp.length >20 || newp.length <4){
+		alert('新密码长度4-20个字符');
+	}else if(newpr == ''){
+		alert('请重复输入新密码');
+	}else if(newp != newpr){
+		alert('两次新密码输入不一样');
+	}else{
+		alert('提交中,请稍候','load');
+		var data;
+		if(flag==0){
+			data = {
+					newValue:newp,
+					//upwd:initp//原密码
+			};
+		}else{
+			data = {
+					newValue:newp,
+					upwd:initp
+			};
+		}
+		
+		$.ajax({
+			url:'/user/modify.go?flag=2',
+			type:'POST',
+			data:data,
+			success:function(xml){
+				remove_alert();
+				var R = $(xml).find('Resp');
+				var c = R.attr('code');
+				var d = R.attr('desc');
+				if(c == 0){
+					alert(d)
+					setTimeout(function (){
+						window.location.href='/#type=url&p=user/index.html';
+					});
+				}else{
+					alert(d.replace('老','原'));
+					if (d.indexOf('未登录')>=0) {
+						setTimeout(function () {
+							window.location.href = '/alone/login.html';
+						}, 1500)
+					}
+				}
+			}
+		});
+	}
+}
+</script>
+</body>

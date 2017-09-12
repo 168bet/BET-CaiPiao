@@ -1,0 +1,185 @@
+<style>
+#content_home .bfcom span{
+    width: 33.33%;
+    height: 2.6rem;
+    padding: .3rem 0;
+    line-height: 1rem;
+    box-sizing: border-box;
+}
+#content_home .bfcom span.cur:before {
+    height: 2.5rem;
+}
+.bf_ {
+	position: fixed;
+	left: 5%;
+	top: 8%;
+	z-index: 10001;
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: #FFFFFF;
+	background-image: none;
+	background-origin: padding-box;
+	background-position: 0 0;
+	background-repeat: repeat;
+	background-size: auto auto;
+	border-bottom-left-radius: 0.4rem;
+	border-bottom-right-radius: 0.4rem;
+	border-top-left-radius: 0.4rem;
+	border-top-right-radius: 0.4rem;
+	width: 90%;
+    -webkit-transition-duration: .4s;
+    transition-duration: .4s;
+}
+.bf_hidden {
+    -webkit-transform: scale(0,0);
+    transform: scale(0,0);
+}
+</style>
+<div id=zhezhao class="mask" style='display: none;'></div>
+<div class="bfPop bf_ bf_hidden">
+	<div class="bfTitle clearfix">
+		<p>
+			<label>-</label><span class="right"><em>V</em></span>
+		</p>
+		<p>
+			<span class="left"><em>S</em></span><label>-</label>
+		</p>
+	</div>
+	<div style="padding-bottom: .5rem; overflow: auto; height:300px" id='gddg_bf_'>
+		<p class="red pdTop06 pdLeft08 pdBot03"></p>
+		<div class="competitions bfcom">
+			<span s='11' v='1-5'><strong>1-5</strong><em></em></span>
+			<span s='12' v='6-10'><strong>6-10</strong><em></em></span>
+			<span s='13' v='11-15'><strong>11-15</strong><em></em></span>
+			 <span s='14' v='16-20'><strong>16-20</strong><em></em></span>
+			 <span s='15' v='21-25'><strong>21-25</strong><em></em></span>
+			 <span s='16' v='26+'><strong>26+</strong><em></em></span> 
+			<div class="clear"></div>
+		</div>
+
+		<p class="green pdTop06 pdLeft08 pdBot03"></p>
+		<div class="competitions bfcom">
+			<span s='01' v='1-5'><strong>1-5</strong><em></em></span>
+			<span s='02' v='6-10'><strong>6-10</strong><em></em></span>
+			<span s='03' v='11-15'><strong>11-15</strong><em></em></span>
+			 <span s='04' v='16-20'><strong>16-20</strong><em></em></span>
+			 <span s='05' v='21-25'><strong>21-25</strong><em></em></span>
+			 <span s='06' v='26+'><strong>26+</strong><em></em></span> 
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="zfTrue clearfix">
+		<a class="zfqx" href="javascript:;">取 消</a>
+		<a href="javascript:;">确 定</a>
+	</div>
+</div>
+<article>
+	<div id='dgdg'>
+		<article id=top_con style='overflow: hidden; position: relative; height: 335px'>
+
+			<section id=dg_bf style='position: absolute; width: 100%'>
+				<article class="gddgxh gddgxh2">
+					<div class="gddgScroll clearfix" id=bfScroll>
+						<div class='gddgbd' style='width:100%'>
+							<ul id=bf_scroll></ul>
+						</div>
+					</div>
+					<div style='height: 1rem'></div>
+					<div class="gddgxhList">
+						<ul class="gddgtitle">
+							<li><em>胜</em></li>
+						</ul>
+						<ul class=tzxx>
+							<li><span v='1-5' s=11>1-5 </span><span v='6-10' s=12>6-10 </span><span v='11-15' s=13>11-15 </span></li>
+							<li><em>赔率</em><em>赔率</em><em>赔率</em></li>
+						</ul>
+						<ul class="gddgtitle">
+							<li><em>胜</em></li>
+						</ul>
+						<ul class=tzxx>
+							<li><span v='1-5' s=01>1-5 </span><span v='6-10' s=02>6-10 </span><span v='11-15' s=03>11-15 </span></li>
+							<li><em>赔率</em><em>赔率</em><em>赔率</em></li>
+						</ul>
+						<div class="gddgmore clearfix">
+							<span>更多</span>
+						</div>
+					</div>
+				</article>
+			</section>
+		</article>
+		<div class="gddgdouble clearfix" id=money>
+			<div class="clearfix">
+				<cite>每项买</cite><span><em>-</em><input type="tel" value="10" maxlength=6><em>+</em></span><cite>元</cite>
+			</div>
+			<p class="pdTop03">
+				总金额
+				<bb class="red" id="zje">0</bb>
+				元&nbsp;&nbsp;预测奖金<em class="red">0</em>元
+			</p>
+		</div>
+		<footer class="buyFooter" style='z-index: 1'>
+			<div class="fixed gddgFloat">
+				
+				<a href="javascript:;" class="ture" style='width: 90%; left: 50%; margin-left: -45%;'>猜中比赛结果即获奖</a>
+			</div>
+		</footer>
+	</div>
+
+
+	<!-- 发起合买[[ -->
+	<article class="pdLeft04" id="dghm" style="display: none;">
+		<p class="pdTop03 pdLeft06" id='hmDet'>
+			本方案总金额<cite class="yellow"></cite>元
+		</p>
+		<div class="s2">
+			<i>认购</i>
+			<span> <input type="tel" onkeyup="this.value=this.value.replace(/\D/g,'')" id="rg" class="hmInput" value=""> 元（<cite class="yellow" id="rg_bl"></cite>）
+			</span>
+		</div>
+		<div class="s2">
+			<i>保底</i>
+			<span> <input type="tel" onkeyup="this.value=this.value.replace(/\D/g,'')" id="bd" class="hmInput" value="0"> 元（<cite class="yellow" id="bd_bl">0%</cite>）<em class="check nocheck" id="chk"></em><em class="gray">全额保底</em></span>
+		</div>
+		<div class="s2">
+			<i class="tcheight">提成比例</i>
+			<ul class="left scale" id="ratio">
+				<li v='0'>0%</li>
+				<li v='1'>1%</li>
+				<li v='2'>2%</li>
+				<li v='3'>3%</li>
+				<li v='4'>4%</li>
+				<li v='5' class="cur">5%</li>
+				<li v='6'>6%</li>
+				<li v='7'>7%</li>
+				<li v='8'>8%</li>
+				<li v='9'>9%</li>
+				<li v='10'>10%</li>
+			</ul>
+		</div>
+		<div class="s2">
+			<i class="gkheight">是否公开</i>
+			<ul class="left scale" id="isPublic">
+				<li v="0" class="cur">公开</li>
+				<li v="2" class="along">对跟单用户公开</li>
+				<li v="1">截止后公开</li>
+				<li v="3" class="along">截止后对跟单用户公开</li>
+			</ul>
+		</div>
+		<div class="s2">
+			<i class="faheight">方案宣言</i>
+			<textarea id='hmDesc' class="xyText" placeholder='一句好的口号将帮助方案尽快满员'></textarea>
+		</div>
+
+		<!-- 发起合买[[ -->
+		<footer class="buyFooter zcFooter" id=jc_hm_footer>
+			<div class="buyFloat hmFloat fixed">
+				<span id="hm_m">认购<cite>0</cite>元 保底<cite>0</cite>元 共<cite class="yellow">0</cite>元
+				</span>
+				<a class="ture" href="javascript:;" id='hmSubmit'>提 交</a>
+			</div>
+		</footer>
+		<!-- ]]发起合买-->
+	</article>
+	<!-- ]]发起合买-->
+</article>
+<script src='/activity/game/index.js'></script>

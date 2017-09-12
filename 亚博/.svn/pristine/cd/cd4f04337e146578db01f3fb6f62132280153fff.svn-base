@@ -1,0 +1,58 @@
+<div class="user-bindmail-wrap user-center-form-wrap  user-center-padding-wrap form-wrap">
+	<div class="step">
+		<table class="step-table">
+			<tbody>
+				<tr>
+					<td ng-class="{current: validate.step == 1}"><div class="con">输入邮箱</div>
+					</td>
+					<td ng-class="{current: validate.step == 2}">
+					   <div class="tri">
+							<div class="con">查收验证邮件</div>
+						</div>
+					</td>
+					<td ng-class="{current: validate.step == 3}">
+					   <div class="tri">
+							<div class="con">绑定成功</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<ul class="ui-form" ng-if="validate.step == 1">
+	   <form name="bindMailForm">
+			<li class="ui-item">
+			  <label>邮箱地址：</label> 
+			  <input type="email" name="email" ng-model="formdata.mail" required maxlength="50" class="input input-normal input-radius">
+			  <span ng-show="bindMailForm.email.$error.required" class="ui-check-right">请输入邮箱地址</span>
+			  <span ng-show="bindMailForm.email.$error.email" class="ui-prompt">邮箱地址不正确</span>
+			  <span ng-show="formdata.sending" class="ui-prompt">验证邮箱中...</span>
+		    </li>
+			<li class="ui-btn ui-item"><a ng-click="fun.sendMailAddress(bindMailForm)" href="javascript:void(0);" style="margin-left:212px" class="btn btn-red btn-important" id="J-button-submit">下一步</a></li>
+		</form>
+	</ul>
+    
+	<ul class="ui-form ui-step-2" ng-if="validate.step == 2">
+		<li>
+			<p class="ui-text">
+				验证邮件已发送至您的邮箱：<strong style="color:#d2201e;font-weith:bold;">{{formdata.mail}}</strong><br>
+				请找到来AG平台的验证邮件，打开邮件后点击链接完成邮箱绑定。<br> 您的激活链接在24小时内有效。
+			</p></li>
+		<li style="margin:20px 0 20px 150px;"><a class="btn" ng-click="validate.step = 1">返回修改邮箱</a>
+		</li>
+		<li><p class="ui-text">没有收到邮件？</p></li>
+		<li style="margin:20px 0 20px 150px;">
+		  <a style="width:160px;" class="btn" ng-disabled="formdata.leftSecond > 0" ng-click="fun.sendMailAddress({$valid: formdata.leftSecond <= 0 })" id="J-button-resubmit"><span>重新发送确认邮件</span><b class="btn-inner" id="lefttime">({{formdata.leftSecond}})</b></a>
+		</li>
+	</ul>
+
+	<div class="alert alert-success text-center" ng-if="validate.step == 3">
+		<i></i>
+		<div class="txt">
+			<h4>您的邮箱绑定成功！</h4>
+			<p>您绑定的邮箱是 94****91@qq.com<br></p>
+			<p>(如要修改 请联系在线客服)</p>
+		</div>
+	</div>
+</div>

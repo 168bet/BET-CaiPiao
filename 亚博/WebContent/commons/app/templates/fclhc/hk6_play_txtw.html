@@ -1,0 +1,74 @@
+<div class="w1000 m0auto text_center fz14 white" style="padding:20px 0;">
+    <div>
+        <table>
+            <thead>
+                <tr class="hgt40 line_hgt42 border_btm5" style="background: #82817F">
+                    <td>生肖</td>
+                    <td>赔率</td>
+                    <td>金额</td>
+                    <td class="border_r8">号码</td>
+                    <td>生肖</td>
+                    <td>赔率</td>
+                    <td>金额</td>
+                    <td class="border_r8">号码</td>
+                </tr>
+            </thead>
+            <tbody ng-init="data.txtwMapping = [{prop: 'shu_pls', nums: ['09', '21', '33', '45']}, 
+                            {prop: 'niu_pls', nums: ['08', '20', '32', '44']}, 
+                            {prop: 'hu_pls', nums: ['07', '19', '31', '43']}, 
+                            {prop: 'tu_pls', nums: ['06', '18', '30', '42']}, 
+                            {prop: 'long_pls', nums: ['05', '17', '29', '41']},
+                            {prop: 'she_pls', nums: ['04', '16', '28', '40']},
+                            {prop: 'ma_pls', nums: ['03', '15', '27', '39']}, 
+                            {prop: 'yang_pls', nums: ['02', '14', '26', '38']}, 
+                            {prop: 'hou_pls', nums: ['01', '13', '25', '37', '49']},
+                            {prop: 'ji_pls', nums: ['12', '24', '36', '48']}, 
+                            {prop: 'gou_pls', nums: ['11', '23', '35', '47']}, 
+                            {prop: 'zhu_pls', nums: ['10', '22', '34', '45']}]">
+                
+                <tr class="hgt40 line_hgt42 border_btm5" style="background: #DDDDDD" ng-repeat="index in range(0, data.txtwMapping.length, 2)">
+                    <td style="background: #EB3D00">{{this[data.txtwMapping[index].prop].number}}</td>
+                    <td class="red peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[this[data.txtwMapping[index].prop].id] }" ng-click="fun.peiyuSelected(this[data.txtwMapping[index].prop])">{{this[data.txtwMapping[index].prop].pl}}</td>
+                    <td class="w78">
+                        <input type="number" class="middle w100per green money-input-border" ng-class="{'has-error': data.inputErrors[this[data.txtwMapping[index].prop].id] }" ng-model="data.betMoney[this[data.txtwMapping[index].prop].id]" ng-change="fun.codeSelected(this[data.txtwMapping[index].prop])"/>
+                    </td>
+                    <td  class="border_r8" >
+                        <ball number="num" class="smaller-circle" ng-repeat="num in data.txtwMapping[index].nums"/>
+                    </td>
+                    <td style="background: #EB3D00">{{this[data.txtwMapping[index+1].prop].number}}</td>
+                    <td class="red peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[this[data.txtwMapping[index+1].prop].id] }" ng-click="fun.peiyuSelected(this[data.txtwMapping[index+1].prop])">{{this[data.txtwMapping[index+1].prop].pl}}</td>
+                    <td class="w78">
+                        <input type="number" class="middle w100per green money-input-border" ng-class="{'has-error': data.inputErrors[this[data.txtwMapping[index+1].prop].id] }" ng-model="data.betMoney[this[data.txtwMapping[index+1].prop].id]" ng-change="fun.codeSelected(this[data.txtwMapping[index+1].prop])"/>
+                    </td>
+                    <td class="border_r8" >
+                        <ball number="num" class="smaller-circle" ng-repeat="num in data.txtwMapping[index + 1].nums" />
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <div class="hgt40 line_hgt40 bold fz20 green">特头尾</div>
+        <div>
+            <div class="hgt40 line_hgt40" style="background: #BD2929">
+                <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per">
+                    <div class="inline-block w30per">号码</div>
+                    <div class="inline-block w30per">赔率</div>
+                    <div class="inline-block w30per">投注金额</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="hgt36 line_hgt36" style="background: #EAEAEA" data-ng-repeat="(index, item) in range(0,ttw_pls.length/cols)">
+                <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per" ng-show="ttw_pls[index*cols+key]">
+                    <div class="inline-block w30per"><span class="inline-block" ng-class="{redCircle:ifBgCircle(ttw_pls[index*cols+key].number),redBlock:!ifBgCircle(ttw_pls[index*cols+key].number),greenBlock:ttw_pls[index*cols+key].number=='绿波',blueBlock:ttw_pls[index*cols+key].number=='蓝波'}">{{ttw_pls[index*cols+key].number}}</span></div>
+                    <div class="black inline-block w30per peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[ttw_pls[index*cols+key].id] }" ng-click="fun.peiyuSelected(ttw_pls[index*cols+key])">{{ttw_pls[index*cols+key].pl}}</div>
+                    <div class="inline-block w30per">
+                        <input type="number" class="w40 green money-input-border" ng-class="{'has-error': data.inputErrors[ttw_pls[index*cols+key].id] }" ng-model="data.betMoney[ttw_pls[index*cols+key].id]" ng-change="fun.codeSelected(ttw_pls[index*cols+key])"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

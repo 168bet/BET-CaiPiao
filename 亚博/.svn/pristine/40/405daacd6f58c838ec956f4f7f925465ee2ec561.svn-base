@@ -1,0 +1,42 @@
+<div class="w1000 m0auto text_center fz14 white" style="padding:20px 0;">
+    <div class="hgt30 line_hgt30 text_left p10_0" style="background: #EAEAEA">
+        <span class="inlilne-block border_red1 red p5_25" ng-click="zmtTab='z1t'; fun.cancelOrder(); " ng-class="{tm_active:zmtTab=='z1t'}">正1特</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="zmtTab='z2t'; fun.cancelOrder(); " ng-class="{tm_active:zmtTab=='z2t'}">正2特</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="zmtTab='z3t'; fun.cancelOrder(); " ng-class="{tm_active:zmtTab=='z3t'}">正3特</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="zmtTab='z4t'; fun.cancelOrder(); " ng-class="{tm_active:zmtTab=='z4t'}">正4特</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="zmtTab='z5t'; fun.cancelOrder(); " ng-class="{tm_active:zmtTab=='z5t'}">正5特</span>
+        <span class="inlilne-block border_red1 red p5_25" ng-click="zmtTab='z6t'; fun.cancelOrder(); " ng-class="{tm_active:zmtTab=='z6t'}">正6特</span>
+    </div>
+    
+    <div class="zmt-wrap" ng-init="zmtPls={z1t: z1t_pls, z2t: z2t_pls, z3t: z3t_pls, z4t: z4t_pls, z5t: z5t_pls, z6t: z6t_pls}">
+        <ng-repeat ng-repeat="(key, pls) in zmtPls track by $index">
+            <div ng-if="zmtTab == key">
+		        <div>
+		            <div class="hgt40 line_hgt40" style="background: #BD2929">
+		                <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per">
+		                <div class="inline-block w30per">号码</div>
+		                <div class="inline-block w30per">赔率</div>
+		                <div class="inline-block w30per">投注金额</div>
+		                </div>
+		            </div>
+		        </div>
+		        <div>
+		            <div class="hgt50 line_hgt50 text-left" style="background: #EAEAEA" data-ng-repeat="(index, item) in range(0, pls.length/cols)">
+		              <div data-ng-repeat="(key, value) in range(0,cols)" class="inline-block w20per text-center" ng-show="pls[index*cols+key]">
+		                <div class="inline-block w30per">
+		                    <ball ng-if="!isNaN(Number(pls[index*cols+key].number))" number="pls[index*cols+key].number" />
+		                    <span ng-if="isNaN(Number(pls[index*cols+key].number))" />{{pls[index*cols+key].number}}</span>
+		                </div>
+		                <div class="black inline-block w30per peiyu-selected-hover" ng-class="{'peiyu-selected': data.betPeiyuSelected[pls[index*cols+key].id]}" ng-click="fun.peiyuSelected(pls[index*cols+key])">
+		                  {{pls[index*cols+key].pl}}
+		                </div>
+		                <div class="inline-block w30per">
+		                  <input type="number" class="w40 green"  ng-class="{'has-error': data.inputErrors[pls[index*cols+key].id] }" ng-model="data.betMoney[pls[index*cols+key].id]" ng-change="fun.codeSelected(pls[index*cols+key])"/>
+		                </div>
+		              </div>
+		            </div>
+		        </div>
+            </div>
+        </ng-repeat>
+    </div>
+</div>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>双色球免费竞猜</title>
+<meta name="author" content="m.9188.com  ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="cleartype" content="on">
+<style type="text/css">
+body{ margin:0; padding:0; min-width:320px; font-size:14px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#272727; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,em,cite{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:18px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:24px}}
+ul,li{ list-style-type:none}
+em,cite,i{ font-style:normal}
+a{ text-decoration:none}
+.left{ float:left}
+.right{ float:right}
+.red{ color:#f13d3d}
+.gray{ color: #aa9f60;}
+.clearfix{ overflow:hidden; zoom:1}
+.banner{ width: 100%; height: 13.84rem; background:url(img/banner.png) no-repeat center; -webkit-background-size: 100% 13.84rem;}
+.link{ line-height: 1.1rem; padding: 1.06rem 0 8.75rem 6%; color: #fdda00; font-size: .8rem;}
+.link span{ float: left; width: 44%;}
+.link a{ float: left; width: 28%; color: #fdda00;}
+.link span em{ float: left; width: 1.1rem; height: 1.1rem; background:url(img/jdico.png) no-repeat center; -webkit-background-size: 1.06rem 1.06rem;}
+.link a em{ float: left; margin-right: .1rem; width: 1.05rem; height: 1.3rem; background:url(img/jcico.png) no-repeat center; -webkit-background-size: 1.0rem 1.25rem;}
+.link a em.phbico{ width: 1.0rem; height: 1.0rem; background:url(img/phbico.png) no-repeat center; -webkit-background-size: 1.0rem 1.0rem;}
+.banner p{ width: 20%; text-align: center; margin: 0 auto; color: #cec5d0; font-size: .85rem; line-height: 1.6rem; background: rgba(125,125,125,0.6); border: 1px solid #c7b8be; -webkit-border-radius:.65rem}
+
+.text{ position: absolute; left: 0; top: 13.84rem;}
+.text2{ top: 11.1rem;}
+.check{ background: #fdda00; width: 90%; padding: .3rem .4rem 2.3rem .4rem; margin: 0 auto; -webkit-border-radius: .8rem .8rem 0 0;}
+.xztext{ padding: 1.2rem 0 .8rem .9rem; background: #fceb84; -webkit-border-radius: .8rem}
+.xztext p{ font-size:.78rem; padding:0 0 .8rem 0; overflow:hidden}
+.ball span{ float:left; background:#f13d3d; font-size:.86rem; color:#fff; width:1.94rem; text-align:center; line-height:1.94rem; margin-right:.44rem; -webkit-border-radius:1.65rem}
+.ball span.blue{ background:#1780fd}
+.xhyz{ font-size: .875rem; padding: 1.1rem 1.5rem 0 0;}
+.xhyz a{ float: left; color: #0887fe;}
+.xhyz cite{ float:right; color:#e80808; font-size:.75rem}
+
+.buy{ position: relative; margin: 0 auto; width:93.2%; height:0; border-bottom:4.2rem solid #fcdf2a; border-left:.8rem solid transparent; border-right:.8rem solid transparent}
+.buy div{ position: absolute; left: 10%; top: -1rem; width:80%;}
+.buy a{ display: block; text-align:center; line-height:2.75rem; background:#f13d3d; color:#fdda00; font-size:1.2rem; -webkit-border-radius:2rem}
+.buy p{ text-align: center; font-size: .78rem; color: #525252; padding-top: .5rem;}
+
+.hdgzText{ background: #fcab00; color: #b96102;}
+.title{ position:relative; line-height:1.6rem; padding-top:.8rem; text-align:center; font-size:1rem; border-top:.72rem solid #ffbd33}
+.title:after{ position:absolute; content:""; width:.6rem; height:.6rem; top:1rem; margin-left:.3rem; border-right:1px solid #b96102; border-bottom:1px solid #b96102; -webkit-transform:rotate(45deg)}
+.hdgz{ display:none; font-size:.85rem; padding:0 6% .5rem 6%}
+.hdgz p{ line-height:1.3rem; padding-top:.9rem}
+.cur .title:after{ top:1.45rem; -webkit-transform:rotate(-135deg)}
+.cur .hdgz{ display:block}
+
+.zhezhao{ position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1}
+.popup{ width:76%; padding: .7rem 7%; position:fixed; top:20%; left:5%; background:#f4f5db; color:#da8620; z-index:2; -webkit-border-radius:.4rem}
+.popup h4{ padding: .7rem 0 .4rem 0; margin-bottom: .4rem; font-size:1.0rem; text-align:center; font-weight:normal; border-bottom: 1px solid #c69902;}
+.zfTrue{ overflow:hidden; zoom:1}
+.zfTrue a{ float:right; line-height:2.2rem; font-size:1.1rem; margin:1.25rem 0 .8rem 0; text-align:center; color:#fff; background:#f0360b; width:35%; text-decoration:none; -webkit-border-radius:.4rem}
+.zfTrue a.zfqx{ float: left}
+
+.zfTrue a.bfb{ float:none; display:block; width:90%; margin:1.5rem auto 1rem auto}
+
+.jdtext ul{ width: 15.6rem; margin: 1.1rem auto 0 auto; overflow: hidden; zoom:1}
+.jdtext li{ position: relative; float: left; width: 3.52rem; text-align: center; margin-right: .5rem;}
+.jdtext li:last-child{ margin-right: 0;}
+.jdtext li cite{ display: block; color: #c8bf94; font-size: .75rem; margin-bottom: .2rem;}
+.jdtext li b{ display: block; width: 3.5rem; height: 2.2rem; background:url(img/jpjdico3.png) no-repeat center; -webkit-background-size:3.5rem 2.2rem}
+.jdtext li span{ display: block; line-height: 1.3rem; background: #fff; font-size: .8rem; color: #d0d0d0; -webkit-border-radius: 0 0 .5rem .5rem;}
+.jdtext li.yqd b{ background-image:url(img/jpjdico.png)}
+.jdtext li.yqd span{ color: #424242; position: relative;}
+.jdtext li.yqd span:after{ position: absolute; top: .5rem; margin-left: .05rem; content: ""; width: .56rem; height: .56rem; background:url(img/jpqd.png) no-repeat center; -webkit-background-size:.53rem .53rem}
+.jdtext li.wqd b{ background-image:url(img/jpjdico2.png)}
+.jdtext li.wqd cite{ color: #ff7e00;}
+.jdtext li.wqd span{ color: #424242;}
+.jdtext ul.lqjd2{ width: 11.6rem;}
+.ljqd{ padding: 1.1rem 0 .9rem 0; margin-top: 1.2rem; border-top: 1px solid #ced0a4;}
+.ljqd span{ display: block; margin: 0 auto; width: 80%; text-align: center; font-size: 1.1rem; line-height: 2.5rem; background: #e8321c; color: #fff; -webkit-border-radius: 1.4rem; -webkit-box-shadow: 0 .1rem 0 #ad1f0e;}
+.close{ position: absolute; right: -.4rem; top: -.8rem; width: 1.72rem; height: 1.72rem; background:url(img/jpclock.png) no-repeat center; -webkit-background-size:1.72rem 1.721rem}
+.jdtext p{ text-align: center; font-size: .76rem; padding-bottom: .8rem;}
+
+.graybg{ background: #c5c4c0; -webkit-box-shadow: 0 .1rem 0 #969493;}
+/*css3球转圈 首页双色球机选*/
+.rotate_jx{-webkit-animation-name:num;-webkit-animation-duration:.2s;-webkit-animation-timing-function:linear;-webkit-animation-iteration-count:infinite;-moz-animation-name:num;-moz-animation-duration:.2s;-moz-animation-timing-function:linear;-moz-animation-iteration-count:infinite;-o-animation-name:num;-o-animation-duration:.2s;-o-animation-timing-function:linear;-o-animation-iteration-count:infinite;-ms-animation-name:num;-ms-animation-duration:.2s;-ms-animation-timing-function:linear;-ms-animation-iteration-count:infinite}
+@-webkit-keyframes num{0%{-webkit-transform:rotate(0deg)}
+50%{-webkit-transform:rotate(180deg)}
+100%{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes num{0%{-moz-transform:rotate(0deg)}
+50%{-moz-transform:rotate(180deg)}
+100%{-moz-transform:rotate(360deg)}
+}
+@-o-keyframes num{0%{-o-transform:rotate(0deg)}
+50%{-o-transform:rotate(180deg)}
+100%{-o-transform:rotate(360deg)}
+}
+@-ms-keyframes num{0%{-ms-transform:rotate(0deg)}
+50%{-ms-transform:rotate(180deg)}
+100%{-ms-transform:rotate(360deg)}
+}
+
+.alertBox{font-size:15px;text-align: center;border-radius:5px;position: fixed;left:50%;top:80%;margin:-20px 0 0 -90px;background:#000;color:#fff;width:180px;height:35px;line-height:35px;-webkit-animation:boxfade 2s ease;-ms-animation:boxfade 2s ease;-o-animation:boxfade 2s ease; z-index:100}
+</style>
+<!-- 登录提示 -->
+<div class="popup" style="display:none" id="dConfirm_login">
+	<b></b>
+	<h4>温馨提示</h4>
+    <p style="text-align: left;">为了您能够更好地参与本活动并方便我们派奖请先登录～</p>
+	<div class="zfTrue"><a href="#" class="zfqx">注册</a><a href="#">登录</a></div>
+</div>
+
+
+<div class="popup" style="display:none" id="dAlert">
+	<b></b>
+	<h4>温馨提示</h4>
+    <p style="text-align: left;">每个用户每天只能参与1次免费双色球竞猜！</p>
+	<div class="zfTrue"><a href="javascript:;" class="bfb">知道了</a></div>
+</div>
+<!--  签到领金豆  -->
+<div class="popup" style="display:none" id="qd_cont">
+	<i class="close"></i>
+	<article class="jdtext">
+		<ul>
+			<li class=""><cite>第1天</cite><b></b><span>+100</span></li>
+			<li class=""><cite>第2天</cite><b></b><span>+150</span></li>
+			<li><cite>第3天</cite><b></b><span>+200</span></li>
+			<li><cite>第4天</cite><b></b><span>+250</span></li>
+		</ul>
+		<ul class="lqjd2">
+			<li><cite>第5天</cite><b></b><span>+300</span></li>
+			<li><cite>第6天</cite><b></b><span>+350</span></li>
+			<li><cite>第7天</cite><b></b><span>+400</span></li>
+		</ul>
+		<div class="ljqd"><span id="get_jd">立即签到</span></div>
+		<p>提示：此签到系统与本站边看边猜活动通用</p>
+	</article>
+</div>
+<div class="zhezhao" style="display:none"></div>
+<body style="background:#772a87">
+<article class="banner">
+	<div class="link clearfix"><span><em></em><cite id="golden_info">0</cite></span><a href="myjc.html"><em></em>我的竞猜</a><a href="phb.html"><em class="phbico"></em>排行榜</a></div>
+	<p>签到</p>
+</article>
+<article class="text text2" id="ssq_cont">
+    <div class="check">
+    	<div class="xztext" id="jcjl">
+    		<div id="jcjlInfo">
+    		<p>今日可选择2注双色球 剩余<strong class="red">0</strong>注</p>
+    		<p class="gray">双色球2015076期 明天19:00(周四) 截止</p>
+    		</div>
+        	<div class="ball clearfix" id="ball"><span>01</span><span>09</span><span>16</span><span>22</span><span>28</span><span>33</span><span class="blue">01</span></div>
+        	<div class="xhyz clearfix"><a href="ssq.html">自己选号</a><cite id="To">换一注</cite></div>
+        </div>
+	</div>
+	<div class="buy">
+		<div>
+   		<a href="javascript:;" id="btn">立即参与竞猜</a>
+        <p>本期双色球已参与<cite class="red" id="peolenum">40</cite>人</p>
+        </div>
+    </div>
+    <article class="hdgzText cur" id="rulesCont">
+    	<div class="title" id="rules">活动规则</div>
+        <div class="hdgz">
+        	<p>1、活动期间：x月xx日 00:00:00起，每个用户每天可在活动页面选择2注双色球参与竞猜，首次免费。</p>
+            <p>2、签到第一天收获100金豆，连续签到七天收获1750金豆，第二周重复。持续签到四天的用户可使用588金豆参与第二次竞猜。</p>
+            <p>3、每期官方开奖后，中得该奖项的所有用户均分本站提供的奖池金额(每期奖池金额 一等奖：91888元、二等奖：9188元、三等奖：918.8元、四等奖：91.8元、五等奖：9.18元、六等奖：9.18元)，奖池金额不累加。各奖级中奖规则与官方双色球中奖规则一致。</p>
+            <p>4、用户参与前须完成手机号和实名认证，手机号或身份证号相同的用户视为同一用户，绑定相同手机号或者身份证号的用户，在任一账户均可查看所有参与的竞猜记录。</p>
+            <p>5、所获奖金开奖后次日12:00前打入用户账户，可在本平台无限制使用，不可直接提现。</p>
+            <p>6、对于通过作弊方式多次参与的用户，将不予赠送奖金，已赠送的奖金我站有权要求用户返还，并查封作弊账号。</p>
+            <p>7、在法律许可范围内，本网站对本活动保留最终解释权,如有疑问请致电咨询客服400-673-9188。<br>
+Tips：以上活动只有登录用户才能参与，请注册并绑定手机号，每个手机号限绑定1个用户ID。<em class="red">建议提前下载客户端并绑定手机号。</em></p>
+        </div>
+    </article>
+</article>
+</body>
+<script src="http://static.9188.com/js/public/lib/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/activity/mfc2/js/index.js" type="text/javascript" charset="utf-8"></script>

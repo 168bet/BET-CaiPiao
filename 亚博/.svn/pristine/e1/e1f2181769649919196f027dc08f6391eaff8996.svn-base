@@ -1,0 +1,57 @@
+<div class="w1105 m0auto hgt328 relative" style="background: url({{staticURI}}/images/fclhc/lhcTop.png) no-repeat right;background-color: #DADADA">
+    <div class="absolute white fz24" style="top: 70px;left: 60px;">{{lotKind}}</div>
+    <div class="absolute fz20 white" style="left: 96px; top: 156px;">
+        {{lotKind}} 第
+        <span class="yellow">{{lastNumber}}</span> 期开奖结果
+    </div>
+    <div class="inline-block absolute fz20 lhcOpenBg" style="left: 125px; top: 214px;">
+        <span ng-repeat="result in lastResults track by $index" ng-class="{fcTopCircle:topCircle(result) == 'green',fcTopCircle_red:topCircle(result) == 'red',fcTopCircle_blue:topCircle(result) == 'blue'}">{{result}}</span>
+    </div>
+    <div class="absolute white" style="right: 354px; top: 200px;">
+        <div class="inline-block fz16">
+            当前期为
+            <span class="yellow">{{currentNumber}}</span> 期
+        </div>
+    </div>
+    <div class="absolute white" style="left: 548px; top: 230px;">
+        <div class="inline-block fz16" ng-if="data.closeTimeLeftLeft > 0"> 距离下单截止还有 <count-down time="data.closeTimeLeft" tick="fun.closeTimeTickCb"></count-down> </div>
+        <div class="inline-block fz16" ng-if="data.closeTimeLeftLeft <= 0">当前期已封盘</div>
+    </div>
+    <div class="absolute white" style="left: 548px; top: 260px;" data-test="{{data.openTimeLeftLeft}}">
+        <div class="inline-block fz16" ng-if="data.openTimeLeftLeft > 0">距离开奖截止还有<count-down time="data.openTimeLeft" tick="fun.openTimeTickCb"></count-down></div>
+        <div class="inline-block fz16" ng-if="data.openTimeLeftLeft <= 0 ">当前期已开奖</div>
+    </div>
+</div>
+<div class="w1105 m0auto text_center fz14" style="padding:20px 0px;background-color: #DFDFDF">
+    <span class="inline-block border_red" ng-class="{border_red_active:curPlay=='ZPS'}" ng-click=" curPlay='ZPS' ">主盘式</span>
+    <span class="inline-block border_red" ng-class="{border_red_active:curPlay=='YZ'}" ng-click=" curPlay='YZ' ">一字</span>
+    <span class="inline-block border_red" ng-class="{border_red_active:curPlay=='EZ'}" ng-click=" curPlay='EZ' ">二字</span>
+    <span class="inline-block border_red" ng-class="{border_red_active:curPlay=='SZ'}" ng-click=" curPlay='SZ' ">三字</span>
+    <span class="inline-block border_red" ng-class="{border_red_active:curPlay=='YZGG'}" ng-click=" curPlay='YZGG' ">一字过关</span>
+    <span class="inline-block border_red" ng-class="{border_red_active:curPlay=='KD'}" ng-click=" curPlay='KD' ">跨度</span>
+    <span class="inline-block border_red" ng-class="{border_red_active:curPlay=='ZXS'}" ng-click=" curPlay='ZXS' ">组选三</span>
+    <span class="inline-block border_red" ng-class="{border_red_active:curPlay=='ZXL'}" ng-click=" curPlay='ZXL' ">组选六</span>
+    <span class="inline-block border_red" ng-class="{border_red_active:curPlay=='FSZH'}" ng-click=" curPlay='FSZH' ">复式组合</span>
+    <span class="inline-block border_red" ng-class="{border_red_active:curPlay=='QT'}" ng-click=" curPlay='QT' ">其他</span>
+</div>
+<ng-include src="templateURI('/ssc/cqssc_play_zps.html')" ng-if=" curPlay=='ZPS' "></ng-include>
+<ng-include src="templateURI('/ssc/cqssc_play_yz.html')" ng-if=" curPlay=='YZ' "></ng-include>
+<ng-include src="templateURI('/ssc/cqssc_play_ez.html')" ng-if=" curPlay=='EZ' "></ng-include>
+<ng-include src="templateURI('/ssc/cqssc_play_sz.html')" ng-if=" curPlay=='SZ' "></ng-include>
+<ng-include src="templateURI('/ssc/cqssc_play_yzgg.html')" ng-if=" curPlay=='YZGG' "></ng-include>
+<ng-include src="templateURI('/ssc/cqssc_play_kd.html')" ng-if=" curPlay=='KD' "></ng-include>
+<ng-include src="templateURI('/ssc/cqssc_play_zxs.html')" ng-if=" curPlay=='ZXS' "></ng-include>
+<ng-include src="templateURI('/ssc/cqssc_play_zxl.html')" ng-if=" curPlay=='ZXL' "></ng-include>
+<ng-include src="templateURI('/ssc/cqssc_play_fs.html')" ng-if=" curPlay=='FSZH' "></ng-include>
+<ng-include src="templateURI('/ssc/cqssc_play_qt.html')" ng-if=" curPlay=='QT' "></ng-include>
+<div class="mt35 pb30 text_center">
+    <div class="inline-block mr50">
+        <img src="{{staticURI}}/images/bjpk10/reset.png" ng-click="reset()"/>
+    </div>
+    <div class="inline-block ml50" ng-show="data.closeTimeLeftLeft>0">
+        <img src="{{staticURI}}/images/bjpk10/bet.png" ng-click="showOrderList()"/>
+    </div>
+    <div class="inline-block ml50" ng-show="data.closeTimeLeftLeft<=0">
+        <img src="{{staticURI}}/images/bjpk10/disBet.png"/>
+    </div>
+</div>

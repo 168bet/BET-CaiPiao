@@ -1,0 +1,253 @@
+<article class="zhjlTit" id=rPacket>
+	<ul class="myAccount" id=redTab>
+    	<li class="cur">可用</li>
+        <li>已用完</li>
+        <li>过期</li>
+        <li>卡密兑换</li>
+        <div class="clear"></div>
+    </ul>
+  <div class="pd063" id="redContent"><div style='padding:58px;height:1000px'><em class="rotate_load" style='margin:auto'></em></div></div>
+  <div class="pd063" id="kmcontent" style="display:none">
+		<div class="s3">
+        	<div class="clearfix"><cite>卡密</cite><input id="rednum" type="text" placeholder="请输入兑换码"></div>
+        	<div class="s3line"></div>
+		</div>
+        <a  id='redok' class="loginBtn">激活</a>
+        <p class="jhjl" style="display:none"><a href="javascript:;">激活记录</a></p>
+	</div>
+</article>
+<article class="gcjlTit" id='rDetail' style='display:none;'>
+    <div class="myRecord"></div>
+</article>
+<script>
+CP.Packet = (function () {
+	var g = {
+			type : {'0':'ky','1':'yw','2':'gq'},
+			id:{200:"用户充值",201:"自购中奖",202:"跟单中奖",203:"中奖提成",204:"追号中奖",210:"自购撤单返款",211:"认购撤单返款",
+				212:"追号撤销返款",213:"提现撤销返款",214:"提款失败转款",215:"保底返款",216:"红包派送",300:"转款",100:"自购",
+				101:"认购",102:"追号",103:"保底认购",104:"提现",105:"保底冻结",99:"转账",98:"套餐追号"}
+	};
+	var in_ = CP.Util.getPara('in', window.location.href, 2);//红包id
+	var packetData = {};
+	var o = {
+			pageGo : {//页面跳转
+				goBack: function () {
+					TopAnch.init({
+						title:'我的红包',
+						prevShow:true,
+						prevFun:function(){//左侧按钮绑定事件
+							window.location.href = '#type=url&p=user/index.html';
+						},
+						isBack:true
+					});
+	            },
+	            tryred : function (){
+	            	TopAnch.init({
+						title:'红包使用明细',
+						prevShow:true,
+						prevFun:function(){//左侧按钮绑定事件
+							window.location.href = '#type=url&p=user/packet.html';
+						},
+						isBack:true
+					});
+	            }
+			},
+			tryred: function (t) {
+				$('#rPacket').hide();
+				$('#rDetail').show();
+				o.pageGo.tryred();
+				$('#rDetail .myRecord').html('<div style="padding:58px;height:1000px"><em class="rotate_load" style="margin:auto"></em></div>');
+				$.ajax({
+					url:CP.Data.apps+"/user/queryRedPacketDetail.go",
+					type:"post",
+					data:"cupacketid="+t+"&flag=3",
+					success  : function (xml){
+						var r = $(xml).find('row');
+						if(r.length){
+							var out_ = [];
+							r.each(function () {
+								var gid = $(this).attr("gid");
+								var itype = $(this).attr("itype")>0?true:false;
+								var ibalance = $(this).attr("ibalance");
+								var imoney = $(this).attr("imoney");
+								var hid = $(this).attr("hid");
+								var cadddate = $(this).attr("cadddate");
+								var ibiztype = $(this).attr("ibiztype");
+								out_.push('<a href="#type=url&p=user/viewpath.html?hid='+hid+'">\
+										<p class="gray"><em class="fontSize092">'+CP.Util.lot(gid)+'</em><em class="accountLine"></em>\
+										<em class="fontSize07">'+g.id[ibiztype]+'</em>&nbsp;&nbsp;<em class="fontSize07">'+cadddate+'</em></p>\
+										<div class="clearfix pdTop03 tryred">\
+										<span class="myCz '+(itype?'':'redtj')+'"><i class="redpack"></i>'+(itype?'-':'+')+''+imoney+'</span>\
+										<span class="myQs">余额:'+ibalance+'</span>\
+										</div><i class="hmArrow"></i></a>');
+							});
+							$('#rDetail .myRecord').html(out_.join(''));
+						}else{
+							var R = $(xml).find('Resp');
+							var code = R.attr('code');
+							var desc = R.attr('desc');
+							if(code == '0'){
+								$('#rDetail .myRecord').html('<div style="padding-top:50px;height:1000px;text-align:center;">无使用记录</div>');
+							}else{
+								$('#rDetail .myRecord').html('<div style="padding-top:50px;height:1000px;text-align:center;">'+desc+'</div>');
+							}
+						}
+					}
+				});
+			},
+			render: function (in_) {
+				var out_ = [];
+				var Q2 = packetData[in_];
+				if(Q2.length>0){
+					for (var Q1 in Q2) {
+						var Q = Q2[Q1];
+						out_.push('<a href="#type=url&p=user/packet.html?in='+Q.rid+'" class="myred">\
+								<img src="/img/account/myred.png">\
+								<p><span class="left gray">'+Q.crpname+","+Q.rcmemo+'</span><span class="right">总额:'+Q.imoney+'元</span></p>\
+								<div class="myredNum '+(in_ == 'ky' ?'':'myredNum2')+'">\
+								<cite>余额   '+Q.irmoney+'元</cite>\
+								<span><em class="timeIco"></em>'+Q.cadddate+'~'+Q.cdeaddate+'</span>\
+								</div><em class="arrow"></em></a>');
+					}
+				}else{
+					out_.push('<div style="padding-top:50px;height:1000px;text-align:center;">没有红包记录</div>');
+				}
+				$("#redContent").html(out_.join(''));
+			},
+			gain : function (index) {
+				if(index<3){
+					$('#redContent').show();
+					$('#kmcontent').hide();
+					if (!packetData[g.type[index]]) {//如果有数据 不用在ajax请求了 直接去渲染
+						var data;
+						if(index == '0'){//可用
+							data = {
+									flag:1,
+									istate:1,
+									limit:1,
+									pn:1,
+									ps:100
+							};
+						}else if(index == '1'){//已用完
+							data = {
+									flag:1,
+									istate:2,
+									limit:1,
+									pn:1,
+									ps:10
+							};
+						}else if(index == '2'){//过期
+							data = {
+									flag:2,
+									limit:1,
+									pn:1,
+									ps:10
+							};
+						}
+						$.ajax({
+							url:CP.Data.apps+'/user/queryRedPacketList.go?'+jQuery.param(data),
+							type:'POST',
+							dataType:'xml',
+							success: function (xml) {
+								var r = $(xml).find('row');
+								var Q = [];
+								r.each(function () {
+									var t = {};
+									t.rid = $(this).attr('rid');
+									t.imoney = $(this).attr('imoney');
+									t.cdeaddate = $(this).attr('cdeaddate');
+									t.irmoney = $(this).attr('irmoney');
+									t.cadddate = $(this).attr('cadddate');
+									t.istate = $(this).attr('istate');
+									t.cmemo = $(this).attr('cmemo');
+									t.iaddmoney = $(this).attr('iaddmoney');
+									t.crpname = $(this).attr('crpname');
+									t.scale = $(this).attr('scale');
+									t.gid = $(this).attr('gid');
+									t.itid = $(this).attr('itid');
+									t.ctname = $(this).attr('ctname');
+									t.rcmemo = $(this).attr('rcmemo');
+									Q.push(t);
+								});
+								packetData[g.type[index]] = Q
+								if (!r.length) {
+									var R = $(xml).find('Resp');
+									var code = R.attr('code');
+									var desc = R.attr('desc');
+									if (code == '0') {
+										desc = '暂无记录';
+									} else {
+										if (desc.indexOf('未登录')>=0) {
+											setTimeout(function () {
+												location.href = '#type=fun&fun=CP.Home.openLogin';
+											}, 1e3);
+										}
+									}
+									$('#redContent').html('<div style="padding-top:50px;height:1000px;text-align:center;">'+desc+'</div>');
+								} else {
+									o.render(g.type[index]);
+								}
+							}
+						});
+					} else {
+						o.render(g.type[index]);
+					}
+				}else {//卡密激活
+					$('#redContent').hide();
+					$('#kmcontent').show();
+				}
+			},
+			init : function () {
+				if(!in_){
+					o.pageGo.goBack();
+					o.bind();
+					o.gain('0');
+				}else{
+					o.tryred(in_);
+				}
+			},
+			bind : function () {
+				$('#redTab').Touch({children:'li', fun:function(el){
+						if($(el).is('.cur')){
+							return
+						}
+						$(el).addClass('cur').siblings().removeClass('cur');
+						$("#redContent").html("<div style='padding:58px;height:1000px'><em class='rotate_load' style='margin:auto'></em></div>");
+						o.gain($(el).index());
+					}
+				});
+				$('#rednum').focus(function(){
+					$(this).parent().parent().addClass('s3cur');
+				});
+				$('#redok').bind(start_ev, function () {
+					var Q = $('#rednum').val();
+					if(Q == ''){
+						alert('请输入卡密');
+					}else{
+						var Q1 = Q.substr(0,12);
+						var Q2 = Q.substr(12,8);
+						var data = {
+								ccardid: Q1,
+								ccardpwd: Q2
+						};
+						$.ajax({
+							url:CP.Data.apps+"/user/cardChongzhi.go?"+jQuery.param(data),
+							type:"POST",
+						    dataType:'xml',
+							success:function (xml){
+								if($(xml).find("code")=="0"){
+									alert("恭喜您兑换成功！");
+								}else{
+									var re=$(xml).find("Resp").attr("desc");
+									alert(re);
+								}
+							}	
+						});
+					}
+				});
+			}
+	};
+	return {init:o.init};
+})();
+CP.Packet.init();
+</script>
